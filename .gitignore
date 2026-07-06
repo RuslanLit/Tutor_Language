@@ -1,0 +1,24 @@
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flutter / Dart
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Generated
+*.g.dart
+*.freezed.dart
+
+# Logs
+*.log
+
+# Local env
+.env
