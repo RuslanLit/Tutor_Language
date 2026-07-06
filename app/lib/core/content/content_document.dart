@@ -1,23 +1,21 @@
-class ContentDocument {
-  const ContentDocument({
-    required this.path,
-    required this.category,
-    required this.json,
-  });
-
-  final String path;
-  final String category;
-  final Object? json;
-}
+import 'topic_content.dart';
 
 class EducationalContentBundle {
-  const EducationalContentBundle({required this.documents});
+  const EducationalContentBundle({required this.contents});
 
-  final List<ContentDocument> documents;
+  final List<TopicContent> contents;
 
-  List<ContentDocument> byCategory(String category) {
-    return documents
-        .where((document) => document.category == category)
-        .toList(growable: false);
+  List<T> byType<T extends TopicContent>() {
+    return contents.whereType<T>().toList(growable: false);
+  }
+
+  TopicContent? byAssetPath(String assetPath) {
+    for (final content in contents) {
+      if (content.assetPath == assetPath) {
+        return content;
+      }
+    }
+
+    return null;
   }
 }

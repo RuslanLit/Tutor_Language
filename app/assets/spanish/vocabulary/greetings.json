@@ -5,8 +5,19 @@
     "native_translation": "hello",
     "cefr": "A0",
     "topic_ids": [
-      "topic.greetings.v1"
+      "topic_001"
     ],
-    "example": "Hola, me llamo Ana."
+    "example": "Hola, me llamo Ana.",
+    "pronunciation": "OH-lah"
+  },
+  {
+    "id": "vocab.adios.v1",
+    "spanish": "adiós",
+    "native_translation": "goodbye",
+    "cefr": "A0",
+    "topic_ids": [
+      "topic_001"
+    ],
+    "example": "Adiós, Luis."
   }
 ]

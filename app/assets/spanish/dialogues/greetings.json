@@ -1,0 +1,28 @@
+[
+  {
+    "id": "dialogue.greetings_001.v1",
+    "title": "A simple greeting",
+    "topic_ids": [
+      "topic_001"
+    ],
+    "vocabulary_ids": [
+      "vocab.hola.v1",
+      "vocab.adios.v1"
+    ],
+    "grammar_ids": [
+      "grammar.llamarse_basic.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola, me llamo Ana.",
+        "native_translation": "Hello, my name is Ana."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hola, Ana.",
+        "native_translation": "Hello, Ana."
+      }
+    ]
+  }
+]

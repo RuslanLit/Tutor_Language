@@ -22,7 +22,7 @@ class LearnerStateRepository {
     return LearnerState(
       selectedLanguage: row.selectedLanguage,
       currentCourseId: row.currentCourseId,
-      currentLessonId: row.currentLessonId,
+      currentTopicId: row.currentTopicId,
       createdAt: row.createdAt,
       updatedAt: row.updatedAt,
     );
@@ -36,7 +36,7 @@ class LearnerStateRepository {
             id: const Value(_stateId),
             selectedLanguage: Value(state.selectedLanguage),
             currentCourseId: Value(state.currentCourseId),
-            currentLessonId: Value(state.currentLessonId),
+            currentTopicId: Value(state.currentTopicId),
             createdAt: Value(state.createdAt),
             updatedAt: Value(state.updatedAt),
           ),

@@ -40,12 +40,12 @@ class $LearnerStatesTable extends LearnerStates
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _currentLessonIdMeta = const VerificationMeta(
-    'currentLessonId',
+  static const VerificationMeta _currentTopicIdMeta = const VerificationMeta(
+    'currentTopicId',
   );
   @override
-  late final GeneratedColumn<String> currentLessonId = GeneratedColumn<String>(
-    'current_lesson_id',
+  late final GeneratedColumn<String> currentTopicId = GeneratedColumn<String>(
+    'current_topic_id',
     aliasedName,
     false,
     type: DriftSqlType.string,
@@ -78,7 +78,7 @@ class $LearnerStatesTable extends LearnerStates
     id,
     selectedLanguage,
     currentCourseId,
-    currentLessonId,
+    currentTopicId,
     createdAt,
     updatedAt,
   ];
@@ -121,16 +121,16 @@ class $LearnerStatesTable extends LearnerStates
     } else if (isInserting) {
       context.missing(_currentCourseIdMeta);
     }
-    if (data.containsKey('current_lesson_id')) {
+    if (data.containsKey('current_topic_id')) {
       context.handle(
-        _currentLessonIdMeta,
-        currentLessonId.isAcceptableOrUnknown(
-          data['current_lesson_id']!,
-          _currentLessonIdMeta,
+        _currentTopicIdMeta,
+        currentTopicId.isAcceptableOrUnknown(
+          data['current_topic_id']!,
+          _currentTopicIdMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_currentLessonIdMeta);
+      context.missing(_currentTopicIdMeta);
     }
     if (data.containsKey('created_at')) {
       context.handle(
@@ -169,9 +169,9 @@ class $LearnerStatesTable extends LearnerStates
         DriftSqlType.string,
         data['${effectivePrefix}current_course_id'],
       )!,
-      currentLessonId: attachedDatabase.typeMapping.read(
+      currentTopicId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
-        data['${effectivePrefix}current_lesson_id'],
+        data['${effectivePrefix}current_topic_id'],
       )!,
       createdAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
@@ -194,14 +194,14 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
   final String id;
   final String selectedLanguage;
   final String currentCourseId;
-  final String currentLessonId;
+  final String currentTopicId;
   final DateTime createdAt;
   final DateTime updatedAt;
   const LearnerStateRow({
     required this.id,
     required this.selectedLanguage,
     required this.currentCourseId,
-    required this.currentLessonId,
+    required this.currentTopicId,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -211,7 +211,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
     map['id'] = Variable<String>(id);
     map['selected_language'] = Variable<String>(selectedLanguage);
     map['current_course_id'] = Variable<String>(currentCourseId);
-    map['current_lesson_id'] = Variable<String>(currentLessonId);
+    map['current_topic_id'] = Variable<String>(currentTopicId);
     map['created_at'] = Variable<DateTime>(createdAt);
     map['updated_at'] = Variable<DateTime>(updatedAt);
     return map;
@@ -222,7 +222,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
       id: Value(id),
       selectedLanguage: Value(selectedLanguage),
       currentCourseId: Value(currentCourseId),
-      currentLessonId: Value(currentLessonId),
+      currentTopicId: Value(currentTopicId),
       createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
     );
@@ -237,7 +237,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
       id: serializer.fromJson<String>(json['id']),
       selectedLanguage: serializer.fromJson<String>(json['selectedLanguage']),
       currentCourseId: serializer.fromJson<String>(json['currentCourseId']),
-      currentLessonId: serializer.fromJson<String>(json['currentLessonId']),
+      currentTopicId: serializer.fromJson<String>(json['currentTopicId']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
       updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
     );
@@ -249,7 +249,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
       'id': serializer.toJson<String>(id),
       'selectedLanguage': serializer.toJson<String>(selectedLanguage),
       'currentCourseId': serializer.toJson<String>(currentCourseId),
-      'currentLessonId': serializer.toJson<String>(currentLessonId),
+      'currentTopicId': serializer.toJson<String>(currentTopicId),
       'createdAt': serializer.toJson<DateTime>(createdAt),
       'updatedAt': serializer.toJson<DateTime>(updatedAt),
     };
@@ -259,14 +259,14 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
     String? id,
     String? selectedLanguage,
     String? currentCourseId,
-    String? currentLessonId,
+    String? currentTopicId,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) => LearnerStateRow(
     id: id ?? this.id,
     selectedLanguage: selectedLanguage ?? this.selectedLanguage,
     currentCourseId: currentCourseId ?? this.currentCourseId,
-    currentLessonId: currentLessonId ?? this.currentLessonId,
+    currentTopicId: currentTopicId ?? this.currentTopicId,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
   );
@@ -279,9 +279,9 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
       currentCourseId: data.currentCourseId.present
           ? data.currentCourseId.value
           : this.currentCourseId,
-      currentLessonId: data.currentLessonId.present
-          ? data.currentLessonId.value
-          : this.currentLessonId,
+      currentTopicId: data.currentTopicId.present
+          ? data.currentTopicId.value
+          : this.currentTopicId,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -293,7 +293,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
           ..write('id: $id, ')
           ..write('selectedLanguage: $selectedLanguage, ')
           ..write('currentCourseId: $currentCourseId, ')
-          ..write('currentLessonId: $currentLessonId, ')
+          ..write('currentTopicId: $currentTopicId, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
@@ -305,7 +305,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
     id,
     selectedLanguage,
     currentCourseId,
-    currentLessonId,
+    currentTopicId,
     createdAt,
     updatedAt,
   );
@@ -316,7 +316,7 @@ class LearnerStateRow extends DataClass implements Insertable<LearnerStateRow> {
           other.id == this.id &&
           other.selectedLanguage == this.selectedLanguage &&
           other.currentCourseId == this.currentCourseId &&
-          other.currentLessonId == this.currentLessonId &&
+          other.currentTopicId == this.currentTopicId &&
           other.createdAt == this.createdAt &&
           other.updatedAt == this.updatedAt);
 }
@@ -325,7 +325,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
   final Value<String> id;
   final Value<String> selectedLanguage;
   final Value<String> currentCourseId;
-  final Value<String> currentLessonId;
+  final Value<String> currentTopicId;
   final Value<DateTime> createdAt;
   final Value<DateTime> updatedAt;
   final Value<int> rowid;
@@ -333,7 +333,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
     this.id = const Value.absent(),
     this.selectedLanguage = const Value.absent(),
     this.currentCourseId = const Value.absent(),
-    this.currentLessonId = const Value.absent(),
+    this.currentTopicId = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
     this.rowid = const Value.absent(),
@@ -342,21 +342,21 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
     required String id,
     required String selectedLanguage,
     required String currentCourseId,
-    required String currentLessonId,
+    required String currentTopicId,
     required DateTime createdAt,
     required DateTime updatedAt,
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        selectedLanguage = Value(selectedLanguage),
        currentCourseId = Value(currentCourseId),
-       currentLessonId = Value(currentLessonId),
+       currentTopicId = Value(currentTopicId),
        createdAt = Value(createdAt),
        updatedAt = Value(updatedAt);
   static Insertable<LearnerStateRow> custom({
     Expression<String>? id,
     Expression<String>? selectedLanguage,
     Expression<String>? currentCourseId,
-    Expression<String>? currentLessonId,
+    Expression<String>? currentTopicId,
     Expression<DateTime>? createdAt,
     Expression<DateTime>? updatedAt,
     Expression<int>? rowid,
@@ -365,7 +365,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
       if (id != null) 'id': id,
       if (selectedLanguage != null) 'selected_language': selectedLanguage,
       if (currentCourseId != null) 'current_course_id': currentCourseId,
-      if (currentLessonId != null) 'current_lesson_id': currentLessonId,
+      if (currentTopicId != null) 'current_topic_id': currentTopicId,
       if (createdAt != null) 'created_at': createdAt,
       if (updatedAt != null) 'updated_at': updatedAt,
       if (rowid != null) 'rowid': rowid,
@@ -376,7 +376,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
     Value<String>? id,
     Value<String>? selectedLanguage,
     Value<String>? currentCourseId,
-    Value<String>? currentLessonId,
+    Value<String>? currentTopicId,
     Value<DateTime>? createdAt,
     Value<DateTime>? updatedAt,
     Value<int>? rowid,
@@ -385,7 +385,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
       id: id ?? this.id,
       selectedLanguage: selectedLanguage ?? this.selectedLanguage,
       currentCourseId: currentCourseId ?? this.currentCourseId,
-      currentLessonId: currentLessonId ?? this.currentLessonId,
+      currentTopicId: currentTopicId ?? this.currentTopicId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       rowid: rowid ?? this.rowid,
@@ -404,8 +404,8 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
     if (currentCourseId.present) {
       map['current_course_id'] = Variable<String>(currentCourseId.value);
     }
-    if (currentLessonId.present) {
-      map['current_lesson_id'] = Variable<String>(currentLessonId.value);
+    if (currentTopicId.present) {
+      map['current_topic_id'] = Variable<String>(currentTopicId.value);
     }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
@@ -425,7 +425,7 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
           ..write('id: $id, ')
           ..write('selectedLanguage: $selectedLanguage, ')
           ..write('currentCourseId: $currentCourseId, ')
-          ..write('currentLessonId: $currentLessonId, ')
+          ..write('currentTopicId: $currentTopicId, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt, ')
           ..write('rowid: $rowid')
@@ -450,7 +450,7 @@ typedef $$LearnerStatesTableCreateCompanionBuilder =
       required String id,
       required String selectedLanguage,
       required String currentCourseId,
-      required String currentLessonId,
+      required String currentTopicId,
       required DateTime createdAt,
       required DateTime updatedAt,
       Value<int> rowid,
@@ -460,7 +460,7 @@ typedef $$LearnerStatesTableUpdateCompanionBuilder =
       Value<String> id,
       Value<String> selectedLanguage,
       Value<String> currentCourseId,
-      Value<String> currentLessonId,
+      Value<String> currentTopicId,
       Value<DateTime> createdAt,
       Value<DateTime> updatedAt,
       Value<int> rowid,
@@ -490,8 +490,8 @@ class $$LearnerStatesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get currentLessonId => $composableBuilder(
-    column: $table.currentLessonId,
+  ColumnFilters<String> get currentTopicId => $composableBuilder(
+    column: $table.currentTopicId,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -530,8 +530,8 @@ class $$LearnerStatesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get currentLessonId => $composableBuilder(
-    column: $table.currentLessonId,
+  ColumnOrderings<String> get currentTopicId => $composableBuilder(
+    column: $table.currentTopicId,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -568,8 +568,8 @@ class $$LearnerStatesTableAnnotationComposer
     builder: (column) => column,
   );
 
-  GeneratedColumn<String> get currentLessonId => $composableBuilder(
-    column: $table.currentLessonId,
+  GeneratedColumn<String> get currentTopicId => $composableBuilder(
+    column: $table.currentTopicId,
     builder: (column) => column,
   );
 
@@ -614,7 +614,7 @@ class $$LearnerStatesTableTableManager
                 Value<String> id = const Value.absent(),
                 Value<String> selectedLanguage = const Value.absent(),
                 Value<String> currentCourseId = const Value.absent(),
-                Value<String> currentLessonId = const Value.absent(),
+                Value<String> currentTopicId = const Value.absent(),
                 Value<DateTime> createdAt = const Value.absent(),
                 Value<DateTime> updatedAt = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
@@ -622,7 +622,7 @@ class $$LearnerStatesTableTableManager
                 id: id,
                 selectedLanguage: selectedLanguage,
                 currentCourseId: currentCourseId,
-                currentLessonId: currentLessonId,
+                currentTopicId: currentTopicId,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
                 rowid: rowid,
@@ -632,7 +632,7 @@ class $$LearnerStatesTableTableManager
                 required String id,
                 required String selectedLanguage,
                 required String currentCourseId,
-                required String currentLessonId,
+                required String currentTopicId,
                 required DateTime createdAt,
                 required DateTime updatedAt,
                 Value<int> rowid = const Value.absent(),
@@ -640,7 +640,7 @@ class $$LearnerStatesTableTableManager
                 id: id,
                 selectedLanguage: selectedLanguage,
                 currentCourseId: currentCourseId,
-                currentLessonId: currentLessonId,
+                currentTopicId: currentTopicId,
                 createdAt: createdAt,
                 updatedAt: updatedAt,
                 rowid: rowid,

@@ -8,7 +8,7 @@ class LearnerStates extends Table {
   TextColumn get id => text()();
   TextColumn get selectedLanguage => text()();
   TextColumn get currentCourseId => text()();
-  TextColumn get currentLessonId => text()();
+  TextColumn get currentTopicId => text()();
   DateTimeColumn get createdAt => dateTime()();
   DateTimeColumn get updatedAt => dateTime()();
 
@@ -22,7 +22,7 @@ class AppDatabase extends _$AppDatabase {
     : super(executor ?? driftDatabase(name: 'tutor_language'));
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -33,6 +33,12 @@ class AppDatabase extends _$AppDatabase {
       onUpgrade: (migrator, from, to) async {
         if (from < 2) {
           await migrator.createTable(learnerStates);
+        }
+        if (from == 2) {
+          await customStatement(
+            'ALTER TABLE learner_states '
+            'RENAME COLUMN current_lesson_id TO current_topic_id',
+          );
         }
       },
     );
