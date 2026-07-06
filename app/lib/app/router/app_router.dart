@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/home/home_screen.dart';
 import '../../features/settings/settings_screen.dart';
+import '../../features/topic/topic_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -18,6 +19,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: SettingsRoute.name,
         builder: (context, state) => const SettingsScreen(),
       ),
+      GoRoute(
+        path: TopicRoute.path,
+        name: TopicRoute.name,
+        builder: (context, state) {
+          return TopicScreen(topicId: state.pathParameters['topicId'] ?? '');
+        },
+      ),
     ],
   );
 });
@@ -30,4 +38,9 @@ abstract final class HomeRoute {
 abstract final class SettingsRoute {
   static const name = 'settings';
   static const path = '/settings';
+}
+
+abstract final class TopicRoute {
+  static const name = 'topic';
+  static const path = '/topic/:topicId';
 }

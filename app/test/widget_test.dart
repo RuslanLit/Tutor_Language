@@ -7,6 +7,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Tutor Language'), findsOneWidget);
-    expect(find.text('Spanish tutor shell'), findsOneWidget);
+    expect(find.text('Beginner Spanish'), findsOneWidget);
   });
 }
