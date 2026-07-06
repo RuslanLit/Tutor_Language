@@ -357,6 +357,9 @@ class ExerciseTemplate {
     required this.supportedGoalTypes,
     required this.requiredObjectTypes,
     required this.promptTemplate,
+    this.answerOptions = const [],
+    this.correctOptionId,
+    this.expectedAnswer,
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -366,6 +369,15 @@ class ExerciseTemplate {
       supportedGoalTypes: optionalStringList(json, 'supported_goal_types'),
       requiredObjectTypes: optionalStringList(json, 'required_object_types'),
       promptTemplate: requiredString(json, 'prompt_template'),
+      answerOptions: json['answer_options'] == null
+          ? const []
+          : requiredList(
+              json,
+              'answer_options',
+              ExerciseTemplateOption.fromJson,
+            ),
+      correctOptionId: optionalString(json, 'correct_option_id'),
+      expectedAnswer: optionalString(json, 'expected_answer'),
     );
   }
 
@@ -374,6 +386,9 @@ class ExerciseTemplate {
   final List<String> supportedGoalTypes;
   final List<String> requiredObjectTypes;
   final String promptTemplate;
+  final List<ExerciseTemplateOption> answerOptions;
+  final String? correctOptionId;
+  final String? expectedAnswer;
 
   Map<String, Object?> toJson() {
     return {
@@ -382,6 +397,12 @@ class ExerciseTemplate {
       'supported_goal_types': supportedGoalTypes,
       'required_object_types': requiredObjectTypes,
       'prompt_template': promptTemplate,
+      if (answerOptions.isNotEmpty)
+        'answer_options': answerOptions
+            .map((option) => option.toJson())
+            .toList(growable: false),
+      if (correctOptionId != null) 'correct_option_id': correctOptionId,
+      if (expectedAnswer != null) 'expected_answer': expectedAnswer,
     };
   }
 
@@ -393,7 +414,10 @@ class ExerciseTemplate {
             other.exerciseType == exerciseType &&
             listEquals(other.supportedGoalTypes, supportedGoalTypes) &&
             listEquals(other.requiredObjectTypes, requiredObjectTypes) &&
-            other.promptTemplate == promptTemplate;
+            other.promptTemplate == promptTemplate &&
+            listEquals(other.answerOptions, answerOptions) &&
+            other.correctOptionId == correctOptionId &&
+            other.expectedAnswer == expectedAnswer;
   }
 
   @override
@@ -403,5 +427,37 @@ class ExerciseTemplate {
     Object.hashAll(supportedGoalTypes),
     Object.hashAll(requiredObjectTypes),
     promptTemplate,
+    Object.hashAll(answerOptions),
+    correctOptionId,
+    expectedAnswer,
   );
+}
+
+class ExerciseTemplateOption {
+  const ExerciseTemplateOption({required this.id, required this.label});
+
+  factory ExerciseTemplateOption.fromJson(Map<String, Object?> json) {
+    return ExerciseTemplateOption(
+      id: requiredString(json, 'id'),
+      label: requiredString(json, 'label'),
+    );
+  }
+
+  final String id;
+  final String label;
+
+  Map<String, Object?> toJson() {
+    return {'id': id, 'label': label};
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is ExerciseTemplateOption &&
+            other.id == id &&
+            other.label == label;
+  }
+
+  @override
+  int get hashCode => Object.hash(id, label);
 }

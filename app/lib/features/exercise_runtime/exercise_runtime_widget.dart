@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'answer_checker.dart';
 import 'exercise_runtime_models.dart';
 
 class ExerciseRuntimeWidget extends StatefulWidget {
@@ -13,6 +14,8 @@ class ExerciseRuntimeWidget extends StatefulWidget {
 
 class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
   ExerciseInteractionState _interactionState = const ExerciseInteractionState();
+  final AnswerChecker _answerChecker = const AnswerChecker();
+  final Map<String, AnswerCheckResult> _checkResults = {};
 
   void _recordAnswer(ExerciseItem item, ExerciseAnswer answer) {
     setState(() {
@@ -21,6 +24,22 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
           itemId: item.id,
           answer: answer,
           respondedAt: DateTime.now(),
+        ),
+      );
+      _checkResults.remove(item.id);
+    });
+  }
+
+  void _checkAnswer(ExerciseItem item) {
+    setState(() {
+      _checkResults[item.id] = _answerChecker.check(
+        AnswerCheckInput(
+          item: item,
+          response: _interactionState.responseFor(item.id),
+          expectedAnswer: ExpectedAnswer(
+            answerId: item.expectedAnswerId,
+            text: item.expectedTextAnswer,
+          ),
         ),
       );
     });
@@ -35,7 +54,9 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
           _ExerciseItemView(
             item: item,
             response: _interactionState.responseFor(item.id),
+            checkResult: _checkResults[item.id],
             onAnswerChanged: (answer) => _recordAnswer(item, answer),
+            onCheckAnswer: () => _checkAnswer(item),
           ),
       ],
     );
@@ -46,12 +67,16 @@ class _ExerciseItemView extends StatelessWidget {
   const _ExerciseItemView({
     required this.item,
     required this.response,
+    required this.checkResult,
     required this.onAnswerChanged,
+    required this.onCheckAnswer,
   });
 
   final ExerciseItem item;
   final ExerciseResponse? response;
+  final AnswerCheckResult? checkResult;
   final ValueChanged<ExerciseAnswer> onAnswerChanged;
+  final VoidCallback onCheckAnswer;
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +96,27 @@ class _ExerciseItemView extends StatelessWidget {
         if (response != null) ...[
           const SizedBox(height: 8),
           Text('Selected answer: ${response!.answer.label}'),
+          const SizedBox(height: 8),
+          OutlinedButton(
+            onPressed: onCheckAnswer,
+            child: const Text('Check answer'),
+          ),
+        ],
+        if (checkResult != null) ...[
+          const SizedBox(height: 8),
+          Text(_resultLabel(checkResult!.status)),
         ],
       ],
     );
+  }
+
+  String _resultLabel(AnswerCheckStatus status) {
+    return switch (status) {
+      AnswerCheckStatus.unchecked => 'Unchecked',
+      AnswerCheckStatus.correct => 'Correct',
+      AnswerCheckStatus.incorrect => 'Incorrect',
+      AnswerCheckStatus.unsupported => 'Unsupported exercise type',
+    };
   }
 }
 

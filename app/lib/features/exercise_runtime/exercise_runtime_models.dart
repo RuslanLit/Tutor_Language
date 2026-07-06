@@ -12,7 +12,13 @@ class ExerciseSession {
           templateId: template.id,
           interactionType: template.exerciseType,
           prompt: template.promptTemplate,
-          answerOptions: const [],
+          answerOptions: template.answerOptions
+              .map(
+                (option) => ExerciseAnswer(id: option.id, label: option.label),
+              )
+              .toList(growable: false),
+          expectedAnswerId: template.correctOptionId,
+          expectedTextAnswer: template.expectedAnswer,
         ),
       ],
     );
@@ -29,6 +35,8 @@ class ExerciseItem {
     required this.interactionType,
     required this.prompt,
     this.answerOptions = const [],
+    this.expectedAnswerId,
+    this.expectedTextAnswer,
   });
 
   final String id;
@@ -36,6 +44,8 @@ class ExerciseItem {
   final String interactionType;
   final String prompt;
   final List<ExerciseAnswer> answerOptions;
+  final String? expectedAnswerId;
+  final String? expectedTextAnswer;
 }
 
 class ExerciseAnswer {

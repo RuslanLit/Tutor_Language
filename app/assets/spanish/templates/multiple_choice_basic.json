@@ -9,6 +9,17 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Choose the correct meaning."
+    "prompt_template": "Choose the correct meaning.",
+    "answer_options": [
+      {
+        "id": "option.hello",
+        "label": "hello"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      }
+    ],
+    "correct_option_id": "option.hello"
   }
 ]

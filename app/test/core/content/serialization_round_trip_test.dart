@@ -151,4 +151,9 @@ const _exerciseTemplateJson = {
   'supported_goal_types': ['introduce_vocabulary'],
   'required_object_types': ['vocabulary'],
   'prompt_template': 'Choose the correct meaning.',
+  'answer_options': [
+    {'id': 'option.hello', 'label': 'hello'},
+    {'id': 'option.goodbye', 'label': 'goodbye'},
+  ],
+  'correct_option_id': 'option.hello',
 };
