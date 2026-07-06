@@ -1,0 +1,414 @@
+# V1_TECHNICAL_SPEC.md
+
+Status: Active
+
+Version: 3.0
+
+Related documents:
+
+- PROJECT_VISION.md
+- PROJECT_CONTRACT.md
+- ARCHITECTURAL_DECISIONS.md
+- ARCHITECTURE.md
+- LEARNING_MODEL.md
+- CONTENT_MODEL.md
+- V1_IMPLEMENTATION_CONTRACT.md
+
+---
+
+# Purpose
+
+This document defines the implementation scope of Tutor Language Generation 1.
+
+It specifies **what must be implemented**, not **how the architecture works**.
+
+Architectural decisions belong to:
+
+- ARCHITECTURE.md
+- LEARNING_MODEL.md
+- CONTENT_MODEL.md
+- V1_IMPLEMENTATION_CONTRACT.md
+
+---
+
+# Generation 1 Goal
+
+Generation 1 must deliver a fully usable offline Spanish learning application.
+
+The objective is to validate the educational architecture using a real learning product.
+
+Generation 1 should already provide practical value for everyday study.
+
+---
+
+# Success Criteria
+
+Generation 1 is successful if a learner can:
+
+- install the application;
+- study completely offline;
+- complete daily lessons;
+- receive immediate feedback;
+- review previous mistakes;
+- continue learning from previous progress.
+
+Educational usefulness has higher priority than feature completeness.
+
+---
+
+# Scope
+
+Generation 1 includes:
+
+- Android application;
+- offline operation;
+- Spanish language;
+- deterministic lesson planning;
+- template-based lesson generation;
+- learner progress tracking;
+- review scheduling;
+- local persistence.
+
+Everything else is outside the scope of Generation 1.
+
+---
+
+# Explicitly Out of Scope
+
+Generation 1 does not implement:
+
+- cloud synchronization;
+- user accounts;
+- online AI;
+- mandatory local LLM;
+- speech recognition;
+- pronunciation analysis;
+- text-to-speech;
+- multiple languages;
+- social features;
+- advertisements;
+- analytics;
+- monetization.
+
+These features must not influence the V1 architecture.
+
+---
+
+# Supported Language
+
+Language:
+
+Spanish
+
+Target learner:
+
+Adult beginner.
+
+Target level:
+
+A0 → early A1.
+
+---
+
+# Educational Scope
+
+Generation 1 focuses on practical beginner Spanish.
+
+Topics include:
+
+- greetings;
+- introductions;
+- nationality;
+- family;
+- numbers;
+- colours;
+- days;
+- months;
+- time;
+- food;
+- shopping;
+- travel;
+- home;
+- everyday activities.
+
+Grammar includes:
+
+- ser;
+- estar (basic);
+- llamarse;
+- tener;
+- present tense;
+- articles;
+- gender;
+- adjective agreement;
+- simple questions;
+- negation.
+
+Vocabulary target:
+
+100–300 carefully selected high-frequency words.
+
+Educational quality is preferred over vocabulary quantity.
+
+---
+
+# Lesson Flow
+
+Every lesson should contain:
+
+1. Review
+2. New Material
+3. Practice
+4. Evaluation
+5. Lesson Summary
+
+Generation 1 intentionally keeps lessons short and focused.
+
+---
+
+# Exercise Types
+
+The minimum exercise set required for Generation 1 is defined in:
+
+V1_IMPLEMENTATION_CONTRACT.md
+
+Generation 1 should implement only that minimum set.
+
+Additional exercise types may be introduced in future generations without changing the educational architecture.
+
+---
+
+# Educational Core
+
+The educational core implemented in Generation 1 follows the architecture defined in:
+
+- ARCHITECTURE.md
+- LEARNING_MODEL.md
+- V1_IMPLEMENTATION_CONTRACT.md
+
+This document does not redefine the educational core.
+
+It defines only the implementation scope of Generation 1.
+
+Generation 1 must not introduce AI into educational decision making.
+
+---
+
+# Educational Content
+
+Educational Content is defined in:
+
+CONTENT_MODEL.md
+
+Generation 1 implements only the subset of Educational Content required for beginner Spanish.
+
+Educational Content must remain immutable.
+
+---
+
+# Learner State
+
+Generation 1 implements only the minimum Learner State required by:
+
+V1_IMPLEMENTATION_CONTRACT.md
+
+Future versions may extend the learner representation without changing the educational architecture.
+
+---
+
+# Persistence
+
+Generation 1 stores all learner information locally.
+
+Persistent data includes:
+
+- Learner State;
+- Review Queue;
+- Evaluation Results;
+- Learning Statistics.
+
+Educational Content remains immutable.
+
+Learner State is the only mutable educational data.
+
+---
+
+# Database
+
+Generation 1 uses:
+
+- SQLite
+- Drift ORM
+
+Database migrations must preserve learner progress.
+
+---
+
+# Offline Requirements
+
+Generation 1 must function completely offline.
+
+Internet access must never be required for:
+
+- educational content;
+- lesson planning;
+- lesson generation;
+- evaluation;
+- learner progress;
+- review scheduling.
+
+---
+
+# Optional Local LLM
+
+Generation 1 must remain fully usable without any language model.
+
+Future local LLM support may provide:
+
+- additional explanations;
+- alternative examples;
+- mnemonic stories;
+- conversational practice.
+
+The Lesson Planner must remain deterministic.
+
+---
+
+# Performance Targets
+
+Application startup:
+
+< 3 seconds
+
+Lesson generation:
+
+< 300 ms
+
+Lesson loading:
+
+< 1 second
+
+No background network activity.
+
+---
+
+# F-Droid Compatibility
+
+Generation 1 must:
+
+- use open-source dependencies;
+- avoid proprietary SDKs;
+- avoid Google Play Services;
+- avoid telemetry;
+- avoid mandatory online APIs.
+
+---
+
+# Quality Requirements
+
+Every implementation must:
+
+- compile successfully;
+- pass static analysis;
+- avoid regressions;
+- include tests where practical;
+- update documentation when behaviour changes.
+
+---
+
+# Recommended Implementation Order
+
+## Phase 1
+
+- Flutter Android project
+- Navigation
+- Theme
+- Settings
+- SQLite / Drift
+
+## Phase 2
+
+- Educational Content Loader
+- Curriculum Loader
+- Learner State
+
+## Phase 3
+
+- Review Queue
+- Lesson Planner
+- Lesson Goal
+- Lesson Constraints
+
+## Phase 4
+
+- Lesson Generator
+- Exercise Rendering
+- Lesson Session
+
+## Phase 5
+
+- Evaluation
+- Learner State Update
+- Lesson Summary
+
+## Phase 6
+
+- Progress
+- Statistics
+- Review Scheduling
+
+## Phase 7
+
+- Testing
+- Optimization
+- Documentation
+
+---
+
+# Acceptance Criteria
+
+Generation 1 is complete when:
+
+✓ Android application builds successfully.
+
+✓ Educational Content loads from bundled assets.
+
+✓ Curriculum loads successfully.
+
+✓ Educational Content remains immutable during runtime.
+
+✓ Lessons are generated completely offline.
+
+✓ Lesson Planner produces deterministic lesson plans.
+
+✓ Lesson Generator respects Lesson Constraints.
+
+✓ User answers are evaluated locally.
+
+✓ Learner State is updated after every evaluation.
+
+✓ Review Queue influences future lessons.
+
+✓ Learner progress survives application updates.
+
+✓ No Internet connection is required.
+
+✓ No user account is required.
+
+✓ No cloud dependency exists.
+
+✓ The application provides useful daily Spanish practice.
+
+---
+
+# Final Principle
+
+Generation 1 is intentionally conservative.
+
+Its objective is to validate a deterministic educational architecture rather than maximize the number of features.
+
+Every feature added to Generation 1 should improve educational quality without increasing unnecessary architectural complexity.
+
+---
+
+End of document.
