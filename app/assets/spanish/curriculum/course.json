@@ -1,0 +1,27 @@
+{
+  "id": "course.spanish_beginner.v1",
+  "title": "Beginner Spanish",
+  "language": "spanish",
+  "modules": [
+    {
+      "id": "module.greetings.v1",
+      "title": "Greetings",
+      "lessons": [
+        {
+          "id": "lesson.greetings_intro.v1",
+          "title": "Greetings Introduction",
+          "references": [
+            {
+              "type": "vocabulary",
+              "id": "vocab.hola.v1"
+            },
+            {
+              "type": "grammar",
+              "id": "grammar.llamarse_basic.v1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

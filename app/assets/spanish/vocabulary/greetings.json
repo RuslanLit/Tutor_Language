@@ -1,0 +1,12 @@
+[
+  {
+    "id": "vocab.hola.v1",
+    "spanish": "hola",
+    "native_translation": "hello",
+    "cefr": "A0",
+    "topic_ids": [
+      "topic.greetings.v1"
+    ],
+    "example": "Hola, me llamo Ana."
+  }
+]

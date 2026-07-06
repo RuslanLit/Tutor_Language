@@ -1,0 +1,15 @@
+[
+  {
+    "id": "grammar.llamarse_basic.v1",
+    "title": "llamarse basics",
+    "explanation": "Use llamarse to say what someone is called.",
+    "examples": [
+      "Me llamo Ana.",
+      "Se llama Luis."
+    ],
+    "prerequisite_ids": [],
+    "topic_ids": [
+      "topic.greetings.v1"
+    ]
+  }
+]
