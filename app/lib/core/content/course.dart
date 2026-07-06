@@ -1,3 +1,5 @@
+import 'json_parsing.dart';
+
 class Language {
   const Language({required this.code, required this.name});
 
@@ -38,7 +40,7 @@ class Course {
       id: _requiredString(json, 'id'),
       languageCode: _requiredString(json, 'languageCode'),
       title: _requiredString(json, 'title'),
-      units: _requiredList(json, 'units', Unit.fromJson),
+      units: requiredList(json, 'units', Unit.fromJson),
     );
   }
 
@@ -63,7 +65,7 @@ class Course {
             other.id == id &&
             other.languageCode == languageCode &&
             other.title == title &&
-            _listEquals(other.units, units);
+            listEquals(other.units, units);
   }
 
   @override
@@ -78,7 +80,7 @@ class Unit {
     return Unit(
       id: _requiredString(json, 'id'),
       title: _requiredString(json, 'title'),
-      topics: _requiredList(json, 'topics', Topic.fromJson),
+      topics: requiredList(json, 'topics', Topic.fromJson),
     );
   }
 
@@ -100,7 +102,7 @@ class Unit {
         other is Unit &&
             other.id == id &&
             other.title == title &&
-            _listEquals(other.topics, topics);
+            listEquals(other.topics, topics);
   }
 
   @override
@@ -114,7 +116,7 @@ class Topic {
     return Topic(
       id: _requiredString(json, 'id'),
       title: _requiredString(json, 'title'),
-      sections: _requiredList(json, 'sections', TopicSection.fromJson),
+      sections: requiredList(json, 'sections', TopicSection.fromJson),
     );
   }
 
@@ -138,7 +140,7 @@ class Topic {
         other is Topic &&
             other.id == id &&
             other.title == title &&
-            _listEquals(other.sections, sections);
+            listEquals(other.sections, sections);
   }
 
   @override
@@ -157,7 +159,7 @@ class TopicSection {
       id: _requiredString(json, 'id'),
       title: _requiredString(json, 'title'),
       contentReference: ContentReference.fromJson(
-        _requiredMap(json, 'contentReference'),
+        requiredMap(json, 'contentReference'),
       ),
     );
   }
@@ -227,126 +229,10 @@ class ContentReference {
   int get hashCode => Object.hash(type, assetPath, referenceId);
 }
 
-String requiredString(Map<String, Object?> json, String key) {
-  return _requiredString(json, key);
-}
-
-String? optionalString(Map<String, Object?> json, String key) {
-  return _optionalString(json, key);
-}
-
-List<String> optionalStringList(Map<String, Object?> json, String key) {
-  final value = json[key];
-
-  if (value == null) {
-    return const [];
-  }
-
-  if (value is! List) {
-    throw FormatException('Expected list field: $key');
-  }
-
-  return List.unmodifiable(
-    value.map((item) {
-      if (item is String) {
-        return item;
-      }
-
-      throw FormatException('Expected string item in list field: $key');
-    }),
-  );
-}
-
-List<T> requiredList<T>(
-  Map<String, Object?> json,
-  String key,
-  T Function(Map<String, Object?> json) fromJson,
-) {
-  return _requiredList(json, key, fromJson);
-}
-
-Map<String, Object?> requiredMap(Map<String, Object?> json, String key) {
-  return _requiredMap(json, key);
-}
-
 String _requiredString(Map<String, Object?> json, String key) {
-  final value = json[key];
-
-  if (value is String && value.isNotEmpty) {
-    return value;
-  }
-
-  throw FormatException('Missing required string field: $key');
+  return requiredString(json, key);
 }
 
 String? _optionalString(Map<String, Object?> json, String key) {
-  final value = json[key];
-
-  if (value == null) {
-    return null;
-  }
-
-  if (value is String && value.isNotEmpty) {
-    return value;
-  }
-
-  throw FormatException('Invalid optional string field: $key');
-}
-
-Map<String, Object?> _requiredMap(Map<String, Object?> json, String key) {
-  final value = json[key];
-
-  if (value is Map<String, Object?>) {
-    return value;
-  }
-
-  if (value is Map) {
-    return Map<String, Object?>.from(value);
-  }
-
-  throw FormatException('Missing required object field: $key');
-}
-
-List<T> _requiredList<T>(
-  Map<String, Object?> json,
-  String key,
-  T Function(Map<String, Object?> json) fromJson,
-) {
-  final value = json[key];
-
-  if (value is! List) {
-    throw FormatException('Missing required list field: $key');
-  }
-
-  return List.unmodifiable(
-    value.map((item) {
-      if (item is Map<String, Object?>) {
-        return fromJson(item);
-      }
-
-      if (item is Map) {
-        return fromJson(Map<String, Object?>.from(item));
-      }
-
-      throw FormatException('Invalid item in list field: $key');
-    }),
-  );
-}
-
-bool _listEquals<T>(List<T> left, List<T> right) {
-  if (identical(left, right)) {
-    return true;
-  }
-
-  if (left.length != right.length) {
-    return false;
-  }
-
-  for (var index = 0; index < left.length; index += 1) {
-    if (left[index] != right[index]) {
-      return false;
-    }
-  }
-
-  return true;
+  return optionalString(json, key);
 }

@@ -36,11 +36,12 @@ class ContentLoader {
   }
 
   Future<TopicContent> loadContent(String assetPath) async {
+    final category = _categoryFromPath(assetPath);
     final rawJson = await _assetBundle.loadString(assetPath);
     final parsedJson = jsonDecode(rawJson);
     final items = _requiredObjectList(parsedJson, assetPath);
 
-    return switch (_categoryFromPath(assetPath)) {
+    return switch (category) {
       'vocabulary' => VocabularyContent(
         assetPath: assetPath,
         entries: items.map(VocabularyEntry.fromJson).toList(growable: false),

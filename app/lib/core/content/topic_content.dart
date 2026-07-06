@@ -1,4 +1,4 @@
-import 'course.dart';
+import 'json_parsing.dart';
 
 abstract class TopicContent {
   const TopicContent({required this.type, required this.assetPath});
@@ -99,7 +99,7 @@ class VocabularyEntry {
             other.spanish == spanish &&
             other.nativeTranslation == nativeTranslation &&
             other.cefr == cefr &&
-            _listEquals(other.topicIds, topicIds) &&
+            listEquals(other.topicIds, topicIds) &&
             other.example == example &&
             other.pronunciation == pronunciation &&
             other.notes == notes;
@@ -164,9 +164,9 @@ class GrammarRule {
             other.id == id &&
             other.title == title &&
             other.explanation == explanation &&
-            _listEquals(other.examples, examples) &&
-            _listEquals(other.prerequisiteIds, prerequisiteIds) &&
-            _listEquals(other.topicIds, topicIds);
+            listEquals(other.examples, examples) &&
+            listEquals(other.prerequisiteIds, prerequisiteIds) &&
+            listEquals(other.topicIds, topicIds);
   }
 
   @override
@@ -225,10 +225,10 @@ class Dialogue {
         other is Dialogue &&
             other.id == id &&
             other.title == title &&
-            _listEquals(other.topicIds, topicIds) &&
-            _listEquals(other.vocabularyIds, vocabularyIds) &&
-            _listEquals(other.grammarIds, grammarIds) &&
-            _listEquals(other.lines, lines);
+            listEquals(other.topicIds, topicIds) &&
+            listEquals(other.vocabularyIds, vocabularyIds) &&
+            listEquals(other.grammarIds, grammarIds) &&
+            listEquals(other.lines, lines);
   }
 
   @override
@@ -331,9 +331,9 @@ class Reading {
         other is Reading &&
             other.id == id &&
             other.title == title &&
-            _listEquals(other.topicIds, topicIds) &&
-            _listEquals(other.vocabularyIds, vocabularyIds) &&
-            _listEquals(other.grammarIds, grammarIds) &&
+            listEquals(other.topicIds, topicIds) &&
+            listEquals(other.vocabularyIds, vocabularyIds) &&
+            listEquals(other.grammarIds, grammarIds) &&
             other.text == text &&
             other.nativeTranslation == nativeTranslation;
   }
@@ -391,8 +391,8 @@ class ExerciseTemplate {
         other is ExerciseTemplate &&
             other.id == id &&
             other.exerciseType == exerciseType &&
-            _listEquals(other.supportedGoalTypes, supportedGoalTypes) &&
-            _listEquals(other.requiredObjectTypes, requiredObjectTypes) &&
+            listEquals(other.supportedGoalTypes, supportedGoalTypes) &&
+            listEquals(other.requiredObjectTypes, requiredObjectTypes) &&
             other.promptTemplate == promptTemplate;
   }
 
@@ -404,22 +404,4 @@ class ExerciseTemplate {
     Object.hashAll(requiredObjectTypes),
     promptTemplate,
   );
-}
-
-bool _listEquals<T>(List<T> left, List<T> right) {
-  if (identical(left, right)) {
-    return true;
-  }
-
-  if (left.length != right.length) {
-    return false;
-  }
-
-  for (var index = 0; index < left.length; index += 1) {
-    if (left[index] != right[index]) {
-      return false;
-    }
-  }
-
-  return true;
 }
