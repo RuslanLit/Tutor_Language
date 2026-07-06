@@ -13,10 +13,6 @@ build/
 .flutter-plugins-dependencies
 .packages
 
-# Generated
-*.g.dart
-*.freezed.dart
-
 # Logs
 *.log
 
