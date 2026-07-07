@@ -2,13 +2,14 @@
 
 Status: Active
 
-Version: 2.0
+Version: 2.2
 
 Related documents:
 
 - PROJECT_VISION.md
 - PROJECT_CONTRACT.md
 - ARCHITECTURE.md
+- CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 
 ---
@@ -96,27 +97,37 @@ Accepted
 
 Title
 
-Spanish Only (Generation 1)
+Spanish Language Pack First
 
 Context
 
-Supporting multiple languages significantly increases project complexity.
+Supporting multiple complete language packs significantly increases content creation, testing and quality assurance effort.
+
+However, optimizing the application architecture for only one specific language would make future expansion difficult.
 
 Decision
 
-Generation 1 supports Spanish only.
+Generation 1 ships with Spanish as the first supported Language Pack.
 
-Generalization for additional languages is intentionally postponed.
+Additional Language Packs are postponed.
+
+The learning engine remains language-agnostic from the beginning.
 
 Rationale
 
-Reducing scope greatly increases the probability of delivering a polished first release.
+Reducing content scope increases the probability of delivering a polished first release.
+
+Keeping the learning engine language-agnostic prevents future architectural rewrites.
 
 Consequences
 
-Architecture should optimize for Spanish.
+Generation 1 includes Spanish educational content only.
 
-Multilingual abstractions should not be introduced prematurely.
+The architecture must not introduce Spanish-specific engine logic.
+
+Multilingual content is postponed.
+
+Multilingual architecture is not postponed.
 
 ---
 
@@ -354,7 +365,9 @@ Rationale
 
 Educational planning should remain deterministic.
 
-Lesson generation may later use templates, procedural generation or optional AI.
+Lesson generation may later use templates or procedural generation.
+
+Optional AI may assist content authoring or explanations, but it must not become required for core lesson generation.
 
 Consequences
 
@@ -365,6 +378,63 @@ Educational planning remains independent from content generation technology.
 ---
 
 # ADR-0009
+
+Status
+
+Accepted
+
+Title
+
+Language-Agnostic Learning Engine
+
+Context
+
+Tutor Language starts with Spanish, but the project should not become architecturally dependent on Spanish.
+
+Language-specific assumptions inside the learning engine would make future Language Packs expensive to add and difficult to test.
+
+Decision
+
+The application architecture shall remain independent from any particular language.
+
+Educational content is distributed as Language Packs.
+
+The learning engine must not contain language-specific entities or branches.
+
+Rationale
+
+A language-agnostic engine allows the project to support additional languages without redesigning the pedagogical core.
+
+It also keeps lesson execution, progress tracking, review scheduling and evaluation reusable across languages.
+
+Consequences
+
+There must be no engine entities such as:
+
+- SpanishLesson
+- SpanishExercise
+- SpanishVocabulary
+
+Core curriculum entities remain universal:
+
+- Language
+- Course
+- Module
+- LessonDefinition
+- VocabularyItem
+- Dialogue
+- GrammarTopic
+- Reading
+- AudioAsset
+- Exercise
+
+Adding a new language should primarily require adding a new Language Pack.
+
+Language-specific behaviour must be represented through data and configuration.
+
+---
+
+# ADR-0010
 
 Status
 

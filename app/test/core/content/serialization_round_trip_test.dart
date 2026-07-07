@@ -1,48 +1,17 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 
 void main() {
-  test('Course round-trips through JSON', () {
-    final course = Course.fromJson(_courseJson);
+  test('VocabularyItem round-trips through JSON', () {
+    final entry = VocabularyItem.fromJson(_vocabularyItemJson);
 
-    expect(Course.fromJson(course.toJson()), course);
+    expect(VocabularyItem.fromJson(entry.toJson()), entry);
   });
 
-  test('Unit round-trips through JSON', () {
-    final unit = Unit.fromJson(_unitJson);
+  test('GrammarTopic round-trips through JSON', () {
+    final rule = GrammarTopic.fromJson(_grammarTopicJson);
 
-    expect(Unit.fromJson(unit.toJson()), unit);
-  });
-
-  test('Topic round-trips through JSON', () {
-    final topic = Topic.fromJson(_topicJson);
-
-    expect(Topic.fromJson(topic.toJson()), topic);
-  });
-
-  test('TopicSection round-trips through JSON', () {
-    final section = TopicSection.fromJson(_sectionJson);
-
-    expect(TopicSection.fromJson(section.toJson()), section);
-  });
-
-  test('ContentReference round-trips through JSON', () {
-    final reference = ContentReference.fromJson(_contentReferenceJson);
-
-    expect(ContentReference.fromJson(reference.toJson()), reference);
-  });
-
-  test('VocabularyEntry round-trips through JSON', () {
-    final entry = VocabularyEntry.fromJson(_vocabularyEntryJson);
-
-    expect(VocabularyEntry.fromJson(entry.toJson()), entry);
-  });
-
-  test('GrammarRule round-trips through JSON', () {
-    final rule = GrammarRule.fromJson(_grammarRuleJson);
-
-    expect(GrammarRule.fromJson(rule.toJson()), rule);
+    expect(GrammarTopic.fromJson(rule.toJson()), rule);
   });
 
   test('Dialogue round-trips through JSON', () {
@@ -57,10 +26,10 @@ void main() {
     expect(DialogueLine.fromJson(line.toJson()), line);
   });
 
-  test('Reading round-trips through JSON', () {
-    final reading = Reading.fromJson(_readingJson);
+  test('ReadingText round-trips through JSON', () {
+    final reading = ReadingText.fromJson(_readingTextJson);
 
-    expect(Reading.fromJson(reading.toJson()), reading);
+    expect(ReadingText.fromJson(reading.toJson()), reading);
   });
 
   test('ExerciseTemplate round-trips through JSON', () {
@@ -68,56 +37,33 @@ void main() {
 
     expect(ExerciseTemplate.fromJson(template.toJson()), template);
   });
+
+  test('ContentReference parses from JSON', () {
+    final reference = ContentReference.fromJson(const {
+      'type': 'vocabulary',
+      'id': 'vocab.hola.v1',
+    });
+
+    expect(reference.type, 'vocabulary');
+    expect(reference.id, 'vocab.hola.v1');
+  });
 }
 
-const _contentReferenceJson = {
-  'type': 'vocabulary',
-  'assetPath': 'assets/spanish/vocabulary/greetings.json',
-  'referenceId': 'vocab.hola.v1',
-};
-
-const _sectionJson = {
-  'id': 'section_001',
-  'title': 'Greeting words',
-  'contentReference': _contentReferenceJson,
-};
-
-const _topicJson = {
-  'id': 'topic_001',
-  'title': 'Greetings',
-  'sections': [_sectionJson],
-};
-
-const _unitJson = {
-  'id': 'unit_001',
-  'title': 'First contacts',
-  'topics': [_topicJson],
-};
-
-const _courseJson = {
-  'id': 'spanish_a1',
-  'languageCode': 'es',
-  'title': 'Beginner Spanish',
-  'units': [_unitJson],
-};
-
-const _vocabularyEntryJson = {
+const _vocabularyItemJson = {
   'id': 'vocab.hola.v1',
   'spanish': 'hola',
   'native_translation': 'hello',
   'cefr': 'A0',
-  'topic_ids': ['topic_001'],
   'example': 'Hola.',
   'pronunciation': 'OH-lah',
 };
 
-const _grammarRuleJson = {
+const _grammarTopicJson = {
   'id': 'grammar.llamarse_basic.v1',
   'title': 'llamarse basics',
   'explanation': 'Use llamarse to say what someone is called.',
   'examples': ['Me llamo Ana.'],
   'prerequisite_ids': <String>[],
-  'topic_ids': ['topic_001'],
 };
 
 const _dialogueLineJson = {
@@ -129,16 +75,14 @@ const _dialogueLineJson = {
 const _dialogueJson = {
   'id': 'dialogue.greetings_001.v1',
   'title': 'A simple greeting',
-  'topic_ids': ['topic_001'],
   'vocabulary_ids': ['vocab.hola.v1'],
   'grammar_ids': ['grammar.llamarse_basic.v1'],
   'lines': [_dialogueLineJson],
 };
 
-const _readingJson = {
+const _readingTextJson = {
   'id': 'reading.basic_greeting.v1',
   'title': 'Ana says hello',
-  'topic_ids': ['topic_001'],
   'vocabulary_ids': ['vocab.hola.v1'],
   'grammar_ids': ['grammar.llamarse_basic.v1'],
   'text': 'Hola. Me llamo Ana.',

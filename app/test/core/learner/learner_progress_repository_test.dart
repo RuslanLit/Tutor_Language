@@ -22,7 +22,8 @@ void main() {
       eventType: ProgressEventType.answerChecked,
       topicId: 'topic.greetings.v1',
       sectionId: 'section.greetings.v1',
-      contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+      contentReference:
+          'assets/languages/spanish/templates/multiple_choice_basic.json',
       metadataJson: '{"itemId":"item.1"}',
       now: DateTime.utc(2026),
     );
@@ -52,7 +53,8 @@ void main() {
       eventType: ProgressEventType.answerChecked,
       topicId: 'topic.greetings.v1',
       sectionId: 'section.greeting_words.v1',
-      contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+      contentReference:
+          'assets/languages/spanish/templates/multiple_choice_basic.json',
       now: DateTime.utc(2026, 7),
     );
 

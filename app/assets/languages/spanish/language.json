@@ -1,0 +1,10 @@
+{
+  "manifestVersion": 1,
+  "id": "spanish",
+  "code": "es",
+  "nativeName": "Español",
+  "englishName": "Spanish",
+  "version": "1.0.0",
+  "writingSystem": "latin",
+  "textDirection": "ltr"
+}

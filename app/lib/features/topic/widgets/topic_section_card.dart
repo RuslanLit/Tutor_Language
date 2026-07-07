@@ -6,24 +6,24 @@ import '../rendering/topic_content_renderer.dart';
 import '../rendering/topic_content_renderer_registry.dart';
 import 'section_header.dart';
 
-class TopicSectionCard extends StatelessWidget {
-  const TopicSectionCard({
+class LessonActivityCard extends StatelessWidget {
+  const LessonActivityCard({
     required this.topicId,
-    required this.sectionDetails,
+    required this.activityDetails,
     required this.rendererRegistry,
     this.onRuntimeEvent,
     super.key,
   });
 
   final String topicId;
-  final TopicSectionDetails sectionDetails;
+  final LessonActivityContentDetails activityDetails;
   final TopicContentRendererRegistry rendererRegistry;
   final ValueChanged<ExerciseRuntimeEvent>? onRuntimeEvent;
 
   @override
   Widget build(BuildContext context) {
-    final section = sectionDetails.section;
-    final content = sectionDetails.content;
+    final activity = activityDetails.activity;
+    final content = activityDetails.content;
 
     return Card(
       child: Padding(
@@ -31,15 +31,15 @@ class TopicSectionCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SectionHeader(title: section.title, contentType: content.type),
+            SectionHeader(title: activity.title, contentType: content.type),
             const SizedBox(height: 12),
             rendererRegistry.build(
               context,
               content,
               renderContext: TopicContentRenderContext(
                 topicId: topicId,
-                sectionId: section.id,
-                contentReference: section.contentReference.assetPath,
+                sectionId: activity.id,
+                contentReference: activityDetails.contentReference.assetPath,
                 onRuntimeEvent: onRuntimeEvent,
               ),
             ),

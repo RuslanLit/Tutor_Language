@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.0
+Version: 3.1
 
 Related documents:
 
@@ -133,7 +133,7 @@ Future versions may evolve into a graph of educational dependencies without chan
 
 The Curriculum defines:
 
-- learning topics;
+- LessonDefinitions;
 - prerequisites;
 - progression order;
 - recommended vocabulary;
@@ -142,6 +142,10 @@ The Curriculum defines:
 The Curriculum defines **what may be learned**.
 
 It never decides **what should be taught next**.
+
+Curriculum Lessons are LessonDefinitions.
+
+They are static inputs to lesson generation, not generated Lesson Sessions.
 
 ---
 
@@ -214,6 +218,12 @@ Typical constraints include:
 - maximum cognitive load.
 
 Lesson generation must remain inside these boundaries.
+
+The Lesson Generator combines LessonDefinitions, Educational Content and Lesson Constraints to produce a temporary Lesson Session.
+
+It does not create educational knowledge.
+
+It does not modify LessonDefinitions.
 
 ---
 
@@ -368,7 +378,7 @@ Generation 1 intentionally limits educational complexity.
 
 Included:
 
-- Spanish only;
+- one Spanish Language Pack;
 - static educational content;
 - simple curriculum;
 - deterministic planning;

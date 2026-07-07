@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.0
+Version: 2.1
 
 Related documents:
 
@@ -32,7 +32,7 @@ This contract applies only to Generation 1.
 
 Generation 1 supports:
 
-- Spanish only;
+- one Spanish Language Pack;
 - Android only;
 - offline operation only;
 - deterministic educational planning;
@@ -50,7 +50,15 @@ Use exactly these names throughout the project.
 
 Educational Content
 
-Educational Structure
+Curriculum
+
+Language Pack
+
+Course
+
+Module
+
+LessonDefinition
 
 Learner State
 
@@ -91,20 +99,20 @@ Educational Content is bundled with the application.
 Source of truth:
 
 ```text
-app/assets/spanish/
+app/assets/languages/spanish/
 ```
 
 Generation 1 uses:
 
 ```text
-app/assets/spanish/
-
+app/assets/languages/spanish/
+├── language.json
+├── curriculum/
 ├── vocabulary/
 ├── grammar/
 ├── templates/
 ├── dialogues/
-├── readings/
-└── curriculum/
+└── readings/
 ```
 
 The application must never require downloading educational content.
@@ -134,7 +142,7 @@ reading.family_001.v1
 
 template.multiple_choice_basic.v1
 
-topic.greetings.v1
+lesson.greetings.v1
 ```
 
 Identifiers represent educational concepts.
@@ -153,7 +161,7 @@ Required fields:
 - spanish
 - native_translation
 - cefr
-- topic_ids
+- lesson_ids
 - example
 
 Optional:
@@ -172,7 +180,7 @@ Required:
 - explanation
 - examples
 - prerequisite_ids
-- topic_ids
+- lesson_ids
 
 ---
 
@@ -207,7 +215,7 @@ Required:
 
 - id
 - title
-- topic_ids
+- lesson_ids
 - vocabulary_ids
 - grammar_ids
 - lines
@@ -222,7 +230,7 @@ Required:
 
 - id
 - title
-- topic_ids
+- lesson_ids
 - vocabulary_ids
 - grammar_ids
 - text
@@ -319,14 +327,14 @@ Generation 1 supports:
 Minimal fields:
 
 - goal_type
-- target_topic_id
+- target_lesson_id
 - target_object_ids
 
 ---
 
 # Lesson Constraints
 
-Every generated lesson must satisfy Lesson Constraints.
+Every Generated Lesson Session must satisfy Lesson Constraints.
 
 Required fields:
 
@@ -417,7 +425,7 @@ Generation 1 intentionally keeps the planner simple.
 
 Required rules:
 
-1. No learner history → first curriculum topic.
+1. No learner history → first curriculum LessonDefinition.
 2. High review pressure → review lesson.
 3. Lesson accuracy < 70% → reduce new material.
 4. Lesson accuracy > 85% and low review pressure → allow new material.

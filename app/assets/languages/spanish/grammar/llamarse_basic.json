@@ -7,9 +7,6 @@
       "Me llamo Ana.",
       "Se llama Luis."
     ],
-    "prerequisite_ids": [],
-    "topic_ids": [
-      "topic_001"
-    ]
+    "prerequisite_ids": []
   }
 ]

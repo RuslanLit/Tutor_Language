@@ -1,0 +1,958 @@
+{
+  "id": "es.a0",
+  "languageId": "spanish",
+  "title": "Spanish A0",
+  "level": "A0",
+  "version": "1.0.0",
+  "modules": [
+    {
+      "id": "es.a0.m01",
+      "title": "First Contact",
+      "lessonIds": [
+        "es.a0.m01.l001",
+        "es.a0.m01.l002",
+        "es.a0.m01.l003"
+      ]
+    },
+    {
+      "id": "es.a0.m02",
+      "title": "Basic Personal Information",
+      "lessonIds": [
+        "es.a0.m02.l004",
+        "es.a0.m02.l005",
+        "es.a0.m02.l006"
+      ]
+    },
+    {
+      "id": "es.a0.m03",
+      "title": "Everyday Survival",
+      "lessonIds": [
+        "es.a0.m03.l007",
+        "es.a0.m03.l008",
+        "es.a0.m03.l009"
+      ]
+    },
+    {
+      "id": "es.a0.m04",
+      "title": "Core Grammar Foundations",
+      "lessonIds": [
+        "es.a0.m04.l010",
+        "es.a0.m04.l011",
+        "es.a0.m04.l012"
+      ]
+    },
+    {
+      "id": "es.a0.m05",
+      "title": "Review and Consolidation",
+      "lessonIds": [
+        "es.a0.m05.l013",
+        "es.a0.m05.l014",
+        "es.a0.m05.l015"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "metadata": {
+        "id": "es.a0.m01.l001",
+        "title": "Hello and Goodbye",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": []
+      },
+      "objectives": [
+        {
+          "id": "objective.greetings.basic",
+          "description": "Recognize and use basic greetings and farewells."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m01.l001.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.greetings",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.dialogue.greetings",
+              "title": "dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l001.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.greetings",
+          "activity.dialogue.greetings"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l001.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l002",
+        "title": "Please, Thank You, Sorry",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l001"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.politeness.basic",
+          "description": "Recognize and use basic polite expressions."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m01.l002.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.politeness",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.politeness",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l002.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.politeness",
+          "activity.exercise.politeness"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l002.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l003",
+        "title": "Yes, No, I Do Not Understand",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l002"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.classroom_survival.basic",
+          "description": "Recognize and use essential clarification phrases."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m01.l003.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.clarification",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.dialogue.clarification",
+              "title": "dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l003.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.clarification",
+          "activity.dialogue.clarification"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l003.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m02.l004",
+        "title": "My Name Is",
+        "moduleId": "es.a0.m02",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l003"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.name.basic",
+          "description": "Give a name using a simple introduction pattern."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m02.l004.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.grammar.name_pattern",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.name_pattern",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m02.l004.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.grammar.name_pattern",
+          "activity.exercise.name_pattern"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m02.l004.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m02.l005",
+        "title": "I Am From",
+        "moduleId": "es.a0.m02",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m02.l004"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.origin.basic",
+          "description": "Give basic origin information."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m02.l005.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.origin",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.grammar.origin_pattern",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m02.l005.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.origin",
+          "activity.grammar.origin_pattern"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m02.l005.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m02.l006",
+        "title": "I Speak a Little Spanish",
+        "moduleId": "es.a0.m02",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m02.l005"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.language_ability.basic",
+          "description": "Describe basic language ability."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m02.l006.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.language_ability",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.dialogue.language_ability",
+              "title": "dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m02.l006.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.language_ability",
+          "activity.dialogue.language_ability"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m02.l006.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l007",
+        "title": "Numbers 0-10",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m02.l006"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.numbers_0_10.basic",
+          "description": "Recognize and use numbers from zero to ten."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m03.l007.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.numbers_0_10",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.numbers_0_10",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l007.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.numbers_0_10",
+          "activity.exercise.numbers_0_10"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l007.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l008",
+        "title": "Basic Needs",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l007"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.needs.basic",
+          "description": "Recognize basic phrases for immediate needs."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m03.l008.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.needs",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.dialogue.needs",
+              "title": "dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l008.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.needs",
+          "activity.dialogue.needs"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l008.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l009",
+        "title": "Where Is It?",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l008"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.location.basic",
+          "description": "Ask a simple question about location."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m03.l009.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.vocabulary.location",
+              "title": "vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.location",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l009.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.vocabulary.location",
+          "activity.exercise.location"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l009.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l010",
+        "title": "Ser: I Am / You Are",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l009"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.ser.basic",
+          "description": "Recognize first basic forms of ser."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m04.l010.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.grammar.ser_basic",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.ser_basic",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l010.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.grammar.ser_basic",
+          "activity.exercise.ser_basic"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l010.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l011",
+        "title": "Tener: I Have",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l010"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.tener.basic",
+          "description": "Recognize first basic forms of tener."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m04.l011.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.grammar.tener_basic",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.tener_basic",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l011.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.grammar.tener_basic",
+          "activity.exercise.tener_basic"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l011.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l012",
+        "title": "Basic Word Order",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l011"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.word_order.basic",
+          "description": "Recognize basic declarative word order."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m04.l012.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.grammar.word_order_basic",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 1,
+              "references": []
+            },
+            {
+              "id": "activity.exercise.word_order_basic",
+              "title": "exercise",
+              "type": "exercise",
+              "order": 2,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l012.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.grammar.word_order_basic",
+          "activity.exercise.word_order_basic"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l012.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l013",
+        "title": "Review 1",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l012"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.review_1.basic",
+          "description": "Review first contact and personal information material."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m05.l013.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.review.first_contact",
+              "title": "review",
+              "type": "review",
+              "order": 1,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l013.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.review.first_contact"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m05.l013.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l014",
+        "title": "Review 2",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l013"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.review_2.basic",
+          "description": "Review survival phrases and grammar foundations."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m05.l014.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.review.survival_grammar",
+              "title": "review",
+              "type": "review",
+              "order": 1,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l014.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.review.survival_grammar"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m05.l014.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l015",
+        "title": "A0 Checkpoint",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l014"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.a0_checkpoint.basic",
+          "description": "Check readiness to move beyond A0 foundations."
+        }
+      ],
+      "sections": [
+        {
+          "id": "es.a0.m05.l015.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity.checkpoint.a0",
+              "title": "checkpoint",
+              "type": "checkpoint",
+              "order": 1,
+              "references": []
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l015.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity.checkpoint.a0"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m05.l015.section.main"
+        ]
+      },
+      "references": []
+    }
+  ]
+}

@@ -2,9 +2,6 @@
   {
     "id": "reading.basic_greeting.v1",
     "title": "Ana says hello",
-    "topic_ids": [
-      "topic_001"
-    ],
     "vocabulary_ids": [
       "vocab.hola.v1"
     ],

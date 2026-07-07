@@ -6,10 +6,11 @@ import 'content_document.dart';
 import 'topic_content.dart';
 
 class ContentLoader {
-  ContentLoader({AssetBundle? assetBundle})
-    : _assetBundle = assetBundle ?? rootBundle;
+  ContentLoader({AssetBundle? assetBundle, String? languagePackRoot})
+    : _assetBundle = assetBundle ?? rootBundle,
+      languagePackRoot = languagePackRoot ?? spanishAssetRoot;
 
-  static const spanishAssetRoot = 'assets/spanish';
+  static const spanishAssetRoot = 'assets/languages/spanish';
 
   static const supportedDirectories = [
     'vocabulary',
@@ -20,12 +21,20 @@ class ContentLoader {
   ];
 
   final AssetBundle _assetBundle;
+  final String languagePackRoot;
 
   Future<EducationalContentBundle> loadSpanishContent() async {
-    final contents = <TopicContent>[];
+    return loadLanguagePackContent(languagePackRoot: spanishAssetRoot);
+  }
+
+  Future<EducationalContentBundle> loadLanguagePackContent({
+    String? languagePackRoot,
+  }) async {
+    final root = languagePackRoot ?? this.languagePackRoot;
+    final contents = <EducationalContent>[];
 
     for (final directory in supportedDirectories) {
-      final paths = await _jsonAssetPathsFor(directory);
+      final paths = await _jsonAssetPathsFor(directory, languagePackRoot: root);
 
       for (final path in paths) {
         contents.add(await loadContent(path));
@@ -35,7 +44,7 @@ class ContentLoader {
     return EducationalContentBundle(contents: List.unmodifiable(contents));
   }
 
-  Future<TopicContent> loadContent(String assetPath) async {
+  Future<EducationalContent> loadContent(String assetPath) async {
     final category = _categoryFromPath(assetPath);
     final rawJson = await _assetBundle.loadString(assetPath);
     final parsedJson = jsonDecode(rawJson);
@@ -44,11 +53,11 @@ class ContentLoader {
     return switch (category) {
       'vocabulary' => VocabularyContent(
         assetPath: assetPath,
-        entries: items.map(VocabularyEntry.fromJson).toList(growable: false),
+        entries: items.map(VocabularyItem.fromJson).toList(growable: false),
       ),
       'grammar' => GrammarContent(
         assetPath: assetPath,
-        rules: items.map(GrammarRule.fromJson).toList(growable: false),
+        topics: items.map(GrammarTopic.fromJson).toList(growable: false),
       ),
       'dialogues' => DialogueContent(
         assetPath: assetPath,
@@ -56,7 +65,7 @@ class ContentLoader {
       ),
       'readings' => ReadingContent(
         assetPath: assetPath,
-        readings: items.map(Reading.fromJson).toList(growable: false),
+        texts: items.map(ReadingText.fromJson).toList(growable: false),
       ),
       'templates' => ExerciseTemplateContent(
         assetPath: assetPath,
@@ -70,7 +79,10 @@ class ContentLoader {
     };
   }
 
-  Future<List<String>> _jsonAssetPathsFor(String directory) async {
+  Future<List<String>> _jsonAssetPathsFor(
+    String directory, {
+    required String languagePackRoot,
+  }) async {
     if (!supportedDirectories.contains(directory)) {
       throw ArgumentError.value(
         directory,
@@ -80,7 +92,7 @@ class ContentLoader {
     }
 
     final manifest = await AssetManifest.loadFromAssetBundle(_assetBundle);
-    final prefix = '$spanishAssetRoot/$directory/';
+    final prefix = '$languagePackRoot/$directory/';
 
     final paths =
         manifest
@@ -95,14 +107,25 @@ class ContentLoader {
   String _categoryFromPath(String path) {
     final parts = path.split('/');
 
-    if (parts.length < 3 ||
-        parts[0] != 'assets' ||
-        parts[1] != 'spanish' ||
-        !supportedDirectories.contains(parts[2])) {
+    final category = _pathCategory(parts);
+
+    if (category == null) {
       throw ArgumentError.value(path, 'path', 'Unsupported content path');
     }
 
-    return parts[2];
+    return category;
+  }
+
+  String? _pathCategory(List<String> parts) {
+    if (parts.length >= 4 &&
+        parts[0] == 'assets' &&
+        parts[1] == 'languages' &&
+        parts[2].isNotEmpty &&
+        supportedDirectories.contains(parts[3])) {
+      return parts[3];
+    }
+
+    return null;
   }
 
   List<Map<String, Object?>> _requiredObjectList(

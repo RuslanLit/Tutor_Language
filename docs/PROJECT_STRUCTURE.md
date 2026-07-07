@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.0
+Version: 3.1
 
 Related documents:
 
@@ -229,19 +229,22 @@ Application assets are stored inside:
 ```text
 app/assets/
 ├── app/
-└── spanish/
-    ├── vocabulary/
-    ├── grammar/
-    ├── templates/
-    ├── content/
-    └── images/
+└── languages/
+    └── spanish/
+        ├── language.json
+        ├── curriculum/
+        ├── vocabulary/
+        ├── grammar/
+        ├── templates/
+        ├── dialogues/
+        └── readings/
 ```
 
-Assets should reflect educational content rather than implementation details.
+Assets should reflect Language Pack educational content rather than implementation details.
 
-Generation 1 supports Spanish only.
+Generation 1 includes one Spanish Language Pack only.
 
-No placeholders for future languages should be created.
+No empty Language Pack placeholders should be created.
 
 ---
 
@@ -349,11 +352,11 @@ Complexity should always require justification.
 
 # V1 Restriction
 
-Version 1 supports Spanish only.
+Version 1 ships Spanish content only.
 
-Project structure must not anticipate multilingual support.
+Project structure may support Language Pack boundaries.
 
-Generalization is intentionally postponed.
+Additional Language Pack content is intentionally postponed.
 
 ---
 

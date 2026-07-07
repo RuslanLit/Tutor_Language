@@ -4,11 +4,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
-import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/learner_progress.dart';
+import 'package:tutor_language/core/learner/learner_progress_providers.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
+import 'package:tutor_language/features/learning_session/learning_session_controller.dart';
+import 'package:tutor_language/features/learning_session/learning_session_providers.dart';
+import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/topic/rendering/dialogue_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/exercise_template_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/grammar_content_renderer.dart';
@@ -18,8 +22,6 @@ import 'package:tutor_language/features/topic/rendering/topic_content_renderer_r
 import 'package:tutor_language/features/topic/rendering/unsupported_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/vocabulary_content_renderer.dart';
 import 'package:tutor_language/features/topic/topic_screen.dart';
-import 'package:tutor_language/features/learning_session/learning_session_controller.dart';
-import 'package:tutor_language/features/learning_session/learning_session_providers.dart';
 
 void main() {
   testWidgets('Vocabulary renderer displays term and translation', (
@@ -203,6 +205,9 @@ void main() {
             );
             return controller;
           }),
+          topicProgressProvider.overrideWith((ref, topicId) async {
+            return TopicProgress(topicId: topicId);
+          }),
         ],
         child: const MaterialApp(
           home: TopicScreen(topicId: 'topic.greetings.v1'),
@@ -215,6 +220,68 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(controller.finishCount, 1);
+  });
+
+  testWidgets('TopicScreen shows Continue to next lesson after completion', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          contentRepositoryProvider.overrideWith(
+            (ref) => _FakeContentRepository(),
+          ),
+          appDatabaseProvider.overrideWith((ref) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
+          topicProgressProvider.overrideWith((ref, topicId) async {
+            return TopicProgress(
+              topicId: topicId,
+              viewedAt: DateTime.utc(2026),
+              lastActivityAt: DateTime.utc(2026),
+              completedAt: DateTime.utc(2026),
+            );
+          }),
+        ],
+        child: const MaterialApp(
+          home: TopicScreen(topicId: 'topic.greetings.v1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Continue to next lesson'), findsOneWidget);
+  });
+
+  testWidgets('TopicScreen does not hide incomplete next lesson', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          contentRepositoryProvider.overrideWith(
+            (ref) => _FakeContentRepository(),
+          ),
+          appDatabaseProvider.overrideWith((ref) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
+          topicProgressProvider.overrideWith((ref, topicId) async {
+            return TopicProgress(topicId: topicId);
+          }),
+        ],
+        child: const MaterialApp(
+          home: TopicScreen(topicId: 'topic.greetings.v1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Next lesson'), findsOneWidget);
+    expect(find.text('Continue to next lesson'), findsNothing);
   });
 }
 
@@ -242,7 +309,10 @@ class _DelegatingRenderer extends TopicContentRenderer<TopicContent> {
 
 class _UnknownContent extends TopicContent {
   const _UnknownContent()
-    : super(type: 'unknown', assetPath: 'assets/spanish/unknown.json');
+    : super(
+        type: 'unknown',
+        assetPath: 'assets/languages/spanish/unknown.json',
+      );
 }
 
 class _RecordingLearningSessionController extends LearningSessionController {
@@ -259,8 +329,8 @@ class _RecordingLearningSessionController extends LearningSessionController {
 
 class _FakeContentRepository extends ContentRepository {
   @override
-  Future<Language> loadCurrentLanguage() async {
-    return const Language(code: 'es', name: 'Spanish');
+  Future<LanguagePackDisplay> loadCurrentLanguage() async {
+    return const LanguagePackDisplay(id: 'spanish', name: 'Spanish');
   }
 
   @override
@@ -269,25 +339,30 @@ class _FakeContentRepository extends ContentRepository {
   }
 
   @override
-  Future<TopicDetails> loadTopicDetails(String topicId) async {
-    return TopicDetails(
-      topic: _topic,
-      sections: [
-        TopicSectionDetails(section: _section, content: _vocabularyContent),
+  Future<LessonDetails> loadLessonDetails(String topicId) async {
+    final lesson = _course.lessons.firstWhere((lesson) => lesson.id == topicId);
+
+    return LessonDetails(
+      lesson: lesson,
+      activities: [
+        LessonActivityContentDetails(
+          activity: _activity,
+          contentReference: _contentReference,
+          content: _vocabularyContent,
+        ),
       ],
     );
   }
 }
 
 const _vocabularyContent = VocabularyContent(
-  assetPath: 'assets/spanish/vocabulary/greetings.json',
+  assetPath: 'assets/languages/spanish/vocabulary/greetings.json',
   entries: [
     VocabularyEntry(
       id: 'vocab.hola.v1',
       spanish: 'hola',
       nativeTranslation: 'hello',
       cefr: 'A0',
-      topicIds: ['topic.greetings.v1'],
       example: 'Hola.',
       notes: 'Common greeting.',
     ),
@@ -295,7 +370,7 @@ const _vocabularyContent = VocabularyContent(
 );
 
 const _grammarContent = GrammarContent(
-  assetPath: 'assets/spanish/grammar/llamarse_basic.json',
+  assetPath: 'assets/languages/spanish/grammar/llamarse_basic.json',
   rules: [
     GrammarRule(
       id: 'grammar.llamarse_basic.v1',
@@ -303,18 +378,16 @@ const _grammarContent = GrammarContent(
       explanation: 'Use llamarse to say your name.',
       examples: ['Me llamo Ana.'],
       prerequisiteIds: [],
-      topicIds: ['topic.greetings.v1'],
     ),
   ],
 );
 
 const _dialogueContent = DialogueContent(
-  assetPath: 'assets/spanish/dialogues/greetings.json',
+  assetPath: 'assets/languages/spanish/dialogues/greetings.json',
   dialogues: [
     Dialogue(
       id: 'dialogue.greetings.v1',
       title: 'Greeting Dialogue',
-      topicIds: ['topic.greetings.v1'],
       vocabularyIds: ['vocab.hola.v1'],
       grammarIds: [],
       lines: [
@@ -329,12 +402,11 @@ const _dialogueContent = DialogueContent(
 );
 
 const _readingContent = ReadingContent(
-  assetPath: 'assets/spanish/readings/basic_greeting.json',
+  assetPath: 'assets/languages/spanish/readings/basic_greeting.json',
   readings: [
     Reading(
       id: 'reading.basic_greeting.v1',
       title: 'A Greeting',
-      topicIds: ['topic.greetings.v1'],
       vocabularyIds: ['vocab.hola.v1'],
       grammarIds: [],
       text: 'Hola, me llamo Ana.',
@@ -344,7 +416,7 @@ const _readingContent = ReadingContent(
 );
 
 const _exerciseTemplateContent = ExerciseTemplateContent(
-  assetPath: 'assets/spanish/templates/multiple_choice_basic.json',
+  assetPath: 'assets/languages/spanish/templates/multiple_choice_basic.json',
   templates: [
     ExerciseTemplate(
       id: 'template.multiple_choice_basic.v1',
@@ -356,30 +428,64 @@ const _exerciseTemplateContent = ExerciseTemplateContent(
   ],
 );
 
-const _section = TopicSection(
-  id: 'section.greeting_words.v1',
-  title: 'Greeting Words',
-  contentReference: ContentReference(
-    type: 'vocabulary',
-    assetPath: 'assets/spanish/vocabulary/greetings.json',
-  ),
+const _contentReference = LessonContentReference(
+  type: 'vocabulary',
+  assetPath: 'assets/languages/spanish/vocabulary/greetings.json',
 );
 
-const _topic = Topic(
+const _activity = LessonActivity(
+  id: 'section.greeting_words.v1',
+  title: 'Greeting Words',
+  type: 'vocabulary',
+  contentReferences: [_contentReference],
+);
+
+const _topic = Lesson(
   id: 'topic.greetings.v1',
+  moduleId: 'unit.first_contacts.v1',
   title: 'Greetings',
-  sections: [_section],
+  primaryObjective: LessonObjective(
+    id: 'objective.greetings',
+    description: 'Recognize greetings.',
+  ),
+  activities: [_activity],
+  prerequisites: [],
+  estimatedDurationMinutes: 10,
+  completionCriteria: _completionCriteria,
+);
+
+const _nextTopic = Lesson(
+  id: 'topic.introductions.v1',
+  moduleId: 'unit.first_contacts.v1',
+  title: 'Introductions',
+  primaryObjective: LessonObjective(
+    id: 'objective.introductions',
+    description: 'Recognize introductions.',
+  ),
+  activities: [_activity],
+  prerequisites: [],
+  estimatedDurationMinutes: 10,
+  completionCriteria: _completionCriteria,
+);
+
+const _completionCriteria = LessonCompletionCriteria(
+  type: 'checked_answers',
+  minimumCheckedAnswers: 1,
+  requiresAllCheckedAnswersCorrect: true,
 );
 
 const _course = Course(
   id: 'course.spanish_beginner.v1',
-  languageCode: 'es',
+  languageId: 'spanish',
   title: 'Beginner Spanish',
-  units: [
-    Unit(
+  level: 'A1',
+  version: '1.0.0',
+  modules: [
+    Module(
       id: 'unit.first_contacts.v1',
       title: 'First Contacts',
-      topics: [_topic],
+      lessonIds: ['topic.greetings.v1', 'topic.introductions.v1'],
     ),
   ],
+  lessons: [_topic, _nextTopic],
 );

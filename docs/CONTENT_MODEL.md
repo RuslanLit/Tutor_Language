@@ -2,12 +2,14 @@
 
 Status: Active
 
-Version: 3.0
+Version: 3.2
 
 Related documents:
 
 - PROJECT_VISION.md
 - ARCHITECTURE.md
+- ARCHITECTURAL_DECISIONS.md
+- CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - V1_TECHNICAL_SPEC.md
 
@@ -15,13 +17,11 @@ Related documents:
 
 # Purpose
 
-This document defines the educational content model of Tutor Language.
+This document defines the educational knowledge model of Tutor Language.
 
-It describes the educational knowledge available to the learning system, the relationships between educational objects, and the principles governing educational content.
+It describes educational objects, their relationships and the principles governing educational content.
 
-This document intentionally avoids implementation details.
-
-Database schema, JSON representation and software classes are outside the scope of this document.
+Implementation details, databases and serialization formats are outside the scope of this document.
 
 ---
 
@@ -31,28 +31,30 @@ Educational Content represents knowledge.
 
 Learner State represents learning.
 
-These concepts are fundamentally different and must remain completely independent.
+These concepts are completely independent.
 
-Educational Content is immutable.
+Educational Content:
 
-Learner State is mutable.
+- is immutable;
+- contains no learner information.
 
-Educational Content must never contain learner-specific information.
+Learner State:
 
-Learner State must never modify Educational Content.
+- is mutable;
+- never modifies Educational Content.
 
 ---
 
-# Two Independent Worlds
+# Conceptual Domains
 
-Tutor Language consists of two independent conceptual domains.
+Tutor Language consists of two independent domains.
 
 ## Knowledge Domain
 
 Contains:
 
 - Educational Content
-- Educational Structure
+- Curriculum
 
 ## Learner Domain
 
@@ -64,9 +66,31 @@ Contains:
 - Statistics
 - Motivation
 
-Educational planning is the only bridge between these domains.
+Educational planning connects these domains.
 
-Neither domain owns the other.
+---
+
+# Curriculum Structure
+
+Educational Content is organized by the following hierarchy:
+
+```text
+Language Pack
+    │
+Course
+    │
+Module
+    │
+LessonDefinition
+```
+
+This hierarchy organizes learning only.
+
+It is not educational knowledge itself.
+
+A Language Pack may contain multiple Courses.
+
+The learning engine remains language-independent.
 
 ---
 
@@ -74,9 +98,7 @@ Neither domain owns the other.
 
 Educational Content consists of reusable knowledge objects.
 
-Knowledge objects represent educational concepts rather than lessons.
-
-Generation 1 defines the following knowledge objects:
+Generation 1 defines:
 
 - Vocabulary Item
 - Grammar Topic
@@ -87,77 +109,47 @@ Generation 1 defines the following knowledge objects:
 Every knowledge object:
 
 - has a stable identifier;
-- may be referenced by multiple educational objects;
+- may be referenced by multiple LessonDefinitions;
 - is reusable;
 - never stores learner progress.
 
 ---
 
-# Educational Structure
-
-Educational Structure organizes educational knowledge.
-
-Generation 1 uses the following hierarchy:
-
-```text
-Course
-    │
-    ▼
-Unit
-    │
-    ▼
-Topic
-```
-
-This hierarchy exists only to organize learning.
-
-It does not represent educational knowledge itself.
-
-Future versions may replace this hierarchy without changing the underlying knowledge objects.
-
----
-
 # Course
-
-Purpose
 
 Represents one educational program.
 
-Generation 1 contains exactly one Course.
+Responsibilities:
 
-Responsibilities
-
-- organize Units;
-- define the educational scope.
+- organize Modules;
+- define educational scope.
 
 A Course never stores learner information.
 
 ---
 
-# Unit
+# Module
 
-Purpose
+Groups related LessonDefinitions.
 
-Groups related Topics.
+Responsibilities:
 
-Responsibilities
-
-- organize Topics;
+- organize LessonDefinitions;
 - improve navigation.
 
-Units are organizational objects.
-
-They never contain learner information.
+Modules contain no learner information.
 
 ---
 
-# Topic
+# LessonDefinition
 
-Purpose
+LessonDefinition is the smallest educational unit.
 
-Groups related knowledge objects.
+A LessonDefinition is reusable curriculum data.
 
-A Topic references:
+It is not a generated Lesson Session.
+
+A LessonDefinition references:
 
 - Vocabulary Items;
 - Grammar Topics;
@@ -165,51 +157,61 @@ A Topic references:
 - Reading Texts;
 - Exercise Templates.
 
-Topics organize knowledge.
+LessonDefinition files contain:
 
-Topics never duplicate knowledge.
+- metadata;
+- objectives;
+- sections;
+- activities;
+- summary;
+- completion criteria;
+- references.
+
+LessonDefinitions organize knowledge.
+
+LessonDefinitions never duplicate knowledge.
+
+LessonDefinitions must reference Educational Content by stable identifiers or asset references.
+
+LessonDefinitions must not embed educational knowledge directly.
+
+LessonDefinitions provide source references and structural requirements for deterministic lesson generation.
+
+Generated Exercises and learner interaction state exist only at runtime and are never stored inside LessonDefinitions.
 
 ---
 
 # Vocabulary Item
 
-Purpose
-
 Represents one lexical concept.
 
 Contains:
 
-- stable ID;
-- Spanish form;
-- native translation;
+- stable identifier;
+- target-language form;
+- learner-language meaning;
 - pronunciation;
 - CEFR level;
-- example sentence.
+- example usage.
 
-Vocabulary Items may belong to multiple Topics.
+Vocabulary Items may be referenced by multiple LessonDefinitions.
 
-Vocabulary Items never store:
-
-- learner mastery;
-- review history;
-- statistics.
+Vocabulary Items never store learner progress.
 
 ---
 
 # Grammar Topic
 
-Purpose
-
 Represents one grammatical concept.
 
 Contains:
 
-- stable ID;
+- stable identifier;
 - explanation;
 - examples;
 - prerequisites.
 
-Grammar Topics may belong to multiple Topics.
+Grammar Topics may be referenced by multiple LessonDefinitions.
 
 Grammar Topics never store learner performance.
 
@@ -217,42 +219,30 @@ Grammar Topics never store learner performance.
 
 # Dialogue
 
-Purpose
-
 Represents conversational educational material.
 
 Dialogues reference existing Vocabulary Items and Grammar Topics.
-
-Dialogues never duplicate educational knowledge.
 
 ---
 
 # Reading Text
 
-Purpose
-
 Represents educational reading material.
 
-Reading Texts reference existing knowledge objects whenever practical.
-
-Reading Texts never store learner information.
+Reading Texts reference existing knowledge whenever practical.
 
 ---
 
 # Exercise Template
 
-Purpose
-
-Defines a reusable exercise structure.
+Defines reusable exercise structure.
 
 Examples:
 
-- Multiple Choice;
-- Fill Gap;
-- Matching;
-- Translation.
-
-Templates define educational structure.
+- Multiple Choice
+- Fill Gap
+- Matching
+- Translation
 
 Templates never contain learner progress.
 
@@ -260,21 +250,15 @@ Templates never contain learner progress.
 
 # Generated Exercises
 
-Generated Exercises are **not** Educational Content.
+Generated Exercises are runtime objects.
 
-Generated Exercises are temporary runtime objects.
+They:
 
-They are created during lesson generation.
-
-They exist only during a Lesson Session.
-
-After evaluation they may be discarded.
+- are created during lesson generation;
+- exist only during a Lesson Session;
+- may be discarded after evaluation.
 
 Only learning outcomes remain persistent.
-
-Educational interactions are temporary.
-
-Educational knowledge is permanent.
 
 ---
 
@@ -282,28 +266,11 @@ Educational knowledge is permanent.
 
 Knowledge objects reference one another using stable identifiers.
 
-Relationships should always use references.
+Relationships should use references rather than duplication.
 
-Educational knowledge should never be duplicated.
+Generated Exercises reference Educational Content.
 
-Example:
-
-```text
-Vocabulary Item
-        │
-        ▼
-Grammar Topic
-        │
-        ▼
-Exercise Template
-        │
-        ▼
-Generated Exercise
-```
-
-Generated Exercises reference knowledge.
-
-Generated Exercises never become knowledge.
+Generated Exercises never become Educational Content.
 
 ---
 
@@ -311,28 +278,24 @@ Generated Exercises never become knowledge.
 
 Every knowledge object must have a stable identifier.
 
-Identifiers represent educational concepts rather than implementation details.
+Stable identifiers preserve:
 
-Stable identifiers should remain unchanged across application versions whenever possible.
+- learner progress;
+- references;
+- backward compatibility;
+- future content evolution.
 
-Stable identifiers allow:
-
-- learner progress preservation;
-- reliable references;
-- future content improvements;
-- backward compatibility.
+Identifiers should never change unless educational meaning changes.
 
 ---
 
 # Content Versioning
 
-Educational Content may evolve over time.
+Educational Content may improve over time.
 
-Examples, explanations and exercises may be improved.
+Existing identifiers should remain stable whenever possible.
 
-Whenever possible, existing identifiers should remain stable.
-
-Breaking educational changes should introduce new identifiers rather than changing the meaning of existing knowledge objects.
+Breaking educational changes should introduce new identifiers.
 
 ---
 
@@ -342,41 +305,39 @@ Educational Content should remain internally consistent.
 
 Every knowledge object should have:
 
-- a stable identifier;
-- clearly defined relationships;
-- one educational meaning.
+- one stable identifier;
+- one educational meaning;
+- valid references.
 
-Broken references should be treated as educational content defects.
+Broken references are content defects.
 
 ---
 
 # Content Sources
 
-Educational Content should preserve its educational origin whenever practical.
+Educational Content may preserve origin metadata, including:
 
-Examples include:
-
-- original author;
-- grammar reference;
+- author;
 - dictionary source;
+- grammar reference;
 - public domain source;
-- license information.
+- license.
 
-Source information exists for transparency only.
+Source metadata is informational only.
 
-Tutor Language never automatically interacts with external educational sources.
+Tutor Language never automatically communicates with external sources.
 
 ---
 
 # Educational Independence
 
-Educational Content is completely independent from:
+Educational Content is independent from:
 
 - Learner Profile;
 - Learner State;
-- Statistics;
 - Review Queue;
 - Evidence;
+- Statistics;
 - Motivation;
 - Lesson History.
 
@@ -386,27 +347,49 @@ Learners evolve.
 
 ---
 
-# Generation 1 Simplification
-
-Generation 1 intentionally limits educational complexity.
+# Generation 1
 
 Included:
 
-- one language;
+- one Language Pack (Spanish);
 - one Course;
+- linear Curriculum;
 - static Educational Content;
-- linear Educational Structure;
 - template-based Exercises.
 
 Postponed:
 
+- additional Language Packs;
 - multiple Courses;
-- multiple languages;
 - knowledge graph;
-- procedural educational content;
+- procedural content;
 - AI-assisted content authoring.
 
-Reducing educational complexity increases implementation quality.
+---
+
+# Known Technical Debt
+
+The canonical curriculum hierarchy is:
+
+```text
+Language Pack
+    │
+Course
+    │
+Module
+    │
+LessonDefinition
+```
+
+Legacy runtime names such as:
+
+- TopicProgress
+- topicId
+- TopicRoute
+
+remain temporarily for compatibility.
+
+They should be migrated to Lesson terminology in a future compatibility phase.
 
 ---
 
@@ -415,44 +398,26 @@ Reducing educational complexity increases implementation quality.
 Future versions may introduce:
 
 - semantic knowledge graphs;
-- richer relationships between knowledge objects;
+- richer relationships;
 - adaptive curricula;
-- AI-assisted content authoring;
+- AI-assisted authoring;
 - multiple educational pathways.
 
-These extensions should build upon the existing Educational Content model rather than replace it.
-
----
-
-# Educational Stability
-
-Educational knowledge changes much more slowly than software.
-
-Software should evolve around Educational Content.
-
-Educational Content should never evolve merely to satisfy implementation details.
-
-Educational Content is one of the most stable assets of the project.
+These extensions should extend the model rather than replace it.
 
 ---
 
 # Final Principles
 
-Educational knowledge is permanent.
-
-Educational interactions are temporary.
-
-Learning outcomes are permanent.
-
-The application should preserve learner progress rather than generated lessons.
-
 Educational Content defines what exists.
 
-The Learning Model defines what should happen next.
+Curriculum defines how Educational Content is organized.
 
-The Architecture defines who is responsible for making that happen.
+Learning Model defines what should happen next.
 
-These responsibilities should remain permanently separated.
+Architecture defines responsibilities.
+
+Implementation defines software behaviour.
 
 ---
 

@@ -1,41 +1,55 @@
 import 'json_parsing.dart';
 
-abstract class TopicContent {
-  const TopicContent({required this.type, required this.assetPath});
+abstract class EducationalContent {
+  const EducationalContent({required this.type, required this.assetPath});
 
   final String type;
   final String assetPath;
 }
 
-class VocabularyContent extends TopicContent {
+typedef TopicContent = EducationalContent;
+
+class VocabularyContent extends EducationalContent {
   const VocabularyContent({required super.assetPath, required this.entries})
     : super(type: 'vocabulary');
 
-  final List<VocabularyEntry> entries;
+  final List<VocabularyItem> entries;
 }
 
-class GrammarContent extends TopicContent {
-  const GrammarContent({required super.assetPath, required this.rules})
-    : super(type: 'grammar');
+class GrammarContent extends EducationalContent {
+  const GrammarContent({
+    required super.assetPath,
+    List<GrammarTopic>? topics,
+    List<GrammarTopic>? rules,
+  }) : topics = topics ?? rules ?? const [],
+       super(type: 'grammar');
 
-  final List<GrammarRule> rules;
+  final List<GrammarTopic> topics;
+
+  List<GrammarTopic> get rules => topics;
 }
 
-class DialogueContent extends TopicContent {
+class DialogueContent extends EducationalContent {
   const DialogueContent({required super.assetPath, required this.dialogues})
     : super(type: 'dialogue');
 
   final List<Dialogue> dialogues;
 }
 
-class ReadingContent extends TopicContent {
-  const ReadingContent({required super.assetPath, required this.readings})
-    : super(type: 'reading');
+class ReadingContent extends EducationalContent {
+  const ReadingContent({
+    required super.assetPath,
+    List<ReadingText>? texts,
+    List<ReadingText>? readings,
+  }) : texts = texts ?? readings ?? const [],
+       super(type: 'reading');
 
-  final List<Reading> readings;
+  final List<ReadingText> texts;
+
+  List<ReadingText> get readings => texts;
 }
 
-class ExerciseTemplateContent extends TopicContent {
+class ExerciseTemplateContent extends EducationalContent {
   const ExerciseTemplateContent({
     required super.assetPath,
     required this.templates,
@@ -44,25 +58,39 @@ class ExerciseTemplateContent extends TopicContent {
   final List<ExerciseTemplate> templates;
 }
 
-class VocabularyEntry {
-  const VocabularyEntry({
+class ContentReference {
+  const ContentReference({required this.type, required this.id});
+
+  factory ContentReference.fromJson(Map<String, Object?> json) {
+    return ContentReference(
+      type: requiredString(json, 'type'),
+      id: requiredString(json, 'id'),
+    );
+  }
+
+  final String type;
+  final String id;
+}
+
+class VocabularyItem {
+  const VocabularyItem({
     required this.id,
     required this.spanish,
     required this.nativeTranslation,
     required this.cefr,
-    required this.topicIds,
     required this.example,
     this.pronunciation,
     this.notes,
   });
 
-  factory VocabularyEntry.fromJson(Map<String, Object?> json) {
-    return VocabularyEntry(
+  factory VocabularyItem.fromJson(Map<String, Object?> json) {
+    _rejectReverseLessonReferences(json, 'VocabularyItem');
+
+    return VocabularyItem(
       id: requiredString(json, 'id'),
       spanish: requiredString(json, 'spanish'),
       nativeTranslation: requiredString(json, 'native_translation'),
       cefr: requiredString(json, 'cefr'),
-      topicIds: optionalStringList(json, 'topic_ids'),
       example: requiredString(json, 'example'),
       pronunciation: optionalString(json, 'pronunciation'),
       notes: optionalString(json, 'notes'),
@@ -73,7 +101,6 @@ class VocabularyEntry {
   final String spanish;
   final String nativeTranslation;
   final String cefr;
-  final List<String> topicIds;
   final String example;
   final String? pronunciation;
   final String? notes;
@@ -84,7 +111,6 @@ class VocabularyEntry {
       'spanish': spanish,
       'native_translation': nativeTranslation,
       'cefr': cefr,
-      'topic_ids': topicIds,
       'example': example,
       if (pronunciation != null) 'pronunciation': pronunciation,
       if (notes != null) 'notes': notes,
@@ -94,12 +120,11 @@ class VocabularyEntry {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        other is VocabularyEntry &&
+        other is VocabularyItem &&
             other.id == id &&
             other.spanish == spanish &&
             other.nativeTranslation == nativeTranslation &&
             other.cefr == cefr &&
-            listEquals(other.topicIds, topicIds) &&
             other.example == example &&
             other.pronunciation == pronunciation &&
             other.notes == notes;
@@ -111,31 +136,40 @@ class VocabularyEntry {
     spanish,
     nativeTranslation,
     cefr,
-    Object.hashAll(topicIds),
     example,
     pronunciation,
     notes,
   );
 }
 
-class GrammarRule {
-  const GrammarRule({
+typedef VocabularyEntry = VocabularyItem;
+
+void _rejectReverseLessonReferences(Map<String, Object?> json, String owner) {
+  if (json.containsKey('lesson_ids')) {
+    throw FormatException('$owner must not contain lesson_ids');
+  }
+
+  if (json.containsKey('topic_ids')) {
+    throw FormatException('$owner must not contain topic_ids');
+  }
+}
+
+class GrammarTopic {
+  const GrammarTopic({
     required this.id,
     required this.title,
     required this.explanation,
     required this.examples,
     required this.prerequisiteIds,
-    required this.topicIds,
   });
 
-  factory GrammarRule.fromJson(Map<String, Object?> json) {
-    return GrammarRule(
+  factory GrammarTopic.fromJson(Map<String, Object?> json) {
+    return GrammarTopic(
       id: requiredString(json, 'id'),
       title: requiredString(json, 'title'),
       explanation: requiredString(json, 'explanation'),
       examples: optionalStringList(json, 'examples'),
       prerequisiteIds: optionalStringList(json, 'prerequisite_ids'),
-      topicIds: optionalStringList(json, 'topic_ids'),
     );
   }
 
@@ -144,7 +178,6 @@ class GrammarRule {
   final String explanation;
   final List<String> examples;
   final List<String> prerequisiteIds;
-  final List<String> topicIds;
 
   Map<String, Object?> toJson() {
     return {
@@ -153,20 +186,18 @@ class GrammarRule {
       'explanation': explanation,
       'examples': examples,
       'prerequisite_ids': prerequisiteIds,
-      'topic_ids': topicIds,
     };
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        other is GrammarRule &&
+        other is GrammarTopic &&
             other.id == id &&
             other.title == title &&
             other.explanation == explanation &&
             listEquals(other.examples, examples) &&
-            listEquals(other.prerequisiteIds, prerequisiteIds) &&
-            listEquals(other.topicIds, topicIds);
+            listEquals(other.prerequisiteIds, prerequisiteIds);
   }
 
   @override
@@ -176,15 +207,15 @@ class GrammarRule {
     explanation,
     Object.hashAll(examples),
     Object.hashAll(prerequisiteIds),
-    Object.hashAll(topicIds),
   );
 }
+
+typedef GrammarRule = GrammarTopic;
 
 class Dialogue {
   const Dialogue({
     required this.id,
     required this.title,
-    required this.topicIds,
     required this.vocabularyIds,
     required this.grammarIds,
     required this.lines,
@@ -194,7 +225,6 @@ class Dialogue {
     return Dialogue(
       id: requiredString(json, 'id'),
       title: requiredString(json, 'title'),
-      topicIds: optionalStringList(json, 'topic_ids'),
       vocabularyIds: optionalStringList(json, 'vocabulary_ids'),
       grammarIds: optionalStringList(json, 'grammar_ids'),
       lines: requiredList(json, 'lines', DialogueLine.fromJson),
@@ -203,7 +233,6 @@ class Dialogue {
 
   final String id;
   final String title;
-  final List<String> topicIds;
   final List<String> vocabularyIds;
   final List<String> grammarIds;
   final List<DialogueLine> lines;
@@ -212,7 +241,6 @@ class Dialogue {
     return {
       'id': id,
       'title': title,
-      'topic_ids': topicIds,
       'vocabulary_ids': vocabularyIds,
       'grammar_ids': grammarIds,
       'lines': lines.map((line) => line.toJson()).toList(growable: false),
@@ -225,7 +253,6 @@ class Dialogue {
         other is Dialogue &&
             other.id == id &&
             other.title == title &&
-            listEquals(other.topicIds, topicIds) &&
             listEquals(other.vocabularyIds, vocabularyIds) &&
             listEquals(other.grammarIds, grammarIds) &&
             listEquals(other.lines, lines);
@@ -235,7 +262,6 @@ class Dialogue {
   int get hashCode => Object.hash(
     id,
     title,
-    Object.hashAll(topicIds),
     Object.hashAll(vocabularyIds),
     Object.hashAll(grammarIds),
     Object.hashAll(lines),
@@ -282,22 +308,20 @@ class DialogueLine {
   int get hashCode => Object.hash(speaker, spanish, nativeTranslation);
 }
 
-class Reading {
-  const Reading({
+class ReadingText {
+  const ReadingText({
     required this.id,
     required this.title,
-    required this.topicIds,
     required this.vocabularyIds,
     required this.grammarIds,
     required this.text,
     required this.nativeTranslation,
   });
 
-  factory Reading.fromJson(Map<String, Object?> json) {
-    return Reading(
+  factory ReadingText.fromJson(Map<String, Object?> json) {
+    return ReadingText(
       id: requiredString(json, 'id'),
       title: requiredString(json, 'title'),
-      topicIds: optionalStringList(json, 'topic_ids'),
       vocabularyIds: optionalStringList(json, 'vocabulary_ids'),
       grammarIds: optionalStringList(json, 'grammar_ids'),
       text: requiredString(json, 'text'),
@@ -307,7 +331,6 @@ class Reading {
 
   final String id;
   final String title;
-  final List<String> topicIds;
   final List<String> vocabularyIds;
   final List<String> grammarIds;
   final String text;
@@ -317,7 +340,6 @@ class Reading {
     return {
       'id': id,
       'title': title,
-      'topic_ids': topicIds,
       'vocabulary_ids': vocabularyIds,
       'grammar_ids': grammarIds,
       'text': text,
@@ -328,10 +350,9 @@ class Reading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        other is Reading &&
+        other is ReadingText &&
             other.id == id &&
             other.title == title &&
-            listEquals(other.topicIds, topicIds) &&
             listEquals(other.vocabularyIds, vocabularyIds) &&
             listEquals(other.grammarIds, grammarIds) &&
             other.text == text &&
@@ -342,13 +363,14 @@ class Reading {
   int get hashCode => Object.hash(
     id,
     title,
-    Object.hashAll(topicIds),
     Object.hashAll(vocabularyIds),
     Object.hashAll(grammarIds),
     text,
     nativeTranslation,
   );
 }
+
+typedef Reading = ReadingText;
 
 class ExerciseTemplate {
   const ExerciseTemplate({

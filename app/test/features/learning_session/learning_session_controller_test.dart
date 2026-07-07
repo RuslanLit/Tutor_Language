@@ -49,7 +49,8 @@ void main() {
     await controller.startSession('topic.greetings.v1');
     await controller.recordInteraction(
       sectionId: 'section.greetings.v1',
-      contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+      contentReference:
+          'assets/languages/spanish/templates/multiple_choice_basic.json',
     );
 
     final events = await progressRepository.readEventsForTopic(
@@ -64,7 +65,8 @@ void main() {
     await controller.startSession('topic.greetings.v1');
     await controller.recordAnswerChecked(
       sectionId: 'section.greetings.v1',
-      contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+      contentReference:
+          'assets/languages/spanish/templates/multiple_choice_basic.json',
       answerCheckStatus: AnswerCheckStatus.correct,
     );
 
@@ -92,7 +94,8 @@ void main() {
       await controller.startSession('topic.greetings.v1');
       await controller.recordAnswerChecked(
         sectionId: 'section.greetings.v1',
-        contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+        contentReference:
+            'assets/languages/spanish/templates/multiple_choice_basic.json',
         answerCheckStatus: AnswerCheckStatus.correct,
       );
       await controller.finishSession();
@@ -110,7 +113,8 @@ void main() {
     await controller.startSession('topic.greetings.v1');
     await controller.recordAnswerChecked(
       sectionId: 'section.greetings.v1',
-      contentReference: 'assets/spanish/templates/multiple_choice_basic.json',
+      contentReference:
+          'assets/languages/spanish/templates/multiple_choice_basic.json',
       answerCheckStatus: AnswerCheckStatus.incorrect,
     );
     await controller.finishSession();

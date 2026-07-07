@@ -1,49 +1,64 @@
+import '../../features/curriculum/curriculum_loader.dart';
+import '../../features/curriculum/curriculum_models.dart';
+import '../../features/curriculum/curriculum_repository.dart';
 import 'content_loader.dart';
-import 'course.dart';
-import 'curriculum_loader.dart';
 import 'topic_content.dart';
 
 class ContentRepository {
   ContentRepository({
-    CurriculumLoader? curriculumLoader,
+    CurriculumRepository? curriculumRepository,
     ContentLoader? contentLoader,
-  }) : _curriculumLoader = curriculumLoader ?? CurriculumLoader(),
+  }) : _curriculumRepository =
+           curriculumRepository ??
+           CurriculumRepository(
+             loader: CurriculumLoader(
+               coursePath: 'assets/languages/spanish/curriculum/course.json',
+             ),
+           ),
        _contentLoader = contentLoader ?? ContentLoader();
 
-  final CurriculumLoader _curriculumLoader;
+  final CurriculumRepository _curriculumRepository;
   final ContentLoader _contentLoader;
-  final Map<String, TopicContent> _contentCache = {};
+  final Map<String, EducationalContent> _contentCache = {};
 
   Course? _course;
 
-  Future<Language> loadCurrentLanguage() async {
-    final course = await loadCourse();
+  Future<LanguagePackDisplay> loadCurrentLanguage() async {
+    final manifest = await _curriculumRepository.loadManifest();
 
-    return Language(code: course.languageCode, name: _languageName(course));
+    return LanguagePackDisplay(id: manifest.id, name: manifest.englishName);
   }
 
   Future<Course> loadCourse() async {
-    return _course ??= await _curriculumLoader.loadCourse();
+    return _course ??= await _curriculumRepository.loadCourse();
   }
 
-  Future<TopicDetails> loadTopicDetails(String topicId) async {
+  Future<LessonDetails> loadLessonDetails(String lessonId) async {
     final course = await loadCourse();
-    final topic = _findTopic(course, topicId);
-    final sections = <TopicSectionDetails>[];
+    final lesson = _findLesson(course, lessonId);
+    final activities = <LessonActivityContentDetails>[];
 
-    for (final section in topic.sections) {
-      sections.add(
-        TopicSectionDetails(
-          section: section,
-          content: await loadContent(section.contentReference),
-        ),
-      );
+    for (final activity in lesson.activities) {
+      for (final reference in activity.contentReferences) {
+        activities.add(
+          LessonActivityContentDetails(
+            activity: activity,
+            contentReference: reference,
+            content: await loadContent(reference),
+          ),
+        );
+      }
     }
 
-    return TopicDetails(topic: topic, sections: List.unmodifiable(sections));
+    return LessonDetails(
+      lesson: lesson,
+      activities: List.unmodifiable(activities),
+    );
   }
 
-  Future<TopicContent> loadContent(ContentReference reference) async {
+  Future<EducationalContent> loadContent(
+    LessonContentReference reference,
+  ) async {
     final cachedContent = _contentCache[reference.assetPath];
 
     if (cachedContent != null) {
@@ -56,36 +71,32 @@ class ContentRepository {
     return content;
   }
 
-  Topic _findTopic(Course course, String topicId) {
-    for (final unit in course.units) {
-      for (final topic in unit.topics) {
-        if (topic.id == topicId) {
-          return topic;
-        }
+  Lesson _findLesson(Course course, String lessonId) {
+    for (final lesson in course.lessons) {
+      if (lesson.id == lessonId) {
+        return lesson;
       }
     }
 
-    throw StateError('Topic not found: $topicId');
-  }
-
-  String _languageName(Course course) {
-    return switch (course.languageCode) {
-      'es' => 'Spanish',
-      final code => code,
-    };
+    throw StateError('Lesson not found: $lessonId');
   }
 }
 
-class TopicDetails {
-  const TopicDetails({required this.topic, required this.sections});
+class LessonDetails {
+  const LessonDetails({required this.lesson, required this.activities});
 
-  final Topic topic;
-  final List<TopicSectionDetails> sections;
+  final Lesson lesson;
+  final List<LessonActivityContentDetails> activities;
 }
 
-class TopicSectionDetails {
-  const TopicSectionDetails({required this.section, required this.content});
+class LessonActivityContentDetails {
+  const LessonActivityContentDetails({
+    required this.activity,
+    required this.contentReference,
+    required this.content,
+  });
 
-  final TopicSection section;
-  final TopicContent content;
+  final LessonActivity activity;
+  final LessonContentReference contentReference;
+  final EducationalContent content;
 }

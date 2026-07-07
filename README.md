@@ -15,12 +15,13 @@ Before implementation, read documents in this order:
 3. docs/PROJECT_CONTRACT.md
 4. docs/ARCHITECTURAL_DECISIONS.md
 5. docs/ARCHITECTURE.md
-6. docs/LEARNING_MODEL.md
-7. docs/CONTENT_MODEL.md
-8. docs/V1_TECHNICAL_SPEC.md
-9. docs/V1_IMPLEMENTATION_CONTRACT.md
-10. docs/TECH_STACK.md
-11. docs/PROJECT_STRUCTURE.md
+6. docs/CURRICULUM_SPEC.md
+7. docs/LEARNING_MODEL.md
+8. docs/CONTENT_MODEL.md
+9. docs/V1_TECHNICAL_SPEC.md
+10. docs/V1_IMPLEMENTATION_CONTRACT.md
+11. docs/TECH_STACK.md
+12. docs/PROJECT_STRUCTURE.md
 
 Development should begin only after these documents have been read.
 The documentation is the project's source of truth.
@@ -41,8 +42,8 @@ If documentation is insufficient, ask for clarification instead of making archit
 
 ## Current implementation status
 
-No application code has been implemented yet.
+The Flutter application has been bootstrapped.
 
-The project is ready for Flutter bootstrap.
+The project now contains the language-agnostic curriculum model, content loading foundation and deterministic Lesson Generator skeleton.
 
 The educational core may be implemented after reading V1_IMPLEMENTATION_CONTRACT.md.

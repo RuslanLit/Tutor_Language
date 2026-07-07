@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.1
 
 ---
 
@@ -74,9 +74,11 @@ Codex must NEVER:
 
 # Scope Protection
 
-The first generation of the application targets Spanish only.
+The first generation of the application ships Spanish content only.
 
-Codex must not generalize the architecture for future languages unless explicitly requested.
+Codex must not add other Language Packs unless explicitly requested.
+
+The learning engine remains language-agnostic as defined by ARCHITECTURAL_DECISIONS.md.
 
 Avoid abstractions that are not required by the current project scope.
 
@@ -109,7 +111,7 @@ The application controls:
 - adaptation logic;
 - progress tracking.
 
-The AI model generates content.
+AI may assist content authoring.
 
 The application makes educational decisions.
 

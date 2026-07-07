@@ -2,9 +2,6 @@
   {
     "id": "dialogue.greetings_001.v1",
     "title": "A simple greeting",
-    "topic_ids": [
-      "topic_001"
-    ],
     "vocabulary_ids": [
       "vocab.hola.v1",
       "vocab.adios.v1"

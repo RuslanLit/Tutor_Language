@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
-import 'package:tutor_language/core/content/curriculum_loader.dart';
+import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -14,11 +14,9 @@ void main() {
 
       final course = await curriculumLoader.loadCourse();
 
-      for (final unit in course.units) {
-        for (final topic in unit.topics) {
-          for (final section in topic.sections) {
-            final reference = section.contentReference;
-
+      for (final lesson in course.lessons) {
+        for (final activity in lesson.activities) {
+          for (final reference in activity.contentReferences) {
             expect(reference.assetPath, isNotEmpty);
 
             final content = await contentLoader.loadContent(

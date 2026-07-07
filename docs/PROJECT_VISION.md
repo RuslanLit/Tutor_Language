@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.1
+Version: 2.2
 
 ---
 
@@ -27,9 +27,13 @@ The tutor studies the learner.
 
 # Scope
 
-The first generation focuses exclusively on Spanish.
+The first generation ships one complete Language Pack: Spanish.
 
-Every architectural decision should optimize for teaching Spanish.
+The product experience should focus on teaching Spanish well.
+
+The learning engine remains language-agnostic.
+
+Language-specific educational material belongs in Language Packs.
 
 Support for additional languages is intentionally postponed.
 
@@ -263,10 +267,13 @@ Its responsibilities include:
 - explanations;
 - conversations;
 - example generation;
-- lesson generation;
+- optional content authoring assistance;
+- optional lesson-session enhancements;
 - feedback.
 
 Teaching decisions remain under application control.
+
+AI must never be required for lesson planning, learner modelling, review scheduling, mastery decisions or core lesson generation.
 
 ---
 
@@ -304,7 +311,7 @@ Entertainment must never replace education.
 
 The project prefers:
 
-- offline AI;
+- optional local AI where it adds measurable value;
 - open technologies;
 - modular architecture;
 - deterministic behaviour whenever practical;
@@ -339,7 +346,7 @@ The first generation is NOT intended to:
 
 Its objective is singular:
 
-Create the best adaptive offline Spanish tutor possible.
+Create the best adaptive offline Spanish tutor possible while preserving a language-agnostic learning engine.
 
 ---
 

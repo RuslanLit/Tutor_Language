@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.0
+Version: 3.1
 
 Related documents:
 
@@ -62,7 +62,7 @@ Generation 1 includes:
 
 - Android application;
 - offline operation;
-- Spanish language;
+- Spanish Language Pack;
 - deterministic lesson planning;
 - template-based lesson generation;
 - learner progress tracking;
@@ -114,7 +114,7 @@ A0 → early A1.
 
 Generation 1 focuses on practical beginner Spanish.
 
-Topics include:
+Subject areas include:
 
 - greetings;
 - introductions;
@@ -271,6 +271,8 @@ Future local LLM support may provide:
 - conversational practice.
 
 The Lesson Planner must remain deterministic.
+
+AI must not be required for lesson generation.
 
 ---
 

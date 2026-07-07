@@ -3,18 +3,43 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
-import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 
 void main() {
   test('missing required id fails deterministically', () {
     expect(
-      () => VocabularyEntry.fromJson(const {
+      () => VocabularyItem.fromJson(const {
         'spanish': 'hola',
         'native_translation': 'hello',
         'cefr': 'A0',
-        'topic_ids': ['topic_001'],
         'example': 'Hola.',
+      }),
+      throwsA(isA<FormatException>()),
+    );
+  });
+
+  test('vocabulary reverse lesson membership fails deterministically', () {
+    expect(
+      () => VocabularyItem.fromJson(const {
+        'id': 'vocab.test.v1',
+        'spanish': 'hola',
+        'native_translation': 'hello',
+        'cefr': 'A0',
+        'example': 'Hola.',
+        'lesson_ids': ['lesson.greetings.v1'],
+      }),
+      throwsA(isA<FormatException>()),
+    );
+
+    expect(
+      () => VocabularyItem.fromJson(const {
+        'id': 'vocab.test.v1',
+        'spanish': 'hola',
+        'native_translation': 'hello',
+        'cefr': 'A0',
+        'example': 'Hola.',
+        'topic_ids': ['topic.greetings.v1'],
       }),
       throwsA(isA<FormatException>()),
     );
@@ -22,12 +47,11 @@ void main() {
 
   test('missing required title fails deterministically', () {
     expect(
-      () => GrammarRule.fromJson(const {
+      () => GrammarTopic.fromJson(const {
         'id': 'grammar.test.v1',
         'explanation': 'Explanation.',
         'examples': ['Example.'],
         'prerequisite_ids': [],
-        'topic_ids': ['topic_001'],
       }),
       throwsA(isA<FormatException>()),
     );
@@ -35,13 +59,12 @@ void main() {
 
   test('wrong JSON type for list fields fails deterministically', () {
     expect(
-      () => VocabularyEntry.fromJson(const {
-        'id': 'vocab.test.v1',
-        'spanish': 'hola',
-        'native_translation': 'hello',
-        'cefr': 'A0',
-        'topic_ids': 'topic_001',
-        'example': 'Hola.',
+      () => GrammarTopic.fromJson(const {
+        'id': 'grammar.test.v1',
+        'title': 'llamarse basics',
+        'explanation': 'Explanation.',
+        'examples': 'Example.',
+        'prerequisite_ids': [],
       }),
       throwsA(isA<FormatException>()),
     );
@@ -51,14 +74,14 @@ void main() {
     final loader = ContentLoader(assetBundle: _JsonAssetBundle(const {}));
 
     await expectLater(
-      loader.loadContent('assets/spanish/unknown/example.json'),
+      loader.loadContent('assets/languages/spanish/unknown/example.json'),
       throwsA(isA<ArgumentError>()),
     );
   });
 
   test('invalid ContentReference shape fails deterministically', () {
     expect(
-      () => ContentReference.fromJson(const {
+      () => LessonContentReference.fromJson(const {
         'type': 'vocabulary',
         'assetPath': '',
       }),
@@ -66,26 +89,26 @@ void main() {
     );
   });
 
-  test('invalid TopicSection shape fails deterministically', () {
+  test('invalid LessonActivity shape fails deterministically', () {
     expect(
-      () => TopicSection.fromJson(const {
-        'id': 'section_001',
-        'title': 'Broken section',
-        'contentReference': 'not an object',
+      () => LessonActivity.fromJson(const {
+        'id': 'activity_001',
+        'type': 'vocabulary',
+        'contentReferences': 'not a list',
       }),
       throwsA(isA<FormatException>()),
     );
   });
 
-  test('invalid TopicContent shape fails deterministically', () async {
+  test('invalid EducationalContent shape fails deterministically', () async {
     final loader = ContentLoader(
       assetBundle: _JsonAssetBundle(const {
-        'assets/spanish/vocabulary/broken.json': {'id': 'not a list'},
+        'assets/languages/spanish/vocabulary/broken.json': {'id': 'not a list'},
       }),
     );
 
     await expectLater(
-      loader.loadContent('assets/spanish/vocabulary/broken.json'),
+      loader.loadContent('assets/languages/spanish/vocabulary/broken.json'),
       throwsA(isA<FormatException>()),
     );
   });

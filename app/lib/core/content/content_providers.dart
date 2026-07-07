@@ -1,13 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../features/curriculum/curriculum_models.dart';
+import '../../features/curriculum/lesson_order_service.dart';
 import 'content_repository.dart';
-import 'course.dart';
 
 final contentRepositoryProvider = Provider<ContentRepository>((ref) {
   return ContentRepository();
 });
 
-final currentLanguageProvider = FutureProvider<Language>((ref) {
+final currentLanguageProvider = FutureProvider<LanguagePackDisplay>((ref) {
   return ref.watch(contentRepositoryProvider).loadCurrentLanguage();
 });
 
@@ -15,9 +16,13 @@ final currentCourseProvider = FutureProvider<Course>((ref) {
   return ref.watch(contentRepositoryProvider).loadCourse();
 });
 
-final topicDetailsProvider = FutureProvider.family<TopicDetails, String>((
+final lessonDetailsProvider = FutureProvider.family<LessonDetails, String>((
   ref,
-  topicId,
+  lessonId,
 ) {
-  return ref.watch(contentRepositoryProvider).loadTopicDetails(topicId);
+  return ref.watch(contentRepositoryProvider).loadLessonDetails(lessonId);
+});
+
+final topicOrderServiceProvider = Provider<LessonOrderService>((ref) {
+  return const LessonOrderService();
 });

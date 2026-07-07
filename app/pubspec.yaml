@@ -29,9 +29,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/spanish/vocabulary/
-    - assets/spanish/grammar/
-    - assets/spanish/templates/
-    - assets/spanish/dialogues/
-    - assets/spanish/readings/
-    - assets/spanish/curriculum/
+    - assets/languages/spanish/language.json
+    - assets/languages/spanish/vocabulary/
+    - assets/languages/spanish/grammar/
+    - assets/languages/spanish/templates/
+    - assets/languages/spanish/dialogues/
+    - assets/languages/spanish/readings/
+    - assets/languages/spanish/curriculum/

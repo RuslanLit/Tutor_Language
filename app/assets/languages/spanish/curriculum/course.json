@@ -1,0 +1,125 @@
+{
+  "id": "spanish_a1",
+  "languageId": "spanish",
+  "title": "Beginner Spanish",
+  "level": "A1",
+  "version": "1.0.0",
+  "modules": [
+    {
+      "id": "module_001",
+      "title": "First Contacts",
+      "lessonIds": [
+        "lesson_001"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "metadata": {
+        "id": "lesson_001",
+        "title": "Greetings",
+        "moduleId": "module_001",
+        "courseId": "spanish_a1",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A1",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": []
+      },
+      "objectives": [
+        {
+          "id": "objective.greetings",
+          "description": "Recognize basic greeting language."
+        }
+      ],
+      "sections": [
+        {
+          "id": "lesson_001.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "activity_001",
+              "title": "Greeting Words",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json"
+                }
+              ]
+            },
+            {
+              "id": "activity_002",
+              "title": "Introducing Yourself",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/llamarse_basic.json"
+                }
+              ]
+            },
+            {
+              "id": "activity_003",
+              "title": "Greeting Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/greetings.json"
+                }
+              ]
+            },
+            {
+              "id": "activity_004",
+              "title": "Short Greeting Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/basic_greeting.json"
+                }
+              ]
+            },
+            {
+              "id": "activity_005",
+              "title": "Greeting Template",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/multiple_choice_basic.json"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "lesson_001.summary",
+        "reviewPrompt": "Review the lesson objectives.",
+        "referenceIds": []
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "activity_001",
+          "activity_002",
+          "activity_003",
+          "activity_004",
+          "activity_005"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "lesson_001.section.main"
+        ]
+      },
+      "references": []
+    }
+  ]
+}

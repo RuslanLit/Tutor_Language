@@ -4,10 +4,10 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/content/content_providers.dart';
-import '../../core/content/course.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
+import '../curriculum/curriculum_models.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -51,7 +51,7 @@ class CourseOverview extends StatelessWidget {
     super.key,
   });
 
-  final Language language;
+  final LanguagePackDisplay language;
   final Course course;
 
   @override
@@ -63,41 +63,45 @@ class CourseOverview extends StatelessWidget {
         const SizedBox(height: 4),
         Text(course.title, style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(height: 16),
-        for (final unit in course.units) UnitTile(unit: unit),
+        for (final module in course.modules) ModuleTile(module: module),
       ],
     );
   }
 }
 
-class UnitTile extends StatelessWidget {
-  const UnitTile({required this.unit, super.key});
+class ModuleTile extends StatelessWidget {
+  const ModuleTile({required this.module, super.key});
 
-  final Unit unit;
+  final Module module;
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      title: Text(unit.title),
-      children: [for (final topic in unit.topics) TopicTile(topic: topic)],
+      title: Text(module.title),
+      children: [
+        for (final lessonId in module.lessonIds) LessonTile(lessonId: lessonId),
+      ],
     );
   }
 }
 
-class TopicTile extends ConsumerWidget {
-  const TopicTile({required this.topic, super.key});
+class LessonTile extends ConsumerWidget {
+  const LessonTile({required this.lessonId, super.key});
 
-  final Topic topic;
+  final String lessonId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final progress = ref.watch(topicProgressProvider(topic.id));
+    final course = ref.watch(currentCourseProvider).asData?.value;
+    final progress = ref.watch(topicProgressProvider(lessonId));
+    final lesson = _lessonById(course, lessonId);
 
     return ListTile(
-      title: Text(topic.title),
+      title: Text(lesson?.title ?? lessonId),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${topic.sections.length} sections'),
+          Text('${lesson?.activities.length ?? 0} activities'),
           progress.when(
             data: (progress) => Text(_topicStatusLabel(progress)),
             error: (error, stackTrace) => const Text('Not viewed'),
@@ -107,7 +111,7 @@ class TopicTile extends ConsumerWidget {
       ),
       onTap: () => context.goNamed(
         TopicRoute.name,
-        pathParameters: {'topicId': topic.id},
+        pathParameters: {'topicId': lessonId},
       ),
     );
   }
@@ -118,5 +122,19 @@ class TopicTile extends ConsumerWidget {
     }
 
     return progress.hasBeenViewed ? 'Viewed' : 'Not viewed';
+  }
+
+  Lesson? _lessonById(Course? course, String lessonId) {
+    if (course == null) {
+      return null;
+    }
+
+    for (final lesson in course.lessons) {
+      if (lesson.id == lessonId) {
+        return lesson;
+      }
+    }
+
+    return null;
   }
 }
