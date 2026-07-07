@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/content/content_repository.dart';
-import '../../../core/learner/learner_progress.dart';
+import '../../exercise_runtime/exercise_runtime_models.dart';
 import '../rendering/topic_content_renderer.dart';
 import '../rendering/topic_content_renderer_registry.dart';
 import 'section_header.dart';
@@ -11,14 +11,14 @@ class TopicSectionCard extends StatelessWidget {
     required this.topicId,
     required this.sectionDetails,
     required this.rendererRegistry,
-    this.onProgressEvent,
+    this.onRuntimeEvent,
     super.key,
   });
 
   final String topicId;
   final TopicSectionDetails sectionDetails;
   final TopicContentRendererRegistry rendererRegistry;
-  final ValueChanged<ProgressEvent>? onProgressEvent;
+  final ValueChanged<ExerciseRuntimeEvent>? onRuntimeEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class TopicSectionCard extends StatelessWidget {
                 topicId: topicId,
                 sectionId: section.id,
                 contentReference: section.contentReference.assetPath,
-                onProgressEvent: onProgressEvent,
+                onRuntimeEvent: onRuntimeEvent,
               ),
             ),
           ],

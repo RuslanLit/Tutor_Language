@@ -1,20 +1,20 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../core/content/topic_content.dart';
-import '../../../core/learner/learner_progress.dart';
+import '../../exercise_runtime/exercise_runtime_models.dart';
 
 class TopicContentRenderContext {
   const TopicContentRenderContext({
     required this.topicId,
     required this.sectionId,
     required this.contentReference,
-    this.onProgressEvent,
+    this.onRuntimeEvent,
   });
 
   final String topicId;
   final String sectionId;
   final String contentReference;
-  final ValueChanged<ProgressEvent>? onProgressEvent;
+  final ValueChanged<ExerciseRuntimeEvent>? onRuntimeEvent;
 }
 
 abstract class TopicContentRenderer<T extends TopicContent> {

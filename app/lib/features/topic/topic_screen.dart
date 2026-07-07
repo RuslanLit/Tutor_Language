@@ -3,8 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/content/content_providers.dart';
 import '../../core/content/content_repository.dart';
-import '../../core/learner/learner_progress.dart';
-import '../../core/learner/learner_progress_providers.dart';
+import '../exercise_runtime/exercise_runtime_models.dart';
+import '../learning_session/learning_session_controller.dart';
+import '../learning_session/learning_session_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import 'rendering/topic_content_renderer_registry.dart';
 import 'widgets/topic_section_card.dart';
@@ -19,23 +20,28 @@ class TopicScreen extends ConsumerStatefulWidget {
 }
 
 class _TopicScreenState extends ConsumerState<TopicScreen> {
-  bool _recordedTopicViewed = false;
+  LearningSessionController? _sessionController;
 
   @override
   Widget build(BuildContext context) {
     final details = ref.watch(topicDetailsProvider(widget.topicId));
     final rendererRegistry = ref.watch(topicContentRendererRegistryProvider);
+    final sessionController = ref.watch(
+      learningSessionControllerProvider(widget.topicId),
+    );
+    _sessionController = sessionController;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Topic')),
       body: details.when(
         data: (details) {
-          _recordTopicViewed(details);
-
           return TopicDetailsView(
             details: details,
             rendererRegistry: rendererRegistry,
-            onProgressEvent: _recordProgressEvent,
+            onRuntimeEvent: (event) => _recordRuntimeEvent(
+              sessionController: sessionController,
+              event: event,
+            ),
           );
         },
         error: (error, stackTrace) => CourseBrowserError(message: '$error'),
@@ -44,34 +50,29 @@ class _TopicScreenState extends ConsumerState<TopicScreen> {
     );
   }
 
-  void _recordTopicViewed(TopicDetails details) {
-    if (_recordedTopicViewed) {
+  @override
+  void dispose() {
+    _sessionController?.finishSession();
+    super.dispose();
+  }
+
+  void _recordRuntimeEvent({
+    required LearningSessionController sessionController,
+    required ExerciseRuntimeEvent event,
+  }) {
+    final sectionId = event.sectionId;
+    final contentReference = event.contentReference;
+
+    if (sectionId == null || contentReference == null) {
       return;
     }
 
-    _recordedTopicViewed = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) {
-        return;
-      }
-
-      _recordProgressEvent(
-        ProgressEvent.create(
-          eventType: ProgressEventType.topicViewed,
-          topicId: details.topic.id,
-        ),
-      );
-    });
-  }
-
-  void _recordProgressEvent(ProgressEvent event) {
-    final repository = ref.read(learnerProgressRepositoryProvider);
-
-    repository.recordEvent(event).then((_) {
-      if (mounted) {
-        ref.invalidate(topicProgressProvider(event.topicId));
-      }
-    });
+    sessionController.recordRuntimeEvent(
+      event: event,
+      sectionId: sectionId,
+      contentReference: contentReference,
+      metadataJson: event.metadataJson,
+    );
   }
 }
 
@@ -79,13 +80,13 @@ class TopicDetailsView extends StatelessWidget {
   const TopicDetailsView({
     required this.details,
     required this.rendererRegistry,
-    this.onProgressEvent,
+    this.onRuntimeEvent,
     super.key,
   });
 
   final TopicDetails details;
   final TopicContentRendererRegistry rendererRegistry;
-  final ValueChanged<ProgressEvent>? onProgressEvent;
+  final ValueChanged<ExerciseRuntimeEvent>? onRuntimeEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +103,7 @@ class TopicDetailsView extends StatelessWidget {
             topicId: details.topic.id,
             sectionDetails: section,
             rendererRegistry: rendererRegistry,
-            onProgressEvent: onProgressEvent,
+            onRuntimeEvent: onRuntimeEvent,
           ),
       ],
     );

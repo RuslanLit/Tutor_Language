@@ -8,6 +8,7 @@ import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/topic/rendering/dialogue_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/exercise_template_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/grammar_content_renderer.dart';
@@ -17,6 +18,8 @@ import 'package:tutor_language/features/topic/rendering/topic_content_renderer_r
 import 'package:tutor_language/features/topic/rendering/unsupported_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/vocabulary_content_renderer.dart';
 import 'package:tutor_language/features/topic/topic_screen.dart';
+import 'package:tutor_language/features/learning_session/learning_session_controller.dart';
+import 'package:tutor_language/features/learning_session/learning_session_providers.dart';
 
 void main() {
   testWidgets('Vocabulary renderer displays term and translation', (
@@ -154,6 +157,65 @@ void main() {
     expect(find.text('Greeting Words'), findsOneWidget);
     expect(find.text('delegated renderer'), findsOneWidget);
   });
+
+  testWidgets('TopicScreen starts session', (tester) async {
+    late AppDatabase database;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          contentRepositoryProvider.overrideWith(
+            (ref) => _FakeContentRepository(),
+          ),
+          appDatabaseProvider.overrideWith((ref) {
+            database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
+        ],
+        child: const MaterialApp(
+          home: TopicScreen(topicId: 'topic.greetings.v1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final repository = LearnerProgressRepository(database);
+    final events = await repository.readEventsForTopic('topic.greetings.v1');
+
+    expect(events.single.eventType.name, 'topicViewed');
+  });
+
+  testWidgets('TopicScreen disposes session', (tester) async {
+    late _RecordingLearningSessionController controller;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          contentRepositoryProvider.overrideWith(
+            (ref) => _FakeContentRepository(),
+          ),
+          learningSessionControllerProvider.overrideWith((ref, topicId) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            controller = _RecordingLearningSessionController(
+              progressRepository: LearnerProgressRepository(database),
+            );
+            return controller;
+          }),
+        ],
+        child: const MaterialApp(
+          home: TopicScreen(topicId: 'topic.greetings.v1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pumpAndSettle();
+
+    expect(controller.finishCount, 1);
+  });
 }
 
 Widget _renderWithContext(Widget Function(BuildContext context) builder) {
@@ -181,6 +243,18 @@ class _DelegatingRenderer extends TopicContentRenderer<TopicContent> {
 class _UnknownContent extends TopicContent {
   const _UnknownContent()
     : super(type: 'unknown', assetPath: 'assets/spanish/unknown.json');
+}
+
+class _RecordingLearningSessionController extends LearningSessionController {
+  _RecordingLearningSessionController({required super.progressRepository});
+
+  int finishCount = 0;
+
+  @override
+  Future<void> finishSession() {
+    finishCount += 1;
+    return super.finishSession();
+  }
 }
 
 class _FakeContentRepository extends ContentRepository {

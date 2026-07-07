@@ -91,10 +91,32 @@ class ExerciseRuntimeEvent {
     required this.itemId,
     required this.templateId,
     required this.interactionType,
+    this.sectionId,
+    this.contentReference,
+    this.metadataJson,
   });
 
   final ExerciseRuntimeEventType eventType;
   final String itemId;
   final String templateId;
   final String interactionType;
+  final String? sectionId;
+  final String? contentReference;
+  final String? metadataJson;
+
+  ExerciseRuntimeEvent withContext({
+    required String sectionId,
+    required String contentReference,
+    String? metadataJson,
+  }) {
+    return ExerciseRuntimeEvent(
+      eventType: eventType,
+      itemId: itemId,
+      templateId: templateId,
+      interactionType: interactionType,
+      sectionId: sectionId,
+      contentReference: contentReference,
+      metadataJson: metadataJson,
+    );
+  }
 }

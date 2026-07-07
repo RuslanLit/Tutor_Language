@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../../../core/content/topic_content.dart';
-import '../../../core/learner/learner_progress.dart';
 import '../../exercise_runtime/exercise_runtime_models.dart';
 import '../../exercise_runtime/exercise_runtime_widget.dart';
 import '../rendering/topic_content_renderer.dart';
@@ -32,30 +31,23 @@ class ExerciseTemplateContentCard extends StatelessWidget {
           const SizedBox(height: 8),
           ExerciseRuntimeWidget(
             session: ExerciseSession.fromTemplate(template),
-            onRuntimeEvent: (event) => _emitProgressEvent(event),
+            onRuntimeEvent: (event) => _emitRuntimeEvent(event),
           ),
         ],
       ],
     );
   }
 
-  void _emitProgressEvent(ExerciseRuntimeEvent event) {
+  void _emitRuntimeEvent(ExerciseRuntimeEvent event) {
     final context = renderContext;
-    final onProgressEvent = context?.onProgressEvent;
+    final onRuntimeEvent = context?.onRuntimeEvent;
 
-    if (context == null || onProgressEvent == null) {
+    if (context == null || onRuntimeEvent == null) {
       return;
     }
 
-    onProgressEvent(
-      ProgressEvent.create(
-        eventType: switch (event.eventType) {
-          ExerciseRuntimeEventType.answerSelected =>
-            ProgressEventType.exerciseAnswered,
-          ExerciseRuntimeEventType.answerChecked =>
-            ProgressEventType.answerChecked,
-        },
-        topicId: context.topicId,
+    onRuntimeEvent(
+      event.withContext(
         sectionId: context.sectionId,
         contentReference: context.contentReference,
         metadataJson: jsonEncode({
