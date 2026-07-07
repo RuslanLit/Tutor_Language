@@ -434,15 +434,506 @@ class LearnerStatesCompanion extends UpdateCompanion<LearnerStateRow> {
   }
 }
 
+class $LearnerProgressEventsTable extends LearnerProgressEvents
+    with TableInfo<$LearnerProgressEventsTable, LearnerProgressEventRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $LearnerProgressEventsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _eventTypeMeta = const VerificationMeta(
+    'eventType',
+  );
+  @override
+  late final GeneratedColumn<String> eventType = GeneratedColumn<String>(
+    'event_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _topicIdMeta = const VerificationMeta(
+    'topicId',
+  );
+  @override
+  late final GeneratedColumn<String> topicId = GeneratedColumn<String>(
+    'topic_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sectionIdMeta = const VerificationMeta(
+    'sectionId',
+  );
+  @override
+  late final GeneratedColumn<String> sectionId = GeneratedColumn<String>(
+    'section_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _contentReferenceMeta = const VerificationMeta(
+    'contentReference',
+  );
+  @override
+  late final GeneratedColumn<String> contentReference = GeneratedColumn<String>(
+    'content_reference',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _metadataJsonMeta = const VerificationMeta(
+    'metadataJson',
+  );
+  @override
+  late final GeneratedColumn<String> metadataJson = GeneratedColumn<String>(
+    'metadata_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    eventType,
+    topicId,
+    sectionId,
+    contentReference,
+    createdAt,
+    metadataJson,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'learner_progress_events';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<LearnerProgressEventRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('event_type')) {
+      context.handle(
+        _eventTypeMeta,
+        eventType.isAcceptableOrUnknown(data['event_type']!, _eventTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_eventTypeMeta);
+    }
+    if (data.containsKey('topic_id')) {
+      context.handle(
+        _topicIdMeta,
+        topicId.isAcceptableOrUnknown(data['topic_id']!, _topicIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_topicIdMeta);
+    }
+    if (data.containsKey('section_id')) {
+      context.handle(
+        _sectionIdMeta,
+        sectionId.isAcceptableOrUnknown(data['section_id']!, _sectionIdMeta),
+      );
+    }
+    if (data.containsKey('content_reference')) {
+      context.handle(
+        _contentReferenceMeta,
+        contentReference.isAcceptableOrUnknown(
+          data['content_reference']!,
+          _contentReferenceMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('metadata_json')) {
+      context.handle(
+        _metadataJsonMeta,
+        metadataJson.isAcceptableOrUnknown(
+          data['metadata_json']!,
+          _metadataJsonMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  LearnerProgressEventRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return LearnerProgressEventRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      eventType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}event_type'],
+      )!,
+      topicId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}topic_id'],
+      )!,
+      sectionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}section_id'],
+      ),
+      contentReference: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}content_reference'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      metadataJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}metadata_json'],
+      ),
+    );
+  }
+
+  @override
+  $LearnerProgressEventsTable createAlias(String alias) {
+    return $LearnerProgressEventsTable(attachedDatabase, alias);
+  }
+}
+
+class LearnerProgressEventRow extends DataClass
+    implements Insertable<LearnerProgressEventRow> {
+  final String id;
+  final String eventType;
+  final String topicId;
+  final String? sectionId;
+  final String? contentReference;
+  final DateTime createdAt;
+  final String? metadataJson;
+  const LearnerProgressEventRow({
+    required this.id,
+    required this.eventType,
+    required this.topicId,
+    this.sectionId,
+    this.contentReference,
+    required this.createdAt,
+    this.metadataJson,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['event_type'] = Variable<String>(eventType);
+    map['topic_id'] = Variable<String>(topicId);
+    if (!nullToAbsent || sectionId != null) {
+      map['section_id'] = Variable<String>(sectionId);
+    }
+    if (!nullToAbsent || contentReference != null) {
+      map['content_reference'] = Variable<String>(contentReference);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || metadataJson != null) {
+      map['metadata_json'] = Variable<String>(metadataJson);
+    }
+    return map;
+  }
+
+  LearnerProgressEventsCompanion toCompanion(bool nullToAbsent) {
+    return LearnerProgressEventsCompanion(
+      id: Value(id),
+      eventType: Value(eventType),
+      topicId: Value(topicId),
+      sectionId: sectionId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sectionId),
+      contentReference: contentReference == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contentReference),
+      createdAt: Value(createdAt),
+      metadataJson: metadataJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(metadataJson),
+    );
+  }
+
+  factory LearnerProgressEventRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return LearnerProgressEventRow(
+      id: serializer.fromJson<String>(json['id']),
+      eventType: serializer.fromJson<String>(json['eventType']),
+      topicId: serializer.fromJson<String>(json['topicId']),
+      sectionId: serializer.fromJson<String?>(json['sectionId']),
+      contentReference: serializer.fromJson<String?>(json['contentReference']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      metadataJson: serializer.fromJson<String?>(json['metadataJson']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'eventType': serializer.toJson<String>(eventType),
+      'topicId': serializer.toJson<String>(topicId),
+      'sectionId': serializer.toJson<String?>(sectionId),
+      'contentReference': serializer.toJson<String?>(contentReference),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'metadataJson': serializer.toJson<String?>(metadataJson),
+    };
+  }
+
+  LearnerProgressEventRow copyWith({
+    String? id,
+    String? eventType,
+    String? topicId,
+    Value<String?> sectionId = const Value.absent(),
+    Value<String?> contentReference = const Value.absent(),
+    DateTime? createdAt,
+    Value<String?> metadataJson = const Value.absent(),
+  }) => LearnerProgressEventRow(
+    id: id ?? this.id,
+    eventType: eventType ?? this.eventType,
+    topicId: topicId ?? this.topicId,
+    sectionId: sectionId.present ? sectionId.value : this.sectionId,
+    contentReference: contentReference.present
+        ? contentReference.value
+        : this.contentReference,
+    createdAt: createdAt ?? this.createdAt,
+    metadataJson: metadataJson.present ? metadataJson.value : this.metadataJson,
+  );
+  LearnerProgressEventRow copyWithCompanion(
+    LearnerProgressEventsCompanion data,
+  ) {
+    return LearnerProgressEventRow(
+      id: data.id.present ? data.id.value : this.id,
+      eventType: data.eventType.present ? data.eventType.value : this.eventType,
+      topicId: data.topicId.present ? data.topicId.value : this.topicId,
+      sectionId: data.sectionId.present ? data.sectionId.value : this.sectionId,
+      contentReference: data.contentReference.present
+          ? data.contentReference.value
+          : this.contentReference,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      metadataJson: data.metadataJson.present
+          ? data.metadataJson.value
+          : this.metadataJson,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LearnerProgressEventRow(')
+          ..write('id: $id, ')
+          ..write('eventType: $eventType, ')
+          ..write('topicId: $topicId, ')
+          ..write('sectionId: $sectionId, ')
+          ..write('contentReference: $contentReference, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('metadataJson: $metadataJson')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    eventType,
+    topicId,
+    sectionId,
+    contentReference,
+    createdAt,
+    metadataJson,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is LearnerProgressEventRow &&
+          other.id == this.id &&
+          other.eventType == this.eventType &&
+          other.topicId == this.topicId &&
+          other.sectionId == this.sectionId &&
+          other.contentReference == this.contentReference &&
+          other.createdAt == this.createdAt &&
+          other.metadataJson == this.metadataJson);
+}
+
+class LearnerProgressEventsCompanion
+    extends UpdateCompanion<LearnerProgressEventRow> {
+  final Value<String> id;
+  final Value<String> eventType;
+  final Value<String> topicId;
+  final Value<String?> sectionId;
+  final Value<String?> contentReference;
+  final Value<DateTime> createdAt;
+  final Value<String?> metadataJson;
+  final Value<int> rowid;
+  const LearnerProgressEventsCompanion({
+    this.id = const Value.absent(),
+    this.eventType = const Value.absent(),
+    this.topicId = const Value.absent(),
+    this.sectionId = const Value.absent(),
+    this.contentReference = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.metadataJson = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  LearnerProgressEventsCompanion.insert({
+    required String id,
+    required String eventType,
+    required String topicId,
+    this.sectionId = const Value.absent(),
+    this.contentReference = const Value.absent(),
+    required DateTime createdAt,
+    this.metadataJson = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       eventType = Value(eventType),
+       topicId = Value(topicId),
+       createdAt = Value(createdAt);
+  static Insertable<LearnerProgressEventRow> custom({
+    Expression<String>? id,
+    Expression<String>? eventType,
+    Expression<String>? topicId,
+    Expression<String>? sectionId,
+    Expression<String>? contentReference,
+    Expression<DateTime>? createdAt,
+    Expression<String>? metadataJson,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (eventType != null) 'event_type': eventType,
+      if (topicId != null) 'topic_id': topicId,
+      if (sectionId != null) 'section_id': sectionId,
+      if (contentReference != null) 'content_reference': contentReference,
+      if (createdAt != null) 'created_at': createdAt,
+      if (metadataJson != null) 'metadata_json': metadataJson,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  LearnerProgressEventsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? eventType,
+    Value<String>? topicId,
+    Value<String?>? sectionId,
+    Value<String?>? contentReference,
+    Value<DateTime>? createdAt,
+    Value<String?>? metadataJson,
+    Value<int>? rowid,
+  }) {
+    return LearnerProgressEventsCompanion(
+      id: id ?? this.id,
+      eventType: eventType ?? this.eventType,
+      topicId: topicId ?? this.topicId,
+      sectionId: sectionId ?? this.sectionId,
+      contentReference: contentReference ?? this.contentReference,
+      createdAt: createdAt ?? this.createdAt,
+      metadataJson: metadataJson ?? this.metadataJson,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (eventType.present) {
+      map['event_type'] = Variable<String>(eventType.value);
+    }
+    if (topicId.present) {
+      map['topic_id'] = Variable<String>(topicId.value);
+    }
+    if (sectionId.present) {
+      map['section_id'] = Variable<String>(sectionId.value);
+    }
+    if (contentReference.present) {
+      map['content_reference'] = Variable<String>(contentReference.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (metadataJson.present) {
+      map['metadata_json'] = Variable<String>(metadataJson.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('LearnerProgressEventsCompanion(')
+          ..write('id: $id, ')
+          ..write('eventType: $eventType, ')
+          ..write('topicId: $topicId, ')
+          ..write('sectionId: $sectionId, ')
+          ..write('contentReference: $contentReference, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('metadataJson: $metadataJson, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $LearnerStatesTable learnerStates = $LearnerStatesTable(this);
+  late final $LearnerProgressEventsTable learnerProgressEvents =
+      $LearnerProgressEventsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [learnerStates];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    learnerStates,
+    learnerProgressEvents,
+  ];
 }
 
 typedef $$LearnerStatesTableCreateCompanionBuilder =
@@ -670,10 +1161,273 @@ typedef $$LearnerStatesTableProcessedTableManager =
       LearnerStateRow,
       PrefetchHooks Function()
     >;
+typedef $$LearnerProgressEventsTableCreateCompanionBuilder =
+    LearnerProgressEventsCompanion Function({
+      required String id,
+      required String eventType,
+      required String topicId,
+      Value<String?> sectionId,
+      Value<String?> contentReference,
+      required DateTime createdAt,
+      Value<String?> metadataJson,
+      Value<int> rowid,
+    });
+typedef $$LearnerProgressEventsTableUpdateCompanionBuilder =
+    LearnerProgressEventsCompanion Function({
+      Value<String> id,
+      Value<String> eventType,
+      Value<String> topicId,
+      Value<String?> sectionId,
+      Value<String?> contentReference,
+      Value<DateTime> createdAt,
+      Value<String?> metadataJson,
+      Value<int> rowid,
+    });
+
+class $$LearnerProgressEventsTableFilterComposer
+    extends Composer<_$AppDatabase, $LearnerProgressEventsTable> {
+  $$LearnerProgressEventsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get eventType => $composableBuilder(
+    column: $table.eventType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get topicId => $composableBuilder(
+    column: $table.topicId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sectionId => $composableBuilder(
+    column: $table.sectionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get contentReference => $composableBuilder(
+    column: $table.contentReference,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get metadataJson => $composableBuilder(
+    column: $table.metadataJson,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$LearnerProgressEventsTableOrderingComposer
+    extends Composer<_$AppDatabase, $LearnerProgressEventsTable> {
+  $$LearnerProgressEventsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get eventType => $composableBuilder(
+    column: $table.eventType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get topicId => $composableBuilder(
+    column: $table.topicId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sectionId => $composableBuilder(
+    column: $table.sectionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get contentReference => $composableBuilder(
+    column: $table.contentReference,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get metadataJson => $composableBuilder(
+    column: $table.metadataJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$LearnerProgressEventsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $LearnerProgressEventsTable> {
+  $$LearnerProgressEventsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get eventType =>
+      $composableBuilder(column: $table.eventType, builder: (column) => column);
+
+  GeneratedColumn<String> get topicId =>
+      $composableBuilder(column: $table.topicId, builder: (column) => column);
+
+  GeneratedColumn<String> get sectionId =>
+      $composableBuilder(column: $table.sectionId, builder: (column) => column);
+
+  GeneratedColumn<String> get contentReference => $composableBuilder(
+    column: $table.contentReference,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<String> get metadataJson => $composableBuilder(
+    column: $table.metadataJson,
+    builder: (column) => column,
+  );
+}
+
+class $$LearnerProgressEventsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $LearnerProgressEventsTable,
+          LearnerProgressEventRow,
+          $$LearnerProgressEventsTableFilterComposer,
+          $$LearnerProgressEventsTableOrderingComposer,
+          $$LearnerProgressEventsTableAnnotationComposer,
+          $$LearnerProgressEventsTableCreateCompanionBuilder,
+          $$LearnerProgressEventsTableUpdateCompanionBuilder,
+          (
+            LearnerProgressEventRow,
+            BaseReferences<
+              _$AppDatabase,
+              $LearnerProgressEventsTable,
+              LearnerProgressEventRow
+            >,
+          ),
+          LearnerProgressEventRow,
+          PrefetchHooks Function()
+        > {
+  $$LearnerProgressEventsTableTableManager(
+    _$AppDatabase db,
+    $LearnerProgressEventsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$LearnerProgressEventsTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$LearnerProgressEventsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$LearnerProgressEventsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> eventType = const Value.absent(),
+                Value<String> topicId = const Value.absent(),
+                Value<String?> sectionId = const Value.absent(),
+                Value<String?> contentReference = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<String?> metadataJson = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => LearnerProgressEventsCompanion(
+                id: id,
+                eventType: eventType,
+                topicId: topicId,
+                sectionId: sectionId,
+                contentReference: contentReference,
+                createdAt: createdAt,
+                metadataJson: metadataJson,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String eventType,
+                required String topicId,
+                Value<String?> sectionId = const Value.absent(),
+                Value<String?> contentReference = const Value.absent(),
+                required DateTime createdAt,
+                Value<String?> metadataJson = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => LearnerProgressEventsCompanion.insert(
+                id: id,
+                eventType: eventType,
+                topicId: topicId,
+                sectionId: sectionId,
+                contentReference: contentReference,
+                createdAt: createdAt,
+                metadataJson: metadataJson,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$LearnerProgressEventsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $LearnerProgressEventsTable,
+      LearnerProgressEventRow,
+      $$LearnerProgressEventsTableFilterComposer,
+      $$LearnerProgressEventsTableOrderingComposer,
+      $$LearnerProgressEventsTableAnnotationComposer,
+      $$LearnerProgressEventsTableCreateCompanionBuilder,
+      $$LearnerProgressEventsTableUpdateCompanionBuilder,
+      (
+        LearnerProgressEventRow,
+        BaseReferences<
+          _$AppDatabase,
+          $LearnerProgressEventsTable,
+          LearnerProgressEventRow
+        >,
+      ),
+      LearnerProgressEventRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
   $AppDatabaseManager(this._db);
   $$LearnerStatesTableTableManager get learnerStates =>
       $$LearnerStatesTableTableManager(_db, _db.learnerStates);
+  $$LearnerProgressEventsTableTableManager get learnerProgressEvents =>
+      $$LearnerProgressEventsTableTableManager(_db, _db.learnerProgressEvents);
 }

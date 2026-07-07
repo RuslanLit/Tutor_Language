@@ -1,3 +1,4 @@
+import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
@@ -5,6 +6,10 @@ import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/core/database/app_database.dart';
+import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/learner_progress.dart';
+import 'package:tutor_language/core/learner/learner_progress_providers.dart';
 
 void main() {
   testWidgets('Home displays loaded Units', (tester) async {
@@ -23,6 +28,25 @@ void main() {
 
     expect(find.text('Greetings'), findsOneWidget);
     expect(find.text('1 sections'), findsOneWidget);
+  });
+
+  testWidgets('Topic list displays viewed status', (tester) async {
+    await tester.pumpWidget(
+      _testApp(
+        _FakeContentRepository(),
+        topicProgress: TopicProgress(
+          topicId: _topic.id,
+          viewedAt: DateTime.utc(2026),
+          lastActivityAt: DateTime.utc(2026),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('First Contacts'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Viewed'), findsOneWidget);
   });
 
   testWidgets('Opening Topic shows TopicSections', (tester) async {
@@ -55,9 +79,23 @@ void main() {
   });
 }
 
-ProviderScope _testApp(ContentRepository repository) {
+ProviderScope _testApp(
+  ContentRepository repository, {
+  TopicProgress? topicProgress,
+}) {
   return ProviderScope(
-    overrides: [contentRepositoryProvider.overrideWith((ref) => repository)],
+    overrides: [
+      contentRepositoryProvider.overrideWith((ref) => repository),
+      appDatabaseProvider.overrideWith((ref) {
+        final database = AppDatabase(NativeDatabase.memory());
+        ref.onDispose(database.close);
+        return database;
+      }),
+      if (topicProgress != null)
+        topicProgressProvider.overrideWith((ref, topicId) async {
+          return topicProgress;
+        }),
+    ],
     child: const TutorLanguageApp(),
   );
 }

@@ -1,15 +1,42 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../core/content/topic_content.dart';
+import '../../../core/learner/learner_progress.dart';
+
+class TopicContentRenderContext {
+  const TopicContentRenderContext({
+    required this.topicId,
+    required this.sectionId,
+    required this.contentReference,
+    this.onProgressEvent,
+  });
+
+  final String topicId;
+  final String sectionId;
+  final String contentReference;
+  final ValueChanged<ProgressEvent>? onProgressEvent;
+}
 
 abstract class TopicContentRenderer<T extends TopicContent> {
   const TopicContentRenderer();
 
   bool canRender(TopicContent content) => content is T;
 
-  Widget build(BuildContext context, T content);
+  Widget build(
+    BuildContext context,
+    T content, {
+    TopicContentRenderContext? renderContext,
+  });
 
   Widget buildContent(BuildContext context, TopicContent content) {
     return build(context, content as T);
+  }
+
+  Widget buildContentWithContext(
+    BuildContext context,
+    TopicContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
+    return build(context, content as T, renderContext: renderContext);
   }
 }

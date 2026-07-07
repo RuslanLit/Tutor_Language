@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router/app_router.dart';
 import '../../core/content/content_providers.dart';
 import '../../core/content/course.dart';
+import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -76,17 +77,38 @@ class UnitTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(unit.title),
-      children: [
-        for (final topic in unit.topics)
-          ListTile(
-            title: Text(topic.title),
-            subtitle: Text('${topic.sections.length} sections'),
-            onTap: () => context.goNamed(
-              TopicRoute.name,
-              pathParameters: {'topicId': topic.id},
-            ),
+      children: [for (final topic in unit.topics) TopicTile(topic: topic)],
+    );
+  }
+}
+
+class TopicTile extends ConsumerWidget {
+  const TopicTile({required this.topic, super.key});
+
+  final Topic topic;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final progress = ref.watch(topicProgressProvider(topic.id));
+
+    return ListTile(
+      title: Text(topic.title),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('${topic.sections.length} sections'),
+          progress.when(
+            data: (progress) =>
+                Text(progress.hasBeenViewed ? 'Viewed' : 'Not viewed'),
+            error: (error, stackTrace) => const Text('Not viewed'),
+            loading: () => const Text('Not viewed'),
           ),
-      ],
+        ],
+      ),
+      onTap: () => context.goNamed(
+        TopicRoute.name,
+        pathParameters: {'topicId': topic.id},
+      ),
     );
   }
 }

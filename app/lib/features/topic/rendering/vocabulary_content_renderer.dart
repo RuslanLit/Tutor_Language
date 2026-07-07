@@ -9,7 +9,11 @@ class VocabularyContentRenderer
   const VocabularyContentRenderer();
 
   @override
-  Widget build(BuildContext context, VocabularyContent content) {
+  Widget build(
+    BuildContext context,
+    VocabularyContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
     return VocabularyContentCard(content: content);
   }
 }

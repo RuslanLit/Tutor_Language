@@ -46,7 +46,13 @@ class TopicContentRendererRegistry {
     return unsupportedRenderer;
   }
 
-  Widget build(BuildContext context, TopicContent content) {
-    return rendererFor(content).buildContent(context, content);
+  Widget build(
+    BuildContext context,
+    TopicContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
+    return rendererFor(
+      content,
+    ).buildContentWithContext(context, content, renderContext: renderContext);
   }
 }

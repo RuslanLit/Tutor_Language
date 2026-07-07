@@ -9,7 +9,14 @@ class ExerciseTemplateContentRenderer
   const ExerciseTemplateContentRenderer();
 
   @override
-  Widget build(BuildContext context, ExerciseTemplateContent content) {
-    return ExerciseTemplateContentCard(content: content);
+  Widget build(
+    BuildContext context,
+    ExerciseTemplateContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
+    return ExerciseTemplateContentCard(
+      content: content,
+      renderContext: renderContext,
+    );
   }
 }

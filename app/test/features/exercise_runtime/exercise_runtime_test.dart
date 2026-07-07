@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
@@ -141,6 +143,31 @@ void main() {
     expect(find.text('Correct'), findsOneWidget);
   });
 
+  testWidgets('runtime emits progress-neutral callback events', (tester) async {
+    final events = <ExerciseRuntimeEvent>[];
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ExerciseRuntimeWidget(
+            session: _choiceSession,
+            onRuntimeEvent: events.add,
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('hello'));
+    await tester.pump();
+    await tester.tap(find.text('Check answer'));
+    await tester.pump();
+
+    expect(events.map((event) => event.eventType), [
+      ExerciseRuntimeEventType.answerSelected,
+      ExerciseRuntimeEventType.answerChecked,
+    ]);
+  });
+
   testWidgets('exercise runtime does not show scoring, progress, or mastery', (
     tester,
   ) async {
@@ -163,6 +190,20 @@ void main() {
     expect(find.textContaining('progress'), findsNothing);
     expect(find.textContaining('Mastery'), findsNothing);
     expect(find.textContaining('mastery'), findsNothing);
+  });
+
+  test('runtime and checker do not import progress persistence', () {
+    final runtimeSource = File(
+      'lib/features/exercise_runtime/exercise_runtime_widget.dart',
+    ).readAsStringSync();
+    final checkerSource = File(
+      'lib/features/exercise_runtime/answer_checker.dart',
+    ).readAsStringSync();
+
+    expect(runtimeSource, isNot(contains('learner_progress_repository')));
+    expect(runtimeSource, isNot(contains('app_database')));
+    expect(checkerSource, isNot(contains('learner_progress')));
+    expect(checkerSource, isNot(contains('app_database')));
   });
 }
 

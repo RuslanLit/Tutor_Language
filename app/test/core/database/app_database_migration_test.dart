@@ -4,7 +4,7 @@ import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/learner/learner_state_repository.dart';
 
 void main() {
-  test('migrates learner state from schema version 2 to 3', () async {
+  test('migrates learner state from schema version 2 to 4', () async {
     final executor = NativeDatabase.memory(
       setup: (database) {
         database
@@ -52,12 +52,39 @@ void main() {
       FROM pragma_table_info('learner_states')
       WHERE name = 'current_lesson_id'
     ''').get();
+    final progressEventTableRows = await database.customSelect('''
+      SELECT name
+      FROM sqlite_master
+      WHERE type = 'table'
+        AND name = 'learner_progress_events'
+    ''').get();
 
     expect(state, isNotNull);
     expect(state!.selectedLanguage, 'spanish');
     expect(state.currentCourseId, 'spanish_a1');
     expect(state.currentTopicId, 'topic_001');
-    expect(versionRow.read<int>('user_version'), 3);
+    expect(versionRow.read<int>('user_version'), 4);
     expect(oldColumnRows, isEmpty);
+    expect(progressEventTableRows, hasLength(1));
+  });
+
+  test('progress schema does not contain scoring or review fields', () async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+
+    await database.customSelect('SELECT 1').get();
+
+    final columns = await database.customSelect('''
+      SELECT name
+      FROM pragma_table_info('learner_progress_events')
+    ''').get();
+    final columnNames = columns.map((row) => row.read<String>('name')).toSet();
+
+    expect(columnNames, contains('event_type'));
+    expect(columnNames, contains('topic_id'));
+    expect(columnNames, isNot(contains('score')));
+    expect(columnNames, isNot(contains('mastery')));
+    expect(columnNames, isNot(contains('review_due_at')));
+    expect(columnNames, isNot(contains('due_at')));
   });
 }

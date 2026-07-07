@@ -4,9 +4,14 @@ import 'answer_checker.dart';
 import 'exercise_runtime_models.dart';
 
 class ExerciseRuntimeWidget extends StatefulWidget {
-  const ExerciseRuntimeWidget({required this.session, super.key});
+  const ExerciseRuntimeWidget({
+    required this.session,
+    this.onRuntimeEvent,
+    super.key,
+  });
 
   final ExerciseSession session;
+  final ValueChanged<ExerciseRuntimeEvent>? onRuntimeEvent;
 
   @override
   State<ExerciseRuntimeWidget> createState() => _ExerciseRuntimeWidgetState();
@@ -28,6 +33,14 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
       );
       _checkResults.remove(item.id);
     });
+    widget.onRuntimeEvent?.call(
+      ExerciseRuntimeEvent(
+        eventType: ExerciseRuntimeEventType.answerSelected,
+        itemId: item.id,
+        templateId: item.templateId,
+        interactionType: item.interactionType,
+      ),
+    );
   }
 
   void _checkAnswer(ExerciseItem item) {
@@ -43,6 +56,14 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
         ),
       );
     });
+    widget.onRuntimeEvent?.call(
+      ExerciseRuntimeEvent(
+        eventType: ExerciseRuntimeEventType.answerChecked,
+        itemId: item.id,
+        templateId: item.templateId,
+        interactionType: item.interactionType,
+      ),
+    );
   }
 
   @override

@@ -8,7 +8,11 @@ class GrammarContentRenderer extends TopicContentRenderer<GrammarContent> {
   const GrammarContentRenderer();
 
   @override
-  Widget build(BuildContext context, GrammarContent content) {
+  Widget build(
+    BuildContext context,
+    GrammarContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
     return GrammarContentCard(content: content);
   }
 }

@@ -8,7 +8,11 @@ class DialogueContentRenderer extends TopicContentRenderer<DialogueContent> {
   const DialogueContentRenderer();
 
   @override
-  Widget build(BuildContext context, DialogueContent content) {
+  Widget build(
+    BuildContext context,
+    DialogueContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
     return DialogueContentCard(content: content);
   }
 }

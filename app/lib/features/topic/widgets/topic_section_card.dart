@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/content/content_repository.dart';
+import '../../../core/learner/learner_progress.dart';
+import '../rendering/topic_content_renderer.dart';
 import '../rendering/topic_content_renderer_registry.dart';
 import 'section_header.dart';
 
 class TopicSectionCard extends StatelessWidget {
   const TopicSectionCard({
+    required this.topicId,
     required this.sectionDetails,
     required this.rendererRegistry,
+    this.onProgressEvent,
     super.key,
   });
 
+  final String topicId;
   final TopicSectionDetails sectionDetails;
   final TopicContentRendererRegistry rendererRegistry;
+  final ValueChanged<ProgressEvent>? onProgressEvent;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,16 @@ class TopicSectionCard extends StatelessWidget {
           children: [
             SectionHeader(title: section.title, contentType: content.type),
             const SizedBox(height: 12),
-            rendererRegistry.build(context, content),
+            rendererRegistry.build(
+              context,
+              content,
+              renderContext: TopicContentRenderContext(
+                topicId: topicId,
+                sectionId: section.id,
+                contentReference: section.contentReference.assetPath,
+                onProgressEvent: onProgressEvent,
+              ),
+            ),
           ],
         ),
       ),

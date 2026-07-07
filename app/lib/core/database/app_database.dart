@@ -16,13 +16,27 @@ class LearnerStates extends Table {
   Set<Column<Object>> get primaryKey => {id};
 }
 
-@DriftDatabase(tables: [LearnerStates])
+@DataClassName('LearnerProgressEventRow')
+class LearnerProgressEvents extends Table {
+  TextColumn get id => text()();
+  TextColumn get eventType => text()();
+  TextColumn get topicId => text()();
+  TextColumn get sectionId => text().nullable()();
+  TextColumn get contentReference => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+  TextColumn get metadataJson => text().nullable()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+@DriftDatabase(tables: [LearnerStates, LearnerProgressEvents])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? executor])
     : super(executor ?? driftDatabase(name: 'tutor_language'));
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration {
@@ -39,6 +53,9 @@ class AppDatabase extends _$AppDatabase {
             'ALTER TABLE learner_states '
             'RENAME COLUMN current_lesson_id TO current_topic_id',
           );
+        }
+        if (from < 4) {
+          await migrator.createTable(learnerProgressEvents);
         }
       },
     );

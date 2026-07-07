@@ -8,7 +8,11 @@ class ReadingContentRenderer extends TopicContentRenderer<ReadingContent> {
   const ReadingContentRenderer();
 
   @override
-  Widget build(BuildContext context, ReadingContent content) {
+  Widget build(
+    BuildContext context,
+    ReadingContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
     return ReadingContentCard(content: content);
   }
 }

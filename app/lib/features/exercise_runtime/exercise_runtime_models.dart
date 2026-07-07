@@ -82,3 +82,19 @@ class ExerciseInteractionState {
     );
   }
 }
+
+enum ExerciseRuntimeEventType { answerSelected, answerChecked }
+
+class ExerciseRuntimeEvent {
+  const ExerciseRuntimeEvent({
+    required this.eventType,
+    required this.itemId,
+    required this.templateId,
+    required this.interactionType,
+  });
+
+  final ExerciseRuntimeEventType eventType;
+  final String itemId;
+  final String templateId;
+  final String interactionType;
+}

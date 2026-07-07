@@ -1,3 +1,4 @@
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -5,6 +6,8 @@ import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/course.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/core/database/app_database.dart';
+import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/features/topic/rendering/dialogue_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/exercise_template_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/grammar_content_renderer.dart';
@@ -134,6 +137,11 @@ void main() {
           contentRepositoryProvider.overrideWith(
             (ref) => _FakeContentRepository(),
           ),
+          appDatabaseProvider.overrideWith((ref) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
           topicContentRendererRegistryProvider.overrideWith((ref) => registry),
         ],
         child: const MaterialApp(
@@ -161,7 +169,11 @@ class _DelegatingRenderer extends TopicContentRenderer<TopicContent> {
   bool canRender(TopicContent content) => true;
 
   @override
-  Widget build(BuildContext context, TopicContent content) {
+  Widget build(
+    BuildContext context,
+    TopicContent content, {
+    TopicContentRenderContext? renderContext,
+  }) {
     return const Text('delegated renderer');
   }
 }
