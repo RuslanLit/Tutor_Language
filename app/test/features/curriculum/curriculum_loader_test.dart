@@ -35,11 +35,13 @@ void main() {
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
-    expect(course.lessons.first.sections.first.activities, hasLength(2));
+    expect(course.lessons.first.sections.first.activities, hasLength(4));
     expect(course.lessons.first.summary, isNotNull);
     expect(course.lessons.first.completionCriteria.requiredActivities, [
       'activity.vocabulary.greetings',
       'activity.dialogue.greetings',
+      'activity.grammar.llamarse',
+      'activity.reading.basic_greeting',
     ]);
   });
 

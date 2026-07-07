@@ -1,5 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tutor_language/core/content/educational_content_catalog.dart';
+import 'package:tutor_language/core/content/educational_content_validator.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
 import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
 
@@ -11,13 +13,24 @@ void main() {
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
+      const validator = EducationalContentValidator();
 
       final course = await curriculumLoader.loadCourse();
+      final contentBundle = await contentLoader.loadSpanishContent();
+      final catalog = EducationalContentCatalog(contentBundle);
+
+      expect(validator.validate(contentBundle), isEmpty);
 
       for (final lesson in course.lessons) {
+        expect(
+          validator.validateLessonReferences(lesson: lesson, catalog: catalog),
+          isEmpty,
+        );
+
         for (final activity in lesson.activities) {
           for (final reference in activity.contentReferences) {
             expect(reference.assetPath, isNotEmpty);
+            expect(catalog.canResolve(reference), isTrue);
 
             final content = await contentLoader.loadContent(
               reference.assetPath,
@@ -30,4 +43,31 @@ void main() {
       }
     },
   );
+
+  test('first lesson references concrete educational content ids', () async {
+    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+    final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final catalog = EducationalContentCatalog(
+      await contentLoader.loadSpanishContent(),
+    );
+
+    final course = await curriculumLoader.loadCourse();
+    final lesson = course.lessons.firstWhere(
+      (lesson) => lesson.id == 'es.a0.m01.l001',
+    );
+
+    final references = lesson.activities.expand(
+      (activity) => activity.contentReferences,
+    );
+    final referenceIds = references
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(referenceIds, contains('vocab.hola.v1'));
+    expect(referenceIds, contains('grammar.llamarse_basic.v1'));
+    expect(referenceIds, contains('dialogue.greetings_001.v1'));
+    expect(referenceIds, contains('reading.basic_greeting.v1'));
+    expect(references.every(catalog.canResolve), isTrue);
+  });
 }

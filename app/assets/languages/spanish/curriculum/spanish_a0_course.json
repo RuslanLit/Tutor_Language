@@ -81,14 +81,97 @@
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.hola.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.buenos_dias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.buenas_tardes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.buenas_noches.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.gracias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.por_favor.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.adios.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.me_llamo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.soy.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
+                  "referenceId": "vocab.mucho_gusto.v1"
+                }
+              ]
             },
             {
               "id": "activity.dialogue.greetings",
               "title": "dialogue",
               "type": "dialogue",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/greetings.json",
+                  "referenceId": "dialogue.greetings_001.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.grammar.llamarse",
+              "title": "grammar",
+              "type": "grammar",
+              "order": 3,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/llamarse_basic.json",
+                  "referenceId": "grammar.llamarse_basic.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.basic_greeting",
+              "title": "reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/basic_greeting.json",
+                  "referenceId": "reading.basic_greeting.v1"
+                }
+              ]
             }
           ]
         }
@@ -101,7 +184,9 @@
       "completionCriteria": {
         "requiredActivities": [
           "activity.vocabulary.greetings",
-          "activity.dialogue.greetings"
+          "activity.dialogue.greetings",
+          "activity.grammar.llamarse",
+          "activity.reading.basic_greeting"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [

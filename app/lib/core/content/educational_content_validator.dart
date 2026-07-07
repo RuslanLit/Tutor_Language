@@ -1,5 +1,7 @@
 import 'content_document.dart';
+import 'educational_content_catalog.dart';
 import 'topic_content.dart';
+import '../../features/curriculum/curriculum_models.dart';
 
 class EducationalContentValidationIssue {
   const EducationalContentValidationIssue(this.message);
@@ -71,6 +73,52 @@ class EducationalContentValidator {
 
     _validateGlobalDuplicateIds(idsByType, issues);
     _validateReferences(idsByType, bundle.contents, issues);
+
+    return List.unmodifiable(issues);
+  }
+
+  List<EducationalContentValidationIssue> validateLessonReferences({
+    required LessonDefinition lesson,
+    required EducationalContentCatalog catalog,
+  }) {
+    final issues = <EducationalContentValidationIssue>[];
+
+    for (final activity in lesson.activities) {
+      final seenReferences = <String>{};
+
+      for (final reference in activity.contentReferences) {
+        if (reference.type.trim().isEmpty ||
+            reference.assetPath.trim().isEmpty) {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Invalid content reference in lesson ${lesson.id}: '
+              '${activity.id}',
+            ),
+          );
+          continue;
+        }
+
+        final referenceKey =
+            '${reference.type}|${reference.assetPath}|${reference.referenceId ?? ''}';
+        if (!seenReferences.add(referenceKey)) {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Duplicate content reference in lesson ${lesson.id}: '
+              '${activity.id}',
+            ),
+          );
+        }
+
+        if (!catalog.canResolve(reference)) {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Unresolved content reference in lesson ${lesson.id}: '
+              '${activity.id}',
+            ),
+          );
+        }
+      }
+    }
 
     return List.unmodifiable(issues);
   }

@@ -33,13 +33,19 @@ class EducationalContentCatalog {
   }
 
   bool canResolve(LessonActivityReference reference) {
-    final referenceId = reference.referenceId;
+    final content = contentByAssetPath(reference.assetPath);
 
-    if (referenceId != null && !contains(referenceId)) {
+    if (content == null || content.type != reference.type) {
       return false;
     }
 
-    return contentByAssetPath(reference.assetPath) != null;
+    final referenceId = reference.referenceId;
+
+    if (referenceId == null) {
+      return true;
+    }
+
+    return _contentContainsReference(content, referenceId);
   }
 
   static Map<String, Object> _indexItems(
@@ -75,5 +81,27 @@ class EducationalContentCatalog {
     }
 
     return items;
+  }
+
+  static bool _contentContainsReference(
+    EducationalContent content,
+    String referenceId,
+  ) {
+    return switch (content) {
+      VocabularyContent() => content.entries.any(
+        (entry) => entry.id == referenceId,
+      ),
+      GrammarContent() => content.topics.any(
+        (topic) => topic.id == referenceId,
+      ),
+      DialogueContent() => content.dialogues.any(
+        (dialogue) => dialogue.id == referenceId,
+      ),
+      ReadingContent() => content.texts.any((text) => text.id == referenceId),
+      ExerciseTemplateContent() => content.templates.any(
+        (template) => template.id == referenceId,
+      ),
+      _ => false,
+    };
   }
 }

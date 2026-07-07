@@ -37,6 +37,26 @@ void main() {
       ),
       isFalse,
     );
+    expect(
+      catalog.canResolve(
+        const LessonActivityReference(
+          type: 'grammar',
+          assetPath: 'assets/languages/spanish/vocabulary/test.json',
+          referenceId: 'vocab.hola.v1',
+        ),
+      ),
+      isFalse,
+    );
+    expect(
+      catalog.canResolve(
+        const LessonActivityReference(
+          type: 'grammar',
+          assetPath: 'assets/languages/spanish/grammar/test.json',
+          referenceId: 'vocab.hola.v1',
+        ),
+      ),
+      isFalse,
+    );
   });
 
   test('validator accepts valid educational content', () {
@@ -69,6 +89,22 @@ void main() {
 
     expect(item.toJson(), isNot(contains('lesson_ids')));
     expect(item.toJson(), isNot(contains('topic_ids')));
+  });
+
+  test('validator reports broken LessonDefinition content references', () {
+    const validator = EducationalContentValidator();
+    final catalog = EducationalContentCatalog(_validBundle);
+
+    final issues = validator
+        .validateLessonReferences(
+          lesson: _lessonWithBrokenReferences,
+          catalog: catalog,
+        )
+        .map((issue) => issue.message);
+
+    expect(issues, contains(contains('Unresolved content reference')));
+    expect(issues, contains(contains('Duplicate content reference')));
+    expect(issues, contains(contains('Invalid content reference')));
   });
 }
 
@@ -190,4 +226,45 @@ const _invalidBundle = EducationalContentBundle(
       ],
     ),
   ],
+);
+
+const _lessonWithBrokenReferences = Lesson(
+  id: 'lesson.broken.v1',
+  moduleId: 'module.test.v1',
+  title: 'Broken references',
+  primaryObjective: LessonObjective(
+    id: 'objective.broken.v1',
+    description: 'Exercise broken references.',
+  ),
+  activities: [
+    LessonActivity(
+      id: 'activity.broken.v1',
+      title: 'Broken',
+      type: 'vocabulary',
+      contentReferences: [
+        LessonContentReference(
+          type: 'vocabulary',
+          assetPath: 'assets/languages/spanish/vocabulary/missing.json',
+          referenceId: 'vocab.hola.v1',
+        ),
+        LessonContentReference(
+          type: 'vocabulary',
+          assetPath: 'assets/languages/spanish/vocabulary/test.json',
+          referenceId: 'vocab.missing.v1',
+        ),
+        LessonContentReference(
+          type: 'vocabulary',
+          assetPath: 'assets/languages/spanish/vocabulary/test.json',
+          referenceId: 'vocab.missing.v1',
+        ),
+        LessonContentReference(
+          type: '',
+          assetPath: 'assets/languages/spanish/vocabulary/test.json',
+        ),
+      ],
+    ),
+  ],
+  prerequisites: [],
+  estimatedDurationMinutes: 10,
+  completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
 );
