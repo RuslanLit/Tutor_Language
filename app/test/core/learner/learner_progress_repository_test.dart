@@ -65,4 +65,19 @@ void main() {
     expect(progress.hasBeenViewed, isFalse);
     expect(progress.lastActivityAt, DateTime.utc(2026, 7));
   });
+
+  test('repository reads completed topic progress', () async {
+    final event = ProgressEvent.create(
+      eventType: ProgressEventType.topicCompleted,
+      topicId: 'topic.greetings.v1',
+      now: DateTime.utc(2026, 8),
+    );
+
+    await repository.recordEvent(event);
+
+    final progress = await repository.readTopicProgress('topic.greetings.v1');
+
+    expect(progress.hasBeenCompleted, isTrue);
+    expect(progress.completedAt, DateTime.utc(2026, 8));
+  });
 }

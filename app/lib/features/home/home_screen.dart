@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router/app_router.dart';
 import '../../core/content/content_providers.dart';
 import '../../core/content/course.dart';
+import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 
@@ -98,8 +99,7 @@ class TopicTile extends ConsumerWidget {
         children: [
           Text('${topic.sections.length} sections'),
           progress.when(
-            data: (progress) =>
-                Text(progress.hasBeenViewed ? 'Viewed' : 'Not viewed'),
+            data: (progress) => Text(_topicStatusLabel(progress)),
             error: (error, stackTrace) => const Text('Not viewed'),
             loading: () => const Text('Not viewed'),
           ),
@@ -110,5 +110,13 @@ class TopicTile extends ConsumerWidget {
         pathParameters: {'topicId': topic.id},
       ),
     );
+  }
+
+  String _topicStatusLabel(TopicProgress progress) {
+    if (progress.hasBeenCompleted) {
+      return 'Completed';
+    }
+
+    return progress.hasBeenViewed ? 'Viewed' : 'Not viewed';
   }
 }

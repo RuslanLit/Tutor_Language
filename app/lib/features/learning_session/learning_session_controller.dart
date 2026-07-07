@@ -1,16 +1,20 @@
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_repository.dart';
+import '../exercise_runtime/answer_check_models.dart';
 import '../exercise_runtime/exercise_runtime_models.dart';
+import 'completion_evaluator.dart';
 import 'learning_session.dart';
 
 class LearningSessionController {
   LearningSessionController({
     required this.progressRepository,
+    this.completionEvaluator = const CompletionEvaluator(),
     this.onProgressRecorded,
     DateTime Function()? now,
   }) : _now = now ?? DateTime.now;
 
   final LearnerProgressRepository progressRepository;
+  final CompletionEvaluator completionEvaluator;
   final void Function(String topicId)? onProgressRecorded;
   final DateTime Function() _now;
 
@@ -44,7 +48,24 @@ class LearningSessionController {
       return;
     }
 
-    _session = session.copyWith(finishedAt: _now());
+    final finishedAt = _now();
+    final decision = completionEvaluator.evaluate(
+      CompletionEvaluation(
+        checkedAnswerStatuses: session.checkedAnswerStatuses,
+      ),
+    );
+
+    if (decision.isCompleted) {
+      await _recordProgressEvent(
+        ProgressEvent.create(
+          eventType: ProgressEventType.topicCompleted,
+          topicId: session.topicId,
+          now: finishedAt,
+        ),
+      );
+    }
+
+    _session = session.copyWith(finishedAt: finishedAt);
   }
 
   Future<void> recordInteraction({
@@ -70,11 +91,16 @@ class LearningSessionController {
   Future<void> recordAnswerChecked({
     required String sectionId,
     required String contentReference,
+    required AnswerCheckStatus answerCheckStatus,
     String? metadataJson,
   }) async {
     final session = _requireSession();
     _session = session.copyWith(
       checkedAnswerCount: session.checkedAnswerCount + 1,
+      checkedAnswerStatuses: [
+        ...session.checkedAnswerStatuses,
+        answerCheckStatus,
+      ],
     );
 
     await _recordProgressEvent(
@@ -104,6 +130,8 @@ class LearningSessionController {
       ExerciseRuntimeEventType.answerChecked => recordAnswerChecked(
         sectionId: sectionId,
         contentReference: contentReference,
+        answerCheckStatus:
+            event.answerCheckStatus ?? AnswerCheckStatus.unsupported,
         metadataJson: metadataJson,
       ),
     };

@@ -1,4 +1,5 @@
 import '../../core/content/topic_content.dart';
+import 'answer_check_models.dart';
 
 class ExerciseSession {
   const ExerciseSession({required this.id, required this.items});
@@ -94,6 +95,7 @@ class ExerciseRuntimeEvent {
     this.sectionId,
     this.contentReference,
     this.metadataJson,
+    this.answerCheckStatus,
   });
 
   final ExerciseRuntimeEventType eventType;
@@ -103,6 +105,7 @@ class ExerciseRuntimeEvent {
   final String? sectionId;
   final String? contentReference;
   final String? metadataJson;
+  final AnswerCheckStatus? answerCheckStatus;
 
   ExerciseRuntimeEvent withContext({
     required String sectionId,
@@ -117,6 +120,7 @@ class ExerciseRuntimeEvent {
       sectionId: sectionId,
       contentReference: contentReference,
       metadataJson: metadataJson,
+      answerCheckStatus: answerCheckStatus,
     );
   }
 }

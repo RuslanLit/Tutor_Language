@@ -38,10 +38,14 @@ class LearnerProgressRepository {
     final events = await readEventsForTopic(topicId);
     DateTime? viewedAt;
     DateTime? lastActivityAt;
+    DateTime? completedAt;
 
     for (final event in events) {
       if (event.eventType == ProgressEventType.topicViewed) {
         viewedAt ??= event.createdAt;
+      }
+      if (event.eventType == ProgressEventType.topicCompleted) {
+        completedAt ??= event.createdAt;
       }
 
       if (lastActivityAt == null || event.createdAt.isAfter(lastActivityAt)) {
@@ -53,6 +57,7 @@ class LearnerProgressRepository {
       topicId: topicId,
       viewedAt: viewedAt,
       lastActivityAt: lastActivityAt,
+      completedAt: completedAt,
     );
   }
 

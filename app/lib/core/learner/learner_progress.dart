@@ -1,4 +1,9 @@
-enum ProgressEventType { topicViewed, exerciseAnswered, answerChecked }
+enum ProgressEventType {
+  topicViewed,
+  exerciseAnswered,
+  answerChecked,
+  topicCompleted,
+}
 
 class LearnerProgress {
   const LearnerProgress({required this.events});
@@ -11,13 +16,16 @@ class TopicProgress {
     required this.topicId,
     this.viewedAt,
     this.lastActivityAt,
+    this.completedAt,
   });
 
   final String topicId;
   final DateTime? viewedAt;
   final DateTime? lastActivityAt;
+  final DateTime? completedAt;
 
   bool get hasBeenViewed => viewedAt != null;
+  bool get hasBeenCompleted => completedAt != null;
 }
 
 class ProgressEvent {

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/features/exercise_runtime/answer_check_models.dart';
 import 'package:tutor_language/features/exercise_runtime/answer_checker.dart';
 import 'package:tutor_language/features/exercise_runtime/exercise_runtime_models.dart';
 import 'package:tutor_language/features/exercise_runtime/exercise_runtime_widget.dart';
@@ -166,6 +167,7 @@ void main() {
       ExerciseRuntimeEventType.answerSelected,
       ExerciseRuntimeEventType.answerChecked,
     ]);
+    expect(events.last.answerCheckStatus, AnswerCheckStatus.correct);
   });
 
   testWidgets('exercise runtime does not show scoring, progress, or mastery', (

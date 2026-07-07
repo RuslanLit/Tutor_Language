@@ -49,6 +49,27 @@ void main() {
     expect(find.text('Viewed'), findsOneWidget);
   });
 
+  testWidgets('Topic list displays completed status', (tester) async {
+    await tester.pumpWidget(
+      _testApp(
+        _FakeContentRepository(),
+        topicProgress: TopicProgress(
+          topicId: _topic.id,
+          viewedAt: DateTime.utc(2026),
+          lastActivityAt: DateTime.utc(2026),
+          completedAt: DateTime.utc(2026),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('First Contacts'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Completed'), findsOneWidget);
+    expect(find.text('Viewed'), findsNothing);
+  });
+
   testWidgets('Opening Topic shows TopicSections', (tester) async {
     await tester.pumpWidget(_testApp(_FakeContentRepository()));
     await tester.pumpAndSettle();

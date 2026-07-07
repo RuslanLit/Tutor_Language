@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'answer_check_models.dart';
 import 'answer_checker.dart';
 import 'exercise_runtime_models.dart';
 
@@ -44,8 +45,10 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
   }
 
   void _checkAnswer(ExerciseItem item) {
+    late final AnswerCheckResult result;
+
     setState(() {
-      _checkResults[item.id] = _answerChecker.check(
+      result = _answerChecker.check(
         AnswerCheckInput(
           item: item,
           response: _interactionState.responseFor(item.id),
@@ -55,6 +58,7 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
           ),
         ),
       );
+      _checkResults[item.id] = result;
     });
     widget.onRuntimeEvent?.call(
       ExerciseRuntimeEvent(
@@ -62,6 +66,7 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
         itemId: item.id,
         templateId: item.templateId,
         interactionType: item.interactionType,
+        answerCheckStatus: result.status,
       ),
     );
   }

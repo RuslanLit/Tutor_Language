@@ -1,13 +1,5 @@
+import 'answer_check_models.dart';
 import 'exercise_runtime_models.dart';
-
-enum AnswerCheckStatus { unchecked, correct, incorrect, unsupported }
-
-class ExpectedAnswer {
-  const ExpectedAnswer({this.answerId, this.text});
-
-  final String? answerId;
-  final String? text;
-}
 
 class AnswerCheckInput {
   const AnswerCheckInput({
@@ -19,12 +11,6 @@ class AnswerCheckInput {
   final ExerciseItem item;
   final ExerciseResponse? response;
   final ExpectedAnswer expectedAnswer;
-}
-
-class AnswerCheckResult {
-  const AnswerCheckResult({required this.status});
-
-  final AnswerCheckStatus status;
 }
 
 class AnswerChecker {
