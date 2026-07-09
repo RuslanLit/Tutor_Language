@@ -64,10 +64,7 @@ class CourseOverview extends StatelessWidget {
         Text(course.title, style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(height: 16),
         FilledButton(
-          onPressed: () => context.goNamed(
-            LessonRoute.name,
-            pathParameters: {'lessonId': 'es.a0.m01.l001'},
-          ),
+          onPressed: () => context.goNamed(LessonLaunchRoute.name),
           child: const Text('Spanish A0 - Lesson 1'),
         ),
         const SizedBox(height: 16),
