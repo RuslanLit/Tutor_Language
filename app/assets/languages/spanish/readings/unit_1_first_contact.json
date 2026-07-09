@@ -1,0 +1,35 @@
+[
+  {
+    "id": "reading.es.a0.unit1.first_contact.v1",
+    "title": "Hola, Soy Ana",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.buenos_dias.v1",
+      "vocab.es.a0.unit1.buenas_tardes.v1",
+      "vocab.es.a0.unit1.adios.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.si.v1",
+      "vocab.es.a0.unit1.no.v1",
+      "vocab.es.a0.unit1.perdon.v1",
+      "vocab.es.a0.unit1.de_nada.v1",
+      "vocab.es.a0.unit1.no_entiendo.v1",
+      "vocab.es.a0.unit1.repite.v1",
+      "vocab.es.a0.unit1.mas_despacio.v1",
+      "vocab.es.a0.unit1.mucho_gusto.v1",
+      "vocab.es.a0.unit1.igualmente.v1",
+      "vocab.es.a0.unit1.senora.v1",
+      "vocab.es.a0.unit1.yo.v1",
+      "vocab.es.a0.unit1.tu.v1",
+      "vocab.es.a0.unit1.soy.v1",
+      "vocab.es.a0.unit1.eres.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.personal_pronouns.v1",
+      "grammar.es.a0.unit1.ser_present.v1"
+    ],
+    "text": "Hola. Yo soy Ana. Buenos días. Tú eres Luis. Mucho gusto. Igualmente. Gracias. De nada. Por favor, repite. Más despacio, por favor. Sí, soy Ana. No, tú eres Luis. Perdón, no entiendo. Buenas tardes, señora. Buenas noches. Hasta luego. Adiós.",
+    "native_translation": "Hello. I am Ana. Good morning. You are Luis. Nice to meet you. Likewise. Thank you. You're welcome. Please, repeat. More slowly, please. Yes, I am Ana. No, you are Luis. Sorry, I don't understand. Good afternoon, ma'am. Good evening. See you later. Goodbye."
+  }
+]

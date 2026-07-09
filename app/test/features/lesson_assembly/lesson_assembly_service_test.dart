@@ -22,43 +22,56 @@ void main() {
 
     expect(lessonContent.lesson.id, 'es.a0.m01.l001');
     expect(lessonContent.sections, hasLength(1));
-    expect(lessonContent.activities, hasLength(4));
+    expect(lessonContent.activities, hasLength(5));
   });
 
-  test('resolves vocabulary, grammar, dialogue, and reading content', () async {
-    final service = LessonAssemblyService(
-      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
-      contentLoader: ContentLoader(assetBundle: rootBundle),
-    );
+  test(
+    'resolves vocabulary, grammar, dialogue, reading, and practice content',
+    () async {
+      final service = LessonAssemblyService(
+        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+        contentLoader: ContentLoader(assetBundle: rootBundle),
+      );
 
-    final lessonContent = await service.assembleLesson('es.a0.m01.l001');
+      final lessonContent = await service.assembleLesson('es.a0.m01.l001');
 
-    expect(
-      _activity(lessonContent, 'activity.vocabulary.greetings').resolvedContent,
-      everyElement(isA<VocabularyItem>()),
-    );
-    expect(
-      _activity(
-        lessonContent,
-        'activity.grammar.llamarse',
-      ).resolvedContent.single,
-      isA<GrammarTopic>(),
-    );
-    expect(
-      _activity(
-        lessonContent,
-        'activity.dialogue.greetings',
-      ).resolvedContent.single,
-      isA<Dialogue>(),
-    );
-    expect(
-      _activity(
-        lessonContent,
-        'activity.reading.basic_greeting',
-      ).resolvedContent.single,
-      isA<ReadingText>(),
-    );
-  });
+      expect(
+        _activity(
+          lessonContent,
+          'activity.vocabulary.unit1_first_contact',
+        ).resolvedContent,
+        everyElement(isA<VocabularyItem>()),
+      );
+      expect(
+        _activity(
+          lessonContent,
+          'activity.grammar.unit1_first_contact',
+        ).resolvedContent,
+        everyElement(isA<GrammarTopic>()),
+      );
+      expect(
+        _activity(
+          lessonContent,
+          'activity.dialogue.unit1_first_contact',
+        ).resolvedContent.single,
+        isA<Dialogue>(),
+      );
+      expect(
+        _activity(
+          lessonContent,
+          'activity.reading.unit1_first_contact',
+        ).resolvedContent.single,
+        isA<ReadingText>(),
+      );
+      expect(
+        _activity(
+          lessonContent,
+          'activity.practice.unit1_first_contact',
+        ).resolvedContent,
+        everyElement(isA<ExerciseTemplate>()),
+      );
+    },
+  );
 
   test('preserves declared lesson and content order', () async {
     final service = LessonAssemblyService(
@@ -69,28 +82,42 @@ void main() {
     final lessonContent = await service.assembleLesson('es.a0.m01.l001');
 
     expect(lessonContent.activities.map((activity) => activity.activity.id), [
-      'activity.vocabulary.greetings',
-      'activity.dialogue.greetings',
-      'activity.grammar.llamarse',
-      'activity.reading.basic_greeting',
+      'activity.vocabulary.unit1_first_contact',
+      'activity.grammar.unit1_first_contact',
+      'activity.dialogue.unit1_first_contact',
+      'activity.reading.unit1_first_contact',
+      'activity.practice.unit1_first_contact',
     ]);
 
     final vocabulary = _activity(
       lessonContent,
-      'activity.vocabulary.greetings',
+      'activity.vocabulary.unit1_first_contact',
     ).resolvedContent.cast<VocabularyItem>();
 
     expect(vocabulary.map((item) => item.id), [
-      'vocab.hola.v1',
-      'vocab.buenos_dias.v1',
-      'vocab.buenas_tardes.v1',
-      'vocab.buenas_noches.v1',
-      'vocab.gracias.v1',
-      'vocab.por_favor.v1',
-      'vocab.adios.v1',
-      'vocab.me_llamo.v1',
-      'vocab.soy.v1',
-      'vocab.mucho_gusto.v1',
+      'vocab.es.a0.unit1.hola.v1',
+      'vocab.es.a0.unit1.buenos_dias.v1',
+      'vocab.es.a0.unit1.buenas_tardes.v1',
+      'vocab.es.a0.unit1.buenas_noches.v1',
+      'vocab.es.a0.unit1.adios.v1',
+      'vocab.es.a0.unit1.hasta_luego.v1',
+      'vocab.es.a0.unit1.gracias.v1',
+      'vocab.es.a0.unit1.por_favor.v1',
+      'vocab.es.a0.unit1.si.v1',
+      'vocab.es.a0.unit1.no.v1',
+      'vocab.es.a0.unit1.perdon.v1',
+      'vocab.es.a0.unit1.de_nada.v1',
+      'vocab.es.a0.unit1.no_entiendo.v1',
+      'vocab.es.a0.unit1.repite.v1',
+      'vocab.es.a0.unit1.mas_despacio.v1',
+      'vocab.es.a0.unit1.mucho_gusto.v1',
+      'vocab.es.a0.unit1.igualmente.v1',
+      'vocab.es.a0.unit1.senor.v1',
+      'vocab.es.a0.unit1.senora.v1',
+      'vocab.es.a0.unit1.yo.v1',
+      'vocab.es.a0.unit1.tu.v1',
+      'vocab.es.a0.unit1.soy.v1',
+      'vocab.es.a0.unit1.eres.v1',
     ]);
   });
 

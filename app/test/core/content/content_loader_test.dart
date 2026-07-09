@@ -52,8 +52,8 @@ void main() {
     expect(entries.length, greaterThanOrEqualTo(15));
     expect(ids, contains('vocab.hola.v1'));
     expect(ids, contains('vocab.mucho_gusto.v1'));
-    expect(ids, contains('vocab.es.a0.u01.l01.hola.v1'));
-    expect(ids, contains('vocab.es.a0.u01.l01.adios.v1'));
+    expect(ids, contains('vocab.es.a0.unit1.hola.v1'));
+    expect(ids, contains('vocab.es.a0.unit1.eres.v1'));
     expect(validator.validate(content), isEmpty);
     expect(
       entries.every((entry) {

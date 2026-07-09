@@ -1,0 +1,80 @@
+[
+  {
+    "id": "template.es.a0.unit1.greeting_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"hola\".",
+    "answer_options": [
+      {
+        "id": "option.hello",
+        "label": "hello"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      },
+      {
+        "id": "option.please",
+        "label": "please"
+      }
+    ],
+    "correct_option_id": "option.hello"
+  },
+  {
+    "id": "template.es.a0.unit1.ser_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_grammar",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "grammar",
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the best translation of \"Yo soy Ana\".",
+    "answer_options": [
+      {
+        "id": "option.i_am_ana",
+        "label": "I am Ana"
+      },
+      {
+        "id": "option.you_are_ana",
+        "label": "You are Ana"
+      },
+      {
+        "id": "option.goodbye_ana",
+        "label": "Goodbye, Ana"
+      }
+    ],
+    "correct_option_id": "option.i_am_ana"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_greeting.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the greeting: \"____, yo soy Ana.\"",
+    "expected_answer": "Hola"
+  },
+  {
+    "id": "template.es.a0.unit1.match_greetings.v1",
+    "exercise_type": "matching",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Match each Spanish greeting or farewell with its English meaning."
+  }
+]

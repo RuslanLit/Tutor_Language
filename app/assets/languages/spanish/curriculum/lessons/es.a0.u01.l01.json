@@ -2,7 +2,7 @@
   "metadata": {
     "id": "es.a0.u01.l01",
     "title": "Hello and Goodbye",
-    "description": "Recognize and use the most common greetings and farewells.",
+    "description": "Recognize and use basic greetings, farewells, and first-contact introductions.",
     "moduleId": "es.a0.u01",
     "courseId": "es.a0",
     "estimatedDurationMinutes": 10,
@@ -14,10 +14,10 @@
   "objectives": [
     {
       "id": "objective.es.a0.u01.l01.primary",
-      "description": "Recognize and use the most common greetings and farewells."
+      "description": "Recognize and use basic greetings, farewells, and first-contact introductions."
     }
   ],
-  "communicativeOutcome": "The learner can greet someone and say goodbye in a basic exchange.",
+  "communicativeOutcome": "The learner can greet someone, say goodbye, and introduce themself in a basic exchange.",
   "sections": [
     {
       "id": "es.a0.u01.l01.section.flow",
@@ -25,84 +25,64 @@
       "order": 1,
       "activities": [
         {
-          "id": "es.a0.u01.l01.activity.introduction",
-          "title": "New Words",
+          "id": "es.a0.u01.l01.activity.vocabulary",
+          "title": "Vocabulary",
           "type": "vocabulary",
           "order": 1,
           "references": [
             {
               "type": "vocabulary",
-              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
-              "referenceId": "vocab.es.a0.u01.l01.hola.v1"
-            },
-            {
-              "type": "vocabulary",
-              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
-              "referenceId": "vocab.es.a0.u01.l01.buenos_dias.v1"
-            },
-            {
-              "type": "vocabulary",
-              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
-              "referenceId": "vocab.es.a0.u01.l01.buenas_tardes.v1"
-            },
-            {
-              "type": "vocabulary",
-              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
-              "referenceId": "vocab.es.a0.u01.l01.buenas_noches.v1"
-            },
-            {
-              "type": "vocabulary",
-              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
-              "referenceId": "vocab.es.a0.u01.l01.adios.v1"
+              "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json"
             }
           ]
         },
         {
-          "id": "es.a0.u01.l01.activity.guided_practice",
-          "title": "Recognition Examples",
-          "type": "reading",
+          "id": "es.a0.u01.l01.activity.grammar",
+          "title": "Grammar",
+          "type": "grammar",
           "order": 2,
           "references": [
             {
-              "type": "reading",
-              "assetPath": "assets/languages/spanish/readings/hello_goodbye_recognition.json",
-              "referenceId": "reading.es.a0.u01.l01.recognition.v1"
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/unit_1_first_contact.json"
             }
           ]
         },
         {
-          "id": "es.a0.u01.l01.activity.communicative_task",
-          "title": "Tiny Dialogue",
+          "id": "es.a0.u01.l01.activity.dialogue",
+          "title": "Dialogue",
           "type": "dialogue",
           "order": 3,
           "references": [
             {
               "type": "dialogue",
-              "assetPath": "assets/languages/spanish/dialogues/hello_goodbye.json",
-              "referenceId": "dialogue.es.a0.u01.l01.hello_goodbye.v1"
+              "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+              "referenceId": "dialogue.es.a0.unit1.first_contact.v1"
             }
           ]
         },
         {
-          "id": "es.a0.u01.l01.activity.review",
-          "title": "Practice and Review",
-          "type": "exercise_template",
+          "id": "es.a0.u01.l01.activity.reading",
+          "title": "Reading",
+          "type": "reading",
           "order": 4,
           "references": [
             {
-              "type": "exercise_template",
-              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
-              "referenceId": "template.es.a0.u01.l01.recognize_hola.v1"
-            },
+              "type": "reading",
+              "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+              "referenceId": "reading.es.a0.unit1.first_contact.v1"
+            }
+          ]
+        },
+        {
+          "id": "es.a0.u01.l01.activity.practice",
+          "title": "Practice",
+          "type": "exercise_template",
+          "order": 5,
+          "references": [
             {
               "type": "exercise_template",
-              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
-              "referenceId": "template.es.a0.u01.l01.recognize_buenos_dias.v1"
-            },
-            {
-              "type": "exercise_template",
-              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
-              "referenceId": "template.es.a0.u01.l01.recognize_adios.v1"
+              "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json"
             }
           ]
         }
@@ -111,17 +91,18 @@
   ],
   "summary": {
     "id": "es.a0.u01.l01.summary",
-    "reviewPrompt": "The learner can greet someone and say goodbye in a basic exchange.",
+    "reviewPrompt": "The learner can greet someone, say goodbye, and introduce themself in a basic exchange.",
     "referenceIds": [
       "objective.es.a0.u01.l01.primary"
     ]
   },
   "completionCriteria": {
     "requiredActivities": [
-      "es.a0.u01.l01.activity.introduction",
-      "es.a0.u01.l01.activity.guided_practice",
-      "es.a0.u01.l01.activity.communicative_task",
-      "es.a0.u01.l01.activity.review"
+      "es.a0.u01.l01.activity.vocabulary",
+      "es.a0.u01.l01.activity.grammar",
+      "es.a0.u01.l01.activity.dialogue",
+      "es.a0.u01.l01.activity.reading",
+      "es.a0.u01.l01.activity.practice"
     ],
     "minimumCompletedActivities": 1,
     "mandatorySections": [
@@ -131,43 +112,27 @@
   "references": [
     {
       "type": "vocabulary",
-      "id": "vocab.es.a0.u01.l01.hola.v1"
+      "id": "vocab.es.a0.unit1.hola.v1"
     },
     {
-      "type": "vocabulary",
-      "id": "vocab.es.a0.u01.l01.buenos_dias.v1"
+      "type": "grammar",
+      "id": "grammar.es.a0.unit1.personal_pronouns.v1"
     },
     {
-      "type": "vocabulary",
-      "id": "vocab.es.a0.u01.l01.buenas_tardes.v1"
-    },
-    {
-      "type": "vocabulary",
-      "id": "vocab.es.a0.u01.l01.buenas_noches.v1"
-    },
-    {
-      "type": "vocabulary",
-      "id": "vocab.es.a0.u01.l01.adios.v1"
+      "type": "grammar",
+      "id": "grammar.es.a0.unit1.ser_present.v1"
     },
     {
       "type": "dialogue",
-      "id": "dialogue.es.a0.u01.l01.hello_goodbye.v1"
+      "id": "dialogue.es.a0.unit1.first_contact.v1"
     },
     {
       "type": "reading",
-      "id": "reading.es.a0.u01.l01.recognition.v1"
+      "id": "reading.es.a0.unit1.first_contact.v1"
     },
     {
       "type": "exercise_template",
-      "id": "template.es.a0.u01.l01.recognize_hola.v1"
-    },
-    {
-      "type": "exercise_template",
-      "id": "template.es.a0.u01.l01.recognize_buenos_dias.v1"
-    },
-    {
-      "type": "exercise_template",
-      "id": "template.es.a0.u01.l01.recognize_adios.v1"
+      "id": "template.es.a0.unit1.greeting_choice.v1"
     }
   ]
 }

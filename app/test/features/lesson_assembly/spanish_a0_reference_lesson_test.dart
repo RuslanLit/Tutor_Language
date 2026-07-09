@@ -10,16 +10,16 @@ import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('Spanish A0 Unit 1 Lesson 1 is a focused reference lesson', () async {
+  test('Spanish A0 Unit 1 content loads, validates, and assembles', () async {
     final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
     final contentLoader = ContentLoader(assetBundle: rootBundle);
     const validator = EducationalContentValidator();
 
+    final contentBundle = await contentLoader.loadSpanishContent();
+    final catalog = EducationalContentCatalog(contentBundle);
     final lesson = await curriculumLoader.loadLesson(
       path: 'assets/languages/spanish/curriculum/lessons/es.a0.u01.l01.json',
     );
-    final contentBundle = await contentLoader.loadSpanishContent();
-    final catalog = EducationalContentCatalog(contentBundle);
 
     expect(validator.validate(contentBundle), isEmpty);
     expect(
@@ -27,54 +27,59 @@ void main() {
       isEmpty,
     );
 
-    final assembled = LessonAssemblyService().assembleLessonDefinition(
-      lesson: lesson,
-      catalog: catalog,
+    final service = LessonAssemblyService(
+      curriculumLoader: curriculumLoader,
+      contentLoader: contentLoader,
     );
+    final assembled = await service.assembleLesson('es.a0.m01.l001');
     final resolvedContent = assembled.activities
         .expand((activity) => activity.resolvedContent)
         .toList();
     final vocabulary = resolvedContent.whereType<VocabularyItem>().toList();
+    final grammar = resolvedContent.whereType<GrammarTopic>().toList();
     final dialogues = resolvedContent.whereType<Dialogue>().toList();
     final readings = resolvedContent.whereType<ReadingText>().toList();
     final templates = resolvedContent.whereType<ExerciseTemplate>().toList();
 
-    expect(lesson.id, 'es.a0.u01.l01');
-    expect(lesson.activities.map((activity) => activity.type), [
+    expect(assembled.lesson.id, 'es.a0.m01.l001');
+    expect(assembled.activities.map((activity) => activity.activity.type), [
       'vocabulary',
-      'reading',
+      'grammar',
       'dialogue',
+      'reading',
       'exercise_template',
     ]);
-    expect(vocabulary.map((item) => item.spanish), [
-      'hola',
-      'buenos días',
-      'buenas tardes',
-      'buenas noches',
-      'adiós',
-    ]);
+    expect(vocabulary, hasLength(23));
     expect(
       vocabulary.map((item) => item.id),
-      everyElement(startsWith('vocab.es.a0.u01.l01.')),
+      everyElement(contains('.unit1.')),
     );
     expect(
-      vocabulary.map((item) => item.spanish).join(' '),
-      isNot(contains('soy')),
+      vocabulary.map((item) => item.spanish),
+      containsAll(['hola', 'soy']),
     );
-    expect(
-      vocabulary.map((item) => item.spanish).join(' '),
-      isNot(contains('llamo')),
-    );
-    expect(dialogues, hasLength(1));
-    expect(dialogues.single.grammarIds, isEmpty);
-    expect(dialogues.single.lines.map((line) => line.spanish), [
-      'Hola.',
-      'Hola.',
-      'Adiós.',
-      'Adiós.',
+    expect(grammar.map((topic) => topic.id), [
+      'grammar.es.a0.unit1.personal_pronouns.v1',
+      'grammar.es.a0.unit1.ser_present.v1',
     ]);
+    expect(dialogues, hasLength(1));
+    expect(
+      dialogues.single.vocabularyIds,
+      contains('vocab.es.a0.unit1.hola.v1'),
+    );
+    expect(
+      dialogues.single.grammarIds,
+      contains('grammar.es.a0.unit1.ser_present.v1'),
+    );
     expect(readings, hasLength(1));
-    expect(readings.single.grammarIds, isEmpty);
-    expect(templates, hasLength(3));
+    expect(
+      readings.single.text.split(' '),
+      hasLength(greaterThanOrEqualTo(20)),
+    );
+    expect(templates.map((template) => template.exerciseType).toSet(), {
+      'multiple_choice',
+      'fill_gap',
+      'matching',
+    });
   });
 }

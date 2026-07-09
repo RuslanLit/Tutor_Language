@@ -67,7 +67,7 @@
       "objectives": [
         {
           "id": "objective.greetings.basic",
-          "description": "Recognize and use basic greetings and farewells."
+          "description": "Recognize and use basic greetings, farewells, and first-contact introductions."
         }
       ],
       "sections": [
@@ -77,99 +77,197 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.vocabulary.greetings",
+              "id": "activity.vocabulary.unit1_first_contact",
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.hola.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hola.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.buenos_dias.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenos_dias.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.buenas_tardes.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_tardes.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.buenas_noches.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_noches.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.gracias.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.adios.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.por_favor.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hasta_luego.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.adios.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.me_llamo.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.soy.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.si.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json",
-                  "referenceId": "vocab.mucho_gusto.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.no.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.perdon.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.de_nada.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.no_entiendo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.repite.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.mas_despacio.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.mucho_gusto.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.igualmente.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.senor.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.senora.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.yo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.tu.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.soy.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.eres.v1"
                 }
               ]
             },
             {
-              "id": "activity.dialogue.greetings",
-              "title": "dialogue",
-              "type": "dialogue",
+              "id": "activity.grammar.unit1_first_contact",
+              "title": "grammar",
+              "type": "grammar",
               "order": 2,
               "references": [
                 {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/greetings.json",
-                  "referenceId": "dialogue.greetings_001.v1"
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/unit_1_first_contact.json",
+                  "referenceId": "grammar.es.a0.unit1.personal_pronouns.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/unit_1_first_contact.json",
+                  "referenceId": "grammar.es.a0.unit1.ser_present.v1"
                 }
               ]
             },
             {
-              "id": "activity.grammar.llamarse",
-              "title": "grammar",
-              "type": "grammar",
+              "id": "activity.dialogue.unit1_first_contact",
+              "title": "dialogue",
+              "type": "dialogue",
               "order": 3,
               "references": [
                 {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/llamarse_basic.json",
-                  "referenceId": "grammar.llamarse_basic.v1"
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.first_contact.v1"
                 }
               ]
             },
             {
-              "id": "activity.reading.basic_greeting",
+              "id": "activity.reading.unit1_first_contact",
               "title": "reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/basic_greeting.json",
-                  "referenceId": "reading.basic_greeting.v1"
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.first_contact.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.unit1_first_contact",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.greeting_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.ser_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.fill_greeting.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.match_greetings.v1"
                 }
               ]
             }
@@ -183,10 +281,11 @@
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.vocabulary.greetings",
-          "activity.dialogue.greetings",
-          "activity.grammar.llamarse",
-          "activity.reading.basic_greeting"
+          "activity.vocabulary.unit1_first_contact",
+          "activity.grammar.unit1_first_contact",
+          "activity.dialogue.unit1_first_contact",
+          "activity.reading.unit1_first_contact",
+          "activity.practice.unit1_first_contact"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [

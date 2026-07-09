@@ -64,10 +64,12 @@ void main() {
         .whereType<String>()
         .toSet();
 
-    expect(referenceIds, contains('vocab.hola.v1'));
-    expect(referenceIds, contains('grammar.llamarse_basic.v1'));
-    expect(referenceIds, contains('dialogue.greetings_001.v1'));
-    expect(referenceIds, contains('reading.basic_greeting.v1'));
+    expect(referenceIds, contains('vocab.es.a0.unit1.hola.v1'));
+    expect(referenceIds, contains('grammar.es.a0.unit1.personal_pronouns.v1'));
+    expect(referenceIds, contains('grammar.es.a0.unit1.ser_present.v1'));
+    expect(referenceIds, contains('dialogue.es.a0.unit1.first_contact.v1'));
+    expect(referenceIds, contains('reading.es.a0.unit1.first_contact.v1'));
+    expect(referenceIds, contains('template.es.a0.unit1.greeting_choice.v1'));
     expect(references.every(catalog.canResolve), isTrue);
   });
 }

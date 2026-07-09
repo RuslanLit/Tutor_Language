@@ -1,0 +1,27 @@
+[
+  {
+    "id": "grammar.es.a0.unit1.personal_pronouns.v1",
+    "title": "Personal pronouns: yo and tú",
+    "explanation": "Spanish uses personal pronouns to show who is speaking or being addressed. In first-contact phrases, yo means I and tú means you. Spanish often omits pronouns because the verb form already shows the person, but beginners can use yo and tú to make meaning clear. Tú is informal singular you.",
+    "examples": [
+      "Yo soy Ana. = I am Ana.",
+      "Tú eres Luis. = You are Luis.",
+      "Hola. Yo soy Ana. = Hello. I am Ana."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.unit1.ser_present.v1",
+    "title": "Ser in the present: soy and eres",
+    "explanation": "Ser means to be. In first introductions, use soy for I am and eres for you are. The useful beginner pattern is Yo soy + name and Tú eres + name. Do not use soy with tú, and do not use eres with yo.",
+    "examples": [
+      "Soy Ana. = I am Ana.",
+      "Yo soy Ana. = I am Ana.",
+      "Tú eres Luis. = You are Luis.",
+      "Hola. Soy Ana. = Hello. I am Ana."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.unit1.personal_pronouns.v1"
+    ]
+  }
+]

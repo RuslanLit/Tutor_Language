@@ -1,0 +1,48 @@
+[
+  {
+    "id": "dialogue.es.a0.unit1.first_contact.v1",
+    "title": "First Contact",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.buenos_dias.v1",
+      "vocab.es.a0.unit1.yo.v1",
+      "vocab.es.a0.unit1.soy.v1",
+      "vocab.es.a0.unit1.tu.v1",
+      "vocab.es.a0.unit1.eres.v1",
+      "vocab.es.a0.unit1.mucho_gusto.v1",
+      "vocab.es.a0.unit1.igualmente.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.personal_pronouns.v1",
+      "grammar.es.a0.unit1.ser_present.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Buenos días.",
+        "native_translation": "Good morning."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hola. Yo soy Luis.",
+        "native_translation": "Hello. I am Luis."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Yo soy Ana. Mucho gusto.",
+        "native_translation": "I am Ana. Nice to meet you."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Igualmente.",
+        "native_translation": "Likewise."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Hasta luego.",
+        "native_translation": "See you later."
+      }
+    ]
+  }
+]
