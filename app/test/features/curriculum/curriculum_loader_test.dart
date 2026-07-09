@@ -37,14 +37,13 @@ void main() {
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
-    expect(course.lessons.first.sections.first.activities, hasLength(5));
+    expect(course.lessons.first.sections.first.activities, hasLength(4));
     expect(course.lessons.first.summary, isNotNull);
     expect(course.lessons.first.completionCriteria.requiredActivities, [
-      'activity.vocabulary.unit1_first_contact',
-      'activity.grammar.unit1_first_contact',
-      'activity.dialogue.unit1_first_contact',
-      'activity.reading.unit1_first_contact',
-      'activity.practice.unit1_first_contact',
+      'activity.vocabulary.greetings',
+      'activity.dialogue.hello_goodbye',
+      'activity.reading.greeting_recognition',
+      'activity.practice.greetings',
     ]);
   });
 

@@ -31,5 +31,83 @@
     ],
     "text": "Hola. Yo soy Ana. Buenos días. Tú eres Luis. Mucho gusto. Igualmente. Gracias. De nada. Por favor, repite. Más despacio, por favor. Sí, soy Ana. No, tú eres Luis. Perdón, no entiendo. Buenas tardes, señora. Buenas noches. Hasta luego. Adiós.",
     "native_translation": "Hello. I am Ana. Good morning. You are Luis. Nice to meet you. Likewise. Thank you. You're welcome. Please, repeat. More slowly, please. Yes, I am Ana. No, you are Luis. Sorry, I don't understand. Good afternoon, ma'am. Good evening. See you later. Goodbye."
+  },
+  {
+    "id": "reading.es.a0.unit1.greeting_recognition.v1",
+    "title": "Greetings and Goodbyes",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.buenos_dias.v1",
+      "vocab.es.a0.unit1.buenas_tardes.v1",
+      "vocab.es.a0.unit1.buenas_noches.v1",
+      "vocab.es.a0.unit1.adios.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Hola. Buenos días. Hola. Buenas tardes. Hasta luego. Buenas noches. Adiós.",
+    "native_translation": "Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye."
+  },
+  {
+    "id": "reading.es.a0.unit1.polite_words.v1",
+    "title": "Polite Words",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.perdon.v1",
+      "vocab.es.a0.unit1.de_nada.v1",
+      "vocab.es.a0.unit1.si.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Perdón. Sí. Por favor. Gracias. De nada. Gracias. De nada.",
+    "native_translation": "Excuse me. Yes. Please. Thank you. You're welcome. Thank you. You're welcome."
+  },
+  {
+    "id": "reading.es.a0.unit1.clarification.v1",
+    "title": "More Slowly, Please",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.no_entiendo.v1",
+      "vocab.es.a0.unit1.repite.v1",
+      "vocab.es.a0.unit1.mas_despacio.v1",
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.si.v1",
+      "vocab.es.a0.unit1.no.v1"
+    ],
+    "grammar_ids": [],
+    "text": "No entiendo. Repite, por favor. Más despacio, por favor. Sí. No. No entiendo.",
+    "native_translation": "I don't understand. Repeat, please. More slowly, please. Yes. No. I don't understand."
+  },
+  {
+    "id": "reading.es.a0.unit1.names.v1",
+    "title": "Me Llamo Ana",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.mucho_gusto.v1",
+      "vocab.es.a0.unit1.igualmente.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.name_pattern.v1"
+    ],
+    "text": "Hola. Me llamo Ana. ¿Cómo te llamas? Me llamo Luis. Mucho gusto. Igualmente.",
+    "native_translation": "Hello. My name is Ana. What is your name? My name is Luis. Nice to meet you. Likewise."
+  },
+  {
+    "id": "reading.es.a0.unit1.origin.v1",
+    "title": "Soy de Madrid",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.yo.v1",
+      "vocab.es.a0.unit1.soy_de.v1",
+      "vocab.es.a0.unit1.de_donde_eres.v1",
+      "vocab.es.a0.unit1.madrid.v1",
+      "vocab.es.a0.unit1.mexico.v1",
+      "vocab.es.a0.unit1.espana.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.origin_pattern.v1"
+    ],
+    "text": "Hola. Yo soy de Madrid. ¿De dónde eres? Soy de México. Soy de España.",
+    "native_translation": "Hello. I am from Madrid. Where are you from? I am from Mexico. I am from Spain."
   }
 ]

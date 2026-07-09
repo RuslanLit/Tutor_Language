@@ -22,7 +22,31 @@ void main() {
 
     expect(lessonContent.lesson.id, 'es.a0.m01.l001');
     expect(lessonContent.sections, hasLength(1));
-    expect(lessonContent.activities, hasLength(5));
+    expect(lessonContent.activities, hasLength(4));
+  });
+
+  test('assembles first-contact starter lessons from bundled content', () async {
+    final service = LessonAssemblyService(
+      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+      contentLoader: ContentLoader(assetBundle: rootBundle),
+    );
+
+    for (final lessonId in [
+      'es.a0.m01.l001',
+      'es.a0.m01.l002',
+      'es.a0.m01.l003',
+      'es.a0.m02.l004',
+      'es.a0.m02.l005',
+    ]) {
+      final lessonContent = await service.assembleLesson(lessonId);
+
+      expect(lessonContent.lesson.id, lessonId);
+      expect(lessonContent.activities, isNotEmpty);
+      expect(
+        lessonContent.activities.expand((activity) => activity.resolvedContent),
+        isNotEmpty,
+      );
+    }
   });
 
   test(
@@ -38,35 +62,28 @@ void main() {
       expect(
         _activity(
           lessonContent,
-          'activity.vocabulary.unit1_first_contact',
+          'activity.vocabulary.greetings',
         ).resolvedContent,
         everyElement(isA<VocabularyItem>()),
       );
       expect(
         _activity(
           lessonContent,
-          'activity.grammar.unit1_first_contact',
-        ).resolvedContent,
-        everyElement(isA<GrammarTopic>()),
-      );
-      expect(
-        _activity(
-          lessonContent,
-          'activity.dialogue.unit1_first_contact',
+          'activity.dialogue.hello_goodbye',
         ).resolvedContent.single,
         isA<Dialogue>(),
       );
       expect(
         _activity(
           lessonContent,
-          'activity.reading.unit1_first_contact',
+          'activity.reading.greeting_recognition',
         ).resolvedContent.single,
         isA<ReadingText>(),
       );
       expect(
         _activity(
           lessonContent,
-          'activity.practice.unit1_first_contact',
+          'activity.practice.greetings',
         ).resolvedContent,
         everyElement(isA<ExerciseTemplate>()),
       );
@@ -82,16 +99,15 @@ void main() {
     final lessonContent = await service.assembleLesson('es.a0.m01.l001');
 
     expect(lessonContent.activities.map((activity) => activity.activity.id), [
-      'activity.vocabulary.unit1_first_contact',
-      'activity.grammar.unit1_first_contact',
-      'activity.dialogue.unit1_first_contact',
-      'activity.reading.unit1_first_contact',
-      'activity.practice.unit1_first_contact',
+      'activity.vocabulary.greetings',
+      'activity.dialogue.hello_goodbye',
+      'activity.reading.greeting_recognition',
+      'activity.practice.greetings',
     ]);
 
     final vocabulary = _activity(
       lessonContent,
-      'activity.vocabulary.unit1_first_contact',
+      'activity.vocabulary.greetings',
     ).resolvedContent.cast<VocabularyItem>();
 
     expect(vocabulary.map((item) => item.id), [
@@ -101,23 +117,6 @@ void main() {
       'vocab.es.a0.unit1.buenas_noches.v1',
       'vocab.es.a0.unit1.adios.v1',
       'vocab.es.a0.unit1.hasta_luego.v1',
-      'vocab.es.a0.unit1.gracias.v1',
-      'vocab.es.a0.unit1.por_favor.v1',
-      'vocab.es.a0.unit1.si.v1',
-      'vocab.es.a0.unit1.no.v1',
-      'vocab.es.a0.unit1.perdon.v1',
-      'vocab.es.a0.unit1.de_nada.v1',
-      'vocab.es.a0.unit1.no_entiendo.v1',
-      'vocab.es.a0.unit1.repite.v1',
-      'vocab.es.a0.unit1.mas_despacio.v1',
-      'vocab.es.a0.unit1.mucho_gusto.v1',
-      'vocab.es.a0.unit1.igualmente.v1',
-      'vocab.es.a0.unit1.senor.v1',
-      'vocab.es.a0.unit1.senora.v1',
-      'vocab.es.a0.unit1.yo.v1',
-      'vocab.es.a0.unit1.tu.v1',
-      'vocab.es.a0.unit1.soy.v1',
-      'vocab.es.a0.unit1.eres.v1',
     ]);
   });
 

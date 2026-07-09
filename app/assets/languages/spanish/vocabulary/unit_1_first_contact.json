@@ -191,5 +191,80 @@
     "cefr": "A0",
     "example": "Tú eres Luis.",
     "pronunciation": "EH-res"
+  },
+  {
+    "id": "vocab.es.a0.unit1.me_llamo.v1",
+    "spanish": "me llamo",
+    "native_translation": "my name is",
+    "cefr": "A0",
+    "example": "Me llamo Ana.",
+    "pronunciation": "meh YAH-moh",
+    "notes": "A fixed beginner phrase for saying your name."
+  },
+  {
+    "id": "vocab.es.a0.unit1.como_te_llamas.v1",
+    "spanish": "¿cómo te llamas?",
+    "native_translation": "what is your name?",
+    "cefr": "A0",
+    "example": "Hola, ¿cómo te llamas?",
+    "pronunciation": "KOH-moh teh YAH-mahs",
+    "notes": "Informal question for one person."
+  },
+  {
+    "id": "vocab.es.a0.unit1.soy_de.v1",
+    "spanish": "soy de",
+    "native_translation": "I am from",
+    "cefr": "A0",
+    "example": "Soy de Madrid.",
+    "pronunciation": "soy deh"
+  },
+  {
+    "id": "vocab.es.a0.unit1.de_donde_eres.v1",
+    "spanish": "¿de dónde eres?",
+    "native_translation": "where are you from?",
+    "cefr": "A0",
+    "example": "¿De dónde eres?",
+    "pronunciation": "deh DON-deh EH-res",
+    "notes": "Informal question for one person."
+  },
+  {
+    "id": "vocab.es.a0.unit1.de.v1",
+    "spanish": "de",
+    "native_translation": "from; of",
+    "cefr": "A0",
+    "example": "Soy de España.",
+    "pronunciation": "deh"
+  },
+  {
+    "id": "vocab.es.a0.unit1.y.v1",
+    "spanish": "y",
+    "native_translation": "and",
+    "cefr": "A0",
+    "example": "Ana y Luis.",
+    "pronunciation": "ee"
+  },
+  {
+    "id": "vocab.es.a0.unit1.espana.v1",
+    "spanish": "España",
+    "native_translation": "Spain",
+    "cefr": "A0",
+    "example": "Soy de España.",
+    "pronunciation": "es-PAH-nyah"
+  },
+  {
+    "id": "vocab.es.a0.unit1.mexico.v1",
+    "spanish": "México",
+    "native_translation": "Mexico",
+    "cefr": "A0",
+    "example": "Soy de México.",
+    "pronunciation": "MEH-hee-koh"
+  },
+  {
+    "id": "vocab.es.a0.unit1.madrid.v1",
+    "spanish": "Madrid",
+    "native_translation": "Madrid",
+    "cefr": "A0",
+    "example": "Soy de Madrid.",
+    "pronunciation": "mah-DREED"
   }
 ]

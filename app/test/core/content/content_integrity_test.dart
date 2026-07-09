@@ -65,10 +65,12 @@ void main() {
         .toSet();
 
     expect(referenceIds, contains('vocab.es.a0.unit1.hola.v1'));
-    expect(referenceIds, contains('grammar.es.a0.unit1.personal_pronouns.v1'));
-    expect(referenceIds, contains('grammar.es.a0.unit1.ser_present.v1'));
-    expect(referenceIds, contains('dialogue.es.a0.unit1.first_contact.v1'));
-    expect(referenceIds, contains('reading.es.a0.unit1.first_contact.v1'));
+    expect(referenceIds, contains('vocab.es.a0.unit1.hasta_luego.v1'));
+    expect(referenceIds, contains('dialogue.es.a0.unit1.hello_goodbye.v1'));
+    expect(
+      referenceIds,
+      contains('reading.es.a0.unit1.greeting_recognition.v1'),
+    );
     expect(referenceIds, contains('template.es.a0.unit1.greeting_choice.v1'));
     expect(references.every(catalog.canResolve), isTrue);
   });

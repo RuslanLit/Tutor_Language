@@ -10,7 +10,7 @@ import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('Spanish A0 Unit 1 content loads, validates, and assembles', () async {
+  test('Spanish A0 starter content loads, validates, and assembles', () async {
     final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
     final contentLoader = ContentLoader(assetBundle: rootBundle);
     const validator = EducationalContentValidator();
@@ -44,42 +44,97 @@ void main() {
     expect(assembled.lesson.id, 'es.a0.m01.l001');
     expect(assembled.activities.map((activity) => activity.activity.type), [
       'vocabulary',
-      'grammar',
       'dialogue',
       'reading',
       'exercise_template',
     ]);
-    expect(vocabulary, hasLength(23));
+    expect(vocabulary, hasLength(6));
     expect(
       vocabulary.map((item) => item.id),
       everyElement(contains('.unit1.')),
     );
     expect(
       vocabulary.map((item) => item.spanish),
-      containsAll(['hola', 'soy']),
+      containsAll(['hola', 'adiós']),
     );
-    expect(grammar.map((topic) => topic.id), [
-      'grammar.es.a0.unit1.personal_pronouns.v1',
-      'grammar.es.a0.unit1.ser_present.v1',
-    ]);
+    expect(grammar, isEmpty);
     expect(dialogues, hasLength(1));
     expect(
       dialogues.single.vocabularyIds,
       contains('vocab.es.a0.unit1.hola.v1'),
     );
-    expect(
-      dialogues.single.grammarIds,
-      contains('grammar.es.a0.unit1.ser_present.v1'),
-    );
+    expect(dialogues.single.grammarIds, isEmpty);
     expect(readings, hasLength(1));
     expect(
       readings.single.text.split(' '),
-      hasLength(greaterThanOrEqualTo(20)),
+      hasLength(greaterThanOrEqualTo(8)),
     );
     expect(templates.map((template) => template.exerciseType).toSet(), {
       'multiple_choice',
       'fill_gap',
       'matching',
     });
+  });
+
+  test('Spanish A0 first-contact module resolves across five lessons', () async {
+    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+    final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final catalog = EducationalContentCatalog(
+      await contentLoader.loadSpanishContent(),
+    );
+    const validator = EducationalContentValidator();
+
+    final course = await curriculumLoader.loadCourse();
+    final lessonIds = [
+      'es.a0.m01.l001',
+      'es.a0.m01.l002',
+      'es.a0.m01.l003',
+      'es.a0.m02.l004',
+      'es.a0.m02.l005',
+    ];
+
+    for (final lessonId in lessonIds) {
+      final lesson = course.lessons.singleWhere(
+        (lesson) => lesson.id == lessonId,
+      );
+
+      expect(
+        validator.validateLessonReferences(lesson: lesson, catalog: catalog),
+        isEmpty,
+      );
+      expect(
+        lesson.activities.expand((activity) => activity.contentReferences),
+        isNotEmpty,
+      );
+    }
+
+    final nameLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m02.l004',
+    );
+    final nameReferenceIds = nameLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(nameReferenceIds, contains('vocab.es.a0.unit1.me_llamo.v1'));
+    expect(nameReferenceIds, contains('grammar.es.a0.unit1.name_pattern.v1'));
+    expect(nameReferenceIds, contains('dialogue.es.a0.unit1.names.v1'));
+
+    final originLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m02.l005',
+    );
+    final originReferenceIds = originLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(originReferenceIds, contains('vocab.es.a0.unit1.soy_de.v1'));
+    expect(
+      originReferenceIds,
+      contains('grammar.es.a0.unit1.origin_pattern.v1'),
+    );
+    expect(originReferenceIds, contains('dialogue.es.a0.unit1.origin.v1'));
   });
 }

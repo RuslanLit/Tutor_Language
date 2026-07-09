@@ -23,5 +23,27 @@
     "prerequisite_ids": [
       "grammar.es.a0.unit1.personal_pronouns.v1"
     ]
+  },
+  {
+    "id": "grammar.es.a0.unit1.name_pattern.v1",
+    "title": "Saying your name: me llamo",
+    "explanation": "Use me llamo plus a name to say your name. Use ¿cómo te llamas? to ask one person their name in a friendly informal situation. At A0, learn these as practical introduction patterns.",
+    "examples": [
+      "Me llamo Ana. = My name is Ana.",
+      "Hola, me llamo Luis. = Hello, my name is Luis.",
+      "¿Cómo te llamas? = What is your name?"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.unit1.origin_pattern.v1",
+    "title": "Saying origin: soy de",
+    "explanation": "Use soy de plus a place to say where you are from. Use ¿de dónde eres? to ask one person where they are from. At A0, learn these as practical first-contact patterns.",
+    "examples": [
+      "Soy de Madrid. = I am from Madrid.",
+      "Soy de México. = I am from Mexico.",
+      "¿De dónde eres? = Where are you from?"
+    ],
+    "prerequisite_ids": []
   }
 ]

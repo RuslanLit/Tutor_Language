@@ -76,5 +76,167 @@
       "vocabulary"
     ],
     "prompt_template": "Match each Spanish greeting or farewell with its English meaning."
+  },
+  {
+    "id": "template.es.a0.unit1.thanks_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"gracias\".",
+    "answer_options": [
+      {
+        "id": "option.thank_you",
+        "label": "thank you"
+      },
+      {
+        "id": "option.please",
+        "label": "please"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      }
+    ],
+    "correct_option_id": "option.thank_you"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_por_favor.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the polite request: \"Repite, ____ ____.\"",
+    "expected_answer": "por favor"
+  },
+  {
+    "id": "template.es.a0.unit1.no_entiendo_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"no entiendo\".",
+    "answer_options": [
+      {
+        "id": "option.i_do_not_understand",
+        "label": "I don't understand"
+      },
+      {
+        "id": "option.thank_you",
+        "label": "thank you"
+      },
+      {
+        "id": "option.nice_to_meet_you",
+        "label": "nice to meet you"
+      }
+    ],
+    "correct_option_id": "option.i_do_not_understand"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_repite.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the request: \"____, por favor.\"",
+    "expected_answer": "Repite"
+  },
+  {
+    "id": "template.es.a0.unit1.name_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the best translation of \"Me llamo Ana\".",
+    "answer_options": [
+      {
+        "id": "option.my_name_is_ana",
+        "label": "My name is Ana"
+      },
+      {
+        "id": "option.i_am_from_ana",
+        "label": "I am from Ana"
+      },
+      {
+        "id": "option.goodbye_ana",
+        "label": "Goodbye, Ana"
+      }
+    ],
+    "correct_option_id": "option.my_name_is_ana"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_me_llamo.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the introduction: \"__ llamo Ana.\"",
+    "expected_answer": "Me"
+  },
+  {
+    "id": "template.es.a0.unit1.origin_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the best translation of \"Soy de Madrid\".",
+    "answer_options": [
+      {
+        "id": "option.from_madrid",
+        "label": "I am from Madrid"
+      },
+      {
+        "id": "option.my_name_is_madrid",
+        "label": "My name is Madrid"
+      },
+      {
+        "id": "option.good_morning_madrid",
+        "label": "Good morning, Madrid"
+      }
+    ],
+    "correct_option_id": "option.from_madrid"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_soy_de.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the origin phrase: \"Soy __ Madrid.\"",
+    "expected_answer": "de"
   }
 ]

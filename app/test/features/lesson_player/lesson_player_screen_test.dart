@@ -21,14 +21,13 @@ void main() {
 
     expect(find.text('Hello and Goodbye'), findsOneWidget);
     expect(find.text('vocabulary'), findsWidgets);
-    expect(find.text('grammar'), findsWidgets);
     expect(find.text('dialogue'), findsWidgets);
     expect(find.text('reading'), findsWidgets);
     expect(find.text('practice'), findsWidgets);
     expect(find.text('hola'), findsWidgets);
-    expect(find.text('Personal pronouns: yo and tú'), findsOneWidget);
-    expect(find.text('First Contact'), findsOneWidget);
-    expect(find.text('Hola, Soy Ana'), findsOneWidget);
+    expect(find.text('grammar'), findsNothing);
+    expect(find.text('Greeting Exchange'), findsOneWidget);
+    expect(find.text('Greetings and Goodbyes'), findsOneWidget);
   });
 
   testWidgets(
