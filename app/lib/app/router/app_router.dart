@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/home_screen.dart';
+import '../../features/lesson_player/lesson_player_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/topic/topic_screen.dart';
 
@@ -26,6 +27,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           return TopicScreen(topicId: state.pathParameters['topicId'] ?? '');
         },
       ),
+      GoRoute(
+        path: LessonRoute.path,
+        name: LessonRoute.name,
+        builder: (context, state) {
+          return LessonPlayerScreen(
+            lessonId: state.pathParameters['lessonId'] ?? '',
+          );
+        },
+      ),
     ],
   );
 });
@@ -43,4 +53,9 @@ abstract final class SettingsRoute {
 abstract final class TopicRoute {
   static const name = 'topic';
   static const path = '/topic/:topicId';
+}
+
+abstract final class LessonRoute {
+  static const name = 'lesson';
+  static const path = '/lesson/:lessonId';
 }
