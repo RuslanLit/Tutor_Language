@@ -6,6 +6,7 @@ Version: 1.0
 
 Related documents:
 
+- AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - AUTHORING_DECISIONS.md
 - CONTENT_AUTHORING_GUIDE.md
@@ -20,6 +21,12 @@ Related documents:
 This checklist defines when a lesson or content slice is ready for commit, release, or replication across additional lessons.
 
 It is a practical Definition of Done for educational content review.
+
+For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
+
+For Educational Content authoring rules, use CONTENT_AUTHORING_GUIDE.md.
+
+For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.
 
 ---
 
@@ -120,6 +127,7 @@ It is a practical Definition of Done for educational content review.
 - [ ] The lesson starts simple and increases difficulty gradually.
 - [ ] The lesson avoids unnecessary cognitive load.
 - [ ] The recap reflects what was actually taught.
+- [ ] Learner-facing wording follows AUTHORING_STYLE_GUIDE.md.
 
 ---
 
@@ -137,7 +145,7 @@ It is a practical Definition of Done for educational content review.
 - [ ] JSON parses successfully.
 - [ ] Educational Content validation passes.
 - [ ] Curriculum validation passes.
-- [ ] Lesson Assembly resolves references.
+- [ ] LessonAssemblyService resolves references.
 - [ ] Content integrity checks pass.
 - [ ] Relevant tests pass.
 - [ ] Any skipped tests are documented.

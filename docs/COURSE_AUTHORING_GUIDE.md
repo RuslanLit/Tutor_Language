@@ -7,10 +7,12 @@ Version: 1.0
 Related documents:
 
 - PROJECT_VISION.md
+- AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_CHECKLIST.md
 
 ---
 
@@ -21,6 +23,12 @@ This document defines how language courses should be designed for Tutor Language
 It specifies how educational content is organized into complete learning programs independently of any particular language.
 
 It does not define implementation details, lesson planning or lesson assembly.
+
+For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
+
+For Educational Content object authoring, use CONTENT_AUTHORING_GUIDE.md.
+
+For release readiness checks, use CONTENT_REVIEW_CHECKLIST.md.
 
 ---
 
@@ -217,7 +225,7 @@ For Spanish A0, standalone LessonDefinitions are stored in:
 app/assets/languages/spanish/curriculum/lessons/
 ```
 
-LessonDefinition scaffolds may be authored before their EducationalContent
+LessonDefinition scaffolds may be authored before their Educational Content
 assets exist. In that case, activities should remain structurally valid and may
 use empty `references` arrays until stable vocabulary, grammar, dialogue,
 reading, or exercise-template assets are created.
@@ -381,6 +389,8 @@ Complexity may increase through:
 - exercise complexity.
 
 Sudden jumps should be avoided.
+
+Learner-facing wording, examples and explanation style should follow AUTHORING_STYLE_GUIDE.md.
 
 ---
 

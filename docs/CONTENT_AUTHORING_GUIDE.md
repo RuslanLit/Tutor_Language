@@ -6,20 +6,113 @@ Version: 1.0
 
 Related documents:
 
+- AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - PROJECT_VISION.md
+- COURSE_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_CHECKLIST.md
 
 ---
 
 # Purpose
 
-This document defines the pedagogical standards used when creating educational content for Tutor Language.
+This document defines how Educational Content should be authored for Tutor Language.
 
-It specifies how educational material should be written to ensure consistency, gradual progression and compatibility with deterministic lesson planning and assembly.
+It owns Educational Content object responsibilities, supported content types, required fields, references, validation expectations and compatibility with deterministic lesson planning and assembly.
 
-It does not define implementation or file formats.
+It does not define learner-facing writing style, Course sequencing, Module structure or publication approval.
+
+For learner-facing tone, explanation style and example naturalness, use AUTHORING_STYLE_GUIDE.md.
+
+For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.
+
+For release readiness checks, use CONTENT_REVIEW_CHECKLIST.md.
+
+---
+
+# Supported Content Types
+
+Generation 1 Educational Content uses these supported content types:
+
+- Vocabulary Item
+- Grammar Topic
+- Dialogue
+- Reading Text
+- Exercise Template
+
+Do not introduce new Educational Content types without an architectural decision.
+
+---
+
+# Supported Fields
+
+Vocabulary Items currently support:
+
+- id
+- spanish
+- native_translation
+- cefr
+- example
+- pronunciation
+- notes
+
+Grammar Topics currently support:
+
+- id
+- title
+- explanation
+- examples
+- prerequisite_ids
+
+Dialogues currently support:
+
+- id
+- title
+- vocabulary_ids
+- grammar_ids
+- lines
+
+Dialogue lines currently support:
+
+- speaker
+- spanish
+- native_translation
+
+Reading Texts currently support:
+
+- id
+- title
+- vocabulary_ids
+- grammar_ids
+- text
+- native_translation
+
+Exercise Templates currently support:
+
+- id
+- exercise_type
+- supported_goal_types
+- required_object_types
+- prompt_template
+- answer_options
+- correct_option_id
+- expected_answer
+
+Unsupported fields should not be added to content assets.
+
+---
+
+# References
+
+Educational Content should reference other Educational Content by stable identifiers where the current schema supports references.
+
+Dialogues and Reading Texts may reference Vocabulary Items and Grammar Topics.
+
+Grammar Topics may reference prerequisite Grammar Topics.
+
+LessonDefinition references are authored in curriculum files, not inside reusable Educational Content objects.
 
 ---
 
@@ -202,17 +295,15 @@ Whenever practical, exercises should focus on active recall instead of recogniti
 
 # Exercise Variety
 
-Generation 1 should primarily use:
+Generation 1 currently supports these exercise-template types:
 
-- vocabulary recall;
-- translation;
-- fill gaps;
+- multiple choice;
+- fill gap;
 - matching;
-- ordering;
-- sentence construction;
-- dialogue reconstruction.
 
 Exercise diversity should increase gradually.
+
+New exercise-template types require validator and ActivityEngine support before they are documented as supported.
 
 ---
 
@@ -327,16 +418,9 @@ Educational consistency is preferred over content duplication.
 
 ---
 
-# Writing Style
+# Writing Style Reference
 
-Educational explanations should be:
-
-- simple;
-- precise;
-- consistent;
-- beginner-friendly.
-
-Unnecessary academic language should be avoided.
+Educational explanations, examples, dialogue naturalness and learner-facing tone should follow AUTHORING_STYLE_GUIDE.md.
 
 ---
 

@@ -6,9 +6,11 @@ Version: 1.0
 
 Related documents:
 
+- AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_CHECKLIST.md
 - CURRICULUM_SPEC.md
 - LANGUAGE_COURSE_BLUEPRINT.md
 
@@ -26,7 +28,13 @@ It is not a tutorial.
 
 Architecture is defined in ARCHITECTURE.md, ARCHITECTURAL_DECISIONS.md and CONTENT_MODEL.md.
 
-Practical writing guidance is defined in CONTENT_AUTHORING_GUIDE.md and COURSE_AUTHORING_GUIDE.md.
+Practical writing style is defined in AUTHORING_STYLE_GUIDE.md.
+
+Educational Content authoring guidance is defined in CONTENT_AUTHORING_GUIDE.md.
+
+Course, Module and LessonDefinition authoring guidance is defined in COURSE_AUTHORING_GUIDE.md.
+
+Publication readiness checks are defined in CONTENT_REVIEW_CHECKLIST.md.
 
 ---
 
@@ -132,6 +140,8 @@ When introducing a new educational modelling pattern into the project:
 Reference-first authoring is the preferred strategy for Tutor Language.
 
 It keeps large-scale content production consistent, testable and easier to improve.
+
+Operational review steps belong in CONTENT_REVIEW_CHECKLIST.md.
 
 ---
 
