@@ -17,7 +17,7 @@ Related documents:
 
 This document defines the pedagogical standards used when creating educational content for Tutor Language.
 
-It specifies how educational material should be written to ensure consistency, gradual progression and compatibility with deterministic lesson generation.
+It specifies how educational material should be written to ensure consistency, gradual progression and compatibility with deterministic lesson planning and assembly.
 
 It does not define implementation or file formats.
 
@@ -363,9 +363,9 @@ Future language packs may extend beyond this level.
 
 ---
 
-# Deterministic Generation
+# Deterministic Planning and Assembly
 
-Educational content should support deterministic lesson generation.
+Educational content should support deterministic lesson planning and assembly.
 
 Content should never assume:
 
@@ -400,7 +400,7 @@ Generation 1 prioritizes:
 - clarity;
 - simplicity;
 - consistency;
-- deterministic lesson generation;
+- deterministic lesson planning and assembly;
 - high educational quality.
 
 Advanced pedagogy is intentionally postponed.

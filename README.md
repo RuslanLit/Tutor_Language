@@ -44,6 +44,29 @@ If documentation is insufficient, ask for clarification instead of making archit
 
 The Flutter application has been bootstrapped.
 
-The project now contains the language-agnostic curriculum model, content loading foundation and deterministic Lesson Generator skeleton.
+The project contains:
 
-The educational core may be implemented after reading V1_IMPLEMENTATION_CONTRACT.md.
+- language-agnostic curriculum and educational content models;
+- Spanish A0 content assets;
+- deterministic content loading and validation;
+- LessonAssemblyService for resolving LessonDefinition references;
+- LessonPlayer for presenting assembled lesson content;
+- ActivityEngine for supported interactive activity evaluation;
+- RuleBasedLessonPlanner for deterministic lesson selection;
+- basic learner state and progress event persistence.
+
+The current learning flow is:
+
+```text
+Educational Content
+  -> Curriculum
+  -> Rule-Based Lesson Planner
+  -> LessonPlan
+  -> LessonAssemblyService
+  -> LessonPlayer
+  -> ActivityEngine
+  -> Assessment / Completion Evaluation
+  -> Learner History
+```
+
+AI is not part of the core runtime planning flow.

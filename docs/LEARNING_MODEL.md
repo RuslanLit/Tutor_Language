@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.1
+Version: 3.2
 
 Related documents:
 
@@ -50,7 +50,7 @@ Instead it should answer the following questions in order:
 6. What constraints follow from that objective?
 7. What lesson satisfies those constraints?
 
-Only after these questions have deterministic answers may lesson generation begin.
+Only after these questions have deterministic answers may lesson planning and assembly begin.
 
 ---
 
@@ -72,22 +72,22 @@ Review Queue
 Lesson Planner
         │
         ▼
-Lesson Goal
+LessonPlan
         │
         ▼
-Lesson Constraints
+Lesson Assembly
         │
         ▼
-Lesson Generator
+LessonPlayer
         │
         ▼
-Lesson Session
+ActivityEngine
         │
         ▼
-Evaluation
+Assessment / Completion Evaluation
         │
         ▼
-Learner State Update
+Learner History
 ```
 
 Every completed lesson represents one iteration of this learning cycle.
@@ -145,7 +145,7 @@ It never decides **what should be taught next**.
 
 Curriculum Lessons are LessonDefinitions.
 
-They are static inputs to lesson generation, not generated Lesson Sessions.
+They are static inputs to planning and assembly, not generated Lesson Sessions.
 
 ---
 
@@ -187,6 +187,54 @@ The objective is long-term retention rather than maximum speed.
 
 ---
 
+## Lesson Planner
+
+The Lesson Planner decides what should be attempted next.
+
+The implemented planner is `RuleBasedLessonPlanner`.
+
+It consumes:
+
+- available curriculum;
+- a PlanningRequest;
+- a PlanningPolicy;
+- a LearnerHistorySummary.
+
+It produces:
+
+- a LessonPlan;
+- a selected LessonDefinition identifier;
+- a plan type;
+- deterministic reason codes.
+
+The Lesson Planner does not assemble content, render UI, evaluate answers or mutate learner history.
+
+---
+
+## LessonPlan
+
+LessonPlan is the deterministic output of lesson planning.
+
+It describes the lesson selection decision.
+
+It is not Educational Content.
+
+It is not Curriculum.
+
+It is not a LessonDefinition.
+
+It is not a rendered Lesson Session.
+
+Current LessonPlan information includes:
+
+- selected LessonDefinition identifier;
+- plan type;
+- reason codes;
+- optional selected content references;
+- diagnostic explanation.
+
+---
+
 ## Lesson Goal
 
 Every lesson has exactly one primary educational objective.
@@ -217,13 +265,65 @@ Typical constraints include:
 - exercise mix;
 - maximum cognitive load.
 
-Lesson generation must remain inside these boundaries.
+Lesson planning and assembly must remain inside these boundaries.
 
-The Lesson Generator combines LessonDefinitions, Educational Content and Lesson Constraints to produce a temporary Lesson Session.
+The Lesson Planner uses policy constraints to select a LessonPlan.
+
+Lesson Assembly uses the selected LessonDefinition and referenced Educational Content to produce assembled lesson content.
 
 It does not create educational knowledge.
 
 It does not modify LessonDefinitions.
+
+---
+
+## Lesson Assembly
+
+Lesson Assembly resolves references after planning.
+
+The implemented service is `LessonAssemblyService`.
+
+It consumes:
+
+- a selected LessonDefinition identifier;
+- Curriculum;
+- Educational Content assets.
+
+It produces assembled lesson content for presentation.
+
+Lesson Assembly does not decide what should be taught next.
+
+---
+
+## LessonPlayer
+
+LessonPlayer presents assembled lesson content.
+
+It is responsible for rendering lesson sections and delegating interactive activities to the activity layer.
+
+It does not plan lessons, own Educational Content or determine learner progress.
+
+---
+
+## ActivityEngine
+
+ActivityEngine evaluates supported interactive activity templates.
+
+Current supported activity types are implementation-defined and validator-controlled.
+
+The ActivityEngine checks learner responses and returns deterministic results.
+
+It does not plan lessons or modify Educational Content.
+
+---
+
+## Assessment / Completion Evaluation
+
+Assessment interprets activity outcomes.
+
+The current implementation includes activity results, learning-session progress recording and completion evaluation.
+
+Advanced mastery estimation, spaced repetition and long-term review scheduling remain future work.
 
 ---
 
@@ -352,19 +452,25 @@ Educational Content defines what exists.
 
 Curriculum defines the recommended learning order.
 
-Learner State represents current learner knowledge.
+Learner State represents current learner position.
 
-Review Queue determines educational priorities.
+Learner History records observed progress and activity events.
 
-Lesson Planner selects the educational objective.
+LearnerHistorySummary projects history into the compact input used by the current planner.
 
-Lesson Constraints define lesson boundaries.
+Review Queue determines educational priorities when implemented.
 
-Lesson Generator creates the lesson.
+Rule-Based Lesson Planner selects the next LessonDefinition.
 
-Lesson Session records learner interaction.
+LessonPlan records the deterministic decision and reason codes.
 
-Evaluation measures learning outcomes.
+LessonAssemblyService resolves LessonDefinition references into assembled lesson content.
+
+LessonPlayer presents assembled content.
+
+ActivityEngine checks interactive activity answers.
+
+Assessment / Completion Evaluation interprets outcomes.
 
 Learner State Update records educational progress.
 
@@ -381,17 +487,23 @@ Included:
 - one Spanish Language Pack;
 - static educational content;
 - simple curriculum;
-- deterministic planning;
-- template-based lesson generation;
+- deterministic rule-based lesson planning;
+- LessonPlan output;
+- LessonAssemblyService content resolution;
+- LessonPlayer presentation;
+- ActivityEngine evaluation for supported activity templates;
 - deterministic evaluation;
-- review scheduling;
-- learner state tracking.
+- basic learner state and progress event tracking.
 
 Postponed:
 
 - knowledge graph;
 - advanced motivation model;
 - advanced evidence model;
+- adaptive review scheduler;
+- mastery model;
+- spaced repetition;
+- dynamic content-level planning;
 - pronunciation training;
 - speech recognition;
 - local language model;

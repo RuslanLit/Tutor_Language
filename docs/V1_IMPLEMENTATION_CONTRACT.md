@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.1
+Version: 2.2
 
 Related documents:
 
@@ -36,7 +36,10 @@ Generation 1 supports:
 - Android only;
 - offline operation only;
 - deterministic educational planning;
-- template-based lesson generation.
+- LessonPlan output;
+- lesson assembly from LessonDefinitions and Educational Content;
+- LessonPlayer presentation;
+- ActivityEngine evaluation for supported activity templates.
 
 Everything else is outside the scope of this contract.
 
@@ -64,15 +67,23 @@ Learner State
 
 Review Queue
 
-Lesson Planner
+Rule-Based Lesson Planner
 
-Lesson Goal
+PlanningRequest
 
-Lesson Constraints
+PlanningPolicy
 
-Lesson Generator
+LearnerHistorySummary
 
-Lesson Session
+LessonPlan
+
+LessonPlanReasonCode
+
+LessonAssemblyService
+
+LessonPlayer
+
+ActivityEngine
 
 Evaluation
 
@@ -89,6 +100,7 @@ Do not use:
 - Rule Engine
 - Pedagogical Rule Engine
 - Learner Profile Update
+- Lesson Generator when referring to planning, assembly, presentation or activity evaluation as one combined responsibility
 
 ---
 
@@ -246,8 +258,8 @@ Generated Exercises are runtime objects.
 
 They:
 
-- are created by Lesson Generator;
-- exist only during Lesson Session;
+- are created during lesson execution when needed;
+- exist only during a lesson session;
 - are discarded after Evaluation.
 
 Generated Exercises must never become Educational Content.
@@ -312,48 +324,15 @@ Higher priority means earlier review.
 
 ---
 
-# Lesson Goal
+# Planning Policy
 
-Every lesson has exactly one primary goal.
+Every planning decision must be deterministic and explainable.
 
-Generation 1 supports:
+Generation 1 uses PlanningPolicy to control simple rule-based selection.
 
-- introduce_vocabulary
-- review_vocabulary
-- introduce_grammar
-- review_grammar
-- mixed_review
+Current policy fields are implementation-defined by the planner and may include thresholds for accuracy, recent answer counts, incomplete-lesson preference and low-accuracy review behavior.
 
-Minimal fields:
-
-- goal_type
-- target_lesson_id
-- target_object_ids
-
----
-
-# Lesson Constraints
-
-Every Generated Lesson Session must satisfy Lesson Constraints.
-
-Required fields:
-
-- lesson_goal
-- max_new_items
-- max_review_items
-- allowed_exercise_types
-- target_duration_minutes
-- difficulty
-
-Allowed difficulty:
-
-- easy
-- normal
-- hard
-
-Generation 1 default:
-
-normal
+Future versions may introduce richer lesson goals and lesson constraints, but they must remain separate from Educational Content, LessonDefinitions, LessonAssemblyService and LessonPlayer.
 
 ---
 
@@ -419,19 +398,20 @@ mastery_score always remains within:
 
 ---
 
-# Lesson Planner Rules
+# Rule-Based Lesson Planner Rules
 
 Generation 1 intentionally keeps the planner simple.
 
-Required rules:
+Current implemented rules:
 
 1. No learner history → first curriculum LessonDefinition.
-2. High review pressure → review lesson.
-3. Lesson accuracy < 70% → reduce new material.
-4. Lesson accuracy > 85% and low review pressure → allow new material.
-5. Repeated mistakes → remain in review.
-6. Respect Lesson Constraints.
-7. Respect curriculum prerequisites.
+2. Current incomplete lesson → continue current LessonDefinition.
+3. Low recent accuracy → repeat or review.
+4. Completed current lesson → select next LessonDefinition.
+5. Invalid current lesson → fall back deterministically.
+6. Completed course with no next lesson → review.
+
+Future planner rules may add review pressure, richer prerequisites, mastery and cognitive-load constraints.
 
 Generation 1 should remain below twenty deterministic planning rules.
 
@@ -462,7 +442,7 @@ The following information is persistent:
 The following information is temporary:
 
 - Generated Exercises
-- Lesson Sessions
+- lesson sessions
 - Runtime lesson objects
 
 Educational interactions are temporary.
@@ -479,8 +459,8 @@ Generation 1 implementation satisfies this contract only if:
 - Educational Content loads from bundled assets;
 - Educational Content and Learner State are stored separately;
 - all Educational Objects use stable identifiers;
-- Lesson Planner produces Lesson Goal and Lesson Constraints;
-- Lesson Generator never violates Lesson Constraints;
+- Rule-Based Lesson Planner produces LessonPlan with deterministic reason codes;
+- LessonAssemblyService resolves LessonDefinition references without choosing strategy;
 - every exercise produces one Evaluation Result;
 - Learner State Update is the only component allowed to modify Learner State;
 - Review Queue influences future lesson planning;

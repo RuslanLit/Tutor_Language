@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.1
+Version: 3.2
 
 Related documents:
 
@@ -64,9 +64,12 @@ Generation 1 includes:
 - offline operation;
 - Spanish Language Pack;
 - deterministic lesson planning;
-- template-based lesson generation;
+- LessonPlan output;
+- lesson assembly from LessonDefinitions and Educational Content;
+- LessonPlayer presentation;
+- ActivityEngine evaluation for supported activity templates;
 - learner progress tracking;
-- review scheduling;
+- basic review-oriented planning rules;
 - local persistence.
 
 Everything else is outside the scope of Generation 1.
@@ -252,7 +255,9 @@ Internet access must never be required for:
 
 - educational content;
 - lesson planning;
-- lesson generation;
+- lesson assembly;
+- lesson presentation;
+- activity evaluation;
 - evaluation;
 - learner progress;
 - review scheduling.
@@ -272,7 +277,7 @@ Future local LLM support may provide:
 
 The Lesson Planner must remain deterministic.
 
-AI must not be required for lesson generation.
+AI must not be required for lesson planning, lesson assembly, lesson presentation or activity evaluation.
 
 ---
 
@@ -282,7 +287,7 @@ Application startup:
 
 < 3 seconds
 
-Lesson generation:
+Lesson planning and assembly:
 
 < 300 ms
 
@@ -337,15 +342,18 @@ Every implementation must:
 ## Phase 3
 
 - Review Queue
-- Lesson Planner
-- Lesson Goal
-- Lesson Constraints
+- Rule-Based Lesson Planner
+- PlanningRequest
+- PlanningPolicy
+- LearnerHistorySummary
+- LessonPlan
 
 ## Phase 4
 
-- Lesson Generator
-- Exercise Rendering
-- Lesson Session
+- LessonAssemblyService
+- LessonPlayer
+- ActivityEngine
+- Learning Session
 
 ## Phase 5
 
@@ -379,11 +387,11 @@ Generation 1 is complete when:
 
 ✓ Educational Content remains immutable during runtime.
 
-✓ Lessons are generated completely offline.
+✓ Lessons are planned and assembled completely offline.
 
-✓ Lesson Planner produces deterministic lesson plans.
+✓ Rule-Based Lesson Planner produces deterministic LessonPlans.
 
-✓ Lesson Generator respects Lesson Constraints.
+✓ LessonAssemblyService resolves LessonDefinition references without deciding strategy.
 
 ✓ User answers are evaluated locally.
 

@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.2
+Version: 3.3
 
 Related documents:
 
@@ -175,9 +175,15 @@ LessonDefinitions must reference Educational Content by stable identifiers or as
 
 LessonDefinitions must not embed educational knowledge directly.
 
-LessonDefinitions provide source references and structural requirements for deterministic lesson generation.
+LessonDefinitions provide source references and structural requirements for deterministic lesson planning and assembly.
 
 Generated Exercises and learner interaction state exist only at runtime and are never stored inside LessonDefinitions.
+
+LessonPlan is not Educational Content.
+
+LessonPlan is the runtime planning output that selects a LessonDefinition for a learner and records the reason for that selection.
+
+LessonPlan must not store reusable educational knowledge.
 
 ---
 
@@ -254,7 +260,7 @@ Generated Exercises are runtime objects.
 
 They:
 
-- are created during lesson generation;
+- are created during lesson execution when needed;
 - exist only during a Lesson Session;
 - may be discarded after evaluation.
 

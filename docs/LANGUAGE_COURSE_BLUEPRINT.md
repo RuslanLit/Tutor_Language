@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.1
 
 Related documents:
 
@@ -76,7 +76,10 @@ Language Course Blueprint
 Lesson Planner
         │
         ▼
-Lesson Generator
+LessonPlan
+        │
+        ▼
+LessonAssemblyService
         │
         ▼
 Lesson Session
@@ -90,7 +93,11 @@ Language Course Blueprint defines educational intent.
 
 The Learning Engine decides what should happen next.
 
-The Lesson Generator assembles the lesson.
+The Rule-Based Lesson Planner selects the next LessonDefinition.
+
+The LessonPlan records that decision.
+
+The LessonAssemblyService resolves the selected LessonDefinition into assembled lesson content.
 
 ---
 
@@ -173,7 +180,9 @@ It specifies:
 - lesson constraints;
 - expected learner outcomes.
 
-The Lesson Generator uses this information to assemble a Lesson Session.
+The Rule-Based Lesson Planner uses this information when selecting a LessonDefinition.
+
+The LessonAssemblyService uses the selected LessonDefinition and referenced Educational Content to assemble lesson content.
 
 ---
 
@@ -210,7 +219,7 @@ Examples:
 - exercise count;
 - cognitive load.
 
-The Lesson Generator must remain within these constraints.
+The Rule-Based Lesson Planner and LessonAssemblyService must remain within these constraints as their implemented responsibilities require.
 
 ---
 
@@ -232,11 +241,11 @@ They do not evaluate learner performance.
 
 ---
 
-# Dynamic Lesson Generation
+# Dynamic Lesson Planning and Assembly
 
 Lesson Sessions are generated at runtime.
 
-Generation uses:
+Planning and assembly use:
 
 - Educational Content;
 - Curriculum;
@@ -254,7 +263,7 @@ Different learners may receive different Lesson Sessions while following the sam
 
 Personalization is deterministic.
 
-The Lesson Generator may select different educational content based on:
+The Rule-Based Lesson Planner may select different LessonDefinitions based on:
 
 - learner progress;
 - review priorities;
@@ -263,6 +272,8 @@ The Lesson Generator may select different educational content based on:
 - prerequisite satisfaction.
 
 The Language Course Blueprint defines the boundaries within which personalization may occur.
+
+Future dynamic content-level planning may select individual content references within those boundaries, but this is not part of the current implemented planner.
 
 ---
 
@@ -279,7 +290,9 @@ Artificial Intelligence may be used:
 Artificial Intelligence must not be required for:
 
 - lesson planning;
-- lesson generation;
+- lesson assembly;
+- lesson presentation;
+- activity evaluation;
 - learner evaluation;
 - review scheduling.
 
@@ -311,7 +324,9 @@ Generation 1 includes:
 
 - one Spanish course;
 - linear module progression;
-- deterministic lesson generation;
+- deterministic rule-based lesson planning;
+- LessonPlan output;
+- LessonAssemblyService content resolution;
 - static Educational Content;
 - template-based exercises.
 

@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.1
+Version: 3.2
 
 Related documents:
 
@@ -147,13 +147,24 @@ Examples:
 
 ```text
 features/
-├── learner_profile/
-├── lesson_generation/
-├── lesson_session/
-├── evaluation/
+├── activity_engine/
+├── curriculum/
+├── lesson_assembly/
+├── lesson_player/
+├── lesson_planning/
+├── learning_session/
 ├── progress/
 └── settings/
 ```
+
+Current feature responsibilities:
+
+- `lesson_planning/` selects the next LessonDefinition and produces a LessonPlan.
+- `lesson_assembly/` resolves LessonDefinition references into assembled lesson content.
+- `lesson_player/` presents assembled lesson content.
+- `activity_engine/` evaluates supported interactive activity templates.
+- `learning_session/` records session progress and completion flow.
+- `progress/` stores learner progress events and learner state.
 
 Every feature owns:
 
@@ -185,7 +196,7 @@ Only when a feature becomes difficult to understand should it be reorganized.
 Possible evolution:
 
 ```text
-lesson_generation/
+lesson_planning/
 ├── data/
 ├── domain/
 ├── presentation/
@@ -300,7 +311,8 @@ Every subsystem should be replaceable.
 Replacing:
 
 - the database;
-- the lesson generator;
+- the rule-based lesson planner;
+- the lesson assembly service;
 - the language model;
 - speech recognition;
 - text-to-speech;

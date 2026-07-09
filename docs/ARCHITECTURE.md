@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.2
+Version: 2.3
 
 Related documents:
 
@@ -60,6 +60,38 @@ Execution Layer
 Every component belongs to exactly one layer.
 
 Responsibilities must not overlap.
+
+The implemented learning flow is:
+
+```text
+Educational Content
+        |
+        v
+Curriculum
+        |
+        v
+Rule-Based Lesson Planner
+        |
+        v
+LessonPlan
+        |
+        v
+LessonAssemblyService
+        |
+        v
+LessonPlayer
+        |
+        v
+ActivityEngine
+        |
+        v
+Assessment / Completion Evaluation
+        |
+        v
+Learner History
+```
+
+This flow separates educational decision-making, content resolution, presentation, activity execution and progress recording.
 
 Educational Domain
 
@@ -180,11 +212,18 @@ The Planning Layer determines what should happen next.
 
 Components:
 
-Learner Profile
-        │
-Review Queue
-        │
-Lesson Planner
+```text
+Learner History
+        |
+        v
+LearnerHistorySummary
+        |
+        v
+Rule-Based Lesson Planner
+        |
+        v
+LessonPlan
+```
 
 Planning is deterministic.
 
@@ -231,26 +270,30 @@ Lesson Planner
 
 The Lesson Planner is the educational decision-making component.
 
-Its responsibility is to determine the objective of the next lesson.
+Its responsibility is to determine the next lesson selection.
+
+The implemented planner is `RuleBasedLessonPlanner`.
 
 Inputs:
 
 Curriculum
-Learner Profile
-Review Queue
+PlanningRequest
+PlanningPolicy
+LearnerHistorySummary
 
 Outputs:
 
-Lesson Goal
-Lesson Constraints
+LessonPlan
 
 The Lesson Planner:
 
-never generates lesson content;
+never assembles lesson content;
 never evaluates learner answers;
 never modifies learner data.
 
 Its decisions must remain deterministic and explainable.
+
+`LessonPlan` is the planner output. It identifies the selected LessonDefinition, the plan type and reason codes explaining the selection.
 
 Lesson Goal
 
@@ -281,7 +324,7 @@ exercise mix;
 difficulty;
 required activity types.
 
-The Lesson Generator must never violate these constraints.
+The Lesson Planner must respect these constraints when they are implemented by policy.
 
 Execution Layer
 
@@ -289,51 +332,47 @@ The Execution Layer performs learning activities.
 
 Components:
 
-Lesson Generator
-        │
-Lesson Session
-        │
-Evaluation
-        │
+```text
+LessonAssemblyService
+        |
+        v
+LessonPlayer
+        |
+        v
+ActivityEngine
+        |
+        v
+Assessment / Completion Evaluation
+        |
+        v
 Learner State Update
+```
 
 Execution never changes planning decisions.
 
-Lesson Generator
+Lesson Assembly
 
-Builds a lesson session.
+`LessonAssemblyService` resolves a selected LessonDefinition into assembled lesson content.
 
 Inputs:
 
 Educational Content
 Curriculum
 LessonDefinition
-Lesson Goal
-Lesson Constraints
 
 Outputs:
 
-Lesson Session
+LessonContent
 
-The generator may use deterministic randomization internally.
+Lesson assembly must not decide what the learner should study next.
 
-Randomization changes presentation only.
+Lesson assembly must not mutate Curriculum or Educational Content.
 
-Educational objectives never change.
+Lesson assembly must not store Generated Exercises in LessonDefinitions.
 
-Lesson generation may use predefined LessonDefinitions, templates or optional future generators.
+Lesson Rendering
 
-The generator assembles a runtime Lesson Session.
-
-It must not mutate Curriculum or Educational Content.
-
-It must not store Generated Exercises in LessonDefinitions.
-
-The generator never controls long-term teaching strategy.
-
-Lesson Session
-
-Represents learner interaction.
+`LessonPlayer` presents assembled lesson content to the learner.
 
 Responsibilities:
 
@@ -343,9 +382,21 @@ collect answers;
 preserve session state;
 record timing.
 
-The Lesson Session never evaluates answers.
+The LessonPlayer does not choose lesson content and does not own educational strategy.
 
-Evaluation
+Activity Execution
+
+`ActivityEngine` evaluates supported interactive activity templates.
+
+Responsibilities:
+
+render activity-specific controls;
+check learner answers;
+return deterministic activity results.
+
+The ActivityEngine does not plan lessons and does not mutate educational content.
+
+Assessment / Completion Evaluation
 
 Determines learning results.
 
@@ -354,12 +405,15 @@ Responsibilities:
 compare answers;
 classify mistakes;
 calculate statistics;
-determine mastery changes;
 determine completion status.
 
-Evaluation never plans lessons.
+The current implementation records activity outcomes and uses completion evaluation to decide whether a learning session is complete.
 
-Evaluation never modifies educational content.
+Advanced mastery changes and spaced-repetition scheduling are future work.
+
+Assessment never plans lessons.
+
+Assessment never modifies educational content.
 
 Learner State Update
 
@@ -379,35 +433,58 @@ Information Flow
 
 The architecture follows a single direction.
 
+```text
 Language Pack
-        │
+        |
+        v
 Educational Content
-        │
+        |
+        v
 Curriculum
-        │
-Learner Profile
-        │
-Review Queue
-        │
-Lesson Planner
-        │
-Lesson Goal
-        │
-Lesson Constraints
-        │
-Lesson Generator
-        │
-Lesson Session
-        │
-Evaluation
-        │
-Learner State Update
-        │
-        └──────────────► Learner Profile
+        |
+        v
+Rule-Based Lesson Planner
+        |
+        v
+LessonPlan
+        |
+        v
+LessonAssemblyService
+        |
+        v
+LessonPlayer
+        |
+        v
+ActivityEngine
+        |
+        v
+Assessment / Completion Evaluation
+        |
+        v
+Learner History
+        |
+        +--------------------> Rule-Based Lesson Planner
+```
 
 The learning cycle repeats indefinitely.
 
 There are no other feedback loops.
+
+Terminology Boundaries
+
+The term "Lesson Generator" is not used for the current implemented flow because it hides separate responsibilities.
+
+Current canonical terms are:
+
+- Rule-Based Lesson Planner: decides which LessonDefinition should be attempted next.
+- LessonPlan: records the deterministic planning decision and reasons.
+- LessonAssemblyService: resolves LessonDefinition references into assembled lesson content.
+- LessonPlayer: presents assembled content.
+- ActivityEngine: evaluates interactive activity responses.
+- Assessment / Completion Evaluation: interprets outcomes and completion.
+- Learner History: records observed learner events and progress.
+
+Future procedural lesson generation may be added later, but it must remain separate from planning, rendering and assessment.
 
 Component Boundaries
 
@@ -446,7 +523,8 @@ Major subsystems should remain replaceable.
 
 Examples:
 
-Lesson Generator;
+Rule-Based Lesson Planner;
+LessonAssemblyService;
 Local LLM;
 Speech Recognition;
 Text-to-Speech;

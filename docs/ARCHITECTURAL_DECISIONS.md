@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.2
+Version: 2.3
 
 Related documents:
 
@@ -342,11 +342,11 @@ Accepted
 
 Title
 
-Educational Planning Before Content Generation
+Educational Planning Before Content Realization
 
 Context
 
-Educational planning and lesson generation solve different problems.
+Educational planning, lesson assembly, presentation and activity evaluation solve different problems.
 
 Combining them increases architectural complexity and reduces explainability.
 
@@ -356,24 +356,27 @@ The system must first determine:
 
 - learner state;
 - educational objective;
-- lesson goal;
-- lesson constraints.
+- planning request;
+- planning policy;
+- learner history summary.
 
-Only afterwards may lesson generation begin.
+Only afterwards may lesson assembly and presentation begin.
 
 Rationale
 
 Educational planning should remain deterministic.
 
-Lesson generation may later use templates or procedural generation.
+Lesson assembly may use LessonDefinitions, Educational Content and templates.
 
-Optional AI may assist content authoring or explanations, but it must not become required for core lesson generation.
+Future procedural content realization may be added later.
+
+Optional AI may assist content authoring or explanations, but it must not become required for lesson planning, lesson assembly, presentation or activity evaluation.
 
 Consequences
 
-Lesson generation becomes completely replaceable.
+Lesson planning, assembly, presentation and activity evaluation remain independently replaceable.
 
-Educational planning remains independent from content generation technology.
+Educational planning remains independent from content realization technology.
 
 ---
 
@@ -448,7 +451,7 @@ Context
 
 Educational technology evolves rapidly.
 
-Individual components such as databases, language models, speech recognition engines or lesson generators may become obsolete.
+Individual components such as databases, language models, speech recognition engines, planners or assembly services may become obsolete.
 
 Decision
 
@@ -464,7 +467,8 @@ Subsystems should communicate through stable interfaces rather than implementati
 
 Examples include:
 
-- lesson generator;
+- rule-based lesson planner;
+- lesson assembly service;
 - language model;
 - speech recognition;
 - text-to-speech;
@@ -508,7 +512,7 @@ Presentation assets such as audio, images and video represent Educational Conten
 
 Rationale
 
-The five existing types are sufficient to model beginner language learning while preserving clear boundaries between knowledge, curriculum organization and runtime lesson generation.
+The five existing types are sufficient to model beginner language learning while preserving clear boundaries between knowledge, curriculum organization, planning, assembly and runtime activity execution.
 
 Keeping the model small reduces authoring complexity, validation complexity and migration risk.
 
@@ -517,6 +521,74 @@ Consequences
 New content-authoring patterns should reuse the existing five types whenever educational meaning can be preserved.
 
 Future media support should be modeled as representation or metadata for existing Educational Content unless a distinct knowledge object is architecturally justified.
+
+---
+
+# ADR-0012
+
+Status
+
+Accepted
+
+Title
+
+Rule-Based Planning Separated From Assembly, Presentation and Activity Evaluation
+
+Context
+
+Phase E11 introduced the first deterministic rule-based planning foundation.
+
+The project now has separate implemented responsibilities for lesson selection, lesson content resolution, lesson presentation and interactive activity evaluation.
+
+Combining these responsibilities would make the learning flow harder to test, harder to explain and harder to evolve.
+
+Decision
+
+The current learning flow is separated into these components:
+
+- RuleBasedLessonPlanner selects the next LessonDefinition.
+- LessonPlan records the planning decision and reason codes.
+- LessonAssemblyService resolves LessonDefinition references into assembled lesson content.
+- LessonPlayer presents assembled lesson content.
+- ActivityEngine evaluates supported interactive activity responses.
+- Assessment / Completion Evaluation interprets outcomes and completion.
+- Learner History records observed learner events and progress.
+
+Educational Content remains immutable and reusable.
+
+Curriculum defines what can be taught.
+
+The planner determines what should be attempted next.
+
+The assembly layer resolves references only.
+
+The presentation layer displays content only.
+
+Interactive activity evaluation remains separate from presentation.
+
+The planner must remain deterministic and explainable.
+
+AI is not responsible for runtime lesson planning.
+
+Rationale
+
+This separation keeps the core learning loop testable and replaceable.
+
+It allows E11 planning logic to evolve without changing Educational Content schemas, loaders, validators, LessonPlayer or ActivityEngine.
+
+It also prevents fixed ready-made lessons from becoming the main adaptive mechanism while preserving LessonDefinitions as reusable curriculum inputs.
+
+Consequences
+
+Future planning features should extend RuleBasedLessonPlanner, PlanningRequest, PlanningPolicy, LearnerHistorySummary and LessonPlan before changing content schemas.
+
+LessonAssemblyService must not decide educational strategy.
+
+LessonPlayer must not own planning or assessment policy.
+
+ActivityEngine must not store learner progress directly.
+
+Advanced adaptive review scheduling, mastery estimation, spaced repetition, dynamic content-level planning and LLM-assisted authoring remain future work unless explicitly implemented.
 
 Adding a new Educational Content type requires an explicit architectural decision.
 

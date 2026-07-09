@@ -20,7 +20,7 @@ This document defines how language courses should be designed for Tutor Language
 
 It specifies how educational content is organized into complete learning programs independently of any particular language.
 
-It does not define implementation details or lesson generation.
+It does not define implementation details, lesson planning or lesson assembly.
 
 ---
 

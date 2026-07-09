@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.2
+Version: 1.3
 
 Related documents:
 
@@ -208,9 +208,11 @@ LessonDefinition activities reference Educational Content.
 
 LessonDefinitions must not embed vocabulary, grammar explanations, dialogues, readings or exercise definitions.
 
-LessonDefinition activities describe the structure and referenced source material available to the deterministic Lesson Generator.
+LessonDefinition activities describe the structure and referenced source material available to lesson planning and assembly.
 
-The Lesson Generator may assemble a Lesson Session from a LessonDefinition, Educational Content, Lesson Goal and Lesson Constraints without modifying the LessonDefinition.
+The Rule-Based Lesson Planner may select a LessonDefinition.
+
+The LessonAssemblyService may assemble lesson content from a selected LessonDefinition and referenced Educational Content without modifying the LessonDefinition.
 
 Generated Exercises are runtime objects and must not be stored inside LessonDefinitions.
 

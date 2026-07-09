@@ -273,7 +273,7 @@ Its responsibilities include:
 
 Teaching decisions remain under application control.
 
-AI must never be required for lesson planning, learner modelling, review scheduling, mastery decisions or core lesson generation.
+AI must never be required for lesson planning, learner modelling, review scheduling, mastery decisions, lesson assembly, lesson presentation or activity evaluation.
 
 ---
 
