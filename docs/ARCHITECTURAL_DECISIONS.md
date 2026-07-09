@@ -472,6 +472,56 @@ Examples include:
 
 ---
 
+# ADR-0011
+
+Status
+
+Accepted
+
+Title
+
+Canonical Educational Content Model
+
+Context
+
+After implementing the Spanish A0 Unit 1 Lesson 1 reference lesson, the Educational Content model was reviewed against the complete Spanish A0 curriculum.
+
+The review concluded that Spanish A0 can be represented by the existing Educational Content model without introducing additional knowledge object types.
+
+Decision
+
+The canonical Educational Content model currently consists of exactly five knowledge object types:
+
+- Vocabulary Item
+- Grammar Topic
+- Dialogue
+- Reading Text
+- Exercise Template
+
+No additional Educational Content types are currently required.
+
+Future architectural work should first extend existing Educational Content types before introducing new ones.
+
+A new Educational Content type requires architectural justification. Implementation convenience alone is not sufficient.
+
+Presentation assets such as audio, images and video represent Educational Content. They are not Educational Content types.
+
+Rationale
+
+The five existing types are sufficient to model beginner language learning while preserving clear boundaries between knowledge, curriculum organization and runtime lesson generation.
+
+Keeping the model small reduces authoring complexity, validation complexity and migration risk.
+
+Consequences
+
+New content-authoring patterns should reuse the existing five types whenever educational meaning can be preserved.
+
+Future media support should be modeled as representation or metadata for existing Educational Content unless a distinct knowledge object is architecturally justified.
+
+Adding a new Educational Content type requires an explicit architectural decision.
+
+---
+
 # Final Principle
 
 Architectural decisions should be:
