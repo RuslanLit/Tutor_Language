@@ -26,31 +26,85 @@
       "activities": [
         {
           "id": "es.a0.u01.l01.activity.introduction",
-          "title": "Introduction",
-          "type": "introduction",
+          "title": "New Words",
+          "type": "vocabulary",
           "order": 1,
-          "references": []
+          "references": [
+            {
+              "type": "vocabulary",
+              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
+              "referenceId": "vocab.es.a0.u01.l01.hola.v1"
+            },
+            {
+              "type": "vocabulary",
+              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
+              "referenceId": "vocab.es.a0.u01.l01.buenos_dias.v1"
+            },
+            {
+              "type": "vocabulary",
+              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
+              "referenceId": "vocab.es.a0.u01.l01.buenas_tardes.v1"
+            },
+            {
+              "type": "vocabulary",
+              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
+              "referenceId": "vocab.es.a0.u01.l01.buenas_noches.v1"
+            },
+            {
+              "type": "vocabulary",
+              "assetPath": "assets/languages/spanish/vocabulary/hello_goodbye.json",
+              "referenceId": "vocab.es.a0.u01.l01.adios.v1"
+            }
+          ]
         },
         {
           "id": "es.a0.u01.l01.activity.guided_practice",
-          "title": "Guided Practice",
-          "type": "guided_practice",
+          "title": "Recognition Examples",
+          "type": "reading",
           "order": 2,
-          "references": []
+          "references": [
+            {
+              "type": "reading",
+              "assetPath": "assets/languages/spanish/readings/hello_goodbye_recognition.json",
+              "referenceId": "reading.es.a0.u01.l01.recognition.v1"
+            }
+          ]
         },
         {
           "id": "es.a0.u01.l01.activity.communicative_task",
-          "title": "Communicative Mini-task",
-          "type": "communicative_task",
+          "title": "Tiny Dialogue",
+          "type": "dialogue",
           "order": 3,
-          "references": []
+          "references": [
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/hello_goodbye.json",
+              "referenceId": "dialogue.es.a0.u01.l01.hello_goodbye.v1"
+            }
+          ]
         },
         {
           "id": "es.a0.u01.l01.activity.review",
-          "title": "Review",
-          "type": "review",
+          "title": "Practice and Review",
+          "type": "exercise_template",
           "order": 4,
-          "references": []
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
+              "referenceId": "template.es.a0.u01.l01.recognize_hola.v1"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
+              "referenceId": "template.es.a0.u01.l01.recognize_buenos_dias.v1"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/hello_goodbye_practice.json",
+              "referenceId": "template.es.a0.u01.l01.recognize_adios.v1"
+            }
+          ]
         }
       ]
     }
@@ -74,5 +128,46 @@
       "es.a0.u01.l01.section.flow"
     ]
   },
-  "references": []
+  "references": [
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.u01.l01.hola.v1"
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.u01.l01.buenos_dias.v1"
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.u01.l01.buenas_tardes.v1"
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.u01.l01.buenas_noches.v1"
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.u01.l01.adios.v1"
+    },
+    {
+      "type": "dialogue",
+      "id": "dialogue.es.a0.u01.l01.hello_goodbye.v1"
+    },
+    {
+      "type": "reading",
+      "id": "reading.es.a0.u01.l01.recognition.v1"
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.u01.l01.recognize_hola.v1"
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.u01.l01.recognize_buenos_dias.v1"
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.u01.l01.recognize_adios.v1"
+    }
+  ]
 }

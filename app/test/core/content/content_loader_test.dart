@@ -12,17 +12,32 @@ void main() {
 
     final content = await loader.loadSpanishContent();
 
-    final vocabulary = content.byType<VocabularyContent>().single;
-    final grammar = content.byType<GrammarContent>().single;
-    final dialogues = content.byType<DialogueContent>().single;
-    final readings = content.byType<ReadingContent>().single;
-    final templates = content.byType<ExerciseTemplateContent>().single;
+    final vocabulary = content.byType<VocabularyContent>();
+    final grammar = content.byType<GrammarContent>();
+    final dialogues = content.byType<DialogueContent>();
+    final readings = content.byType<ReadingContent>();
+    final templates = content.byType<ExerciseTemplateContent>();
 
-    expect(vocabulary.entries.first, isA<VocabularyItem>());
-    expect(grammar.topics.first, isA<GrammarTopic>());
-    expect(dialogues.dialogues.first.lines.first, isA<DialogueLine>());
-    expect(readings.texts.first, isA<ReadingText>());
-    expect(templates.templates.first, isA<ExerciseTemplate>());
+    expect(
+      vocabulary.expand((content) => content.entries).first,
+      isA<VocabularyItem>(),
+    );
+    expect(
+      grammar.expand((content) => content.topics).first,
+      isA<GrammarTopic>(),
+    );
+    expect(
+      dialogues.expand((content) => content.dialogues).first.lines.first,
+      isA<DialogueLine>(),
+    );
+    expect(
+      readings.expand((content) => content.texts).first,
+      isA<ReadingText>(),
+    );
+    expect(
+      templates.expand((content) => content.templates).first,
+      isA<ExerciseTemplate>(),
+    );
   });
 
   test('Spanish vocabulary pool loads and validates', () async {
@@ -30,15 +45,18 @@ void main() {
     final validator = EducationalContentValidator();
 
     final content = await loader.loadSpanishContent();
-    final vocabulary = content.byType<VocabularyContent>().single;
-    final ids = vocabulary.entries.map((entry) => entry.id).toSet();
+    final vocabulary = content.byType<VocabularyContent>();
+    final entries = vocabulary.expand((content) => content.entries).toList();
+    final ids = entries.map((entry) => entry.id).toSet();
 
-    expect(vocabulary.entries, hasLength(10));
+    expect(entries.length, greaterThanOrEqualTo(15));
     expect(ids, contains('vocab.hola.v1'));
     expect(ids, contains('vocab.mucho_gusto.v1'));
+    expect(ids, contains('vocab.es.a0.u01.l01.hola.v1'));
+    expect(ids, contains('vocab.es.a0.u01.l01.adios.v1'));
     expect(validator.validate(content), isEmpty);
     expect(
-      vocabulary.entries.every((entry) {
+      entries.every((entry) {
         final json = entry.toJson();
 
         return !json.containsKey('lesson_ids') &&

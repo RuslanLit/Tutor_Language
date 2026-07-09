@@ -1,0 +1,47 @@
+[
+  {
+    "id": "vocab.es.a0.u01.l01.hola.v1",
+    "spanish": "hola",
+    "native_translation": "hello",
+    "cefr": "A0",
+    "example": "Hola.",
+    "pronunciation": "OH-lah",
+    "notes": "A simple greeting used at any time of day."
+  },
+  {
+    "id": "vocab.es.a0.u01.l01.buenos_dias.v1",
+    "spanish": "buenos días",
+    "native_translation": "good morning",
+    "cefr": "A0",
+    "example": "Buenos días.",
+    "pronunciation": "BWEH-nos DEE-as",
+    "notes": "Used in the morning."
+  },
+  {
+    "id": "vocab.es.a0.u01.l01.buenas_tardes.v1",
+    "spanish": "buenas tardes",
+    "native_translation": "good afternoon",
+    "cefr": "A0",
+    "example": "Buenas tardes.",
+    "pronunciation": "BWEH-nas TAR-des",
+    "notes": "Used in the afternoon or early evening."
+  },
+  {
+    "id": "vocab.es.a0.u01.l01.buenas_noches.v1",
+    "spanish": "buenas noches",
+    "native_translation": "good evening",
+    "cefr": "A0",
+    "example": "Buenas noches.",
+    "pronunciation": "BWEH-nas NOH-ches",
+    "notes": "Used in the evening or at night."
+  },
+  {
+    "id": "vocab.es.a0.u01.l01.adios.v1",
+    "spanish": "adiós",
+    "native_translation": "goodbye",
+    "cefr": "A0",
+    "example": "Adiós.",
+    "pronunciation": "ah-DYOHS",
+    "notes": "A common way to say goodbye."
+  }
+]

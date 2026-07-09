@@ -1,0 +1,33 @@
+[
+  {
+    "id": "dialogue.es.a0.u01.l01.hello_goodbye.v1",
+    "title": "Hello and Goodbye",
+    "vocabulary_ids": [
+      "vocab.es.a0.u01.l01.hola.v1",
+      "vocab.es.a0.u01.l01.adios.v1"
+    ],
+    "grammar_ids": [],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola.",
+        "native_translation": "Hello."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hola.",
+        "native_translation": "Hello."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Adiós.",
+        "native_translation": "Goodbye."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Adiós.",
+        "native_translation": "Goodbye."
+      }
+    ]
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "template.es.a0.u01.l01.recognize_hola.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "What does \"hola\" mean?",
+    "answer_options": [
+      {
+        "id": "option.hello",
+        "label": "hello"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      },
+      {
+        "id": "option.good_morning",
+        "label": "good morning"
+      }
+    ],
+    "correct_option_id": "option.hello"
+  },
+  {
+    "id": "template.es.a0.u01.l01.recognize_buenos_dias.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "What does \"buenos días\" mean?",
+    "answer_options": [
+      {
+        "id": "option.good_morning",
+        "label": "good morning"
+      },
+      {
+        "id": "option.good_evening",
+        "label": "good evening"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      }
+    ],
+    "correct_option_id": "option.good_morning"
+  },
+  {
+    "id": "template.es.a0.u01.l01.recognize_adios.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "What does \"adiós\" mean?",
+    "answer_options": [
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      },
+      {
+        "id": "option.hello",
+        "label": "hello"
+      },
+      {
+        "id": "option.good_afternoon",
+        "label": "good afternoon"
+      }
+    ],
+    "correct_option_id": "option.goodbye"
+  }
+]
