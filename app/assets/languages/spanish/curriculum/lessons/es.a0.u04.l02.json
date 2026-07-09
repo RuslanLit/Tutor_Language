@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "es.a0.u04.l02",
+    "title": "Numbers 11-20",
+    "description": "Extend number recognition to twenty.",
+    "moduleId": "es.a0.u04",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 10,
+    "difficulty": "A0",
+    "tags": [],
+    "version": "1.0.0",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.u04.l01"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.u04.l02.primary",
+      "description": "Extend number recognition to twenty."
+    }
+  ],
+  "communicativeOutcome": "The learner can recognize small numbers used in everyday contexts.",
+  "sections": [
+    {
+      "id": "es.a0.u04.l02.section.flow",
+      "title": "Lesson Flow",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.u04.l02.activity.introduction",
+          "title": "Introduction",
+          "type": "introduction",
+          "order": 1,
+          "references": []
+        },
+        {
+          "id": "es.a0.u04.l02.activity.guided_practice",
+          "title": "Guided Practice",
+          "type": "guided_practice",
+          "order": 2,
+          "references": []
+        },
+        {
+          "id": "es.a0.u04.l02.activity.communicative_task",
+          "title": "Communicative Mini-task",
+          "type": "communicative_task",
+          "order": 3,
+          "references": []
+        },
+        {
+          "id": "es.a0.u04.l02.activity.review",
+          "title": "Review",
+          "type": "review",
+          "order": 4,
+          "references": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.u04.l02.summary",
+    "reviewPrompt": "The learner can recognize small numbers used in everyday contexts.",
+    "referenceIds": [
+      "objective.es.a0.u04.l02.primary"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.u04.l02.activity.introduction",
+      "es.a0.u04.l02.activity.guided_practice",
+      "es.a0.u04.l02.activity.communicative_task",
+      "es.a0.u04.l02.activity.review"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.u04.l02.section.flow"
+    ]
+  },
+  "references": []
+}

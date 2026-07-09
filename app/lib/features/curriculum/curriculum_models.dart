@@ -105,6 +105,7 @@ class Lesson {
   const Lesson({
     this.metadata,
     this.objectives = const [],
+    this.communicativeOutcome,
     this.sections = const [],
     this.summary,
     required this.completionCriteria,
@@ -128,6 +129,7 @@ class Lesson {
     return Lesson(
       metadata: LessonMetadata.fromJson(requiredMap(json, 'metadata')),
       objectives: requiredList(json, 'objectives', LessonObjective.fromJson),
+      communicativeOutcome: optionalString(json, 'communicativeOutcome'),
       sections: requiredList(json, 'sections', LessonSection.fromJson),
       summary: LessonSummary.fromJson(requiredMap(json, 'summary')),
       completionCriteria: LessonCompletionCriteria.fromJson(
@@ -139,6 +141,7 @@ class Lesson {
 
   final LessonMetadata? metadata;
   final List<LessonObjective> objectives;
+  final String? communicativeOutcome;
   final List<LessonSection> sections;
   final LessonSummary? summary;
   final LessonCompletionCriteria completionCriteria;
@@ -156,6 +159,8 @@ class Lesson {
   String get moduleId => metadata?.moduleId ?? _moduleId!;
   String get courseId => metadata?.courseId ?? '';
   String get title => metadata?.title ?? _title!;
+  String get description =>
+      metadata?.description ?? primaryObjective?.description ?? '';
   int get estimatedDurationMinutes =>
       metadata?.estimatedDurationMinutes ?? _estimatedDurationMinutes!;
   String get difficulty => metadata?.difficulty ?? '';
@@ -176,6 +181,7 @@ class LessonMetadata {
   const LessonMetadata({
     required this.id,
     required this.title,
+    this.description,
     required this.moduleId,
     required this.courseId,
     required this.estimatedDurationMinutes,
@@ -189,6 +195,7 @@ class LessonMetadata {
     return LessonMetadata(
       id: requiredString(json, 'id'),
       title: requiredString(json, 'title'),
+      description: optionalString(json, 'description'),
       moduleId: requiredString(json, 'moduleId'),
       courseId: requiredString(json, 'courseId'),
       estimatedDurationMinutes: _requiredInt(json, 'estimatedDurationMinutes'),
@@ -205,6 +212,7 @@ class LessonMetadata {
 
   final String id;
   final String title;
+  final String? description;
   final String moduleId;
   final String courseId;
   final int estimatedDurationMinutes;

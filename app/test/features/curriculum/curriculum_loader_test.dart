@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
@@ -63,6 +65,46 @@ void main() {
     expect(lesson.completionCriteria.requiredActivities, [
       'activity.placeholder.vocabulary.v1',
     ]);
+  });
+
+  test('parses all standalone Spanish A0 LessonDefinition files', () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+    final course = await loader.loadCourse();
+    final courseLessonsById = {
+      for (final lesson in course.lessons) lesson.id: lesson,
+    };
+    final rawIndex = await rootBundle.loadString(
+      'assets/languages/spanish/curriculum/lessons/index.json',
+    );
+    final index = jsonDecode(rawIndex) as Map<String, dynamic>;
+    final paths = (index['lessonDefinitionPaths'] as List).cast<String>();
+
+    expect(paths, hasLength(32));
+
+    final lessonIds = <String>{};
+
+    for (final path in paths) {
+      final lesson = await loader.loadLesson(path: path);
+
+      expect(path, endsWith('${lesson.id}.json'));
+      expect(lessonIds.add(lesson.id), isTrue, reason: path);
+      expect(lesson.courseId, course.id);
+      expect(lesson.title, isNotEmpty);
+      expect(lesson.primaryObjective?.description, isNotEmpty);
+      expect(lesson.activities, isNotEmpty);
+
+      final courseLesson = courseLessonsById[lesson.id];
+      if (courseLesson != null) {
+        expect(lesson.title, courseLesson.title);
+        expect(lesson.moduleId, courseLesson.moduleId);
+        expect(
+          lesson.primaryObjective?.description,
+          courseLesson.primaryObjective?.description,
+        );
+      }
+    }
+
+    expect(lessonIds, hasLength(32));
   });
 
   test('lesson ids are stable strings', () async {

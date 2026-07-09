@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "id": "es.a0.u07.l03",
+    "title": "I Have / I Want / I Need",
+    "description": "Compare three high-frequency first-person present-tense phrases.",
+    "moduleId": "es.a0.u07",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 10,
+    "difficulty": "A0",
+    "tags": [],
+    "version": "1.0.0",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.u07.l02"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.u07.l03.primary",
+      "description": "Compare three high-frequency first-person present-tense phrases."
+    }
+  ],
+  "communicativeOutcome": "The learner can state a possession, wish, or need in a very short sentence.",
+  "sections": [
+    {
+      "id": "es.a0.u07.l03.section.flow",
+      "title": "Lesson Flow",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.u07.l03.activity.introduction",
+          "title": "Introduction",
+          "type": "introduction",
+          "order": 1,
+          "references": []
+        },
+        {
+          "id": "es.a0.u07.l03.activity.guided_practice",
+          "title": "Guided Practice",
+          "type": "guided_practice",
+          "order": 2,
+          "references": []
+        },
+        {
+          "id": "es.a0.u07.l03.activity.communicative_task",
+          "title": "Communicative Mini-task",
+          "type": "communicative_task",
+          "order": 3,
+          "references": []
+        },
+        {
+          "id": "es.a0.u07.l03.activity.review",
+          "title": "Review",
+          "type": "review",
+          "order": 4,
+          "references": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.u07.l03.summary",
+    "reviewPrompt": "The learner can state a possession, wish, or need in a very short sentence.",
+    "referenceIds": [
+      "objective.es.a0.u07.l03.primary"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.u07.l03.activity.introduction",
+      "es.a0.u07.l03.activity.guided_practice",
+      "es.a0.u07.l03.activity.communicative_task",
+      "es.a0.u07.l03.activity.review"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.u07.l03.section.flow"
+    ]
+  },
+  "references": []
+}

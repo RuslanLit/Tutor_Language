@@ -36,3 +36,4 @@ flutter:
     - assets/languages/spanish/dialogues/
     - assets/languages/spanish/readings/
     - assets/languages/spanish/curriculum/
+    - assets/languages/spanish/curriculum/lessons/
