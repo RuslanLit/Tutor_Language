@@ -67,6 +67,56 @@ void main() {
     );
     expect(find.textContaining('missing.lesson'), findsOneWidget);
   });
+
+  testWidgets('wrong practice answer shows incorrect feedback', (tester) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.interactive'),
+        service: _FakeLessonAssemblyService(_interactiveLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('wrong option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Try again'), findsOneWidget);
+  });
+
+  testWidgets('correct practice answer shows correct feedback', (tester) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.interactive'),
+        service: _FakeLessonAssemblyService(_interactiveLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('right option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+  });
+
+  testWidgets('does not crash when a lesson has no practice activities', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.no_practice'),
+        service: _FakeLessonAssemblyService(_noPracticeLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('No Practice Lesson'), findsOneWidget);
+    expect(find.text('Only Vocabulary'), findsOneWidget);
+    expect(find.text('Check'), findsNothing);
+  });
 }
 
 Widget _app(Widget child, {LessonAssemblyService? service}) {
@@ -294,6 +344,169 @@ const _dynamicLessonContent = LessonContent(
                 ExerciseTemplateOption(id: 'option.dynamic', label: 'Dynamic'),
               ],
               correctOptionId: 'option.dynamic',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _interactiveLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.interactive',
+      title: 'Interactive Lesson',
+      description: 'Interactive lesson description.',
+      moduleId: 'module.interactive',
+      courseId: 'course.interactive',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.interactive',
+        description: 'Check local practice feedback.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.interactive',
+        title: 'Interactive Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.interactive.practice',
+            title: 'Interactive Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.interactive',
+        title: 'Interactive Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.interactive.practice',
+            title: 'Interactive Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.interactive.practice',
+            title: 'Interactive Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.interactive.choice',
+              exerciseType: 'multiple_choice',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Choose the right option.',
+              answerOptions: [
+                ExerciseTemplateOption(
+                  id: 'option.wrong',
+                  label: 'wrong option',
+                ),
+                ExerciseTemplateOption(
+                  id: 'option.right',
+                  label: 'right option',
+                ),
+              ],
+              correctOptionId: 'option.right',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _noPracticeLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.no_practice',
+      title: 'No Practice Lesson',
+      description: 'No practice lesson description.',
+      moduleId: 'module.no_practice',
+      courseId: 'course.no_practice',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.no_practice',
+        description: 'Render without practice.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.no_practice',
+        title: 'No Practice Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.no_practice.vocabulary',
+            title: 'Only Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.no_practice',
+        title: 'No Practice Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.no_practice.vocabulary',
+            title: 'Only Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.no_practice.vocabulary',
+            title: 'Only Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.no_practice',
+              spanish: 'sin-practica',
+              nativeTranslation: 'without practice',
+              cefr: 'A0',
+              example: 'Sin práctica.',
             ),
           ],
         ),

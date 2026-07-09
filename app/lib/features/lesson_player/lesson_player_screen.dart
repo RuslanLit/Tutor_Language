@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/content/topic_content.dart';
 import '../../shared/widgets/course_browser_error.dart';
+import '../activity_engine/activity_widgets.dart';
 import '../lesson_assembly/lesson_content.dart';
 import 'lesson_player_providers.dart';
 
@@ -250,21 +251,7 @@ class ExerciseTemplateView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(template.promptTemplate),
-        const SizedBox(height: 4),
-        Text('Type: ${template.exerciseType}'),
-        if (template.answerOptions.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          for (final option in template.answerOptions) Text(option.label),
-        ],
-        if (template.expectedAnswer != null &&
-            template.expectedAnswer!.isNotEmpty)
-          Text('Expected answer: ${template.expectedAnswer}'),
-      ],
-    );
+    return ActivityTemplateWidget(template: template);
   }
 }
 
