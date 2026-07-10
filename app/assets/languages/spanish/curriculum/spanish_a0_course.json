@@ -16,7 +16,7 @@
     },
     {
       "id": "es.a0.m02",
-      "title": "Basic Personal Information",
+      "title": "Names and Basic Questions",
       "lessonIds": [
         "es.a0.m02.l004",
         "es.a0.m02.l005",
@@ -25,7 +25,7 @@
     },
     {
       "id": "es.a0.m03",
-      "title": "Everyday Survival",
+      "title": "First Contact Responses",
       "lessonIds": [
         "es.a0.m03.l007",
         "es.a0.m03.l008",
@@ -34,7 +34,7 @@
     },
     {
       "id": "es.a0.m04",
-      "title": "Core Grammar Foundations",
+      "title": "Unit 1 Review and Foundations",
       "lessonIds": [
         "es.a0.m04.l010",
         "es.a0.m04.l011",
@@ -734,10 +734,10 @@
     {
       "metadata": {
         "id": "es.a0.m02.l006",
-        "title": "I Speak a Little Spanish",
+        "title": "How Are You?",
         "moduleId": "es.a0.m02",
         "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
+        "estimatedDurationMinutes": 10,
         "difficulty": "A0",
         "tags": [],
         "version": "1.0.0",
@@ -749,8 +749,8 @@
       },
       "objectives": [
         {
-          "id": "objective.language_ability.basic",
-          "description": "Describe basic language ability."
+          "id": "objective.wellbeing_questions.basic",
+          "description": "Recognize two basic ways to ask how someone is."
         }
       ],
       "sections": [
@@ -760,31 +760,67 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.vocabulary.language_ability",
+              "id": "activity.vocabulary.wellbeing_questions",
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.como_estas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.que_tal.v1"
+                }
+              ]
             },
             {
-              "id": "activity.dialogue.language_ability",
-              "title": "dialogue",
-              "type": "dialogue",
+              "id": "activity.reading.wellbeing_questions",
+              "title": "reading",
+              "type": "reading",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.wellbeing_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.wellbeing_questions",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.how_are_you_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.fill_que_tal.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m02.l006.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review ¿cómo estás? and ¿qué tal?",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.vocabulary.language_ability",
-          "activity.dialogue.language_ability"
+          "activity.vocabulary.wellbeing_questions",
+          "activity.reading.wellbeing_questions",
+          "activity.practice.wellbeing_questions"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
@@ -796,7 +832,7 @@
     {
       "metadata": {
         "id": "es.a0.m03.l007",
-        "title": "Numbers 0-10",
+        "title": "Answering How Are You",
         "moduleId": "es.a0.m03",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
@@ -811,8 +847,8 @@
       },
       "objectives": [
         {
-          "id": "objective.numbers_0_10.basic",
-          "description": "Recognize and use numbers from zero to ten."
+          "id": "objective.wellbeing_answers.basic",
+          "description": "Recognize and use short answers to ¿cómo estás?"
         }
       ],
       "sections": [
@@ -822,31 +858,101 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.vocabulary.numbers_0_10",
+              "id": "activity.vocabulary.wellbeing_answers",
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.bien.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.muy_bien.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.regular.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.mal.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.asi_asi.v1"
+                }
+              ]
             },
             {
-              "id": "activity.exercise.numbers_0_10",
-              "title": "exercise",
-              "type": "exercise",
+              "id": "activity.dialogue.wellbeing_answers",
+              "title": "dialogue",
+              "type": "dialogue",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.wellbeing_answers.v1"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.wellbeing_short_answers.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.wellbeing_answers",
+              "title": "reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.wellbeing_answers.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.wellbeing_answers",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.bien_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.match_wellbeing_answers.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m03.l007.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review short answers to ¿cómo estás?",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.vocabulary.numbers_0_10",
-          "activity.exercise.numbers_0_10"
+          "activity.vocabulary.wellbeing_answers",
+          "activity.dialogue.wellbeing_answers",
+          "activity.reading.wellbeing_answers",
+          "activity.practice.wellbeing_answers"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
@@ -858,7 +964,7 @@
     {
       "metadata": {
         "id": "es.a0.m03.l008",
-        "title": "Basic Needs",
+        "title": "More Courtesy",
         "moduleId": "es.a0.m03",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
@@ -873,8 +979,8 @@
       },
       "objectives": [
         {
-          "id": "objective.needs.basic",
-          "description": "Recognize basic phrases for immediate needs."
+          "id": "objective.courtesy.expanded",
+          "description": "Use muchas gracias with previously learned courtesy phrases."
         }
       ],
       "sections": [
@@ -884,31 +990,91 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.vocabulary.needs",
+              "id": "activity.vocabulary.more_courtesy",
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.muchas_gracias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.de_nada.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
+                }
+              ]
             },
             {
-              "id": "activity.dialogue.needs",
+              "id": "activity.dialogue.more_courtesy",
               "title": "dialogue",
               "type": "dialogue",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.courtesy_more.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.more_courtesy",
+              "title": "reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.more_courtesy.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.more_courtesy",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.muchas_gracias_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.fill_muchas_gracias.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m03.l008.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review muchas gracias with courtesy phrases.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.vocabulary.needs",
-          "activity.dialogue.needs"
+          "activity.vocabulary.more_courtesy",
+          "activity.dialogue.more_courtesy",
+          "activity.reading.more_courtesy",
+          "activity.practice.more_courtesy"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
@@ -920,7 +1086,7 @@
     {
       "metadata": {
         "id": "es.a0.m03.l009",
-        "title": "Where Is It?",
+        "title": "Do You Speak Spanish?",
         "moduleId": "es.a0.m03",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
@@ -935,8 +1101,8 @@
       },
       "objectives": [
         {
-          "id": "objective.location.basic",
-          "description": "Ask a simple question about location."
+          "id": "objective.language_question.basic",
+          "description": "Recognize and answer ¿hablas español? with sí, no, or un poco."
         }
       ],
       "sections": [
@@ -946,31 +1112,96 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.vocabulary.location",
+              "id": "activity.vocabulary.language_question",
               "title": "vocabulary",
               "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hablas_espanol.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.espanol.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.un_poco.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.si.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.no.v1"
+                }
+              ]
             },
             {
-              "id": "activity.exercise.location",
-              "title": "exercise",
-              "type": "exercise",
+              "id": "activity.dialogue.language_question",
+              "title": "dialogue",
+              "type": "dialogue",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.language_question.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.language_question",
+              "title": "reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.language_question.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.language_question",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.hablas_espanol_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.un_poco_choice.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m03.l009.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review ¿hablas español? and un poco.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.vocabulary.location",
-          "activity.exercise.location"
+          "activity.vocabulary.language_question",
+          "activity.dialogue.language_question",
+          "activity.reading.language_question",
+          "activity.practice.language_question"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
@@ -982,7 +1213,7 @@
     {
       "metadata": {
         "id": "es.a0.m04.l010",
-        "title": "Ser: I Am / You Are",
+        "title": "Unit 1 Review",
         "moduleId": "es.a0.m04",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 15,
@@ -997,8 +1228,8 @@
       },
       "objectives": [
         {
-          "id": "objective.ser.basic",
-          "description": "Recognize first basic forms of ser."
+          "id": "objective.unit1.review",
+          "description": "Review Unit 1 first-contact greetings, names, origin, courtesy, and basic questions."
         }
       ],
       "sections": [
@@ -1008,31 +1239,116 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.grammar.ser_basic",
-              "title": "grammar",
-              "type": "grammar",
+              "id": "activity.vocabulary.unit1_review",
+              "title": "vocabulary",
+              "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hola.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.me_llamo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.soy_de.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.como_estas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.bien.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.muchas_gracias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hablas_espanol.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.un_poco.v1"
+                }
+              ]
             },
             {
-              "id": "activity.exercise.ser_basic",
-              "title": "exercise",
-              "type": "exercise",
+              "id": "activity.dialogue.unit1_review",
+              "title": "dialogue",
+              "type": "dialogue",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
+                  "referenceId": "dialogue.es.a0.unit1.review.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.unit1_review",
+              "title": "reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
+                  "referenceId": "reading.es.a0.unit1.review.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.unit1_review",
+              "title": "practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.review_name_origin_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.review_fill_wellbeing.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.review_match_first_contact.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m04.l010.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review all Unit 1 first-contact material.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.grammar.ser_basic",
-          "activity.exercise.ser_basic"
+          "activity.vocabulary.unit1_review",
+          "activity.dialogue.unit1_review",
+          "activity.reading.unit1_review",
+          "activity.practice.unit1_review"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [

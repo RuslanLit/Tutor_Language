@@ -17,7 +17,7 @@ void main() {
     await tester.pumpWidget(
       _app(const LessonPlayerScreen(lessonId: _lessonId)),
     );
-    await tester.pumpAndSettle();
+    await _pumpUntilFound(tester, find.text('Hello and Goodbye'));
 
     expect(find.text('Hello and Goodbye'), findsOneWidget);
     expect(find.text('vocabulary'), findsWidgets);
@@ -126,6 +126,18 @@ Widget _app(Widget child, {LessonAssemblyService? service}) {
     ],
     child: MaterialApp(home: child),
   );
+}
+
+Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
+  for (var i = 0; i < 20; i += 1) {
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+    });
+    await tester.pump();
+    if (finder.evaluate().isNotEmpty) {
+      return;
+    }
+  }
 }
 
 class _FakeLessonAssemblyService extends LessonAssemblyService {

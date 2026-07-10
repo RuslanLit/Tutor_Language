@@ -238,5 +238,226 @@
     ],
     "prompt_template": "Complete the origin phrase: \"Soy __ Madrid.\"",
     "expected_answer": "de"
+  },
+  {
+    "id": "template.es.a0.unit1.how_are_you_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"¿cómo estás?\".",
+    "answer_options": [
+      {
+        "id": "option.how_are_you",
+        "label": "how are you?"
+      },
+      {
+        "id": "option.what_is_your_name",
+        "label": "what is your name?"
+      },
+      {
+        "id": "option.where_are_you_from",
+        "label": "where are you from?"
+      }
+    ],
+    "correct_option_id": "option.how_are_you"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_que_tal.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the question: \"¿____ tal?\"",
+    "expected_answer": "Qué"
+  },
+  {
+    "id": "template.es.a0.unit1.bien_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"bien\".",
+    "answer_options": [
+      {
+        "id": "option.fine",
+        "label": "fine"
+      },
+      {
+        "id": "option.bad",
+        "label": "bad"
+      },
+      {
+        "id": "option.thank_you",
+        "label": "thank you"
+      }
+    ],
+    "correct_option_id": "option.fine"
+  },
+  {
+    "id": "template.es.a0.unit1.match_wellbeing_answers.v1",
+    "exercise_type": "matching",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Match each short answer with its English meaning."
+  },
+  {
+    "id": "template.es.a0.unit1.muchas_gracias_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"muchas gracias\".",
+    "answer_options": [
+      {
+        "id": "option.thank_you_very_much",
+        "label": "thank you very much"
+      },
+      {
+        "id": "option.you_are_welcome",
+        "label": "you're welcome"
+      },
+      {
+        "id": "option.please",
+        "label": "please"
+      }
+    ],
+    "correct_option_id": "option.thank_you_very_much"
+  },
+  {
+    "id": "template.es.a0.unit1.fill_muchas_gracias.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the phrase: \"Muchas ____.\"",
+    "expected_answer": "gracias"
+  },
+  {
+    "id": "template.es.a0.unit1.hablas_espanol_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"¿hablas español?\".",
+    "answer_options": [
+      {
+        "id": "option.speak_spanish",
+        "label": "do you speak Spanish?"
+      },
+      {
+        "id": "option.from_spain",
+        "label": "are you from Spain?"
+      },
+      {
+        "id": "option.name_spanish",
+        "label": "is your name Spanish?"
+      }
+    ],
+    "correct_option_id": "option.speak_spanish"
+  },
+  {
+    "id": "template.es.a0.unit1.un_poco_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "introduce_vocabulary",
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"un poco\".",
+    "answer_options": [
+      {
+        "id": "option.a_little",
+        "label": "a little"
+      },
+      {
+        "id": "option.very_well",
+        "label": "very well"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      }
+    ],
+    "correct_option_id": "option.a_little"
+  },
+  {
+    "id": "template.es.a0.unit1.review_name_origin_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the best translation of \"Me llamo Ana. Soy de Madrid.\"",
+    "answer_options": [
+      {
+        "id": "option.name_origin",
+        "label": "My name is Ana. I am from Madrid."
+      },
+      {
+        "id": "option.how_are_you",
+        "label": "How are you, Ana? I speak Spanish."
+      },
+      {
+        "id": "option.goodbye",
+        "label": "Goodbye, Ana. See you later."
+      }
+    ],
+    "correct_option_id": "option.name_origin"
+  },
+  {
+    "id": "template.es.a0.unit1.review_fill_wellbeing.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Complete the answer: \"Bien, ____.\"",
+    "expected_answer": "gracias"
+  },
+  {
+    "id": "template.es.a0.unit1.review_match_first_contact.v1",
+    "exercise_type": "matching",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Match Unit 1 first-contact phrases with their English meanings."
   }
 ]

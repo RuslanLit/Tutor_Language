@@ -65,10 +65,7 @@ void main() {
     );
     expect(dialogues.single.grammarIds, isEmpty);
     expect(readings, hasLength(1));
-    expect(
-      readings.single.text.split(' '),
-      hasLength(greaterThanOrEqualTo(8)),
-    );
+    expect(readings.single.text.split(' '), hasLength(greaterThanOrEqualTo(8)));
     expect(templates.map((template) => template.exerciseType).toSet(), {
       'multiple_choice',
       'fill_gap',
@@ -76,7 +73,7 @@ void main() {
     });
   });
 
-  test('Spanish A0 first-contact module resolves across five lessons', () async {
+  test('Spanish A0 Unit 1 resolves across ten lessons', () async {
     final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
     final contentLoader = ContentLoader(assetBundle: rootBundle);
     final catalog = EducationalContentCatalog(
@@ -91,6 +88,11 @@ void main() {
       'es.a0.m01.l003',
       'es.a0.m02.l004',
       'es.a0.m02.l005',
+      'es.a0.m02.l006',
+      'es.a0.m03.l007',
+      'es.a0.m03.l008',
+      'es.a0.m03.l009',
+      'es.a0.m04.l010',
     ];
 
     for (final lessonId in lessonIds) {
@@ -136,5 +138,48 @@ void main() {
       contains('grammar.es.a0.unit1.origin_pattern.v1'),
     );
     expect(originReferenceIds, contains('dialogue.es.a0.unit1.origin.v1'));
+
+    final questionLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m02.l006',
+    );
+    final questionReferenceIds = questionLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(questionReferenceIds, contains('vocab.es.a0.unit1.como_estas.v1'));
+    expect(questionReferenceIds, contains('vocab.es.a0.unit1.que_tal.v1'));
+
+    final languageLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m03.l009',
+    );
+    final languageReferenceIds = languageLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(
+      languageReferenceIds,
+      contains('vocab.es.a0.unit1.hablas_espanol.v1'),
+    );
+    expect(languageReferenceIds, contains('vocab.es.a0.unit1.un_poco.v1'));
+
+    final reviewLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m04.l010',
+    );
+    final reviewReferenceIds = reviewLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+
+    expect(reviewReferenceIds, contains('dialogue.es.a0.unit1.review.v1'));
+    expect(reviewReferenceIds, contains('reading.es.a0.unit1.review.v1'));
+    expect(
+      reviewReferenceIds,
+      contains('template.es.a0.unit1.review_match_first_contact.v1'),
+    );
   });
 }

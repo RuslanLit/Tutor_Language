@@ -218,5 +218,201 @@
         "native_translation": "Nice to meet you."
       }
     ]
+  },
+  {
+    "id": "dialogue.es.a0.unit1.wellbeing_answers.v1",
+    "title": "How Are You?",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.que_tal.v1",
+      "vocab.es.a0.unit1.bien.v1",
+      "vocab.es.a0.unit1.muy_bien.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola, Luis. ¿Cómo estás?",
+        "native_translation": "Hello, Luis. How are you?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Bien, gracias. ¿Qué tal?",
+        "native_translation": "Fine, thank you. How are things?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Muy bien.",
+        "native_translation": "Very well."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hasta luego.",
+        "native_translation": "See you later."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.unit1.wellbeing_short_answers.v1",
+    "title": "Short Answers",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.bien.v1",
+      "vocab.es.a0.unit1.regular.v1",
+      "vocab.es.a0.unit1.mal.v1",
+      "vocab.es.a0.unit1.asi_asi.v1"
+    ],
+    "grammar_ids": [],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "¿Cómo estás?",
+        "native_translation": "How are you?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Regular.",
+        "native_translation": "Okay."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿Qué tal?",
+        "native_translation": "How are things?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Así así.",
+        "native_translation": "So-so."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.unit1.courtesy_more.v1",
+    "title": "More Courtesy",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.muchas_gracias.v1",
+      "vocab.es.a0.unit1.de_nada.v1",
+      "vocab.es.a0.unit1.repite.v1",
+      "vocab.es.a0.unit1.si.v1"
+    ],
+    "grammar_ids": [],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Repite, por favor.",
+        "native_translation": "Repeat, please."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Sí.",
+        "native_translation": "Yes."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Muchas gracias.",
+        "native_translation": "Thank you very much."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "De nada.",
+        "native_translation": "You're welcome."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.unit1.language_question.v1",
+    "title": "Do You Speak Spanish?",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.hablas_espanol.v1",
+      "vocab.es.a0.unit1.espanol.v1",
+      "vocab.es.a0.unit1.si.v1",
+      "vocab.es.a0.unit1.no.v1",
+      "vocab.es.a0.unit1.un_poco.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.muy_bien.v1",
+      "vocab.es.a0.unit1.de_nada.v1"
+    ],
+    "grammar_ids": [],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola. ¿Hablas español?",
+        "native_translation": "Hello. Do you speak Spanish?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Sí, un poco.",
+        "native_translation": "Yes, a little."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Muy bien, gracias.",
+        "native_translation": "Very well, thank you."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "De nada.",
+        "native_translation": "You're welcome."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.unit1.review.v1",
+    "title": "Unit 1 Review",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.de_donde_eres.v1",
+      "vocab.es.a0.unit1.soy_de.v1",
+      "vocab.es.a0.unit1.mexico.v1",
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.bien.v1",
+      "vocab.es.a0.unit1.hablas_espanol.v1",
+      "vocab.es.a0.unit1.un_poco.v1",
+      "vocab.es.a0.unit1.mucho_gusto.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.name_pattern.v1",
+      "grammar.es.a0.unit1.origin_pattern.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola. Me llamo Ana.",
+        "native_translation": "Hello. My name is Ana."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hola, Ana. Soy de México.",
+        "native_translation": "Hello, Ana. I am from Mexico."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿Cómo estás?",
+        "native_translation": "How are you?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Bien, gracias. ¿Hablas español?",
+        "native_translation": "Fine, thank you. Do you speak Spanish?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Sí, un poco. Mucho gusto.",
+        "native_translation": "Yes, a little. Nice to meet you."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hasta luego.",
+        "native_translation": "See you later."
+      }
+    ]
   }
 ]

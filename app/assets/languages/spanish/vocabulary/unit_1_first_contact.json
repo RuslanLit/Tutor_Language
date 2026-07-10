@@ -266,5 +266,96 @@
     "cefr": "A0",
     "example": "Soy de Madrid.",
     "pronunciation": "mah-DREED"
+  },
+  {
+    "id": "vocab.es.a0.unit1.como_estas.v1",
+    "spanish": "¿cómo estás?",
+    "native_translation": "how are you?",
+    "cefr": "A0",
+    "example": "Hola, ¿cómo estás?",
+    "pronunciation": "KOH-moh es-TAHS",
+    "notes": "Informal question for one person."
+  },
+  {
+    "id": "vocab.es.a0.unit1.que_tal.v1",
+    "spanish": "¿qué tal?",
+    "native_translation": "how are things?",
+    "cefr": "A0",
+    "example": "Hola, ¿qué tal?",
+    "pronunciation": "keh TAHL",
+    "notes": "A short everyday way to ask how someone is."
+  },
+  {
+    "id": "vocab.es.a0.unit1.bien.v1",
+    "spanish": "bien",
+    "native_translation": "well; fine",
+    "cefr": "A0",
+    "example": "Bien, gracias.",
+    "pronunciation": "byen"
+  },
+  {
+    "id": "vocab.es.a0.unit1.muy_bien.v1",
+    "spanish": "muy bien",
+    "native_translation": "very well",
+    "cefr": "A0",
+    "example": "Muy bien, gracias.",
+    "pronunciation": "mwee byen"
+  },
+  {
+    "id": "vocab.es.a0.unit1.regular.v1",
+    "spanish": "regular",
+    "native_translation": "okay; not great",
+    "cefr": "A0",
+    "example": "Regular.",
+    "pronunciation": "reh-goo-LAR"
+  },
+  {
+    "id": "vocab.es.a0.unit1.mal.v1",
+    "spanish": "mal",
+    "native_translation": "bad; not well",
+    "cefr": "A0",
+    "example": "Mal.",
+    "pronunciation": "mahl"
+  },
+  {
+    "id": "vocab.es.a0.unit1.asi_asi.v1",
+    "spanish": "así así",
+    "native_translation": "so-so",
+    "cefr": "A0",
+    "example": "Así así.",
+    "pronunciation": "ah-SEE ah-SEE"
+  },
+  {
+    "id": "vocab.es.a0.unit1.muchas_gracias.v1",
+    "spanish": "muchas gracias",
+    "native_translation": "thank you very much",
+    "cefr": "A0",
+    "example": "Muchas gracias.",
+    "pronunciation": "MOO-chas GRAH-syahs"
+  },
+  {
+    "id": "vocab.es.a0.unit1.hablas_espanol.v1",
+    "spanish": "¿hablas español?",
+    "native_translation": "do you speak Spanish?",
+    "cefr": "A0",
+    "example": "¿Hablas español?",
+    "pronunciation": "AH-blahs es-pah-NYOL",
+    "notes": "Informal question for one person."
+  },
+  {
+    "id": "vocab.es.a0.unit1.espanol.v1",
+    "spanish": "español",
+    "native_translation": "Spanish",
+    "cefr": "A0",
+    "example": "¿Hablas español?",
+    "pronunciation": "es-pah-NYOL"
+  },
+  {
+    "id": "vocab.es.a0.unit1.un_poco.v1",
+    "spanish": "un poco",
+    "native_translation": "a little",
+    "cefr": "A0",
+    "example": "Sí, un poco.",
+    "pronunciation": "oon POH-koh"
   }
 ]

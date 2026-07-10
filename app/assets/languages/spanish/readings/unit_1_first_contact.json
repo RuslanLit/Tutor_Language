@@ -109,5 +109,85 @@
     ],
     "text": "Hola. Yo soy de Madrid. ¿De dónde eres? Soy de México. Soy de España.",
     "native_translation": "Hello. I am from Madrid. Where are you from? I am from Mexico. I am from Spain."
+  },
+  {
+    "id": "reading.es.a0.unit1.wellbeing_questions.v1",
+    "title": "Two Questions",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.que_tal.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Hola. ¿Cómo estás? Hola. ¿Qué tal?",
+    "native_translation": "Hello. How are you? Hello. How are things?"
+  },
+  {
+    "id": "reading.es.a0.unit1.wellbeing_answers.v1",
+    "title": "Short Answers",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.bien.v1",
+      "vocab.es.a0.unit1.muy_bien.v1",
+      "vocab.es.a0.unit1.regular.v1",
+      "vocab.es.a0.unit1.mal.v1",
+      "vocab.es.a0.unit1.asi_asi.v1",
+      "vocab.es.a0.unit1.gracias.v1"
+    ],
+    "grammar_ids": [],
+    "text": "¿Cómo estás? Bien, gracias. Muy bien. Regular. Mal. Así así.",
+    "native_translation": "How are you? Fine, thank you. Very well. Okay. Not well. So-so."
+  },
+  {
+    "id": "reading.es.a0.unit1.more_courtesy.v1",
+    "title": "Muchas Gracias",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.muchas_gracias.v1",
+      "vocab.es.a0.unit1.de_nada.v1",
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.repite.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Por favor, repite. Gracias. Muchas gracias. De nada.",
+    "native_translation": "Please, repeat. Thank you. Thank you very much. You're welcome."
+  },
+  {
+    "id": "reading.es.a0.unit1.language_question.v1",
+    "title": "¿Hablas Español?",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.hablas_espanol.v1",
+      "vocab.es.a0.unit1.espanol.v1",
+      "vocab.es.a0.unit1.si.v1",
+      "vocab.es.a0.unit1.no.v1",
+      "vocab.es.a0.unit1.un_poco.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Hola. ¿Hablas español? Sí. No. Un poco. Sí, un poco.",
+    "native_translation": "Hello. Do you speak Spanish? Yes. No. A little. Yes, a little."
+  },
+  {
+    "id": "reading.es.a0.unit1.review.v1",
+    "title": "Unit 1 Review",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.soy_de.v1",
+      "vocab.es.a0.unit1.madrid.v1",
+      "vocab.es.a0.unit1.como_estas.v1",
+      "vocab.es.a0.unit1.bien.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.hablas_espanol.v1",
+      "vocab.es.a0.unit1.un_poco.v1",
+      "vocab.es.a0.unit1.mucho_gusto.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.unit1.name_pattern.v1",
+      "grammar.es.a0.unit1.origin_pattern.v1"
+    ],
+    "text": "Hola. Me llamo Ana. Soy de Madrid. ¿Cómo estás? Bien, gracias. ¿Hablas español? Sí, un poco. Mucho gusto. Hasta luego.",
+    "native_translation": "Hello. My name is Ana. I am from Madrid. How are you? Fine, thank you. Do you speak Spanish? Yes, a little. Nice to meet you. See you later."
   }
 ]
