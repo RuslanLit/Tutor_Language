@@ -53,6 +53,8 @@ The project contains:
 - Spanish A0 content assets;
 - deterministic content loading and validation;
 - LessonAssemblyService for resolving LessonDefinition references;
+- LessonPlayerStep flattening for deterministic exercise-level lesson steps;
+- LessonSessionEngine for pure deterministic in-session progression;
 - LessonPlayer for presenting assembled lesson content;
 - ActivityEngine for supported interactive activity evaluation;
 - RuleBasedLessonPlanner for deterministic lesson selection;
@@ -66,9 +68,13 @@ Educational Content
   -> Rule-Based Lesson Planner
   -> LessonPlan
   -> LessonAssemblyService
+  -> LessonPlayerStep flattening
+  -> LessonSessionEngine
   -> LessonPlayer
   -> ActivityEngine
-  -> Assessment / Completion Evaluation
+  -> Answer Evaluation
+  -> LessonSessionEngine
+  -> Application Progress Services
   -> Learner History
 ```
 

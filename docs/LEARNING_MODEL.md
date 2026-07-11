@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 3.2
+Version: 3.3
 
 Related documents:
 
@@ -196,13 +196,22 @@ LessonPlan
 Lesson Assembly
         │
         ▼
+LessonPlayerStep Flattening
+        │
+        ▼
+Lesson Session Engine
+        │
+        ▼
 LessonPlayer
         │
         ▼
 ActivityEngine
         │
         ▼
-Assessment / Completion Evaluation
+Answer Evaluation
+        │
+        ▼
+Session Consequence
         │
         ▼
 Learner History
@@ -211,6 +220,16 @@ Learner History
 Every completed lesson represents one iteration of this learning cycle.
 
 The cycle repeats continuously throughout the learner's lifetime.
+
+The answer evaluator and the Lesson Session Engine answer different learning
+questions:
+
+- answer evaluation determines the quality of a learner response;
+- the Lesson Session Engine determines the immediate session consequence.
+
+For example, an accepted-with-feedback result may count as accepted for moving
+through an A0 lesson while still preserving the correction as evidence that the
+canonical written form was not fully reproduced.
 
 ---
 
@@ -413,13 +432,62 @@ Lesson Assembly does not decide what should be taught next.
 
 ---
 
+## LessonPlayerStep
+
+LessonPlayerStep is a runtime step produced from assembled lesson content.
+
+It gives the Lesson Session Engine stable ordered step identities for one
+launched lesson.
+
+It is not Educational Content.
+
+It is not Curriculum.
+
+It is not durable learner progress.
+
+---
+
+## Lesson Session Engine
+
+The Lesson Session Engine coordinates progression inside one launched lesson.
+
+It consumes:
+
+- ordered LessonPlayerStep identities;
+- explicit session events;
+- already evaluated ActivityResult values.
+
+It tracks in-memory session state:
+
+- current step;
+- completed session steps;
+- latest evaluated result per step;
+- attempts per step;
+- session status.
+
+It determines immediate session consequences:
+
+- retry current step;
+- show feedback;
+- move to previous step;
+- move to next step;
+- allow lesson finish;
+- reject an invalid action.
+
+It does not evaluate raw answers, invent feedback, choose lessons, record
+durable learner progress or query learner history in the current phase.
+
+---
+
 ## LessonPlayer
 
 LessonPlayer presents assembled lesson content.
 
-It is responsible for rendering lesson sections and delegating interactive activities to the activity layer.
+It renders the current LessonPlayerStep, owns transient UI state and delegates
+interactive activities to the activity layer.
 
-It does not plan lessons, own Educational Content or determine learner progress.
+It does not plan lessons, own Educational Content, evaluate answer correctness
+or independently reproduce Session Engine progression policy.
 
 ---
 
@@ -431,17 +499,46 @@ Current supported activity types are implementation-defined and validator-contro
 
 The ActivityEngine checks learner responses and returns deterministic results.
 
-It does not plan lessons or modify Educational Content.
+It does not plan lessons, modify Educational Content or decide whether the
+session should retry, continue or finish.
 
 ---
 
-## Assessment / Completion Evaluation
+## Answer Evaluation and Session Consequence
 
-Assessment interprets activity outcomes.
+Answer evaluation interprets learner responses.
 
-The current implementation includes activity results, learning-session progress recording and completion evaluation.
+The current implementation includes deterministic activity results, typed-answer
+evaluation, accepted-with-feedback outcomes and authored misconception feedback
+where supported.
 
-Advanced mastery estimation, spaced repetition and long-term review scheduling remain future work.
+The Session Engine consumes evaluated results and decides the immediate session
+consequence.
+
+Current session policy:
+
+- correct results complete the step and permit progression;
+- accepted-with-feedback results complete the step and permit progression while
+  preserving the correction result;
+- incorrect results keep the step incomplete and require retry;
+- informational steps may continue without a submission;
+- finish is allowed only at the final eligible step.
+
+Attempt tracking is in-memory session state:
+
+- every evaluated submission increments the attempt count;
+- informational navigation does not increment attempts;
+- previous and next navigation do not increment attempts;
+- attempts remain attached to stable step IDs;
+- resubmission is allowed;
+- resubmission replaces the latest stored result;
+- completion eligibility follows the latest result.
+
+A previously completed step may become incomplete if its latest resubmission is
+incorrect.
+
+Advanced mastery estimation, spaced repetition, durable attempt history,
+adaptive retry scheduling and long-term review scheduling remain future work.
 
 ---
 
@@ -584,11 +681,19 @@ LessonPlan records the deterministic decision and reason codes.
 
 LessonAssemblyService resolves LessonDefinition references into assembled lesson content.
 
+LessonPlayerStep represents one ordered runtime session step.
+
+Lesson Session Engine determines in-session consequences from explicit events
+and evaluated results.
+
 LessonPlayer presents assembled content.
 
 ActivityEngine checks interactive activity answers.
 
-Assessment / Completion Evaluation interprets outcomes.
+Answer Evaluation determines answer quality.
+
+Application services record durable progress after the Session Engine returns a
+finish decision.
 
 Learner State Update records educational progress.
 
@@ -608,6 +713,8 @@ Included:
 - deterministic rule-based lesson planning;
 - LessonPlan output;
 - LessonAssemblyService content resolution;
+- LessonPlayerStep flattening;
+- deterministic in-memory Lesson Session Engine;
 - LessonPlayer presentation;
 - ActivityEngine evaluation for supported activity templates;
 - deterministic evaluation;
@@ -621,6 +728,9 @@ Postponed:
 - adaptive review scheduler;
 - mastery model;
 - spaced repetition;
+- durable session persistence;
+- durable attempt history;
+- adaptive retry scheduling;
 - dynamic content-level planning;
 - pronunciation training;
 - speech recognition;

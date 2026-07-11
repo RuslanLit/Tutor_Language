@@ -53,6 +53,7 @@ Generation 1 supports:
 - deterministic educational planning;
 - LessonPlan output;
 - lesson assembly from LessonDefinitions and Educational Content;
+- deterministic Lesson Session Engine orchestration;
 - LessonPlayer presentation;
 - ActivityEngine evaluation for supported activity templates.
 
@@ -95,6 +96,16 @@ LessonPlan
 LessonPlanReasonCode
 
 LessonAssemblyService
+
+LessonPlayerStep
+
+LessonSessionEngine
+
+LessonSessionState
+
+LessonSessionDecision
+
+LessonSessionReasonCode
 
 LessonPlayer
 
@@ -347,7 +358,7 @@ Generation 1 uses PlanningPolicy to control simple rule-based selection.
 
 Current policy fields are implementation-defined by the planner and may include thresholds for accuracy, recent answer counts, incomplete-lesson preference and low-accuracy review behavior.
 
-Future versions may introduce richer lesson goals and lesson constraints, but they must remain separate from Educational Content, LessonDefinitions, LessonAssemblyService and LessonPlayer.
+Future versions may introduce richer lesson goals and lesson constraints, but they must remain separate from Educational Content, LessonDefinitions, LessonAssemblyService, LessonSessionEngine and LessonPlayer.
 
 ---
 

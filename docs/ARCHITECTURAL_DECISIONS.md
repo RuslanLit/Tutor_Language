@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.3
+Version: 2.4
 
 Related documents:
 
@@ -550,9 +550,12 @@ The current learning flow is separated into these components:
 - RuleBasedLessonPlanner selects the next LessonDefinition.
 - LessonPlan records the planning decision and reason codes.
 - LessonAssemblyService resolves LessonDefinition references into assembled lesson content.
+- LessonPlayerStep flattening creates deterministic runtime steps.
+- LessonSessionEngine coordinates in-session progression.
 - LessonPlayer presents assembled lesson content.
 - ActivityEngine evaluates supported interactive activity responses.
-- Assessment / Completion Evaluation interprets outcomes and completion.
+- ActivityResult records evaluated activity outcomes.
+- Application services record durable lesson completion after a Session Engine finish decision.
 - Learner History records observed learner events and progress.
 
 Educational Content remains immutable and reusable.
@@ -585,9 +588,12 @@ Future planning features should extend RuleBasedLessonPlanner, PlanningRequest, 
 
 LessonAssemblyService must not decide educational strategy.
 
-LessonPlayer must not own planning or assessment policy.
+LessonPlayer must not own planning, answer-evaluation or session-progression policy.
 
 ActivityEngine must not store learner progress directly.
+
+LessonSessionEngine must not load assets, evaluate raw answers, persist progress,
+route, query learner-history repositories or choose the next lesson.
 
 Advanced adaptive review scheduling, mastery estimation, spaced repetition, dynamic content-level planning and LLM-assisted authoring remain future work unless explicitly implemented.
 
@@ -660,11 +666,145 @@ pedagogical reason.
 Future implementation will need deterministic answer normalization, comparison,
 difference classification and feedback.
 
-Future Lesson Session Engine work will be needed for attempt history,
-activity-level evidence, delayed retrieval, adaptive retry scheduling and
-mastery estimation.
+Current Lesson Session Engine work provides deterministic in-memory session
+orchestration and attempt counts. Durable attempt history, activity-level
+evidence, delayed retrieval, adaptive retry scheduling and mastery estimation
+remain future work.
 
 Increased learner effort is intentional when it improves learning.
+
+---
+
+# ADR-0014
+
+Status
+
+Accepted
+
+Title
+
+Pure Deterministic Lesson Session Engine
+
+Context
+
+The application now has separate implemented responsibilities for lesson
+selection, lesson assembly, runtime step flattening, answer evaluation,
+presentation and durable progress recording.
+
+Before the Session Engine, LessonPlayer owned too much in-session progression
+logic, including whether a learner could move to the next step, retry, go back
+or finish the lesson.
+
+Combining these decisions with Flutter UI code would make the learning flow
+harder to test, harder to explain and harder to evolve toward later adaptive
+policies.
+
+Decision
+
+In-session lesson progression is owned by a pure deterministic
+`LessonSessionEngine`.
+
+The Session Engine uses explicit event, state and decision objects:
+
+- `LessonSessionState`;
+- `LessonSessionEvent`;
+- `LessonSessionDecision`;
+- `LessonSessionReasonCode`.
+
+The engine consumes stable step identities and already evaluated
+`ActivityResult` values.
+
+It returns updated immutable state, a typed decision and a stable reason code.
+
+The engine does not perform persistence, routing, answer evaluation, asset
+loading, lesson assembly, lesson planning or UI rendering.
+
+Rationale
+
+A pure transition engine keeps session policy:
+
+- deterministic;
+- testable without Flutter;
+- independent of Riverpod, routing and database APIs;
+- independent of language-specific answer rules;
+- replaceable as future session policies become richer.
+
+It also preserves the separation between answer quality and session
+consequence:
+
+- answer evaluation determines whether a response is correct, accepted with
+  feedback or incorrect;
+- the Session Engine determines whether the current session should retry,
+  continue, move backward or finish.
+
+Alternatives Considered
+
+Keep progression logic inside LessonPlayerScreen.
+
+Rejected because UI code would continue to own pedagogical/session policy,
+making policy difficult to test and easy to duplicate.
+
+Combine answer evaluation and session progression in one engine.
+
+Rejected because raw-answer interpretation, language rules and pedagogical
+feedback are separate from session consequences.
+
+Let Session Engine persist progress and perform routing.
+
+Rejected because this would couple domain policy to application services,
+database APIs and navigation.
+
+Use a pure event/state/decision transition engine.
+
+Accepted because it keeps policy deterministic, explicit and independently
+testable.
+
+Consequences
+
+LessonPlayer must ask the Session Engine for previous, next, retry and finish
+decisions instead of reproducing those rules locally.
+
+Application services remain responsible for durable progress recording after a
+`finishLesson` decision.
+
+Course navigation remains responsible for selecting the next lesson or showing
+course completion.
+
+Session state is currently in-memory and must not be described as durable
+learner progress.
+
+Attempt counts are session-level data. Every evaluated submission increments
+the attempt count. Resubmission is allowed, replaces the latest result and may
+make a previously completed step incomplete if the latest result is incorrect.
+
+Constraints
+
+`LessonSessionEngine` must not depend on:
+
+- Flutter;
+- Riverpod;
+- widgets;
+- routes;
+- database;
+- asset loading;
+- Lesson Planner;
+- learner-history repositories;
+- application navigation.
+
+Pedagogical knowledge remains in Educational Content and evaluation-related
+content structures, not in the Session Engine.
+
+Future Implications
+
+Future remediation, review insertion, learner-history adaptation and session
+persistence should extend the Session Engine through explicit deterministic
+inputs and adapter boundaries.
+
+The engine must remain persistence-agnostic even if a future adapter serializes
+session state.
+
+AI-assisted features, if ever introduced, must remain outside the authoritative
+correctness and progression path unless separately specified and validated.
 
 ---
 

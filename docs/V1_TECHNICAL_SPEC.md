@@ -80,6 +80,7 @@ Generation 1 includes:
 - deterministic lesson planning;
 - LessonPlan output;
 - lesson assembly from LessonDefinitions and Educational Content;
+- deterministic Lesson Session Engine orchestration;
 - LessonPlayer presentation;
 - ActivityEngine evaluation for supported activity templates;
 - learner progress tracking;
@@ -365,6 +366,8 @@ Every implementation must:
 ## Phase 4
 
 - LessonAssemblyService
+- LessonPlayerStep
+- LessonSessionEngine
 - LessonPlayer
 - ActivityEngine
 - Learning Session

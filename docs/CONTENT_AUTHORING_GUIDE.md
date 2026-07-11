@@ -100,6 +100,7 @@ Exercise Templates currently support:
 - answer_options
 - correct_option_id
 - expected_answer
+- authored_misconceptions
 
 Unsupported fields should not be added to content assets.
 
@@ -414,6 +415,21 @@ authored misconception for an exercise whose objective is the `me llamo`
 name-introduction pattern.
 
 Authored misconceptions must not become global language rules.
+
+The Lesson Session Engine will not generate teaching text.
+
+Prompts, canonical answers, accepted alternatives, authored misconceptions and
+correction guidance must be deterministic, authored and reviewable in the
+content or evaluation-related structures that support them.
+
+One checkable exercise template becomes one runtime LessonPlayerStep.
+
+Authors should therefore keep each exercise template focused on one clear,
+checkable task with one unambiguous objective.
+
+Do not rely on the Session Engine to split an overloaded exercise, infer
+missing instructions, create explanations or decide what the answer key should
+mean.
 
 ---
 

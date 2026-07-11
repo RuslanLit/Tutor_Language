@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.3
+Version: 2.4
 
 Related documents:
 
@@ -80,19 +80,31 @@ LessonPlan
 LessonAssemblyService
         |
         v
+LessonPlayerStep flattening
+        |
+        v
+Lesson Session Engine
+        |
+        v
 LessonPlayer
         |
         v
 ActivityEngine
         |
         v
-Assessment / Completion Evaluation
+Answer Evaluation
+        |
+        v
+Session Decision
+        |
+        v
+Application Progress Services
         |
         v
 Learner History
 ```
 
-This flow separates educational decision-making, content resolution, presentation, activity execution and progress recording.
+This flow separates lesson selection, content resolution, in-session orchestration, presentation, answer evaluation and progress recording.
 
 Educational Domain
 
@@ -337,16 +349,22 @@ Components:
 LessonAssemblyService
         |
         v
+LessonPlayerStep flattening
+        |
+        v
+Lesson Session Engine
+        |
+        v
 LessonPlayer
         |
         v
 ActivityEngine
         |
         v
-Assessment / Completion Evaluation
+Answer Evaluation
         |
         v
-Learner State Update
+Application Progress Services
 ```
 
 Execution never changes planning decisions.
@@ -371,19 +389,98 @@ Lesson assembly must not mutate Curriculum or Educational Content.
 
 Lesson assembly must not store Generated Exercises in LessonDefinitions.
 
+Lesson Step Flattening
+
+Assembled lesson content is flattened into ordered `LessonPlayerStep` objects
+before in-session orchestration.
+
+`LessonPlayerStep` is a runtime presentation/session step, not authored
+Educational Content and not Curriculum.
+
+Current stable step identity is derived from:
+
+```text
+lessonId::sourceActivityId::contentId
+```
+
+For exercise templates, the template position within the source activity is
+included:
+
+```text
+lessonId::sourceActivityId::templateId.templateIndex
+```
+
+This identity is deterministic for a given assembled lesson.
+
+Known limitation:
+
+- template position participates in identity;
+- reordering templates may change step IDs;
+- this is acceptable for current in-memory session state;
+- durable step-level persistence should eventually use authored stable
+  exercise or template-step identifiers.
+
+Lesson Session Engine
+
+`LessonSessionEngine` is the pure deterministic in-session orchestration
+component.
+
+It owns:
+
+- ordered step identity;
+- current step identity and index;
+- completed step identifiers;
+- attempt counts per step;
+- latest evaluated `ActivityResult` per step;
+- session status;
+- deterministic retry, previous, next and finish eligibility.
+
+It consumes:
+
+- stable `LessonSessionStep` definitions derived from `LessonPlayerStep`;
+- already evaluated `ActivityResult` values;
+- explicit session events.
+
+It returns:
+
+- immutable `LessonSessionState`;
+- a typed `LessonSessionDecision`;
+- a stable `LessonSessionReasonCode`.
+
+The Session Engine must not:
+
+- load assets;
+- assemble lessons;
+- evaluate raw answers;
+- normalize learner text;
+- invent explanations;
+- generate exercises;
+- inspect learner history in the current phase;
+- access Flutter, Riverpod, routing or database APIs;
+- record learner or course progress;
+- choose the next lesson.
+
+The Session Engine may depend on the evaluated activity-result domain model
+because session consequences depend on answer quality. It must not depend on
+answer normalization, language rules or learner-facing feedback generation.
+
 Lesson Rendering
 
 `LessonPlayer` presents assembled lesson content to the learner.
 
 Responsibilities:
 
-present activities;
-present exercises;
-collect answers;
-preserve session state;
-record timing.
+- render the current `LessonPlayerStep`;
+- own transient widget state such as text controllers, focus, scrolling and
+  presentation details;
+- collect learner input;
+- send evaluated results to the Session Engine;
+- render authored feedback and explanations;
+- invoke progress/application services after a finish decision;
+- route to the next lesson, course screen or course-completion view.
 
-The LessonPlayer does not choose lesson content and does not own educational strategy.
+The LessonPlayer does not choose lesson content, evaluate answer correctness or
+independently reproduce Session Engine progression policy.
 
 Activity Execution
 
@@ -392,23 +489,31 @@ Activity Execution
 Responsibilities:
 
 render activity-specific controls;
-check learner answers;
 return deterministic activity results.
 
-The ActivityEngine does not plan lessons and does not mutate educational content.
+The ActivityEngine delegates typed-answer quality to the answer-evaluation
+layer where applicable and returns an `ActivityResult`.
 
-Assessment / Completion Evaluation
+The ActivityEngine does not plan lessons, mutate educational content, route,
+persist progress or decide session progression.
 
-Determines learning results.
+Answer Evaluation
+
+Determines answer quality.
 
 Responsibilities:
 
 compare answers;
-classify mistakes;
-calculate statistics;
-determine completion status.
+classify supported mistakes;
+produce deterministic feedback metadata;
+return correct, accepted-with-feedback or incorrect outcomes where supported.
 
-The current implementation records activity outcomes and uses completion evaluation to decide whether a learning session is complete.
+The answer evaluator and the Session Engine are separate peers in execution:
+
+- answer evaluation determines answer quality;
+- the Session Engine determines the session consequence.
+
+The Session Engine must not reinterpret canonical answers.
 
 Advanced mastery changes and spaced-repetition scheduling are future work.
 
@@ -464,12 +569,215 @@ Current implementation note:
   for narrow, deterministic pedagogical feedback;
 - LessonPlayer and activity widgets render the result but do not contain
   Spanish orthographic rules;
-- broader grammar diagnosis, fuzzy spelling correction, semantic inference and
-  session-level progress consequences remain future work.
+- the Session Engine owns current session consequences such as retry, previous,
+  next and finish eligibility;
+- broader grammar diagnosis, fuzzy spelling correction, semantic inference,
+  durable session persistence and adaptive retry scheduling remain future work.
 
-Assessment never plans lessons.
+Answer evaluation never plans lessons.
 
-Assessment never modifies educational content.
+Answer evaluation never modifies educational content.
+
+Application Progress Services
+
+Application services record durable outcomes after the Session Engine returns a
+finish decision.
+
+The completion boundary is:
+
+```text
+Session Engine finishLesson decision
+        |
+        v
+LessonPlayer / application service
+        |
+        v
+record lesson completion
+        |
+        v
+Course navigation selects next lesson or course-complete state
+```
+
+The Session Engine may decide that the active lesson session is eligible to
+finish. It must not write learner progress, mark a course complete, choose the
+next lesson or navigate.
+
+Session State Ownership
+
+`LessonSessionState` is authoritative for:
+
+- current step;
+- completed session steps;
+- attempts;
+- latest evaluated result;
+- session status;
+- whether previous, next, retry and finish are allowed.
+
+LessonPlayer UI state is authoritative only for transient presentation details,
+including:
+
+- current unsubmitted text;
+- selected option before submission;
+- controller state;
+- focus;
+- scroll position;
+- expanded explanation presentation.
+
+Learner progress persistence is authoritative for durable cross-session and
+cross-launch records, including:
+
+- completed lessons;
+- course progress;
+- learner history;
+- durable performance summaries.
+
+In-memory Lesson Session state is not durable learner progress.
+
+The current provider-backed session adapter preserves state within the active
+application session. It must not be described as persistent across application
+restarts.
+
+Session Event and Decision Protocol
+
+The implemented event types are:
+
+| Event | Purpose | Input | State effect | Invalid action |
+| --- | --- | --- | --- | --- |
+| `StartLessonSession` | Initialize a session for one lesson. | `lessonId`, ordered `LessonSessionStep` list. | Creates `LessonSessionState` with first step current and zero attempts. | Empty step list returns `rejectAction` with `emptyStepList`. |
+| `SubmitLessonStepResult` | Submit an already evaluated result for the current step. | `ActivityResult`. | Increments current-step attempts, stores latest result, updates completion from result status. | Unknown current step returns `rejectAction` with `unknownStep`; completed session returns `lessonAlreadyCompleted`. |
+| `RequestPreviousLessonStep` | Move to the previous step. | Current `LessonSessionState`. | Updates current step index and ID only. | First step returns `rejectAction` with `alreadyAtFirstStep`; completed session returns `lessonAlreadyCompleted`. |
+| `RequestNextLessonStep` | Move to the next step. | Current `LessonSessionState`. | Moves to next step when current step is eligible. | Incomplete checkable step returns `nextStepLocked`; final eligible step returns `lastStepCompleted`; completed session returns `lessonAlreadyCompleted`. |
+| `FinishLessonSession` | Ask whether the current lesson session may finish. | Current `LessonSessionState`. | Marks session `completed` only when final step is eligible. | Early finish returns `finalStepIncomplete`; completed session returns `lessonAlreadyCompleted`. |
+| `RestartCurrentLessonStep` | Clear the latest result for the current step without changing attempts. | Current `LessonSessionState`. | Removes current step result and completion flag. | Missing current step returns `unknownStep`; completed session returns `lessonAlreadyCompleted`. |
+
+The implemented decision types are:
+
+| Decision type | Meaning | Side effects allowed inside Session Engine |
+| --- | --- | --- |
+| `showCurrentStep` | The caller should display the current step. | None. |
+| `showFeedback` | The caller should display the latest accepted feedback/result. | None. |
+| `retryCurrentStep` | The current answer was not accepted and the learner should retry the same step. | None. |
+| `moveToNextStep` | The caller may display the next step using the updated state. | None. |
+| `moveToPreviousStep` | The caller may display the previous step using the updated state. | None. |
+| `finishLesson` | The active lesson session is eligible to finish. | None; persistence and routing happen outside the engine. |
+| `rejectAction` | The requested event is not allowed in the current state. | None. |
+
+Reason codes are stable machine-readable diagnostics.
+
+They:
+
+- are not learner-facing text;
+- must not be localized directly;
+- may support tests, diagnostics, analytics and future policy inspection;
+- must remain semantically stable;
+- should not contain dynamic prose.
+
+| Reason code | Trigger | Result | State effect |
+| --- | --- | --- | --- |
+| `sessionStarted` | Non-empty session start. | `showCurrentStep`. | Initializes in-progress session on first step. |
+| `emptyStepList` | Session start with no steps. | `rejectAction`. | Returns not-started state. |
+| `informationalStepMayContinue` | Next requested from an informational step. | `moveToNextStep`. | Marks informational step complete and advances. |
+| `correctAnswerAccepted` | Current `ActivityResult` is correct. | `showFeedback`. | Increments attempts, stores result, marks step complete. |
+| `acceptedWithCorrection` | Current `ActivityResult` is accepted with feedback. | `showFeedback`. | Increments attempts, stores result, marks step complete. |
+| `incorrectAnswerRequiresRetry` | Current `ActivityResult` is incorrect. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
+| `previousStepAvailable` | Previous requested from a non-first step. | `moveToPreviousStep`. | Moves current step backward. |
+| `alreadyAtFirstStep` | Previous requested from first step. | `rejectAction`. | No state change. |
+| `nextStepLocked` | Next requested from incomplete checkable step. | `rejectAction`. | No state change. |
+| `lastStepCompleted` | Next requested from final eligible step. | `rejectAction`. | No state change; caller should request finish instead. |
+| `movedToNextStep` | Next requested from a completed checkable step. | `moveToNextStep`. | Moves current step forward. |
+| `finalStepIncomplete` | Finish requested before final eligible step. | `rejectAction`. | No state change. |
+| `lessonFinished` | Finish requested from final eligible step. | `finishLesson`. | Marks session completed. |
+| `lessonAlreadyCompleted` | Event requested after session completion. | `rejectAction`. | No state change. |
+| `unknownStep` | Current step is absent or not part of the session. | `rejectAction`. | No state change. |
+| `currentStepRestarted` | Current step result is cleared. | `showCurrentStep`. | Removes current result and completion flag without incrementing attempts. |
+
+Attempt and Resubmission Policy
+
+The current policy is:
+
+- every evaluated submission increments the attempt count;
+- informational navigation does not increment attempts;
+- previous and next navigation do not increment attempts;
+- attempts remain attached to stable step IDs;
+- resubmission is allowed;
+- resubmission replaces the latest stored result;
+- completion eligibility follows the latest result.
+
+Therefore, a previously completed step may become incomplete if its latest
+resubmission is incorrect.
+
+Runtime Dependency Direction
+
+The runtime dependency direction is:
+
+```text
+Educational Content
+        |
+        v
+Lesson Assembly
+        |
+        v
+LessonPlayerStep flattening
+        |
+        v
+Lesson Session domain
+        |
+        v
+Provider / controller adapter
+        |
+        v
+Lesson Player UI
+```
+
+The pure Session Engine must have no dependency on:
+
+- Flutter;
+- Riverpod;
+- widgets;
+- routes;
+- database;
+- asset loading;
+- Lesson Planner;
+- learner-history repository;
+- application navigation.
+
+Relationship to Educational Content
+
+Pedagogical knowledge belongs in authored Educational Content, not in the
+Session Engine.
+
+The Session Engine may react to typed evaluation outcomes, but it must not
+contain:
+
+- target-language phrases;
+- grammar explanations;
+- correction prose;
+- accepted spelling variants;
+- lesson-specific rules;
+- answer keys.
+
+Examples, explanations, prompts, canonical answers and mistake guidance remain
+in content assets and evaluation-related content structures.
+
+Future Session Extension Points
+
+These are future work and are not implemented:
+
+- Remediation: a later policy may react to repeated incorrect attempts by
+  requesting authored explanation or remediation steps. The engine must not
+  generate remediation text.
+- Review insertion: a later session policy may insert authored review steps
+  through explicit deterministic rules while preserving stable identity and
+  provenance.
+- Learner-history adaptation: a future policy may receive a summarized learner
+  model. The engine must not query repositories directly.
+- Session persistence: a future adapter may serialize session state. The pure
+  engine should remain persistence-agnostic.
+- Dynamic planning: the Lesson Planner may choose a different lesson before
+  launch. It must not mutate an active session directly.
+- AI-assisted features: any future AI component must remain outside the
+  authoritative correctness and progression path unless separately specified
+  and validated.
 
 Learner State Update
 
@@ -508,13 +816,25 @@ LessonPlan
 LessonAssemblyService
         |
         v
+LessonPlayerStep flattening
+        |
+        v
+Lesson Session Engine
+        |
+        v
 LessonPlayer
         |
         v
 ActivityEngine
         |
         v
-Assessment / Completion Evaluation
+Answer Evaluation
+        |
+        v
+Lesson Session Engine
+        |
+        v
+Application Progress Services
         |
         v
 Learner History
@@ -535,12 +855,15 @@ Current canonical terms are:
 - Rule-Based Lesson Planner: decides which LessonDefinition should be attempted next.
 - LessonPlan: records the deterministic planning decision and reasons.
 - LessonAssemblyService: resolves LessonDefinition references into assembled lesson content.
+- LessonPlayerStep: represents one ordered runtime step inside an assembled lesson.
+- Lesson Session Engine: decides in-session retry, previous, next and finish consequences from explicit events and evaluated results.
 - LessonPlayer: presents assembled content.
 - ActivityEngine: evaluates interactive activity responses.
-- Assessment / Completion Evaluation: interprets outcomes and completion.
+- ActivityResult: records the evaluated result of one interactive activity.
 - Learner History: records observed learner events and progress.
 
-Future procedural lesson generation may be added later, but it must remain separate from planning, rendering and assessment.
+Future procedural lesson generation may be added later, but it must remain
+separate from planning, session orchestration, rendering and answer evaluation.
 
 Component Boundaries
 
@@ -581,6 +904,7 @@ Examples:
 
 Rule-Based Lesson Planner;
 LessonAssemblyService;
+LessonSessionEngine;
 Local LLM;
 Speech Recognition;
 Text-to-Speech;

@@ -231,6 +231,19 @@ assets exist. In that case, activities should remain structurally valid and may
 use empty `references` arrays until stable vocabulary, grammar, dialogue,
 reading, or exercise-template assets are created.
 
+LessonDefinitions organize authored content for later assembly and session
+execution.
+
+At runtime, assembled content is flattened into ordered `LessonPlayerStep`
+objects. A single checkable exercise template becomes one runtime step.
+
+Course authors should keep LessonDefinition activities coherent and avoid
+bundling unrelated checkable tasks into one exercise template.
+
+The Lesson Session Engine coordinates retry, previous, next and finish
+eligibility, but it does not generate prompts, explanations, answer keys or
+new teaching content.
+
 ---
 
 # Review Lessons
