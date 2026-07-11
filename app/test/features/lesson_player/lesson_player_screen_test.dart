@@ -130,6 +130,44 @@ void main() {
     expect(find.text('Correct'), findsOneWidget);
   });
 
+  testWidgets('accepted-with-correction answer can advance', (tester) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.accepted_feedback'),
+        service: _FakeLessonAssemblyService(_acceptedFeedbackLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'que');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Accepted with correction'), findsOneWidget);
+    expect(find.text('Canonical answer: qué'), findsOneWidget);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
+    );
+
+    final nextButton = find.widgetWithText(FilledButton, 'Next →');
+    await tester.ensureVisible(nextButton);
+    await tester.tap(nextButton);
+    await tester.pump();
+
+    expect(find.text('Step 2 / 2'), findsOneWidget);
+    expect(find.text('Accepted Vocabulary'), findsOneWidget);
+  });
+
   testWidgets('navigates previous and next without losing answers', (
     tester,
   ) async {
@@ -186,7 +224,7 @@ void main() {
       tester
           .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
           .onPressed,
-      isNotNull,
+      isNull,
     );
 
     await tester.tap(find.text('← Previous'));
@@ -205,6 +243,25 @@ void main() {
           .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, 'wrong option'))
           .selected,
       isTrue,
+    );
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNull,
+    );
+
+    await tester.tap(find.text('right option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
     );
   });
 
@@ -846,6 +903,112 @@ const _interactiveLessonContent = LessonContent(
                 ),
               ],
               correctOptionId: 'option.right',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _acceptedFeedbackLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.accepted_feedback',
+      title: 'Accepted Feedback Lesson',
+      description: 'Accepted feedback lesson description.',
+      moduleId: 'module.accepted_feedback',
+      courseId: 'course.accepted_feedback',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.accepted_feedback',
+        description: 'Check accepted-with-correction progression.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.accepted_feedback',
+        title: 'Accepted Feedback Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.accepted_feedback.text',
+            title: 'Accepted Text',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.accepted_feedback.vocabulary',
+            title: 'Accepted Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.accepted_feedback',
+        title: 'Accepted Feedback Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.accepted_feedback.text',
+            title: 'Accepted Text',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.accepted_feedback.vocabulary',
+            title: 'Accepted Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.accepted_feedback.text',
+            title: 'Accepted Text',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.accepted_feedback.text',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish question word for "what".',
+              expectedAnswer: 'qué',
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.accepted_feedback.vocabulary',
+            title: 'Accepted Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.accepted_feedback',
+              spanish: 'qué',
+              nativeTranslation: 'what',
+              cefr: 'A0',
+              example: '¿Qué tal?',
             ),
           ],
         ),
