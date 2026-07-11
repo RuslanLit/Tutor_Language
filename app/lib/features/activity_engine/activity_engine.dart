@@ -1,8 +1,11 @@
 import '../../core/content/topic_content.dart';
+import '../answer_evaluation/answer_evaluation.dart';
 import 'activity_result.dart';
 
 class ActivityEngine {
-  const ActivityEngine();
+  const ActivityEngine({this.answerEvaluator = const AnswerEvaluator()});
+
+  final AnswerEvaluator answerEvaluator;
 
   ActivityResult evaluate({
     required ExerciseTemplate template,
@@ -11,10 +14,13 @@ class ActivityEngine {
     return switch (template.exerciseType) {
       'multiple_choice' => _evaluateMultipleChoice(template, submission),
       'fill_gap' => _evaluateFillGap(template, submission),
+      'text_entry' => _evaluateFillGap(template, submission),
       'matching' => _evaluateMatching(template, submission),
       _ => ActivityResult(
         exerciseId: template.id,
         isCorrect: false,
+        status: ActivityResultStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
         feedbackText: 'This activity type is not supported yet.',
       ),
     };
@@ -37,7 +43,7 @@ class ActivityEngine {
       isCorrect: isCorrect,
       selectedAnswer: selected,
       expectedAnswer: expected,
-      feedbackText: _feedback(isCorrect),
+      feedbackKey: _feedbackKey(isCorrect),
     );
   }
 
@@ -47,15 +53,19 @@ class ActivityEngine {
   ) {
     final expected = template.expectedAnswer;
     final submitted = submission.submittedAnswer ?? '';
-    final isCorrect =
-        expected != null && _normalize(submitted) == _normalize(expected);
+    final evaluation = answerEvaluator.evaluateTypedAnswer(
+      learnerAnswer: submitted,
+      canonicalAnswer: expected,
+    );
 
     return ActivityResult(
       exerciseId: template.id,
-      isCorrect: isCorrect,
+      isCorrect: evaluation.isAccepted,
+      status: _activityStatusFor(evaluation.status),
       submittedAnswer: submitted,
       expectedAnswer: expected,
-      feedbackText: _feedback(isCorrect),
+      feedbackKey: evaluation.feedback.key,
+      evaluation: evaluation,
     );
   }
 
@@ -75,9 +85,13 @@ class ActivityEngine {
         isCorrect: isCorrect,
         selectedAnswer: selected,
         expectedAnswer: expected,
+        status: expected == null ? ActivityResultStatus.unsupported : null,
+        feedbackKey: expected == null
+            ? 'answer.unsupported'
+            : _feedbackKey(isCorrect),
         feedbackText: expected == null
             ? 'This matching activity is not checkable yet.'
-            : _feedback(isCorrect),
+            : null,
       );
     }
 
@@ -93,7 +107,7 @@ class ActivityEngine {
       isCorrect: isCorrect,
       matchedPairs: submission.matchedPairs,
       expectedAnswer: _formatPairs(expectedPairs),
-      feedbackText: _feedback(isCorrect),
+      feedbackKey: _feedbackKey(isCorrect),
     );
   }
 
@@ -138,10 +152,20 @@ class ActivityEngine {
   }
 
   String _normalize(String value) {
-    return value.trim().toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+    return const AnswerNormalizer().normalize(value).value;
   }
 
-  String _feedback(bool isCorrect) {
-    return isCorrect ? 'Correct' : 'Try again';
+  String _feedbackKey(bool isCorrect) {
+    return isCorrect ? 'answer.correct' : 'answer.incorrect';
+  }
+
+  ActivityResultStatus _activityStatusFor(AnswerEvaluationStatus status) {
+    return switch (status) {
+      AnswerEvaluationStatus.correct => ActivityResultStatus.correct,
+      AnswerEvaluationStatus.acceptedWithFeedback =>
+        ActivityResultStatus.acceptedWithFeedback,
+      AnswerEvaluationStatus.incorrect => ActivityResultStatus.incorrect,
+      AnswerEvaluationStatus.unsupported => ActivityResultStatus.unsupported,
+    };
   }
 }

@@ -140,6 +140,7 @@ class _ExerciseItemView extends StatelessWidget {
     return switch (status) {
       AnswerCheckStatus.unchecked => 'Unchecked',
       AnswerCheckStatus.correct => 'Correct',
+      AnswerCheckStatus.acceptedWithFeedback => 'Accepted with feedback',
       AnswerCheckStatus.incorrect => 'Incorrect',
       AnswerCheckStatus.unsupported => 'Unsupported exercise type',
     };

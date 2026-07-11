@@ -1,3 +1,4 @@
+import '../answer_evaluation/answer_evaluation.dart';
 import 'answer_check_models.dart';
 import 'exercise_runtime_models.dart';
 
@@ -14,7 +15,9 @@ class AnswerCheckInput {
 }
 
 class AnswerChecker {
-  const AnswerChecker();
+  const AnswerChecker({this.answerEvaluator = const AnswerEvaluator()});
+
+  final AnswerEvaluator answerEvaluator;
 
   AnswerCheckResult check(AnswerCheckInput input) {
     final response = input.response;
@@ -26,7 +29,10 @@ class AnswerChecker {
     return switch (input.item.interactionType) {
       'multiple_choice' => _checkMultipleChoice(input, response),
       'text_entry' => _checkTextEntry(input, response),
-      _ => const AnswerCheckResult(status: AnswerCheckStatus.unsupported),
+      _ => const AnswerCheckResult(
+        status: AnswerCheckStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
+      ),
     };
   }
 
@@ -37,7 +43,10 @@ class AnswerChecker {
     final expectedAnswerId = input.expectedAnswer.answerId;
 
     if (expectedAnswerId == null) {
-      return const AnswerCheckResult(status: AnswerCheckStatus.unsupported);
+      return const AnswerCheckResult(
+        status: AnswerCheckStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
+      );
     }
 
     return AnswerCheckResult(
@@ -53,18 +62,26 @@ class AnswerChecker {
   ) {
     final expectedText = input.expectedAnswer.text;
 
-    if (expectedText == null) {
-      return const AnswerCheckResult(status: AnswerCheckStatus.unsupported);
-    }
+    final result = answerEvaluator.evaluateTypedAnswer(
+      learnerAnswer: response.answer.label,
+      canonicalAnswer: expectedText,
+      acceptedAnswers: input.expectedAnswer.acceptedTextAnswers,
+    );
 
     return AnswerCheckResult(
-      status: _normalize(response.answer.label) == _normalize(expectedText)
-          ? AnswerCheckStatus.correct
-          : AnswerCheckStatus.incorrect,
+      status: _statusFor(result.status),
+      feedbackKey: result.feedback.key,
+      explanationReference: result.feedback.explanationReference,
     );
   }
 
-  String _normalize(String value) {
-    return value.trim().toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+  AnswerCheckStatus _statusFor(AnswerEvaluationStatus status) {
+    return switch (status) {
+      AnswerEvaluationStatus.correct => AnswerCheckStatus.correct,
+      AnswerEvaluationStatus.acceptedWithFeedback =>
+        AnswerCheckStatus.acceptedWithFeedback,
+      AnswerEvaluationStatus.incorrect => AnswerCheckStatus.incorrect,
+      AnswerEvaluationStatus.unsupported => AnswerCheckStatus.unsupported,
+    };
   }
 }

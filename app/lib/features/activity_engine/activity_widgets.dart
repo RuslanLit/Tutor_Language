@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/topic_content.dart';
+import '../answer_evaluation/answer_evaluation.dart';
 import 'activity_engine.dart';
 import 'activity_result.dart';
 
@@ -22,6 +23,7 @@ class ActivityTemplateWidget extends StatelessWidget {
         engine: engine,
       ),
       'fill_gap' => FillGapActivityWidget(template: template, engine: engine),
+      'text_entry' => FillGapActivityWidget(template: template, engine: engine),
       'matching' => MatchingActivityWidget(template: template, engine: engine),
       _ => Text('Unsupported activity type: ${template.exerciseType}'),
     };
@@ -232,9 +234,14 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
 }
 
 class ActivityFeedback extends StatelessWidget {
-  const ActivityFeedback({required this.result, super.key});
+  const ActivityFeedback({
+    required this.result,
+    this.presenter = const AnswerFeedbackPresenter(),
+    super.key,
+  });
 
   final ActivityResult? result;
+  final AnswerFeedbackPresenter presenter;
 
   @override
   Widget build(BuildContext context) {
@@ -243,12 +250,42 @@ class ActivityFeedback extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
+    final evaluation = result.evaluation;
+    if (evaluation != null) {
+      final feedback = presenter.present(evaluation);
+      return Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(feedback.statusLabel),
+            if (feedback.canonicalAnswer != null &&
+                result.status != ActivityResultStatus.correct) ...[
+              const SizedBox(height: 4),
+              Text('Canonical answer: ${feedback.canonicalAnswer}'),
+            ],
+            for (final correction in feedback.corrections) ...[
+              const SizedBox(height: 4),
+              Text('- $correction'),
+            ],
+          ],
+        ),
+      );
+    }
+
     return Padding(
       padding: const EdgeInsets.only(top: 8),
-      child: Text(
-        result.feedbackText ?? (result.isCorrect ? 'Correct' : 'Try again'),
-      ),
+      child: Text(result.feedbackText ?? _labelFor(result.status)),
     );
+  }
+
+  String _labelFor(ActivityResultStatus status) {
+    return switch (status) {
+      ActivityResultStatus.correct => 'Correct',
+      ActivityResultStatus.acceptedWithFeedback => 'Accepted with feedback',
+      ActivityResultStatus.incorrect => 'Try again',
+      ActivityResultStatus.unsupported => 'Unsupported activity type',
+    };
   }
 }
 

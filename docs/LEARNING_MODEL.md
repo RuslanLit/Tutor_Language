@@ -139,6 +139,15 @@ Uncertain error classification must fall back to neutral feedback.
 
 The application must not fabricate linguistic explanations.
 
+Current implementation note:
+
+- deterministic typed-answer evaluation supports correct, accepted-with-feedback
+  and incorrect outcomes;
+- Spanish A0 orthographic tolerance is limited to high-confidence accent and
+  Spanish boundary punctuation differences;
+- semantic evaluation, grammar diagnosis, fuzzy typo handling and mastery
+  estimation remain future work.
+
 ---
 
 # Fundamental Learning Question

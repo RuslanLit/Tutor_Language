@@ -26,6 +26,7 @@ class EducationalContentValidator {
   static const supportedExerciseTypes = {
     'multiple_choice',
     'fill_gap',
+    'text_entry',
     'matching',
   };
 

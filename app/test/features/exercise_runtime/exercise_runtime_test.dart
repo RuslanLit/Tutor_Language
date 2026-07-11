@@ -70,6 +70,42 @@ void main() {
     );
 
     expect(result.status, AnswerCheckStatus.correct);
+    expect(result.feedbackKey, 'answer.correct');
+  });
+
+  test('text-entry accepted alternative answer', () {
+    final result = const AnswerChecker().check(
+      AnswerCheckInput(
+        item: _textEntryItem,
+        response: _responseFor(
+          _textEntryItem,
+          const ExerciseAnswer(id: 'typed', label: 'hi there'),
+        ),
+        expectedAnswer: const ExpectedAnswer(
+          text: 'hello there',
+          acceptedTextAnswers: ['hi there'],
+        ),
+      ),
+    );
+
+    expect(result.status, AnswerCheckStatus.correct);
+    expect(result.feedbackKey, 'answer.correct');
+  });
+
+  test('text-entry accepted with orthographic feedback', () {
+    final result = const AnswerChecker().check(
+      AnswerCheckInput(
+        item: _textEntryItem,
+        response: _responseFor(
+          _textEntryItem,
+          const ExerciseAnswer(id: 'typed', label: 'que'),
+        ),
+        expectedAnswer: const ExpectedAnswer(text: 'qué'),
+      ),
+    );
+
+    expect(result.status, AnswerCheckStatus.acceptedWithFeedback);
+    expect(result.feedbackKey, 'answer.accepted_with_feedback');
   });
 
   test('text-entry incorrect answer', () {
@@ -100,6 +136,7 @@ void main() {
     );
 
     expect(result.status, AnswerCheckStatus.unsupported);
+    expect(result.feedbackKey, 'answer.unsupported');
   });
 
   test('exercise interaction state stores local response', () {

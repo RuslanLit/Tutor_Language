@@ -455,6 +455,16 @@ linguistic rules inside learner progress.
 
 LessonPlayer must not own this full evaluation policy.
 
+Current implementation note:
+
+- a reusable answer-evaluation layer owns typed-answer normalization,
+  comparison, limited Spanish A0 orthographic difference classification and
+  structured feedback metadata;
+- LessonPlayer and activity widgets render the result but do not contain
+  Spanish orthographic rules;
+- broader grammar diagnosis, fuzzy spelling correction and session-level
+  progress consequences remain future work.
+
 Assessment never plans lessons.
 
 Assessment never modifies educational content.
