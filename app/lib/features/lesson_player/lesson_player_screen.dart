@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../app/router/app_router.dart';
 import '../../core/content/topic_content.dart';
+import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_widgets.dart';
+import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
 import 'lesson_player_providers.dart';
 
@@ -27,13 +31,13 @@ class LessonPlayerScreen extends ConsumerWidget {
   }
 }
 
-class LessonPlayerView extends StatelessWidget {
+class LessonPlayerView extends ConsumerWidget {
   const LessonPlayerView({required this.lessonContent, super.key});
 
   final LessonContent lessonContent;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final lesson = lessonContent.lesson;
 
     return ListView(
@@ -61,8 +65,97 @@ class LessonPlayerView extends StatelessWidget {
         const SizedBox(height: 20),
         for (final section in lessonContent.sections)
           LessonSectionView(sectionContent: section),
+        LessonCompletionControls(lessonId: lesson.id),
       ],
     );
+  }
+}
+
+class LessonCompletionControls extends ConsumerStatefulWidget {
+  const LessonCompletionControls({required this.lessonId, super.key});
+
+  final String lessonId;
+
+  @override
+  ConsumerState<LessonCompletionControls> createState() =>
+      _LessonCompletionControlsState();
+}
+
+class _LessonCompletionControlsState
+    extends ConsumerState<LessonCompletionControls> {
+  bool _isCompleting = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final progress = ref.watch(topicProgressProvider(widget.lessonId));
+
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, bottom: 24),
+      child: progress.when(
+        data: (progress) {
+          final isCompleted = progress.hasBeenCompleted;
+          if (!isCompleted) {
+            return FilledButton(
+              onPressed: _isCompleting ? null : _completeLesson,
+              child: Text(_isCompleting ? 'Completing...' : 'Complete lesson'),
+            );
+          }
+
+          final nextLesson = ref.watch(
+            nextOrderedLessonProvider(widget.lessonId),
+          );
+
+          return nextLesson.when(
+            data: (nextLesson) {
+              if (nextLesson == null) {
+                return const Text('Course complete');
+              }
+
+              return Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  const Text('Lesson completed'),
+                  FilledButton(
+                    onPressed: () {
+                      context.goNamed(
+                        LessonRoute.name,
+                        pathParameters: {'lessonId': nextLesson.lesson.id},
+                      );
+                    },
+                    child: const Text('Continue to next lesson'),
+                  ),
+                ],
+              );
+            },
+            error: (error, stackTrace) => CourseBrowserError(message: '$error'),
+            loading: () => const CircularProgressIndicator(),
+          );
+        },
+        error: (error, stackTrace) => CourseBrowserError(message: '$error'),
+        loading: () => const CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  Future<void> _completeLesson() async {
+    setState(() {
+      _isCompleting = true;
+    });
+
+    await ref
+        .read(learnerProgressRepositoryProvider)
+        .recordLessonCompleted(widget.lessonId);
+
+    ref.invalidate(topicProgressProvider(widget.lessonId));
+    ref.invalidate(learnerProgressEventsProvider);
+    ref.invalidate(courseNavigationStateProvider);
+
+    if (mounted) {
+      setState(() {
+        _isCompleting = false;
+      });
+    }
   }
 }
 

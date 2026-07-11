@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/course_navigation/course_navigation_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/lesson_launch/lesson_launch_screen.dart';
 import '../../features/lesson_player/lesson_player_screen.dart';
@@ -20,6 +21,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: SettingsRoute.path,
         name: SettingsRoute.name,
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: CourseRoute.path,
+        name: CourseRoute.name,
+        builder: (context, state) => const CourseNavigationScreen(),
       ),
       GoRoute(
         path: TopicRoute.path,
@@ -54,6 +60,11 @@ abstract final class HomeRoute {
 abstract final class SettingsRoute {
   static const name = 'settings';
   static const path = '/settings';
+}
+
+abstract final class CourseRoute {
+  static const name = 'course';
+  static const path = '/course';
 }
 
 abstract final class TopicRoute {

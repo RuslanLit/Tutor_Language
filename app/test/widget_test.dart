@@ -4,9 +4,21 @@ import 'package:tutor_language/main.dart' as app;
 void main() {
   testWidgets('shows the application shell', (tester) async {
     app.main();
-    await tester.pumpAndSettle();
+    await _pumpUntilFound(tester, find.text('Tutor Language'));
 
     expect(find.text('Tutor Language'), findsOneWidget);
-    expect(find.text('Beginner Spanish'), findsOneWidget);
+    expect(find.text('Spanish A0'), findsOneWidget);
   });
+}
+
+Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
+  for (var i = 0; i < 20; i += 1) {
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+    });
+    await tester.pump();
+    if (finder.evaluate().isNotEmpty) {
+      return;
+    }
+  }
 }

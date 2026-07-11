@@ -9,6 +9,7 @@ final learningSessionControllerProvider = Provider.autoDispose
         progressRepository: ref.watch(learnerProgressRepositoryProvider),
         onProgressRecorded: (topicId) {
           ref.invalidate(topicProgressProvider(topicId));
+          ref.invalidate(learnerProgressEventsProvider);
         },
       );
 

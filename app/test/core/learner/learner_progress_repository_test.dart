@@ -68,6 +68,29 @@ void main() {
     expect(progress.lastActivityAt, DateTime.utc(2026, 7));
   });
 
+  test('repository reads all progress events in chronological order', () async {
+    final later = ProgressEvent.create(
+      eventType: ProgressEventType.topicCompleted,
+      topicId: 'topic.second.v1',
+      now: DateTime.utc(2026, 8),
+    );
+    final earlier = ProgressEvent.create(
+      eventType: ProgressEventType.topicViewed,
+      topicId: 'topic.first.v1',
+      now: DateTime.utc(2026, 7),
+    );
+
+    await repository.recordEvent(later);
+    await repository.recordEvent(earlier);
+
+    final events = await repository.readEvents();
+
+    expect(events.map((event) => event.topicId), [
+      'topic.first.v1',
+      'topic.second.v1',
+    ]);
+  });
+
   test('repository reads completed topic progress', () async {
     final event = ProgressEvent.create(
       eventType: ProgressEventType.topicCompleted,
@@ -82,4 +105,38 @@ void main() {
     expect(progress.hasBeenCompleted, isTrue);
     expect(progress.completedAt, DateTime.utc(2026, 8));
   });
+
+  test('repository records lesson completion idempotently', () async {
+    await repository.recordLessonCompleted('lesson.greetings.v1');
+    await repository.recordLessonCompleted('lesson.greetings.v1');
+
+    final events = await repository.readEventsForTopic('lesson.greetings.v1');
+    final progress = await repository.readTopicProgress('lesson.greetings.v1');
+
+    expect(events, hasLength(1));
+    expect(events.single.eventType, ProgressEventType.lessonCompleted);
+    expect(progress.hasBeenCompleted, isTrue);
+  });
+
+  test(
+    'lesson completion preserves existing topicCompleted compatibility',
+    () async {
+      await repository.recordEvent(
+        ProgressEvent.create(
+          eventType: ProgressEventType.topicCompleted,
+          topicId: 'lesson.legacy.v1',
+          now: DateTime.utc(2026, 9),
+        ),
+      );
+
+      await repository.recordLessonCompleted('lesson.legacy.v1');
+
+      final events = await repository.readEventsForTopic('lesson.legacy.v1');
+      final progress = await repository.readTopicProgress('lesson.legacy.v1');
+
+      expect(events, hasLength(1));
+      expect(events.single.eventType, ProgressEventType.topicCompleted);
+      expect(progress.hasBeenCompleted, isTrue);
+    },
+  );
 }

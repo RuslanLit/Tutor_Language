@@ -153,7 +153,7 @@ features/
 ├── lesson_player/
 ├── lesson_planning/
 ├── learning_session/
-├── progress/
+├── learner_history/
 └── settings/
 ```
 
@@ -164,7 +164,8 @@ Current feature responsibilities:
 - `lesson_player/` presents assembled lesson content.
 - `activity_engine/` evaluates supported interactive activity templates.
 - `learning_session/` records session progress and completion flow.
-- `progress/` stores learner progress events and learner state.
+- `learner_history/` projects persisted progress into planner-ready history.
+- `core/learner/` stores learner progress events and learner state.
 
 Every feature owns:
 

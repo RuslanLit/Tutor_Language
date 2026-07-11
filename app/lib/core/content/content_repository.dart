@@ -1,4 +1,3 @@
-import '../../features/curriculum/curriculum_loader.dart';
 import '../../features/curriculum/curriculum_models.dart';
 import '../../features/curriculum/curriculum_repository.dart';
 import 'content_loader.dart';
@@ -8,13 +7,7 @@ class ContentRepository {
   ContentRepository({
     CurriculumRepository? curriculumRepository,
     ContentLoader? contentLoader,
-  }) : _curriculumRepository =
-           curriculumRepository ??
-           CurriculumRepository(
-             loader: CurriculumLoader(
-               coursePath: 'assets/languages/spanish/curriculum/course.json',
-             ),
-           ),
+  }) : _curriculumRepository = curriculumRepository ?? CurriculumRepository(),
        _contentLoader = contentLoader ?? ContentLoader();
 
   final CurriculumRepository _curriculumRepository;

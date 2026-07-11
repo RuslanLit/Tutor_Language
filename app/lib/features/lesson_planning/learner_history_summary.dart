@@ -26,7 +26,8 @@ class LearnerHistorySummary {
     for (final event in orderedEvents) {
       attemptedLessonIds.add(event.topicId);
 
-      if (event.eventType == ProgressEventType.topicCompleted) {
+      if (event.eventType == ProgressEventType.lessonCompleted ||
+          event.eventType == ProgressEventType.topicCompleted) {
         completedLessonIds.add(event.topicId);
       }
 

@@ -18,3 +18,9 @@ final topicProgressProvider = FutureProvider.family<TopicProgress, String>((
       .watch(learnerProgressRepositoryProvider)
       .readTopicProgress(topicId);
 });
+
+final learnerProgressEventsProvider = FutureProvider<List<ProgressEvent>>((
+  ref,
+) {
+  return ref.watch(learnerProgressRepositoryProvider).readEvents();
+});

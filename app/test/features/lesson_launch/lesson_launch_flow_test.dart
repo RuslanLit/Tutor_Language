@@ -1,11 +1,14 @@
 import 'dart:io';
 
+import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
+import 'package:tutor_language/core/database/app_database.dart';
+import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/curriculum/curriculum_repository.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
@@ -14,6 +17,7 @@ import 'package:tutor_language/features/lesson_launch/lesson_launch_providers.da
 import 'package:tutor_language/features/lesson_launch/lesson_launch_screen.dart';
 import 'package:tutor_language/features/lesson_launch/lesson_launch_service.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
+import 'package:tutor_language/features/lesson_planning/learner_history_summary.dart';
 import 'package:tutor_language/features/lesson_planning/lesson_plan.dart';
 import 'package:tutor_language/features/lesson_planning/planning_request.dart';
 import 'package:tutor_language/features/lesson_planning/rule_based_lesson_planner.dart';
@@ -33,12 +37,15 @@ void main() {
     final service = LessonLaunchService(
       curriculumRepository: _FakeCurriculumRepository(_course),
       planner: planner,
+      learnerHistorySummary: () async =>
+          const LearnerHistorySummary(completedLessonIds: {'lesson.previous'}),
     );
 
     final plan = await service.planNextLesson();
 
     expect(planner.wasInvoked, isTrue);
     expect(planner.requestedCourseId, _course.id);
+    expect(planner.requestedCompletedLessonIds, {'lesson.previous'});
     expect(plan.selectedLessonId, 'lesson.planned');
   });
 
@@ -68,39 +75,29 @@ void main() {
     },
   );
 
-  testWidgets('Home launch button uses planner-led launch flow', (
-    tester,
-  ) async {
-    final assemblyService = _RecordingLessonAssemblyService();
-
+  testWidgets('Home course button opens course navigation', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           contentRepositoryProvider.overrideWith(
             (ref) => _FakeContentRepository(),
           ),
-          lessonLaunchServiceProvider.overrideWith(
-            (ref) => _FakeLessonLaunchService(
-              const LessonPlan(
-                selectedLessonId: 'lesson.selected.from.home',
-                planType: LessonPlanType.newLesson,
-                reasonCodes: [LessonPlanReasonCode.noHistorySelectFirstLesson],
-                diagnosticExplanation: 'Selected from home launch.',
-              ),
-            ),
-          ),
-          lessonAssemblyServiceProvider.overrideWith((ref) => assemblyService),
+          appDatabaseProvider.overrideWith((ref) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
         ],
         child: const TutorLanguageApp(),
       ),
     );
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Spanish A0 - Lesson 1'));
+    await tester.tap(find.text('Open course'));
     await tester.pumpAndSettle();
 
-    expect(assemblyService.requestedLessonIds, ['lesson.selected.from.home']);
-    expect(find.text('Planner Selected Lesson'), findsOneWidget);
+    expect(find.text('Test Module'), findsOneWidget);
+    expect(find.text('Test Lesson'), findsOneWidget);
   });
 
   testWidgets('planner failure produces graceful launch error', (tester) async {
@@ -172,6 +169,11 @@ Widget _app({
 }) {
   return ProviderScope(
     overrides: [
+      appDatabaseProvider.overrideWith((ref) {
+        final database = AppDatabase(NativeDatabase.memory());
+        ref.onDispose(database.close);
+        return database;
+      }),
       lessonLaunchServiceProvider.overrideWith((ref) => launchService),
       lessonAssemblyServiceProvider.overrideWith((ref) => assemblyService),
     ],
@@ -185,11 +187,13 @@ class _RecordingPlanner extends RuleBasedLessonPlanner {
   final LessonPlan selectedPlan;
   bool wasInvoked = false;
   String? requestedCourseId;
+  Set<String>? requestedCompletedLessonIds;
 
   @override
   LessonPlanningResult plan(PlanningRequest request) {
     wasInvoked = true;
     requestedCourseId = request.course.id;
+    requestedCompletedLessonIds = request.learnerHistory.completedLessonIds;
     return LessonPlanningResult.success(selectedPlan);
   }
 }
@@ -199,6 +203,7 @@ class _FakeLessonLaunchService extends LessonLaunchService {
     : super(
         curriculumRepository: _FailingCurriculumRepository(),
         planner: const RuleBasedLessonPlanner(),
+        learnerHistorySummary: () async => const LearnerHistorySummary(),
       );
 
   final LessonPlan plan;
@@ -214,6 +219,7 @@ class _FailingLessonLaunchService extends LessonLaunchService {
     : super(
         curriculumRepository: _FailingCurriculumRepository(),
         planner: const RuleBasedLessonPlanner(),
+        learnerHistorySummary: () async => const LearnerHistorySummary(),
       );
 
   final Object error;

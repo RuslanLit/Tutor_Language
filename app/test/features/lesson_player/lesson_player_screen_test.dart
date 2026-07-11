@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:drift/native.dart';
+import 'package:tutor_language/core/database/app_database.dart';
+import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
@@ -121,6 +124,11 @@ void main() {
 Widget _app(Widget child, {LessonAssemblyService? service}) {
   return ProviderScope(
     overrides: [
+      appDatabaseProvider.overrideWith((ref) {
+        final database = AppDatabase(NativeDatabase.memory());
+        ref.onDispose(database.close);
+        return database;
+      }),
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),
     ],

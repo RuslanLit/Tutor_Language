@@ -3,6 +3,7 @@ enum ProgressEventType {
   exerciseAnswered,
   answerChecked,
   topicCompleted,
+  lessonCompleted,
 }
 
 class LearnerProgress {

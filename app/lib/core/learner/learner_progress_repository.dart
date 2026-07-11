@@ -24,12 +24,34 @@ class LearnerProgressRepository {
         );
   }
 
+  Future<void> recordLessonCompleted(String lessonId) async {
+    final progress = await readTopicProgress(lessonId);
+    if (progress.hasBeenCompleted) {
+      return;
+    }
+
+    await recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: lessonId,
+      ),
+    );
+  }
+
   Future<List<ProgressEvent>> readEventsForTopic(String topicId) async {
     final rows =
         await (_database.select(_database.learnerProgressEvents)
               ..where((table) => table.topicId.equals(topicId))
               ..orderBy([(table) => OrderingTerm.asc(table.createdAt)]))
             .get();
+
+    return rows.map(_eventFromRow).toList(growable: false);
+  }
+
+  Future<List<ProgressEvent>> readEvents() async {
+    final rows = await (_database.select(
+      _database.learnerProgressEvents,
+    )..orderBy([(table) => OrderingTerm.asc(table.createdAt)])).get();
 
     return rows.map(_eventFromRow).toList(growable: false);
   }
@@ -44,7 +66,8 @@ class LearnerProgressRepository {
       if (event.eventType == ProgressEventType.topicViewed) {
         viewedAt ??= event.createdAt;
       }
-      if (event.eventType == ProgressEventType.topicCompleted) {
+      if (event.eventType == ProgressEventType.topicCompleted ||
+          event.eventType == ProgressEventType.lessonCompleted) {
         completedAt ??= event.createdAt;
       }
 

@@ -8,21 +8,18 @@ class LessonLaunchService {
   const LessonLaunchService({
     required this.curriculumRepository,
     required this.planner,
-    this.learnerHistorySummary,
+    required this.learnerHistorySummary,
   });
 
   final CurriculumRepository curriculumRepository;
   final RuleBasedLessonPlanner planner;
-  final LearnerHistorySummary Function()? learnerHistorySummary;
+  final Future<LearnerHistorySummary> Function() learnerHistorySummary;
 
   Future<LessonPlan> planNextLesson() async {
     final course = await curriculumRepository.loadCourse();
+    final history = await learnerHistorySummary();
     final result = planner.plan(
-      PlanningRequest(
-        course: course,
-        learnerHistory:
-            learnerHistorySummary?.call() ?? const LearnerHistorySummary(),
-      ),
+      PlanningRequest(course: course, learnerHistory: history),
     );
 
     final plan = result.plan;
