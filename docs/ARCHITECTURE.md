@@ -826,7 +826,102 @@ session.
 The summary counts canonical checkable steps only and excludes inserted review
 steps from the denominator.
 
-Session mastery is not persisted and is not durable learner progress.
+Lesson Outcome
+
+At lesson finish, the engine also returns a deterministic `LessonOutcome`.
+
+Lesson outcome is a lesson-level interpretation of the session mastery summary,
+not a replacement for step mastery.
+
+The implemented outcome statuses are:
+
+- `mastered`;
+- `completedWithReinforcement`;
+- `incomplete`.
+
+The implemented outcome reason codes are:
+
+- `allStepsMastered`;
+- `fragileMasteryPresent`;
+- `lessonNotCompleted`;
+- `noAssessableSteps`.
+
+The outcome policy is pure and deterministic:
+
+- incomplete sessions produce `incomplete`;
+- completed sessions with no assessable steps produce
+  `completedWithReinforcement`;
+- completed sessions with fragile, not-mastered or unassessed canonical
+  checkable steps produce `completedWithReinforcement`;
+- completed sessions where all canonical assessed checkable steps are mastered
+  produce `mastered`.
+
+Lesson outcome is produced by the Session Engine as session output.
+
+After a successful `finishLesson` decision, the application persistence layer
+stores an immutable completed lesson attempt containing:
+
+- the lesson outcome;
+- the lesson mastery summary;
+- canonical checkable step mastery evidence;
+- completion timestamp;
+- learning policy version.
+
+The Session Engine remains persistence-agnostic.
+
+Durable completed lesson attempts are not yet consumed by the Lesson Planner.
+
+Active in-progress `LessonSessionState` is still not persisted.
+
+Durable Lesson Attempts
+
+The database schema version is 5.
+
+The durable attempt schema adds:
+
+- `lesson_attempts`;
+- `lesson_attempt_step_results`.
+
+`lesson_attempts` stores one immutable row per completed lesson run.
+
+`lesson_attempt_step_results` stores final evidence for canonical checkable
+steps in that attempt.
+
+The persistence boundary is:
+
+```text
+finishLesson decision
+        |
+        v
+LessonAttemptSnapshotFactory
+        |
+        v
+LearnerProgressRepository transaction
+        |
+        v
+lesson attempt + step results + existing completion event
+```
+
+Persistence rules:
+
+- every repeated lesson run may create a distinct attempt ID;
+- retrying the same completion request reuses the same attempt ID;
+- duplicate attempt IDs are idempotent;
+- attempt and step rows are written transactionally with the existing lesson
+  completion progress event;
+- step rows are persisted only for canonical checkable lesson steps;
+- informational steps, inserted runtime review steps and remediation displays do
+  not become durable learning-objective rows;
+- remediation and inserted-review provenance is stored on the originating
+  canonical step evidence;
+- raw learner answers are not newly persisted;
+- enum values are stored through explicit stable string codes, not ordinal
+  positions.
+
+Legacy completions created before durable attempts remain valid completion
+progress.
+
+No synthetic mastery or lesson outcome is fabricated for legacy completions.
 
 Runtime Dependency Direction
 

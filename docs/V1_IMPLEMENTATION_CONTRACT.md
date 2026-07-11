@@ -107,6 +107,10 @@ LessonSessionDecision
 
 LessonSessionReasonCode
 
+LessonOutcome
+
+LessonAttemptSummary
+
 LessonPlayer
 
 ActivityEngine

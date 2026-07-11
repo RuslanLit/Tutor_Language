@@ -260,6 +260,22 @@ Generation 1 uses:
 
 Database migrations must preserve learner progress.
 
+Current local schema version: 5.
+
+Schema version 5 adds durable completed lesson attempts:
+
+- `lesson_attempts`;
+- `lesson_attempt_step_results`.
+
+These tables store immutable completed-session evidence after a successful
+`finishLesson` decision.
+
+They do not store active unfinished session state.
+
+They do not newly store raw learner answers.
+
+Legacy completion progress remains valid when no durable attempt row exists.
+
 ---
 
 # Offline Requirements

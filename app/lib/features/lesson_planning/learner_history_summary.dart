@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../../core/learner/lesson_attempt.dart';
 import '../../core/learner/learner_progress.dart';
 
 class LearnerHistorySummary {
@@ -7,6 +8,7 @@ class LearnerHistorySummary {
     this.completedLessonIds = const {},
     this.currentLessonId,
     this.incompleteLessonIds = const {},
+    this.latestLessonAttemptsByLessonId = const {},
     this.recentCheckedAnswersCount = 0,
     this.recentCorrectAnswersCount = 0,
     this.lastAttemptedLessonId,
@@ -57,6 +59,7 @@ class LearnerHistorySummary {
   final Set<String> completedLessonIds;
   final String? currentLessonId;
   final Set<String> incompleteLessonIds;
+  final Map<String, LessonAttemptSummary> latestLessonAttemptsByLessonId;
   final int recentCheckedAnswersCount;
   final int recentCorrectAnswersCount;
   final String? lastAttemptedLessonId;
@@ -73,6 +76,7 @@ class LearnerHistorySummary {
     return completedLessonIds.isNotEmpty ||
         currentLessonId != null ||
         incompleteLessonIds.isNotEmpty ||
+        latestLessonAttemptsByLessonId.isNotEmpty ||
         recentCheckedAnswersCount > 0 ||
         lastAttemptedLessonId != null;
   }

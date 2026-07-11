@@ -797,6 +797,17 @@ It is not persisted and does not represent long-term acquisition.
 Fragile steps may still be completed and may still permit lesson completion in
 the current phase.
 
+At lesson finish, the Session Engine returns a deterministic lesson outcome
+derived from the session mastery summary.
+
+The lesson outcome distinguishes:
+
+- all canonical assessed steps mastered;
+- completed with reinforcement still needed;
+- incomplete lesson.
+
+The outcome is session output and is not a planner input in the current phase.
+
 Constraints
 
 `LessonSessionEngine` must not depend on:
@@ -825,6 +836,59 @@ session state.
 
 AI-assisted features, if ever introduced, must remain outside the authoritative
 correctness and progression path unless separately specified and validated.
+
+---
+
+## ADR: Persist Immutable Completed Lesson Attempts
+
+Status
+
+Accepted
+
+Context
+
+The Session Engine now produces deterministic step mastery, lesson mastery
+summary and lesson outcome for completed sessions.
+
+Keeping that evidence only in memory loses useful history after restart.
+
+At the same time, the Session Engine must remain pure and independent of Drift,
+repositories, widgets, routing and learner-history projection.
+
+Decision
+
+The application persistence layer stores immutable completed lesson attempts
+after a successful `finishLesson` decision.
+
+Each durable attempt stores:
+
+- one attempt row;
+- canonical checkable step result rows;
+- explicit stable enum codes;
+- completion timestamp;
+- learning policy version.
+
+The write happens through `LearnerProgressRepository` in one transaction that
+also records the existing lesson completion progress event.
+
+Inserted runtime review steps, remediation displays and informational steps are
+not persisted as canonical step rows.
+
+Raw learner answers are not newly persisted.
+
+Legacy completions remain valid but do not receive fabricated mastery evidence.
+
+Consequences
+
+Multiple attempts for one lesson remain queryable.
+
+Future learner-history and planner layers can consume a clean domain summary
+without importing Drift models.
+
+Historical outcomes are preserved as originally decided instead of being
+recalculated by future mastery policies.
+
+Active unfinished session persistence remains future work.
 
 ---
 

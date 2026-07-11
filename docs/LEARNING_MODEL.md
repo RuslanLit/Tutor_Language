@@ -589,6 +589,41 @@ Lesson mastery summaries count canonical checkable steps only.
 Informational steps are not treated as mastered merely because the learner
 pressed Next.
 
+Lesson outcome is a deterministic lesson-level result derived from the current
+session state and `LessonMasterySummary`.
+
+Current lesson outcome policy:
+
+- an unfinished lesson is `incomplete`;
+- a completed lesson with no assessable steps is
+  `completedWithReinforcement`;
+- a completed lesson with any fragile, not-mastered or unassessed canonical
+  checkable step is `completedWithReinforcement`;
+- a completed lesson where all canonical assessed checkable steps are mastered
+  is `mastered`.
+
+After a lesson is successfully finished, the application layer persists the
+lesson outcome as part of an immutable completed lesson attempt.
+
+Durable attempt evidence preserves:
+
+- the lesson outcome;
+- the lesson mastery summary;
+- canonical checkable step mastery status and reason codes;
+- attempt counts and accepted submission counts;
+- remediation and inserted-review provenance;
+- the learning policy version used for the decision.
+
+Durable attempts are historical evidence from completed lesson sessions.
+
+They do not prove long-term acquisition and do not by themselves schedule
+future review.
+
+The Lesson Planner does not consume durable outcomes yet.
+
+Legacy lesson completions that predate durable attempts remain completed, but
+their detailed outcome is unavailable.
+
 The Session Engine does not generate remediation content.
 
 It only decides whether authored remediation associated with the current runtime
@@ -608,14 +643,13 @@ They do not change curriculum, LessonDefinitions or authored lesson order.
 Completing an inserted review step returns the learner to the originating step
 and does not complete the originating exercise.
 
-Advanced mastery estimation, spaced repetition, durable attempt history,
-adaptive retry scheduling, optional review lessons and long-term review
-scheduling remain future work.
+Advanced mastery estimation, spaced repetition, adaptive retry scheduling,
+optional review lessons and long-term review scheduling remain future work.
 
 Session mastery is evidence from the current lesson session only.
 
-It is not durable proof of long-term acquisition and is not persisted in this
-phase.
+Completed-session mastery evidence may be persisted as a historical lesson
+attempt, but it is not durable proof of long-term acquisition.
 
 ---
 

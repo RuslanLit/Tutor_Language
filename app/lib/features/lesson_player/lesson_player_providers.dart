@@ -27,18 +27,30 @@ class LessonPlayerSessionState {
   const LessonPlayerSessionState({
     this.sessionState = const LessonSessionState(lessonId: ''),
     this.stepStates = const {},
+    this.lessonOutcome,
+    this.completionAttemptId,
   });
 
   final LessonSessionState sessionState;
   final Map<String, ActivityTemplateState> stepStates;
+  final LessonOutcome? lessonOutcome;
+  final String? completionAttemptId;
 
   LessonPlayerSessionState copyWith({
     LessonSessionState? sessionState,
     Map<String, ActivityTemplateState>? stepStates,
+    Object? lessonOutcome = _unset,
+    Object? completionAttemptId = _unset,
   }) {
     return LessonPlayerSessionState(
       sessionState: sessionState ?? this.sessionState,
       stepStates: stepStates ?? this.stepStates,
+      lessonOutcome: lessonOutcome == _unset
+          ? this.lessonOutcome
+          : lessonOutcome as LessonOutcome?,
+      completionAttemptId: completionAttemptId == _unset
+          ? this.completionAttemptId
+          : completionAttemptId as String?,
     );
   }
 
@@ -72,9 +84,11 @@ class LessonPlayerSessionState {
           .toList(growable: false),
     );
 
-    return copyWith(sessionState: decision.updatedState);
+    return LessonPlayerSessionState(sessionState: decision.updatedState);
   }
 }
+
+const Object _unset = Object();
 
 bool _listEquals(List<String> left, List<String> right) {
   if (left.length != right.length) {

@@ -16,11 +16,20 @@ class LearnerHistoryProjection {
       final state = await learnerStateRepository.readState();
       final events = await learnerProgressRepository.readEvents();
       final eventSummary = LearnerHistorySummary.fromProgressEvents(events);
+      final attemptSummaries = state == null
+          ? const {}
+          : {
+              for (final summary
+                  in await learnerProgressRepository
+                      .getCourseLessonAttemptSummaries(state.currentCourseId))
+                summary.lessonId: summary,
+            };
 
       return LearnerHistorySummary(
         completedLessonIds: eventSummary.completedLessonIds,
         currentLessonId: state?.currentTopicId,
         incompleteLessonIds: eventSummary.incompleteLessonIds,
+        latestLessonAttemptsByLessonId: Map.unmodifiable(attemptSummaries),
         recentCheckedAnswersCount: eventSummary.recentCheckedAnswersCount,
         recentCorrectAnswersCount: eventSummary.recentCorrectAnswersCount,
         lastAttemptedLessonId: eventSummary.lastAttemptedLessonId,

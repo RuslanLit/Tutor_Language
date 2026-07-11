@@ -10,6 +10,7 @@ import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
+import '../lesson_session/lesson_attempt_snapshot_factory.dart';
 import '../lesson_session/lesson_session_engine.dart';
 import 'lesson_player_providers.dart';
 import 'lesson_player_step.dart';
@@ -140,6 +141,7 @@ class LessonPlayerView extends ConsumerWidget {
           ),
           LessonNavigationControls(
             lessonId: lesson.id,
+            courseId: lesson.courseId,
             stepCount: activeStepIds.length,
             currentStepIndex: currentStepIndex,
             session: activeSession,
@@ -181,6 +183,7 @@ LessonPlayerStep? _resolveRuntimeStep({
 class LessonNavigationControls extends ConsumerStatefulWidget {
   const LessonNavigationControls({
     required this.lessonId,
+    required this.courseId,
     required this.stepCount,
     required this.currentStepIndex,
     required this.session,
@@ -188,6 +191,7 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
   });
 
   final String lessonId;
+  final String courseId;
   final int stepCount;
   final int currentStepIndex;
   final LessonPlayerSessionState session;
@@ -200,7 +204,9 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
 class _LessonNavigationControlsState
     extends ConsumerState<LessonNavigationControls> {
   bool _isCompleting = false;
+  String? _completionError;
   static const _sessionEngine = LessonSessionEngine();
+  static const _snapshotFactory = LessonAttemptSnapshotFactory();
 
   @override
   Widget build(BuildContext context) {
@@ -226,34 +232,46 @@ class _LessonNavigationControlsState
       padding: const EdgeInsets.only(top: 8, bottom: 24),
       child: progress.when(
         data: (progress) {
-          final isCompleted = progress.hasBeenCompleted;
+          final isCompleted =
+              progress.hasBeenCompleted ||
+              widget.session.sessionState.status ==
+                  LessonSessionStatus.completed;
           if (!isCompleted) {
-            return Row(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                OutlinedButton(
-                  onPressed: canGoPrevious ? _goToPreviousStep : null,
-                  child: const Text('← Previous'),
-                ),
-                const Spacer(),
-                Text(
-                  'Step ${widget.currentStepIndex + 1} / '
-                  '${widget.stepCount}',
-                ),
-                const Spacer(),
-                if (isLastStep)
-                  FilledButton(
-                    onPressed: _isCompleting || !canFinish
-                        ? null
-                        : _completeLesson,
-                    child: Text(
-                      _isCompleting ? 'Finishing...' : 'Finish Lesson',
+                if (_completionError != null) ...[
+                  Text(_completionError!),
+                  const SizedBox(height: 8),
+                ],
+                Row(
+                  children: [
+                    OutlinedButton(
+                      onPressed: canGoPrevious ? _goToPreviousStep : null,
+                      child: const Text('← Previous'),
                     ),
-                  )
-                else
-                  FilledButton(
-                    onPressed: canGoNext ? _goToNextStep : null,
-                    child: const Text('Next →'),
-                  ),
+                    const Spacer(),
+                    Text(
+                      'Step ${widget.currentStepIndex + 1} / '
+                      '${widget.stepCount}',
+                    ),
+                    const Spacer(),
+                    if (isLastStep)
+                      FilledButton(
+                        onPressed: _isCompleting || !canFinish
+                            ? null
+                            : _completeLesson,
+                        child: Text(
+                          _isCompleting ? 'Finishing...' : 'Finish Lesson',
+                        ),
+                      )
+                    else
+                      FilledButton(
+                        onPressed: canGoNext ? _goToNextStep : null,
+                        child: const Text('Next →'),
+                      ),
+                  ],
+                ),
               ],
             );
           }
@@ -262,18 +280,25 @@ class _LessonNavigationControlsState
             nextOrderedLessonProvider(widget.lessonId),
           );
 
-          return nextLesson.when(
-            data: (nextLesson) {
-              if (nextLesson == null) {
-                return _CourseCompletionActions(lessonId: widget.lessonId);
-              }
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Lesson completed'),
+              if (widget.session.lessonOutcome != null) ...[
+                const SizedBox(height: 4),
+                _LessonOutcomeLabel(outcome: widget.session.lessonOutcome!),
+              ],
+              const SizedBox(height: 8),
+              nextLesson.when(
+                data: (nextLesson) {
+                  if (nextLesson == null) {
+                    return _CourseCompletionActions(
+                      lessonId: widget.lessonId,
+                      lessonOutcome: widget.session.lessonOutcome,
+                    );
+                  }
 
-              return Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  const Text('Lesson completed'),
-                  FilledButton(
+                  return FilledButton(
                     onPressed: () {
                       context.goNamed(
                         LessonRoute.name,
@@ -281,12 +306,13 @@ class _LessonNavigationControlsState
                       );
                     },
                     child: const Text('Continue to next lesson'),
-                  ),
-                ],
-              );
-            },
-            error: (error, stackTrace) => CourseBrowserError(message: '$error'),
-            loading: () => const CircularProgressIndicator(),
+                  );
+                },
+                error: (error, stackTrace) =>
+                    CourseBrowserError(message: '$error'),
+                loading: () => const CircularProgressIndicator(),
+              ),
+            ],
           );
         },
         error: (error, stackTrace) => CourseBrowserError(message: '$error'),
@@ -301,16 +327,48 @@ class _LessonNavigationControlsState
       return;
     }
 
+    final completedAt = DateTime.now().toUtc();
+    final attemptId =
+        widget.session.completionAttemptId ??
+        '${completedAt.microsecondsSinceEpoch}.${widget.lessonId}.attempt';
+    final command = _snapshotFactory.create(
+      attemptId: attemptId,
+      lessonId: widget.lessonId,
+      courseId: widget.courseId,
+      finalState: decision.updatedState,
+      finishDecision: decision,
+      completedAt: completedAt,
+    );
+
     setState(() {
       _isCompleting = true;
+      _completionError = null;
     });
 
-    ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
-        widget.session.copyWith(sessionState: decision.updatedState);
+    try {
+      await ref
+          .read(learnerProgressRepositoryProvider)
+          .recordCompletedLessonAttempt(command);
+    } catch (_) {
+      ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
+          widget.session.copyWith(completionAttemptId: attemptId);
+      if (mounted) {
+        setState(() {
+          _completionError =
+              'Could not save lesson completion. Please try again.';
+          _isCompleting = false;
+        });
+      }
+      return;
+    }
 
-    await ref
-        .read(learnerProgressRepositoryProvider)
-        .recordLessonCompleted(widget.lessonId);
+    ref
+        .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+        .state = widget.session.copyWith(
+      sessionState: decision.updatedState,
+      lessonOutcome: decision.lessonOutcome,
+      completionAttemptId: attemptId,
+    );
 
     ref.invalidate(topicProgressProvider(widget.lessonId));
     ref.invalidate(learnerProgressEventsProvider);
@@ -347,9 +405,10 @@ class _LessonNavigationControlsState
 }
 
 class _CourseCompletionActions extends ConsumerWidget {
-  const _CourseCompletionActions({required this.lessonId});
+  const _CourseCompletionActions({required this.lessonId, this.lessonOutcome});
 
   final String lessonId;
+  final LessonOutcome? lessonOutcome;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -357,6 +416,10 @@ class _CourseCompletionActions extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Course complete', style: Theme.of(context).textTheme.titleMedium),
+        if (lessonOutcome != null) ...[
+          const SizedBox(height: 4),
+          _LessonOutcomeLabel(outcome: lessonOutcome!),
+        ],
         const SizedBox(height: 8),
         Wrap(
           spacing: 8,
@@ -389,6 +452,22 @@ class _CourseCompletionActions extends ConsumerWidget {
         ),
       ],
     );
+  }
+}
+
+class _LessonOutcomeLabel extends StatelessWidget {
+  const _LessonOutcomeLabel({required this.outcome});
+
+  final LessonOutcome outcome;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(switch (outcome.status) {
+      LessonOutcomeStatus.mastered => 'Lesson mastered',
+      LessonOutcomeStatus.completedWithReinforcement =>
+        'Some topics will need reinforcement.',
+      LessonOutcomeStatus.incomplete => 'Lesson incomplete',
+    });
   }
 }
 
