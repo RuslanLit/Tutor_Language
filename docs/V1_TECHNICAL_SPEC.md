@@ -260,15 +260,27 @@ Generation 1 uses:
 
 Database migrations must preserve learner progress.
 
-Current local schema version: 5.
+Current local schema version: 6.
 
 Schema version 5 adds durable completed lesson attempts:
 
 - `lesson_attempts`;
 - `lesson_attempt_step_results`.
 
+Schema version 6 adds explicit attempt purpose:
+
+- `lesson_attempts.attempt_purpose`.
+
 These tables store immutable completed-session evidence after a successful
 `finishLesson` decision.
+
+Attempt purpose uses stable string codes:
+
+- `normal`;
+- `reinforcement_repeat`;
+- `manual_repeat`.
+
+Rows migrated from schema version 5 receive `normal`.
 
 Historical attempt rows are not upserted.
 
@@ -276,8 +288,9 @@ The first valid write creates the attempt and canonical step rows.
 
 An exact duplicate write is accepted as idempotent.
 
-A duplicate attempt ID with different aggregate data is rejected and does not
-modify existing attempt, step or completion-progress rows.
+A duplicate attempt ID with different aggregate data, including different
+purpose, is rejected and does not modify existing attempt, step or
+completion-progress rows.
 
 They do not store active unfinished session state.
 

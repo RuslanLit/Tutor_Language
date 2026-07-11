@@ -7,6 +7,7 @@ import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
@@ -137,6 +138,42 @@ void main() {
 
     expect(assemblyService.requestedLessonIds, ['lesson.alpha', 'lesson.beta']);
     expect(find.text('Beta'), findsOneWidget);
+
+    final latest = await LearnerProgressRepository(
+      database,
+    ).getLatestLessonAttempt('lesson.alpha');
+    expect(latest?.purpose, LessonAttemptPurpose.normal);
+  });
+
+  testWidgets('completed lesson tile launches a manual repeat', (tester) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+    await repository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: 'lesson.alpha',
+        now: DateTime.utc(2026),
+      ),
+    );
+
+    await tester.pumpWidget(
+      _app(database, assemblyService: _RecordingLessonAssemblyService()),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Open course'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Alpha'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Fake Vocabulary'), findsOneWidget);
+    expect(find.text('Lesson completed'), findsNothing);
+
+    await tester.tap(find.text('Finish Lesson'));
+    await tester.pumpAndSettle();
+
+    final latest = await repository.getLatestLessonAttempt('lesson.alpha');
+    expect(latest?.purpose, LessonAttemptPurpose.manualRepeat);
   });
 }
 

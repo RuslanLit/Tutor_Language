@@ -35,6 +35,8 @@ class LessonAttempts extends Table {
   TextColumn get attemptId => text()();
   TextColumn get lessonId => text()();
   TextColumn get courseId => text()();
+  TextColumn get attemptPurpose =>
+      text().withDefault(const Constant('normal'))();
   DateTimeColumn get startedAt => dateTime().nullable()();
   DateTimeColumn get completedAt => dateTime()();
   TextColumn get outcomeStatus => text()();
@@ -87,7 +89,7 @@ class AppDatabase extends _$AppDatabase {
     : super(executor ?? driftDatabase(name: 'tutor_language'));
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration {
@@ -114,6 +116,12 @@ class AppDatabase extends _$AppDatabase {
         if (from < 5) {
           await migrator.createTable(lessonAttempts);
           await migrator.createTable(lessonAttemptStepResults);
+        }
+        if (from >= 5 && from < 6) {
+          await migrator.addColumn(
+            lessonAttempts,
+            lessonAttempts.attemptPurpose,
+          );
         }
       },
     );

@@ -22,6 +22,7 @@ void main() {
       attemptId: 'attempt.snapshot',
       lessonId: lessonId,
       courseId: 'course.spanish.a0',
+      purpose: LessonAttemptPurpose.normal,
       finalState: finishDecision.updatedState,
       finishDecision: finishDecision,
       completedAt: DateTime.utc(2026, 7, 11),
@@ -30,6 +31,7 @@ void main() {
     expect(command.attempt.attemptId, 'attempt.snapshot');
     expect(command.attempt.lessonId, lessonId);
     expect(command.attempt.courseId, 'course.spanish.a0');
+    expect(command.attempt.purpose, LessonAttemptPurpose.normal);
     expect(command.attempt.outcomeStatus, DurableLessonOutcomeStatus.mastered);
     expect(command.attempt.masteredStepCount, 2);
     expect(command.attempt.canonicalCheckableStepCount, 2);
@@ -83,6 +85,7 @@ void main() {
       attemptId: 'attempt.review',
       lessonId: lessonId,
       courseId: 'course.spanish.a0',
+      purpose: LessonAttemptPurpose.normal,
       finalState: finishDecision.updatedState,
       finishDecision: finishDecision,
       completedAt: DateTime.utc(2026, 7, 11),
@@ -123,6 +126,7 @@ void main() {
         attemptId: 'attempt.bad',
         lessonId: lessonId,
         courseId: 'course.spanish.a0',
+        purpose: LessonAttemptPurpose.normal,
         finalState: finishDecision.updatedState,
         finishDecision: badDecision,
         completedAt: DateTime.utc(2026, 7, 11),
@@ -158,12 +162,14 @@ void main() {
       attemptId: 'attempt.equivalent',
       lessonId: lessonId,
       courseId: 'course.spanish.a0',
+      purpose: LessonAttemptPurpose.manualRepeat,
       finalState: finishDecision.updatedState,
       finishDecision: equivalentDecision,
       completedAt: DateTime.utc(2026, 7, 11),
     );
 
     expect(command.attempt.masteredStepCount, 2);
+    expect(command.attempt.purpose, LessonAttemptPurpose.manualRepeat);
   });
 
   test('completed attempt with incomplete outcome is rejected', () {
@@ -186,6 +192,7 @@ void main() {
         attemptId: 'attempt.incomplete',
         lessonId: lessonId,
         courseId: 'course.spanish.a0',
+        purpose: LessonAttemptPurpose.normal,
         finalState: finishDecision.updatedState,
         finishDecision: badDecision,
         completedAt: DateTime.utc(2026, 7, 11),

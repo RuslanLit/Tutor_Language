@@ -17,6 +17,25 @@ enum DurableLessonOutcomeStatus {
   }
 }
 
+enum LessonAttemptPurpose {
+  normal('normal'),
+  reinforcementRepeat('reinforcement_repeat'),
+  manualRepeat('manual_repeat');
+
+  const LessonAttemptPurpose(this.code);
+
+  final String code;
+
+  static LessonAttemptPurpose fromCode(String code) {
+    for (final value in values) {
+      if (value.code == code) {
+        return value;
+      }
+    }
+    throw LessonAttemptDecodeException('Unknown lesson attempt purpose: $code');
+  }
+}
+
 enum DurableLessonOutcomeReasonCode {
   allStepsMastered('all_steps_mastered'),
   fragileMasteryPresent('fragile_mastery_present'),
@@ -113,6 +132,7 @@ class DurableLessonAttempt {
     required this.attemptId,
     required this.lessonId,
     required this.courseId,
+    required this.purpose,
     required this.completedAt,
     required this.outcomeStatus,
     required this.outcomeReasonCode,
@@ -130,6 +150,7 @@ class DurableLessonAttempt {
   final String attemptId;
   final String lessonId;
   final String courseId;
+  final LessonAttemptPurpose purpose;
   final DateTime? startedAt;
   final DateTime completedAt;
   final DurableLessonOutcomeStatus outcomeStatus;
@@ -262,6 +283,7 @@ class LessonAttemptSummary {
     required this.attemptId,
     required this.lessonId,
     required this.courseId,
+    required this.purpose,
     required this.completedAt,
     required this.outcomeStatus,
     required this.masteredStepCount,
@@ -272,6 +294,7 @@ class LessonAttemptSummary {
   final String attemptId;
   final String lessonId;
   final String courseId;
+  final LessonAttemptPurpose purpose;
   final DateTime completedAt;
   final DurableLessonOutcomeStatus outcomeStatus;
   final int masteredStepCount;

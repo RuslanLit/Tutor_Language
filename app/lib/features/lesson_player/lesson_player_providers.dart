@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
+import '../../core/learner/lesson_attempt.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../lesson_assembly/lesson_assembly_service.dart';
 import '../lesson_assembly/lesson_content.dart';
@@ -34,6 +35,7 @@ class LessonPlayerSessionState {
   const LessonPlayerSessionState({
     this.sessionState = const LessonSessionState(lessonId: ''),
     this.stepStates = const {},
+    this.attemptPurpose = LessonAttemptPurpose.normal,
     this.lessonOutcome,
     this.completionAttemptId,
     this.completionCompletedAt,
@@ -44,6 +46,7 @@ class LessonPlayerSessionState {
 
   final LessonSessionState sessionState;
   final Map<String, ActivityTemplateState> stepStates;
+  final LessonAttemptPurpose attemptPurpose;
   final LessonOutcome? lessonOutcome;
   final String? completionAttemptId;
   final DateTime? completionCompletedAt;
@@ -53,6 +56,7 @@ class LessonPlayerSessionState {
   LessonPlayerSessionState copyWith({
     LessonSessionState? sessionState,
     Map<String, ActivityTemplateState>? stepStates,
+    LessonAttemptPurpose? attemptPurpose,
     Object? lessonOutcome = _unset,
     Object? completionAttemptId = _unset,
     Object? completionCompletedAt = _unset,
@@ -62,6 +66,7 @@ class LessonPlayerSessionState {
     return LessonPlayerSessionState(
       sessionState: sessionState ?? this.sessionState,
       stepStates: stepStates ?? this.stepStates,
+      attemptPurpose: attemptPurpose ?? this.attemptPurpose,
       lessonOutcome: lessonOutcome == _unset
           ? this.lessonOutcome
           : lessonOutcome as LessonOutcome?,
@@ -82,11 +87,13 @@ class LessonPlayerSessionState {
   LessonPlayerSessionState ensureStarted({
     required String lessonId,
     required List<LessonPlayerStep> steps,
+    LessonAttemptPurpose attemptPurpose = LessonAttemptPurpose.normal,
     LessonSessionEngine engine = const LessonSessionEngine(),
   }) {
     final stepIds = steps.map((step) => step.id).toList(growable: false);
     final isSameSession =
         sessionState.lessonId == lessonId &&
+        this.attemptPurpose == attemptPurpose &&
         _listEquals(sessionState.canonicalStepIds, stepIds) &&
         (sessionState.status != LessonSessionStatus.notStarted ||
             steps.isEmpty);
@@ -109,7 +116,10 @@ class LessonPlayerSessionState {
           .toList(growable: false),
     );
 
-    return LessonPlayerSessionState(sessionState: decision.updatedState);
+    return LessonPlayerSessionState(
+      sessionState: decision.updatedState,
+      attemptPurpose: attemptPurpose,
+    );
   }
 }
 

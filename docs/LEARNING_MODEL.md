@@ -607,6 +607,7 @@ lesson outcome as part of an immutable completed lesson attempt.
 
 Durable attempt evidence preserves:
 
+- the explicit attempt purpose;
 - the lesson outcome;
 - the lesson mastery summary;
 - canonical checkable step mastery status and reason codes;
@@ -616,10 +617,17 @@ Durable attempt evidence preserves:
 
 Durable attempts are historical evidence from completed lesson sessions.
 
+Attempt purpose distinguishes ordinary course progression, future
+planner-triggered reinforcement repeats and learner-triggered manual repeats.
+
+Purpose is authored by the launch path and persisted with the completed
+attempt; it is not inferred from timestamps or attempt counts.
+
 They do not prove long-term acquisition and do not by themselves schedule
 future review.
 
-The Lesson Planner does not consume durable outcomes yet.
+The Lesson Planner does not yet implement durable outcome-aware reinforcement
+policy.
 
 Legacy lesson completions that predate durable attempts remain completed, but
 their detailed outcome is unavailable.
@@ -657,7 +665,8 @@ The same completion request may be saved again only when the attempt ID and
 aggregate are structurally identical.
 
 A duplicate attempt ID with different outcome, summary, timestamp, policy
-version or step evidence is rejected rather than merged or overwritten.
+version, purpose or step evidence is rejected rather than merged or
+overwritten.
 
 If durable attempt detail is malformed, learner-history projection may omit that
 detail while preserving legacy completion progress and other valid attempts.

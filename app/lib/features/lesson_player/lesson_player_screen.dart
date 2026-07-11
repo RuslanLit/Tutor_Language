@@ -4,21 +4,28 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/content/topic_content.dart';
+import '../../core/learner/lesson_attempt.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
+import '../lesson_launch/lesson_launch_intent.dart';
 import '../lesson_session/lesson_attempt_snapshot_factory.dart';
 import '../lesson_session/lesson_session_engine.dart';
 import 'lesson_player_providers.dart';
 import 'lesson_player_step.dart';
 
 class LessonPlayerScreen extends ConsumerWidget {
-  const LessonPlayerScreen({required this.lessonId, super.key});
+  const LessonPlayerScreen({
+    required this.lessonId,
+    this.attemptPurpose = LessonAttemptPurpose.normal,
+    super.key,
+  });
 
   final String lessonId;
+  final LessonAttemptPurpose attemptPurpose;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,7 +34,10 @@ class LessonPlayerScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Lesson Player')),
       body: lessonContent.when(
-        data: (lessonContent) => LessonPlayerView(lessonContent: lessonContent),
+        data: (lessonContent) => LessonPlayerView(
+          lessonContent: lessonContent,
+          attemptPurpose: attemptPurpose,
+        ),
         error: (error, stackTrace) => CourseBrowserError(message: '$error'),
         loading: () => const Center(child: CircularProgressIndicator()),
       ),
@@ -36,9 +46,14 @@ class LessonPlayerScreen extends ConsumerWidget {
 }
 
 class LessonPlayerView extends ConsumerWidget {
-  const LessonPlayerView({required this.lessonContent, super.key});
+  const LessonPlayerView({
+    required this.lessonContent,
+    this.attemptPurpose = LessonAttemptPurpose.normal,
+    super.key,
+  });
 
   final LessonContent lessonContent;
+  final LessonAttemptPurpose attemptPurpose;
   static const _stepBuilder = LessonPlayerStepBuilder();
   static const _sessionEngine = LessonSessionEngine();
 
@@ -51,6 +66,7 @@ class LessonPlayerView extends ConsumerWidget {
     final activeSession = session.ensureStarted(
       lessonId: lesson.id,
       steps: steps,
+      attemptPurpose: attemptPurpose,
     );
     if (!identical(activeSession, session)) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -236,7 +252,8 @@ class _LessonNavigationControlsState
       child: progress.when(
         data: (progress) {
           final isCompleted =
-              progress.hasBeenCompleted ||
+              (widget.session.attemptPurpose == LessonAttemptPurpose.normal &&
+                  progress.hasBeenCompleted) ||
               widget.session.sessionState.status ==
                   LessonSessionStatus.completed;
           if (!isCompleted) {
@@ -309,6 +326,10 @@ class _LessonNavigationControlsState
                       context.goNamed(
                         LessonRoute.name,
                         pathParameters: {'lessonId': nextLesson.lesson.id},
+                        extra: LessonLaunchIntent(
+                          lessonId: nextLesson.lesson.id,
+                          attemptPurpose: LessonAttemptPurpose.normal,
+                        ),
                       );
                     },
                     child: const Text('Continue to next lesson'),
@@ -350,6 +371,7 @@ class _LessonNavigationControlsState
       attemptId: attemptId,
       lessonId: widget.lessonId,
       courseId: widget.courseId,
+      purpose: widget.session.attemptPurpose,
       finalState: decision.updatedState,
       finishDecision: decision,
       completedAt: completedAt,
@@ -492,6 +514,10 @@ class _CourseCompletionActions extends ConsumerWidget {
                 context.goNamed(
                   LessonRoute.name,
                   pathParameters: {'lessonId': lessonId},
+                  extra: LessonLaunchIntent(
+                    lessonId: lessonId,
+                    attemptPurpose: LessonAttemptPurpose.manualRepeat,
+                  ),
                 );
               },
               child: const Text('Repeat checkpoint'),

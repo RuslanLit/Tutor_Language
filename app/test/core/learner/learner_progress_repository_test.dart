@@ -35,6 +35,32 @@ void main() {
     expect(ProgressEvent.fromJson(event.toJson()), event);
   });
 
+  test('lesson attempt purpose uses stable strict codes', () {
+    expect(LessonAttemptPurpose.normal.code, 'normal');
+    expect(
+      LessonAttemptPurpose.reinforcementRepeat.code,
+      'reinforcement_repeat',
+    );
+    expect(LessonAttemptPurpose.manualRepeat.code, 'manual_repeat');
+
+    expect(
+      LessonAttemptPurpose.fromCode('normal'),
+      LessonAttemptPurpose.normal,
+    );
+    expect(
+      LessonAttemptPurpose.fromCode('reinforcement_repeat'),
+      LessonAttemptPurpose.reinforcementRepeat,
+    );
+    expect(
+      LessonAttemptPurpose.fromCode('manual_repeat'),
+      LessonAttemptPurpose.manualRepeat,
+    );
+    expect(
+      () => LessonAttemptPurpose.fromCode('unknown'),
+      throwsA(isA<LessonAttemptDecodeException>()),
+    );
+  });
+
   test('repository records topicViewed', () async {
     final event = ProgressEvent.create(
       eventType: ProgressEventType.topicViewed,
@@ -321,6 +347,31 @@ void main() {
     },
   );
 
+  test('duplicate attempt id with changed purpose is rejected', () async {
+    final original = _attemptCommand(
+      attemptId: 'attempt.purpose',
+      lessonId: 'lesson.purpose',
+      courseId: 'course.spanish.a0',
+      completedAt: DateTime.utc(2026, 7, 11),
+      purpose: LessonAttemptPurpose.normal,
+    );
+    final changed = CompletedLessonAttemptCommand(
+      attempt: _copyAttempt(
+        original.attempt,
+        purpose: LessonAttemptPurpose.manualRepeat,
+      ),
+      stepResults: original.stepResults,
+    );
+
+    await repository.recordCompletedLessonAttempt(original);
+    final conflict = await repository.recordCompletedLessonAttempt(changed);
+
+    final latest = await repository.getLatestLessonAttempt('lesson.purpose');
+
+    expect(conflict.status, CompletedLessonAttemptPersistenceStatus.conflict);
+    expect(latest?.purpose, LessonAttemptPurpose.normal);
+  });
+
   test('duplicate attempt id with changed step mastery is rejected', () async {
     final original = _attemptCommand(
       attemptId: 'attempt.step',
@@ -490,8 +541,9 @@ void main() {
             attemptId: const Value('attempt.bad'),
             lessonId: const Value('lesson.bad'),
             courseId: const Value('course.spanish.a0'),
+            attemptPurpose: const Value('not_a_known_purpose'),
             completedAt: Value(DateTime.utc(2026, 7, 12)),
-            outcomeStatus: const Value('not_a_known_status'),
+            outcomeStatus: const Value('mastered'),
             outcomeReasonCode: const Value('all_steps_mastered'),
             assessedStepCount: const Value(1),
             masteredStepCount: const Value(1),
@@ -550,6 +602,7 @@ void main() {
         lessonId: 'lesson.restart',
         courseId: 'course.spanish.a0',
         completedAt: DateTime.utc(2026, 7, 11),
+        purpose: LessonAttemptPurpose.reinforcementRepeat,
       ),
     );
     await firstDatabase.close();
@@ -566,6 +619,7 @@ void main() {
     );
 
     expect(latest?.outcomeStatus, DurableLessonOutcomeStatus.mastered);
+    expect(latest?.purpose, LessonAttemptPurpose.reinforcementRepeat);
     expect(latest?.masteredStepCount, 1);
     expect(latest?.learningPolicyVersion, 'e20-v1');
     expect(
@@ -583,6 +637,7 @@ CompletedLessonAttemptCommand _attemptCommand({
   DurableLessonOutcomeStatus outcomeStatus =
       DurableLessonOutcomeStatus.mastered,
   bool additionalStep = false,
+  LessonAttemptPurpose purpose = LessonAttemptPurpose.normal,
 }) {
   final mastered = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 1 : 0;
   final fragile = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 0 : 1;
@@ -631,6 +686,7 @@ CompletedLessonAttemptCommand _attemptCommand({
       attemptId: attemptId,
       lessonId: lessonId,
       courseId: courseId,
+      purpose: purpose,
       completedAt: completedAt,
       outcomeStatus: outcomeStatus,
       outcomeReasonCode: outcomeReason,
@@ -652,6 +708,7 @@ DurableLessonAttempt _copyAttempt(
   String? attemptId,
   String? lessonId,
   String? courseId,
+  LessonAttemptPurpose? purpose,
   DateTime? completedAt,
   DurableLessonOutcomeStatus? outcomeStatus,
   DurableLessonOutcomeReasonCode? outcomeReasonCode,
@@ -668,6 +725,7 @@ DurableLessonAttempt _copyAttempt(
     attemptId: attemptId ?? attempt.attemptId,
     lessonId: lessonId ?? attempt.lessonId,
     courseId: courseId ?? attempt.courseId,
+    purpose: purpose ?? attempt.purpose,
     startedAt: attempt.startedAt,
     completedAt: completedAt ?? attempt.completedAt,
     outcomeStatus: outcomeStatus ?? attempt.outcomeStatus,

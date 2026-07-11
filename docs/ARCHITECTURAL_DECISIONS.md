@@ -865,6 +865,7 @@ Each durable attempt stores:
 
 - one attempt row;
 - canonical checkable step result rows;
+- explicit attempt purpose;
 - explicit stable enum codes;
 - completion timestamp;
 - learning policy version.
@@ -911,6 +912,71 @@ Rejected alternatives:
 - generating a fresh attempt ID for each save retry;
 - returning empty learner history when one durable detail row is malformed;
 - mapping unknown persisted enum codes to arbitrary defaults.
+
+---
+
+## ADR: Persist Explicit Lesson Attempt Purpose
+
+Status
+
+Accepted
+
+Context
+
+Future outcome-aware planning needs to distinguish ordinary course progression,
+planner-triggered reinforcement repeats and learner-triggered manual repeats
+after application restart.
+
+Attempt count, timestamps and repeated lesson IDs are not reliable provenance.
+
+Decision
+
+The application persists explicit immutable attempt purpose on completed lesson
+attempts.
+
+The supported purpose values are:
+
+- `normal`;
+- `reinforcementRepeat`;
+- `manualRepeat`.
+
+The stable persisted codes are:
+
+- `normal`;
+- `reinforcement_repeat`;
+- `manual_repeat`.
+
+Schema version 6 adds non-null `attempt_purpose` to `lesson_attempts`.
+
+Rows migrated from schema version 5 receive `normal`, meaning no explicit
+special-purpose provenance was available.
+
+Launch ownership is:
+
+- planner/course progression and incomplete continuation: `normal`;
+- future planner-selected reinforcement repeat: `reinforcementRepeat`;
+- explicit learner repeat of completed lessons: `manualRepeat`.
+
+The Session Engine remains unaware of attempt purpose.
+
+The Lesson Planner may consume purpose in a future bounded reinforcement phase,
+but E21C does not add that planning policy.
+
+Consequences
+
+Purpose participates in immutable aggregate equality and duplicate-conflict
+detection.
+
+Unknown persisted purpose codes remain invalid and are isolated like other
+malformed durable attempt detail.
+
+Rejected alternatives:
+
+- infer purpose from attempt sequence;
+- infer purpose from timestamp proximity;
+- infer purpose from lesson completion state;
+- keep purpose only in provider memory;
+- treat all repeats as equivalent.
 
 ---
 

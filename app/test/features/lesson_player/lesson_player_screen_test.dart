@@ -636,9 +636,74 @@ void main() {
       expect(attempts, hasLength(1));
       expect(latest.outcomeStatus, DurableLessonOutcomeStatus.mastered);
       expect(latest.courseId, 'es.a0');
+      expect(latest.purpose, LessonAttemptPurpose.normal);
       expect(steps, hasLength(2));
     },
   );
+
+  testWidgets('manual repeat launch persists manual purpose', (tester) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(
+          lessonId: _navigationLessonId,
+          attemptPurpose: LessonAttemptPurpose.manualRepeat,
+        ),
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        database: database,
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _completeNavigationLesson(tester);
+    await _pumpUntilFound(tester, find.text('Lesson mastered'));
+
+    final repository = LearnerProgressRepository(database);
+    final latest = await repository.getLatestLessonAttempt(_navigationLessonId);
+
+    expect(latest?.purpose, LessonAttemptPurpose.manualRepeat);
+  });
+
+  testWidgets('explicit reinforcement launch persists reinforcement purpose', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(
+          lessonId: _navigationLessonId,
+          attemptPurpose: LessonAttemptPurpose.reinforcementRepeat,
+        ),
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        database: database,
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _completeNavigationLesson(tester);
+    await _pumpUntilFound(tester, find.text('Lesson mastered'));
+
+    final repository = LearnerProgressRepository(database);
+    final latest = await repository.getLatestLessonAttempt(_navigationLessonId);
+
+    expect(latest?.purpose, LessonAttemptPurpose.reinforcementRepeat);
+  });
 
   testWidgets('does not crash when a lesson has no practice activities', (
     tester,
@@ -786,6 +851,24 @@ Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
   }
 
   expect(finder, findsOneWidget);
+}
+
+Future<void> _completeNavigationLesson(WidgetTester tester) async {
+  await tester.ensureVisible(find.text('Next →'));
+  await tester.tap(find.text('Next →'));
+  await tester.pump();
+  await tester.tap(find.text('right option'));
+  await tester.pump();
+  await tester.tap(find.text('Check'));
+  await tester.pump();
+  await tester.ensureVisible(find.text('Next →'));
+  await tester.tap(find.text('Next →'));
+  await tester.pump();
+  await tester.enterText(find.byType(TextField), 'hola');
+  await tester.tap(find.text('Check'));
+  await tester.pump();
+  await tester.ensureVisible(find.text('Finish Lesson'));
+  await tester.tap(find.text('Finish Lesson'));
 }
 
 class _FakeLessonAssemblyService extends LessonAssemblyService {

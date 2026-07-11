@@ -114,6 +114,7 @@ void main() {
         lessonId: 'lesson.completed',
         courseId: 'course.test',
         completedAt: DateTime.utc(2026, 7, 2),
+        purpose: LessonAttemptPurpose.manualRepeat,
       ),
     );
 
@@ -124,6 +125,7 @@ void main() {
     expect(latest, isNotNull);
     expect(latest!.attemptId, 'attempt.002');
     expect(latest.outcomeStatus, DurableLessonOutcomeStatus.mastered);
+    expect(latest.purpose, LessonAttemptPurpose.manualRepeat);
   });
 
   test('legacy completion has no fabricated durable outcome', () async {
@@ -178,8 +180,9 @@ void main() {
             attemptId: const Value('attempt.malformed'),
             lessonId: const Value('lesson.malformed'),
             courseId: const Value('course.test'),
+            attemptPurpose: const Value('not_a_known_purpose'),
             completedAt: Value(DateTime.utc(2026, 7, 2)),
-            outcomeStatus: const Value('unknown_status'),
+            outcomeStatus: const Value('mastered'),
             outcomeReasonCode: const Value('all_steps_mastered'),
             assessedStepCount: const Value(1),
             masteredStepCount: const Value(1),
@@ -401,6 +404,7 @@ CompletedLessonAttemptCommand _attemptCommand({
   required DateTime completedAt,
   DurableLessonOutcomeStatus outcomeStatus =
       DurableLessonOutcomeStatus.mastered,
+  LessonAttemptPurpose purpose = LessonAttemptPurpose.normal,
 }) {
   final mastered = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 1 : 0;
   final fragile = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 0 : 1;
@@ -410,6 +414,7 @@ CompletedLessonAttemptCommand _attemptCommand({
       attemptId: attemptId,
       lessonId: lessonId,
       courseId: courseId,
+      purpose: purpose,
       completedAt: completedAt,
       outcomeStatus: outcomeStatus,
       outcomeReasonCode: outcomeStatus == DurableLessonOutcomeStatus.mastered

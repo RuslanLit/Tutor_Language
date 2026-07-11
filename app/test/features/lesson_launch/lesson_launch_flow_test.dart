@@ -9,11 +9,13 @@ import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/curriculum/curriculum_repository.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
 import 'package:tutor_language/features/lesson_launch/lesson_launch_providers.dart';
+import 'package:tutor_language/features/lesson_launch/lesson_launch_intent.dart';
 import 'package:tutor_language/features/lesson_launch/lesson_launch_screen.dart';
 import 'package:tutor_language/features/lesson_launch/lesson_launch_service.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
@@ -47,6 +49,30 @@ void main() {
     expect(planner.requestedCourseId, _course.id);
     expect(planner.requestedCompletedLessonIds, {'lesson.previous'});
     expect(plan.selectedLessonId, 'lesson.planned');
+  });
+
+  test('LessonLaunchIntent maps plan type to attempt purpose', () {
+    const normalPlan = LessonPlan(
+      selectedLessonId: 'lesson.normal',
+      planType: LessonPlanType.newLesson,
+      reasonCodes: [LessonPlanReasonCode.noHistorySelectFirstLesson],
+      diagnosticExplanation: 'Normal launch.',
+    );
+    const reinforcementPlan = LessonPlan(
+      selectedLessonId: 'lesson.repeat',
+      planType: LessonPlanType.reinforcementRepeat,
+      reasonCodes: [LessonPlanReasonCode.lowAccuracyRepeatCurrent],
+      diagnosticExplanation: 'Reinforcement launch.',
+    );
+
+    expect(
+      LessonLaunchIntent.fromPlan(normalPlan).attemptPurpose,
+      LessonAttemptPurpose.normal,
+    );
+    expect(
+      LessonLaunchIntent.fromPlan(reinforcementPlan).attemptPurpose,
+      LessonAttemptPurpose.reinforcementRepeat,
+    );
   });
 
   testWidgets(

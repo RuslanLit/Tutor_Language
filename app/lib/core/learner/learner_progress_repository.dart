@@ -186,6 +186,7 @@ class LearnerProgressRepository {
             attemptId: attempt.attemptId,
             lessonId: attempt.lessonId,
             courseId: attempt.courseId,
+            purpose: attempt.purpose,
             completedAt: attempt.completedAt,
             outcomeStatus: attempt.outcomeStatus,
             masteredStepCount: attempt.masteredStepCount,
@@ -399,6 +400,7 @@ class LearnerProgressRepository {
     return left.attemptId == right.attemptId &&
         left.lessonId == right.lessonId &&
         left.courseId == right.courseId &&
+        left.purpose == right.purpose &&
         _sameDateTime(left.startedAt, right.startedAt) &&
         _sameDateTime(left.completedAt, right.completedAt) &&
         left.outcomeStatus == right.outcomeStatus &&
@@ -440,6 +442,7 @@ class LearnerProgressRepository {
       attemptId: Value(attempt.attemptId),
       lessonId: Value(attempt.lessonId),
       courseId: Value(attempt.courseId),
+      attemptPurpose: Value(attempt.purpose.code),
       startedAt: Value(attempt.startedAt),
       completedAt: Value(attempt.completedAt),
       outcomeStatus: Value(attempt.outcomeStatus.code),
@@ -478,6 +481,7 @@ class LearnerProgressRepository {
       attemptId: row.attemptId,
       lessonId: row.lessonId,
       courseId: row.courseId,
+      purpose: LessonAttemptPurpose.fromCode(row.attemptPurpose),
       startedAt: row.startedAt?.toUtc(),
       completedAt: row.completedAt.toUtc(),
       outcomeStatus: DurableLessonOutcomeStatus.fromCode(row.outcomeStatus),

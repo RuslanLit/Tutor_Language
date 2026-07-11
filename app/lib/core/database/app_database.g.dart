@@ -959,6 +959,18 @@ class $LessonAttemptsTable extends LessonAttempts
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _attemptPurposeMeta = const VerificationMeta(
+    'attemptPurpose',
+  );
+  @override
+  late final GeneratedColumn<String> attemptPurpose = GeneratedColumn<String>(
+    'attempt_purpose',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('normal'),
+  );
   static const VerificationMeta _startedAtMeta = const VerificationMeta(
     'startedAt',
   );
@@ -1094,6 +1106,7 @@ class $LessonAttemptsTable extends LessonAttempts
     attemptId,
     lessonId,
     courseId,
+    attemptPurpose,
     startedAt,
     completedAt,
     outcomeStatus,
@@ -1142,6 +1155,15 @@ class $LessonAttemptsTable extends LessonAttempts
       );
     } else if (isInserting) {
       context.missing(_courseIdMeta);
+    }
+    if (data.containsKey('attempt_purpose')) {
+      context.handle(
+        _attemptPurposeMeta,
+        attemptPurpose.isAcceptableOrUnknown(
+          data['attempt_purpose']!,
+          _attemptPurposeMeta,
+        ),
+      );
     }
     if (data.containsKey('started_at')) {
       context.handle(
@@ -1291,6 +1313,10 @@ class $LessonAttemptsTable extends LessonAttempts
         DriftSqlType.string,
         data['${effectivePrefix}course_id'],
       )!,
+      attemptPurpose: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attempt_purpose'],
+      )!,
       startedAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}started_at'],
@@ -1353,6 +1379,7 @@ class LessonAttemptRow extends DataClass
   final String attemptId;
   final String lessonId;
   final String courseId;
+  final String attemptPurpose;
   final DateTime? startedAt;
   final DateTime completedAt;
   final String outcomeStatus;
@@ -1369,6 +1396,7 @@ class LessonAttemptRow extends DataClass
     required this.attemptId,
     required this.lessonId,
     required this.courseId,
+    required this.attemptPurpose,
     this.startedAt,
     required this.completedAt,
     required this.outcomeStatus,
@@ -1388,6 +1416,7 @@ class LessonAttemptRow extends DataClass
     map['attempt_id'] = Variable<String>(attemptId);
     map['lesson_id'] = Variable<String>(lessonId);
     map['course_id'] = Variable<String>(courseId);
+    map['attempt_purpose'] = Variable<String>(attemptPurpose);
     if (!nullToAbsent || startedAt != null) {
       map['started_at'] = Variable<DateTime>(startedAt);
     }
@@ -1412,6 +1441,7 @@ class LessonAttemptRow extends DataClass
       attemptId: Value(attemptId),
       lessonId: Value(lessonId),
       courseId: Value(courseId),
+      attemptPurpose: Value(attemptPurpose),
       startedAt: startedAt == null && nullToAbsent
           ? const Value.absent()
           : Value(startedAt),
@@ -1438,6 +1468,7 @@ class LessonAttemptRow extends DataClass
       attemptId: serializer.fromJson<String>(json['attemptId']),
       lessonId: serializer.fromJson<String>(json['lessonId']),
       courseId: serializer.fromJson<String>(json['courseId']),
+      attemptPurpose: serializer.fromJson<String>(json['attemptPurpose']),
       startedAt: serializer.fromJson<DateTime?>(json['startedAt']),
       completedAt: serializer.fromJson<DateTime>(json['completedAt']),
       outcomeStatus: serializer.fromJson<String>(json['outcomeStatus']),
@@ -1469,6 +1500,7 @@ class LessonAttemptRow extends DataClass
       'attemptId': serializer.toJson<String>(attemptId),
       'lessonId': serializer.toJson<String>(lessonId),
       'courseId': serializer.toJson<String>(courseId),
+      'attemptPurpose': serializer.toJson<String>(attemptPurpose),
       'startedAt': serializer.toJson<DateTime?>(startedAt),
       'completedAt': serializer.toJson<DateTime>(completedAt),
       'outcomeStatus': serializer.toJson<String>(outcomeStatus),
@@ -1490,6 +1522,7 @@ class LessonAttemptRow extends DataClass
     String? attemptId,
     String? lessonId,
     String? courseId,
+    String? attemptPurpose,
     Value<DateTime?> startedAt = const Value.absent(),
     DateTime? completedAt,
     String? outcomeStatus,
@@ -1506,6 +1539,7 @@ class LessonAttemptRow extends DataClass
     attemptId: attemptId ?? this.attemptId,
     lessonId: lessonId ?? this.lessonId,
     courseId: courseId ?? this.courseId,
+    attemptPurpose: attemptPurpose ?? this.attemptPurpose,
     startedAt: startedAt.present ? startedAt.value : this.startedAt,
     completedAt: completedAt ?? this.completedAt,
     outcomeStatus: outcomeStatus ?? this.outcomeStatus,
@@ -1525,6 +1559,9 @@ class LessonAttemptRow extends DataClass
       attemptId: data.attemptId.present ? data.attemptId.value : this.attemptId,
       lessonId: data.lessonId.present ? data.lessonId.value : this.lessonId,
       courseId: data.courseId.present ? data.courseId.value : this.courseId,
+      attemptPurpose: data.attemptPurpose.present
+          ? data.attemptPurpose.value
+          : this.attemptPurpose,
       startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
       completedAt: data.completedAt.present
           ? data.completedAt.value
@@ -1568,6 +1605,7 @@ class LessonAttemptRow extends DataClass
           ..write('attemptId: $attemptId, ')
           ..write('lessonId: $lessonId, ')
           ..write('courseId: $courseId, ')
+          ..write('attemptPurpose: $attemptPurpose, ')
           ..write('startedAt: $startedAt, ')
           ..write('completedAt: $completedAt, ')
           ..write('outcomeStatus: $outcomeStatus, ')
@@ -1589,6 +1627,7 @@ class LessonAttemptRow extends DataClass
     attemptId,
     lessonId,
     courseId,
+    attemptPurpose,
     startedAt,
     completedAt,
     outcomeStatus,
@@ -1609,6 +1648,7 @@ class LessonAttemptRow extends DataClass
           other.attemptId == this.attemptId &&
           other.lessonId == this.lessonId &&
           other.courseId == this.courseId &&
+          other.attemptPurpose == this.attemptPurpose &&
           other.startedAt == this.startedAt &&
           other.completedAt == this.completedAt &&
           other.outcomeStatus == this.outcomeStatus &&
@@ -1628,6 +1668,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
   final Value<String> attemptId;
   final Value<String> lessonId;
   final Value<String> courseId;
+  final Value<String> attemptPurpose;
   final Value<DateTime?> startedAt;
   final Value<DateTime> completedAt;
   final Value<String> outcomeStatus;
@@ -1645,6 +1686,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
     this.attemptId = const Value.absent(),
     this.lessonId = const Value.absent(),
     this.courseId = const Value.absent(),
+    this.attemptPurpose = const Value.absent(),
     this.startedAt = const Value.absent(),
     this.completedAt = const Value.absent(),
     this.outcomeStatus = const Value.absent(),
@@ -1663,6 +1705,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
     required String attemptId,
     required String lessonId,
     required String courseId,
+    this.attemptPurpose = const Value.absent(),
     this.startedAt = const Value.absent(),
     required DateTime completedAt,
     required String outcomeStatus,
@@ -1694,6 +1737,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
     Expression<String>? attemptId,
     Expression<String>? lessonId,
     Expression<String>? courseId,
+    Expression<String>? attemptPurpose,
     Expression<DateTime>? startedAt,
     Expression<DateTime>? completedAt,
     Expression<String>? outcomeStatus,
@@ -1712,6 +1756,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
       if (attemptId != null) 'attempt_id': attemptId,
       if (lessonId != null) 'lesson_id': lessonId,
       if (courseId != null) 'course_id': courseId,
+      if (attemptPurpose != null) 'attempt_purpose': attemptPurpose,
       if (startedAt != null) 'started_at': startedAt,
       if (completedAt != null) 'completed_at': completedAt,
       if (outcomeStatus != null) 'outcome_status': outcomeStatus,
@@ -1737,6 +1782,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
     Value<String>? attemptId,
     Value<String>? lessonId,
     Value<String>? courseId,
+    Value<String>? attemptPurpose,
     Value<DateTime?>? startedAt,
     Value<DateTime>? completedAt,
     Value<String>? outcomeStatus,
@@ -1755,6 +1801,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
       attemptId: attemptId ?? this.attemptId,
       lessonId: lessonId ?? this.lessonId,
       courseId: courseId ?? this.courseId,
+      attemptPurpose: attemptPurpose ?? this.attemptPurpose,
       startedAt: startedAt ?? this.startedAt,
       completedAt: completedAt ?? this.completedAt,
       outcomeStatus: outcomeStatus ?? this.outcomeStatus,
@@ -1784,6 +1831,9 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
     }
     if (courseId.present) {
       map['course_id'] = Variable<String>(courseId.value);
+    }
+    if (attemptPurpose.present) {
+      map['attempt_purpose'] = Variable<String>(attemptPurpose.value);
     }
     if (startedAt.present) {
       map['started_at'] = Variable<DateTime>(startedAt.value);
@@ -1839,6 +1889,7 @@ class LessonAttemptsCompanion extends UpdateCompanion<LessonAttemptRow> {
           ..write('attemptId: $attemptId, ')
           ..write('lessonId: $lessonId, ')
           ..write('courseId: $courseId, ')
+          ..write('attemptPurpose: $attemptPurpose, ')
           ..write('startedAt: $startedAt, ')
           ..write('completedAt: $completedAt, ')
           ..write('outcomeStatus: $outcomeStatus, ')
@@ -3135,6 +3186,7 @@ typedef $$LessonAttemptsTableCreateCompanionBuilder =
       required String attemptId,
       required String lessonId,
       required String courseId,
+      Value<String> attemptPurpose,
       Value<DateTime?> startedAt,
       required DateTime completedAt,
       required String outcomeStatus,
@@ -3154,6 +3206,7 @@ typedef $$LessonAttemptsTableUpdateCompanionBuilder =
       Value<String> attemptId,
       Value<String> lessonId,
       Value<String> courseId,
+      Value<String> attemptPurpose,
       Value<DateTime?> startedAt,
       Value<DateTime> completedAt,
       Value<String> outcomeStatus,
@@ -3232,6 +3285,11 @@ class $$LessonAttemptsTableFilterComposer
 
   ColumnFilters<String> get courseId => $composableBuilder(
     column: $table.courseId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get attemptPurpose => $composableBuilder(
+    column: $table.attemptPurpose,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -3347,6 +3405,11 @@ class $$LessonAttemptsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get attemptPurpose => $composableBuilder(
+    column: $table.attemptPurpose,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<DateTime> get startedAt => $composableBuilder(
     column: $table.startedAt,
     builder: (column) => ColumnOrderings(column),
@@ -3425,6 +3488,11 @@ class $$LessonAttemptsTableAnnotationComposer
 
   GeneratedColumn<String> get courseId =>
       $composableBuilder(column: $table.courseId, builder: (column) => column);
+
+  GeneratedColumn<String> get attemptPurpose => $composableBuilder(
+    column: $table.attemptPurpose,
+    builder: (column) => column,
+  );
 
   GeneratedColumn<DateTime> get startedAt =>
       $composableBuilder(column: $table.startedAt, builder: (column) => column);
@@ -3545,6 +3613,7 @@ class $$LessonAttemptsTableTableManager
                 Value<String> attemptId = const Value.absent(),
                 Value<String> lessonId = const Value.absent(),
                 Value<String> courseId = const Value.absent(),
+                Value<String> attemptPurpose = const Value.absent(),
                 Value<DateTime?> startedAt = const Value.absent(),
                 Value<DateTime> completedAt = const Value.absent(),
                 Value<String> outcomeStatus = const Value.absent(),
@@ -3562,6 +3631,7 @@ class $$LessonAttemptsTableTableManager
                 attemptId: attemptId,
                 lessonId: lessonId,
                 courseId: courseId,
+                attemptPurpose: attemptPurpose,
                 startedAt: startedAt,
                 completedAt: completedAt,
                 outcomeStatus: outcomeStatus,
@@ -3581,6 +3651,7 @@ class $$LessonAttemptsTableTableManager
                 required String attemptId,
                 required String lessonId,
                 required String courseId,
+                Value<String> attemptPurpose = const Value.absent(),
                 Value<DateTime?> startedAt = const Value.absent(),
                 required DateTime completedAt,
                 required String outcomeStatus,
@@ -3598,6 +3669,7 @@ class $$LessonAttemptsTableTableManager
                 attemptId: attemptId,
                 lessonId: lessonId,
                 courseId: courseId,
+                attemptPurpose: attemptPurpose,
                 startedAt: startedAt,
                 completedAt: completedAt,
                 outcomeStatus: outcomeStatus,

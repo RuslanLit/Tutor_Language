@@ -471,6 +471,15 @@ The following information is persistent:
 
 Completed lesson attempts are persisted as immutable historical aggregates.
 
+Completed lesson attempts include explicit launch purpose:
+
+- normal progression;
+- planner-triggered reinforcement repeat;
+- learner-triggered manual repeat.
+
+Purpose must be persisted through stable string codes and must not be inferred
+from timestamps, attempt count or repeated lesson IDs.
+
 Retrying the same completion save must reuse the same pending attempt ID.
 
 Exact duplicate attempt writes are idempotent.

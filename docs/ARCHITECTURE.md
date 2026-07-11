@@ -861,6 +861,7 @@ Lesson outcome is produced by the Session Engine as session output.
 After a successful `finishLesson` decision, the application persistence layer
 stores an immutable completed lesson attempt containing:
 
+- the explicit attempt purpose;
 - the lesson outcome;
 - the lesson mastery summary;
 - canonical checkable step mastery evidence;
@@ -869,13 +870,14 @@ stores an immutable completed lesson attempt containing:
 
 The Session Engine remains persistence-agnostic.
 
-Durable completed lesson attempts are not yet consumed by the Lesson Planner.
+Durable completed lesson attempts are projected into planner-ready history, but
+the Lesson Planner does not yet implement outcome-aware reinforcement policy.
 
 Active in-progress `LessonSessionState` is still not persisted.
 
 Durable Lesson Attempts
 
-The database schema version is 5.
+The database schema version is 6.
 
 The durable attempt schema adds:
 
@@ -883,6 +885,15 @@ The durable attempt schema adds:
 - `lesson_attempt_step_results`.
 
 `lesson_attempts` stores one immutable row per completed lesson run.
+
+It also stores `attempt_purpose`, using stable string codes:
+
+- `normal`;
+- `reinforcement_repeat`;
+- `manual_repeat`.
+
+Rows migrated from schema version 5 receive `normal`, because no explicit
+special-purpose provenance existed before schema version 6.
 
 `lesson_attempt_step_results` stores final evidence for canonical checkable
 steps in that attempt.
@@ -899,7 +910,7 @@ LessonAttemptSnapshotFactory
 LearnerProgressRepository transaction
         |
         v
-lesson attempt + step results + existing completion event
+lesson attempt + attempt purpose + step results + existing completion event
 ```
 
 Persistence rules:
@@ -910,6 +921,7 @@ Persistence rules:
 - duplicate attempt IDs with the same aggregate are idempotent;
 - duplicate attempt IDs with different aggregate data are rejected and never
   update existing rows;
+- attempt purpose is immutable and participates in duplicate-conflict checks;
 - attempt and step rows are written transactionally with the existing lesson
   completion progress event;
 - step rows are persisted only for canonical checkable lesson steps;
@@ -920,6 +932,19 @@ Persistence rules:
 - raw learner answers are not newly persisted;
 - enum values are stored through explicit stable string codes, not ordinal
   positions.
+
+Launch provenance ownership:
+
+- ordinary planner/course launch, sequential next lesson and incomplete-lesson
+  continuation use `normal`;
+- future planner-triggered immediate reinforcement repeats use
+  `reinforcement_repeat`;
+- explicit learner repeats of completed lessons use `manual_repeat`.
+
+The Session Engine does not inspect or infer attempt purpose.
+
+The Lesson Planner does not yet apply durable outcome-aware reinforcement
+policy.
 
 Legacy completions created before durable attempts remain valid completion
 progress.

@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/learner/lesson_attempt.dart';
 import '../../features/course_navigation/course_navigation_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/lesson_launch/lesson_launch_screen.dart';
+import '../../features/lesson_launch/lesson_launch_intent.dart';
 import '../../features/lesson_player/lesson_player_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/topic/topic_screen.dart';
@@ -43,8 +45,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: LessonRoute.path,
         name: LessonRoute.name,
         builder: (context, state) {
+          final extra = state.extra;
+          final intent = extra is LessonLaunchIntent ? extra : null;
           return LessonPlayerScreen(
-            lessonId: state.pathParameters['lessonId'] ?? '',
+            lessonId:
+                intent?.lessonId ?? state.pathParameters['lessonId'] ?? '',
+            attemptPurpose:
+                intent?.attemptPurpose ?? LessonAttemptPurpose.normal,
           );
         },
       ),
