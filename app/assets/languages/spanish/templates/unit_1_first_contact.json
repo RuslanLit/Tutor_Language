@@ -63,7 +63,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the greeting: \"____, yo soy Ana.\"",
+    "prompt_template": "Complete with the Spanish word for \"hello\": \"____, yo soy Ana.\"",
     "expected_answer": "Hola"
   },
   {
@@ -113,7 +113,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the polite request: \"Repite, ____ ____.\"",
+    "prompt_template": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____.\"",
     "expected_answer": "por favor"
   },
   {
@@ -152,7 +152,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the request: \"____, por favor.\"",
+    "prompt_template": "Complete with the Spanish command for \"repeat\": \"____, por favor.\"",
     "expected_answer": "Repite"
   },
   {
@@ -194,7 +194,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Complete the introduction: \"__ llamo Ana.\"",
+    "prompt_template": "Complete with the first word of the introduction pattern \"me llamo\": \"__ llamo Ana.\"",
     "expected_answer": "Me"
   },
   {
@@ -263,7 +263,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Complete the origin phrase: \"Soy __ Madrid.\"",
+    "prompt_template": "Complete with the Spanish word for \"from\": \"Soy __ Madrid.\"",
     "expected_answer": "de"
   },
   {
@@ -329,7 +329,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the question: \"¿____ tal?\"",
+    "prompt_template": "Complete with the Spanish question word for \"what\": \"¿____ tal?\"",
     "expected_answer": "Qué"
   },
   {
@@ -406,7 +406,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the phrase: \"Muchas ____.\"",
+    "prompt_template": "Complete with the Spanish word for \"thanks\": \"Muchas ____.\"",
     "expected_answer": "gracias"
   },
   {
@@ -500,7 +500,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete the answer: \"Bien, ____.\"",
+    "prompt_template": "Complete with the Spanish word for \"thank you\": \"Bien, ____.\"",
     "expected_answer": "gracias"
   },
   {

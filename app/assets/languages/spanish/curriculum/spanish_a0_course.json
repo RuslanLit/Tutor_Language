@@ -1340,8 +1340,8 @@
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.review_match_first_contact.v1"
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review1_name_recall.v1"
                 }
               ]
             }
@@ -1386,7 +1386,7 @@
       "objectives": [
         {
           "id": "objective.tener.basic",
-          "description": "Recognize first basic forms of tener."
+          "description": "Use tener in the forms tengo, tienes, and tiene for a few A0 expressions."
         }
       ],
       "sections": [
@@ -1396,33 +1396,132 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.grammar.tener_basic",
-              "title": "grammar",
-              "type": "grammar",
+              "id": "activity.vocabulary.tener_basic",
+              "title": "Tener vocabulary",
+              "type": "vocabulary",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tener.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tengo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tienes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tiene.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tengo_hambre.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tengo_un_libro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
+                  "referenceId": "vocab.es.a0.foundations.tienes_razon.v1"
+                }
+              ]
             },
             {
-              "id": "activity.exercise.tener_basic",
-              "title": "exercise",
-              "type": "exercise",
+              "id": "activity.grammar.tener_basic",
+              "title": "Tener: tengo, tienes, tiene",
+              "type": "grammar",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_foundations_review.json",
+                  "referenceId": "grammar.es.a0.foundations.tener_basic.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.dialogue.tener_basic",
+              "title": "Tener dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
+                  "referenceId": "dialogue.es.a0.foundations.tener_basic.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.tener_basic",
+              "title": "Tener reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
+                  "referenceId": "reading.es.a0.foundations.tener_basic.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.tener_basic",
+              "title": "Tener practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.tener_meaning_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.fill_tengo_hambre.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.type_tengo_un_libro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.tienes_razon_choice.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m04.l011.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review tener with tengo, tienes, tiene, tengo hambre, and tengo un libro.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
+          "activity.vocabulary.tener_basic",
           "activity.grammar.tener_basic",
-          "activity.exercise.tener_basic"
+          "activity.dialogue.tener_basic",
+          "activity.reading.tener_basic",
+          "activity.practice.tener_basic"
         ],
-        "minimumCompletedActivities": 1,
+        "minimumCompletedActivities": 5,
         "mandatorySections": [
           "es.a0.m04.l011.section.main"
         ]
@@ -1448,7 +1547,7 @@
       "objectives": [
         {
           "id": "objective.word_order.basic",
-          "description": "Recognize basic declarative word order."
+          "description": "Keep familiar A0 sentence patterns in a clear basic word order."
         }
       ],
       "sections": [
@@ -1459,32 +1558,68 @@
           "activities": [
             {
               "id": "activity.grammar.word_order_basic",
-              "title": "grammar",
+              "title": "Basic word order",
               "type": "grammar",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_foundations_review.json",
+                  "referenceId": "grammar.es.a0.foundations.basic_word_order.v1"
+                }
+              ]
             },
             {
-              "id": "activity.exercise.word_order_basic",
-              "title": "exercise",
-              "type": "exercise",
+              "id": "activity.reading.word_order_basic",
+              "title": "Short sentence reading",
+              "type": "reading",
               "order": 2,
-              "references": []
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
+                  "referenceId": "reading.es.a0.foundations.word_order.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.word_order_basic",
+              "title": "Word order practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.word_order_me_llamo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.word_order_soy_de.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.word_order_tengo.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m04.l012.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review short fixed patterns: Me llamo Ana, Soy de Madrid, and Tengo un libro.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
           "activity.grammar.word_order_basic",
-          "activity.exercise.word_order_basic"
+          "activity.reading.word_order_basic",
+          "activity.practice.word_order_basic"
         ],
-        "minimumCompletedActivities": 1,
+        "minimumCompletedActivities": 3,
         "mandatorySections": [
           "es.a0.m04.l012.section.main"
         ]
@@ -1510,7 +1645,7 @@
       "objectives": [
         {
           "id": "objective.review_1.basic",
-          "description": "Review first contact and personal information material."
+          "description": "Actively recall Module 1 greetings, introductions, goodbyes, names, and countries."
         }
       ],
       "sections": [
@@ -1520,25 +1655,74 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.review.first_contact",
-              "title": "review",
-              "type": "review",
+              "id": "activity.dialogue.review1_first_contact",
+              "title": "First-contact review dialogue",
+              "type": "dialogue",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
+                  "referenceId": "dialogue.es.a0.foundations.review1.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.review1_first_contact",
+              "title": "First-contact review reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
+                  "referenceId": "reading.es.a0.foundations.review1.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.review1_first_contact",
+              "title": "First-contact recall practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review1_name_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review1_origin_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review1_goodbye_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review1_fill_gracias.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m05.l013.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review greetings, introductions, origin, and goodbye without introducing new material.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.review.first_contact"
+          "activity.dialogue.review1_first_contact",
+          "activity.reading.review1_first_contact",
+          "activity.practice.review1_first_contact"
         ],
-        "minimumCompletedActivities": 1,
+        "minimumCompletedActivities": 3,
         "mandatorySections": [
           "es.a0.m05.l013.section.main"
         ]
@@ -1564,7 +1748,7 @@
       "objectives": [
         {
           "id": "objective.review_2.basic",
-          "description": "Review survival phrases and grammar foundations."
+          "description": "Actively review polite phrases, clarification phrases, tener, and short conversations."
         }
       ],
       "sections": [
@@ -1574,25 +1758,74 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.review.survival_grammar",
-              "title": "review",
-              "type": "review",
+              "id": "activity.dialogue.review2_survival_grammar",
+              "title": "Survival phrase review dialogue",
+              "type": "dialogue",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
+                  "referenceId": "dialogue.es.a0.foundations.review2.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.review2_survival_grammar",
+              "title": "Survival phrase review reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
+                  "referenceId": "reading.es.a0.foundations.review2.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.review2_survival_grammar",
+              "title": "Survival phrase recall practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review2_repeat_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review2_understand_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.review2_tener_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.tener_meaning_choice.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m05.l014.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Review polite and clarification phrases with tener in short A0 conversations.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.review.survival_grammar"
+          "activity.dialogue.review2_survival_grammar",
+          "activity.reading.review2_survival_grammar",
+          "activity.practice.review2_survival_grammar"
         ],
-        "minimumCompletedActivities": 1,
+        "minimumCompletedActivities": 3,
         "mandatorySections": [
           "es.a0.m05.l014.section.main"
         ]
@@ -1618,7 +1851,7 @@
       "objectives": [
         {
           "id": "objective.a0_checkpoint.basic",
-          "description": "Check readiness to move beyond A0 foundations."
+          "description": "Demonstrate readiness to move beyond A0 foundations through a short balanced checkpoint."
         }
       ],
       "sections": [
@@ -1628,25 +1861,84 @@
           "order": 1,
           "activities": [
             {
-              "id": "activity.checkpoint.a0",
-              "title": "checkpoint",
-              "type": "checkpoint",
+              "id": "activity.dialogue.a0_checkpoint",
+              "title": "Checkpoint dialogue",
+              "type": "dialogue",
               "order": 1,
-              "references": []
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
+                  "referenceId": "dialogue.es.a0.foundations.checkpoint.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.reading.a0_checkpoint",
+              "title": "Checkpoint reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
+                  "referenceId": "reading.es.a0.foundations.checkpoint.v1"
+                }
+              ]
+            },
+            {
+              "id": "activity.practice.a0_checkpoint",
+              "title": "Checkpoint assessment",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_greeting_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_name_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_origin_fill.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_tener_recall.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_dialogue_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
+                  "referenceId": "template.es.a0.foundations.checkpoint_goodbye_fill.v1"
+                }
+              ]
             }
           ]
         }
       ],
       "summary": {
         "id": "es.a0.m05.l015.summary",
-        "reviewPrompt": "Review the lesson objectives.",
+        "reviewPrompt": "Checkpoint greetings, names, origin, courtesy, tener, reading, and dialogue understanding.",
         "referenceIds": []
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.checkpoint.a0"
+          "activity.dialogue.a0_checkpoint",
+          "activity.reading.a0_checkpoint",
+          "activity.practice.a0_checkpoint"
         ],
-        "minimumCompletedActivities": 1,
+        "minimumCompletedActivities": 3,
         "mandatorySections": [
           "es.a0.m05.l015.section.main"
         ]

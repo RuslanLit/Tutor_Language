@@ -191,7 +191,7 @@ class _LessonNavigationControlsState
           return nextLesson.when(
             data: (nextLesson) {
               if (nextLesson == null) {
-                return const Text('Course complete');
+                return _CourseCompletionActions(lessonId: widget.lessonId);
               }
 
               return Wrap(
@@ -276,6 +276,55 @@ class _LessonNavigationControlsState
         ...widget.session.completedActivityIds,
         currentActivity.activity.id,
       },
+    );
+  }
+}
+
+class _CourseCompletionActions extends ConsumerWidget {
+  const _CourseCompletionActions({required this.lessonId});
+
+  final String lessonId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Course complete',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            FilledButton(
+              onPressed: () {
+                context.goNamed(CourseRoute.name);
+              },
+              child: const Text('Back to course'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                context.goNamed(CourseRoute.name);
+              },
+              child: const Text('Review completed lessons'),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                ref.read(lessonPlayerSessionProvider(lessonId).notifier).state =
+                    const LessonPlayerSessionState();
+                context.goNamed(
+                  LessonRoute.name,
+                  pathParameters: {'lessonId': lessonId},
+                );
+              },
+              child: const Text('Repeat checkpoint'),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

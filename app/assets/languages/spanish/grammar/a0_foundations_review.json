@@ -1,0 +1,27 @@
+[
+  {
+    "id": "grammar.es.a0.foundations.tener_basic.v1",
+    "title": "Tener: tengo, tienes, tiene",
+    "explanation": "Tener means to have. At A0, use tengo for I have, tienes for you have, and recognize tiene for he/she has. Pronunciation: tener = teh-NEHR, tengo = TEHN-goh, tienes = TYEH-nes, tiene = TYEH-neh. Use tener for possessions, as in Tengo un libro. Spanish also uses tener in fixed expressions such as Tengo hambre. A common beginner mistake is translating I am hungry with soy or estoy; for this expression, use tengo hambre.",
+    "examples": [
+      "Tengo un libro. = I have a book.",
+      "Tienes razón. = You are right.",
+      "Ana tiene un libro. = Ana has a book.",
+      "Tengo hambre. = I am hungry.",
+      "Common mistake: Soy hambre. Use Tengo hambre."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.foundations.basic_word_order.v1",
+    "title": "Basic word order in short sentences",
+    "explanation": "Very short Spanish sentences often use subject plus verb plus the rest of the idea. At A0, keep familiar patterns intact: Me llamo Ana, Soy de Madrid, Tengo un libro, and Ana tiene un libro. Do not rearrange the words randomly; Spanish word order can vary later, but these beginner patterns should be memorized as stable chunks.",
+    "examples": [
+      "Me llamo Ana. = My name is Ana.",
+      "Soy de Madrid. = I am from Madrid.",
+      "Tengo un libro. = I have a book.",
+      "Ana tiene un libro. = Ana has a book."
+    ],
+    "prerequisite_ids": []
+  }
+]

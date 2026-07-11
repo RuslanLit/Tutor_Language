@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:drift/native.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tutor_language/app/router/app_router.dart';
+import 'package:tutor_language/core/content/content_providers.dart';
+import 'package:tutor_language/core/content/content_repository.dart';
+import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
-import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/core/learner/learner_progress.dart';
+import 'package:tutor_language/core/learner/learner_progress_providers.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
+import 'package:tutor_language/features/course_navigation/course_navigation_providers.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
@@ -337,6 +344,46 @@ void main() {
     expect(find.text('Only Vocabulary'), findsOneWidget);
     expect(find.text('Check'), findsNothing);
   });
+
+  testWidgets('final course completion exposes working actions', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/es.a0.m05.l015',
+        service: _FakeLessonAssemblyService(_finalCheckpointLessonContent),
+      ),
+    );
+    await _pumpUntilFound(tester, find.text('Course complete'));
+
+    expect(find.text('Course complete'), findsOneWidget);
+    expect(find.text('Back to course'), findsOneWidget);
+    expect(find.text('Review completed lessons'), findsOneWidget);
+    expect(find.text('Repeat checkpoint'), findsOneWidget);
+
+    await tester.ensureVisible(
+      find.widgetWithText(OutlinedButton, 'Repeat checkpoint'),
+    );
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Repeat checkpoint'));
+    await _pumpUntilFound(tester, find.text('Final Vocabulary'));
+
+    expect(find.text('Final Vocabulary'), findsOneWidget);
+    expect(find.text('Course complete'), findsOneWidget);
+
+    await tester.ensureVisible(
+      find.widgetWithText(FilledButton, 'Back to course'),
+    );
+    await tester.tap(find.widgetWithText(FilledButton, 'Back to course'));
+    await _pumpUntilFound(tester, find.text('Course route reached'));
+
+    expect(find.text('Course route reached'), findsOneWidget);
+  });
 }
 
 Widget _app(Widget child, {LessonAssemblyService? service}) {
@@ -354,8 +401,61 @@ Widget _app(Widget child, {LessonAssemblyService? service}) {
   );
 }
 
+Widget _routerApp({
+  required String initialLocation,
+  LessonAssemblyService? service,
+  AppDatabase? database,
+}) {
+  final router = GoRouter(
+    initialLocation: initialLocation,
+    routes: [
+      GoRoute(
+        path: CourseRoute.path,
+        name: CourseRoute.name,
+        builder: (context, state) =>
+            const Scaffold(body: Text('Course route reached')),
+      ),
+      GoRoute(
+        path: LessonRoute.path,
+        name: LessonRoute.name,
+        builder: (context, state) {
+          return LessonPlayerScreen(
+            lessonId: state.pathParameters['lessonId'] ?? '',
+          );
+        },
+      ),
+    ],
+  );
+
+  return ProviderScope(
+    overrides: [
+      appDatabaseProvider.overrideWith((ref) {
+        final providedDatabase = database;
+        if (providedDatabase != null) {
+          return providedDatabase;
+        }
+
+        final ownedDatabase = AppDatabase(NativeDatabase.memory());
+        ref.onDispose(ownedDatabase.close);
+        return ownedDatabase;
+      }),
+      contentRepositoryProvider.overrideWith(
+        (ref) => _FinalCourseContentRepository(),
+      ),
+      topicProgressProvider.overrideWith(
+        (ref, topicId) async =>
+            TopicProgress(topicId: topicId, completedAt: DateTime.utc(2026)),
+      ),
+      nextOrderedLessonProvider.overrideWith((ref, lessonId) async => null),
+      if (service != null)
+        lessonAssemblyServiceProvider.overrideWith((ref) => service),
+    ],
+    child: MaterialApp.router(routerConfig: router),
+  );
+}
+
 Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
-  for (var i = 0; i < 20; i += 1) {
+  for (var i = 0; i < 80; i += 1) {
     await tester.runAsync(() async {
       await Future<void>.delayed(const Duration(milliseconds: 50));
     });
@@ -364,6 +464,8 @@ Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
       return;
     }
   }
+
+  expect(finder, findsOneWidget);
 }
 
 class _FakeLessonAssemblyService extends LessonAssemblyService {
@@ -381,6 +483,27 @@ class _FailingLessonAssemblyService extends LessonAssemblyService {
   @override
   Future<LessonContent> assembleLesson(String lessonId) async {
     throw LessonAssemblyException('Lesson not found: $lessonId');
+  }
+}
+
+class _FinalCourseContentRepository extends ContentRepository {
+  @override
+  Future<Course> loadCourse() async {
+    return Course(
+      id: 'course.final',
+      languageId: 'spanish',
+      title: 'Final Course',
+      level: 'A0',
+      version: '1.0.0',
+      modules: const [
+        Module(
+          id: 'module.final',
+          title: 'Final Module',
+          lessonIds: ['es.a0.m05.l015'],
+        ),
+      ],
+      lessons: [_finalCheckpointLessonContent.lesson],
+    );
   }
 }
 
@@ -815,6 +938,112 @@ const _navigationLessonContent = LessonContent(
               supportedGoalTypes: ['review_vocabulary'],
               requiredObjectTypes: ['vocabulary'],
               promptTemplate: 'Type the greeting.',
+              expectedAnswer: 'hola',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _finalCheckpointLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'es.a0.m05.l015',
+      title: 'Final Checkpoint',
+      description: 'Final checkpoint description.',
+      moduleId: 'es.a0.m05',
+      courseId: 'es.a0',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.final_checkpoint',
+        description: 'Exercise final course completion actions.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.final_checkpoint',
+        title: 'Final Checkpoint Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.final_checkpoint.vocabulary',
+            title: 'Final Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.final_checkpoint.text',
+            title: 'Final Recall',
+            type: 'exercise_template',
+            order: 2,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.final_checkpoint',
+        title: 'Final Checkpoint Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.final_checkpoint.vocabulary',
+            title: 'Final Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.final_checkpoint.text',
+            title: 'Final Recall',
+            type: 'exercise_template',
+            order: 2,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.final_checkpoint.vocabulary',
+            title: 'Final Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.final_checkpoint',
+              spanish: 'hola',
+              nativeTranslation: 'hello',
+              cefr: 'A0',
+              example: 'Hola.',
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.final_checkpoint.text',
+            title: 'Final Recall',
+            type: 'exercise_template',
+            order: 2,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.final_checkpoint.text',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish word for "hello".',
               expectedAnswer: 'hola',
             ),
           ],

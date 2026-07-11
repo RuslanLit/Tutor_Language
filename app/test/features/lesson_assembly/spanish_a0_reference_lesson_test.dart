@@ -179,7 +179,7 @@ void main() {
     expect(reviewReferenceIds, contains('reading.es.a0.unit1.review.v1'));
     expect(
       reviewReferenceIds,
-      contains('template.es.a0.unit1.review_match_first_contact.v1'),
+      contains('template.es.a0.foundations.review1_name_recall.v1'),
     );
   });
 }
