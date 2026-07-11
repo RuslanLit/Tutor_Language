@@ -11,6 +11,7 @@ import '../activity_engine/activity_widgets.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
 import 'lesson_player_providers.dart';
+import 'lesson_player_step.dart';
 
 class LessonPlayerScreen extends ConsumerWidget {
   const LessonPlayerScreen({required this.lessonId, super.key});
@@ -36,19 +37,18 @@ class LessonPlayerView extends ConsumerWidget {
   const LessonPlayerView({required this.lessonContent, super.key});
 
   final LessonContent lessonContent;
+  static const _stepBuilder = LessonPlayerStepBuilder();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lesson = lessonContent.lesson;
-    final activities = lessonContent.activities;
+    final steps = _stepBuilder.buildSteps(lessonContent);
     final sessionProvider = lessonPlayerSessionProvider(lesson.id);
     final session = ref.watch(sessionProvider);
-    final currentActivityIndex = activities.isEmpty
+    final currentStepIndex = steps.isEmpty
         ? 0
-        : session.currentActivityIndex.clamp(0, activities.length - 1);
-    final currentActivity = activities.isEmpty
-        ? null
-        : activities[currentActivityIndex];
+        : session.currentStepIndex.clamp(0, steps.length - 1);
+    final currentStep = steps.isEmpty ? null : steps[currentStepIndex];
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -73,36 +73,36 @@ class LessonPlayerView extends ConsumerWidget {
           Text(lesson.description),
         ],
         const SizedBox(height: 20),
-        if (currentActivity == null)
+        if (currentStep == null)
           const Text('No activities available.')
         else ...[
-          LessonActivityView(
-            activityContent: currentActivity,
-            activityStates: session.activityStates,
-            onActivityStateChanged: (templateId, activityState) {
-              final nextActivityStates = {
-                ...session.activityStates,
-                templateId: activityState,
+          LessonPlayerStepView(
+            step: currentStep,
+            state: session.stepStates[currentStep.id],
+            onStateChanged: (stepState) {
+              final nextStepStates = {
+                ...session.stepStates,
+                currentStep.id: stepState,
               };
-              final nextCompletedActivityIds = <String>{
-                ...session.completedActivityIds,
+              final nextCompletedStepIds = <String>{
+                ...session.completedStepIds,
               };
-              if (_isActivityCompleted(currentActivity, nextActivityStates)) {
-                nextCompletedActivityIds.add(currentActivity.activity.id);
+              if (_isStepCompleted(currentStep, nextStepStates)) {
+                nextCompletedStepIds.add(currentStep.id);
               } else {
-                nextCompletedActivityIds.remove(currentActivity.activity.id);
+                nextCompletedStepIds.remove(currentStep.id);
               }
 
               ref.read(sessionProvider.notifier).state = session.copyWith(
-                completedActivityIds: nextCompletedActivityIds,
-                activityStates: nextActivityStates,
+                completedStepIds: nextCompletedStepIds,
+                stepStates: nextStepStates,
               );
             },
           ),
           LessonNavigationControls(
             lessonId: lesson.id,
-            activities: activities,
-            currentActivityIndex: currentActivityIndex,
+            steps: steps,
+            currentStepIndex: currentStepIndex,
             session: session,
           ),
         ],
@@ -114,15 +114,15 @@ class LessonPlayerView extends ConsumerWidget {
 class LessonNavigationControls extends ConsumerStatefulWidget {
   const LessonNavigationControls({
     required this.lessonId,
-    required this.activities,
-    required this.currentActivityIndex,
+    required this.steps,
+    required this.currentStepIndex,
     required this.session,
     super.key,
   });
 
   final String lessonId;
-  final List<LessonContentActivity> activities;
-  final int currentActivityIndex;
+  final List<LessonPlayerStep> steps;
+  final int currentStepIndex;
   final LessonPlayerSessionState session;
 
   @override
@@ -137,13 +137,12 @@ class _LessonNavigationControlsState
   @override
   Widget build(BuildContext context) {
     final progress = ref.watch(topicProgressProvider(widget.lessonId));
-    final isFirstActivity = widget.currentActivityIndex == 0;
-    final isLastActivity =
-        widget.currentActivityIndex == widget.activities.length - 1;
-    final currentActivity = widget.activities[widget.currentActivityIndex];
-    final isCurrentActivityCompleted = _isActivityCompleted(
-      currentActivity,
-      widget.session.activityStates,
+    final isFirstStep = widget.currentStepIndex == 0;
+    final isLastStep = widget.currentStepIndex == widget.steps.length - 1;
+    final currentStep = widget.steps[widget.currentStepIndex];
+    final isCurrentStepCompleted = _isStepCompleted(
+      currentStep,
+      widget.session.stepStates,
     );
 
     return Padding(
@@ -155,18 +154,18 @@ class _LessonNavigationControlsState
             return Row(
               children: [
                 OutlinedButton(
-                  onPressed: isFirstActivity ? null : _goToPreviousActivity,
+                  onPressed: isFirstStep ? null : _goToPreviousStep,
                   child: const Text('← Previous'),
                 ),
                 const Spacer(),
                 Text(
-                  'Activity ${widget.currentActivityIndex + 1} / '
-                  '${widget.activities.length}',
+                  'Step ${widget.currentStepIndex + 1} / '
+                  '${widget.steps.length}',
                 ),
                 const Spacer(),
-                if (isLastActivity)
+                if (isLastStep)
                   FilledButton(
-                    onPressed: _isCompleting || !isCurrentActivityCompleted
+                    onPressed: _isCompleting || !isCurrentStepCompleted
                         ? null
                         : _completeLesson,
                     child: Text(
@@ -175,9 +174,7 @@ class _LessonNavigationControlsState
                   )
                 else
                   FilledButton(
-                    onPressed: isCurrentActivityCompleted
-                        ? _goToNextActivity
-                        : null,
+                    onPressed: isCurrentStepCompleted ? _goToNextStep : null,
                     child: const Text('Next →'),
                   ),
               ],
@@ -222,8 +219,8 @@ class _LessonNavigationControlsState
   }
 
   Future<void> _completeLesson() async {
-    final currentActivity = widget.activities[widget.currentActivityIndex];
-    if (!_isActivityCompleted(currentActivity, widget.session.activityStates)) {
+    final currentStep = widget.steps[widget.currentStepIndex];
+    if (!_isStepCompleted(currentStep, widget.session.stepStates)) {
       return;
     }
 
@@ -246,36 +243,30 @@ class _LessonNavigationControlsState
     }
   }
 
-  void _goToPreviousActivity() {
-    if (widget.currentActivityIndex <= 0) {
+  void _goToPreviousStep() {
+    if (widget.currentStepIndex <= 0) {
       return;
     }
 
-    ref
-        .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
-        .state = widget.session.copyWith(
-      currentActivityIndex: widget.currentActivityIndex - 1,
-    );
+    ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
+        widget.session.copyWith(currentStepIndex: widget.currentStepIndex - 1);
   }
 
-  void _goToNextActivity() {
-    if (widget.currentActivityIndex >= widget.activities.length - 1) {
+  void _goToNextStep() {
+    if (widget.currentStepIndex >= widget.steps.length - 1) {
       return;
     }
 
-    final currentActivity = widget.activities[widget.currentActivityIndex];
-    if (!_isActivityCompleted(currentActivity, widget.session.activityStates)) {
+    final currentStep = widget.steps[widget.currentStepIndex];
+    if (!_isStepCompleted(currentStep, widget.session.stepStates)) {
       return;
     }
 
     ref
         .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
         .state = widget.session.copyWith(
-      currentActivityIndex: widget.currentActivityIndex + 1,
-      completedActivityIds: {
-        ...widget.session.completedActivityIds,
-        currentActivity.activity.id,
-      },
+      currentStepIndex: widget.currentStepIndex + 1,
+      completedStepIds: {...widget.session.completedStepIds, currentStep.id},
     );
   }
 }
@@ -290,10 +281,7 @@ class _CourseCompletionActions extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Course complete',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text('Course complete', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 8),
         Wrap(
           spacing: 8,
@@ -329,43 +317,17 @@ class _CourseCompletionActions extends ConsumerWidget {
   }
 }
 
-class LessonSectionView extends StatelessWidget {
-  const LessonSectionView({required this.sectionContent, super.key});
-
-  final LessonContentSection sectionContent;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            sectionContent.section.title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 12),
-          for (final activity in sectionContent.activities)
-            LessonActivityView(activityContent: activity),
-        ],
-      ),
-    );
-  }
-}
-
-class LessonActivityView extends StatelessWidget {
-  const LessonActivityView({
-    required this.activityContent,
-    this.activityStates = const {},
-    this.onActivityStateChanged,
+class LessonPlayerStepView extends StatelessWidget {
+  const LessonPlayerStepView({
+    required this.step,
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
-  final LessonContentActivity activityContent;
-  final Map<String, ActivityTemplateState> activityStates;
-  final void Function(String templateId, ActivityTemplateState state)?
-  onActivityStateChanged;
+  final LessonPlayerStep step;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -377,22 +339,22 @@ class LessonActivityView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              activityContent.activity.title,
+              step.sourceActivity.activity.title,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             Text(
-              activityContent.activity.type,
+              _stepTypeLabel(step.stepType),
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: 12),
-            for (final content in activityContent.resolvedContent)
+            for (final content in step.content)
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
                 child: LessonContentObjectView(
                   content: content,
-                  activityStates: activityStates,
-                  onActivityStateChanged: onActivityStateChanged,
+                  state: state,
+                  onStateChanged: onStateChanged,
                 ),
               ),
           ],
@@ -405,15 +367,14 @@ class LessonActivityView extends StatelessWidget {
 class LessonContentObjectView extends StatelessWidget {
   const LessonContentObjectView({
     required this.content,
-    this.activityStates = const {},
-    this.onActivityStateChanged,
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
   final Object content;
-  final Map<String, ActivityTemplateState> activityStates;
-  final void Function(String templateId, ActivityTemplateState state)?
-  onActivityStateChanged;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -424,10 +385,8 @@ class LessonContentObjectView extends StatelessWidget {
       ReadingText reading => ReadingTextView(reading: reading),
       ExerciseTemplate template => ExerciseTemplateView(
         template: template,
-        state: activityStates[template.id],
-        onStateChanged: (state) {
-          onActivityStateChanged?.call(template.id, state);
-        },
+        state: state,
+        onStateChanged: onStateChanged,
       ),
       _ => Text('Unsupported content: ${content.runtimeType}'),
     };
@@ -555,30 +514,25 @@ class ExerciseTemplateView extends StatelessWidget {
   }
 }
 
-bool _isActivityCompleted(
-  LessonContentActivity activity,
-  Map<String, ActivityTemplateState> activityStates,
+bool _isStepCompleted(
+  LessonPlayerStep step,
+  Map<String, ActivityTemplateState> stepStates,
 ) {
-  final requiredTemplates = activity.resolvedContent
-      .whereType<ExerciseTemplate>()
-      .where(_requiresCompletion)
-      .toList(growable: false);
-
-  if (requiredTemplates.isEmpty) {
+  if (!step.isCheckable) {
     return true;
   }
 
-  return requiredTemplates.every((template) {
-    return activityStates[template.id]?.isCompleted ?? false;
-  });
+  return stepStates[step.id]?.isCompleted ?? false;
 }
 
-bool _requiresCompletion(ExerciseTemplate template) {
-  return switch (template.exerciseType) {
-    'multiple_choice' => template.correctOptionId != null,
-    'fill_gap' || 'text_entry' => template.expectedAnswer != null,
-    'matching' => template.expectedAnswer != null,
-    _ => false,
+String _stepTypeLabel(LessonPlayerStepType stepType) {
+  return switch (stepType) {
+    LessonPlayerStepType.vocabulary => 'vocabulary',
+    LessonPlayerStepType.grammar => 'grammar',
+    LessonPlayerStepType.dialogue => 'dialogue',
+    LessonPlayerStepType.reading => 'reading',
+    LessonPlayerStepType.exercise => 'exercise',
+    LessonPlayerStepType.mixed => 'mixed',
   };
 }
 

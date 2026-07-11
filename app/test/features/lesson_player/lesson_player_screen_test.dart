@@ -49,7 +49,7 @@ void main() {
 
       expect(find.text('Dynamic Lesson Title'), findsOneWidget);
       expect(find.text('lexema-dinamico'), findsOneWidget);
-      expect(find.text('Activity 1 / 5'), findsOneWidget);
+      expect(find.text('Step 1 / 5'), findsOneWidget);
 
       await tester.ensureVisible(find.text('Next →'));
       await tester.tap(find.text('Next →'));
@@ -141,7 +141,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Activity 1 / 3'), findsOneWidget);
+    expect(find.text('Step 1 / 3'), findsOneWidget);
     expect(
       tester
           .widget<OutlinedButton>(
@@ -160,7 +160,7 @@ void main() {
     await tester.tap(find.text('Next →'));
     await tester.pump();
 
-    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Step 2 / 3'), findsOneWidget);
     expect(
       tester
           .widget<OutlinedButton>(
@@ -192,13 +192,13 @@ void main() {
     await tester.tap(find.text('← Previous'));
     await tester.pump();
 
-    expect(find.text('Activity 1 / 3'), findsOneWidget);
+    expect(find.text('Step 1 / 3'), findsOneWidget);
     expect(find.text('Navigation Vocabulary'), findsOneWidget);
 
     await tester.tap(find.text('Next →'));
     await tester.pump();
 
-    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Step 2 / 3'), findsOneWidget);
     expect(find.text('Try again'), findsOneWidget);
     expect(
       tester
@@ -255,7 +255,7 @@ void main() {
     await tester.tap(find.text('Check'));
     await tester.pump();
 
-    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Step 2 / 3'), findsOneWidget);
     expect(find.text('Try again'), findsOneWidget);
 
     await tester.tap(find.text('Swap'));
@@ -266,7 +266,7 @@ void main() {
     await tester.tap(find.text('Swap'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Step 2 / 3'), findsOneWidget);
     expect(find.text('Try again'), findsOneWidget);
     expect(
       tester
@@ -274,6 +274,61 @@ void main() {
           .selected,
       isTrue,
     );
+  });
+
+  testWidgets('splits multiple templates into separate preserved steps', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.multi_template'),
+        service: _FakeLessonAssemblyService(_multiTemplateLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Step 1 / 2'), findsOneWidget);
+    expect(find.text('Type the Spanish word for "hello".'), findsOneWidget);
+    expect(find.text('Type the Spanish word for "goodbye".'), findsNothing);
+
+    await tester.enterText(find.byType(TextField), 'hola');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
+    );
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 2 / 2'), findsOneWidget);
+    expect(find.text('Type the Spanish word for "goodbye".'), findsOneWidget);
+    expect(find.text('Type the Spanish word for "hello".'), findsNothing);
+
+    await tester.enterText(find.byType(TextField), 'adiós');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+
+    await tester.tap(find.text('← Previous'));
+    await tester.pump();
+
+    expect(find.text('Step 1 / 2'), findsOneWidget);
+    expect(find.text('hola'), findsOneWidget);
+    expect(find.text('Correct'), findsOneWidget);
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 2 / 2'), findsOneWidget);
+    expect(find.text('adiós'), findsOneWidget);
+    expect(find.text('Correct'), findsOneWidget);
   });
 
   testWidgets(
@@ -296,7 +351,7 @@ void main() {
       await tester.tap(find.text('Next →'));
       await tester.pump();
 
-      expect(find.text('Activity 3 / 3'), findsOneWidget);
+      expect(find.text('Step 3 / 3'), findsOneWidget);
       expect(find.text('Finish Lesson'), findsOneWidget);
       expect(
         tester
@@ -939,6 +994,91 @@ const _navigationLessonContent = LessonContent(
               requiredObjectTypes: ['vocabulary'],
               promptTemplate: 'Type the greeting.',
               expectedAnswer: 'hola',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _multiTemplateLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.multi_template',
+      title: 'Multi-template Lesson',
+      description: 'Multi-template lesson description.',
+      moduleId: 'module.multi_template',
+      courseId: 'course.multi_template',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.multi_template',
+        description: 'Exercise template-level navigation.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.multi_template',
+        title: 'Multi-template Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.multi_template.practice',
+            title: 'Multi-template Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.multi_template',
+        title: 'Multi-template Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.multi_template.practice',
+            title: 'Multi-template Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.multi_template.practice',
+            title: 'Multi-template Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.multi_template.hello',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish word for "hello".',
+              expectedAnswer: 'hola',
+            ),
+            ExerciseTemplate(
+              id: 'template.multi_template.goodbye',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish word for "goodbye".',
+              expectedAnswer: 'adiós',
             ),
           ],
         ),

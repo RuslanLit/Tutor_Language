@@ -6,6 +6,7 @@ import 'package:tutor_language/core/content/content_loader.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
+import 'package:tutor_language/features/lesson_player/lesson_player_step.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -134,6 +135,55 @@ void main() {
             isTrue,
             reason: 'Uncheckable template ${template.id} in $lessonId',
           );
+        }
+      }
+    },
+  );
+
+  test(
+    'lesson player exposes one checkable exercise per runtime step',
+    () async {
+      final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+      final contentLoader = ContentLoader(assetBundle: rootBundle);
+      final service = LessonAssemblyService(
+        curriculumLoader: curriculumLoader,
+        contentLoader: contentLoader,
+      );
+      const stepBuilder = LessonPlayerStepBuilder();
+
+      final course = await curriculumLoader.loadCourse();
+
+      for (final lesson in course.lessons) {
+        final assembled = await service.assembleLesson(lesson.id);
+        final steps = stepBuilder.buildSteps(assembled);
+
+        expect(steps, isNotEmpty, reason: 'No player steps for ${lesson.id}');
+
+        for (final step in steps) {
+          final templates = step.content.whereType<ExerciseTemplate>().toList();
+          expect(
+            templates.length,
+            lessThanOrEqualTo(1),
+            reason: 'Step ${step.id} contains multiple exercise templates.',
+          );
+
+          if (templates.isNotEmpty) {
+            expect(
+              templates,
+              hasLength(1),
+              reason: 'Exercise step ${step.id} lacks one exercise template.',
+            );
+            expect(
+              _isCheckable(templates.single),
+              isTrue,
+              reason: 'Uncheckable template ${templates.single.id}.',
+            );
+            expect(
+              step.isCheckable,
+              isTrue,
+              reason: 'Exercise step ${step.id} is not marked checkable.',
+            );
+          }
         }
       }
     },

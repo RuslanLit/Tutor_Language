@@ -23,24 +23,24 @@ final lessonPlayerSessionProvider =
 
 class LessonPlayerSessionState {
   const LessonPlayerSessionState({
-    this.currentActivityIndex = 0,
-    this.completedActivityIds = const {},
-    this.activityStates = const {},
+    this.currentStepIndex = 0,
+    this.completedStepIds = const {},
+    this.stepStates = const {},
   });
 
-  final int currentActivityIndex;
-  final Set<String> completedActivityIds;
-  final Map<String, ActivityTemplateState> activityStates;
+  final int currentStepIndex;
+  final Set<String> completedStepIds;
+  final Map<String, ActivityTemplateState> stepStates;
 
   LessonPlayerSessionState copyWith({
-    int? currentActivityIndex,
-    Set<String>? completedActivityIds,
-    Map<String, ActivityTemplateState>? activityStates,
+    int? currentStepIndex,
+    Set<String>? completedStepIds,
+    Map<String, ActivityTemplateState>? stepStates,
   }) {
     return LessonPlayerSessionState(
-      currentActivityIndex: currentActivityIndex ?? this.currentActivityIndex,
-      completedActivityIds: completedActivityIds ?? this.completedActivityIds,
-      activityStates: activityStates ?? this.activityStates,
+      currentStepIndex: currentStepIndex ?? this.currentStepIndex,
+      completedStepIds: completedStepIds ?? this.completedStepIds,
+      stepStates: stepStates ?? this.stepStates,
     );
   }
 }

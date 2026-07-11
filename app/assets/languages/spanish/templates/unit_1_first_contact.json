@@ -75,7 +75,8 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Match each Spanish greeting or farewell with its English meaning."
+    "prompt_template": "Match each Spanish greeting or farewell with its English meaning.",
+    "expected_answer": "hola=hello; adiós=goodbye; hasta luego=see you later"
   },
   {
     "id": "template.es.a0.unit1.thanks_choice.v1",
@@ -368,7 +369,8 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Match each short answer with its English meaning."
+    "prompt_template": "Match each short answer with its English meaning.",
+    "expected_answer": "bien=fine; muy bien=very well; regular=okay; mal=bad; así así=so-so"
   },
   {
     "id": "template.es.a0.unit1.muchas_gracias_choice.v1",
@@ -512,6 +514,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Match Unit 1 first-contact phrases with their English meanings."
+    "prompt_template": "Match Unit 1 first-contact phrases with their English meanings.",
+    "expected_answer": "hola=hello; me llamo=my name is; soy de=I am from; gracias=thank you; ¿hablas español?=do you speak Spanish?"
   }
 ]
