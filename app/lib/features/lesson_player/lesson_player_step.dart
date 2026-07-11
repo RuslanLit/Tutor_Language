@@ -26,6 +26,12 @@ class LessonPlayerStep {
   bool get isCheckable {
     return content.whereType<ExerciseTemplate>().any(_requiresCompletion);
   }
+
+  bool get hasRemediation {
+    return content.whereType<ExerciseTemplate>().any(
+      (template) => template.authoredMisconceptions.isNotEmpty,
+    );
+  }
 }
 
 class LessonPlayerStepBuilder {

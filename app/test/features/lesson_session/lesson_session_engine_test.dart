@@ -10,6 +10,11 @@ void main() {
     id: 'step.practice',
     isCheckable: true,
   );
+  const remediationStep = LessonSessionStep(
+    id: 'step.remediation',
+    isCheckable: true,
+    hasRemediation: true,
+  );
   const finalPracticeStep = LessonSessionStep(
     id: 'step.final',
     isCheckable: true,
@@ -114,7 +119,7 @@ void main() {
     );
   });
 
-  test('incorrect submission increments attempts and requires retry', () {
+  test('first incorrect submission increments attempts and retries only', () {
     final state = engine
         .startSession(lessonId: lessonId, steps: const [practiceStep])
         .updatedState;
@@ -128,15 +133,243 @@ void main() {
     expect(submitDecision.type, LessonSessionDecisionType.retryCurrentStep);
     expect(
       submitDecision.reasonCode,
-      LessonSessionReasonCode.incorrectAnswerRequiresRetry,
+      LessonSessionReasonCode.firstIncorrectAttempt,
     );
     expect(submitDecision.updatedState.attemptsByStepId[practiceStep.id], 1);
+    expect(submitDecision.updatedState.remediationShownByStepId, isEmpty);
     expect(
       submitDecision.updatedState.completedStepIds,
       isNot(contains(practiceStep.id)),
     );
     expect(nextDecision.type, LessonSessionDecisionType.rejectAction);
     expect(nextDecision.reasonCode, LessonSessionReasonCode.nextStepLocked);
+  });
+
+  test('second incorrect with remediation available shows remediation', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [remediationStep])
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: firstIncorrect,
+      result: _incorrectResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.showRemediation);
+    expect(decision.reasonCode, LessonSessionReasonCode.remediationRequested);
+    expect(decision.stepId, remediationStep.id);
+    expect(decision.updatedState.attemptsByStepId[remediationStep.id], 2);
+    expect(
+      decision.updatedState.remediationShownByStepId,
+      contains(remediationStep.id),
+    );
+    expect(
+      decision.updatedState.completedStepIds,
+      isNot(contains(remediationStep.id)),
+    );
+  });
+
+  test('second incorrect without remediation remains retry', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [practiceStep])
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: firstIncorrect,
+      result: _incorrectResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.retryCurrentStep);
+    expect(decision.reasonCode, LessonSessionReasonCode.remediationUnavailable);
+    expect(decision.updatedState.attemptsByStepId[practiceStep.id], 2);
+    expect(decision.updatedState.remediationShownByStepId, isEmpty);
+  });
+
+  test(
+    'third incorrect can request remediation again without duplicate state',
+    () {
+      final state = engine
+          .startSession(lessonId: lessonId, steps: const [remediationStep])
+          .updatedState;
+      final firstIncorrect = engine
+          .submitStepResult(state: state, result: _incorrectResult)
+          .updatedState;
+      final remediationShown = engine
+          .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+          .updatedState;
+
+      final decision = engine.submitStepResult(
+        state: remediationShown,
+        result: _incorrectResult,
+      );
+
+      expect(decision.type, LessonSessionDecisionType.showRemediation);
+      expect(decision.reasonCode, LessonSessionReasonCode.remediationRequested);
+      expect(decision.updatedState.attemptsByStepId[remediationStep.id], 3);
+      expect(
+        decision.updatedState.remediationShownByStepId
+            .where((stepId) => stepId == remediationStep.id)
+            .length,
+        1,
+      );
+    },
+  );
+
+  test(
+    'repeated incorrect without remediation uses repeated attempt reason',
+    () {
+      final state = engine
+          .startSession(lessonId: lessonId, steps: const [practiceStep])
+          .updatedState;
+      final firstIncorrect = engine
+          .submitStepResult(state: state, result: _incorrectResult)
+          .updatedState;
+      final secondIncorrect = engine
+          .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+          .updatedState;
+
+      final decision = engine.submitStepResult(
+        state: secondIncorrect,
+        result: _incorrectResult,
+      );
+
+      expect(decision.type, LessonSessionDecisionType.retryCurrentStep);
+      expect(
+        decision.reasonCode,
+        LessonSessionReasonCode.repeatedIncorrectAttempt,
+      );
+      expect(decision.updatedState.attemptsByStepId[practiceStep.id], 3);
+    },
+  );
+
+  test('accepted with correction bypasses remediation policy', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [remediationStep])
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: state,
+      result: _acceptedWithFeedbackResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.showFeedback);
+    expect(decision.reasonCode, LessonSessionReasonCode.acceptedWithCorrection);
+    expect(
+      decision.updatedState.completedStepIds,
+      contains(remediationStep.id),
+    );
+    expect(decision.updatedState.remediationShownByStepId, isEmpty);
+  });
+
+  test('correct answer after remediation progresses normally', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [remediationStep, finalPracticeStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+
+    final correctDecision = engine.submitStepResult(
+      state: remediationShown,
+      result: _correctResult,
+    );
+    final nextDecision = engine.requestNext(correctDecision.updatedState);
+
+    expect(correctDecision.type, LessonSessionDecisionType.showFeedback);
+    expect(
+      correctDecision.reasonCode,
+      LessonSessionReasonCode.correctAnswerAccepted,
+    );
+    expect(
+      correctDecision.updatedState.attemptsByStepId[remediationStep.id],
+      3,
+    );
+    expect(
+      correctDecision.updatedState.completedStepIds,
+      contains(remediationStep.id),
+    );
+    expect(nextDecision.type, LessonSessionDecisionType.moveToNextStep);
+  });
+
+  test(
+    'restart after remediation does not increment attempts or complete step',
+    () {
+      final state = engine
+          .startSession(lessonId: lessonId, steps: const [remediationStep])
+          .updatedState;
+      final firstIncorrect = engine
+          .submitStepResult(state: state, result: _incorrectResult)
+          .updatedState;
+      final remediationShown = engine
+          .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+          .updatedState;
+
+      final decision = engine.restartCurrentStep(remediationShown);
+
+      expect(decision.type, LessonSessionDecisionType.showCurrentStep);
+      expect(
+        decision.reasonCode,
+        LessonSessionReasonCode.retryAfterRemediation,
+      );
+      expect(decision.updatedState.attemptsByStepId[remediationStep.id], 2);
+      expect(
+        decision.updatedState.completedStepIds,
+        isNot(contains(remediationStep.id)),
+      );
+      expect(
+        decision.updatedState.remediationShownByStepId,
+        contains(remediationStep.id),
+      );
+    },
+  );
+
+  test('remediation state belongs to one step and survives navigation', () {
+    final started = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [infoStep, remediationStep, finalPracticeStep],
+        )
+        .updatedState;
+    final onRemediationStep = engine.requestNext(started).updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: onRemediationStep, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+    final completed = engine
+        .submitStepResult(state: remediationShown, result: _correctResult)
+        .updatedState;
+    final onFinal = engine.requestNext(completed).updatedState;
+
+    final back = engine.requestPrevious(onFinal);
+    final forward = engine.requestNext(back.updatedState);
+
+    expect(
+      remediationShown.remediationShownByStepId,
+      contains(remediationStep.id),
+    );
+    expect(
+      remediationShown.remediationShownByStepId,
+      isNot(contains(finalPracticeStep.id)),
+    );
+    expect(
+      back.updatedState.remediationShownByStepId,
+      contains(remediationStep.id),
+    );
+    expect(forward.updatedState.currentStepId, finalPracticeStep.id);
   });
 
   test('previous and next preserve attempts and attached results', () {

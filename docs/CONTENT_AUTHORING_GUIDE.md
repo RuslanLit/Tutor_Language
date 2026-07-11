@@ -418,6 +418,23 @@ Authored misconceptions must not become global language rules.
 
 The Lesson Session Engine will not generate teaching text.
 
+When authored remediation is available for a checkable step, the Lesson Session
+Engine may decide to show it after repeated incorrect attempts.
+
+Remediation content may include:
+
+- a concise explanation;
+- a grammar reminder;
+- a vocabulary hint;
+- a worked example;
+- a focused correction of an authored misconception.
+
+Remediation must remain deterministic, reviewable and directly relevant to the
+current exercise objective.
+
+It must not introduce unrelated material, invent new examples at runtime or
+replace the authored answer key.
+
 Prompts, canonical answers, accepted alternatives, authored misconceptions and
 correction guidance must be deterministic, authored and reviewable in the
 content or evaluation-related structures that support them.

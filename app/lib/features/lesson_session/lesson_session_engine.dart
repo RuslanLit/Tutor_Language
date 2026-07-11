@@ -5,6 +5,7 @@ enum LessonSessionStatus { notStarted, inProgress, completed }
 enum LessonSessionDecisionType {
   showCurrentStep,
   showFeedback,
+  showRemediation,
   retryCurrentStep,
   moveToNextStep,
   moveToPreviousStep,
@@ -18,7 +19,11 @@ enum LessonSessionReasonCode {
   informationalStepMayContinue,
   correctAnswerAccepted,
   acceptedWithCorrection,
-  incorrectAnswerRequiresRetry,
+  firstIncorrectAttempt,
+  repeatedIncorrectAttempt,
+  remediationRequested,
+  remediationUnavailable,
+  retryAfterRemediation,
   previousStepAvailable,
   alreadyAtFirstStep,
   nextStepLocked,
@@ -32,10 +37,15 @@ enum LessonSessionReasonCode {
 }
 
 class LessonSessionStep {
-  const LessonSessionStep({required this.id, required this.isCheckable});
+  const LessonSessionStep({
+    required this.id,
+    required this.isCheckable,
+    this.hasRemediation = false,
+  });
 
   final String id;
   final bool isCheckable;
+  final bool hasRemediation;
 }
 
 class LessonSessionState {
@@ -43,6 +53,8 @@ class LessonSessionState {
     required this.lessonId,
     this.orderedStepIds = const [],
     this.checkableStepIds = const {},
+    this.remediationAvailableStepIds = const {},
+    this.remediationShownByStepId = const {},
     this.currentStepId,
     this.currentStepIndex = 0,
     this.completedStepIds = const {},
@@ -54,6 +66,8 @@ class LessonSessionState {
   final String lessonId;
   final List<String> orderedStepIds;
   final Set<String> checkableStepIds;
+  final Set<String> remediationAvailableStepIds;
+  final Set<String> remediationShownByStepId;
   final String? currentStepId;
   final int currentStepIndex;
   final Set<String> completedStepIds;
@@ -64,6 +78,8 @@ class LessonSessionState {
   LessonSessionState copyWith({
     List<String>? orderedStepIds,
     Set<String>? checkableStepIds,
+    Set<String>? remediationAvailableStepIds,
+    Set<String>? remediationShownByStepId,
     Object? currentStepId = _unset,
     int? currentStepIndex,
     Set<String>? completedStepIds,
@@ -75,6 +91,10 @@ class LessonSessionState {
       lessonId: lessonId,
       orderedStepIds: orderedStepIds ?? this.orderedStepIds,
       checkableStepIds: checkableStepIds ?? this.checkableStepIds,
+      remediationAvailableStepIds:
+          remediationAvailableStepIds ?? this.remediationAvailableStepIds,
+      remediationShownByStepId:
+          remediationShownByStepId ?? this.remediationShownByStepId,
       currentStepId: currentStepId == _unset
           ? this.currentStepId
           : currentStepId as String?,
@@ -174,10 +194,17 @@ class LessonSessionEngine {
         .where((step) => step.isCheckable)
         .map((step) => step.id)
         .toSet();
+    final remediationAvailableStepIds = steps
+        .where((step) => step.hasRemediation)
+        .map((step) => step.id)
+        .toSet();
     final state = LessonSessionState(
       lessonId: lessonId,
       orderedStepIds: List.unmodifiable(stepIds),
       checkableStepIds: Set.unmodifiable(checkableStepIds),
+      remediationAvailableStepIds: Set.unmodifiable(
+        remediationAvailableStepIds,
+      ),
       currentStepId: stepIds.first,
       status: LessonSessionStatus.inProgress,
     );
@@ -229,9 +256,39 @@ class LessonSessionEngine {
     );
 
     if (!isAccepted) {
+      final newAttemptCount = nextAttempts[stepId] ?? 0;
+      if (newAttemptCount == 1) {
+        return LessonSessionDecision(
+          type: LessonSessionDecisionType.retryCurrentStep,
+          reasonCode: LessonSessionReasonCode.firstIncorrectAttempt,
+          updatedState: updatedState,
+          stepId: stepId,
+        );
+      }
+
+      if (state.remediationAvailableStepIds.contains(stepId)) {
+        final nextRemediationShown = Set<String>.from(
+          updatedState.remediationShownByStepId,
+        )..add(stepId);
+        final remediationState = updatedState.copyWith(
+          remediationShownByStepId: Set.unmodifiable(nextRemediationShown),
+        );
+
+        return LessonSessionDecision(
+          type: LessonSessionDecisionType.showRemediation,
+          reasonCode: LessonSessionReasonCode.remediationRequested,
+          updatedState: remediationState,
+          stepId: stepId,
+        );
+      }
+
+      final reasonCode = newAttemptCount == 2
+          ? LessonSessionReasonCode.remediationUnavailable
+          : LessonSessionReasonCode.repeatedIncorrectAttempt;
+
       return LessonSessionDecision(
         type: LessonSessionDecisionType.retryCurrentStep,
-        reasonCode: LessonSessionReasonCode.incorrectAnswerRequiresRetry,
+        reasonCode: reasonCode,
         updatedState: updatedState,
         stepId: stepId,
       );
@@ -382,9 +439,13 @@ class LessonSessionEngine {
       resultByStepId: Map.unmodifiable(nextResults),
     );
 
+    final reasonCode = state.remediationShownByStepId.contains(stepId)
+        ? LessonSessionReasonCode.retryAfterRemediation
+        : LessonSessionReasonCode.currentStepRestarted;
+
     return LessonSessionDecision(
       type: LessonSessionDecisionType.showCurrentStep,
-      reasonCode: LessonSessionReasonCode.currentStepRestarted,
+      reasonCode: reasonCode,
       updatedState: updatedState,
       stepId: stepId,
     );

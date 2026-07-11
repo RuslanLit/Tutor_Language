@@ -656,6 +656,7 @@ The implemented decision types are:
 | --- | --- | --- |
 | `showCurrentStep` | The caller should display the current step. | None. |
 | `showFeedback` | The caller should display the latest accepted feedback/result. | None. |
+| `showRemediation` | The caller should show authored remediation for the current step, when available. | None. |
 | `retryCurrentStep` | The current answer was not accepted and the learner should retry the same step. | None. |
 | `moveToNextStep` | The caller may display the next step using the updated state. | None. |
 | `moveToPreviousStep` | The caller may display the previous step using the updated state. | None. |
@@ -679,7 +680,11 @@ They:
 | `informationalStepMayContinue` | Next requested from an informational step. | `moveToNextStep`. | Marks informational step complete and advances. |
 | `correctAnswerAccepted` | Current `ActivityResult` is correct. | `showFeedback`. | Increments attempts, stores result, marks step complete. |
 | `acceptedWithCorrection` | Current `ActivityResult` is accepted with feedback. | `showFeedback`. | Increments attempts, stores result, marks step complete. |
-| `incorrectAnswerRequiresRetry` | Current `ActivityResult` is incorrect. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
+| `firstIncorrectAttempt` | First incorrect result for the current step. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
+| `remediationRequested` | Repeated incorrect result and the current step has authored remediation available. | `showRemediation`. | Increments attempts, stores result, marks step incomplete and records remediation visibility. |
+| `remediationUnavailable` | Second incorrect result and the current step has no authored remediation available. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
+| `repeatedIncorrectAttempt` | Later repeated incorrect result with no authored remediation available. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
+| `retryAfterRemediation` | Current step result is cleared after remediation was shown. | `showCurrentStep`. | Removes current result and completion flag without incrementing attempts. |
 | `previousStepAvailable` | Previous requested from a non-first step. | `moveToPreviousStep`. | Moves current step backward. |
 | `alreadyAtFirstStep` | Previous requested from first step. | `rejectAction`. | No state change. |
 | `nextStepLocked` | Next requested from incomplete checkable step. | `rejectAction`. | No state change. |
@@ -705,6 +710,28 @@ The current policy is:
 
 Therefore, a previously completed step may become incomplete if its latest
 resubmission is incorrect.
+
+Remediation Policy
+
+The Session Engine owns only the deterministic remediation decision policy.
+
+Educational content owns the remediation content.
+
+For the current implementation:
+
+- first incorrect attempt retries the current step without remediation;
+- second and later incorrect attempts request remediation when the runtime step
+  declares authored remediation availability;
+- if remediation is unavailable, the learner retries the same step;
+- showing remediation does not complete the step;
+- viewing or clearing remediation does not increment attempts;
+- retry remains on the same step and lesson order is unchanged.
+
+The engine receives remediation availability as runtime metadata on
+`LessonSessionStep`.
+
+The engine must not load assets, inspect grammar content, generate explanations
+or contain target-language teaching prose.
 
 Runtime Dependency Direction
 
@@ -763,9 +790,9 @@ Future Session Extension Points
 
 These are future work and are not implemented:
 
-- Remediation: a later policy may react to repeated incorrect attempts by
-  requesting authored explanation or remediation steps. The engine must not
-  generate remediation text.
+- Escalated remediation: a later policy may react to additional repeated
+  incorrect attempts by inserting authored review steps or offering an authored
+  review lesson. The engine must not generate remediation text.
 - Review insertion: a later session policy may insert authored review steps
   through explicit deterministic rules while preserving stable identity and
   provenance.

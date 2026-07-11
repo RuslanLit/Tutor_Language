@@ -12,6 +12,7 @@ class ActivityTemplateWidget extends StatelessWidget {
     this.engine = const ActivityEngine(),
     this.state,
     this.onStateChanged,
+    this.showIncorrectDetails = true,
     super.key,
   });
 
@@ -19,6 +20,7 @@ class ActivityTemplateWidget extends StatelessWidget {
   final ActivityEngine engine;
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +30,28 @@ class ActivityTemplateWidget extends StatelessWidget {
         engine: engine,
         state: state,
         onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
       ),
       'fill_gap' => FillGapActivityWidget(
         template: template,
         engine: engine,
         state: state,
         onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
       ),
       'text_entry' => FillGapActivityWidget(
         template: template,
         engine: engine,
         state: state,
         onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
       ),
       'matching' => MatchingActivityWidget(
         template: template,
         engine: engine,
         state: state,
         onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
       ),
       _ => Text('Unsupported activity type: ${template.exerciseType}'),
     };
@@ -58,6 +64,7 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
     required this.engine,
     this.state,
     this.onStateChanged,
+    this.showIncorrectDetails = true,
     super.key,
   });
 
@@ -65,6 +72,7 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
   final ActivityEngine engine;
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
 
   @override
   State<MultipleChoiceActivityWidget> createState() =>
@@ -127,7 +135,10 @@ class _MultipleChoiceActivityWidgetState
                   );
                 },
         ),
-        ActivityFeedback(result: state.result),
+        ActivityFeedback(
+          result: state.result,
+          showIncorrectDetails: widget.showIncorrectDetails,
+        ),
       ],
     );
   }
@@ -139,6 +150,7 @@ class FillGapActivityWidget extends StatefulWidget {
     required this.engine,
     this.state,
     this.onStateChanged,
+    this.showIncorrectDetails = true,
     super.key,
   });
 
@@ -146,6 +158,7 @@ class FillGapActivityWidget extends StatefulWidget {
   final ActivityEngine engine;
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
 
   @override
   State<FillGapActivityWidget> createState() => _FillGapActivityWidgetState();
@@ -221,7 +234,10 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
             );
           },
         ),
-        ActivityFeedback(result: state.result),
+        ActivityFeedback(
+          result: state.result,
+          showIncorrectDetails: widget.showIncorrectDetails,
+        ),
       ],
     );
   }
@@ -233,6 +249,7 @@ class MatchingActivityWidget extends StatefulWidget {
     required this.engine,
     this.state,
     this.onStateChanged,
+    this.showIncorrectDetails = true,
     super.key,
   });
 
@@ -240,6 +257,7 @@ class MatchingActivityWidget extends StatefulWidget {
   final ActivityEngine engine;
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
 
   @override
   State<MatchingActivityWidget> createState() => _MatchingActivityWidgetState();
@@ -337,7 +355,10 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
             );
           },
         ),
-        ActivityFeedback(result: state.result),
+        ActivityFeedback(
+          result: state.result,
+          showIncorrectDetails: widget.showIncorrectDetails,
+        ),
       ],
     );
   }
@@ -347,11 +368,13 @@ class ActivityFeedback extends StatelessWidget {
   const ActivityFeedback({
     required this.result,
     this.presenter = const AnswerFeedbackPresenter(),
+    this.showIncorrectDetails = true,
     super.key,
   });
 
   final ActivityResult? result;
   final AnswerFeedbackPresenter presenter;
+  final bool showIncorrectDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -362,6 +385,14 @@ class ActivityFeedback extends StatelessWidget {
 
     final evaluation = result.evaluation;
     if (evaluation != null) {
+      if (evaluation.status == AnswerEvaluationStatus.incorrect &&
+          !showIncorrectDetails) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(result.feedbackText ?? _labelFor(result.status)),
+        );
+      }
+
       final feedback = presenter.present(evaluation);
       return Padding(
         padding: const EdgeInsets.only(top: 8),

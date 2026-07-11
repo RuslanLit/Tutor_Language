@@ -777,6 +777,11 @@ Attempt counts are session-level data. Every evaluated submission increments
 the attempt count. Resubmission is allowed, replaces the latest result and may
 make a previously completed step incomplete if the latest result is incorrect.
 
+The Session Engine may request authored remediation after repeated incorrect
+attempts when runtime step metadata declares that remediation is available.
+
+The engine does not own or generate the remediation content.
+
 Constraints
 
 `LessonSessionEngine` must not depend on:
@@ -796,9 +801,9 @@ content structures, not in the Session Engine.
 
 Future Implications
 
-Future remediation, review insertion, learner-history adaptation and session
-persistence should extend the Session Engine through explicit deterministic
-inputs and adapter boundaries.
+Future escalated remediation, review insertion, learner-history adaptation and
+session persistence should extend the Session Engine through explicit
+deterministic inputs and adapter boundaries.
 
 The engine must remain persistence-agnostic even if a future adapter serializes
 session state.

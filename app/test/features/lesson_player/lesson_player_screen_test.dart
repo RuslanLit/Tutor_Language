@@ -168,6 +168,78 @@ void main() {
     expect(find.text('Accepted Vocabulary'), findsOneWidget);
   });
 
+  testWidgets('repeated incorrect answer renders authored remediation', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.remediation'),
+        service: _FakeLessonAssemblyService(_remediationLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'Soy Ana');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Try again'), findsOneWidget);
+    expect(find.text('Not correct yet'), findsNothing);
+    expect(find.text('Canonical answer: Me llamo Ana'), findsNothing);
+    expect(
+      find.text('- For this introduction pattern, use "me llamo".'),
+      findsNothing,
+    );
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNull,
+    );
+
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Not correct yet'), findsOneWidget);
+    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(
+      find.text('- For this introduction pattern, use "me llamo".'),
+      findsOneWidget,
+    );
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNull,
+    );
+
+    await tester.enterText(find.byType(TextField), 'Me llamo Ana');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('Not correct yet'), findsNothing);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
+    );
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 2 / 2'), findsOneWidget);
+    expect(find.text('Remediation Vocabulary'), findsOneWidget);
+  });
+
   testWidgets('navigates previous and next without losing answers', (
     tester,
   ) async {
@@ -1009,6 +1081,121 @@ const _acceptedFeedbackLessonContent = LessonContent(
               nativeTranslation: 'what',
               cefr: 'A0',
               example: '¿Qué tal?',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _remediationLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.remediation',
+      title: 'Remediation Lesson',
+      description: 'Remediation lesson description.',
+      moduleId: 'module.remediation',
+      courseId: 'course.remediation',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.remediation',
+        description: 'Check authored remediation after repeated mistakes.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.remediation',
+        title: 'Remediation Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.remediation.text',
+            title: 'Remediation Recall',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.remediation.vocabulary',
+            title: 'Remediation Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.remediation',
+        title: 'Remediation Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.remediation.text',
+            title: 'Remediation Recall',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.remediation.vocabulary',
+            title: 'Remediation Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.remediation.text',
+            title: 'Remediation Recall',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.remediation.name',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish pattern for "My name is Ana."',
+              expectedAnswer: 'Me llamo Ana',
+              authoredMisconceptions: [
+                AuthoredMisconception(
+                  id: 'misconception.remediation.soy_ana.v1',
+                  matchingAnswers: ['Soy Ana'],
+                  feedbackKey: 'spanish.name_pattern.use_me_llamo',
+                  canonicalAnswer: 'Me llamo Ana',
+                  explanationReferenceId: 'grammar.name_pattern',
+                ),
+              ],
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.remediation.vocabulary',
+            title: 'Remediation Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.remediation',
+              spanish: 'Me llamo Ana.',
+              nativeTranslation: 'My name is Ana.',
+              cefr: 'A0',
+              example: 'Me llamo Ana.',
             ),
           ],
         ),

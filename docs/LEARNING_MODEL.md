@@ -463,11 +463,14 @@ It tracks in-memory session state:
 - completed session steps;
 - latest evaluated result per step;
 - attempts per step;
+- authored remediation availability per step;
+- whether remediation has been shown for a step;
 - session status.
 
 It determines immediate session consequences:
 
 - retry current step;
+- show authored remediation;
 - show feedback;
 - move to previous step;
 - move to next step;
@@ -520,16 +523,21 @@ Current session policy:
 - correct results complete the step and permit progression;
 - accepted-with-feedback results complete the step and permit progression while
   preserving the correction result;
-- incorrect results keep the step incomplete and require retry;
+- the first incorrect result keeps the step incomplete and requires retry;
+- repeated incorrect results show authored remediation when the current step
+  declares remediation availability;
+- repeated incorrect results without remediation availability require retry;
 - informational steps may continue without a submission;
 - finish is allowed only at the final eligible step.
 
 Attempt tracking is in-memory session state:
 
 - every evaluated submission increments the attempt count;
+- showing remediation does not increment attempts;
 - informational navigation does not increment attempts;
 - previous and next navigation do not increment attempts;
 - attempts remain attached to stable step IDs;
+- remediation visibility remains attached to stable step IDs;
 - resubmission is allowed;
 - resubmission replaces the latest stored result;
 - completion eligibility follows the latest result.
@@ -537,8 +545,18 @@ Attempt tracking is in-memory session state:
 A previously completed step may become incomplete if its latest resubmission is
 incorrect.
 
+The Session Engine does not generate remediation content.
+
+It only decides whether authored remediation associated with the current runtime
+step should be shown.
+
+Authored remediation may explain a known misconception, show a focused reminder
+or point back to a previously authored explanation, but it must not introduce
+unrelated material.
+
 Advanced mastery estimation, spaced repetition, durable attempt history,
-adaptive retry scheduling and long-term review scheduling remain future work.
+adaptive retry scheduling, inserted review steps and long-term review
+scheduling remain future work.
 
 ---
 

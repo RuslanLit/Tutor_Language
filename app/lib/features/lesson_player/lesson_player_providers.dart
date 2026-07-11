@@ -62,8 +62,11 @@ class LessonPlayerSessionState {
       lessonId: lessonId,
       steps: steps
           .map(
-            (step) =>
-                LessonSessionStep(id: step.id, isCheckable: step.isCheckable),
+            (step) => LessonSessionStep(
+              id: step.id,
+              isCheckable: step.isCheckable,
+              hasRemediation: step.hasRemediation,
+            ),
           )
           .toList(growable: false),
     );

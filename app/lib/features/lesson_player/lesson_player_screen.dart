@@ -93,6 +93,8 @@ class LessonPlayerView extends ConsumerWidget {
           LessonPlayerStepView(
             step: currentStep,
             state: activeSession.stepStates[currentStep.id],
+            showRemediation: activeSession.sessionState.remediationShownByStepId
+                .contains(currentStep.id),
             onStateChanged: (stepState) {
               final nextStepStates = {
                 ...activeSession.stepStates,
@@ -352,12 +354,14 @@ class LessonPlayerStepView extends StatelessWidget {
   const LessonPlayerStepView({
     required this.step,
     this.state,
+    this.showRemediation = false,
     this.onStateChanged,
     super.key,
   });
 
   final LessonPlayerStep step;
   final ActivityTemplateState? state;
+  final bool showRemediation;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
@@ -385,6 +389,7 @@ class LessonPlayerStepView extends StatelessWidget {
                 child: LessonContentObjectView(
                   content: content,
                   state: state,
+                  showRemediation: showRemediation,
                   onStateChanged: onStateChanged,
                 ),
               ),
@@ -399,12 +404,14 @@ class LessonContentObjectView extends StatelessWidget {
   const LessonContentObjectView({
     required this.content,
     this.state,
+    this.showRemediation = false,
     this.onStateChanged,
     super.key,
   });
 
   final Object content;
   final ActivityTemplateState? state;
+  final bool showRemediation;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
@@ -417,6 +424,7 @@ class LessonContentObjectView extends StatelessWidget {
       ExerciseTemplate template => ExerciseTemplateView(
         template: template,
         state: state,
+        showRemediation: showRemediation,
         onStateChanged: onStateChanged,
       ),
       _ => Text('Unsupported content: ${content.runtimeType}'),
@@ -527,12 +535,14 @@ class ExerciseTemplateView extends StatelessWidget {
   const ExerciseTemplateView({
     required this.template,
     this.state,
+    this.showRemediation = false,
     this.onStateChanged,
     super.key,
   });
 
   final ExerciseTemplate template;
   final ActivityTemplateState? state;
+  final bool showRemediation;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
@@ -540,6 +550,7 @@ class ExerciseTemplateView extends StatelessWidget {
     return ActivityTemplateWidget(
       template: template,
       state: state,
+      showIncorrectDetails: showRemediation,
       onStateChanged: onStateChanged,
     );
   }
