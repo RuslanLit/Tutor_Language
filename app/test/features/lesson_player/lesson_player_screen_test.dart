@@ -24,13 +24,9 @@ void main() {
 
     expect(find.text('Hello and Goodbye'), findsOneWidget);
     expect(find.text('vocabulary'), findsWidgets);
-    expect(find.text('dialogue'), findsWidgets);
-    expect(find.text('reading'), findsWidgets);
-    expect(find.text('practice'), findsWidgets);
     expect(find.text('hola'), findsWidgets);
     expect(find.text('grammar'), findsNothing);
-    expect(find.text('Greeting Exchange'), findsOneWidget);
-    expect(find.text('Greetings and Goodbyes'), findsOneWidget);
+    expect(find.text('Greeting Exchange'), findsNothing);
   });
 
   testWidgets(
@@ -46,9 +42,31 @@ void main() {
 
       expect(find.text('Dynamic Lesson Title'), findsOneWidget);
       expect(find.text('lexema-dinamico'), findsOneWidget);
+      expect(find.text('Activity 1 / 5'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Next →'));
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+
       expect(find.text('Dynamic grammar explanation.'), findsOneWidget);
+      expect(find.text('lexema-dinamico'), findsNothing);
+
+      await tester.ensureVisible(find.text('Next →'));
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+
       expect(find.text('Dynamic speaker'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Next →'));
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+
       expect(find.text('Dynamic reading text.'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Next →'));
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+
       expect(find.text('Dynamic prompt?'), findsOneWidget);
       expect(find.text('Hello and Goodbye'), findsNothing);
     },
@@ -79,6 +97,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    expect(find.text('Finish Lesson'), findsOneWidget);
     await tester.tap(find.text('wrong option'));
     await tester.pump();
     await tester.tap(find.text('Check'));
@@ -103,6 +122,205 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
   });
+
+  testWidgets('navigates previous and next without losing answers', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: _navigationLessonId),
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Activity 1 / 3'), findsOneWidget);
+    expect(
+      tester
+          .widget<OutlinedButton>(
+            find.widgetWithText(OutlinedButton, '← Previous'),
+          )
+          .onPressed,
+      isNull,
+    );
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
+    );
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(
+      tester
+          .widget<OutlinedButton>(
+            find.widgetWithText(OutlinedButton, '← Previous'),
+          )
+          .onPressed,
+      isNotNull,
+    );
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNull,
+    );
+
+    await tester.tap(find.text('wrong option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Try again'), findsOneWidget);
+    expect(
+      tester
+          .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
+          .onPressed,
+      isNotNull,
+    );
+
+    await tester.tap(find.text('← Previous'));
+    await tester.pump();
+
+    expect(find.text('Activity 1 / 3'), findsOneWidget);
+    expect(find.text('Navigation Vocabulary'), findsOneWidget);
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Try again'), findsOneWidget);
+    expect(
+      tester
+          .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, 'wrong option'))
+          .selected,
+      isTrue,
+    );
+  });
+
+  testWidgets('resume restores position, answers, and feedback', (
+    tester,
+  ) async {
+    var showLesson = true;
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWith((ref) {
+            final database = AppDatabase(NativeDatabase.memory());
+            ref.onDispose(database.close);
+            return database;
+          }),
+          lessonAssemblyServiceProvider.overrideWith(
+            (ref) => _FakeLessonAssemblyService(_navigationLessonContent),
+          ),
+        ],
+        child: StatefulBuilder(
+          builder: (context, setState) {
+            return MaterialApp(
+              home: Scaffold(
+                body: showLesson
+                    ? const LessonPlayerScreen(lessonId: _navigationLessonId)
+                    : const Text('Outside lesson'),
+                floatingActionButton: FloatingActionButton(
+                  onPressed: () {
+                    setState(() {
+                      showLesson = !showLesson;
+                    });
+                  },
+                  child: const Text('Swap'),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+    await tester.tap(find.text('wrong option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Try again'), findsOneWidget);
+
+    await tester.tap(find.text('Swap'));
+    await tester.pump();
+
+    expect(find.text('Outside lesson'), findsOneWidget);
+
+    await tester.tap(find.text('Swap'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Activity 2 / 3'), findsOneWidget);
+    expect(find.text('Try again'), findsOneWidget);
+    expect(
+      tester
+          .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, 'wrong option'))
+          .selected,
+      isTrue,
+    );
+  });
+
+  testWidgets(
+    'finish lesson is available only after final activity completion',
+    (tester) async {
+      await tester.pumpWidget(
+        _app(
+          const LessonPlayerScreen(lessonId: _navigationLessonId),
+          service: _FakeLessonAssemblyService(_navigationLessonContent),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+      await tester.tap(find.text('right option'));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      await tester.tap(find.text('Next →'));
+      await tester.pump();
+
+      expect(find.text('Activity 3 / 3'), findsOneWidget);
+      expect(find.text('Finish Lesson'), findsOneWidget);
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.widgetWithText(FilledButton, 'Finish Lesson'),
+            )
+            .onPressed,
+        isNull,
+      );
+
+      await tester.enterText(find.byType(TextField), 'hola');
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+
+      expect(find.text('Correct'), findsOneWidget);
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.widgetWithText(FilledButton, 'Finish Lesson'),
+            )
+            .onPressed,
+        isNotNull,
+      );
+
+      await tester.tap(find.text('Finish Lesson'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      expect(find.text('Finish Lesson'), findsNothing);
+    },
+  );
 
   testWidgets('does not crash when a lesson has no practice activities', (
     tester,
@@ -450,6 +668,154 @@ const _interactiveLessonContent = LessonContent(
                 ),
               ],
               correctOptionId: 'option.right',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _navigationLessonId = 'es.a0.m01.l001';
+
+const _navigationLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: _navigationLessonId,
+      title: 'Navigation Lesson',
+      description: 'Navigation lesson description.',
+      moduleId: 'es.a0.m01',
+      courseId: 'es.a0',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.navigation',
+        description: 'Exercise deterministic lesson navigation.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.navigation',
+        title: 'Navigation Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.navigation.vocabulary',
+            title: 'Navigation Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.navigation.choice',
+            title: 'Navigation Choice',
+            type: 'exercise_template',
+            order: 2,
+          ),
+          LessonActivity(
+            id: 'activity.navigation.text',
+            title: 'Navigation Text',
+            type: 'exercise_template',
+            order: 3,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.navigation',
+        title: 'Navigation Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.navigation.vocabulary',
+            title: 'Navigation Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.navigation.choice',
+            title: 'Navigation Choice',
+            type: 'exercise_template',
+            order: 2,
+          ),
+          LessonActivity(
+            id: 'activity.navigation.text',
+            title: 'Navigation Text',
+            type: 'exercise_template',
+            order: 3,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.navigation.vocabulary',
+            title: 'Navigation Vocabulary',
+            type: 'vocabulary',
+            order: 1,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.navigation',
+              spanish: 'hola',
+              nativeTranslation: 'hello',
+              cefr: 'A0',
+              example: 'Hola.',
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.navigation.choice',
+            title: 'Navigation Choice',
+            type: 'exercise_template',
+            order: 2,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.navigation.choice',
+              exerciseType: 'multiple_choice',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Choose the right option.',
+              answerOptions: [
+                ExerciseTemplateOption(
+                  id: 'option.wrong',
+                  label: 'wrong option',
+                ),
+                ExerciseTemplateOption(
+                  id: 'option.right',
+                  label: 'right option',
+                ),
+              ],
+              correctOptionId: 'option.right',
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.navigation.text',
+            title: 'Navigation Text',
+            type: 'exercise_template',
+            order: 3,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.navigation.text',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the greeting.',
+              expectedAnswer: 'hola',
             ),
           ],
         ),

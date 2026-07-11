@@ -71,7 +71,7 @@ void main() {
 
       expect(assemblyService.requestedLessonIds, ['lesson.selected.by.plan']);
       expect(find.text('Planner Selected Lesson'), findsOneWidget);
-      expect(find.text('Planner Selected Section'), findsOneWidget);
+      expect(find.text('No activities available.'), findsOneWidget);
     },
   );
 

@@ -6,6 +6,7 @@ import '../../app/router/app_router.dart';
 import '../../core/content/topic_content.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
+import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
@@ -39,6 +40,15 @@ class LessonPlayerView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lesson = lessonContent.lesson;
+    final activities = lessonContent.activities;
+    final sessionProvider = lessonPlayerSessionProvider(lesson.id);
+    final session = ref.watch(sessionProvider);
+    final currentActivityIndex = activities.isEmpty
+        ? 0
+        : session.currentActivityIndex.clamp(0, activities.length - 1);
+    final currentActivity = activities.isEmpty
+        ? null
+        : activities[currentActivityIndex];
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -63,31 +73,78 @@ class LessonPlayerView extends ConsumerWidget {
           Text(lesson.description),
         ],
         const SizedBox(height: 20),
-        for (final section in lessonContent.sections)
-          LessonSectionView(sectionContent: section),
-        LessonCompletionControls(lessonId: lesson.id),
+        if (currentActivity == null)
+          const Text('No activities available.')
+        else ...[
+          LessonActivityView(
+            activityContent: currentActivity,
+            activityStates: session.activityStates,
+            onActivityStateChanged: (templateId, activityState) {
+              final nextActivityStates = {
+                ...session.activityStates,
+                templateId: activityState,
+              };
+              final nextCompletedActivityIds = <String>{
+                ...session.completedActivityIds,
+              };
+              if (_isActivityCompleted(currentActivity, nextActivityStates)) {
+                nextCompletedActivityIds.add(currentActivity.activity.id);
+              } else {
+                nextCompletedActivityIds.remove(currentActivity.activity.id);
+              }
+
+              ref.read(sessionProvider.notifier).state = session.copyWith(
+                completedActivityIds: nextCompletedActivityIds,
+                activityStates: nextActivityStates,
+              );
+            },
+          ),
+          LessonNavigationControls(
+            lessonId: lesson.id,
+            activities: activities,
+            currentActivityIndex: currentActivityIndex,
+            session: session,
+          ),
+        ],
       ],
     );
   }
 }
 
-class LessonCompletionControls extends ConsumerStatefulWidget {
-  const LessonCompletionControls({required this.lessonId, super.key});
+class LessonNavigationControls extends ConsumerStatefulWidget {
+  const LessonNavigationControls({
+    required this.lessonId,
+    required this.activities,
+    required this.currentActivityIndex,
+    required this.session,
+    super.key,
+  });
 
   final String lessonId;
+  final List<LessonContentActivity> activities;
+  final int currentActivityIndex;
+  final LessonPlayerSessionState session;
 
   @override
-  ConsumerState<LessonCompletionControls> createState() =>
-      _LessonCompletionControlsState();
+  ConsumerState<LessonNavigationControls> createState() =>
+      _LessonNavigationControlsState();
 }
 
-class _LessonCompletionControlsState
-    extends ConsumerState<LessonCompletionControls> {
+class _LessonNavigationControlsState
+    extends ConsumerState<LessonNavigationControls> {
   bool _isCompleting = false;
 
   @override
   Widget build(BuildContext context) {
     final progress = ref.watch(topicProgressProvider(widget.lessonId));
+    final isFirstActivity = widget.currentActivityIndex == 0;
+    final isLastActivity =
+        widget.currentActivityIndex == widget.activities.length - 1;
+    final currentActivity = widget.activities[widget.currentActivityIndex];
+    final isCurrentActivityCompleted = _isActivityCompleted(
+      currentActivity,
+      widget.session.activityStates,
+    );
 
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 24),
@@ -95,9 +152,35 @@ class _LessonCompletionControlsState
         data: (progress) {
           final isCompleted = progress.hasBeenCompleted;
           if (!isCompleted) {
-            return FilledButton(
-              onPressed: _isCompleting ? null : _completeLesson,
-              child: Text(_isCompleting ? 'Completing...' : 'Complete lesson'),
+            return Row(
+              children: [
+                OutlinedButton(
+                  onPressed: isFirstActivity ? null : _goToPreviousActivity,
+                  child: const Text('← Previous'),
+                ),
+                const Spacer(),
+                Text(
+                  'Activity ${widget.currentActivityIndex + 1} / '
+                  '${widget.activities.length}',
+                ),
+                const Spacer(),
+                if (isLastActivity)
+                  FilledButton(
+                    onPressed: _isCompleting || !isCurrentActivityCompleted
+                        ? null
+                        : _completeLesson,
+                    child: Text(
+                      _isCompleting ? 'Finishing...' : 'Finish Lesson',
+                    ),
+                  )
+                else
+                  FilledButton(
+                    onPressed: isCurrentActivityCompleted
+                        ? _goToNextActivity
+                        : null,
+                    child: const Text('Next →'),
+                  ),
+              ],
             );
           }
 
@@ -139,6 +222,11 @@ class _LessonCompletionControlsState
   }
 
   Future<void> _completeLesson() async {
+    final currentActivity = widget.activities[widget.currentActivityIndex];
+    if (!_isActivityCompleted(currentActivity, widget.session.activityStates)) {
+      return;
+    }
+
     setState(() {
       _isCompleting = true;
     });
@@ -156,6 +244,39 @@ class _LessonCompletionControlsState
         _isCompleting = false;
       });
     }
+  }
+
+  void _goToPreviousActivity() {
+    if (widget.currentActivityIndex <= 0) {
+      return;
+    }
+
+    ref
+        .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+        .state = widget.session.copyWith(
+      currentActivityIndex: widget.currentActivityIndex - 1,
+    );
+  }
+
+  void _goToNextActivity() {
+    if (widget.currentActivityIndex >= widget.activities.length - 1) {
+      return;
+    }
+
+    final currentActivity = widget.activities[widget.currentActivityIndex];
+    if (!_isActivityCompleted(currentActivity, widget.session.activityStates)) {
+      return;
+    }
+
+    ref
+        .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+        .state = widget.session.copyWith(
+      currentActivityIndex: widget.currentActivityIndex + 1,
+      completedActivityIds: {
+        ...widget.session.completedActivityIds,
+        currentActivity.activity.id,
+      },
+    );
   }
 }
 
@@ -185,9 +306,17 @@ class LessonSectionView extends StatelessWidget {
 }
 
 class LessonActivityView extends StatelessWidget {
-  const LessonActivityView({required this.activityContent, super.key});
+  const LessonActivityView({
+    required this.activityContent,
+    this.activityStates = const {},
+    this.onActivityStateChanged,
+    super.key,
+  });
 
   final LessonContentActivity activityContent;
+  final Map<String, ActivityTemplateState> activityStates;
+  final void Function(String templateId, ActivityTemplateState state)?
+  onActivityStateChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -211,7 +340,11 @@ class LessonActivityView extends StatelessWidget {
             for (final content in activityContent.resolvedContent)
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
-                child: LessonContentObjectView(content: content),
+                child: LessonContentObjectView(
+                  content: content,
+                  activityStates: activityStates,
+                  onActivityStateChanged: onActivityStateChanged,
+                ),
               ),
           ],
         ),
@@ -221,9 +354,17 @@ class LessonActivityView extends StatelessWidget {
 }
 
 class LessonContentObjectView extends StatelessWidget {
-  const LessonContentObjectView({required this.content, super.key});
+  const LessonContentObjectView({
+    required this.content,
+    this.activityStates = const {},
+    this.onActivityStateChanged,
+    super.key,
+  });
 
   final Object content;
+  final Map<String, ActivityTemplateState> activityStates;
+  final void Function(String templateId, ActivityTemplateState state)?
+  onActivityStateChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -232,7 +373,13 @@ class LessonContentObjectView extends StatelessWidget {
       GrammarTopic topic => GrammarTopicView(topic: topic),
       Dialogue dialogue => DialogueView(dialogue: dialogue),
       ReadingText reading => ReadingTextView(reading: reading),
-      ExerciseTemplate template => ExerciseTemplateView(template: template),
+      ExerciseTemplate template => ExerciseTemplateView(
+        template: template,
+        state: activityStates[template.id],
+        onStateChanged: (state) {
+          onActivityStateChanged?.call(template.id, state);
+        },
+      ),
       _ => Text('Unsupported content: ${content.runtimeType}'),
     };
   }
@@ -338,14 +485,52 @@ class ReadingTextView extends StatelessWidget {
 }
 
 class ExerciseTemplateView extends StatelessWidget {
-  const ExerciseTemplateView({required this.template, super.key});
+  const ExerciseTemplateView({
+    required this.template,
+    this.state,
+    this.onStateChanged,
+    super.key,
+  });
 
   final ExerciseTemplate template;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   Widget build(BuildContext context) {
-    return ActivityTemplateWidget(template: template);
+    return ActivityTemplateWidget(
+      template: template,
+      state: state,
+      onStateChanged: onStateChanged,
+    );
   }
+}
+
+bool _isActivityCompleted(
+  LessonContentActivity activity,
+  Map<String, ActivityTemplateState> activityStates,
+) {
+  final requiredTemplates = activity.resolvedContent
+      .whereType<ExerciseTemplate>()
+      .where(_requiresCompletion)
+      .toList(growable: false);
+
+  if (requiredTemplates.isEmpty) {
+    return true;
+  }
+
+  return requiredTemplates.every((template) {
+    return activityStates[template.id]?.isCompleted ?? false;
+  });
+}
+
+bool _requiresCompletion(ExerciseTemplate template) {
+  return switch (template.exerciseType) {
+    'multiple_choice' => template.correctOptionId != null,
+    'fill_gap' || 'text_entry' => template.expectedAnswer != null,
+    'matching' => template.expectedAnswer != null,
+    _ => false,
+  };
 }
 
 class _MetadataChip extends StatelessWidget {

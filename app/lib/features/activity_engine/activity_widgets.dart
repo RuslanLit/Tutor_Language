@@ -4,16 +4,21 @@ import '../../core/content/topic_content.dart';
 import '../answer_evaluation/answer_evaluation.dart';
 import 'activity_engine.dart';
 import 'activity_result.dart';
+import 'activity_template_state.dart';
 
 class ActivityTemplateWidget extends StatelessWidget {
   const ActivityTemplateWidget({
     required this.template,
     this.engine = const ActivityEngine(),
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
   final ExerciseTemplate template;
   final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +26,27 @@ class ActivityTemplateWidget extends StatelessWidget {
       'multiple_choice' => MultipleChoiceActivityWidget(
         template: template,
         engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
       ),
-      'fill_gap' => FillGapActivityWidget(template: template, engine: engine),
-      'text_entry' => FillGapActivityWidget(template: template, engine: engine),
-      'matching' => MatchingActivityWidget(template: template, engine: engine),
+      'fill_gap' => FillGapActivityWidget(
+        template: template,
+        engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
+      ),
+      'text_entry' => FillGapActivityWidget(
+        template: template,
+        engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
+      ),
+      'matching' => MatchingActivityWidget(
+        template: template,
+        engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
+      ),
       _ => Text('Unsupported activity type: ${template.exerciseType}'),
     };
   }
@@ -34,11 +56,15 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
   const MultipleChoiceActivityWidget({
     required this.template,
     required this.engine,
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
   final ExerciseTemplate template;
   final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   State<MultipleChoiceActivityWidget> createState() =>
@@ -47,11 +73,26 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
 
 class _MultipleChoiceActivityWidgetState
     extends State<MultipleChoiceActivityWidget> {
-  String? _selectedOptionId;
-  ActivityResult? _result;
+  ActivityTemplateState _state = const ActivityTemplateState();
+
+  ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  void _updateState(ActivityTemplateState state) {
+    final onStateChanged = widget.onStateChanged;
+    if (onStateChanged != null) {
+      onStateChanged(state);
+      return;
+    }
+
+    setState(() {
+      _state = state;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final state = _currentState;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,30 +103,31 @@ class _MultipleChoiceActivityWidgetState
             padding: const EdgeInsets.only(right: 8, bottom: 8),
             child: ChoiceChip(
               label: Text(option.label),
-              selected: _selectedOptionId == option.id,
+              selected: state.selectedOptionId == option.id,
               onSelected: (_) {
-                setState(() {
-                  _selectedOptionId = option.id;
-                  _result = null;
-                });
+                _updateState(
+                  state.copyWith(selectedOptionId: option.id, result: null),
+                );
               },
             ),
           ),
         _CheckButton(
-          onPressed: _selectedOptionId == null
+          onPressed: state.selectedOptionId == null
               ? null
               : () {
-                  setState(() {
-                    _result = widget.engine.evaluate(
-                      template: widget.template,
-                      submission: ActivitySubmission(
-                        selectedAnswerId: _selectedOptionId,
+                  _updateState(
+                    state.copyWith(
+                      result: widget.engine.evaluate(
+                        template: widget.template,
+                        submission: ActivitySubmission(
+                          selectedAnswerId: state.selectedOptionId,
+                        ),
                       ),
-                    );
-                  });
+                    ),
+                  );
                 },
         ),
-        ActivityFeedback(result: _result),
+        ActivityFeedback(result: state.result),
       ],
     );
   }
@@ -95,11 +137,15 @@ class FillGapActivityWidget extends StatefulWidget {
   const FillGapActivityWidget({
     required this.template,
     required this.engine,
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
   final ExerciseTemplate template;
   final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   State<FillGapActivityWidget> createState() => _FillGapActivityWidgetState();
@@ -107,7 +153,36 @@ class FillGapActivityWidget extends StatefulWidget {
 
 class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
   final TextEditingController _controller = TextEditingController();
-  ActivityResult? _result;
+  ActivityTemplateState _state = const ActivityTemplateState();
+
+  ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.text = _currentState.submittedAnswer;
+  }
+
+  @override
+  void didUpdateWidget(FillGapActivityWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final submittedAnswer = _currentState.submittedAnswer;
+    if (_controller.text != submittedAnswer) {
+      _controller.text = submittedAnswer;
+    }
+  }
+
+  void _updateState(ActivityTemplateState state) {
+    final onStateChanged = widget.onStateChanged;
+    if (onStateChanged != null) {
+      onStateChanged(state);
+      return;
+    }
+
+    setState(() {
+      _state = state;
+    });
+  }
 
   @override
   void dispose() {
@@ -117,6 +192,8 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final state = _currentState;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -125,25 +202,26 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
         TextField(
           controller: _controller,
           decoration: const InputDecoration(labelText: 'Answer'),
-          onChanged: (_) {
-            setState(() {
-              _result = null;
-            });
+          onChanged: (value) {
+            _updateState(state.copyWith(submittedAnswer: value, result: null));
           },
         ),
         _CheckButton(
           onPressed: () {
-            setState(() {
-              _result = widget.engine.evaluate(
-                template: widget.template,
-                submission: ActivitySubmission(
-                  submittedAnswer: _controller.text,
+            _updateState(
+              state.copyWith(
+                submittedAnswer: _controller.text,
+                result: widget.engine.evaluate(
+                  template: widget.template,
+                  submission: ActivitySubmission(
+                    submittedAnswer: _controller.text,
+                  ),
                 ),
-              );
-            });
+              ),
+            );
           },
         ),
-        ActivityFeedback(result: _result),
+        ActivityFeedback(result: state.result),
       ],
     );
   }
@@ -153,11 +231,15 @@ class MatchingActivityWidget extends StatefulWidget {
   const MatchingActivityWidget({
     required this.template,
     required this.engine,
+    this.state,
+    this.onStateChanged,
     super.key,
   });
 
   final ExerciseTemplate template;
   final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   State<MatchingActivityWidget> createState() => _MatchingActivityWidgetState();
@@ -165,7 +247,21 @@ class MatchingActivityWidget extends StatefulWidget {
 
 class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
   final Map<String, TextEditingController> _controllers = {};
-  ActivityResult? _result;
+  ActivityTemplateState _state = const ActivityTemplateState();
+
+  ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  void _updateState(ActivityTemplateState state) {
+    final onStateChanged = widget.onStateChanged;
+    if (onStateChanged != null) {
+      onStateChanged(state);
+      return;
+    }
+
+    setState(() {
+      _state = state;
+    });
+  }
 
   @override
   void dispose() {
@@ -177,6 +273,7 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final state = _currentState;
     final expectedPairs = widget.engine.expectedMatchingPairs(widget.template);
 
     if (expectedPairs.isEmpty) {
@@ -192,6 +289,11 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
 
     for (final left in expectedPairs.keys) {
       _controllers.putIfAbsent(left, TextEditingController.new);
+      final controller = _controllers[left]!;
+      final value = state.matchedPairs[left] ?? '';
+      if (controller.text != value) {
+        controller.text = value;
+      }
     }
 
     return Column(
@@ -206,28 +308,36 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
               controller: _controllers[left],
               decoration: InputDecoration(labelText: left),
               onChanged: (_) {
-                setState(() {
-                  _result = null;
-                });
+                _updateState(
+                  state.copyWith(
+                    matchedPairs: {
+                      for (final entry in _controllers.entries)
+                        entry.key: entry.value.text,
+                    },
+                    result: null,
+                  ),
+                );
               },
             ),
           ),
         _CheckButton(
           onPressed: () {
-            setState(() {
-              _result = widget.engine.evaluate(
-                template: widget.template,
-                submission: ActivitySubmission(
-                  matchedPairs: {
-                    for (final entry in _controllers.entries)
-                      entry.key: entry.value.text,
-                  },
+            final matchedPairs = {
+              for (final entry in _controllers.entries)
+                entry.key: entry.value.text,
+            };
+            _updateState(
+              state.copyWith(
+                matchedPairs: matchedPairs,
+                result: widget.engine.evaluate(
+                  template: widget.template,
+                  submission: ActivitySubmission(matchedPairs: matchedPairs),
                 ),
-              );
-            });
+              ),
+            );
           },
         ),
-        ActivityFeedback(result: _result),
+        ActivityFeedback(result: state.result),
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
+import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
@@ -129,7 +130,7 @@ void main() {
     await tester.tap(find.text('Alpha'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Complete lesson'));
+    await tester.tap(find.text('Finish Lesson'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue to next lesson'));
     await tester.pumpAndSettle();
@@ -176,7 +177,41 @@ class _RecordingLessonAssemblyService extends LessonAssemblyService {
       (candidate) => candidate.id == lessonId,
     );
 
-    return LessonContent(lesson: lesson, sections: const []);
+    const activity = LessonActivity(
+      id: 'activity.fake.vocabulary',
+      title: 'Fake Vocabulary',
+      type: 'vocabulary',
+      order: 1,
+    );
+    const section = LessonSection(
+      id: 'section.fake',
+      title: 'Fake Section',
+      order: 1,
+      activities: [activity],
+    );
+
+    return LessonContent(
+      lesson: lesson,
+      sections: const [
+        LessonContentSection(
+          section: section,
+          activities: [
+            LessonContentActivity(
+              activity: activity,
+              resolvedContent: [
+                VocabularyItem(
+                  id: 'vocab.fake',
+                  spanish: 'hola',
+                  nativeTranslation: 'hello',
+                  cefr: 'A0',
+                  example: 'Hola.',
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
