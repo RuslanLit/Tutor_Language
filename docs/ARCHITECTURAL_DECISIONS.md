@@ -8,6 +8,7 @@ Related documents:
 
 - PROJECT_VISION.md
 - PROJECT_CONTRACT.md
+- EDUCATIONAL_PRINCIPLES.md
 - ARCHITECTURE.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
@@ -591,6 +592,79 @@ ActivityEngine must not store learner progress directly.
 Advanced adaptive review scheduling, mastery estimation, spaced repetition, dynamic content-level planning and LLM-assisted authoring remain future work unless explicitly implemented.
 
 Adding a new Educational Content type requires an explicit architectural decision.
+
+---
+
+# ADR-0013
+
+Status
+
+Accepted
+
+Title
+
+Active Recall as the Default Knowledge-Formation Strategy
+
+Context
+
+Recognition-only exercises are easy to complete and may be passed through
+guessing.
+
+Immediate correctness is not always strong evidence of durable language
+ability.
+
+Tutor Language optimizes for practical long-term learning rather than
+superficial lesson completion.
+
+Decision
+
+The course should progressively move learners from exposure and recognition
+toward independent recall and application.
+
+Each exercise should require the greatest reasonable degree of independent
+knowledge retrieval appropriate to the learner's current stage.
+
+Multiple choice remains available when pedagogically justified, especially for
+first exposure, discrimination and scaffolding, but it should not normally be
+the sole evidence that a learner can actively use a knowledge unit.
+
+Lesson completion remains distinct from mastery.
+
+Rationale
+
+Retrieval practice is generally associated with stronger long-term retention
+than passive restudy under many learning conditions.
+
+Active production also provides stronger evidence about what the learner can
+retrieve without visible support.
+
+The project still remains adaptive: this decision defines a default
+knowledge-formation strategy, not a rigid sequence that every lesson must
+follow.
+
+Consequences
+
+The project will need more typed-response, recall and controlled-application
+activities over time.
+
+Content authoring requirements become stricter.
+
+Exercise prompts must be unambiguous.
+
+Accepted answer variants and feedback must be intentional, deterministic and
+reviewable.
+
+Multiple choice is retained, but recognition-only lessons require a
+pedagogical reason.
+
+Future implementation will need deterministic answer normalization, comparison,
+difference classification and feedback.
+
+Future Lesson Session Engine work will be needed for attempt history,
+activity-level evidence, delayed retrieval, adaptive retry scheduling and
+mastery estimation.
+
+Increased learner effort is intentional when it improves learning.
 
 ---
 

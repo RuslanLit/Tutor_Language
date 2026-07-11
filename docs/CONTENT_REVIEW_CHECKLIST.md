@@ -6,6 +6,7 @@ Version: 1.0
 
 Related documents:
 
+- EDUCATIONAL_PRINCIPLES.md
 - AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - AUTHORING_DECISIONS.md
@@ -116,6 +117,16 @@ For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.m
 - [ ] Correct answers are derived from referenced Educational Content or explicit template structure.
 - [ ] Exercises match the taught material.
 - [ ] Exercises do not test untaught knowledge.
+- [ ] The exercise mode matches the intended retrieval demand.
+- [ ] Multiple choice is used as recognition or scaffolding, not as the only proof of active use.
+- [ ] Distractors are plausible and do not make the correct answer obvious by absurdity.
+- [ ] The learner cannot pass primarily by guessing.
+- [ ] Recall follows recognition when the learner has enough support.
+- [ ] Typed production is used where active recall or controlled application is the objective and the current implementation supports it.
+- [ ] Prompts clearly state what kind of answer is expected.
+- [ ] Accepted alternatives are intentional and documented.
+- [ ] Orthographic differences are handled pedagogically where deterministic rules support them.
+- [ ] Feedback explains a useful distinction rather than merely labelling an answer wrong.
 
 ---
 

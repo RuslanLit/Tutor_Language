@@ -1,6 +1,13 @@
 # V1_TECHNICAL_SPEC.md
 
-Status: Active
+Status: Partially Superseded Implementation Scope
+
+Superseded by:
+
+- EDUCATIONAL_PRINCIPLES.md
+- ARCHITECTURAL_DECISIONS.md
+- ARCHITECTURE.md
+- LEARNING_MODEL.md
 
 Version: 3.2
 
@@ -18,9 +25,16 @@ Related documents:
 
 # Purpose
 
-This document defines the implementation scope of Tutor Language Generation 1.
+This document originally defined the implementation scope of Tutor Language Generation 1.
 
-It specifies **what must be implemented**, not **how the architecture works**.
+It specified the original implementation target, not **how the architecture works**.
+
+This document preserves the V1 target scope. Some details are partially
+superseded by later architecture decisions and current implementation status.
+When this document claims features such as Review Queue influence, Evaluation
+Results, advanced Learner State updates or mastery as Generation 1 requirements,
+read those claims as historical target scope unless confirmed by current active
+architecture documents and code.
 
 Architectural decisions belong to:
 

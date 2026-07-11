@@ -8,6 +8,7 @@ Related documents:
 
 - PROJECT_VISION.md
 - PROJECT_CONTRACT.md
+- EDUCATIONAL_PRINCIPLES.md
 - ARCHITECTURAL_DECISIONS.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
@@ -410,6 +411,49 @@ determine completion status.
 The current implementation records activity outcomes and uses completion evaluation to decide whether a learning session is complete.
 
 Advanced mastery changes and spaced-repetition scheduling are future work.
+
+Future answer evaluation should keep these responsibilities separate:
+
+```text
+Learner answer
+        |
+        v
+Normalization
+        |
+        v
+Comparison with accepted answers
+        |
+        v
+Difference classification
+        |
+        v
+Pedagogical result
+        |
+        v
+Learner feedback
+        |
+        v
+Progress or session consequence
+```
+
+Normalization prepares an answer for comparison.
+
+Comparison determines whether the response matches a canonical answer or an
+accepted alternative.
+
+Difference classification identifies deterministic, high-confidence differences
+such as capitalization, whitespace, punctuation, missing inverted punctuation,
+diacritics or likely typographical errors.
+
+Pedagogical result determines whether the response is correct, accepted with
+feedback or incorrect.
+
+Learner feedback explains useful distinctions.
+
+Progress or session consequence records what happened without storing
+linguistic rules inside learner progress.
+
+LessonPlayer must not own this full evaluation policy.
 
 Assessment never plans lessons.
 

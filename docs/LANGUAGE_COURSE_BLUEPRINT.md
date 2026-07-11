@@ -1,6 +1,12 @@
 # LANGUAGE_COURSE_BLUEPRINT.md
 
-Status: Active
+Status: Future Design
+
+Superseded for current implementation by:
+
+- CURRICULUM_SPEC.md
+- LEARNING_MODEL.md
+- ARCHITECTURE.md
 
 Version: 1.1
 
@@ -20,6 +26,10 @@ Related documents:
 This document defines the Language Course Blueprint model used by Tutor Language.
 
 A Language Course Blueprint describes the educational intent of a language course.
+
+This document is future design guidance. The current implementation uses
+Course, Module and LessonDefinition curriculum data directly; it does not yet
+implement a separate Language Course Blueprint runtime layer.
 
 It specifies educational goals, progression, constraints and allowed educational content.
 

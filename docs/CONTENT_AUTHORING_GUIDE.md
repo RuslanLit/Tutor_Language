@@ -6,6 +6,7 @@ Version: 1.0
 
 Related documents:
 
+- EDUCATIONAL_PRINCIPLES.md
 - AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
@@ -290,6 +291,120 @@ Every exercise should have one primary learning purpose.
 Exercises should measure understanding rather than guessing.
 
 Whenever practical, exercises should focus on active recall instead of recognition.
+
+Every exercise should require the greatest reasonable degree of independent
+knowledge retrieval appropriate to the learner's current stage.
+
+This does not mean every exercise must use free text.
+
+Recognition exercises are appropriate when they:
+
+- introduce unfamiliar material;
+- help distinguish similar concepts;
+- reduce cognitive load during first exposure;
+- scaffold a later recall activity;
+- directly match a recognition objective.
+
+Recognition should normally be followed by stronger retrieval.
+
+Preferred exercise progression:
+
+```text
+Recognition
+        |
+        v
+Cued Recall
+        |
+        v
+Free Recall
+        |
+        v
+Controlled Application
+```
+
+The author should be able to explain why an exercise stops at recognition when
+it does.
+
+---
+
+# Multiple Choice
+
+Multiple choice is a recognition activity.
+
+It may support exposure, discrimination and early confidence, but it should not
+usually be the sole evidence that a learner can actively use a knowledge item.
+
+Multiple-choice distractors should be plausible.
+
+Avoid absurd options that allow success without understanding.
+
+Good distractors often represent:
+
+- a common misconception;
+- a similar-looking word;
+- a similar meaning in the wrong context;
+- a previously learned item that must be distinguished.
+
+Multiple choice should not introduce unsupported new knowledge through its
+options.
+
+---
+
+# Typed Production
+
+Typed production should be preferred when active recall or controlled
+application is the learning objective and the learner has enough support to
+answer fairly.
+
+Supported implementation may be narrower than the long-term learning model.
+
+When authoring within the current schema, use only exercise types supported by
+validators and ActivityEngine.
+
+Prompts must be unambiguous.
+
+The learner should know:
+
+- what language to produce;
+- whether one word, a phrase or a full sentence is expected;
+- whether punctuation or capitalization is being assessed;
+- whether a translation, completion or response is requested.
+
+---
+
+# Accepted Answers and Feedback
+
+Accepted alternatives must be intentional.
+
+A canonical answer should represent the preferred target form.
+
+Accepted variants may be appropriate when they are genuinely equivalent for the
+exercise objective.
+
+Some answers may be acceptable with feedback when the communicative meaning is
+right but a useful correction is needed.
+
+Examples include deterministic, high-confidence differences such as:
+
+- capitalization;
+- extra whitespace;
+- punctuation;
+- missing inverted Spanish punctuation;
+- missing or incorrect diacritic;
+- likely typographical error.
+
+Wrong words, wrong inflection, word-order errors, missing words, extra words and
+semantically different answers should not be accepted unless a specific
+authored rule says they satisfy the objective.
+
+Do not manually list every spelling variant in LessonDefinitions.
+
+Prefer reusable deterministic language rules when a difference is systematic.
+
+Explanations must be authored, deterministic and reviewable.
+
+Uncertain classifications should produce neutral feedback rather than a
+fabricated explanation.
 
 ---
 

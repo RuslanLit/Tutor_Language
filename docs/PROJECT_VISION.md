@@ -4,6 +4,12 @@ Status: Active
 
 Version: 2.2
 
+Related documents:
+
+- EDUCATIONAL_PRINCIPLES.md
+- LEARNING_MODEL.md
+- ARCHITECTURE.md
+
 ---
 
 # Vision
@@ -64,6 +70,9 @@ There is no universal teaching strategy.
 The application must continuously discover which teaching methods produce the best long-term learning outcomes for each learner.
 
 Teaching is a continuous optimization process.
+
+Active recall is the default knowledge-formation strategy unless learner state,
+cognitive load or a specific lesson objective justifies another approach.
 
 ---
 

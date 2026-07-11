@@ -6,6 +6,7 @@ Version: 3.2
 
 Related documents:
 
+- EDUCATIONAL_PRINCIPLES.md
 - PROJECT_VISION.md
 - ARCHITECTURE.md
 - V1_TECHNICAL_SPEC.md
@@ -31,6 +32,112 @@ Learning is a continuous optimization process.
 The application does not generate lessons arbitrarily.
 
 Every lesson is the result of deterministic educational planning based on the learner's current educational state.
+
+---
+
+# Knowledge Formation Strategy
+
+The primary objective is durable active language ability.
+
+The application should optimize for:
+
+- long-term retention;
+- active recall;
+- independent production;
+- practical use of learned knowledge;
+- accurate feedback;
+- efficient correction of weaknesses.
+
+The application should not optimize primarily for:
+
+- ease of lesson completion;
+- high numbers of correct taps;
+- superficial engagement;
+- artificial progress;
+- recognition-only testing.
+
+Meaningful mental effort is intentional when it improves learning.
+
+This is a project policy informed by learning science, not a claim that one
+exercise mode is always best. Retrieval practice is generally associated with
+stronger long-term retention than passive restudy under many learning
+conditions, but task choice must still respect learner level, cognitive load
+and lesson objective.
+
+---
+
+# Retrieval Progression
+
+Learning should normally reduce support over time.
+
+Preferred progression:
+
+```text
+Exposure
+        |
+        v
+Recognition
+        |
+        v
+Cued Recall
+        |
+        v
+Free Recall
+        |
+        v
+Controlled Application
+        |
+        v
+Independent Application
+```
+
+These stages are not mandatory sections in every LessonDefinition.
+
+They describe increasing retrieval demand:
+
+- Exposure: the learner first sees and understands the material.
+- Recognition: the correct answer is visible or strongly implied among alternatives.
+- Cued Recall: the learner retrieves the answer with partial support.
+- Free Recall: the learner retrieves the answer from memory without visible options.
+- Controlled Application: the learner uses known material in a constrained context.
+- Independent Application: the learner uses known material in a new practical context.
+
+The application must not treat all correct answers as equally strong evidence.
+
+The mode by which an answer was produced matters.
+
+A correct multiple-choice answer and a correct typed answer from memory are
+different evidence even when the expected language is identical.
+
+Lesson completion is not mastery.
+
+Completion means the learner completed the required lesson structure or session
+criteria. Mastery requires stronger and repeated evidence over time.
+
+---
+
+# Feedback Principle
+
+Feedback should help the learner improve the next attempt.
+
+Answer evaluation should distinguish, when supported:
+
+- correct;
+- accepted with feedback;
+- incorrect.
+
+Names may differ in implementation, but the educational distinction should
+remain.
+
+For example, an A0 learner who types `que tal` for `¿Qué tal?` has likely
+retrieved the right words but missed orthographic information. That should be
+eligible for corrective feedback rather than being treated as equivalent to a
+semantically unrelated answer when deterministic rules can identify the
+difference.
+
+Uncertain error classification must fall back to neutral feedback.
+
+The application must not fabricate linguistic explanations.
 
 ---
 

@@ -1,6 +1,14 @@
 # V1_IMPLEMENTATION_CONTRACT.md
 
-Status: Active
+Status: Partially Superseded Implementation Contract
+
+Superseded by:
+
+- EDUCATIONAL_PRINCIPLES.md
+- ARCHITECTURAL_DECISIONS.md
+- ARCHITECTURE.md
+- LEARNING_MODEL.md
+- CONTENT_MODEL.md
 
 Version: 2.2
 
@@ -20,9 +28,16 @@ This document defines the minimum implementation contract for Tutor Language Gen
 
 Its purpose is to eliminate architectural ambiguity during implementation.
 
-Every object, responsibility and rule defined here is considered mandatory for V1.
+This document preserves an earlier V1 implementation target.
 
-If implementation conflicts with this document, this document has higher priority.
+Where this document conflicts with current active architecture, accepted ADRs,
+the current Educational Content model, or the current implementation status,
+the newer active documents have higher priority.
+
+In particular, detailed mastery-score, Review Queue, Evaluation Result and
+Learner State Update requirements in this document are not current
+implementation claims unless also confirmed by active architecture documents
+and code.
 
 ---
 

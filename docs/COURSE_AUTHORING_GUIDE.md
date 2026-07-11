@@ -6,6 +6,7 @@ Version: 1.0
 
 Related documents:
 
+- EDUCATIONAL_PRINCIPLES.md
 - PROJECT_VISION.md
 - AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
