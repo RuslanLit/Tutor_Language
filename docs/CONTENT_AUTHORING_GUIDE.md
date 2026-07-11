@@ -435,6 +435,20 @@ current exercise objective.
 It must not introduce unrelated material, invent new examples at runtime or
 replace the authored answer key.
 
+Exercise templates may declare authored review references with
+`review_template_ids`.
+
+Review references must point to existing authored exercise templates.
+
+They should be used only when the referenced template gives focused practice
+for the same knowledge weakness.
+
+The Session Engine may insert one referenced review step into the active
+session after repeated incorrect attempts.
+
+Authors must not use review references to smuggle unrelated lessons, new
+objectives or generated content into a session.
+
 Prompts, canonical answers, accepted alternatives, authored misconceptions and
 correction guidance must be deterministic, authored and reviewable in the
 content or evaluation-related structures that support them.

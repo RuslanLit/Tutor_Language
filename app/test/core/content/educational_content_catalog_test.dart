@@ -74,6 +74,7 @@ void main() {
     expect(issues, contains(contains('Duplicate vocabulary id')));
     expect(issues, contains(contains('Invalid vocabulary reference')));
     expect(issues, contains(contains('Invalid grammar reference')));
+    expect(issues, contains(contains('Invalid exercise_template reference')));
     expect(issues, contains(contains('Empty lines field')));
     expect(issues, contains(contains('Unsupported exercise type')));
   });
@@ -186,6 +187,14 @@ const _validBundle = EducationalContentBundle(
           supportedGoalTypes: ['introduce_vocabulary'],
           requiredObjectTypes: ['vocabulary'],
           promptTemplate: 'Choose.',
+          reviewTemplateIds: ['template.review.v1'],
+        ),
+        ExerciseTemplate(
+          id: 'template.review.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['review_vocabulary'],
+          requiredObjectTypes: ['vocabulary'],
+          promptTemplate: 'Review.',
         ),
       ],
     ),
@@ -234,6 +243,7 @@ const _invalidBundle = EducationalContentBundle(
           supportedGoalTypes: ['introduce_vocabulary'],
           requiredObjectTypes: ['vocabulary'],
           promptTemplate: 'Speak.',
+          reviewTemplateIds: ['template.missing.v1'],
         ),
       ],
     ),

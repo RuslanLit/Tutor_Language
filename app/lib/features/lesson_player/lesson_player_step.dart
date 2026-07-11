@@ -16,12 +16,20 @@ class LessonPlayerStep {
     required this.sourceActivity,
     required this.content,
     required this.stepType,
+    this.reviewStepIds = const [],
+    this.isInsertedReview = false,
+    this.originatingStepId,
+    this.authoredSourceStepId,
   });
 
   final String id;
   final LessonContentActivity sourceActivity;
   final List<Object> content;
   final LessonPlayerStepType stepType;
+  final List<String> reviewStepIds;
+  final bool isInsertedReview;
+  final String? originatingStepId;
+  final String? authoredSourceStepId;
 
   bool get isCheckable {
     return content.whereType<ExerciseTemplate>().any(_requiresCompletion);
@@ -30,6 +38,25 @@ class LessonPlayerStep {
   bool get hasRemediation {
     return content.whereType<ExerciseTemplate>().any(
       (template) => template.authoredMisconceptions.isNotEmpty,
+    );
+  }
+
+  LessonPlayerStep copyWith({
+    String? id,
+    List<String>? reviewStepIds,
+    bool? isInsertedReview,
+    String? originatingStepId,
+    String? authoredSourceStepId,
+  }) {
+    return LessonPlayerStep(
+      id: id ?? this.id,
+      sourceActivity: sourceActivity,
+      content: content,
+      stepType: stepType,
+      reviewStepIds: reviewStepIds ?? this.reviewStepIds,
+      isInsertedReview: isInsertedReview ?? this.isInsertedReview,
+      originatingStepId: originatingStepId ?? this.originatingStepId,
+      authoredSourceStepId: authoredSourceStepId ?? this.authoredSourceStepId,
     );
   }
 }
@@ -91,7 +118,28 @@ class LessonPlayerStepBuilder {
       flushInformationalContent();
     }
 
-    return List.unmodifiable(steps);
+    final stepIdByTemplateId = {
+      for (final step in steps)
+        for (final template in step.content.whereType<ExerciseTemplate>())
+          template.id: step.id,
+    };
+
+    return List.unmodifiable(
+      steps.map((step) {
+        final reviewStepIds = step.content
+            .whereType<ExerciseTemplate>()
+            .expand((template) => template.reviewTemplateIds)
+            .map((templateId) => stepIdByTemplateId[templateId])
+            .whereType<String>()
+            .toList(growable: false);
+
+        if (reviewStepIds.isEmpty) {
+          return step;
+        }
+
+        return step.copyWith(reviewStepIds: List.unmodifiable(reviewStepIds));
+      }),
+    );
   }
 
   String _stepId({

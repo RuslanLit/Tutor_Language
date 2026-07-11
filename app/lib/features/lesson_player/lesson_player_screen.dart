@@ -56,13 +56,24 @@ class LessonPlayerView extends ConsumerWidget {
         ref.read(sessionProvider.notifier).state = activeSession;
       });
     }
-    final currentStepIndex = steps.isEmpty
+    final activeStepIds = activeSession.sessionState.orderedStepIds;
+    final stepById = {for (final step in steps) step.id: step};
+    final currentStepIndex = activeStepIds.isEmpty
         ? 0
         : activeSession.sessionState.currentStepIndex.clamp(
             0,
-            steps.length - 1,
+            activeStepIds.length - 1,
           );
-    final currentStep = steps.isEmpty ? null : steps[currentStepIndex];
+    final currentStepId = activeStepIds.isEmpty
+        ? null
+        : activeStepIds[currentStepIndex];
+    final currentStep = currentStepId == null
+        ? null
+        : _resolveRuntimeStep(
+            runtimeStepId: currentStepId,
+            stepById: stepById,
+            sessionState: activeSession.sessionState,
+          );
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -118,7 +129,7 @@ class LessonPlayerView extends ConsumerWidget {
                 nextSessionState = decision.updatedState;
               }
 
-              ref.read(sessionProvider.notifier).state = session.copyWith(
+              ref.read(sessionProvider.notifier).state = activeSession.copyWith(
                 sessionState: nextSessionState,
                 stepStates: nextStepStates,
               );
@@ -126,7 +137,7 @@ class LessonPlayerView extends ConsumerWidget {
           ),
           LessonNavigationControls(
             lessonId: lesson.id,
-            steps: steps,
+            stepCount: activeStepIds.length,
             currentStepIndex: currentStepIndex,
             session: activeSession,
           ),
@@ -136,17 +147,45 @@ class LessonPlayerView extends ConsumerWidget {
   }
 }
 
+LessonPlayerStep? _resolveRuntimeStep({
+  required String runtimeStepId,
+  required Map<String, LessonPlayerStep> stepById,
+  required LessonSessionState sessionState,
+}) {
+  final canonicalStep = stepById[runtimeStepId];
+  if (canonicalStep != null) {
+    return canonicalStep;
+  }
+
+  final authoredSourceStepId =
+      sessionState.authoredReviewStepIdByInsertedStepId[runtimeStepId];
+  final authoredSourceStep = authoredSourceStepId == null
+      ? null
+      : stepById[authoredSourceStepId];
+  if (authoredSourceStep == null) {
+    return null;
+  }
+
+  return authoredSourceStep.copyWith(
+    id: runtimeStepId,
+    isInsertedReview: true,
+    originatingStepId:
+        sessionState.originatingStepIdByReviewStepId[runtimeStepId],
+    authoredSourceStepId: authoredSourceStepId,
+  );
+}
+
 class LessonNavigationControls extends ConsumerStatefulWidget {
   const LessonNavigationControls({
     required this.lessonId,
-    required this.steps,
+    required this.stepCount,
     required this.currentStepIndex,
     required this.session,
     super.key,
   });
 
   final String lessonId;
-  final List<LessonPlayerStep> steps;
+  final int stepCount;
   final int currentStepIndex;
   final LessonPlayerSessionState session;
 
@@ -163,7 +202,7 @@ class _LessonNavigationControlsState
   @override
   Widget build(BuildContext context) {
     final progress = ref.watch(topicProgressProvider(widget.lessonId));
-    final isLastStep = widget.currentStepIndex == widget.steps.length - 1;
+    final isLastStep = widget.currentStepIndex == widget.stepCount - 1;
     final previousDecision = _sessionEngine.requestPrevious(
       widget.session.sessionState,
     );
@@ -195,7 +234,7 @@ class _LessonNavigationControlsState
                 const Spacer(),
                 Text(
                   'Step ${widget.currentStepIndex + 1} / '
-                  '${widget.steps.length}',
+                  '${widget.stepCount}',
                 ),
                 const Spacer(),
                 if (isLastStep)
@@ -374,10 +413,19 @@ class LessonPlayerStepView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              step.sourceActivity.activity.title,
+              step.isInsertedReview
+                  ? 'Quick Review'
+                  : step.sourceActivity.activity.title,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
+            if (step.isInsertedReview) ...[
+              Text(
+                step.sourceActivity.activity.title,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: 4),
+            ],
             Text(
               _stepTypeLabel(step.stepType),
               style: Theme.of(context).textTheme.labelMedium,

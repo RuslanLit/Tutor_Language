@@ -657,6 +657,7 @@ The implemented decision types are:
 | `showCurrentStep` | The caller should display the current step. | None. |
 | `showFeedback` | The caller should display the latest accepted feedback/result. | None. |
 | `showRemediation` | The caller should show authored remediation for the current step, when available. | None. |
+| `insertReviewStep` | The caller should display an inserted authored review step from the active execution plan. | None. |
 | `retryCurrentStep` | The current answer was not accepted and the learner should retry the same step. | None. |
 | `moveToNextStep` | The caller may display the next step using the updated state. | None. |
 | `moveToPreviousStep` | The caller may display the previous step using the updated state. | None. |
@@ -685,6 +686,8 @@ They:
 | `remediationUnavailable` | Second incorrect result and the current step has no authored remediation available. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
 | `repeatedIncorrectAttempt` | Later repeated incorrect result with no authored remediation available. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
 | `retryAfterRemediation` | Current step result is cleared after remediation was shown. | `showCurrentStep`. | Removes current result and completion flag without incrementing attempts. |
+| `reviewInserted` | Third incorrect result and authored review is available for the current step. | `insertReviewStep`. | Expands active execution plan with an inserted review step and a return to the originating step. |
+| `reviewUnavailable` | Third incorrect result and no authored review is available for the current step. | `retryCurrentStep`. | Increments attempts, stores result, marks step incomplete. |
 | `previousStepAvailable` | Previous requested from a non-first step. | `moveToPreviousStep`. | Moves current step backward. |
 | `alreadyAtFirstStep` | Previous requested from first step. | `rejectAction`. | No state change. |
 | `nextStepLocked` | Next requested from incomplete checkable step. | `rejectAction`. | No state change. |
@@ -732,6 +735,40 @@ The engine receives remediation availability as runtime metadata on
 
 The engine must not load assets, inspect grammar content, generate explanations
 or contain target-language teaching prose.
+
+Session Execution Plan
+
+The Session Engine separates the immutable canonical step list from the active
+execution plan.
+
+`canonicalStepIds` represents the assembled lesson order.
+
+`orderedStepIds` represents the active session order and may temporarily expand
+with inserted authored review steps.
+
+Inserted review steps:
+
+- originate only from authored review references resolved before the engine
+  receives runtime metadata;
+- use stable runtime IDs in the form
+  `review::<encoded-origin-step-id>::<encoded-authored-review-step-id>`;
+- preserve maps from inserted review step to originating step and authored
+  source step;
+- exist only inside the active in-memory session;
+- do not mutate curriculum, LessonDefinitions or asset files.
+
+The default insertion policy is:
+
+- first incorrect attempt: retry current step;
+- second incorrect attempt: show authored remediation when available;
+- third incorrect attempt: insert one authored review step when available;
+- completing the inserted review returns to the originating step;
+- completing review does not complete the originating step;
+- each originating step may receive at most one inserted review step in a
+  session.
+
+If no authored review reference exists, the engine continues the remediation
+and retry behavior without inserting placeholders.
 
 Runtime Dependency Direction
 
@@ -791,8 +828,8 @@ Future Session Extension Points
 These are future work and are not implemented:
 
 - Escalated remediation: a later policy may react to additional repeated
-  incorrect attempts by inserting authored review steps or offering an authored
-  review lesson. The engine must not generate remediation text.
+  incorrect attempts by offering an authored review lesson. The engine must not
+  generate remediation text.
 - Review insertion: a later session policy may insert authored review steps
   through explicit deterministic rules while preserving stable identity and
   provenance.

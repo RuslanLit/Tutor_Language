@@ -15,6 +15,13 @@ void main() {
     isCheckable: true,
     hasRemediation: true,
   );
+  const reviewOriginStep = LessonSessionStep(
+    id: 'step.review_origin',
+    isCheckable: true,
+    hasRemediation: true,
+    reviewStepIds: ['step.review'],
+  );
+  const reviewStep = LessonSessionStep(id: 'step.review', isCheckable: true);
   const finalPracticeStep = LessonSessionStep(
     id: 'step.final',
     isCheckable: true,
@@ -222,7 +229,7 @@ void main() {
   );
 
   test(
-    'repeated incorrect without remediation uses repeated attempt reason',
+    'third incorrect without remediation or review reports review unavailable',
     () {
       final state = engine
           .startSession(lessonId: lessonId, steps: const [practiceStep])
@@ -240,10 +247,7 @@ void main() {
       );
 
       expect(decision.type, LessonSessionDecisionType.retryCurrentStep);
-      expect(
-        decision.reasonCode,
-        LessonSessionReasonCode.repeatedIncorrectAttempt,
-      );
+      expect(decision.reasonCode, LessonSessionReasonCode.reviewUnavailable);
       expect(decision.updatedState.attemptsByStepId[practiceStep.id], 3);
     },
   );
@@ -370,6 +374,187 @@ void main() {
       contains(remediationStep.id),
     );
     expect(forward.updatedState.currentStepId, finalPracticeStep.id);
+  });
+
+  test('third incorrect inserts authored review step once', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [reviewOriginStep, reviewStep, finalPracticeStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: remediationShown,
+      result: _incorrectResult,
+    );
+    final insertedReviewId = lessonSessionReviewStepId(
+      originatingStepId: reviewOriginStep.id,
+      reviewStepId: reviewStep.id,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.insertReviewStep);
+    expect(decision.reasonCode, LessonSessionReasonCode.reviewInserted);
+    expect(decision.stepId, insertedReviewId);
+    expect(decision.originatingStepId, reviewOriginStep.id);
+    expect(decision.reviewStepId, reviewStep.id);
+    expect(decision.updatedState.canonicalStepIds, [
+      reviewOriginStep.id,
+      reviewStep.id,
+      finalPracticeStep.id,
+    ]);
+    expect(decision.updatedState.orderedStepIds, [
+      reviewOriginStep.id,
+      insertedReviewId,
+      reviewOriginStep.id,
+      reviewStep.id,
+      finalPracticeStep.id,
+    ]);
+    expect(decision.updatedState.currentStepId, insertedReviewId);
+    expect(decision.updatedState.currentStepIndex, 1);
+    expect(
+      decision.updatedState.originatingStepIdByReviewStepId[insertedReviewId],
+      reviewOriginStep.id,
+    );
+    expect(
+      decision
+          .updatedState
+          .authoredReviewStepIdByInsertedStepId[insertedReviewId],
+      reviewStep.id,
+    );
+    expect(decision.updatedState.checkableStepIds, contains(insertedReviewId));
+  });
+
+  test('review completion returns to original step without completing it', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [reviewOriginStep, reviewStep, finalPracticeStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+    final reviewInserted = engine
+        .submitStepResult(state: remediationShown, result: _incorrectResult)
+        .updatedState;
+
+    final reviewCompleted = engine
+        .submitStepResult(state: reviewInserted, result: _correctResult)
+        .updatedState;
+    final returnedToOrigin = engine.requestNext(reviewCompleted);
+
+    expect(returnedToOrigin.type, LessonSessionDecisionType.moveToNextStep);
+    expect(returnedToOrigin.updatedState.currentStepId, reviewOriginStep.id);
+    expect(returnedToOrigin.updatedState.currentStepIndex, 2);
+    expect(
+      returnedToOrigin.updatedState.completedStepIds,
+      contains(reviewInserted.currentStepId),
+    );
+    expect(
+      returnedToOrigin.updatedState.completedStepIds,
+      isNot(contains(reviewOriginStep.id)),
+    );
+    expect(
+      engine.requestNext(returnedToOrigin.updatedState).reasonCode,
+      LessonSessionReasonCode.nextStepLocked,
+    );
+  });
+
+  test('review insertion is not repeated for the same origin step', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [reviewOriginStep, reviewStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+    final reviewInserted = engine
+        .submitStepResult(state: remediationShown, result: _incorrectResult)
+        .updatedState;
+    final reviewCompleted = engine
+        .submitStepResult(state: reviewInserted, result: _correctResult)
+        .updatedState;
+    final returnedToOrigin = engine.requestNext(reviewCompleted).updatedState;
+
+    final decision = engine.submitStepResult(
+      state: returnedToOrigin,
+      result: _incorrectResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.showRemediation);
+    expect(decision.reasonCode, LessonSessionReasonCode.remediationRequested);
+    expect(
+      decision.updatedState.insertedReviewStepIdsByOriginatingStepId,
+      hasLength(1),
+    );
+    expect(
+      decision.updatedState.orderedStepIds
+          .where((stepId) => stepId.startsWith('review::'))
+          .length,
+      1,
+    );
+  });
+
+  test('third incorrect without review continues remediation behavior', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [remediationStep])
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: remediationShown,
+      result: _incorrectResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.showRemediation);
+    expect(decision.reasonCode, LessonSessionReasonCode.remediationRequested);
+    expect(decision.updatedState.orderedStepIds, [remediationStep.id]);
+  });
+
+  test('finish is unavailable while inserted review is pending', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [reviewOriginStep, reviewStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+    final reviewInserted = engine
+        .submitStepResult(state: remediationShown, result: _incorrectResult)
+        .updatedState;
+
+    final finishDecision = engine.finishSession(reviewInserted);
+
+    expect(finishDecision.type, LessonSessionDecisionType.rejectAction);
+    expect(
+      finishDecision.reasonCode,
+      LessonSessionReasonCode.finalStepIncomplete,
+    );
   });
 
   test('previous and next preserve attempts and attached results', () {

@@ -52,7 +52,10 @@
       "grammar"
     ],
     "prompt_template": "Type the Spanish sentence: \"I have a book.\"",
-    "expected_answer": "Tengo un libro"
+    "expected_answer": "Tengo un libro",
+    "review_template_ids": [
+      "template.es.a0.foundations.tener_meaning_choice.v1"
+    ]
   },
   {
     "id": "template.es.a0.foundations.tienes_razon_choice.v1",

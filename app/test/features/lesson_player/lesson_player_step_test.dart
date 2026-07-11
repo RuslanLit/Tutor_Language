@@ -46,6 +46,24 @@ void main() {
       'lesson.interleaved::activity.interleaved::info.2',
     ]);
   });
+
+  test('resolves authored review template references to step ids', () {
+    const builder = LessonPlayerStepBuilder();
+
+    final steps = builder.buildSteps(_reviewReferenceLessonContent);
+
+    expect(steps, hasLength(2));
+    expect(steps.first.reviewStepIds, [steps.last.id]);
+    expect(steps.last.reviewStepIds, isEmpty);
+    expect(
+      steps.first.id,
+      'lesson.review_refs::activity.review_refs::template.review_refs.origin.1',
+    );
+    expect(
+      steps.last.id,
+      'lesson.review_refs::activity.review_refs::template.review_refs.source.2',
+    );
+  });
 }
 
 const _granularLessonContent = LessonContent(
@@ -265,6 +283,95 @@ const _interleavedLessonContent = LessonContent(
               grammarIds: [],
               text: 'Adiós.',
               nativeTranslation: 'Goodbye.',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _reviewReferenceLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.review_refs',
+      title: 'Review Reference Lesson',
+      description: 'Exercise review reference resolution.',
+      moduleId: 'module.review_refs',
+      courseId: 'course.review_refs',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.review_refs',
+        description: 'Verify review references.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.review_refs',
+        title: 'Review Reference Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.review_refs',
+            title: 'Review Reference',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.review_refs',
+        title: 'Review Reference Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.review_refs',
+            title: 'Review Reference',
+            type: 'exercise_template',
+            order: 1,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.review_refs',
+            title: 'Review Reference',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.review_refs.origin',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Type the Spanish word for "hello".',
+              expectedAnswer: 'hola',
+              reviewTemplateIds: ['template.review_refs.source'],
+            ),
+            ExerciseTemplate(
+              id: 'template.review_refs.source',
+              exerciseType: 'multiple_choice',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Choose the Spanish word for "hello".',
+              answerOptions: [
+                ExerciseTemplateOption(id: 'option.hola', label: 'hola'),
+              ],
+              correctOptionId: 'option.hola',
             ),
           ],
         ),

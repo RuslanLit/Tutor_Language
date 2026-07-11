@@ -211,6 +211,9 @@
     ],
     "prompt_template": "Type the Spanish introduction: \"My name is Ana.\"",
     "expected_answer": "Me llamo Ana",
+    "review_template_ids": [
+      "template.es.a0.unit1.name_choice.v1"
+    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.unit1.name_pattern.soy_ana.v1",
@@ -280,6 +283,9 @@
     ],
     "prompt_template": "Type the Spanish origin phrase: \"I am from Madrid.\"",
     "expected_answer": "Soy de Madrid",
+    "review_template_ids": [
+      "template.es.a0.unit1.origin_choice.v1"
+    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.unit1.origin.estoy_de_madrid.v1",

@@ -383,6 +383,7 @@ class ExerciseTemplate {
     this.correctOptionId,
     this.expectedAnswer,
     this.authoredMisconceptions = const [],
+    this.reviewTemplateIds = const [],
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -408,6 +409,7 @@ class ExerciseTemplate {
               'authored_misconceptions',
               AuthoredMisconception.fromJson,
             ),
+      reviewTemplateIds: optionalStringList(json, 'review_template_ids'),
     );
   }
 
@@ -420,6 +422,7 @@ class ExerciseTemplate {
   final String? correctOptionId;
   final String? expectedAnswer;
   final List<AuthoredMisconception> authoredMisconceptions;
+  final List<String> reviewTemplateIds;
 
   Map<String, Object?> toJson() {
     return {
@@ -438,6 +441,8 @@ class ExerciseTemplate {
         'authored_misconceptions': authoredMisconceptions
             .map((misconception) => misconception.toJson())
             .toList(growable: false),
+      if (reviewTemplateIds.isNotEmpty)
+        'review_template_ids': reviewTemplateIds,
     };
   }
 
@@ -453,7 +458,8 @@ class ExerciseTemplate {
             listEquals(other.answerOptions, answerOptions) &&
             other.correctOptionId == correctOptionId &&
             other.expectedAnswer == expectedAnswer &&
-            listEquals(other.authoredMisconceptions, authoredMisconceptions);
+            listEquals(other.authoredMisconceptions, authoredMisconceptions) &&
+            listEquals(other.reviewTemplateIds, reviewTemplateIds);
   }
 
   @override
@@ -467,6 +473,7 @@ class ExerciseTemplate {
     correctOptionId,
     expectedAnswer,
     Object.hashAll(authoredMisconceptions),
+    Object.hashAll(reviewTemplateIds),
   );
 }
 

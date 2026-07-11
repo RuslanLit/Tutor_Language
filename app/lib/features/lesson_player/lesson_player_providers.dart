@@ -50,7 +50,7 @@ class LessonPlayerSessionState {
     final stepIds = steps.map((step) => step.id).toList(growable: false);
     final isSameSession =
         sessionState.lessonId == lessonId &&
-        _listEquals(sessionState.orderedStepIds, stepIds) &&
+        _listEquals(sessionState.canonicalStepIds, stepIds) &&
         (sessionState.status != LessonSessionStatus.notStarted ||
             steps.isEmpty);
 
@@ -66,6 +66,7 @@ class LessonPlayerSessionState {
               id: step.id,
               isCheckable: step.isCheckable,
               hasRemediation: step.hasRemediation,
+              reviewStepIds: step.reviewStepIds,
             ),
           )
           .toList(growable: false),

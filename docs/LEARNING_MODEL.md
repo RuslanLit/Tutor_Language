@@ -454,23 +454,28 @@ The Lesson Session Engine coordinates progression inside one launched lesson.
 It consumes:
 
 - ordered LessonPlayerStep identities;
+- authored review-step references resolved before launch;
 - explicit session events;
 - already evaluated ActivityResult values.
 
 It tracks in-memory session state:
 
 - current step;
+- canonical lesson step order;
+- active session step order;
 - completed session steps;
 - latest evaluated result per step;
 - attempts per step;
 - authored remediation availability per step;
 - whether remediation has been shown for a step;
+- inserted review-step provenance;
 - session status.
 
 It determines immediate session consequences:
 
 - retry current step;
 - show authored remediation;
+- insert an authored review step;
 - show feedback;
 - move to previous step;
 - move to next step;
@@ -526,6 +531,8 @@ Current session policy:
 - the first incorrect result keeps the step incomplete and requires retry;
 - repeated incorrect results show authored remediation when the current step
   declares remediation availability;
+- a later repeated incorrect result may insert one authored review step when
+  the current step declares an authored review reference;
 - repeated incorrect results without remediation availability require retry;
 - informational steps may continue without a submission;
 - finish is allowed only at the final eligible step.
@@ -538,6 +545,7 @@ Attempt tracking is in-memory session state:
 - previous and next navigation do not increment attempts;
 - attempts remain attached to stable step IDs;
 - remediation visibility remains attached to stable step IDs;
+- inserted review state remains isolated from the originating step;
 - resubmission is allowed;
 - resubmission replaces the latest stored result;
 - completion eligibility follows the latest result.
@@ -554,8 +562,18 @@ Authored remediation may explain a known misconception, show a focused reminder
 or point back to a previously authored explanation, but it must not introduce
 unrelated material.
 
+The Session Engine may temporarily expand the active session order with an
+inserted authored review step.
+
+Inserted review steps exist only in the active session.
+
+They do not change curriculum, LessonDefinitions or authored lesson order.
+
+Completing an inserted review step returns the learner to the originating step
+and does not complete the originating exercise.
+
 Advanced mastery estimation, spaced repetition, durable attempt history,
-adaptive retry scheduling, inserted review steps and long-term review
+adaptive retry scheduling, optional review lessons and long-term review
 scheduling remain future work.
 
 ---

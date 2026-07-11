@@ -240,6 +240,78 @@ void main() {
     expect(find.text('Remediation Vocabulary'), findsOneWidget);
   });
 
+  testWidgets('third incorrect answer inserts authored review step', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.review_insertion'),
+        service: _FakeLessonAssemblyService(_reviewInsertionLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'Soy Ana');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Quick Review'), findsOneWidget);
+    expect(find.text('Review Insertion Practice'), findsOneWidget);
+    expect(
+      find.text('Choose the best translation of "Me llamo Ana".'),
+      findsOneWidget,
+    );
+    expect(find.text('Step 2 / 5'), findsOneWidget);
+    expect(
+      find.text('Type the Spanish introduction: "My name is Ana."'),
+      findsNothing,
+    );
+
+    await tester.tap(find.text('My name is Ana'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 3 / 5'), findsOneWidget);
+    expect(
+      find.text('Type the Spanish introduction: "My name is Ana."'),
+      findsOneWidget,
+    );
+    expect(find.text('Soy Ana'), findsOneWidget);
+    expect(find.text('Not correct yet'), findsOneWidget);
+
+    await tester.enterText(find.byType(TextField), 'Me llamo Ana');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 4 / 5'), findsOneWidget);
+    expect(
+      find.text('Choose the best translation of "Me llamo Ana".'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('navigates previous and next without losing answers', (
     tester,
   ) async {
@@ -1192,6 +1264,141 @@ const _remediationLessonContent = LessonContent(
           resolvedContent: [
             VocabularyItem(
               id: 'vocab.remediation',
+              spanish: 'Me llamo Ana.',
+              nativeTranslation: 'My name is Ana.',
+              cefr: 'A0',
+              example: 'Me llamo Ana.',
+            ),
+          ],
+        ),
+      ],
+    ),
+  ],
+);
+
+const _reviewInsertionLessonContent = LessonContent(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'lesson.review_insertion',
+      title: 'Review Insertion Lesson',
+      description: 'Review insertion lesson description.',
+      moduleId: 'module.review_insertion',
+      courseId: 'course.review_insertion',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.review_insertion',
+        description: 'Check authored review insertion.',
+      ),
+    ],
+    sections: [
+      LessonSection(
+        id: 'section.review_insertion',
+        title: 'Review Insertion Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.review_insertion.practice',
+            title: 'Review Insertion Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.review_insertion.vocabulary',
+            title: 'Review Insertion Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+    ],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  sections: [
+    LessonContentSection(
+      section: LessonSection(
+        id: 'section.review_insertion',
+        title: 'Review Insertion Section',
+        order: 1,
+        activities: [
+          LessonActivity(
+            id: 'activity.review_insertion.practice',
+            title: 'Review Insertion Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          LessonActivity(
+            id: 'activity.review_insertion.vocabulary',
+            title: 'Review Insertion Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+        ],
+      ),
+      activities: [
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.review_insertion.practice',
+            title: 'Review Insertion Practice',
+            type: 'exercise_template',
+            order: 1,
+          ),
+          resolvedContent: [
+            ExerciseTemplate(
+              id: 'template.review_insertion.name',
+              exerciseType: 'text_entry',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate:
+                  'Type the Spanish introduction: "My name is Ana."',
+              expectedAnswer: 'Me llamo Ana',
+              authoredMisconceptions: [
+                AuthoredMisconception(
+                  id: 'misconception.review_insertion.soy_ana.v1',
+                  matchingAnswers: ['Soy Ana'],
+                  feedbackKey: 'spanish.name_pattern.use_me_llamo',
+                  canonicalAnswer: 'Me llamo Ana',
+                  explanationReferenceId: 'grammar.name_pattern',
+                ),
+              ],
+              reviewTemplateIds: ['template.review_insertion.name_choice'],
+            ),
+            ExerciseTemplate(
+              id: 'template.review_insertion.name_choice',
+              exerciseType: 'multiple_choice',
+              supportedGoalTypes: ['review_vocabulary'],
+              requiredObjectTypes: ['vocabulary'],
+              promptTemplate: 'Choose the best translation of "Me llamo Ana".',
+              answerOptions: [
+                ExerciseTemplateOption(
+                  id: 'option.name',
+                  label: 'My name is Ana',
+                ),
+                ExerciseTemplateOption(
+                  id: 'option.from',
+                  label: 'I am from Ana',
+                ),
+              ],
+              correctOptionId: 'option.name',
+            ),
+          ],
+        ),
+        LessonContentActivity(
+          activity: LessonActivity(
+            id: 'activity.review_insertion.vocabulary',
+            title: 'Review Insertion Vocabulary',
+            type: 'vocabulary',
+            order: 2,
+          ),
+          resolvedContent: [
+            VocabularyItem(
+              id: 'vocab.review_insertion',
               spanish: 'Me llamo Ana.',
               nativeTranslation: 'My name is Ana.',
               cefr: 'A0',

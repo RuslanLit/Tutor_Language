@@ -782,6 +782,11 @@ attempts when runtime step metadata declares that remediation is available.
 
 The engine does not own or generate the remediation content.
 
+The Session Engine may also temporarily expand the active in-memory execution
+plan with an inserted authored review step after repeated incorrect attempts.
+
+The canonical lesson order remains immutable.
+
 Constraints
 
 `LessonSessionEngine` must not depend on:
@@ -801,9 +806,9 @@ content structures, not in the Session Engine.
 
 Future Implications
 
-Future escalated remediation, review insertion, learner-history adaptation and
-session persistence should extend the Session Engine through explicit
-deterministic inputs and adapter boundaries.
+Future escalated remediation, optional review lessons, learner-history
+adaptation and session persistence should extend the Session Engine through
+explicit deterministic inputs and adapter boundaries.
 
 The engine must remain persistence-agnostic even if a future adapter serializes
 session state.

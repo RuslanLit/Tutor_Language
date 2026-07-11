@@ -6,6 +6,7 @@ enum LessonSessionDecisionType {
   showCurrentStep,
   showFeedback,
   showRemediation,
+  insertReviewStep,
   retryCurrentStep,
   moveToNextStep,
   moveToPreviousStep,
@@ -24,6 +25,8 @@ enum LessonSessionReasonCode {
   remediationRequested,
   remediationUnavailable,
   retryAfterRemediation,
+  reviewInserted,
+  reviewUnavailable,
   previousStepAvailable,
   alreadyAtFirstStep,
   nextStepLocked,
@@ -41,20 +44,27 @@ class LessonSessionStep {
     required this.id,
     required this.isCheckable,
     this.hasRemediation = false,
+    this.reviewStepIds = const [],
   });
 
   final String id;
   final bool isCheckable;
   final bool hasRemediation;
+  final List<String> reviewStepIds;
 }
 
 class LessonSessionState {
   const LessonSessionState({
     required this.lessonId,
+    this.canonicalStepIds = const [],
     this.orderedStepIds = const [],
     this.checkableStepIds = const {},
     this.remediationAvailableStepIds = const {},
     this.remediationShownByStepId = const {},
+    this.reviewStepIdsByStepId = const {},
+    this.insertedReviewStepIdsByOriginatingStepId = const {},
+    this.originatingStepIdByReviewStepId = const {},
+    this.authoredReviewStepIdByInsertedStepId = const {},
     this.currentStepId,
     this.currentStepIndex = 0,
     this.completedStepIds = const {},
@@ -64,10 +74,15 @@ class LessonSessionState {
   });
 
   final String lessonId;
+  final List<String> canonicalStepIds;
   final List<String> orderedStepIds;
   final Set<String> checkableStepIds;
   final Set<String> remediationAvailableStepIds;
   final Set<String> remediationShownByStepId;
+  final Map<String, List<String>> reviewStepIdsByStepId;
+  final Map<String, String> insertedReviewStepIdsByOriginatingStepId;
+  final Map<String, String> originatingStepIdByReviewStepId;
+  final Map<String, String> authoredReviewStepIdByInsertedStepId;
   final String? currentStepId;
   final int currentStepIndex;
   final Set<String> completedStepIds;
@@ -76,10 +91,15 @@ class LessonSessionState {
   final LessonSessionStatus status;
 
   LessonSessionState copyWith({
+    List<String>? canonicalStepIds,
     List<String>? orderedStepIds,
     Set<String>? checkableStepIds,
     Set<String>? remediationAvailableStepIds,
     Set<String>? remediationShownByStepId,
+    Map<String, List<String>>? reviewStepIdsByStepId,
+    Map<String, String>? insertedReviewStepIdsByOriginatingStepId,
+    Map<String, String>? originatingStepIdByReviewStepId,
+    Map<String, String>? authoredReviewStepIdByInsertedStepId,
     Object? currentStepId = _unset,
     int? currentStepIndex,
     Set<String>? completedStepIds,
@@ -89,12 +109,24 @@ class LessonSessionState {
   }) {
     return LessonSessionState(
       lessonId: lessonId,
+      canonicalStepIds: canonicalStepIds ?? this.canonicalStepIds,
       orderedStepIds: orderedStepIds ?? this.orderedStepIds,
       checkableStepIds: checkableStepIds ?? this.checkableStepIds,
       remediationAvailableStepIds:
           remediationAvailableStepIds ?? this.remediationAvailableStepIds,
       remediationShownByStepId:
           remediationShownByStepId ?? this.remediationShownByStepId,
+      reviewStepIdsByStepId:
+          reviewStepIdsByStepId ?? this.reviewStepIdsByStepId,
+      insertedReviewStepIdsByOriginatingStepId:
+          insertedReviewStepIdsByOriginatingStepId ??
+          this.insertedReviewStepIdsByOriginatingStepId,
+      originatingStepIdByReviewStepId:
+          originatingStepIdByReviewStepId ??
+          this.originatingStepIdByReviewStepId,
+      authoredReviewStepIdByInsertedStepId:
+          authoredReviewStepIdByInsertedStepId ??
+          this.authoredReviewStepIdByInsertedStepId,
       currentStepId: currentStepId == _unset
           ? this.currentStepId
           : currentStepId as String?,
@@ -113,12 +145,16 @@ class LessonSessionDecision {
     required this.reasonCode,
     required this.updatedState,
     this.stepId,
+    this.originatingStepId,
+    this.reviewStepId,
   });
 
   final LessonSessionDecisionType type;
   final LessonSessionReasonCode reasonCode;
   final LessonSessionState updatedState;
   final String? stepId;
+  final String? originatingStepId;
+  final String? reviewStepId;
 }
 
 sealed class LessonSessionEvent {
@@ -198,13 +234,23 @@ class LessonSessionEngine {
         .where((step) => step.hasRemediation)
         .map((step) => step.id)
         .toSet();
+    final knownStepIds = stepIds.toSet();
+    final reviewStepIdsByStepId = <String, List<String>>{
+      for (final step in steps)
+        if (step.reviewStepIds.any(knownStepIds.contains))
+          step.id: List.unmodifiable(
+            step.reviewStepIds.where(knownStepIds.contains),
+          ),
+    };
     final state = LessonSessionState(
       lessonId: lessonId,
+      canonicalStepIds: List.unmodifiable(stepIds),
       orderedStepIds: List.unmodifiable(stepIds),
       checkableStepIds: Set.unmodifiable(checkableStepIds),
       remediationAvailableStepIds: Set.unmodifiable(
         remediationAvailableStepIds,
       ),
+      reviewStepIdsByStepId: Map.unmodifiable(reviewStepIdsByStepId),
       currentStepId: stepIds.first,
       status: LessonSessionStatus.inProgress,
     );
@@ -266,6 +312,16 @@ class LessonSessionEngine {
         );
       }
 
+      if (newAttemptCount == 3) {
+        final reviewDecision = _insertReviewStepIfAvailable(
+          state: updatedState,
+          originatingStepId: stepId,
+        );
+        if (reviewDecision != null) {
+          return reviewDecision;
+        }
+      }
+
       if (state.remediationAvailableStepIds.contains(stepId)) {
         final nextRemediationShown = Set<String>.from(
           updatedState.remediationShownByStepId,
@@ -284,6 +340,8 @@ class LessonSessionEngine {
 
       final reasonCode = newAttemptCount == 2
           ? LessonSessionReasonCode.remediationUnavailable
+          : newAttemptCount == 3
+          ? LessonSessionReasonCode.reviewUnavailable
           : LessonSessionReasonCode.repeatedIncorrectAttempt;
 
       return LessonSessionDecision(
@@ -470,6 +528,98 @@ class LessonSessionEngine {
         result.isCorrect;
   }
 
+  LessonSessionDecision? _insertReviewStepIfAvailable({
+    required LessonSessionState state,
+    required String originatingStepId,
+  }) {
+    if (state.insertedReviewStepIdsByOriginatingStepId.containsKey(
+      originatingStepId,
+    )) {
+      return null;
+    }
+
+    final reviewSourceStepIds =
+        state.reviewStepIdsByStepId[originatingStepId] ?? const [];
+    if (reviewSourceStepIds.isEmpty) {
+      return null;
+    }
+
+    final reviewSourceStepId = reviewSourceStepIds.first;
+    if (!state.canonicalStepIds.contains(reviewSourceStepId)) {
+      return null;
+    }
+
+    final currentIndex = state.currentStepIndex;
+    if (currentIndex < 0 || currentIndex >= state.orderedStepIds.length) {
+      return null;
+    }
+
+    final insertedReviewStepId = lessonSessionReviewStepId(
+      originatingStepId: originatingStepId,
+      reviewStepId: reviewSourceStepId,
+    );
+    final nextOrderedStepIds = [
+      ...state.orderedStepIds.take(currentIndex + 1),
+      insertedReviewStepId,
+      originatingStepId,
+      ...state.orderedStepIds.skip(currentIndex + 1),
+    ];
+    final nextCheckableStepIds = Set<String>.from(state.checkableStepIds);
+    if (state.checkableStepIds.contains(reviewSourceStepId)) {
+      nextCheckableStepIds.add(insertedReviewStepId);
+    }
+
+    final nextRemediationAvailable = Set<String>.from(
+      state.remediationAvailableStepIds,
+    );
+    if (state.remediationAvailableStepIds.contains(reviewSourceStepId)) {
+      nextRemediationAvailable.add(insertedReviewStepId);
+    }
+
+    final nextReviewStepIdsByStepId = Map<String, List<String>>.from(
+      state.reviewStepIdsByStepId,
+    );
+    final nestedReviewStepIds = state.reviewStepIdsByStepId[reviewSourceStepId];
+    if (nestedReviewStepIds != null) {
+      nextReviewStepIdsByStepId[insertedReviewStepId] = nestedReviewStepIds;
+    }
+
+    final nextInsertedByOriginating = Map<String, String>.from(
+      state.insertedReviewStepIdsByOriginatingStepId,
+    )..[originatingStepId] = insertedReviewStepId;
+    final nextOriginByReview = Map<String, String>.from(
+      state.originatingStepIdByReviewStepId,
+    )..[insertedReviewStepId] = originatingStepId;
+    final nextAuthoredByInserted = Map<String, String>.from(
+      state.authoredReviewStepIdByInsertedStepId,
+    )..[insertedReviewStepId] = reviewSourceStepId;
+
+    final updatedState = state.copyWith(
+      orderedStepIds: List.unmodifiable(nextOrderedStepIds),
+      checkableStepIds: Set.unmodifiable(nextCheckableStepIds),
+      remediationAvailableStepIds: Set.unmodifiable(nextRemediationAvailable),
+      reviewStepIdsByStepId: Map.unmodifiable(nextReviewStepIdsByStepId),
+      insertedReviewStepIdsByOriginatingStepId: Map.unmodifiable(
+        nextInsertedByOriginating,
+      ),
+      originatingStepIdByReviewStepId: Map.unmodifiable(nextOriginByReview),
+      authoredReviewStepIdByInsertedStepId: Map.unmodifiable(
+        nextAuthoredByInserted,
+      ),
+      currentStepIndex: currentIndex + 1,
+      currentStepId: insertedReviewStepId,
+    );
+
+    return LessonSessionDecision(
+      type: LessonSessionDecisionType.insertReviewStep,
+      reasonCode: LessonSessionReasonCode.reviewInserted,
+      updatedState: updatedState,
+      stepId: insertedReviewStepId,
+      originatingStepId: originatingStepId,
+      reviewStepId: reviewSourceStepId,
+    );
+  }
+
   LessonSessionDecision _rejectCompleted(LessonSessionState state) {
     return LessonSessionDecision(
       type: LessonSessionDecisionType.rejectAction,
@@ -478,6 +628,14 @@ class LessonSessionEngine {
       stepId: state.currentStepId,
     );
   }
+}
+
+String lessonSessionReviewStepId({
+  required String originatingStepId,
+  required String reviewStepId,
+}) {
+  return 'review::${Uri.encodeComponent(originatingStepId)}::'
+      '${Uri.encodeComponent(reviewStepId)}';
 }
 
 const _unset = Object();

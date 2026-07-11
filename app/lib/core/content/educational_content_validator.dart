@@ -325,8 +325,16 @@ class EducationalContentValidator {
             );
           }
         case ExerciseTemplateContent():
+          final knownTemplateIds = idsByType['exercise_template']!;
           final knownContentIds = idsByType.values.expand((ids) => ids).toSet();
           for (final template in content.templates) {
+            _addMissingReferenceIssues(
+              owner: 'exercise_template ${template.id}',
+              referenceType: 'exercise_template',
+              ids: template.reviewTemplateIds,
+              knownIds: knownTemplateIds,
+              issues: issues,
+            );
             for (final misconception in template.authoredMisconceptions) {
               final explanationReferenceId =
                   misconception.explanationReferenceId;
