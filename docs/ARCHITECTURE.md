@@ -515,7 +515,7 @@ The answer evaluator and the Session Engine are separate peers in execution:
 
 The Session Engine must not reinterpret canonical answers.
 
-Advanced mastery changes and spaced-repetition scheduling are future work.
+Durable mastery changes and spaced-repetition scheduling are future work.
 
 Future answer evaluation should keep these responsibilities separate:
 
@@ -769,6 +769,64 @@ The default insertion policy is:
 
 If no authored review reference exists, the engine continues the remediation
 and retry behavior without inserting placeholders.
+
+Step Mastery
+
+The Session Engine separates:
+
+- answer correctness;
+- step completion;
+- step mastery.
+
+Answer correctness comes from `ActivityResult`.
+
+Step completion controls whether the learner may continue.
+
+Step mastery is a deterministic session-level assessment stored in
+`StepMasteryAssessment`.
+
+The implemented mastery statuses are:
+
+- `notAssessed`;
+- `notMastered`;
+- `fragile`;
+- `mastered`.
+
+The implemented mastery reason codes are:
+
+- `noAssessmentEvidence`;
+- `incorrectEvidenceOnly`;
+- `firstAttemptCorrect`;
+- `acceptedWithCorrection`;
+- `recoveredAfterIncorrect`;
+- `recoveredAfterRemediation`;
+- `recoveredAfterReview`;
+- `confirmationRequired`;
+- `confirmationSucceeded`;
+- `latestSubmissionIncorrect`.
+
+The implemented evidence model includes:
+
+- attempt count;
+- correct submission count;
+- accepted-with-correction count;
+- incorrect submission count;
+- whether the first attempt was correct;
+- whether remediation was shown;
+- whether review was required.
+
+Mastery belongs to stable step IDs.
+
+Inserted review steps may have their own mastery assessment, but their mastery
+does not replace mastery of the originating canonical step.
+
+At lesson finish, the engine returns a `LessonMasterySummary` for the active
+session.
+
+The summary counts canonical checkable steps only and excludes inserted review
+steps from the denominator.
+
+Session mastery is not persisted and is not durable learner progress.
 
 Runtime Dependency Direction
 

@@ -128,6 +128,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('Mastered'), findsOneWidget);
   });
 
   testWidgets('accepted-with-correction answer can advance', (tester) async {
@@ -152,6 +153,7 @@ void main() {
 
     expect(find.text('Accepted with correction'), findsOneWidget);
     expect(find.text('Canonical answer: qué'), findsOneWidget);
+    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
     expect(
       tester
           .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
@@ -226,6 +228,7 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
     expect(find.text('Not correct yet'), findsNothing);
+    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
     expect(
       tester
           .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
@@ -233,6 +236,12 @@ void main() {
       isNotNull,
     );
 
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Mastered'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('Next →'));
     await tester.tap(find.text('Next →'));
     await tester.pump();
 
@@ -285,6 +294,7 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
 
+    await tester.ensureVisible(find.text('Next →'));
     await tester.tap(find.text('Next →'));
     await tester.pump();
 
@@ -301,6 +311,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
 
     await tester.tap(find.text('Next →'));
     await tester.pump();
@@ -480,6 +491,13 @@ void main() {
   testWidgets('splits multiple templates into separate preserved steps', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
     await tester.pumpWidget(
       _app(
         const LessonPlayerScreen(lessonId: 'lesson.multi_template'),
@@ -535,6 +553,13 @@ void main() {
   testWidgets(
     'finish lesson is available only after final activity completion',
     (tester) async {
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
       await tester.pumpWidget(
         _app(
           const LessonPlayerScreen(lessonId: _navigationLessonId),
@@ -543,12 +568,14 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      await tester.ensureVisible(find.text('Next →'));
       await tester.tap(find.text('Next →'));
       await tester.pump();
       await tester.tap(find.text('right option'));
       await tester.pump();
       await tester.tap(find.text('Check'));
       await tester.pump();
+      await tester.ensureVisible(find.text('Next →'));
       await tester.tap(find.text('Next →'));
       await tester.pump();
 

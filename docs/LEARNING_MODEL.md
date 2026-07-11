@@ -469,6 +469,8 @@ It tracks in-memory session state:
 - authored remediation availability per step;
 - whether remediation has been shown for a step;
 - inserted review-step provenance;
+- step mastery assessments;
+- lesson mastery summary at finish;
 - session status.
 
 It determines immediate session consequences:
@@ -523,6 +525,12 @@ where supported.
 The Session Engine consumes evaluated results and decides the immediate session
 consequence.
 
+Correctness, completion and mastery are distinct.
+
+- Correctness describes one submitted answer.
+- Completion describes whether the learner may continue past the current step.
+- Mastery describes the quality of evidence for the current session.
+
 Current session policy:
 
 - correct results complete the step and permit progression;
@@ -536,6 +544,24 @@ Current session policy:
 - repeated incorrect results without remediation availability require retry;
 - informational steps may continue without a submission;
 - finish is allowed only at the final eligible step.
+
+Current session mastery policy:
+
+- no evaluated submission is `notAssessed`;
+- first-attempt correct evidence is `mastered`;
+- accepted-with-feedback evidence is `fragile`;
+- incorrect-only evidence is `notMastered`;
+- incorrect followed by correct is complete but `fragile`;
+- remediation followed by correct is complete but `fragile`;
+- inserted review followed by correct on the originating step is complete but
+  `fragile`;
+- a later correct resubmission of the same fragile step confirms mastery;
+- a latest incorrect resubmission makes completion false and mastery
+  `notMastered`.
+
+The confirmation policy is revisit-and-resubmit within the active session.
+
+The engine does not force an extra confirmation activity in this phase.
 
 Attempt tracking is in-memory session state:
 
@@ -552,6 +578,16 @@ Attempt tracking is in-memory session state:
 
 A previously completed step may become incomplete if its latest resubmission is
 incorrect.
+
+Mastery is owned by the canonical checkable step.
+
+Inserted review steps may have local completion and mastery evidence, but they
+do not replace mastery of the originating step.
+
+Lesson mastery summaries count canonical checkable steps only.
+
+Informational steps are not treated as mastered merely because the learner
+pressed Next.
 
 The Session Engine does not generate remediation content.
 
@@ -575,6 +611,11 @@ and does not complete the originating exercise.
 Advanced mastery estimation, spaced repetition, durable attempt history,
 adaptive retry scheduling, optional review lessons and long-term review
 scheduling remain future work.
+
+Session mastery is evidence from the current lesson session only.
+
+It is not durable proof of long-term acquisition and is not persisted in this
+phase.
 
 ---
 
@@ -762,7 +803,7 @@ Postponed:
 - advanced motivation model;
 - advanced evidence model;
 - adaptive review scheduler;
-- mastery model;
+- durable mastery model;
 - spaced repetition;
 - durable session persistence;
 - durable attempt history;

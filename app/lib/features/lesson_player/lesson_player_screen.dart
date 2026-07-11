@@ -104,6 +104,9 @@ class LessonPlayerView extends ConsumerWidget {
           LessonPlayerStepView(
             step: currentStep,
             state: activeSession.stepStates[currentStep.id],
+            masteryAssessment: activeSession
+                .sessionState
+                .masteryAssessmentByStepId[currentStep.id],
             showRemediation: activeSession.sessionState.remediationShownByStepId
                 .contains(currentStep.id),
             onStateChanged: (stepState) {
@@ -393,6 +396,7 @@ class LessonPlayerStepView extends StatelessWidget {
   const LessonPlayerStepView({
     required this.step,
     this.state,
+    this.masteryAssessment,
     this.showRemediation = false,
     this.onStateChanged,
     super.key,
@@ -400,6 +404,7 @@ class LessonPlayerStepView extends StatelessWidget {
 
   final LessonPlayerStep step;
   final ActivityTemplateState? state;
+  final StepMasteryAssessment? masteryAssessment;
   final bool showRemediation;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
@@ -441,11 +446,28 @@ class LessonPlayerStepView extends StatelessWidget {
                   onStateChanged: onStateChanged,
                 ),
               ),
+            if (_shouldShowMasteryLabel(masteryAssessment)) ...[
+              const SizedBox(height: 4),
+              Text(_masteryLabel(masteryAssessment!.status)),
+            ],
           ],
         ),
       ),
     );
   }
+}
+
+bool _shouldShowMasteryLabel(StepMasteryAssessment? assessment) {
+  return assessment?.status == StepMasteryStatus.mastered ||
+      assessment?.status == StepMasteryStatus.fragile;
+}
+
+String _masteryLabel(StepMasteryStatus status) {
+  return switch (status) {
+    StepMasteryStatus.mastered => 'Mastered',
+    StepMasteryStatus.fragile => 'Completed - needs reinforcement',
+    StepMasteryStatus.notMastered || StepMasteryStatus.notAssessed => '',
+  };
 }
 
 class LessonContentObjectView extends StatelessWidget {

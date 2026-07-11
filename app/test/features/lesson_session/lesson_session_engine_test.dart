@@ -48,6 +48,14 @@ void main() {
     expect(decision.updatedState.currentStepIndex, 0);
     expect(decision.updatedState.attemptsByStepId, isEmpty);
     expect(decision.updatedState.status, LessonSessionStatus.inProgress);
+    expect(
+      decision.updatedState.masteryAssessmentByStepId[practiceStep.id]?.status,
+      StepMasteryStatus.notAssessed,
+    );
+    expect(
+      decision.updatedState.masteryAssessmentByStepId[infoStep.id]?.status,
+      StepMasteryStatus.notAssessed,
+    );
   });
 
   test('informational step permits next without incrementing attempts', () {
@@ -105,6 +113,20 @@ void main() {
       contains(practiceStep.id),
     );
     expect(nextDecision.type, LessonSessionDecisionType.moveToNextStep);
+    expect(
+      submitDecision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.status,
+      StepMasteryStatus.mastered,
+    );
+    expect(
+      submitDecision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.firstAttemptCorrect,
+    );
   });
 
   test('accepted with correction is complete but remains distinct', () {
@@ -123,6 +145,17 @@ void main() {
     expect(
       decision.updatedState.resultByStepId[practiceStep.id]?.status,
       ActivityResultStatus.acceptedWithFeedback,
+    );
+    expect(
+      decision.updatedState.masteryAssessmentByStepId[practiceStep.id]?.status,
+      StepMasteryStatus.fragile,
+    );
+    expect(
+      decision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.acceptedWithCorrection,
     );
   });
 
@@ -145,11 +178,118 @@ void main() {
     expect(submitDecision.updatedState.attemptsByStepId[practiceStep.id], 1);
     expect(submitDecision.updatedState.remediationShownByStepId, isEmpty);
     expect(
+      submitDecision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.status,
+      StepMasteryStatus.notMastered,
+    );
+    expect(
+      submitDecision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.incorrectEvidenceOnly,
+    );
+    expect(
       submitDecision.updatedState.completedStepIds,
       isNot(contains(practiceStep.id)),
     );
     expect(nextDecision.type, LessonSessionDecisionType.rejectAction);
     expect(nextDecision.reasonCode, LessonSessionReasonCode.nextStepLocked);
+  });
+
+  test('incorrect then correct completes but remains fragile', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [practiceStep])
+        .updatedState;
+    final incorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+
+    final decision = engine.submitStepResult(
+      state: incorrect,
+      result: _correctResult,
+    );
+
+    expect(decision.type, LessonSessionDecisionType.showFeedback);
+    expect(decision.updatedState.completedStepIds, contains(practiceStep.id));
+    expect(
+      decision.updatedState.masteryAssessmentByStepId[practiceStep.id]?.status,
+      StepMasteryStatus.fragile,
+    );
+    expect(
+      decision
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.recoveredAfterIncorrect,
+    );
+  });
+
+  test(
+    'fragile step confirmed by another correct submission becomes mastered',
+    () {
+      final state = engine
+          .startSession(lessonId: lessonId, steps: const [practiceStep])
+          .updatedState;
+      final incorrect = engine
+          .submitStepResult(state: state, result: _incorrectResult)
+          .updatedState;
+      final fragile = engine
+          .submitStepResult(state: incorrect, result: _correctResult)
+          .updatedState;
+
+      final confirmed = engine.submitStepResult(
+        state: fragile,
+        result: _correctResult,
+      );
+
+      expect(
+        confirmed
+            .updatedState
+            .masteryAssessmentByStepId[practiceStep.id]
+            ?.status,
+        StepMasteryStatus.mastered,
+      );
+      expect(
+        confirmed
+            .updatedState
+            .masteryAssessmentByStepId[practiceStep.id]
+            ?.reasonCode,
+        StepMasteryReasonCode.confirmationSucceeded,
+      );
+      expect(confirmed.updatedState.attemptsByStepId[practiceStep.id], 3);
+    },
+  );
+
+  test('accepted-with-correction confirmation does not produce mastery', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [practiceStep])
+        .updatedState;
+    final accepted = engine
+        .submitStepResult(state: state, result: _acceptedWithFeedbackResult)
+        .updatedState;
+
+    final acceptedAgain = engine.submitStepResult(
+      state: accepted,
+      result: _acceptedWithFeedbackResult,
+    );
+
+    expect(
+      acceptedAgain
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.status,
+      StepMasteryStatus.fragile,
+    );
+    expect(
+      acceptedAgain
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.acceptedWithCorrection,
+    );
   });
 
   test('second incorrect with remediation available shows remediation', () {
@@ -305,6 +445,20 @@ void main() {
       contains(remediationStep.id),
     );
     expect(nextDecision.type, LessonSessionDecisionType.moveToNextStep);
+    expect(
+      correctDecision
+          .updatedState
+          .masteryAssessmentByStepId[remediationStep.id]
+          ?.status,
+      StepMasteryStatus.fragile,
+    );
+    expect(
+      correctDecision
+          .updatedState
+          .masteryAssessmentByStepId[remediationStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.recoveredAfterRemediation,
+    );
   });
 
   test(
@@ -429,6 +583,17 @@ void main() {
       reviewStep.id,
     );
     expect(decision.updatedState.checkableStepIds, contains(insertedReviewId));
+    expect(
+      decision
+          .updatedState
+          .masteryAssessmentByStepId[reviewOriginStep.id]
+          ?.status,
+      StepMasteryStatus.notMastered,
+    );
+    expect(
+      decision.updatedState.masteryAssessmentByStepId[insertedReviewId]?.status,
+      StepMasteryStatus.notAssessed,
+    );
   });
 
   test('review completion returns to original step without completing it', () {
@@ -467,6 +632,66 @@ void main() {
     expect(
       engine.requestNext(returnedToOrigin.updatedState).reasonCode,
       LessonSessionReasonCode.nextStepLocked,
+    );
+    expect(
+      returnedToOrigin
+          .updatedState
+          .masteryAssessmentByStepId[reviewOriginStep.id]
+          ?.status,
+      StepMasteryStatus.notMastered,
+    );
+    expect(
+      returnedToOrigin
+          .updatedState
+          .masteryAssessmentByStepId[reviewInserted.currentStepId]
+          ?.status,
+      StepMasteryStatus.mastered,
+    );
+  });
+
+  test('origin correct after inserted review is complete but fragile', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [reviewOriginStep, reviewStep, finalPracticeStep],
+        )
+        .updatedState;
+    final firstIncorrect = engine
+        .submitStepResult(state: state, result: _incorrectResult)
+        .updatedState;
+    final remediationShown = engine
+        .submitStepResult(state: firstIncorrect, result: _incorrectResult)
+        .updatedState;
+    final reviewInserted = engine
+        .submitStepResult(state: remediationShown, result: _incorrectResult)
+        .updatedState;
+    final reviewCompleted = engine
+        .submitStepResult(state: reviewInserted, result: _correctResult)
+        .updatedState;
+    final returnedToOrigin = engine.requestNext(reviewCompleted).updatedState;
+
+    final originCorrect = engine.submitStepResult(
+      state: returnedToOrigin,
+      result: _correctResult,
+    );
+
+    expect(
+      originCorrect.updatedState.completedStepIds,
+      contains(reviewOriginStep.id),
+    );
+    expect(
+      originCorrect
+          .updatedState
+          .masteryAssessmentByStepId[reviewOriginStep.id]
+          ?.status,
+      StepMasteryStatus.fragile,
+    );
+    expect(
+      originCorrect
+          .updatedState
+          .masteryAssessmentByStepId[reviewOriginStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.recoveredAfterReview,
     );
   });
 
@@ -661,6 +886,48 @@ void main() {
       resubmitted.updatedState.completedStepIds,
       isNot(contains(practiceStep.id)),
     );
+    expect(
+      resubmitted
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.status,
+      StepMasteryStatus.notMastered,
+    );
+    expect(
+      resubmitted
+          .updatedState
+          .masteryAssessmentByStepId[practiceStep.id]
+          ?.reasonCode,
+      StepMasteryReasonCode.latestSubmissionIncorrect,
+    );
+  });
+
+  test('lesson mastery summary counts canonical checkable steps only', () {
+    final started = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [infoStep, practiceStep, finalPracticeStep],
+        )
+        .updatedState;
+    final onPractice = engine.requestNext(started).updatedState;
+    final masteredPractice = engine
+        .submitStepResult(state: onPractice, result: _correctResult)
+        .updatedState;
+    final onFinal = engine.requestNext(masteredPractice).updatedState;
+    final fragileFinal = engine
+        .submitStepResult(state: onFinal, result: _acceptedWithFeedbackResult)
+        .updatedState;
+
+    final finishDecision = engine.finishSession(fragileFinal);
+    final summary = finishDecision.masterySummary!;
+
+    expect(finishDecision.type, LessonSessionDecisionType.finishLesson);
+    expect(summary.assessedStepCount, 2);
+    expect(summary.masteredStepCount, 1);
+    expect(summary.fragileStepCount, 1);
+    expect(summary.notMasteredStepCount, 0);
+    expect(summary.unassessedStepCount, 0);
+    expect(summary.masteryRatio, 0.5);
   });
 
   test('restart clears current result without incrementing attempts', () {

@@ -2,6 +2,21 @@ import '../activity_engine/activity_result.dart';
 
 enum LessonSessionStatus { notStarted, inProgress, completed }
 
+enum StepMasteryStatus { notAssessed, notMastered, fragile, mastered }
+
+enum StepMasteryReasonCode {
+  noAssessmentEvidence,
+  incorrectEvidenceOnly,
+  firstAttemptCorrect,
+  acceptedWithCorrection,
+  recoveredAfterIncorrect,
+  recoveredAfterRemediation,
+  recoveredAfterReview,
+  confirmationRequired,
+  confirmationSucceeded,
+  latestSubmissionIncorrect,
+}
+
 enum LessonSessionDecisionType {
   showCurrentStep,
   showFeedback,
@@ -53,6 +68,58 @@ class LessonSessionStep {
   final List<String> reviewStepIds;
 }
 
+class StepMasteryEvidence {
+  const StepMasteryEvidence({
+    this.attemptCount = 0,
+    this.correctSubmissionCount = 0,
+    this.acceptedWithCorrectionCount = 0,
+    this.incorrectSubmissionCount = 0,
+    this.firstAttemptWasCorrect = false,
+    this.remediationWasShown = false,
+    this.reviewWasRequired = false,
+  });
+
+  final int attemptCount;
+  final int correctSubmissionCount;
+  final int acceptedWithCorrectionCount;
+  final int incorrectSubmissionCount;
+  final bool firstAttemptWasCorrect;
+  final bool remediationWasShown;
+  final bool reviewWasRequired;
+}
+
+class StepMasteryAssessment {
+  const StepMasteryAssessment({
+    required this.stepId,
+    required this.status,
+    required this.reasonCode,
+    required this.evidence,
+  });
+
+  final String stepId;
+  final StepMasteryStatus status;
+  final StepMasteryReasonCode reasonCode;
+  final StepMasteryEvidence evidence;
+}
+
+class LessonMasterySummary {
+  const LessonMasterySummary({
+    required this.assessedStepCount,
+    required this.masteredStepCount,
+    required this.fragileStepCount,
+    required this.notMasteredStepCount,
+    required this.unassessedStepCount,
+    required this.masteryRatio,
+  });
+
+  final int assessedStepCount;
+  final int masteredStepCount;
+  final int fragileStepCount;
+  final int notMasteredStepCount;
+  final int unassessedStepCount;
+  final double masteryRatio;
+}
+
 class LessonSessionState {
   const LessonSessionState({
     required this.lessonId,
@@ -70,6 +137,11 @@ class LessonSessionState {
     this.completedStepIds = const {},
     this.attemptsByStepId = const {},
     this.resultByStepId = const {},
+    this.correctSubmissionCountByStepId = const {},
+    this.acceptedWithCorrectionCountByStepId = const {},
+    this.incorrectSubmissionCountByStepId = const {},
+    this.firstAttemptCorrectStepIds = const {},
+    this.masteryAssessmentByStepId = const {},
     this.status = LessonSessionStatus.notStarted,
   });
 
@@ -88,6 +160,11 @@ class LessonSessionState {
   final Set<String> completedStepIds;
   final Map<String, int> attemptsByStepId;
   final Map<String, ActivityResult> resultByStepId;
+  final Map<String, int> correctSubmissionCountByStepId;
+  final Map<String, int> acceptedWithCorrectionCountByStepId;
+  final Map<String, int> incorrectSubmissionCountByStepId;
+  final Set<String> firstAttemptCorrectStepIds;
+  final Map<String, StepMasteryAssessment> masteryAssessmentByStepId;
   final LessonSessionStatus status;
 
   LessonSessionState copyWith({
@@ -105,6 +182,11 @@ class LessonSessionState {
     Set<String>? completedStepIds,
     Map<String, int>? attemptsByStepId,
     Map<String, ActivityResult>? resultByStepId,
+    Map<String, int>? correctSubmissionCountByStepId,
+    Map<String, int>? acceptedWithCorrectionCountByStepId,
+    Map<String, int>? incorrectSubmissionCountByStepId,
+    Set<String>? firstAttemptCorrectStepIds,
+    Map<String, StepMasteryAssessment>? masteryAssessmentByStepId,
     LessonSessionStatus? status,
   }) {
     return LessonSessionState(
@@ -134,6 +216,18 @@ class LessonSessionState {
       completedStepIds: completedStepIds ?? this.completedStepIds,
       attemptsByStepId: attemptsByStepId ?? this.attemptsByStepId,
       resultByStepId: resultByStepId ?? this.resultByStepId,
+      correctSubmissionCountByStepId:
+          correctSubmissionCountByStepId ?? this.correctSubmissionCountByStepId,
+      acceptedWithCorrectionCountByStepId:
+          acceptedWithCorrectionCountByStepId ??
+          this.acceptedWithCorrectionCountByStepId,
+      incorrectSubmissionCountByStepId:
+          incorrectSubmissionCountByStepId ??
+          this.incorrectSubmissionCountByStepId,
+      firstAttemptCorrectStepIds:
+          firstAttemptCorrectStepIds ?? this.firstAttemptCorrectStepIds,
+      masteryAssessmentByStepId:
+          masteryAssessmentByStepId ?? this.masteryAssessmentByStepId,
       status: status ?? this.status,
     );
   }
@@ -147,6 +241,7 @@ class LessonSessionDecision {
     this.stepId,
     this.originatingStepId,
     this.reviewStepId,
+    this.masterySummary,
   });
 
   final LessonSessionDecisionType type;
@@ -155,6 +250,7 @@ class LessonSessionDecision {
   final String? stepId;
   final String? originatingStepId;
   final String? reviewStepId;
+  final LessonMasterySummary? masterySummary;
 }
 
 sealed class LessonSessionEvent {
@@ -242,6 +338,9 @@ class LessonSessionEngine {
             step.reviewStepIds.where(knownStepIds.contains),
           ),
     };
+    final masteryAssessmentByStepId = {
+      for (final stepId in stepIds) stepId: _notAssessed(stepId),
+    };
     final state = LessonSessionState(
       lessonId: lessonId,
       canonicalStepIds: List.unmodifiable(stepIds),
@@ -251,6 +350,7 @@ class LessonSessionEngine {
         remediationAvailableStepIds,
       ),
       reviewStepIdsByStepId: Map.unmodifiable(reviewStepIdsByStepId),
+      masteryAssessmentByStepId: Map.unmodifiable(masteryAssessmentByStepId),
       currentStepId: stepIds.first,
       status: LessonSessionStatus.inProgress,
     );
@@ -283,9 +383,37 @@ class LessonSessionEngine {
 
     final nextAttempts = Map<String, int>.from(state.attemptsByStepId);
     nextAttempts[stepId] = (nextAttempts[stepId] ?? 0) + 1;
+    final newAttemptCount = nextAttempts[stepId] ?? 0;
 
     final nextResults = Map<String, ActivityResult>.from(state.resultByStepId);
     nextResults[stepId] = result;
+
+    final nextCorrectCounts = Map<String, int>.from(
+      state.correctSubmissionCountByStepId,
+    );
+    final nextAcceptedWithCorrectionCounts = Map<String, int>.from(
+      state.acceptedWithCorrectionCountByStepId,
+    );
+    final nextIncorrectCounts = Map<String, int>.from(
+      state.incorrectSubmissionCountByStepId,
+    );
+    final nextFirstAttemptCorrect = Set<String>.from(
+      state.firstAttemptCorrectStepIds,
+    );
+    switch (result.status) {
+      case ActivityResultStatus.correct:
+        nextCorrectCounts[stepId] = (nextCorrectCounts[stepId] ?? 0) + 1;
+        if (newAttemptCount == 1) {
+          nextFirstAttemptCorrect.add(stepId);
+        }
+      case ActivityResultStatus.acceptedWithFeedback:
+        nextAcceptedWithCorrectionCounts[stepId] =
+            (nextAcceptedWithCorrectionCounts[stepId] ?? 0) + 1;
+      case ActivityResultStatus.incorrect:
+        nextIncorrectCounts[stepId] = (nextIncorrectCounts[stepId] ?? 0) + 1;
+      case ActivityResultStatus.unsupported:
+        nextIncorrectCounts[stepId] = (nextIncorrectCounts[stepId] ?? 0) + 1;
+    }
 
     final nextCompleted = Set<String>.from(state.completedStepIds);
     final isAccepted = _isAccepted(result);
@@ -298,23 +426,32 @@ class LessonSessionEngine {
     final updatedState = state.copyWith(
       attemptsByStepId: Map.unmodifiable(nextAttempts),
       resultByStepId: Map.unmodifiable(nextResults),
+      correctSubmissionCountByStepId: Map.unmodifiable(nextCorrectCounts),
+      acceptedWithCorrectionCountByStepId: Map.unmodifiable(
+        nextAcceptedWithCorrectionCounts,
+      ),
+      incorrectSubmissionCountByStepId: Map.unmodifiable(nextIncorrectCounts),
+      firstAttemptCorrectStepIds: Set.unmodifiable(nextFirstAttemptCorrect),
       completedStepIds: Set.unmodifiable(nextCompleted),
+    );
+    final updatedStateWithMastery = _updateMasteryAssessment(
+      updatedState,
+      stepId,
     );
 
     if (!isAccepted) {
-      final newAttemptCount = nextAttempts[stepId] ?? 0;
       if (newAttemptCount == 1) {
         return LessonSessionDecision(
           type: LessonSessionDecisionType.retryCurrentStep,
           reasonCode: LessonSessionReasonCode.firstIncorrectAttempt,
-          updatedState: updatedState,
+          updatedState: updatedStateWithMastery,
           stepId: stepId,
         );
       }
 
       if (newAttemptCount == 3) {
         final reviewDecision = _insertReviewStepIfAvailable(
-          state: updatedState,
+          state: updatedStateWithMastery,
           originatingStepId: stepId,
         );
         if (reviewDecision != null) {
@@ -324,16 +461,20 @@ class LessonSessionEngine {
 
       if (state.remediationAvailableStepIds.contains(stepId)) {
         final nextRemediationShown = Set<String>.from(
-          updatedState.remediationShownByStepId,
+          updatedStateWithMastery.remediationShownByStepId,
         )..add(stepId);
-        final remediationState = updatedState.copyWith(
+        final remediationState = updatedStateWithMastery.copyWith(
           remediationShownByStepId: Set.unmodifiable(nextRemediationShown),
+        );
+        final remediationStateWithMastery = _updateMasteryAssessment(
+          remediationState,
+          stepId,
         );
 
         return LessonSessionDecision(
           type: LessonSessionDecisionType.showRemediation,
           reasonCode: LessonSessionReasonCode.remediationRequested,
-          updatedState: remediationState,
+          updatedState: remediationStateWithMastery,
           stepId: stepId,
         );
       }
@@ -347,7 +488,7 @@ class LessonSessionEngine {
       return LessonSessionDecision(
         type: LessonSessionDecisionType.retryCurrentStep,
         reasonCode: reasonCode,
-        updatedState: updatedState,
+        updatedState: updatedStateWithMastery,
         stepId: stepId,
       );
     }
@@ -357,7 +498,7 @@ class LessonSessionEngine {
       reasonCode: result.status == ActivityResultStatus.acceptedWithFeedback
           ? LessonSessionReasonCode.acceptedWithCorrection
           : LessonSessionReasonCode.correctAnswerAccepted,
-      updatedState: updatedState,
+      updatedState: updatedStateWithMastery,
       stepId: stepId,
     );
   }
@@ -471,6 +612,7 @@ class LessonSessionEngine {
       reasonCode: LessonSessionReasonCode.lessonFinished,
       updatedState: updatedState,
       stepId: currentStepId,
+      masterySummary: _summarizeMastery(updatedState),
     );
   }
 
@@ -492,9 +634,12 @@ class LessonSessionEngine {
       ..remove(stepId);
     final nextResults = Map<String, ActivityResult>.from(state.resultByStepId)
       ..remove(stepId);
-    final updatedState = state.copyWith(
-      completedStepIds: Set.unmodifiable(nextCompleted),
-      resultByStepId: Map.unmodifiable(nextResults),
+    final updatedState = _updateMasteryAssessment(
+      state.copyWith(
+        completedStepIds: Set.unmodifiable(nextCompleted),
+        resultByStepId: Map.unmodifiable(nextResults),
+      ),
+      stepId,
     );
 
     final reasonCode = state.remediationShownByStepId.contains(stepId)
@@ -520,6 +665,185 @@ class LessonSessionEngine {
     }
 
     return state.completedStepIds.contains(stepId);
+  }
+
+  LessonSessionState _updateMasteryAssessment(
+    LessonSessionState state,
+    String stepId,
+  ) {
+    final nextAssessments = Map<String, StepMasteryAssessment>.from(
+      state.masteryAssessmentByStepId,
+    )..[stepId] = _assessStepMastery(state, stepId);
+
+    return state.copyWith(
+      masteryAssessmentByStepId: Map.unmodifiable(nextAssessments),
+    );
+  }
+
+  StepMasteryAssessment _assessStepMastery(
+    LessonSessionState state,
+    String stepId,
+  ) {
+    final evidence = _masteryEvidenceFor(state, stepId);
+    final latestResult = state.resultByStepId[stepId];
+
+    if (evidence.attemptCount == 0 && latestResult == null) {
+      return _notAssessed(stepId);
+    }
+
+    if (latestResult == null) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.notMastered,
+        reasonCode: StepMasteryReasonCode.latestSubmissionIncorrect,
+        evidence: evidence,
+      );
+    }
+
+    if (latestResult.status == ActivityResultStatus.incorrect ||
+        latestResult.status == ActivityResultStatus.unsupported) {
+      final reasonCode =
+          evidence.correctSubmissionCount == 0 &&
+              evidence.acceptedWithCorrectionCount == 0
+          ? StepMasteryReasonCode.incorrectEvidenceOnly
+          : StepMasteryReasonCode.latestSubmissionIncorrect;
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.notMastered,
+        reasonCode: reasonCode,
+        evidence: evidence,
+      );
+    }
+
+    if (latestResult.status == ActivityResultStatus.acceptedWithFeedback) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.fragile,
+        reasonCode: StepMasteryReasonCode.acceptedWithCorrection,
+        evidence: evidence,
+      );
+    }
+
+    if (evidence.firstAttemptWasCorrect) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.mastered,
+        reasonCode: StepMasteryReasonCode.firstAttemptCorrect,
+        evidence: evidence,
+      );
+    }
+
+    final needsConfirmation =
+        evidence.incorrectSubmissionCount > 0 ||
+        evidence.acceptedWithCorrectionCount > 0 ||
+        evidence.remediationWasShown ||
+        evidence.reviewWasRequired;
+    if (needsConfirmation && evidence.correctSubmissionCount >= 2) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.mastered,
+        reasonCode: StepMasteryReasonCode.confirmationSucceeded,
+        evidence: evidence,
+      );
+    }
+
+    if (evidence.reviewWasRequired) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.fragile,
+        reasonCode: StepMasteryReasonCode.recoveredAfterReview,
+        evidence: evidence,
+      );
+    }
+
+    if (evidence.remediationWasShown) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.fragile,
+        reasonCode: StepMasteryReasonCode.recoveredAfterRemediation,
+        evidence: evidence,
+      );
+    }
+
+    if (evidence.incorrectSubmissionCount > 0) {
+      return StepMasteryAssessment(
+        stepId: stepId,
+        status: StepMasteryStatus.fragile,
+        reasonCode: StepMasteryReasonCode.recoveredAfterIncorrect,
+        evidence: evidence,
+      );
+    }
+
+    return StepMasteryAssessment(
+      stepId: stepId,
+      status: StepMasteryStatus.fragile,
+      reasonCode: StepMasteryReasonCode.confirmationRequired,
+      evidence: evidence,
+    );
+  }
+
+  StepMasteryEvidence _masteryEvidenceFor(
+    LessonSessionState state,
+    String stepId,
+  ) {
+    return StepMasteryEvidence(
+      attemptCount: state.attemptsByStepId[stepId] ?? 0,
+      correctSubmissionCount: state.correctSubmissionCountByStepId[stepId] ?? 0,
+      acceptedWithCorrectionCount:
+          state.acceptedWithCorrectionCountByStepId[stepId] ?? 0,
+      incorrectSubmissionCount:
+          state.incorrectSubmissionCountByStepId[stepId] ?? 0,
+      firstAttemptWasCorrect: state.firstAttemptCorrectStepIds.contains(stepId),
+      remediationWasShown: state.remediationShownByStepId.contains(stepId),
+      reviewWasRequired: state.insertedReviewStepIdsByOriginatingStepId
+          .containsKey(stepId),
+    );
+  }
+
+  StepMasteryAssessment _notAssessed(String stepId) {
+    return StepMasteryAssessment(
+      stepId: stepId,
+      status: StepMasteryStatus.notAssessed,
+      reasonCode: StepMasteryReasonCode.noAssessmentEvidence,
+      evidence: const StepMasteryEvidence(),
+    );
+  }
+
+  LessonMasterySummary _summarizeMastery(LessonSessionState state) {
+    final canonicalCheckableStepIds = state.canonicalStepIds
+        .where(state.checkableStepIds.contains)
+        .toList(growable: false);
+    var mastered = 0;
+    var fragile = 0;
+    var notMastered = 0;
+    var unassessed = 0;
+
+    for (final stepId in canonicalCheckableStepIds) {
+      final status =
+          state.masteryAssessmentByStepId[stepId]?.status ??
+          StepMasteryStatus.notAssessed;
+      switch (status) {
+        case StepMasteryStatus.mastered:
+          mastered += 1;
+        case StepMasteryStatus.fragile:
+          fragile += 1;
+        case StepMasteryStatus.notMastered:
+          notMastered += 1;
+        case StepMasteryStatus.notAssessed:
+          unassessed += 1;
+      }
+    }
+
+    final assessed = mastered + fragile + notMastered;
+    final denominator = canonicalCheckableStepIds.length;
+    return LessonMasterySummary(
+      assessedStepCount: assessed,
+      masteredStepCount: mastered,
+      fragileStepCount: fragile,
+      notMasteredStepCount: notMastered,
+      unassessedStepCount: unassessed,
+      masteryRatio: denominator == 0 ? 0 : mastered / denominator,
+    );
   }
 
   bool _isAccepted(ActivityResult result) {
@@ -593,8 +917,11 @@ class LessonSessionEngine {
     final nextAuthoredByInserted = Map<String, String>.from(
       state.authoredReviewStepIdByInsertedStepId,
     )..[insertedReviewStepId] = reviewSourceStepId;
+    final nextMasteryAssessments = Map<String, StepMasteryAssessment>.from(
+      state.masteryAssessmentByStepId,
+    )..[insertedReviewStepId] = _notAssessed(insertedReviewStepId);
 
-    final updatedState = state.copyWith(
+    final expandedState = state.copyWith(
       orderedStepIds: List.unmodifiable(nextOrderedStepIds),
       checkableStepIds: Set.unmodifiable(nextCheckableStepIds),
       remediationAvailableStepIds: Set.unmodifiable(nextRemediationAvailable),
@@ -606,8 +933,13 @@ class LessonSessionEngine {
       authoredReviewStepIdByInsertedStepId: Map.unmodifiable(
         nextAuthoredByInserted,
       ),
+      masteryAssessmentByStepId: Map.unmodifiable(nextMasteryAssessments),
       currentStepIndex: currentIndex + 1,
       currentStepId: insertedReviewStepId,
+    );
+    final updatedState = _updateMasteryAssessment(
+      expandedState,
+      originatingStepId,
     );
 
     return LessonSessionDecision(

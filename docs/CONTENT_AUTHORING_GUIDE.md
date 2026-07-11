@@ -449,6 +449,14 @@ session after repeated incorrect attempts.
 Authors must not use review references to smuggle unrelated lessons, new
 objectives or generated content into a session.
 
+Authors do not assign mastery.
+
+Mastery is a deterministic current-session judgment made by the Lesson Session
+Engine from attempts, accepted corrections, remediation and review evidence.
+
+Content may provide focused remediation and review material, but it must not
+store learner mastery, confidence, progress or long-term acquisition state.
+
 Prompts, canonical answers, accepted alternatives, authored misconceptions and
 correction guidance must be deterministic, authored and reviewable in the
 content or evaluation-related structures that support them.

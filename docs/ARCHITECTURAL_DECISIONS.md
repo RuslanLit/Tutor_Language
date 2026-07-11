@@ -668,8 +668,8 @@ difference classification and feedback.
 
 Current Lesson Session Engine work provides deterministic in-memory session
 orchestration and attempt counts. Durable attempt history, activity-level
-evidence, delayed retrieval, adaptive retry scheduling and mastery estimation
-remain future work.
+evidence, delayed retrieval, adaptive retry scheduling and durable mastery
+estimation remain future work.
 
 Increased learner effort is intentional when it improves learning.
 
@@ -787,6 +787,16 @@ plan with an inserted authored review step after repeated incorrect attempts.
 
 The canonical lesson order remains immutable.
 
+The Session Engine now distinguishes answer correctness, step completion and
+current-session step mastery.
+
+Mastery is deterministic session evidence only.
+
+It is not persisted and does not represent long-term acquisition.
+
+Fragile steps may still be completed and may still permit lesson completion in
+the current phase.
+
 Constraints
 
 `LessonSessionEngine` must not depend on:
@@ -806,9 +816,9 @@ content structures, not in the Session Engine.
 
 Future Implications
 
-Future escalated remediation, optional review lessons, learner-history
-adaptation and session persistence should extend the Session Engine through
-explicit deterministic inputs and adapter boundaries.
+Future escalated remediation, optional review lessons, durable mastery,
+learner-history adaptation and session persistence should extend the Session
+Engine through explicit deterministic inputs and adapter boundaries.
 
 The engine must remain persistence-agnostic even if a future adapter serializes
 session state.
