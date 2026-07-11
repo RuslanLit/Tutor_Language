@@ -56,6 +56,7 @@ class ActivityEngine {
     final evaluation = answerEvaluator.evaluateTypedAnswer(
       learnerAnswer: submitted,
       canonicalAnswer: expected,
+      authoredMisconceptions: template.authoredMisconceptions,
     );
 
     return ActivityResult(

@@ -198,6 +198,33 @@
     "expected_answer": "Me"
   },
   {
+    "id": "template.es.a0.unit1.type_me_llamo_ana.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish introduction: \"My name is Ana.\"",
+    "expected_answer": "Me llamo Ana",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.unit1.name_pattern.soy_ana.v1",
+        "matching_answers": [
+          "Soy Ana",
+          "Yo soy Ana",
+          "Soy Ana."
+        ],
+        "feedback_key": "spanish.name_pattern.use_me_llamo",
+        "canonical_answer": "Me llamo Ana",
+        "explanation_reference_id": "grammar.es.a0.unit1.name_pattern.v1"
+      }
+    ]
+  },
+  {
     "id": "template.es.a0.unit1.origin_choice.v1",
     "exercise_type": "multiple_choice",
     "supported_goal_types": [
@@ -238,6 +265,33 @@
     ],
     "prompt_template": "Complete the origin phrase: \"Soy __ Madrid.\"",
     "expected_answer": "de"
+  },
+  {
+    "id": "template.es.a0.unit1.type_soy_de_madrid.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish origin phrase: \"I am from Madrid.\"",
+    "expected_answer": "Soy de Madrid",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.unit1.origin.estoy_de_madrid.v1",
+        "matching_answers": [
+          "Estoy de Madrid",
+          "Yo estoy de Madrid",
+          "Estoy de Madrid."
+        ],
+        "feedback_key": "spanish.origin.use_ser",
+        "canonical_answer": "Soy de Madrid",
+        "explanation_reference_id": "grammar.es.a0.unit1.origin_pattern.v1"
+      }
+    ]
   },
   {
     "id": "template.es.a0.unit1.how_are_you_choice.v1",

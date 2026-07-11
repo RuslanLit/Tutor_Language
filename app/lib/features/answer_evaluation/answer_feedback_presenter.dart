@@ -30,6 +30,7 @@ class AnswerFeedbackPresenter {
       AnswerEvaluationStatus.incorrect => PresentedAnswerFeedback(
         statusLabel: 'Not correct yet',
         canonicalAnswer: result.feedback.canonicalAnswer,
+        corrections: _incorrectCorrectionsFor(result.feedback),
       ),
       AnswerEvaluationStatus.unsupported => const PresentedAnswerFeedback(
         statusLabel: 'Unsupported activity type',
@@ -56,5 +57,20 @@ class AnswerFeedbackPresenter {
         'Spanish exclamations end with "!".',
       _ => 'Use the canonical form: "$canonical".',
     };
+  }
+
+  List<String> _incorrectCorrectionsFor(AnswerFeedback feedback) {
+    final correction = switch (feedback.key) {
+      'spanish.name_pattern.use_me_llamo' =>
+        'For this introduction pattern, use "me llamo".',
+      'spanish.origin.use_ser' => 'To state origin, Spanish uses "soy de".',
+      _ => null,
+    };
+
+    if (correction == null) {
+      return const [];
+    }
+
+    return [correction];
   }
 }

@@ -382,6 +382,7 @@ class ExerciseTemplate {
     this.answerOptions = const [],
     this.correctOptionId,
     this.expectedAnswer,
+    this.authoredMisconceptions = const [],
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -400,6 +401,13 @@ class ExerciseTemplate {
             ),
       correctOptionId: optionalString(json, 'correct_option_id'),
       expectedAnswer: optionalString(json, 'expected_answer'),
+      authoredMisconceptions: json['authored_misconceptions'] == null
+          ? const []
+          : requiredList(
+              json,
+              'authored_misconceptions',
+              AuthoredMisconception.fromJson,
+            ),
     );
   }
 
@@ -411,6 +419,7 @@ class ExerciseTemplate {
   final List<ExerciseTemplateOption> answerOptions;
   final String? correctOptionId;
   final String? expectedAnswer;
+  final List<AuthoredMisconception> authoredMisconceptions;
 
   Map<String, Object?> toJson() {
     return {
@@ -425,6 +434,10 @@ class ExerciseTemplate {
             .toList(growable: false),
       if (correctOptionId != null) 'correct_option_id': correctOptionId,
       if (expectedAnswer != null) 'expected_answer': expectedAnswer,
+      if (authoredMisconceptions.isNotEmpty)
+        'authored_misconceptions': authoredMisconceptions
+            .map((misconception) => misconception.toJson())
+            .toList(growable: false),
     };
   }
 
@@ -439,7 +452,8 @@ class ExerciseTemplate {
             other.promptTemplate == promptTemplate &&
             listEquals(other.answerOptions, answerOptions) &&
             other.correctOptionId == correctOptionId &&
-            other.expectedAnswer == expectedAnswer;
+            other.expectedAnswer == expectedAnswer &&
+            listEquals(other.authoredMisconceptions, authoredMisconceptions);
   }
 
   @override
@@ -452,6 +466,64 @@ class ExerciseTemplate {
     Object.hashAll(answerOptions),
     correctOptionId,
     expectedAnswer,
+    Object.hashAll(authoredMisconceptions),
+  );
+}
+
+class AuthoredMisconception {
+  const AuthoredMisconception({
+    required this.id,
+    required this.matchingAnswers,
+    required this.feedbackKey,
+    this.canonicalAnswer,
+    this.explanationReferenceId,
+  });
+
+  factory AuthoredMisconception.fromJson(Map<String, Object?> json) {
+    return AuthoredMisconception(
+      id: requiredString(json, 'id'),
+      matchingAnswers: requiredStringList(json, 'matching_answers'),
+      feedbackKey: requiredString(json, 'feedback_key'),
+      canonicalAnswer: optionalString(json, 'canonical_answer'),
+      explanationReferenceId: optionalString(json, 'explanation_reference_id'),
+    );
+  }
+
+  final String id;
+  final List<String> matchingAnswers;
+  final String feedbackKey;
+  final String? canonicalAnswer;
+  final String? explanationReferenceId;
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'matching_answers': matchingAnswers,
+      'feedback_key': feedbackKey,
+      if (canonicalAnswer != null) 'canonical_answer': canonicalAnswer,
+      if (explanationReferenceId != null)
+        'explanation_reference_id': explanationReferenceId,
+    };
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is AuthoredMisconception &&
+            other.id == id &&
+            listEquals(other.matchingAnswers, matchingAnswers) &&
+            other.feedbackKey == feedbackKey &&
+            other.canonicalAnswer == canonicalAnswer &&
+            other.explanationReferenceId == explanationReferenceId;
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    Object.hashAll(matchingAnswers),
+    feedbackKey,
+    canonicalAnswer,
+    explanationReferenceId,
   );
 }
 

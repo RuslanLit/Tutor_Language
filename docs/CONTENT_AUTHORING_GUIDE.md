@@ -406,6 +406,15 @@ Explanations must be authored, deterministic and reviewable.
 Uncertain classifications should produce neutral feedback rather than a
 fabricated explanation.
 
+Exercise-specific misconceptions may be authored only when the mistake and
+feedback are valid for that exact prompt objective.
+
+For example, `Soy Ana` is valid Spanish in some contexts, but it may be an
+authored misconception for an exercise whose objective is the `me llamo`
+name-introduction pattern.
+
+Authored misconceptions must not become global language rules.
+
 ---
 
 # Exercise Variety

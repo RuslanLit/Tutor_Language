@@ -78,6 +78,18 @@ void main() {
     expect(issues, contains(contains('Unsupported exercise type')));
   });
 
+  test('validator reports malformed authored misconceptions', () {
+    const validator = EducationalContentValidator();
+    final issues = validator
+        .validate(_invalidMisconceptionBundle)
+        .map((issue) => issue.message);
+
+    expect(issues, contains(contains('Duplicate authored_misconception id')));
+    expect(issues, contains(contains('Empty matching_answers field')));
+    expect(issues, contains(contains('Empty feedback_key field')));
+    expect(issues, contains(contains('Invalid explanation reference')));
+  });
+
   test('educational content exists without lesson reverse references', () {
     final item = VocabularyItem.fromJson(const {
       'id': 'vocab.hola.v1',
@@ -222,6 +234,37 @@ const _invalidBundle = EducationalContentBundle(
           supportedGoalTypes: ['introduce_vocabulary'],
           requiredObjectTypes: ['vocabulary'],
           promptTemplate: 'Speak.',
+        ),
+      ],
+    ),
+  ],
+);
+
+const _invalidMisconceptionBundle = EducationalContentBundle(
+  contents: [
+    ExerciseTemplateContent(
+      assetPath: 'assets/languages/spanish/templates/test.json',
+      templates: [
+        ExerciseTemplate(
+          id: 'template.name.v1',
+          exerciseType: 'text_entry',
+          supportedGoalTypes: ['review_grammar'],
+          requiredObjectTypes: ['grammar'],
+          promptTemplate: 'Type the introduction.',
+          expectedAnswer: 'Me llamo Ana',
+          authoredMisconceptions: [
+            AuthoredMisconception(
+              id: 'misconception.name.v1',
+              matchingAnswers: ['Soy Ana'],
+              feedbackKey: 'spanish.name_pattern.use_me_llamo',
+              explanationReferenceId: 'grammar.missing.v1',
+            ),
+            AuthoredMisconception(
+              id: 'misconception.name.v1',
+              matchingAnswers: [],
+              feedbackKey: '',
+            ),
+          ],
         ),
       ],
     ),

@@ -127,6 +127,7 @@ For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.m
 - [ ] Accepted alternatives are intentional and documented.
 - [ ] Orthographic differences are handled pedagogically where deterministic rules support them.
 - [ ] Feedback explains a useful distinction rather than merely labelling an answer wrong.
+- [ ] Authored misconception feedback is valid for the exact exercise objective and does not overgeneralize.
 
 ---
 

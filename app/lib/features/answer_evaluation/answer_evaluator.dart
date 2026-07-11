@@ -1,3 +1,4 @@
+import '../../core/content/topic_content.dart';
 import 'answer_comparator.dart';
 import 'answer_evaluation_models.dart';
 import 'answer_normalizer.dart';
@@ -18,6 +19,7 @@ class AnswerEvaluator {
     required String learnerAnswer,
     required String? canonicalAnswer,
     List<String> acceptedAnswers = const [],
+    List<AuthoredMisconception> authoredMisconceptions = const [],
   }) {
     if (canonicalAnswer == null || canonicalAnswer.trim().isEmpty) {
       return const AnswerEvaluationResult(
@@ -78,6 +80,25 @@ class AnswerEvaluator {
       );
     }
 
+    final misconception = _authoredMisconceptionFor(
+      learnerAnswer: learnerAnswer,
+      authoredMisconceptions: authoredMisconceptions,
+    );
+    if (misconception != null) {
+      return AnswerEvaluationResult(
+        status: AnswerEvaluationStatus.incorrect,
+        feedback: AnswerFeedback(
+          key: misconception.feedbackKey,
+          canonicalAnswer: misconception.canonicalAnswer ?? canonicalAnswer,
+          misconceptionId: misconception.id,
+          explanationReference: misconception.explanationReferenceId,
+        ),
+        matchType: AnswerMatchType.authoredMisconception,
+        normalizedLearnerAnswer: normalizedLearnerAnswer,
+        normalizedCanonicalAnswer: normalizedCanonicalAnswer,
+      );
+    }
+
     return AnswerEvaluationResult(
       status: AnswerEvaluationStatus.incorrect,
       feedback: AnswerFeedback(
@@ -129,6 +150,24 @@ class AnswerEvaluator {
       );
       if (acceptedAnalysis != null) {
         return acceptedAnalysis;
+      }
+    }
+
+    return null;
+  }
+
+  AuthoredMisconception? _authoredMisconceptionFor({
+    required String learnerAnswer,
+    required List<AuthoredMisconception> authoredMisconceptions,
+  }) {
+    final normalizedLearner = normalizer.normalize(learnerAnswer).value;
+
+    for (final misconception in authoredMisconceptions) {
+      for (final matchingAnswer in misconception.matchingAnswers) {
+        if (learnerAnswer == matchingAnswer ||
+            normalizedLearner == normalizer.normalize(matchingAnswer).value) {
+          return misconception;
+        }
       }
     }
 

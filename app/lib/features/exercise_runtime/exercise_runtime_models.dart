@@ -20,6 +20,7 @@ class ExerciseSession {
               .toList(growable: false),
           expectedAnswerId: template.correctOptionId,
           expectedTextAnswer: template.expectedAnswer,
+          authoredMisconceptions: template.authoredMisconceptions,
         ),
       ],
     );
@@ -38,6 +39,7 @@ class ExerciseItem {
     this.answerOptions = const [],
     this.expectedAnswerId,
     this.expectedTextAnswer,
+    this.authoredMisconceptions = const [],
   });
 
   final String id;
@@ -47,6 +49,7 @@ class ExerciseItem {
   final List<ExerciseAnswer> answerOptions;
   final String? expectedAnswerId;
   final String? expectedTextAnswer;
+  final List<AuthoredMisconception> authoredMisconceptions;
 }
 
 class ExerciseAnswer {

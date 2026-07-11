@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/answer_evaluation/answer_evaluation.dart';
 
 void main() {
@@ -231,6 +232,84 @@ void main() {
       },
     );
 
+    test('exact authored misconception is incorrect with explanation', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Soy Ana',
+        canonicalAnswer: 'Me llamo Ana',
+        authoredMisconceptions: [_nameMisconception],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.isAccepted, isFalse);
+      expect(result.matchType, AnswerMatchType.authoredMisconception);
+      expect(result.feedback.key, 'spanish.name_pattern.use_me_llamo');
+      expect(
+        result.feedback.misconceptionId,
+        'misconception.es.a0.unit1.name_pattern.soy_ana.v1',
+      );
+      expect(result.feedback.canonicalAnswer, 'Me llamo Ana');
+      expect(
+        result.feedback.explanationReference,
+        'grammar.es.a0.unit1.name_pattern.v1',
+      );
+    });
+
+    test('normalized authored misconception matches conservatively', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: '  yo SOY ana  ',
+        canonicalAnswer: 'Me llamo Ana',
+        authoredMisconceptions: [_nameMisconception],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.matchType, AnswerMatchType.authoredMisconception);
+    });
+
+    test('unrelated wrong answer remains generic incorrect', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Hasta luego',
+        canonicalAnswer: 'Me llamo Ana',
+        authoredMisconceptions: [_nameMisconception],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.matchType, AnswerMatchType.none);
+      expect(result.feedback.key, 'answer.incorrect');
+      expect(result.feedback.misconceptionId, isNull);
+    });
+
+    test('orthographic feedback takes precedence over misconceptions', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'que',
+        canonicalAnswer: 'qué',
+        authoredMisconceptions: [
+          const AuthoredMisconception(
+            id: 'misconception.unused.v1',
+            matchingAnswers: ['que'],
+            feedbackKey: 'unused.feedback',
+          ),
+        ],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.acceptedWithFeedback);
+      expect(result.matchType, AnswerMatchType.orthographicEquivalent);
+    });
+
+    test('authored misconceptions are exercise-specific inputs', () {
+      final genericResult = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Soy Ana',
+        canonicalAnswer: 'Me llamo Ana',
+      );
+      final scopedResult = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Soy Ana',
+        canonicalAnswer: 'Me llamo Ana',
+        authoredMisconceptions: [_nameMisconception],
+      );
+
+      expect(genericResult.feedback.key, 'answer.incorrect');
+      expect(scopedResult.feedback.key, 'spanish.name_pattern.use_me_llamo');
+    });
+
     test('does not accept unsupported punctuation changes', () {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'hola?',
@@ -284,5 +363,30 @@ void main() {
         );
       },
     );
+
+    test('renders authored misconception explanation', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Soy Ana',
+        canonicalAnswer: 'Me llamo Ana',
+        authoredMisconceptions: [_nameMisconception],
+      );
+
+      final presented = const AnswerFeedbackPresenter().present(result);
+
+      expect(presented.statusLabel, 'Not correct yet');
+      expect(presented.canonicalAnswer, 'Me llamo Ana');
+      expect(
+        presented.corrections,
+        contains('For this introduction pattern, use "me llamo".'),
+      );
+    });
   });
 }
+
+const _nameMisconception = AuthoredMisconception(
+  id: 'misconception.es.a0.unit1.name_pattern.soy_ana.v1',
+  matchingAnswers: ['Soy Ana', 'Yo soy Ana'],
+  feedbackKey: 'spanish.name_pattern.use_me_llamo',
+  canonicalAnswer: 'Me llamo Ana',
+  explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
+);

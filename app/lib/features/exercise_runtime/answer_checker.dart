@@ -66,6 +66,7 @@ class AnswerChecker {
       learnerAnswer: response.answer.label,
       canonicalAnswer: expectedText,
       acceptedAnswers: input.expectedAnswer.acceptedTextAnswers,
+      authoredMisconceptions: input.expectedAnswer.authoredMisconceptions,
     );
 
     return AnswerCheckResult(

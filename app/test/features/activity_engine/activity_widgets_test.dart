@@ -93,6 +93,54 @@ void main() {
     expect(find.text('Canonical answer: ¿Qué tal?'), findsNothing);
   });
 
+  testWidgets('authored misconception explanation renders and resubmits', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Soy Ana');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Not correct yet'), findsOneWidget);
+    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(
+      find.text('- For this introduction pattern, use "me llamo".'),
+      findsOneWidget,
+    );
+
+    await tester.enterText(find.byType(TextField), 'Me llamo Ana');
+    await tester.pump();
+
+    expect(find.text('Not correct yet'), findsNothing);
+
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+    expect(find.text('Canonical answer: Me llamo Ana'), findsNothing);
+  });
+
+  testWidgets('generic incorrect remains neutral', (tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Hasta luego');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Not correct yet'), findsOneWidget);
+    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(find.textContaining('me llamo'), findsNothing);
+  });
+
   testWidgets('feedback does not leak between typed activities', (
     tester,
   ) async {
@@ -160,6 +208,24 @@ const _questionTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Type the question.',
   expectedAnswer: '¿Qué tal?',
+);
+
+const _nameTemplate = ExerciseTemplate(
+  id: 'template.widget.name',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['grammar'],
+  promptTemplate: 'Type: My name is Ana.',
+  expectedAnswer: 'Me llamo Ana',
+  authoredMisconceptions: [
+    AuthoredMisconception(
+      id: 'misconception.name.soy_ana.v1',
+      matchingAnswers: ['Soy Ana'],
+      feedbackKey: 'spanish.name_pattern.use_me_llamo',
+      canonicalAnswer: 'Me llamo Ana',
+      explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
+    ),
+  ],
 );
 
 const _matchingTemplate = ExerciseTemplate(

@@ -559,6 +559,11 @@
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
                   "referenceId": "template.es.a0.unit1.fill_me_llamo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.type_me_llamo_ana.v1"
                 }
               ]
             }
@@ -705,6 +710,11 @@
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
                   "referenceId": "template.es.a0.unit1.fill_soy_de.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
+                  "referenceId": "template.es.a0.unit1.type_soy_de_madrid.v1"
                 }
               ]
             }

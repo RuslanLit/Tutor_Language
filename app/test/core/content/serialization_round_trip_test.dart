@@ -100,4 +100,13 @@ const _exerciseTemplateJson = {
     {'id': 'option.goodbye', 'label': 'goodbye'},
   ],
   'correct_option_id': 'option.hello',
+  'authored_misconceptions': [
+    {
+      'id': 'misconception.name.soy_ana.v1',
+      'matching_answers': ['Soy Ana'],
+      'feedback_key': 'spanish.name_pattern.use_me_llamo',
+      'canonical_answer': 'Me llamo Ana',
+      'explanation_reference_id': 'grammar.llamarse_basic.v1',
+    },
+  ],
 };

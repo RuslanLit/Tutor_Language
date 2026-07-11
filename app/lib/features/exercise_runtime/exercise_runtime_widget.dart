@@ -55,6 +55,7 @@ class _ExerciseRuntimeWidgetState extends State<ExerciseRuntimeWidget> {
           expectedAnswer: ExpectedAnswer(
             answerId: item.expectedAnswerId,
             text: item.expectedTextAnswer,
+            authoredMisconceptions: item.authoredMisconceptions,
           ),
         ),
       );

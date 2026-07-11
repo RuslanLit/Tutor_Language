@@ -10,6 +10,7 @@ enum AnswerMatchType {
   normalizedCanonical,
   acceptedAlternative,
   orthographicEquivalent,
+  authoredMisconception,
   none,
 }
 
@@ -66,12 +67,14 @@ class AnswerFeedback {
     required this.key,
     this.canonicalAnswer,
     this.differences = const [],
+    this.misconceptionId,
     this.explanationReference,
   });
 
   final String key;
   final String? canonicalAnswer;
   final List<AnswerDifference> differences;
+  final String? misconceptionId;
   final String? explanationReference;
 }
 

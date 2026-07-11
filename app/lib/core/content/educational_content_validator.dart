@@ -217,6 +217,7 @@ class EducationalContentValidator {
     Map<String, Set<String>> idsByType,
     List<EducationalContentValidationIssue> issues,
   ) {
+    final misconceptionIds = <String>{};
     for (final template in content.templates) {
       _addIdentifierIssues(
         idsByType['exercise_template']!,
@@ -247,6 +248,26 @@ class EducationalContentValidator {
             'Unsupported exercise type in template ${template.id}: '
             '${template.exerciseType}',
           ),
+        );
+      }
+
+      for (final misconception in template.authoredMisconceptions) {
+        _addIdentifierIssues(
+          misconceptionIds,
+          'authored_misconception',
+          misconception.id,
+          issues,
+        );
+        _addEmptyIssues(
+          'authored_misconception ${misconception.id} in ${template.id}',
+          {'feedback_key': misconception.feedbackKey},
+          issues,
+        );
+        _addEmptyListIssue(
+          'authored_misconception ${misconception.id} in ${template.id}',
+          'matching_answers',
+          misconception.matchingAnswers,
+          issues,
         );
       }
     }
@@ -302,6 +323,23 @@ class EducationalContentValidator {
               knownIds: idsByType['grammar']!,
               issues: issues,
             );
+          }
+        case ExerciseTemplateContent():
+          final knownContentIds = idsByType.values.expand((ids) => ids).toSet();
+          for (final template in content.templates) {
+            for (final misconception in template.authoredMisconceptions) {
+              final explanationReferenceId =
+                  misconception.explanationReferenceId;
+              if (explanationReferenceId != null &&
+                  !knownContentIds.contains(explanationReferenceId)) {
+                issues.add(
+                  EducationalContentValidationIssue(
+                    'Invalid explanation reference in template '
+                    '${template.id}: $explanationReferenceId',
+                  ),
+                );
+              }
+            }
           }
         default:
           break;

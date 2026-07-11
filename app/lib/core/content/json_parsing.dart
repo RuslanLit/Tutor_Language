@@ -44,6 +44,16 @@ List<String> optionalStringList(Map<String, Object?> json, String key) {
   );
 }
 
+List<String> requiredStringList(Map<String, Object?> json, String key) {
+  final value = optionalStringList(json, key);
+
+  if (value.isEmpty) {
+    throw FormatException('Missing required string list field: $key');
+  }
+
+  return value;
+}
+
 List<T> requiredList<T>(
   Map<String, Object?> json,
   String key,

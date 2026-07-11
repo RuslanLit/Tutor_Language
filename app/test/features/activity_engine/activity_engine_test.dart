@@ -62,6 +62,19 @@ void main() {
     expect(result.evaluation?.feedback.canonicalAnswer, 'Qué');
   });
 
+  test('propagates authored misconception feedback as incorrect', () {
+    final result = const ActivityEngine().evaluate(
+      template: _nameTextTemplate,
+      submission: const ActivitySubmission(submittedAnswer: 'Soy Ana'),
+    );
+
+    expect(result.status, ActivityResultStatus.incorrect);
+    expect(result.isCorrect, isFalse);
+    expect(result.feedbackKey, 'spanish.name_pattern.use_me_llamo');
+    expect(result.evaluation?.matchType, AnswerMatchType.authoredMisconception);
+    expect(result.evaluation?.feedback.canonicalAnswer, 'Me llamo Ana');
+  });
+
   test('evaluates matching correctly', () {
     final result = const ActivityEngine().evaluate(
       template: _matchingTemplate,
@@ -113,6 +126,24 @@ const _accentTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Complete: ¿____ tal?',
   expectedAnswer: 'Qué',
+);
+
+const _nameTextTemplate = ExerciseTemplate(
+  id: 'template.name.text',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['grammar'],
+  promptTemplate: 'Type: My name is Ana.',
+  expectedAnswer: 'Me llamo Ana',
+  authoredMisconceptions: [
+    AuthoredMisconception(
+      id: 'misconception.name.soy_ana.v1',
+      matchingAnswers: ['Soy Ana'],
+      feedbackKey: 'spanish.name_pattern.use_me_llamo',
+      canonicalAnswer: 'Me llamo Ana',
+      explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
+    ),
+  ],
 );
 
 const _matchingTemplate = ExerciseTemplate(

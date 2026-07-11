@@ -1,3 +1,5 @@
+import '../../core/content/topic_content.dart';
+
 enum AnswerCheckStatus {
   unchecked,
   correct,
@@ -11,11 +13,13 @@ class ExpectedAnswer {
     this.answerId,
     this.text,
     this.acceptedTextAnswers = const [],
+    this.authoredMisconceptions = const [],
   });
 
   final String? answerId;
   final String? text;
   final List<String> acceptedTextAnswers;
+  final List<AuthoredMisconception> authoredMisconceptions;
 }
 
 class AnswerCheckResult {

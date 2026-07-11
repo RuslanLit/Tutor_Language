@@ -108,6 +108,60 @@ void main() {
     expect(result.feedbackKey, 'answer.accepted_with_feedback');
   });
 
+  test('text-entry authored misconception remains incorrect with feedback', () {
+    final result = const AnswerChecker().check(
+      AnswerCheckInput(
+        item: _textEntryItem,
+        response: _responseFor(
+          _textEntryItem,
+          const ExerciseAnswer(id: 'typed', label: 'Soy Ana'),
+        ),
+        expectedAnswer: const ExpectedAnswer(
+          text: 'Me llamo Ana',
+          authoredMisconceptions: [
+            AuthoredMisconception(
+              id: 'misconception.name.soy_ana.v1',
+              matchingAnswers: ['Soy Ana'],
+              feedbackKey: 'spanish.name_pattern.use_me_llamo',
+              canonicalAnswer: 'Me llamo Ana',
+              explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(result.status, AnswerCheckStatus.incorrect);
+    expect(result.feedbackKey, 'spanish.name_pattern.use_me_llamo');
+    expect(result.explanationReference, 'grammar.es.a0.unit1.name_pattern.v1');
+  });
+
+  test('exercise session carries authored misconceptions from template', () {
+    const template = ExerciseTemplate(
+      id: 'template.name',
+      exerciseType: 'text_entry',
+      supportedGoalTypes: ['review_grammar'],
+      requiredObjectTypes: ['grammar'],
+      promptTemplate: 'Type: My name is Ana.',
+      expectedAnswer: 'Me llamo Ana',
+      authoredMisconceptions: [
+        AuthoredMisconception(
+          id: 'misconception.name.soy_ana.v1',
+          matchingAnswers: ['Soy Ana'],
+          feedbackKey: 'spanish.name_pattern.use_me_llamo',
+        ),
+      ],
+    );
+
+    final session = ExerciseSession.fromTemplate(template);
+
+    expect(session.items.single.authoredMisconceptions, hasLength(1));
+    expect(
+      session.items.single.authoredMisconceptions.single.id,
+      'misconception.name.soy_ana.v1',
+    );
+  });
+
   test('text-entry incorrect answer', () {
     final result = const AnswerChecker().check(
       AnswerCheckInput(

@@ -460,10 +460,12 @@ Current implementation note:
 - a reusable answer-evaluation layer owns typed-answer normalization,
   comparison, limited Spanish A0 orthographic difference classification and
   structured feedback metadata;
+- exercise templates may provide explicitly authored misconception definitions
+  for narrow, deterministic pedagogical feedback;
 - LessonPlayer and activity widgets render the result but do not contain
   Spanish orthographic rules;
-- broader grammar diagnosis, fuzzy spelling correction and session-level
-  progress consequences remain future work.
+- broader grammar diagnosis, fuzzy spelling correction, semantic inference and
+  session-level progress consequences remain future work.
 
 Assessment never plans lessons.
 

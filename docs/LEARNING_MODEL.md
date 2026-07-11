@@ -145,7 +145,9 @@ Current implementation note:
   and incorrect outcomes;
 - Spanish A0 orthographic tolerance is limited to high-confidence accent and
   Spanish boundary punctuation differences;
-- semantic evaluation, grammar diagnosis, fuzzy typo handling and mastery
+- explicitly authored misconceptions can provide narrow pedagogical
+  explanations for known conceptual mistakes;
+- semantic evaluation, broad grammar diagnosis, fuzzy typo handling and mastery
   estimation remain future work.
 
 ---
