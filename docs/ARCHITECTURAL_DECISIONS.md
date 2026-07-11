@@ -792,7 +792,8 @@ current-session step mastery.
 
 Mastery is deterministic session evidence only.
 
-It is not persisted and does not represent long-term acquisition.
+Final completed-session mastery evidence may be persisted as part of an
+immutable lesson attempt, but it does not represent long-term acquisition.
 
 Fragile steps may still be completed and may still permit lesson completion in
 the current phase.
@@ -871,6 +872,20 @@ Each durable attempt stores:
 The write happens through `LearnerProgressRepository` in one transaction that
 also records the existing lesson completion progress event.
 
+Historical attempt writes are append-only.
+
+If the same attempt ID and the same aggregate are written again, the repository
+accepts the request as idempotent.
+
+If the same attempt ID is written with different aggregate data, the repository
+rejects it as an immutable-history conflict and does not update existing rows.
+
+The Lesson Player creates one pending completion attempt ID for one finished
+in-memory session and reuses it across save retries.
+
+Malformed durable attempt detail is isolated so one unreadable attempt does not
+erase unrelated legacy progress or other valid durable attempts.
+
 Inserted runtime review steps, remediation displays and informational steps are
 not persisted as canonical step rows.
 
@@ -889,6 +904,13 @@ Historical outcomes are preserved as originally decided instead of being
 recalculated by future mastery policies.
 
 Active unfinished session persistence remains future work.
+
+Rejected alternatives:
+
+- upserting historical attempts;
+- generating a fresh attempt ID for each save retry;
+- returning empty learner history when one durable detail row is malformed;
+- mapping unknown persisted enum codes to arbitrary defaults.
 
 ---
 

@@ -9,8 +9,10 @@ import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_providers.dart';
+import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/course_navigation/course_navigation_providers.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
@@ -168,6 +170,15 @@ void main() {
 
     expect(find.text('Step 2 / 2'), findsOneWidget);
     expect(find.text('Accepted Vocabulary'), findsOneWidget);
+
+    await tester.ensureVisible(find.text('Finish Lesson'));
+    await tester.tap(find.text('Finish Lesson'));
+    await _pumpUntilFound(
+      tester,
+      find.text('Some topics will need reinforcement.'),
+    );
+
+    expect(find.text('Some topics will need reinforcement.'), findsOneWidget);
   });
 
   testWidgets('repeated incorrect answer renders authored remediation', (
@@ -560,10 +571,14 @@ void main() {
         tester.view.resetDevicePixelRatio();
       });
 
+      final database = AppDatabase(NativeDatabase.memory());
+      addTearDown(database.close);
+
       await tester.pumpWidget(
         _app(
           const LessonPlayerScreen(lessonId: _navigationLessonId),
           service: _FakeLessonAssemblyService(_navigationLessonContent),
+          database: database,
         ),
       );
       await tester.pumpAndSettle();
@@ -605,10 +620,23 @@ void main() {
       );
 
       await tester.tap(find.text('Finish Lesson'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 100));
+      await tester.tap(find.text('Finish Lesson'), warnIfMissed: false);
+      await _pumpUntilFound(tester, find.text('Lesson mastered'));
 
       expect(find.text('Finish Lesson'), findsNothing);
+      expect(find.text('Lesson mastered'), findsOneWidget);
+
+      final repository = LearnerProgressRepository(database);
+      final attempts = await repository.getLessonAttempts(_navigationLessonId);
+      final latest = await repository.getLatestLessonAttempt(
+        _navigationLessonId,
+      );
+      final steps = await repository.getAttemptStepResults(latest!.attemptId);
+
+      expect(attempts, hasLength(1));
+      expect(latest.outcomeStatus, DurableLessonOutcomeStatus.mastered);
+      expect(latest.courseId, 'es.a0');
+      expect(steps, hasLength(2));
     },
   );
 
@@ -669,13 +697,22 @@ void main() {
   });
 }
 
-Widget _app(Widget child, {LessonAssemblyService? service}) {
+Widget _app(
+  Widget child, {
+  LessonAssemblyService? service,
+  AppDatabase? database,
+}) {
   return ProviderScope(
     overrides: [
       appDatabaseProvider.overrideWith((ref) {
-        final database = AppDatabase(NativeDatabase.memory());
-        ref.onDispose(database.close);
-        return database;
+        final providedDatabase = database;
+        if (providedDatabase != null) {
+          return providedDatabase;
+        }
+
+        final createdDatabase = AppDatabase(NativeDatabase.memory());
+        ref.onDispose(createdDatabase.close);
+        return createdDatabase;
       }),
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),

@@ -1,5 +1,6 @@
 import '../../core/learner/learner_progress_repository.dart';
 import '../../core/learner/learner_state_repository.dart';
+import '../../core/learner/lesson_attempt.dart';
 import '../lesson_planning/learner_history_summary.dart';
 
 class LearnerHistoryProjection {
@@ -16,14 +17,19 @@ class LearnerHistoryProjection {
       final state = await learnerStateRepository.readState();
       final events = await learnerProgressRepository.readEvents();
       final eventSummary = LearnerHistorySummary.fromProgressEvents(events);
-      final attemptSummaries = state == null
-          ? const {}
-          : {
-              for (final summary
-                  in await learnerProgressRepository
-                      .getCourseLessonAttemptSummaries(state.currentCourseId))
-                summary.lessonId: summary,
-            };
+      Map<String, LessonAttemptSummary> attemptSummaries = const {};
+      if (state != null) {
+        try {
+          attemptSummaries = {
+            for (final summary
+                in await learnerProgressRepository
+                    .getCourseLessonAttemptSummaries(state.currentCourseId))
+              summary.lessonId: summary,
+          };
+        } catch (_) {
+          attemptSummaries = const {};
+        }
+      }
 
       return LearnerHistorySummary(
         completedLessonIds: eventSummary.completedLessonIds,

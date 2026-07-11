@@ -182,6 +182,81 @@ class CompletedLessonAttemptCommand {
   final List<DurableStepResult> stepResults;
 }
 
+enum CompletedLessonAttemptPersistenceStatus {
+  created,
+  alreadyRecordedIdentically,
+  conflict,
+  failure,
+}
+
+class CompletedLessonAttemptPersistenceResult {
+  const CompletedLessonAttemptPersistenceResult({
+    required this.status,
+    required this.attemptId,
+    required this.lessonId,
+    this.message,
+  });
+
+  final CompletedLessonAttemptPersistenceStatus status;
+  final String attemptId;
+  final String lessonId;
+  final String? message;
+
+  bool get isSuccess =>
+      status == CompletedLessonAttemptPersistenceStatus.created ||
+      status ==
+          CompletedLessonAttemptPersistenceStatus.alreadyRecordedIdentically;
+
+  static CompletedLessonAttemptPersistenceResult created({
+    required String attemptId,
+    required String lessonId,
+  }) {
+    return CompletedLessonAttemptPersistenceResult(
+      status: CompletedLessonAttemptPersistenceStatus.created,
+      attemptId: attemptId,
+      lessonId: lessonId,
+    );
+  }
+
+  static CompletedLessonAttemptPersistenceResult alreadyRecordedIdentically({
+    required String attemptId,
+    required String lessonId,
+  }) {
+    return CompletedLessonAttemptPersistenceResult(
+      status:
+          CompletedLessonAttemptPersistenceStatus.alreadyRecordedIdentically,
+      attemptId: attemptId,
+      lessonId: lessonId,
+    );
+  }
+
+  static CompletedLessonAttemptPersistenceResult conflict({
+    required String attemptId,
+    required String lessonId,
+    required String message,
+  }) {
+    return CompletedLessonAttemptPersistenceResult(
+      status: CompletedLessonAttemptPersistenceStatus.conflict,
+      attemptId: attemptId,
+      lessonId: lessonId,
+      message: message,
+    );
+  }
+
+  static CompletedLessonAttemptPersistenceResult failure({
+    required String attemptId,
+    required String lessonId,
+    required String message,
+  }) {
+    return CompletedLessonAttemptPersistenceResult(
+      status: CompletedLessonAttemptPersistenceStatus.failure,
+      attemptId: attemptId,
+      lessonId: lessonId,
+      message: message,
+    );
+  }
+}
+
 class LessonAttemptSummary {
   const LessonAttemptSummary({
     required this.attemptId,

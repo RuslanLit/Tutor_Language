@@ -131,6 +131,41 @@ void main() {
     );
   });
 
+  test('structurally equivalent summary instances are accepted', () {
+    final finishDecision = _finishTwoStepLesson(engine);
+    const equivalentSummary = LessonMasterySummary(
+      assessedStepCount: 2,
+      masteredStepCount: 2,
+      fragileStepCount: 0,
+      notMasteredStepCount: 0,
+      unassessedStepCount: 0,
+      masteryRatio: 1,
+    );
+    final equivalentDecision = LessonSessionDecision(
+      type: LessonSessionDecisionType.finishLesson,
+      reasonCode: LessonSessionReasonCode.lessonFinished,
+      updatedState: finishDecision.updatedState,
+      masterySummary: equivalentSummary,
+      lessonOutcome: LessonOutcome(
+        lessonId: lessonId,
+        status: LessonOutcomeStatus.mastered,
+        summary: equivalentSummary,
+        reasonCode: LessonOutcomeReasonCode.allStepsMastered,
+      ),
+    );
+
+    final command = factory.create(
+      attemptId: 'attempt.equivalent',
+      lessonId: lessonId,
+      courseId: 'course.spanish.a0',
+      finalState: finishDecision.updatedState,
+      finishDecision: equivalentDecision,
+      completedAt: DateTime.utc(2026, 7, 11),
+    );
+
+    expect(command.attempt.masteredStepCount, 2);
+  });
+
   test('completed attempt with incomplete outcome is rejected', () {
     final finishDecision = _finishTwoStepLesson(engine);
     final badDecision = LessonSessionDecision(

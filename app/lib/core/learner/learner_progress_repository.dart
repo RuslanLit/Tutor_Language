@@ -39,37 +39,73 @@ class LearnerProgressRepository {
     );
   }
 
-  Future<void> recordCompletedLessonAttempt(
+  Future<CompletedLessonAttemptPersistenceResult> recordCompletedLessonAttempt(
     CompletedLessonAttemptCommand command,
   ) async {
-    await _database.transaction(() async {
-      await _database
-          .into(_database.lessonAttempts)
-          .insertOnConflictUpdate(_attemptCompanion(command.attempt));
+    try {
+      return await _database.transaction(() async {
+        _validateAttemptAggregate(command);
 
-      for (final stepResult in command.stepResults) {
-        if (stepResult.attemptId != command.attempt.attemptId ||
-            stepResult.lessonId != command.attempt.lessonId) {
-          throw const LessonAttemptValidationException(
-            'Step result provenance must match the lesson attempt.',
+        final existingRows =
+            await (_database.select(_database.lessonAttempts)
+                  ..where(
+                    (table) =>
+                        table.attemptId.equals(command.attempt.attemptId),
+                  )
+                  ..limit(1))
+                .get();
+
+        if (existingRows.isEmpty) {
+          await _database
+              .into(_database.lessonAttempts)
+              .insert(_attemptCompanion(command.attempt));
+
+          for (final stepResult in command.stepResults) {
+            await _database
+                .into(_database.lessonAttemptStepResults)
+                .insert(_stepResultCompanion(stepResult));
+          }
+
+          await _ensureLessonCompletionProgress(command.attempt);
+          return CompletedLessonAttemptPersistenceResult.created(
+            attemptId: command.attempt.attemptId,
+            lessonId: command.attempt.lessonId,
           );
         }
-        await _database
-            .into(_database.lessonAttemptStepResults)
-            .insertOnConflictUpdate(_stepResultCompanion(stepResult));
-      }
 
-      final progress = await readTopicProgress(command.attempt.lessonId);
-      if (!progress.hasBeenCompleted) {
-        await _recordEvent(
-          ProgressEvent.create(
-            eventType: ProgressEventType.lessonCompleted,
-            topicId: command.attempt.lessonId,
-            now: command.attempt.completedAt,
-          ),
+        final existingAttempt = _attemptFromRow(existingRows.single);
+        final existingSteps = await getAttemptStepResults(
+          command.attempt.attemptId,
         );
-      }
-    });
+
+        if (_attemptAggregatesMatch(
+          existingAttempt: existingAttempt,
+          existingSteps: existingSteps,
+          incomingAttempt: command.attempt,
+          incomingSteps: command.stepResults,
+        )) {
+          await _ensureLessonCompletionProgress(existingAttempt);
+          return CompletedLessonAttemptPersistenceResult.alreadyRecordedIdentically(
+            attemptId: command.attempt.attemptId,
+            lessonId: command.attempt.lessonId,
+          );
+        }
+
+        return CompletedLessonAttemptPersistenceResult.conflict(
+          attemptId: command.attempt.attemptId,
+          lessonId: command.attempt.lessonId,
+          message:
+              'A different durable lesson attempt already exists for this '
+              'attempt ID.',
+        );
+      });
+    } on Exception catch (error) {
+      return CompletedLessonAttemptPersistenceResult.failure(
+        attemptId: command.attempt.attemptId,
+        lessonId: command.attempt.lessonId,
+        message: error.toString(),
+      );
+    }
   }
 
   Future<List<DurableLessonAttempt>> getLessonAttempts(String lessonId) async {
@@ -132,10 +168,21 @@ class LearnerProgressRepository {
   Future<List<LessonAttemptSummary>> getCourseLessonAttemptSummaries(
     String courseId,
   ) async {
-    final attempts = await getCourseLessonAttempts(courseId);
-    return attempts
-        .map(
-          (attempt) => LessonAttemptSummary(
+    final rows =
+        await (_database.select(_database.lessonAttempts)
+              ..where((table) => table.courseId.equals(courseId))
+              ..orderBy([
+                (table) => OrderingTerm.asc(table.completedAt),
+                (table) => OrderingTerm.asc(table.attemptId),
+              ]))
+            .get();
+
+    final summaries = <LessonAttemptSummary>[];
+    for (final row in rows) {
+      try {
+        final attempt = _attemptFromRow(row);
+        summaries.add(
+          LessonAttemptSummary(
             attemptId: attempt.attemptId,
             lessonId: attempt.lessonId,
             courseId: attempt.courseId,
@@ -145,8 +192,13 @@ class LearnerProgressRepository {
             fragileStepCount: attempt.fragileStepCount,
             canonicalCheckableStepCount: attempt.canonicalCheckableStepCount,
           ),
-        )
-        .toList(growable: false);
+        );
+      } on LessonAttemptDecodeException {
+        // Corrupt durable detail is isolated so legacy progress and other
+        // attempts remain usable. Explicit reads still keep strict decoding.
+      }
+    }
+    return List.unmodifiable(summaries);
   }
 
   Future<List<ProgressEvent>> readEventsForTopic(String topicId) async {
@@ -221,6 +273,166 @@ class LearnerProgressRepository {
             metadataJson: Value(event.metadataJson),
           ),
         );
+  }
+
+  Future<void> _ensureLessonCompletionProgress(
+    DurableLessonAttempt attempt,
+  ) async {
+    final progress = await readTopicProgress(attempt.lessonId);
+    if (progress.hasBeenCompleted) {
+      return;
+    }
+
+    await _recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: attempt.lessonId,
+        now: attempt.completedAt,
+      ),
+    );
+  }
+
+  void _validateAttemptAggregate(CompletedLessonAttemptCommand command) {
+    final attempt = command.attempt;
+    if (attempt.learningPolicyVersion.isEmpty) {
+      throw const LessonAttemptValidationException(
+        'Learning policy version must be non-empty.',
+      );
+    }
+    if (attempt.outcomeStatus == DurableLessonOutcomeStatus.incomplete) {
+      throw const LessonAttemptValidationException(
+        'Completed attempts cannot persist an incomplete lesson outcome.',
+      );
+    }
+    if (attempt.canonicalCheckableStepCount != command.stepResults.length) {
+      throw const LessonAttemptValidationException(
+        'Canonical step count must match persisted step rows.',
+      );
+    }
+
+    final stepIds = <String>{};
+    var mastered = 0;
+    var fragile = 0;
+    var notMastered = 0;
+    var unassessed = 0;
+    var totalSubmissions = 0;
+
+    for (final stepResult in command.stepResults) {
+      if (stepResult.attemptId != attempt.attemptId ||
+          stepResult.lessonId != attempt.lessonId) {
+        throw const LessonAttemptValidationException(
+          'Step result provenance must match the lesson attempt.',
+        );
+      }
+      if (!stepIds.add(stepResult.stepId)) {
+        throw const LessonAttemptValidationException(
+          'Step result IDs must be unique.',
+        );
+      }
+      if (stepResult.stepId.startsWith('review::')) {
+        throw const LessonAttemptValidationException(
+          'Runtime inserted review step IDs cannot be persisted directly.',
+        );
+      }
+
+      totalSubmissions += stepResult.attemptCount;
+      switch (stepResult.masteryStatus) {
+        case DurableStepMasteryStatus.mastered:
+          mastered += 1;
+        case DurableStepMasteryStatus.fragile:
+          fragile += 1;
+        case DurableStepMasteryStatus.notMastered:
+          notMastered += 1;
+        case DurableStepMasteryStatus.notAssessed:
+          unassessed += 1;
+      }
+    }
+
+    if (attempt.masteredStepCount != mastered ||
+        attempt.fragileStepCount != fragile ||
+        attempt.notMasteredStepCount != notMastered ||
+        attempt.unassessedStepCount != unassessed ||
+        attempt.assessedStepCount != mastered + fragile + notMastered ||
+        attempt.totalSubmissionCount != totalSubmissions) {
+      throw const LessonAttemptValidationException(
+        'Attempt summary counts must match step evidence.',
+      );
+    }
+    if (attempt.outcomeStatus == DurableLessonOutcomeStatus.mastered &&
+        (fragile > 0 || notMastered > 0 || unassessed > 0)) {
+      throw const LessonAttemptValidationException(
+        'Mastered attempts cannot contain non-mastered step evidence.',
+      );
+    }
+  }
+
+  bool _attemptAggregatesMatch({
+    required DurableLessonAttempt existingAttempt,
+    required List<DurableStepResult> existingSteps,
+    required DurableLessonAttempt incomingAttempt,
+    required List<DurableStepResult> incomingSteps,
+  }) {
+    if (!_attemptsMatch(existingAttempt, incomingAttempt)) {
+      return false;
+    }
+    if (existingSteps.length != incomingSteps.length) {
+      return false;
+    }
+
+    final incomingByStepId = {
+      for (final step in incomingSteps) step.stepId: step,
+    };
+    if (incomingByStepId.length != incomingSteps.length) {
+      return false;
+    }
+
+    for (final existingStep in existingSteps) {
+      final incomingStep = incomingByStepId[existingStep.stepId];
+      if (incomingStep == null || !_stepsMatch(existingStep, incomingStep)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  bool _attemptsMatch(DurableLessonAttempt left, DurableLessonAttempt right) {
+    return left.attemptId == right.attemptId &&
+        left.lessonId == right.lessonId &&
+        left.courseId == right.courseId &&
+        _sameDateTime(left.startedAt, right.startedAt) &&
+        _sameDateTime(left.completedAt, right.completedAt) &&
+        left.outcomeStatus == right.outcomeStatus &&
+        left.outcomeReasonCode == right.outcomeReasonCode &&
+        left.assessedStepCount == right.assessedStepCount &&
+        left.masteredStepCount == right.masteredStepCount &&
+        left.fragileStepCount == right.fragileStepCount &&
+        left.notMasteredStepCount == right.notMasteredStepCount &&
+        left.unassessedStepCount == right.unassessedStepCount &&
+        left.canonicalCheckableStepCount == right.canonicalCheckableStepCount &&
+        left.totalSubmissionCount == right.totalSubmissionCount &&
+        left.learningPolicyVersion == right.learningPolicyVersion;
+  }
+
+  bool _stepsMatch(DurableStepResult left, DurableStepResult right) {
+    return left.attemptId == right.attemptId &&
+        left.lessonId == right.lessonId &&
+        left.stepId == right.stepId &&
+        left.masteryStatus == right.masteryStatus &&
+        left.masteryReasonCode == right.masteryReasonCode &&
+        left.attemptCount == right.attemptCount &&
+        left.successfulSubmissionCount == right.successfulSubmissionCount &&
+        left.latestEvaluationOutcome == right.latestEvaluationOutcome &&
+        left.remediationWasRequired == right.remediationWasRequired &&
+        left.reviewWasRequired == right.reviewWasRequired &&
+        left.confirmationSucceeded == right.confirmationSucceeded;
+  }
+
+  bool _sameDateTime(DateTime? left, DateTime? right) {
+    if (left == null || right == null) {
+      return left == right;
+    }
+    return left.toUtc().microsecondsSinceEpoch ==
+        right.toUtc().microsecondsSinceEpoch;
   }
 
   LessonAttemptsCompanion _attemptCompanion(DurableLessonAttempt attempt) {

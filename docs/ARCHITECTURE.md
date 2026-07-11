@@ -905,8 +905,11 @@ lesson attempt + step results + existing completion event
 Persistence rules:
 
 - every repeated lesson run may create a distinct attempt ID;
-- retrying the same completion request reuses the same attempt ID;
-- duplicate attempt IDs are idempotent;
+- retrying the same completion request reuses the same pending completion
+  attempt ID and completion timestamp;
+- duplicate attempt IDs with the same aggregate are idempotent;
+- duplicate attempt IDs with different aggregate data are rejected and never
+  update existing rows;
 - attempt and step rows are written transactionally with the existing lesson
   completion progress event;
 - step rows are persisted only for canonical checkable lesson steps;
@@ -922,6 +925,10 @@ Legacy completions created before durable attempts remain valid completion
 progress.
 
 No synthetic mastery or lesson outcome is fabricated for legacy completions.
+
+Malformed durable attempt detail is isolated locally. A bad detailed attempt may
+make that attempt's outcome unavailable, but it must not erase valid legacy
+completion progress, learner state or other readable attempts.
 
 Runtime Dependency Direction
 

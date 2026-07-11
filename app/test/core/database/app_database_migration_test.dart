@@ -1,10 +1,11 @@
+import 'package:drift/drift.dart' show Variable;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/learner/learner_state_repository.dart';
 
 void main() {
-  test('migrates learner state from schema version 2 to 4', () async {
+  test('migrates learner state from schema version 2 to 5', () async {
     final executor = NativeDatabase.memory(
       setup: (database) {
         database
@@ -63,9 +64,11 @@ void main() {
     expect(state!.selectedLanguage, 'spanish');
     expect(state.currentCourseId, 'spanish_a1');
     expect(state.currentTopicId, 'topic_001');
-    expect(versionRow.read<int>('user_version'), 4);
+    expect(versionRow.read<int>('user_version'), 5);
     expect(oldColumnRows, isEmpty);
     expect(progressEventTableRows, hasLength(1));
+    expect(await _tableExists(database, 'lesson_attempts'), isTrue);
+    expect(await _tableExists(database, 'lesson_attempt_step_results'), isTrue);
   });
 
   test('progress schema does not contain scoring or review fields', () async {
@@ -87,4 +90,30 @@ void main() {
     expect(columnNames, isNot(contains('review_due_at')));
     expect(columnNames, isNot(contains('due_at')));
   });
+
+  test('fresh database contains durable lesson attempt tables', () async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+
+    await database.customSelect('SELECT 1').get();
+
+    expect(await _tableExists(database, 'lesson_attempts'), isTrue);
+    expect(await _tableExists(database, 'lesson_attempt_step_results'), isTrue);
+  });
+}
+
+Future<bool> _tableExists(AppDatabase database, String tableName) async {
+  final rows = await database
+      .customSelect(
+        '''
+      SELECT name
+      FROM sqlite_master
+      WHERE type = 'table'
+        AND name = ?
+    ''',
+        variables: [Variable.withString(tableName)],
+      )
+      .get();
+
+  return rows.isNotEmpty;
 }

@@ -225,6 +225,9 @@ class _LessonNavigationControlsState
         previousDecision.type == LessonSessionDecisionType.moveToPreviousStep;
     final canGoNext =
         nextDecision.type == LessonSessionDecisionType.moveToNextStep;
+    final isPersisting =
+        widget.session.completionPersistenceStatus ==
+        LessonCompletionPersistenceStatus.persisting;
     final canFinish =
         finishDecision.type == LessonSessionDecisionType.finishLesson;
 
@@ -240,8 +243,9 @@ class _LessonNavigationControlsState
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (_completionError != null) ...[
-                  Text(_completionError!),
+                if (_completionError != null ||
+                    widget.session.completionError != null) ...[
+                  Text(_completionError ?? widget.session.completionError!),
                   const SizedBox(height: 8),
                 ],
                 Row(
@@ -258,11 +262,13 @@ class _LessonNavigationControlsState
                     const Spacer(),
                     if (isLastStep)
                       FilledButton(
-                        onPressed: _isCompleting || !canFinish
+                        onPressed: _isCompleting || isPersisting || !canFinish
                             ? null
                             : _completeLesson,
                         child: Text(
-                          _isCompleting ? 'Finishing...' : 'Finish Lesson',
+                          _isCompleting || isPersisting
+                              ? 'Finishing...'
+                              : 'Finish Lesson',
                         ),
                       )
                     else
@@ -322,12 +328,21 @@ class _LessonNavigationControlsState
   }
 
   Future<void> _completeLesson() async {
+    if (_isCompleting ||
+        widget.session.completionPersistenceStatus ==
+            LessonCompletionPersistenceStatus.persisting ||
+        widget.session.completionPersistenceStatus ==
+            LessonCompletionPersistenceStatus.persisted) {
+      return;
+    }
+
     final decision = _sessionEngine.finishSession(widget.session.sessionState);
     if (decision.type != LessonSessionDecisionType.finishLesson) {
       return;
     }
 
-    final completedAt = DateTime.now().toUtc();
+    final completedAt =
+        widget.session.completionCompletedAt ?? DateTime.now().toUtc();
     final attemptId =
         widget.session.completionAttemptId ??
         '${completedAt.microsecondsSinceEpoch}.${widget.lessonId}.attempt';
@@ -339,6 +354,15 @@ class _LessonNavigationControlsState
       finishDecision: decision,
       completedAt: completedAt,
     );
+    final pendingSession = widget.session.copyWith(
+      completionAttemptId: attemptId,
+      completionCompletedAt: completedAt,
+      completionPersistenceStatus: LessonCompletionPersistenceStatus.persisting,
+      completionError: null,
+    );
+
+    ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
+        pendingSession;
 
     setState(() {
       _isCompleting = true;
@@ -346,12 +370,33 @@ class _LessonNavigationControlsState
     });
 
     try {
-      await ref
+      final result = await ref
           .read(learnerProgressRepositoryProvider)
           .recordCompletedLessonAttempt(command);
+      if (!result.isSuccess) {
+        ref
+            .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+            .state = pendingSession.copyWith(
+          completionPersistenceStatus: LessonCompletionPersistenceStatus.failed,
+          completionError:
+              'Could not save lesson completion. Please try again.',
+        );
+        if (mounted) {
+          setState(() {
+            _completionError =
+                'Could not save lesson completion. Please try again.';
+            _isCompleting = false;
+          });
+        }
+        return;
+      }
     } catch (_) {
-      ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
-          widget.session.copyWith(completionAttemptId: attemptId);
+      ref
+          .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+          .state = pendingSession.copyWith(
+        completionPersistenceStatus: LessonCompletionPersistenceStatus.failed,
+        completionError: 'Could not save lesson completion. Please try again.',
+      );
       if (mounted) {
         setState(() {
           _completionError =
@@ -364,10 +409,13 @@ class _LessonNavigationControlsState
 
     ref
         .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
-        .state = widget.session.copyWith(
+        .state = pendingSession.copyWith(
       sessionState: decision.updatedState,
       lessonOutcome: decision.lessonOutcome,
       completionAttemptId: attemptId,
+      completionCompletedAt: completedAt,
+      completionPersistenceStatus: LessonCompletionPersistenceStatus.persisted,
+      completionError: null,
     );
 
     ref.invalidate(topicProgressProvider(widget.lessonId));

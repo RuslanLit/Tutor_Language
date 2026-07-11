@@ -120,6 +120,76 @@ class LessonMasterySummary {
   final double masteryRatio;
 }
 
+enum LessonOutcomeStatus { mastered, completedWithReinforcement, incomplete }
+
+enum LessonOutcomeReasonCode {
+  allStepsMastered,
+  fragileMasteryPresent,
+  lessonNotCompleted,
+  noAssessableSteps,
+}
+
+class LessonOutcome {
+  const LessonOutcome({
+    required this.lessonId,
+    required this.status,
+    required this.summary,
+    required this.reasonCode,
+  });
+
+  final String lessonId;
+  final LessonOutcomeStatus status;
+  final LessonMasterySummary summary;
+  final LessonOutcomeReasonCode reasonCode;
+}
+
+class LessonOutcomePolicy {
+  const LessonOutcomePolicy();
+
+  LessonOutcome evaluate({
+    required LessonSessionState state,
+    required LessonMasterySummary summary,
+  }) {
+    if (state.status != LessonSessionStatus.completed) {
+      return LessonOutcome(
+        lessonId: state.lessonId,
+        status: LessonOutcomeStatus.incomplete,
+        summary: summary,
+        reasonCode: LessonOutcomeReasonCode.lessonNotCompleted,
+      );
+    }
+
+    if (summary.assessedStepCount == 0) {
+      return LessonOutcome(
+        lessonId: state.lessonId,
+        status: LessonOutcomeStatus.completedWithReinforcement,
+        summary: summary,
+        reasonCode: LessonOutcomeReasonCode.noAssessableSteps,
+      );
+    }
+
+    final needsReinforcement =
+        summary.fragileStepCount > 0 ||
+        summary.notMasteredStepCount > 0 ||
+        summary.unassessedStepCount > 0;
+    if (needsReinforcement) {
+      return LessonOutcome(
+        lessonId: state.lessonId,
+        status: LessonOutcomeStatus.completedWithReinforcement,
+        summary: summary,
+        reasonCode: LessonOutcomeReasonCode.fragileMasteryPresent,
+      );
+    }
+
+    return LessonOutcome(
+      lessonId: state.lessonId,
+      status: LessonOutcomeStatus.mastered,
+      summary: summary,
+      reasonCode: LessonOutcomeReasonCode.allStepsMastered,
+    );
+  }
+}
+
 class LessonSessionState {
   const LessonSessionState({
     required this.lessonId,
@@ -242,6 +312,7 @@ class LessonSessionDecision {
     this.originatingStepId,
     this.reviewStepId,
     this.masterySummary,
+    this.lessonOutcome,
   });
 
   final LessonSessionDecisionType type;
@@ -251,6 +322,7 @@ class LessonSessionDecision {
   final String? originatingStepId;
   final String? reviewStepId;
   final LessonMasterySummary? masterySummary;
+  final LessonOutcome? lessonOutcome;
 }
 
 sealed class LessonSessionEvent {
@@ -607,12 +679,19 @@ class LessonSessionEngine {
       status: LessonSessionStatus.completed,
     );
 
+    final masterySummary = _summarizeMastery(updatedState);
+    final lessonOutcome = const LessonOutcomePolicy().evaluate(
+      state: updatedState,
+      summary: masterySummary,
+    );
+
     return LessonSessionDecision(
       type: LessonSessionDecisionType.finishLesson,
       reasonCode: LessonSessionReasonCode.lessonFinished,
       updatedState: updatedState,
       stepId: currentStepId,
-      masterySummary: _summarizeMastery(updatedState),
+      masterySummary: masterySummary,
+      lessonOutcome: lessonOutcome,
     );
   }
 

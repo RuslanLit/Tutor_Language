@@ -34,7 +34,7 @@ class LessonAttemptSnapshotFactory {
         'Lesson attempt lesson IDs must match.',
       );
     }
-    if (outcome.summary != summary) {
+    if (!_sameSummary(outcome.summary, summary)) {
       throw const LessonAttemptValidationException(
         'Lesson outcome summary must be the finish summary.',
       );
@@ -169,6 +169,15 @@ class LessonAttemptSnapshotFactory {
       );
     }
   }
+}
+
+bool _sameSummary(LessonMasterySummary left, LessonMasterySummary right) {
+  return left.assessedStepCount == right.assessedStepCount &&
+      left.masteredStepCount == right.masteredStepCount &&
+      left.fragileStepCount == right.fragileStepCount &&
+      left.notMasteredStepCount == right.notMasteredStepCount &&
+      left.unassessedStepCount == right.unassessedStepCount &&
+      left.masteryRatio == right.masteryRatio;
 }
 
 DurableLessonOutcomeStatus _outcomeStatus(LessonOutcomeStatus status) {

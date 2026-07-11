@@ -23,24 +23,41 @@ final lessonPlayerSessionProvider =
       return const LessonPlayerSessionState();
     });
 
+enum LessonCompletionPersistenceStatus {
+  notRequested,
+  persisting,
+  failed,
+  persisted,
+}
+
 class LessonPlayerSessionState {
   const LessonPlayerSessionState({
     this.sessionState = const LessonSessionState(lessonId: ''),
     this.stepStates = const {},
     this.lessonOutcome,
     this.completionAttemptId,
+    this.completionCompletedAt,
+    this.completionPersistenceStatus =
+        LessonCompletionPersistenceStatus.notRequested,
+    this.completionError,
   });
 
   final LessonSessionState sessionState;
   final Map<String, ActivityTemplateState> stepStates;
   final LessonOutcome? lessonOutcome;
   final String? completionAttemptId;
+  final DateTime? completionCompletedAt;
+  final LessonCompletionPersistenceStatus completionPersistenceStatus;
+  final String? completionError;
 
   LessonPlayerSessionState copyWith({
     LessonSessionState? sessionState,
     Map<String, ActivityTemplateState>? stepStates,
     Object? lessonOutcome = _unset,
     Object? completionAttemptId = _unset,
+    Object? completionCompletedAt = _unset,
+    LessonCompletionPersistenceStatus? completionPersistenceStatus,
+    Object? completionError = _unset,
   }) {
     return LessonPlayerSessionState(
       sessionState: sessionState ?? this.sessionState,
@@ -51,6 +68,14 @@ class LessonPlayerSessionState {
       completionAttemptId: completionAttemptId == _unset
           ? this.completionAttemptId
           : completionAttemptId as String?,
+      completionCompletedAt: completionCompletedAt == _unset
+          ? this.completionCompletedAt
+          : completionCompletedAt as DateTime?,
+      completionPersistenceStatus:
+          completionPersistenceStatus ?? this.completionPersistenceStatus,
+      completionError: completionError == _unset
+          ? this.completionError
+          : completionError as String?,
     );
   }
 

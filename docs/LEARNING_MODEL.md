@@ -651,6 +651,17 @@ Session mastery is evidence from the current lesson session only.
 Completed-session mastery evidence may be persisted as a historical lesson
 attempt, but it is not durable proof of long-term acquisition.
 
+Persisted lesson attempts are immutable historical aggregates.
+
+The same completion request may be saved again only when the attempt ID and
+aggregate are structurally identical.
+
+A duplicate attempt ID with different outcome, summary, timestamp, policy
+version or step evidence is rejected rather than merged or overwritten.
+
+If durable attempt detail is malformed, learner-history projection may omit that
+detail while preserving legacy completion progress and other valid attempts.
+
 ---
 
 # Learning Progression

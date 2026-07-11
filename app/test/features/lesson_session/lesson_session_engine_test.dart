@@ -86,6 +86,38 @@ void main() {
     expect(decision.reasonCode, LessonSessionReasonCode.lessonFinished);
     expect(decision.updatedState.status, LessonSessionStatus.completed);
     expect(decision.updatedState.completedStepIds, contains(infoStep.id));
+    expect(
+      decision.lessonOutcome?.status,
+      LessonOutcomeStatus.completedWithReinforcement,
+    );
+    expect(
+      decision.lessonOutcome?.reasonCode,
+      LessonOutcomeReasonCode.noAssessableSteps,
+    );
+  });
+
+  test('outcome policy reports incomplete before lesson completion', () {
+    final state = engine
+        .startSession(lessonId: lessonId, steps: const [practiceStep])
+        .updatedState;
+    const summary = LessonMasterySummary(
+      assessedStepCount: 0,
+      masteredStepCount: 0,
+      fragileStepCount: 0,
+      notMasteredStepCount: 0,
+      unassessedStepCount: 1,
+      masteryRatio: 0,
+    );
+
+    final outcome = const LessonOutcomePolicy().evaluate(
+      state: state,
+      summary: summary,
+    );
+
+    expect(outcome.lessonId, lessonId);
+    expect(outcome.status, LessonOutcomeStatus.incomplete);
+    expect(outcome.reasonCode, LessonOutcomeReasonCode.lessonNotCompleted);
+    expect(outcome.summary, same(summary));
   });
 
   test('correct submission increments attempts and permits progression', () {
@@ -856,6 +888,16 @@ void main() {
 
     expect(finishDecision.type, LessonSessionDecisionType.finishLesson);
     expect(finishDecision.updatedState.status, LessonSessionStatus.completed);
+    expect(finishDecision.lessonOutcome?.lessonId, lessonId);
+    expect(finishDecision.lessonOutcome?.status, LessonOutcomeStatus.mastered);
+    expect(
+      finishDecision.lessonOutcome?.reasonCode,
+      LessonOutcomeReasonCode.allStepsMastered,
+    );
+    expect(
+      finishDecision.lessonOutcome?.summary,
+      finishDecision.masterySummary,
+    );
     expect(afterCompleteDecision.type, LessonSessionDecisionType.rejectAction);
     expect(
       afterCompleteDecision.reasonCode,
@@ -928,6 +970,40 @@ void main() {
     expect(summary.notMasteredStepCount, 0);
     expect(summary.unassessedStepCount, 0);
     expect(summary.masteryRatio, 0.5);
+    expect(
+      finishDecision.lessonOutcome?.status,
+      LessonOutcomeStatus.completedWithReinforcement,
+    );
+    expect(
+      finishDecision.lessonOutcome?.reasonCode,
+      LessonOutcomeReasonCode.fragileMasteryPresent,
+    );
+    expect(finishDecision.lessonOutcome?.summary, summary);
+  });
+
+  test('lesson outcome policy reports reinforcement for fragile summaries', () {
+    const state = LessonSessionState(
+      lessonId: lessonId,
+      status: LessonSessionStatus.completed,
+    );
+    const summary = LessonMasterySummary(
+      assessedStepCount: 1,
+      masteredStepCount: 0,
+      fragileStepCount: 1,
+      notMasteredStepCount: 0,
+      unassessedStepCount: 0,
+      masteryRatio: 0,
+    );
+
+    final outcome = const LessonOutcomePolicy().evaluate(
+      state: state,
+      summary: summary,
+    );
+
+    expect(outcome.lessonId, lessonId);
+    expect(outcome.summary, same(summary));
+    expect(outcome.status, LessonOutcomeStatus.completedWithReinforcement);
+    expect(outcome.reasonCode, LessonOutcomeReasonCode.fragileMasteryPresent);
   });
 
   test('restart clears current result without incrementing attempts', () {

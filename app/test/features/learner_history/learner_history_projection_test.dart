@@ -1,6 +1,8 @@
+import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/database/app_database.dart';
+import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/core/learner/learner_state.dart';
@@ -87,6 +89,174 @@ void main() {
     final summary = await projection.project();
 
     expect(summary.currentLessonId, 'lesson.current');
+  });
+
+  test('projects latest durable lesson outcome when available', () async {
+    await stateRepository.saveState(
+      LearnerState.initial(
+        currentCourseId: 'course.test',
+        currentTopicId: 'lesson.current',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    await progressRepository.recordCompletedLessonAttempt(
+      _attemptCommand(
+        attemptId: 'attempt.001',
+        lessonId: 'lesson.completed',
+        courseId: 'course.test',
+        completedAt: DateTime.utc(2026, 7),
+        outcomeStatus: DurableLessonOutcomeStatus.completedWithReinforcement,
+      ),
+    );
+    await progressRepository.recordCompletedLessonAttempt(
+      _attemptCommand(
+        attemptId: 'attempt.002',
+        lessonId: 'lesson.completed',
+        courseId: 'course.test',
+        completedAt: DateTime.utc(2026, 7, 2),
+      ),
+    );
+
+    final summary = await projection.project();
+    final latest = summary.latestLessonAttemptsByLessonId['lesson.completed'];
+
+    expect(summary.completedLessonIds, {'lesson.completed'});
+    expect(latest, isNotNull);
+    expect(latest!.attemptId, 'attempt.002');
+    expect(latest.outcomeStatus, DurableLessonOutcomeStatus.mastered);
+  });
+
+  test('legacy completion has no fabricated durable outcome', () async {
+    await stateRepository.saveState(
+      LearnerState.initial(
+        currentCourseId: 'course.test',
+        currentTopicId: 'lesson.legacy',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    await progressRepository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: 'lesson.legacy',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+
+    final summary = await projection.project();
+
+    expect(summary.completedLessonIds, {'lesson.legacy'});
+    expect(summary.latestLessonAttemptsByLessonId, isEmpty);
+  });
+
+  test('malformed durable attempt does not erase valid history', () async {
+    await stateRepository.saveState(
+      LearnerState.initial(
+        currentCourseId: 'course.test',
+        currentTopicId: 'lesson.current',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    await progressRepository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: 'lesson.legacy',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    await progressRepository.recordCompletedLessonAttempt(
+      _attemptCommand(
+        attemptId: 'attempt.valid.a',
+        lessonId: 'lesson.valid.a',
+        courseId: 'course.test',
+        completedAt: DateTime.utc(2026, 7, 1),
+      ),
+    );
+    await database
+        .into(database.lessonAttempts)
+        .insert(
+          LessonAttemptsCompanion(
+            attemptId: const Value('attempt.malformed'),
+            lessonId: const Value('lesson.malformed'),
+            courseId: const Value('course.test'),
+            completedAt: Value(DateTime.utc(2026, 7, 2)),
+            outcomeStatus: const Value('unknown_status'),
+            outcomeReasonCode: const Value('all_steps_mastered'),
+            assessedStepCount: const Value(1),
+            masteredStepCount: const Value(1),
+            fragileStepCount: const Value(0),
+            notMasteredStepCount: const Value(0),
+            unassessedStepCount: const Value(0),
+            canonicalCheckableStepCount: const Value(1),
+            totalSubmissionCount: const Value(1),
+            learningPolicyVersion: const Value('e20-v1'),
+          ),
+        );
+    await database
+        .into(database.lessonAttemptStepResults)
+        .insert(
+          const LessonAttemptStepResultsCompanion(
+            attemptId: Value('attempt.malformed'),
+            lessonId: Value('lesson.malformed'),
+            stepId: Value('step.bad'),
+            masteryStatus: Value('unknown_mastery'),
+            masteryReasonCode: Value('first_attempt_correct'),
+            attemptCount: Value(1),
+            successfulSubmissionCount: Value(1),
+            latestEvaluationOutcome: Value('correct'),
+            remediationWasRequired: Value(false),
+            reviewWasRequired: Value(false),
+            confirmationSucceeded: Value(false),
+          ),
+        );
+    await progressRepository.recordCompletedLessonAttempt(
+      _attemptCommand(
+        attemptId: 'attempt.valid.c',
+        lessonId: 'lesson.valid.c',
+        courseId: 'course.test',
+        completedAt: DateTime.utc(2026, 7, 3),
+      ),
+    );
+
+    final summary = await projection.project();
+
+    expect(summary.completedLessonIds, {
+      'lesson.legacy',
+      'lesson.valid.a',
+      'lesson.valid.c',
+    });
+    expect(summary.latestLessonAttemptsByLessonId.keys, {
+      'lesson.valid.a',
+      'lesson.valid.c',
+    });
+    expect(summary.latestLessonAttemptsByLessonId, isNot(contains('unknown')));
+  });
+
+  test('legacy progress survives durable attempt summary failure', () async {
+    await stateRepository.saveState(
+      LearnerState.initial(
+        currentCourseId: 'course.test',
+        currentTopicId: 'lesson.current',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    await progressRepository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: 'lesson.legacy',
+        now: DateTime.utc(2026, 7),
+      ),
+    );
+    final failingProjection = LearnerHistoryProjection(
+      learnerProgressRepository: _AttemptSummaryThrowingProgressRepository(
+        database,
+      ),
+      learnerStateRepository: stateRepository,
+    );
+
+    final summary = await failingProjection.project();
+
+    expect(summary.completedLessonIds, {'lesson.legacy'});
+    expect(summary.latestLessonAttemptsByLessonId, isEmpty);
   });
 
   test(
@@ -210,6 +380,70 @@ class _ThrowingProgressRepository extends LearnerProgressRepository {
   Future<List<ProgressEvent>> readEvents() async {
     throw StateError('progress unavailable');
   }
+}
+
+class _AttemptSummaryThrowingProgressRepository
+    extends LearnerProgressRepository {
+  _AttemptSummaryThrowingProgressRepository(super.database);
+
+  @override
+  Future<List<LessonAttemptSummary>> getCourseLessonAttemptSummaries(
+    String courseId,
+  ) async {
+    throw StateError('attempt detail unavailable');
+  }
+}
+
+CompletedLessonAttemptCommand _attemptCommand({
+  required String attemptId,
+  required String lessonId,
+  required String courseId,
+  required DateTime completedAt,
+  DurableLessonOutcomeStatus outcomeStatus =
+      DurableLessonOutcomeStatus.mastered,
+}) {
+  final mastered = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 1 : 0;
+  final fragile = outcomeStatus == DurableLessonOutcomeStatus.mastered ? 0 : 1;
+
+  return CompletedLessonAttemptCommand(
+    attempt: DurableLessonAttempt(
+      attemptId: attemptId,
+      lessonId: lessonId,
+      courseId: courseId,
+      completedAt: completedAt,
+      outcomeStatus: outcomeStatus,
+      outcomeReasonCode: outcomeStatus == DurableLessonOutcomeStatus.mastered
+          ? DurableLessonOutcomeReasonCode.allStepsMastered
+          : DurableLessonOutcomeReasonCode.fragileMasteryPresent,
+      assessedStepCount: 1,
+      masteredStepCount: mastered,
+      fragileStepCount: fragile,
+      notMasteredStepCount: 0,
+      unassessedStepCount: 0,
+      canonicalCheckableStepCount: 1,
+      totalSubmissionCount: 1,
+      learningPolicyVersion: 'e20-v1',
+    ),
+    stepResults: [
+      DurableStepResult(
+        attemptId: attemptId,
+        lessonId: lessonId,
+        stepId: 'step.practice',
+        masteryStatus: outcomeStatus == DurableLessonOutcomeStatus.mastered
+            ? DurableStepMasteryStatus.mastered
+            : DurableStepMasteryStatus.fragile,
+        masteryReasonCode: outcomeStatus == DurableLessonOutcomeStatus.mastered
+            ? DurableStepMasteryReasonCode.firstAttemptCorrect
+            : DurableStepMasteryReasonCode.acceptedWithCorrection,
+        attemptCount: 1,
+        successfulSubmissionCount: 1,
+        latestEvaluationOutcome: DurableActivityResultStatus.correct,
+        remediationWasRequired: false,
+        reviewWasRequired: false,
+        confirmationSucceeded: false,
+      ),
+    ],
+  );
 }
 
 class _ThrowingStateRepository extends LearnerStateRepository {

@@ -270,11 +270,23 @@ Schema version 5 adds durable completed lesson attempts:
 These tables store immutable completed-session evidence after a successful
 `finishLesson` decision.
 
+Historical attempt rows are not upserted.
+
+The first valid write creates the attempt and canonical step rows.
+
+An exact duplicate write is accepted as idempotent.
+
+A duplicate attempt ID with different aggregate data is rejected and does not
+modify existing attempt, step or completion-progress rows.
+
 They do not store active unfinished session state.
 
 They do not newly store raw learner answers.
 
 Legacy completion progress remains valid when no durable attempt row exists.
+
+Malformed durable attempt detail is isolated from legacy completion progress
+and other readable attempts.
 
 ---
 

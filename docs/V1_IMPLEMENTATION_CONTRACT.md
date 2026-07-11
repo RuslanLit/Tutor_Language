@@ -469,6 +469,17 @@ The following information is persistent:
 - Evaluation Results
 - Learning Statistics
 
+Completed lesson attempts are persisted as immutable historical aggregates.
+
+Retrying the same completion save must reuse the same pending attempt ID.
+
+Exact duplicate attempt writes are idempotent.
+
+Divergent duplicate attempt writes are rejected rather than overwritten.
+
+Malformed durable attempt detail must not erase otherwise valid learner
+progress.
+
 The following information is temporary:
 
 - Generated Exercises
