@@ -48,7 +48,7 @@ void main() {
       'reading',
       'exercise_template',
     ]);
-    expect(vocabulary, hasLength(6));
+    expect(vocabulary, hasLength(3));
     expect(
       vocabulary.map((item) => item.id),
       everyElement(contains('.unit1.')),
@@ -69,7 +69,7 @@ void main() {
     expect(templates.map((template) => template.exerciseType).toSet(), {
       'multiple_choice',
       'fill_gap',
-      'matching',
+      'text_entry',
     });
   });
 
@@ -175,11 +175,17 @@ void main() {
         .whereType<String>()
         .toSet();
 
-    expect(reviewReferenceIds, contains('dialogue.es.a0.unit1.review.v1'));
-    expect(reviewReferenceIds, contains('reading.es.a0.unit1.review.v1'));
     expect(
       reviewReferenceIds,
-      contains('template.es.a0.foundations.review1_name_recall.v1'),
+      contains('dialogue.es.a0.m01.review_first_words.v1'),
+    );
+    expect(
+      reviewReferenceIds,
+      contains('reading.es.a0.m01.review_first_words.v1'),
+    );
+    expect(
+      reviewReferenceIds,
+      contains('template.es.a0.m01.review.type_no_entiendo.v1'),
     );
   });
 }

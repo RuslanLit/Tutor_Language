@@ -266,80 +266,165 @@ void main() {
     }
   });
 
-  test('C2 Spanish A0 expansion has substantial varied recall coverage', () async {
+  test(
+    'C2 Spanish A0 expansion has substantial varied recall coverage',
+    () async {
+      final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+      final contentLoader = ContentLoader(assetBundle: rootBundle);
+      final course = await curriculumLoader.loadCourse();
+      final contentBundle = await contentLoader.loadSpanishContent();
+      final catalog = EducationalContentCatalog(contentBundle);
+
+      final vocabularyCount = contentBundle.contents
+          .whereType<VocabularyContent>()
+          .expand((content) => content.entries)
+          .length;
+      final dialogueCount = contentBundle.contents
+          .whereType<DialogueContent>()
+          .expand((content) => content.dialogues)
+          .length;
+      final readingCount = contentBundle.contents
+          .whereType<ReadingContent>()
+          .expand((content) => content.texts)
+          .length;
+      final templateCount = contentBundle.contents
+          .whereType<ExerciseTemplateContent>()
+          .expand((content) => content.templates)
+          .length;
+
+      final referencedTemplates = <ExerciseTemplate>[];
+      for (final lesson in course.lessons) {
+        for (final activity in lesson.activities) {
+          for (final reference in activity.contentReferences) {
+            if (reference.type != 'exercise_template' ||
+                reference.referenceId == null) {
+              continue;
+            }
+            final template = catalog.lookupAs<ExerciseTemplate>(
+              reference.referenceId!,
+            );
+            expect(template, isNotNull, reason: reference.referenceId);
+            referencedTemplates.add(template!);
+          }
+        }
+      }
+
+      expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
+      expect(course.lessons, hasLength(lessThanOrEqualTo(33)));
+      expect(vocabularyCount, inInclusiveRange(150, 220));
+      expect(dialogueCount, greaterThanOrEqualTo(25));
+      expect(readingCount, greaterThanOrEqualTo(18));
+      expect(templateCount, greaterThanOrEqualTo(100));
+      expect(
+        referencedTemplates
+            .where((template) => template.exerciseType == 'text_entry')
+            .length,
+        greaterThanOrEqualTo(40),
+      );
+      expect(
+        referencedTemplates
+            .where((template) => template.authoredMisconceptions.isNotEmpty)
+            .length,
+        greaterThanOrEqualTo(5),
+      );
+      expect(
+        referencedTemplates
+            .where((template) => template.reviewTemplateIds.isNotEmpty)
+            .length,
+        greaterThanOrEqualTo(8),
+      );
+
+      final reviewAndCheckpointLessons = course.lessons.where(
+        (lesson) =>
+            lesson.title.toLowerCase().contains('review') ||
+            lesson.title.toLowerCase().contains('checkpoint'),
+      );
+
+      for (final lesson in reviewAndCheckpointLessons) {
+        final templates = lesson.activities
+            .expand((activity) => activity.contentReferences)
+            .where((reference) => reference.type == 'exercise_template')
+            .map((reference) => reference.referenceId)
+            .whereType<String>()
+            .map(catalog.lookupAs<ExerciseTemplate>)
+            .whereType<ExerciseTemplate>()
+            .toList();
+
+        expect(
+          templates.any((template) => template.exerciseType == 'text_entry'),
+          isTrue,
+          reason: '${lesson.id} should include typed recall.',
+        );
+      }
+
+      final allTemplateText = referencedTemplates
+          .map(
+            (template) =>
+                '${template.promptTemplate} ${template.expectedAnswer ?? ''}',
+          )
+          .join('\n');
+      expect(_occurrences(allTemplateText, 'Me llamo Ana'), lessThan(10));
+      expect(_occurrences(allTemplateText, 'Soy de Madrid'), lessThan(10));
+      expect(_occurrences(allTemplateText, 'Tengo un libro'), lessThan(10));
+    },
+  );
+
+  test('C2B Module 1 follows first-words pedagogical targets', () async {
     final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
     final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final service = LessonAssemblyService(
+      curriculumLoader: curriculumLoader,
+      contentLoader: contentLoader,
+    );
     final course = await curriculumLoader.loadCourse();
     final contentBundle = await contentLoader.loadSpanishContent();
     final catalog = EducationalContentCatalog(contentBundle);
 
-    final vocabularyCount = contentBundle.contents
-        .whereType<VocabularyContent>()
-        .expand((content) => content.entries)
-        .length;
-    final dialogueCount = contentBundle.contents
-        .whereType<DialogueContent>()
-        .expand((content) => content.dialogues)
-        .length;
-    final readingCount = contentBundle.contents
-        .whereType<ReadingContent>()
-        .expand((content) => content.texts)
-        .length;
-    final templateCount = contentBundle.contents
-        .whereType<ExerciseTemplateContent>()
-        .expand((content) => content.templates)
-        .length;
+    final module = course.modules.singleWhere(
+      (module) => module.id == 'es.a0.m01',
+    );
+    expect(module.title, 'First Words and Reading');
+    expect(module.lessonIds, [
+      'es.a0.m01.l001',
+      'es.a0.m06.l016',
+      'es.a0.m01.l002',
+      'es.a0.m01.l003',
+      'es.a0.m01.l006',
+      'es.a0.m04.l010',
+    ]);
 
-    final referencedTemplates = <ExerciseTemplate>[];
-    for (final lesson in course.lessons) {
-      for (final activity in lesson.activities) {
-        for (final reference in activity.contentReferences) {
-          if (reference.type != 'exercise_template' ||
-              reference.referenceId == null) {
-            continue;
-          }
-          final template = catalog.lookupAs<ExerciseTemplate>(
-            reference.referenceId!,
-          );
-          expect(template, isNotNull, reason: reference.referenceId);
-          referencedTemplates.add(template!);
-        }
-      }
-    }
-
-    expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
-    expect(course.lessons, hasLength(lessThanOrEqualTo(32)));
-    expect(vocabularyCount, inInclusiveRange(150, 220));
-    expect(dialogueCount, greaterThanOrEqualTo(25));
-    expect(readingCount, greaterThanOrEqualTo(18));
-    expect(templateCount, greaterThanOrEqualTo(100));
+    final referencedLessonIds = course.modules
+        .expand((module) => module.lessonIds)
+        .toList();
+    expect(referencedLessonIds.toSet(), hasLength(referencedLessonIds.length));
     expect(
-      referencedTemplates
-          .where((template) => template.exerciseType == 'text_entry')
-          .length,
-      greaterThanOrEqualTo(40),
+      course.modules
+          .singleWhere((module) => module.id == 'es.a0.m04')
+          .lessonIds,
+      isNot(contains('es.a0.m04.l010')),
     );
     expect(
-      referencedTemplates
-          .where((template) => template.authoredMisconceptions.isNotEmpty)
-          .length,
-      greaterThanOrEqualTo(5),
-    );
-    expect(
-      referencedTemplates
-          .where((template) => template.reviewTemplateIds.isNotEmpty)
-          .length,
-      greaterThanOrEqualTo(8),
+      course.modules
+          .singleWhere((module) => module.id == 'es.a0.m06')
+          .lessonIds,
+      isNot(contains('es.a0.m06.l016')),
     );
 
-    final reviewAndCheckpointLessons = course.lessons.where(
-      (lesson) =>
-          lesson.title.toLowerCase().contains('review') ||
-          lesson.title.toLowerCase().contains('checkpoint'),
-    );
+    final templates = <ExerciseTemplate>[];
+    final misconceptionTemplates = <ExerciseTemplate>[];
+    final reviewReferenceTemplates = <ExerciseTemplate>[];
 
-    for (final lesson in reviewAndCheckpointLessons) {
-      final templates = lesson.activities
+    for (final lessonId in module.lessonIds) {
+      final assembled = await service.assembleLesson(lessonId);
+      expect(assembled.activities, isNotEmpty);
+
+      final lesson = course.lessons.singleWhere(
+        (lesson) => lesson.id == lessonId,
+      );
+      expect(lesson.moduleId, 'es.a0.m01');
+      expect(lesson.communicativeOutcome, isNotNull);
+
+      final lessonTemplates = lesson.activities
           .expand((activity) => activity.contentReferences)
           .where((reference) => reference.type == 'exercise_template')
           .map((reference) => reference.referenceId)
@@ -349,21 +434,60 @@ void main() {
           .toList();
 
       expect(
-        templates.any((template) => template.exerciseType == 'text_entry'),
+        lessonTemplates.any(
+          (template) => template.exerciseType == 'text_entry',
+        ),
         isTrue,
-        reason: '${lesson.id} should include typed recall.',
+        reason: '$lessonId should include typed recall.',
+      );
+      templates.addAll(lessonTemplates);
+      misconceptionTemplates.addAll(
+        lessonTemplates.where(
+          (template) => template.authoredMisconceptions.isNotEmpty,
+        ),
+      );
+      reviewReferenceTemplates.addAll(
+        lessonTemplates.where(
+          (template) => template.reviewTemplateIds.isNotEmpty,
+        ),
       );
     }
 
-    final allTemplateText = referencedTemplates
-        .map(
-          (template) =>
-              '${template.promptTemplate} ${template.expectedAnswer ?? ''}',
-        )
-        .join('\n');
-    expect(_occurrences(allTemplateText, 'Me llamo Ana'), lessThan(10));
-    expect(_occurrences(allTemplateText, 'Soy de Madrid'), lessThan(10));
-    expect(_occurrences(allTemplateText, 'Tengo un libro'), lessThan(10));
+    final typeCounts = <String, int>{};
+    for (final template in templates) {
+      typeCounts.update(
+        template.exerciseType,
+        (count) => count + 1,
+        ifAbsent: () => 1,
+      );
+    }
+    final total = templates.length;
+    final typedShare = (typeCounts['text_entry'] ?? 0) / total;
+    final fillShare = (typeCounts['fill_gap'] ?? 0) / total;
+    final recognitionShare = (typeCounts['multiple_choice'] ?? 0) / total;
+
+    expect(total, 26);
+    expect(typedShare, inInclusiveRange(0.40, 0.50));
+    expect(fillShare, inInclusiveRange(0.20, 0.30));
+    expect(recognitionShare, inInclusiveRange(0.20, 0.30));
+    expect(misconceptionTemplates, hasLength(greaterThanOrEqualTo(4)));
+    expect(reviewReferenceTemplates, hasLength(greaterThanOrEqualTo(8)));
+
+    final reviewLesson = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m04.l010',
+    );
+    final reviewIds = reviewLesson.activities
+        .expand((activity) => activity.contentReferences)
+        .map((reference) => reference.referenceId)
+        .whereType<String>()
+        .toSet();
+    expect(reviewIds, contains('vocab.es.a0.unit1.hola.v1'));
+    expect(reviewIds, contains('vocab.es.a0.unit1.por_favor.v1'));
+    expect(reviewIds, contains('vocab.es.a0.unit1.no_entiendo.v1'));
+    expect(reviewIds, contains('vocab.es.a0.unit1.buenos_dias.v1'));
+    expect(reviewIds, contains('dialogue.es.a0.m01.review_first_words.v1'));
+    expect(reviewIds, contains('reading.es.a0.m01.review_first_words.v1'));
+    expect(reviewIds, contains('template.es.a0.m01.review.type_hola.v1'));
   });
 }
 
@@ -410,6 +534,7 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'Spanish question word',
     'Spanish question',
     'Spanish request',
+    'Spanish greeting',
     'Spanish spelling group',
     'fixed Spanish pattern',
     'first word',

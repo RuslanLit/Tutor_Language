@@ -114,9 +114,6 @@ void main() {
 
     expect(vocabulary.map((item) => item.id), [
       'vocab.es.a0.unit1.hola.v1',
-      'vocab.es.a0.unit1.buenos_dias.v1',
-      'vocab.es.a0.unit1.buenas_tardes.v1',
-      'vocab.es.a0.unit1.buenas_noches.v1',
       'vocab.es.a0.unit1.adios.v1',
       'vocab.es.a0.unit1.hasta_luego.v1',
     ]);

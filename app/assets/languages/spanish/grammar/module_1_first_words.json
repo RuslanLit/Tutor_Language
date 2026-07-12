@@ -1,0 +1,36 @@
+[
+  {
+    "id": "grammar.es.a0.m01.silent_h.v1",
+    "title": "Silent h",
+    "explanation": "In Spanish, the letter h is usually written but not pronounced. Read hola as ola and hambre as ambre. The spelling still keeps h.",
+    "examples": [
+      "hola",
+      "hambre"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.stable_vowels.v1",
+    "title": "Stable Spanish vowels",
+    "explanation": "Spanish vowels are stable in simple words. The vowel sound in hola, adiós, gracias, and por favor stays clear and short.",
+    "examples": [
+      "hola",
+      "adiós",
+      "gracias",
+      "por favor"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.time_greetings.v1",
+    "title": "Greetings by time of day",
+    "explanation": "Use buenos días in the morning, buenas tardes in the afternoon, and buenas noches in the evening or at night. Hola works at any time.",
+    "examples": [
+      "Buenos días.",
+      "Buenas tardes.",
+      "Buenas noches.",
+      "Hola."
+    ],
+    "prerequisite_ids": []
+  }
+]

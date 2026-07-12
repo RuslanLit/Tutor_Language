@@ -7,11 +7,14 @@
   "modules": [
     {
       "id": "es.a0.m01",
-      "title": "First Contact",
+      "title": "First Words and Reading",
       "lessonIds": [
         "es.a0.m01.l001",
+        "es.a0.m06.l016",
         "es.a0.m01.l002",
-        "es.a0.m01.l003"
+        "es.a0.m01.l003",
+        "es.a0.m01.l006",
+        "es.a0.m04.l010"
       ]
     },
     {
@@ -36,7 +39,6 @@
       "id": "es.a0.m04",
       "title": "Unit 1 Review and Foundations",
       "lessonIds": [
-        "es.a0.m04.l010",
         "es.a0.m04.l011",
         "es.a0.m04.l012"
       ]
@@ -54,7 +56,6 @@
       "id": "es.a0.m06",
       "title": "Reading Spanish Basics",
       "lessonIds": [
-        "es.a0.m06.l016",
         "es.a0.m06.l017",
         "es.a0.m06.l018",
         "es.a0.m06.l019",
@@ -91,20 +92,22 @@
       "metadata": {
         "id": "es.a0.m01.l001",
         "title": "Hello and Goodbye",
+        "description": "Greet someone and say goodbye with short Spanish phrases.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "prerequisites": []
       },
       "objectives": [
         {
           "id": "objective.greetings.basic",
-          "description": "Recognize and use basic greetings and farewells."
+          "description": "Greet and say goodbye with hola, adiós, and hasta luego."
         }
       ],
+      "communicativeOutcome": "Greet and say goodbye.",
       "sections": [
         {
           "id": "es.a0.m01.l001.section.main",
@@ -113,7 +116,7 @@
           "activities": [
             {
               "id": "activity.vocabulary.greetings",
-              "title": "vocabulary",
+              "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
@@ -121,21 +124,6 @@
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
                   "referenceId": "vocab.es.a0.unit1.hola.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.buenos_dias.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.buenas_tardes.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.buenas_noches.v1"
                 },
                 {
                   "type": "vocabulary",
@@ -151,7 +139,7 @@
             },
             {
               "id": "activity.dialogue.hello_goodbye",
-              "title": "dialogue",
+              "title": "Dialogue",
               "type": "dialogue",
               "order": 2,
               "references": [
@@ -164,7 +152,7 @@
             },
             {
               "id": "activity.reading.greeting_recognition",
-              "title": "reading",
+              "title": "Reading",
               "type": "reading",
               "order": 3,
               "references": [
@@ -177,7 +165,7 @@
             },
             {
               "id": "activity.practice.greetings",
-              "title": "practice",
+              "title": "Practice",
               "type": "exercise_template",
               "order": 4,
               "references": [
@@ -188,13 +176,18 @@
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.fill_greeting.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.fill_hasta_luego.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.match_greetings.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.type_hola.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.type_adios.v1"
                 }
               ]
             }
@@ -203,8 +196,10 @@
       ],
       "summary": {
         "id": "es.a0.m01.l001.summary",
-        "reviewPrompt": "Review greetings and farewells.",
-        "referenceIds": []
+        "reviewPrompt": "Review hello and goodbye phrases.",
+        "referenceIds": [
+          "objective.greetings.basic"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
@@ -224,24 +219,26 @@
       "metadata": {
         "id": "es.a0.m01.l002",
         "title": "Please, Thank You, Sorry",
+        "description": "Use basic polite words in short classroom exchanges.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m01.l001"
+            "lessonId": "es.a0.m06.l016"
           }
         ]
       },
       "objectives": [
         {
           "id": "objective.politeness.basic",
-          "description": "Recognize and use basic polite expressions."
+          "description": "Use gracias, por favor, perdón, and de nada."
         }
       ],
+      "communicativeOutcome": "Use basic courtesy words.",
       "sections": [
         {
           "id": "es.a0.m01.l002.section.main",
@@ -250,7 +247,7 @@
           "activities": [
             {
               "id": "activity.vocabulary.politeness",
-              "title": "vocabulary",
+              "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
@@ -273,30 +270,25 @@
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
                   "referenceId": "vocab.es.a0.unit1.de_nada.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.si.v1"
                 }
               ]
             },
             {
               "id": "activity.dialogue.politeness",
-              "title": "dialogue",
+              "title": "Dialogue",
               "type": "dialogue",
               "order": 2,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.polite_words.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
+                  "referenceId": "dialogue.es.a0.m01.thanks_and_reply.v1"
                 }
               ]
             },
             {
               "id": "activity.reading.politeness",
-              "title": "reading",
+              "title": "Reading",
               "type": "reading",
               "order": 3,
               "references": [
@@ -309,19 +301,29 @@
             },
             {
               "id": "activity.practice.politeness",
-              "title": "practice",
+              "title": "Practice",
               "type": "exercise_template",
               "order": 4,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.thanks_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l002.thanks_choice.v1"
                 },
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
                   "referenceId": "template.es.a0.unit1.fill_por_favor.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l002.type_gracias.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l002.type_por_favor.v1"
                 }
               ]
             }
@@ -330,8 +332,10 @@
       ],
       "summary": {
         "id": "es.a0.m01.l002.summary",
-        "reviewPrompt": "Review polite expressions.",
-        "referenceIds": []
+        "reviewPrompt": "Review basic polite expressions.",
+        "referenceIds": [
+          "objective.politeness.basic"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
@@ -350,13 +354,14 @@
     {
       "metadata": {
         "id": "es.a0.m01.l003",
-        "title": "Yes, No, I Do Not Understand",
+        "title": "I Do Not Understand",
+        "description": "Ask for repetition or slower speech when you do not understand.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "prerequisites": [
           {
             "lessonId": "es.a0.m01.l002"
@@ -366,9 +371,10 @@
       "objectives": [
         {
           "id": "objective.classroom_survival.basic",
-          "description": "Recognize and use essential clarification phrases."
+          "description": "Ask for repetition or slower speech with no entiendo, repite, and más despacio."
         }
       ],
+      "communicativeOutcome": "Ask for repetition or slower speech.",
       "sections": [
         {
           "id": "es.a0.m01.l003.section.main",
@@ -377,20 +383,10 @@
           "activities": [
             {
               "id": "activity.vocabulary.clarification",
-              "title": "vocabulary",
+              "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.si.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.no.v1"
-                },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
@@ -410,12 +406,22 @@
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
                   "referenceId": "vocab.es.a0.unit1.por_favor.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.si.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.no.v1"
                 }
               ]
             },
             {
               "id": "activity.dialogue.clarification",
-              "title": "dialogue",
+              "title": "Dialogue",
               "type": "dialogue",
               "order": 2,
               "references": [
@@ -428,7 +434,7 @@
             },
             {
               "id": "activity.reading.clarification",
-              "title": "reading",
+              "title": "Reading",
               "type": "reading",
               "order": 3,
               "references": [
@@ -441,7 +447,7 @@
             },
             {
               "id": "activity.practice.clarification",
-              "title": "practice",
+              "title": "Practice",
               "type": "exercise_template",
               "order": 4,
               "references": [
@@ -454,6 +460,16 @@
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
                   "referenceId": "template.es.a0.unit1.fill_repite.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l003.type_no_entiendo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l003.type_repite_por_favor.v1"
                 }
               ]
             }
@@ -462,8 +478,10 @@
       ],
       "summary": {
         "id": "es.a0.m01.l003.summary",
-        "reviewPrompt": "Review yes, no, and clarification phrases.",
-        "referenceIds": []
+        "reviewPrompt": "Review short clarification phrases.",
+        "referenceIds": [
+          "objective.classroom_survival.basic"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
@@ -475,6 +493,156 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m01.l003.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l006",
+        "title": "Morning and Evening Greetings",
+        "description": "Choose a greeting that fits morning, afternoon, or evening.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 10,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l003"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.time_greetings.basic",
+          "description": "Choose an appropriate greeting by time of day."
+        }
+      ],
+      "communicativeOutcome": "Choose an appropriate greeting by context.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l006.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l006.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenos_dias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_tardes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_noches.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hola.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l006.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+                  "referenceId": "grammar.es.a0.m01.time_greetings.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l006.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
+                  "referenceId": "dialogue.es.a0.m01.morning_evening.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l006.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_1_first_words.json",
+                  "referenceId": "reading.es.a0.m01.time_greetings_sign.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l006.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l006.morning_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l006.fill_buenas_noches.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l006.type_buenos_dias.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l006.type_buenas_tardes.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l006.summary",
+        "reviewPrompt": "Review greetings for morning, afternoon, and evening.",
+        "referenceIds": [
+          "objective.time_greetings.basic"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l006.activity.vocabulary",
+          "es.a0.m01.l006.activity.grammar",
+          "es.a0.m01.l006.activity.dialogue",
+          "es.a0.m01.l006.activity.reading",
+          "es.a0.m01.l006.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l006.section.main"
         ]
       },
       "references": []
@@ -1258,25 +1426,27 @@
     {
       "metadata": {
         "id": "es.a0.m04.l010",
-        "title": "Unit 1 Review",
-        "moduleId": "es.a0.m04",
+        "title": "First Words Review",
+        "description": "Review greetings, courtesy, clarification, and early reading rules.",
+        "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 15,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.0.0",
+        "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m03.l009"
+            "lessonId": "es.a0.m01.l006"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.unit1.review",
-          "description": "Review Unit 1 first-contact greetings, names, origin, courtesy, and basic questions."
+          "id": "objective.module1.review",
+          "description": "Recall greetings, courtesy words, clarification phrases, and silent-h reading."
         }
       ],
+      "communicativeOutcome": "Recall greetings, courtesy and clarification.",
       "sections": [
         {
           "id": "es.a0.m04.l010.section.main",
@@ -1285,7 +1455,7 @@
           "activities": [
             {
               "id": "activity.vocabulary.unit1_review",
-              "title": "vocabulary",
+              "title": "Vocabulary Review",
               "type": "vocabulary",
               "order": 1,
               "references": [
@@ -1297,86 +1467,116 @@
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.me_llamo.v1"
+                  "referenceId": "vocab.es.a0.unit1.adios.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.soy_de.v1"
+                  "referenceId": "vocab.es.a0.unit1.hasta_luego.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.como_estas.v1"
+                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.bien.v1"
+                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.muchas_gracias.v1"
+                  "referenceId": "vocab.es.a0.unit1.no_entiendo.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.hablas_espanol.v1"
+                  "referenceId": "vocab.es.a0.unit1.repite.v1"
                 },
                 {
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.un_poco.v1"
+                  "referenceId": "vocab.es.a0.unit1.buenos_dias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_tardes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.buenas_noches.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.hambre.v1"
                 }
               ]
             },
             {
               "id": "activity.dialogue.unit1_review",
-              "title": "dialogue",
+              "title": "Dialogue Review",
               "type": "dialogue",
               "order": 2,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.review.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
+                  "referenceId": "dialogue.es.a0.m01.review_first_words.v1"
                 }
               ]
             },
             {
               "id": "activity.reading.unit1_review",
-              "title": "reading",
+              "title": "Reading Review",
               "type": "reading",
               "order": 3,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.review.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_1_first_words.json",
+                  "referenceId": "reading.es.a0.m01.review_first_words.v1"
                 }
               ]
             },
             {
               "id": "activity.practice.unit1_review",
-              "title": "practice",
+              "title": "Practice Review",
               "type": "exercise_template",
               "order": 4,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.review_name_origin_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.greeting_recognition.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.review_fill_wellbeing.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.fill_por_favor.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.review1_name_recall.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.type_hola.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.type_no_entiendo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.type_buenas_noches.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.review.match_first_words.v1"
                 }
               ]
             }
@@ -1385,8 +1585,10 @@
       ],
       "summary": {
         "id": "es.a0.m04.l010.summary",
-        "reviewPrompt": "Review all Unit 1 first-contact material.",
-        "referenceIds": []
+        "reviewPrompt": "Review Module 1 first words and reading foundations.",
+        "referenceIds": [
+          "objective.module1.review"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
@@ -1984,8 +2186,8 @@
       "metadata": {
         "id": "es.a0.m06.l016",
         "title": "Silent h and Stable Vowels",
-        "description": "Recognize silent h and stable Spanish vowels in familiar words.",
-        "moduleId": "es.a0.m06",
+        "description": "Read familiar words with silent h and stable Spanish vowels.",
+        "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
@@ -1993,14 +2195,14 @@
         "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m05.l015"
+            "lessonId": "es.a0.m01.l001"
           }
         ]
       },
       "objectives": [
         {
           "id": "objective.es.a0.m06.l016.primary",
-          "description": "Recognize silent h and stable Spanish vowels in familiar words."
+          "description": "Read hola and hambre without pronouncing h."
         }
       ],
       "communicativeOutcome": "Read hola and hambre without pronouncing h.",
@@ -2040,27 +2242,19 @@
             },
             {
               "id": "es.a0.m06.l016.activity.grammar",
-              "title": "Pattern",
+              "title": "Reading Rule",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.reading_basics.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l016.activity.dialogue",
-              "title": "Dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
+                  "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+                  "referenceId": "grammar.es.a0.m01.silent_h.v1"
+                },
                 {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.clarification_class.v1"
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+                  "referenceId": "grammar.es.a0.m01.stable_vowels.v1"
                 }
               ]
             },
@@ -2068,12 +2262,12 @@
               "id": "es.a0.m06.l016.activity.reading",
               "title": "Reading",
               "type": "reading",
-              "order": 4,
+              "order": 3,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.reading_h_n.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_1_first_words.json",
+                  "referenceId": "reading.es.a0.m01.silent_h_words.v1"
                 }
               ]
             },
@@ -2081,27 +2275,27 @@
               "id": "es.a0.m06.l016.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
-              "order": 5,
+              "order": 4,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l016_h_silent_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l016.h_silent_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l016_fill_hola.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l016.fill_hola.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l016_type_h_silent.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l016.type_hola.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l016_type_hambre.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l016.type_hambre.v1"
                 }
               ]
             }
@@ -2110,7 +2304,7 @@
       ],
       "summary": {
         "id": "es.a0.m06.l016.summary",
-        "reviewPrompt": "Read hola and hambre without pronouncing h.",
+        "reviewPrompt": "Review silent h and stable vowels in familiar words.",
         "referenceIds": [
           "objective.es.a0.m06.l016.primary"
         ]
@@ -2119,7 +2313,6 @@
         "requiredActivities": [
           "es.a0.m06.l016.activity.vocabulary",
           "es.a0.m06.l016.activity.grammar",
-          "es.a0.m06.l016.activity.dialogue",
           "es.a0.m06.l016.activity.reading",
           "es.a0.m06.l016.activity.practice"
         ],

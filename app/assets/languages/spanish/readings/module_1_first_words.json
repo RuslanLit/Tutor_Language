@@ -1,0 +1,49 @@
+[
+  {
+    "id": "reading.es.a0.m01.silent_h_words.v1",
+    "title": "Silent h Words",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.c2.hambre.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.silent_h.v1",
+      "grammar.es.a0.m01.stable_vowels.v1"
+    ],
+    "text": "hola. hambre. hola. adiós. hola.",
+    "native_translation": "hello. hunger. hello. goodbye. hello."
+  },
+  {
+    "id": "reading.es.a0.m01.time_greetings_sign.v1",
+    "title": "Three Greeting Signs",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.buenos_dias.v1",
+      "vocab.es.a0.unit1.buenas_tardes.v1",
+      "vocab.es.a0.unit1.buenas_noches.v1",
+      "vocab.es.a0.unit1.hola.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.time_greetings.v1"
+    ],
+    "text": "Buenos días. Hola. Buenas tardes. Hola. Buenas noches.",
+    "native_translation": "Good morning. Hello. Good afternoon. Hello. Good evening."
+  },
+  {
+    "id": "reading.es.a0.m01.review_first_words.v1",
+    "title": "First Words Review",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.buenos_dias.v1",
+      "vocab.es.a0.unit1.gracias.v1",
+      "vocab.es.a0.unit1.de_nada.v1",
+      "vocab.es.a0.unit1.no_entiendo.v1",
+      "vocab.es.a0.unit1.por_favor.v1",
+      "vocab.es.a0.unit1.hasta_luego.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.silent_h.v1"
+    ],
+    "text": "Hola. Buenos días. Gracias. De nada. No entiendo. Repite, por favor. Hasta luego.",
+    "native_translation": "Hello. Good morning. Thank you. You're welcome. I don't understand. Repeat, please. See you later."
+  }
+]
