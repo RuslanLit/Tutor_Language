@@ -25,6 +25,14 @@ It answers one question:
 
 What can the learner do with the language after each module?
 
+Each module competency may later be assessed by authored diagnostic tasks.
+
+Diagnostic tasks should decompose the module goal into recoverable
+micro-competencies and may recover prerequisite material from earlier modules.
+
+The map does not require a new curriculum order and does not create runtime
+content by itself.
+
 ---
 
 # Module 1 — First Words and Reading

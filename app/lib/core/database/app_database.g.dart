@@ -2662,6 +2662,2628 @@ class LessonAttemptStepResultsCompanion
   }
 }
 
+class $CompetencyAttemptsTable extends CompetencyAttempts
+    with TableInfo<$CompetencyAttemptsTable, CompetencyAttemptRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CompetencyAttemptsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _attemptIdMeta = const VerificationMeta(
+    'attemptId',
+  );
+  @override
+  late final GeneratedColumn<String> attemptId = GeneratedColumn<String>(
+    'attempt_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _competencyIdMeta = const VerificationMeta(
+    'competencyId',
+  );
+  @override
+  late final GeneratedColumn<String> competencyId = GeneratedColumn<String>(
+    'competency_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _moduleIdMeta = const VerificationMeta(
+    'moduleId',
+  );
+  @override
+  late final GeneratedColumn<String> moduleId = GeneratedColumn<String>(
+    'module_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _completedAtMeta = const VerificationMeta(
+    'completedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+    'completed_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _finalOutcomeMeta = const VerificationMeta(
+    'finalOutcome',
+  );
+  @override
+  late final GeneratedColumn<String> finalOutcome = GeneratedColumn<String>(
+    'final_outcome',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _definitionFingerprintMeta =
+      const VerificationMeta('definitionFingerprint');
+  @override
+  late final GeneratedColumn<String> definitionFingerprint =
+      GeneratedColumn<String>(
+        'definition_fingerprint',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    attemptId,
+    competencyId,
+    moduleId,
+    startedAt,
+    completedAt,
+    status,
+    finalOutcome,
+    definitionFingerprint,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'competency_attempts';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CompetencyAttemptRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('attempt_id')) {
+      context.handle(
+        _attemptIdMeta,
+        attemptId.isAcceptableOrUnknown(data['attempt_id']!, _attemptIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_attemptIdMeta);
+    }
+    if (data.containsKey('competency_id')) {
+      context.handle(
+        _competencyIdMeta,
+        competencyId.isAcceptableOrUnknown(
+          data['competency_id']!,
+          _competencyIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_competencyIdMeta);
+    }
+    if (data.containsKey('module_id')) {
+      context.handle(
+        _moduleIdMeta,
+        moduleId.isAcceptableOrUnknown(data['module_id']!, _moduleIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_moduleIdMeta);
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+        _completedAtMeta,
+        completedAt.isAcceptableOrUnknown(
+          data['completed_at']!,
+          _completedAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('final_outcome')) {
+      context.handle(
+        _finalOutcomeMeta,
+        finalOutcome.isAcceptableOrUnknown(
+          data['final_outcome']!,
+          _finalOutcomeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('definition_fingerprint')) {
+      context.handle(
+        _definitionFingerprintMeta,
+        definitionFingerprint.isAcceptableOrUnknown(
+          data['definition_fingerprint']!,
+          _definitionFingerprintMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_definitionFingerprintMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {attemptId};
+  @override
+  CompetencyAttemptRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CompetencyAttemptRow(
+      attemptId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attempt_id'],
+      )!,
+      competencyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}competency_id'],
+      )!,
+      moduleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}module_id'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}started_at'],
+      )!,
+      completedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}completed_at'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      finalOutcome: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}final_outcome'],
+      ),
+      definitionFingerprint: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}definition_fingerprint'],
+      )!,
+    );
+  }
+
+  @override
+  $CompetencyAttemptsTable createAlias(String alias) {
+    return $CompetencyAttemptsTable(attachedDatabase, alias);
+  }
+}
+
+class CompetencyAttemptRow extends DataClass
+    implements Insertable<CompetencyAttemptRow> {
+  final String attemptId;
+  final String competencyId;
+  final String moduleId;
+  final DateTime startedAt;
+  final DateTime? completedAt;
+  final String status;
+  final String? finalOutcome;
+  final String definitionFingerprint;
+  const CompetencyAttemptRow({
+    required this.attemptId,
+    required this.competencyId,
+    required this.moduleId,
+    required this.startedAt,
+    this.completedAt,
+    required this.status,
+    this.finalOutcome,
+    required this.definitionFingerprint,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['attempt_id'] = Variable<String>(attemptId);
+    map['competency_id'] = Variable<String>(competencyId);
+    map['module_id'] = Variable<String>(moduleId);
+    map['started_at'] = Variable<DateTime>(startedAt);
+    if (!nullToAbsent || completedAt != null) {
+      map['completed_at'] = Variable<DateTime>(completedAt);
+    }
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || finalOutcome != null) {
+      map['final_outcome'] = Variable<String>(finalOutcome);
+    }
+    map['definition_fingerprint'] = Variable<String>(definitionFingerprint);
+    return map;
+  }
+
+  CompetencyAttemptsCompanion toCompanion(bool nullToAbsent) {
+    return CompetencyAttemptsCompanion(
+      attemptId: Value(attemptId),
+      competencyId: Value(competencyId),
+      moduleId: Value(moduleId),
+      startedAt: Value(startedAt),
+      completedAt: completedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(completedAt),
+      status: Value(status),
+      finalOutcome: finalOutcome == null && nullToAbsent
+          ? const Value.absent()
+          : Value(finalOutcome),
+      definitionFingerprint: Value(definitionFingerprint),
+    );
+  }
+
+  factory CompetencyAttemptRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CompetencyAttemptRow(
+      attemptId: serializer.fromJson<String>(json['attemptId']),
+      competencyId: serializer.fromJson<String>(json['competencyId']),
+      moduleId: serializer.fromJson<String>(json['moduleId']),
+      startedAt: serializer.fromJson<DateTime>(json['startedAt']),
+      completedAt: serializer.fromJson<DateTime?>(json['completedAt']),
+      status: serializer.fromJson<String>(json['status']),
+      finalOutcome: serializer.fromJson<String?>(json['finalOutcome']),
+      definitionFingerprint: serializer.fromJson<String>(
+        json['definitionFingerprint'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'attemptId': serializer.toJson<String>(attemptId),
+      'competencyId': serializer.toJson<String>(competencyId),
+      'moduleId': serializer.toJson<String>(moduleId),
+      'startedAt': serializer.toJson<DateTime>(startedAt),
+      'completedAt': serializer.toJson<DateTime?>(completedAt),
+      'status': serializer.toJson<String>(status),
+      'finalOutcome': serializer.toJson<String?>(finalOutcome),
+      'definitionFingerprint': serializer.toJson<String>(definitionFingerprint),
+    };
+  }
+
+  CompetencyAttemptRow copyWith({
+    String? attemptId,
+    String? competencyId,
+    String? moduleId,
+    DateTime? startedAt,
+    Value<DateTime?> completedAt = const Value.absent(),
+    String? status,
+    Value<String?> finalOutcome = const Value.absent(),
+    String? definitionFingerprint,
+  }) => CompetencyAttemptRow(
+    attemptId: attemptId ?? this.attemptId,
+    competencyId: competencyId ?? this.competencyId,
+    moduleId: moduleId ?? this.moduleId,
+    startedAt: startedAt ?? this.startedAt,
+    completedAt: completedAt.present ? completedAt.value : this.completedAt,
+    status: status ?? this.status,
+    finalOutcome: finalOutcome.present ? finalOutcome.value : this.finalOutcome,
+    definitionFingerprint: definitionFingerprint ?? this.definitionFingerprint,
+  );
+  CompetencyAttemptRow copyWithCompanion(CompetencyAttemptsCompanion data) {
+    return CompetencyAttemptRow(
+      attemptId: data.attemptId.present ? data.attemptId.value : this.attemptId,
+      competencyId: data.competencyId.present
+          ? data.competencyId.value
+          : this.competencyId,
+      moduleId: data.moduleId.present ? data.moduleId.value : this.moduleId,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+      completedAt: data.completedAt.present
+          ? data.completedAt.value
+          : this.completedAt,
+      status: data.status.present ? data.status.value : this.status,
+      finalOutcome: data.finalOutcome.present
+          ? data.finalOutcome.value
+          : this.finalOutcome,
+      definitionFingerprint: data.definitionFingerprint.present
+          ? data.definitionFingerprint.value
+          : this.definitionFingerprint,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyAttemptRow(')
+          ..write('attemptId: $attemptId, ')
+          ..write('competencyId: $competencyId, ')
+          ..write('moduleId: $moduleId, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('status: $status, ')
+          ..write('finalOutcome: $finalOutcome, ')
+          ..write('definitionFingerprint: $definitionFingerprint')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    attemptId,
+    competencyId,
+    moduleId,
+    startedAt,
+    completedAt,
+    status,
+    finalOutcome,
+    definitionFingerprint,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CompetencyAttemptRow &&
+          other.attemptId == this.attemptId &&
+          other.competencyId == this.competencyId &&
+          other.moduleId == this.moduleId &&
+          other.startedAt == this.startedAt &&
+          other.completedAt == this.completedAt &&
+          other.status == this.status &&
+          other.finalOutcome == this.finalOutcome &&
+          other.definitionFingerprint == this.definitionFingerprint);
+}
+
+class CompetencyAttemptsCompanion
+    extends UpdateCompanion<CompetencyAttemptRow> {
+  final Value<String> attemptId;
+  final Value<String> competencyId;
+  final Value<String> moduleId;
+  final Value<DateTime> startedAt;
+  final Value<DateTime?> completedAt;
+  final Value<String> status;
+  final Value<String?> finalOutcome;
+  final Value<String> definitionFingerprint;
+  final Value<int> rowid;
+  const CompetencyAttemptsCompanion({
+    this.attemptId = const Value.absent(),
+    this.competencyId = const Value.absent(),
+    this.moduleId = const Value.absent(),
+    this.startedAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.finalOutcome = const Value.absent(),
+    this.definitionFingerprint = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CompetencyAttemptsCompanion.insert({
+    required String attemptId,
+    required String competencyId,
+    required String moduleId,
+    required DateTime startedAt,
+    this.completedAt = const Value.absent(),
+    required String status,
+    this.finalOutcome = const Value.absent(),
+    required String definitionFingerprint,
+    this.rowid = const Value.absent(),
+  }) : attemptId = Value(attemptId),
+       competencyId = Value(competencyId),
+       moduleId = Value(moduleId),
+       startedAt = Value(startedAt),
+       status = Value(status),
+       definitionFingerprint = Value(definitionFingerprint);
+  static Insertable<CompetencyAttemptRow> custom({
+    Expression<String>? attemptId,
+    Expression<String>? competencyId,
+    Expression<String>? moduleId,
+    Expression<DateTime>? startedAt,
+    Expression<DateTime>? completedAt,
+    Expression<String>? status,
+    Expression<String>? finalOutcome,
+    Expression<String>? definitionFingerprint,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (attemptId != null) 'attempt_id': attemptId,
+      if (competencyId != null) 'competency_id': competencyId,
+      if (moduleId != null) 'module_id': moduleId,
+      if (startedAt != null) 'started_at': startedAt,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (status != null) 'status': status,
+      if (finalOutcome != null) 'final_outcome': finalOutcome,
+      if (definitionFingerprint != null)
+        'definition_fingerprint': definitionFingerprint,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CompetencyAttemptsCompanion copyWith({
+    Value<String>? attemptId,
+    Value<String>? competencyId,
+    Value<String>? moduleId,
+    Value<DateTime>? startedAt,
+    Value<DateTime?>? completedAt,
+    Value<String>? status,
+    Value<String?>? finalOutcome,
+    Value<String>? definitionFingerprint,
+    Value<int>? rowid,
+  }) {
+    return CompetencyAttemptsCompanion(
+      attemptId: attemptId ?? this.attemptId,
+      competencyId: competencyId ?? this.competencyId,
+      moduleId: moduleId ?? this.moduleId,
+      startedAt: startedAt ?? this.startedAt,
+      completedAt: completedAt ?? this.completedAt,
+      status: status ?? this.status,
+      finalOutcome: finalOutcome ?? this.finalOutcome,
+      definitionFingerprint:
+          definitionFingerprint ?? this.definitionFingerprint,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (attemptId.present) {
+      map['attempt_id'] = Variable<String>(attemptId.value);
+    }
+    if (competencyId.present) {
+      map['competency_id'] = Variable<String>(competencyId.value);
+    }
+    if (moduleId.present) {
+      map['module_id'] = Variable<String>(moduleId.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (finalOutcome.present) {
+      map['final_outcome'] = Variable<String>(finalOutcome.value);
+    }
+    if (definitionFingerprint.present) {
+      map['definition_fingerprint'] = Variable<String>(
+        definitionFingerprint.value,
+      );
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyAttemptsCompanion(')
+          ..write('attemptId: $attemptId, ')
+          ..write('competencyId: $competencyId, ')
+          ..write('moduleId: $moduleId, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('status: $status, ')
+          ..write('finalOutcome: $finalOutcome, ')
+          ..write('definitionFingerprint: $definitionFingerprint, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CompetencyTaskResultsTable extends CompetencyTaskResults
+    with TableInfo<$CompetencyTaskResultsTable, CompetencyTaskResultRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CompetencyTaskResultsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _resultIdMeta = const VerificationMeta(
+    'resultId',
+  );
+  @override
+  late final GeneratedColumn<String> resultId = GeneratedColumn<String>(
+    'result_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _attemptIdMeta = const VerificationMeta(
+    'attemptId',
+  );
+  @override
+  late final GeneratedColumn<String> attemptId = GeneratedColumn<String>(
+    'attempt_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES competency_attempts (attempt_id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _assessmentTaskIdMeta = const VerificationMeta(
+    'assessmentTaskId',
+  );
+  @override
+  late final GeneratedColumn<String> assessmentTaskId = GeneratedColumn<String>(
+    'assessment_task_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _microCompetencyIdsJsonMeta =
+      const VerificationMeta('microCompetencyIdsJson');
+  @override
+  late final GeneratedColumn<String> microCompetencyIdsJson =
+      GeneratedColumn<String>(
+        'micro_competency_ids_json',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _attemptSequenceMeta = const VerificationMeta(
+    'attemptSequence',
+  );
+  @override
+  late final GeneratedColumn<int> attemptSequence = GeneratedColumn<int>(
+    'attempt_sequence',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _phaseMeta = const VerificationMeta('phase');
+  @override
+  late final GeneratedColumn<String> phase = GeneratedColumn<String>(
+    'phase',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _activityResultStatusMeta =
+      const VerificationMeta('activityResultStatus');
+  @override
+  late final GeneratedColumn<String> activityResultStatus =
+      GeneratedColumn<String>(
+        'activity_result_status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _reasonCodeMeta = const VerificationMeta(
+    'reasonCode',
+  );
+  @override
+  late final GeneratedColumn<String> reasonCode = GeneratedColumn<String>(
+    'reason_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    resultId,
+    attemptId,
+    assessmentTaskId,
+    microCompetencyIdsJson,
+    attemptSequence,
+    phase,
+    activityResultStatus,
+    reasonCode,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'competency_task_results';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CompetencyTaskResultRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('result_id')) {
+      context.handle(
+        _resultIdMeta,
+        resultId.isAcceptableOrUnknown(data['result_id']!, _resultIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_resultIdMeta);
+    }
+    if (data.containsKey('attempt_id')) {
+      context.handle(
+        _attemptIdMeta,
+        attemptId.isAcceptableOrUnknown(data['attempt_id']!, _attemptIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_attemptIdMeta);
+    }
+    if (data.containsKey('assessment_task_id')) {
+      context.handle(
+        _assessmentTaskIdMeta,
+        assessmentTaskId.isAcceptableOrUnknown(
+          data['assessment_task_id']!,
+          _assessmentTaskIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_assessmentTaskIdMeta);
+    }
+    if (data.containsKey('micro_competency_ids_json')) {
+      context.handle(
+        _microCompetencyIdsJsonMeta,
+        microCompetencyIdsJson.isAcceptableOrUnknown(
+          data['micro_competency_ids_json']!,
+          _microCompetencyIdsJsonMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_microCompetencyIdsJsonMeta);
+    }
+    if (data.containsKey('attempt_sequence')) {
+      context.handle(
+        _attemptSequenceMeta,
+        attemptSequence.isAcceptableOrUnknown(
+          data['attempt_sequence']!,
+          _attemptSequenceMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_attemptSequenceMeta);
+    }
+    if (data.containsKey('phase')) {
+      context.handle(
+        _phaseMeta,
+        phase.isAcceptableOrUnknown(data['phase']!, _phaseMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_phaseMeta);
+    }
+    if (data.containsKey('activity_result_status')) {
+      context.handle(
+        _activityResultStatusMeta,
+        activityResultStatus.isAcceptableOrUnknown(
+          data['activity_result_status']!,
+          _activityResultStatusMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_activityResultStatusMeta);
+    }
+    if (data.containsKey('reason_code')) {
+      context.handle(
+        _reasonCodeMeta,
+        reasonCode.isAcceptableOrUnknown(data['reason_code']!, _reasonCodeMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {resultId};
+  @override
+  CompetencyTaskResultRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CompetencyTaskResultRow(
+      resultId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}result_id'],
+      )!,
+      attemptId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attempt_id'],
+      )!,
+      assessmentTaskId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}assessment_task_id'],
+      )!,
+      microCompetencyIdsJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}micro_competency_ids_json'],
+      )!,
+      attemptSequence: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}attempt_sequence'],
+      )!,
+      phase: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phase'],
+      )!,
+      activityResultStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}activity_result_status'],
+      )!,
+      reasonCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason_code'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $CompetencyTaskResultsTable createAlias(String alias) {
+    return $CompetencyTaskResultsTable(attachedDatabase, alias);
+  }
+}
+
+class CompetencyTaskResultRow extends DataClass
+    implements Insertable<CompetencyTaskResultRow> {
+  final String resultId;
+  final String attemptId;
+  final String assessmentTaskId;
+  final String microCompetencyIdsJson;
+  final int attemptSequence;
+  final String phase;
+  final String activityResultStatus;
+  final String? reasonCode;
+  final DateTime createdAt;
+  const CompetencyTaskResultRow({
+    required this.resultId,
+    required this.attemptId,
+    required this.assessmentTaskId,
+    required this.microCompetencyIdsJson,
+    required this.attemptSequence,
+    required this.phase,
+    required this.activityResultStatus,
+    this.reasonCode,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['result_id'] = Variable<String>(resultId);
+    map['attempt_id'] = Variable<String>(attemptId);
+    map['assessment_task_id'] = Variable<String>(assessmentTaskId);
+    map['micro_competency_ids_json'] = Variable<String>(microCompetencyIdsJson);
+    map['attempt_sequence'] = Variable<int>(attemptSequence);
+    map['phase'] = Variable<String>(phase);
+    map['activity_result_status'] = Variable<String>(activityResultStatus);
+    if (!nullToAbsent || reasonCode != null) {
+      map['reason_code'] = Variable<String>(reasonCode);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  CompetencyTaskResultsCompanion toCompanion(bool nullToAbsent) {
+    return CompetencyTaskResultsCompanion(
+      resultId: Value(resultId),
+      attemptId: Value(attemptId),
+      assessmentTaskId: Value(assessmentTaskId),
+      microCompetencyIdsJson: Value(microCompetencyIdsJson),
+      attemptSequence: Value(attemptSequence),
+      phase: Value(phase),
+      activityResultStatus: Value(activityResultStatus),
+      reasonCode: reasonCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reasonCode),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory CompetencyTaskResultRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CompetencyTaskResultRow(
+      resultId: serializer.fromJson<String>(json['resultId']),
+      attemptId: serializer.fromJson<String>(json['attemptId']),
+      assessmentTaskId: serializer.fromJson<String>(json['assessmentTaskId']),
+      microCompetencyIdsJson: serializer.fromJson<String>(
+        json['microCompetencyIdsJson'],
+      ),
+      attemptSequence: serializer.fromJson<int>(json['attemptSequence']),
+      phase: serializer.fromJson<String>(json['phase']),
+      activityResultStatus: serializer.fromJson<String>(
+        json['activityResultStatus'],
+      ),
+      reasonCode: serializer.fromJson<String?>(json['reasonCode']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'resultId': serializer.toJson<String>(resultId),
+      'attemptId': serializer.toJson<String>(attemptId),
+      'assessmentTaskId': serializer.toJson<String>(assessmentTaskId),
+      'microCompetencyIdsJson': serializer.toJson<String>(
+        microCompetencyIdsJson,
+      ),
+      'attemptSequence': serializer.toJson<int>(attemptSequence),
+      'phase': serializer.toJson<String>(phase),
+      'activityResultStatus': serializer.toJson<String>(activityResultStatus),
+      'reasonCode': serializer.toJson<String?>(reasonCode),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  CompetencyTaskResultRow copyWith({
+    String? resultId,
+    String? attemptId,
+    String? assessmentTaskId,
+    String? microCompetencyIdsJson,
+    int? attemptSequence,
+    String? phase,
+    String? activityResultStatus,
+    Value<String?> reasonCode = const Value.absent(),
+    DateTime? createdAt,
+  }) => CompetencyTaskResultRow(
+    resultId: resultId ?? this.resultId,
+    attemptId: attemptId ?? this.attemptId,
+    assessmentTaskId: assessmentTaskId ?? this.assessmentTaskId,
+    microCompetencyIdsJson:
+        microCompetencyIdsJson ?? this.microCompetencyIdsJson,
+    attemptSequence: attemptSequence ?? this.attemptSequence,
+    phase: phase ?? this.phase,
+    activityResultStatus: activityResultStatus ?? this.activityResultStatus,
+    reasonCode: reasonCode.present ? reasonCode.value : this.reasonCode,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  CompetencyTaskResultRow copyWithCompanion(
+    CompetencyTaskResultsCompanion data,
+  ) {
+    return CompetencyTaskResultRow(
+      resultId: data.resultId.present ? data.resultId.value : this.resultId,
+      attemptId: data.attemptId.present ? data.attemptId.value : this.attemptId,
+      assessmentTaskId: data.assessmentTaskId.present
+          ? data.assessmentTaskId.value
+          : this.assessmentTaskId,
+      microCompetencyIdsJson: data.microCompetencyIdsJson.present
+          ? data.microCompetencyIdsJson.value
+          : this.microCompetencyIdsJson,
+      attemptSequence: data.attemptSequence.present
+          ? data.attemptSequence.value
+          : this.attemptSequence,
+      phase: data.phase.present ? data.phase.value : this.phase,
+      activityResultStatus: data.activityResultStatus.present
+          ? data.activityResultStatus.value
+          : this.activityResultStatus,
+      reasonCode: data.reasonCode.present
+          ? data.reasonCode.value
+          : this.reasonCode,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyTaskResultRow(')
+          ..write('resultId: $resultId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('assessmentTaskId: $assessmentTaskId, ')
+          ..write('microCompetencyIdsJson: $microCompetencyIdsJson, ')
+          ..write('attemptSequence: $attemptSequence, ')
+          ..write('phase: $phase, ')
+          ..write('activityResultStatus: $activityResultStatus, ')
+          ..write('reasonCode: $reasonCode, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    resultId,
+    attemptId,
+    assessmentTaskId,
+    microCompetencyIdsJson,
+    attemptSequence,
+    phase,
+    activityResultStatus,
+    reasonCode,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CompetencyTaskResultRow &&
+          other.resultId == this.resultId &&
+          other.attemptId == this.attemptId &&
+          other.assessmentTaskId == this.assessmentTaskId &&
+          other.microCompetencyIdsJson == this.microCompetencyIdsJson &&
+          other.attemptSequence == this.attemptSequence &&
+          other.phase == this.phase &&
+          other.activityResultStatus == this.activityResultStatus &&
+          other.reasonCode == this.reasonCode &&
+          other.createdAt == this.createdAt);
+}
+
+class CompetencyTaskResultsCompanion
+    extends UpdateCompanion<CompetencyTaskResultRow> {
+  final Value<String> resultId;
+  final Value<String> attemptId;
+  final Value<String> assessmentTaskId;
+  final Value<String> microCompetencyIdsJson;
+  final Value<int> attemptSequence;
+  final Value<String> phase;
+  final Value<String> activityResultStatus;
+  final Value<String?> reasonCode;
+  final Value<DateTime> createdAt;
+  final Value<int> rowid;
+  const CompetencyTaskResultsCompanion({
+    this.resultId = const Value.absent(),
+    this.attemptId = const Value.absent(),
+    this.assessmentTaskId = const Value.absent(),
+    this.microCompetencyIdsJson = const Value.absent(),
+    this.attemptSequence = const Value.absent(),
+    this.phase = const Value.absent(),
+    this.activityResultStatus = const Value.absent(),
+    this.reasonCode = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CompetencyTaskResultsCompanion.insert({
+    required String resultId,
+    required String attemptId,
+    required String assessmentTaskId,
+    required String microCompetencyIdsJson,
+    required int attemptSequence,
+    required String phase,
+    required String activityResultStatus,
+    this.reasonCode = const Value.absent(),
+    required DateTime createdAt,
+    this.rowid = const Value.absent(),
+  }) : resultId = Value(resultId),
+       attemptId = Value(attemptId),
+       assessmentTaskId = Value(assessmentTaskId),
+       microCompetencyIdsJson = Value(microCompetencyIdsJson),
+       attemptSequence = Value(attemptSequence),
+       phase = Value(phase),
+       activityResultStatus = Value(activityResultStatus),
+       createdAt = Value(createdAt);
+  static Insertable<CompetencyTaskResultRow> custom({
+    Expression<String>? resultId,
+    Expression<String>? attemptId,
+    Expression<String>? assessmentTaskId,
+    Expression<String>? microCompetencyIdsJson,
+    Expression<int>? attemptSequence,
+    Expression<String>? phase,
+    Expression<String>? activityResultStatus,
+    Expression<String>? reasonCode,
+    Expression<DateTime>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (resultId != null) 'result_id': resultId,
+      if (attemptId != null) 'attempt_id': attemptId,
+      if (assessmentTaskId != null) 'assessment_task_id': assessmentTaskId,
+      if (microCompetencyIdsJson != null)
+        'micro_competency_ids_json': microCompetencyIdsJson,
+      if (attemptSequence != null) 'attempt_sequence': attemptSequence,
+      if (phase != null) 'phase': phase,
+      if (activityResultStatus != null)
+        'activity_result_status': activityResultStatus,
+      if (reasonCode != null) 'reason_code': reasonCode,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CompetencyTaskResultsCompanion copyWith({
+    Value<String>? resultId,
+    Value<String>? attemptId,
+    Value<String>? assessmentTaskId,
+    Value<String>? microCompetencyIdsJson,
+    Value<int>? attemptSequence,
+    Value<String>? phase,
+    Value<String>? activityResultStatus,
+    Value<String?>? reasonCode,
+    Value<DateTime>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return CompetencyTaskResultsCompanion(
+      resultId: resultId ?? this.resultId,
+      attemptId: attemptId ?? this.attemptId,
+      assessmentTaskId: assessmentTaskId ?? this.assessmentTaskId,
+      microCompetencyIdsJson:
+          microCompetencyIdsJson ?? this.microCompetencyIdsJson,
+      attemptSequence: attemptSequence ?? this.attemptSequence,
+      phase: phase ?? this.phase,
+      activityResultStatus: activityResultStatus ?? this.activityResultStatus,
+      reasonCode: reasonCode ?? this.reasonCode,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (resultId.present) {
+      map['result_id'] = Variable<String>(resultId.value);
+    }
+    if (attemptId.present) {
+      map['attempt_id'] = Variable<String>(attemptId.value);
+    }
+    if (assessmentTaskId.present) {
+      map['assessment_task_id'] = Variable<String>(assessmentTaskId.value);
+    }
+    if (microCompetencyIdsJson.present) {
+      map['micro_competency_ids_json'] = Variable<String>(
+        microCompetencyIdsJson.value,
+      );
+    }
+    if (attemptSequence.present) {
+      map['attempt_sequence'] = Variable<int>(attemptSequence.value);
+    }
+    if (phase.present) {
+      map['phase'] = Variable<String>(phase.value);
+    }
+    if (activityResultStatus.present) {
+      map['activity_result_status'] = Variable<String>(
+        activityResultStatus.value,
+      );
+    }
+    if (reasonCode.present) {
+      map['reason_code'] = Variable<String>(reasonCode.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyTaskResultsCompanion(')
+          ..write('resultId: $resultId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('assessmentTaskId: $assessmentTaskId, ')
+          ..write('microCompetencyIdsJson: $microCompetencyIdsJson, ')
+          ..write('attemptSequence: $attemptSequence, ')
+          ..write('phase: $phase, ')
+          ..write('activityResultStatus: $activityResultStatus, ')
+          ..write('reasonCode: $reasonCode, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CompetencyGapsTable extends CompetencyGaps
+    with TableInfo<$CompetencyGapsTable, CompetencyGapRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CompetencyGapsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _gapIdMeta = const VerificationMeta('gapId');
+  @override
+  late final GeneratedColumn<String> gapId = GeneratedColumn<String>(
+    'gap_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _attemptIdMeta = const VerificationMeta(
+    'attemptId',
+  );
+  @override
+  late final GeneratedColumn<String> attemptId = GeneratedColumn<String>(
+    'attempt_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES competency_attempts (attempt_id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _assessmentTaskIdMeta = const VerificationMeta(
+    'assessmentTaskId',
+  );
+  @override
+  late final GeneratedColumn<String> assessmentTaskId = GeneratedColumn<String>(
+    'assessment_task_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _microCompetencyIdMeta = const VerificationMeta(
+    'microCompetencyId',
+  );
+  @override
+  late final GeneratedColumn<String> microCompetencyId =
+      GeneratedColumn<String>(
+        'micro_competency_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _reasonCodeMeta = const VerificationMeta(
+    'reasonCode',
+  );
+  @override
+  late final GeneratedColumn<String> reasonCode = GeneratedColumn<String>(
+    'reason_code',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceModuleIdMeta = const VerificationMeta(
+    'sourceModuleId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceModuleId = GeneratedColumn<String>(
+    'source_module_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceLessonIdMeta = const VerificationMeta(
+    'sourceLessonId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceLessonId = GeneratedColumn<String>(
+    'source_lesson_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceStepIdMeta = const VerificationMeta(
+    'sourceStepId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceStepId = GeneratedColumn<String>(
+    'source_step_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _detectedAtMeta = const VerificationMeta(
+    'detectedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> detectedAt = GeneratedColumn<DateTime>(
+    'detected_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _resolvedAtMeta = const VerificationMeta(
+    'resolvedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> resolvedAt = GeneratedColumn<DateTime>(
+    'resolved_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _resolutionStatusMeta = const VerificationMeta(
+    'resolutionStatus',
+  );
+  @override
+  late final GeneratedColumn<String> resolutionStatus = GeneratedColumn<String>(
+    'resolution_status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    gapId,
+    attemptId,
+    assessmentTaskId,
+    microCompetencyId,
+    reasonCode,
+    sourceModuleId,
+    sourceLessonId,
+    sourceStepId,
+    detectedAt,
+    resolvedAt,
+    resolutionStatus,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'competency_gaps';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CompetencyGapRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('gap_id')) {
+      context.handle(
+        _gapIdMeta,
+        gapId.isAcceptableOrUnknown(data['gap_id']!, _gapIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_gapIdMeta);
+    }
+    if (data.containsKey('attempt_id')) {
+      context.handle(
+        _attemptIdMeta,
+        attemptId.isAcceptableOrUnknown(data['attempt_id']!, _attemptIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_attemptIdMeta);
+    }
+    if (data.containsKey('assessment_task_id')) {
+      context.handle(
+        _assessmentTaskIdMeta,
+        assessmentTaskId.isAcceptableOrUnknown(
+          data['assessment_task_id']!,
+          _assessmentTaskIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_assessmentTaskIdMeta);
+    }
+    if (data.containsKey('micro_competency_id')) {
+      context.handle(
+        _microCompetencyIdMeta,
+        microCompetencyId.isAcceptableOrUnknown(
+          data['micro_competency_id']!,
+          _microCompetencyIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_microCompetencyIdMeta);
+    }
+    if (data.containsKey('reason_code')) {
+      context.handle(
+        _reasonCodeMeta,
+        reasonCode.isAcceptableOrUnknown(data['reason_code']!, _reasonCodeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_reasonCodeMeta);
+    }
+    if (data.containsKey('source_module_id')) {
+      context.handle(
+        _sourceModuleIdMeta,
+        sourceModuleId.isAcceptableOrUnknown(
+          data['source_module_id']!,
+          _sourceModuleIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceModuleIdMeta);
+    }
+    if (data.containsKey('source_lesson_id')) {
+      context.handle(
+        _sourceLessonIdMeta,
+        sourceLessonId.isAcceptableOrUnknown(
+          data['source_lesson_id']!,
+          _sourceLessonIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceLessonIdMeta);
+    }
+    if (data.containsKey('source_step_id')) {
+      context.handle(
+        _sourceStepIdMeta,
+        sourceStepId.isAcceptableOrUnknown(
+          data['source_step_id']!,
+          _sourceStepIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceStepIdMeta);
+    }
+    if (data.containsKey('detected_at')) {
+      context.handle(
+        _detectedAtMeta,
+        detectedAt.isAcceptableOrUnknown(data['detected_at']!, _detectedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_detectedAtMeta);
+    }
+    if (data.containsKey('resolved_at')) {
+      context.handle(
+        _resolvedAtMeta,
+        resolvedAt.isAcceptableOrUnknown(data['resolved_at']!, _resolvedAtMeta),
+      );
+    }
+    if (data.containsKey('resolution_status')) {
+      context.handle(
+        _resolutionStatusMeta,
+        resolutionStatus.isAcceptableOrUnknown(
+          data['resolution_status']!,
+          _resolutionStatusMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_resolutionStatusMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {attemptId, gapId};
+  @override
+  CompetencyGapRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CompetencyGapRow(
+      gapId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}gap_id'],
+      )!,
+      attemptId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attempt_id'],
+      )!,
+      assessmentTaskId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}assessment_task_id'],
+      )!,
+      microCompetencyId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}micro_competency_id'],
+      )!,
+      reasonCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason_code'],
+      )!,
+      sourceModuleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_module_id'],
+      )!,
+      sourceLessonId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_lesson_id'],
+      )!,
+      sourceStepId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_step_id'],
+      )!,
+      detectedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}detected_at'],
+      )!,
+      resolvedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}resolved_at'],
+      ),
+      resolutionStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}resolution_status'],
+      )!,
+    );
+  }
+
+  @override
+  $CompetencyGapsTable createAlias(String alias) {
+    return $CompetencyGapsTable(attachedDatabase, alias);
+  }
+}
+
+class CompetencyGapRow extends DataClass
+    implements Insertable<CompetencyGapRow> {
+  final String gapId;
+  final String attemptId;
+  final String assessmentTaskId;
+  final String microCompetencyId;
+  final String reasonCode;
+  final String sourceModuleId;
+  final String sourceLessonId;
+  final String sourceStepId;
+  final DateTime detectedAt;
+  final DateTime? resolvedAt;
+  final String resolutionStatus;
+  const CompetencyGapRow({
+    required this.gapId,
+    required this.attemptId,
+    required this.assessmentTaskId,
+    required this.microCompetencyId,
+    required this.reasonCode,
+    required this.sourceModuleId,
+    required this.sourceLessonId,
+    required this.sourceStepId,
+    required this.detectedAt,
+    this.resolvedAt,
+    required this.resolutionStatus,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['gap_id'] = Variable<String>(gapId);
+    map['attempt_id'] = Variable<String>(attemptId);
+    map['assessment_task_id'] = Variable<String>(assessmentTaskId);
+    map['micro_competency_id'] = Variable<String>(microCompetencyId);
+    map['reason_code'] = Variable<String>(reasonCode);
+    map['source_module_id'] = Variable<String>(sourceModuleId);
+    map['source_lesson_id'] = Variable<String>(sourceLessonId);
+    map['source_step_id'] = Variable<String>(sourceStepId);
+    map['detected_at'] = Variable<DateTime>(detectedAt);
+    if (!nullToAbsent || resolvedAt != null) {
+      map['resolved_at'] = Variable<DateTime>(resolvedAt);
+    }
+    map['resolution_status'] = Variable<String>(resolutionStatus);
+    return map;
+  }
+
+  CompetencyGapsCompanion toCompanion(bool nullToAbsent) {
+    return CompetencyGapsCompanion(
+      gapId: Value(gapId),
+      attemptId: Value(attemptId),
+      assessmentTaskId: Value(assessmentTaskId),
+      microCompetencyId: Value(microCompetencyId),
+      reasonCode: Value(reasonCode),
+      sourceModuleId: Value(sourceModuleId),
+      sourceLessonId: Value(sourceLessonId),
+      sourceStepId: Value(sourceStepId),
+      detectedAt: Value(detectedAt),
+      resolvedAt: resolvedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(resolvedAt),
+      resolutionStatus: Value(resolutionStatus),
+    );
+  }
+
+  factory CompetencyGapRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CompetencyGapRow(
+      gapId: serializer.fromJson<String>(json['gapId']),
+      attemptId: serializer.fromJson<String>(json['attemptId']),
+      assessmentTaskId: serializer.fromJson<String>(json['assessmentTaskId']),
+      microCompetencyId: serializer.fromJson<String>(json['microCompetencyId']),
+      reasonCode: serializer.fromJson<String>(json['reasonCode']),
+      sourceModuleId: serializer.fromJson<String>(json['sourceModuleId']),
+      sourceLessonId: serializer.fromJson<String>(json['sourceLessonId']),
+      sourceStepId: serializer.fromJson<String>(json['sourceStepId']),
+      detectedAt: serializer.fromJson<DateTime>(json['detectedAt']),
+      resolvedAt: serializer.fromJson<DateTime?>(json['resolvedAt']),
+      resolutionStatus: serializer.fromJson<String>(json['resolutionStatus']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'gapId': serializer.toJson<String>(gapId),
+      'attemptId': serializer.toJson<String>(attemptId),
+      'assessmentTaskId': serializer.toJson<String>(assessmentTaskId),
+      'microCompetencyId': serializer.toJson<String>(microCompetencyId),
+      'reasonCode': serializer.toJson<String>(reasonCode),
+      'sourceModuleId': serializer.toJson<String>(sourceModuleId),
+      'sourceLessonId': serializer.toJson<String>(sourceLessonId),
+      'sourceStepId': serializer.toJson<String>(sourceStepId),
+      'detectedAt': serializer.toJson<DateTime>(detectedAt),
+      'resolvedAt': serializer.toJson<DateTime?>(resolvedAt),
+      'resolutionStatus': serializer.toJson<String>(resolutionStatus),
+    };
+  }
+
+  CompetencyGapRow copyWith({
+    String? gapId,
+    String? attemptId,
+    String? assessmentTaskId,
+    String? microCompetencyId,
+    String? reasonCode,
+    String? sourceModuleId,
+    String? sourceLessonId,
+    String? sourceStepId,
+    DateTime? detectedAt,
+    Value<DateTime?> resolvedAt = const Value.absent(),
+    String? resolutionStatus,
+  }) => CompetencyGapRow(
+    gapId: gapId ?? this.gapId,
+    attemptId: attemptId ?? this.attemptId,
+    assessmentTaskId: assessmentTaskId ?? this.assessmentTaskId,
+    microCompetencyId: microCompetencyId ?? this.microCompetencyId,
+    reasonCode: reasonCode ?? this.reasonCode,
+    sourceModuleId: sourceModuleId ?? this.sourceModuleId,
+    sourceLessonId: sourceLessonId ?? this.sourceLessonId,
+    sourceStepId: sourceStepId ?? this.sourceStepId,
+    detectedAt: detectedAt ?? this.detectedAt,
+    resolvedAt: resolvedAt.present ? resolvedAt.value : this.resolvedAt,
+    resolutionStatus: resolutionStatus ?? this.resolutionStatus,
+  );
+  CompetencyGapRow copyWithCompanion(CompetencyGapsCompanion data) {
+    return CompetencyGapRow(
+      gapId: data.gapId.present ? data.gapId.value : this.gapId,
+      attemptId: data.attemptId.present ? data.attemptId.value : this.attemptId,
+      assessmentTaskId: data.assessmentTaskId.present
+          ? data.assessmentTaskId.value
+          : this.assessmentTaskId,
+      microCompetencyId: data.microCompetencyId.present
+          ? data.microCompetencyId.value
+          : this.microCompetencyId,
+      reasonCode: data.reasonCode.present
+          ? data.reasonCode.value
+          : this.reasonCode,
+      sourceModuleId: data.sourceModuleId.present
+          ? data.sourceModuleId.value
+          : this.sourceModuleId,
+      sourceLessonId: data.sourceLessonId.present
+          ? data.sourceLessonId.value
+          : this.sourceLessonId,
+      sourceStepId: data.sourceStepId.present
+          ? data.sourceStepId.value
+          : this.sourceStepId,
+      detectedAt: data.detectedAt.present
+          ? data.detectedAt.value
+          : this.detectedAt,
+      resolvedAt: data.resolvedAt.present
+          ? data.resolvedAt.value
+          : this.resolvedAt,
+      resolutionStatus: data.resolutionStatus.present
+          ? data.resolutionStatus.value
+          : this.resolutionStatus,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyGapRow(')
+          ..write('gapId: $gapId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('assessmentTaskId: $assessmentTaskId, ')
+          ..write('microCompetencyId: $microCompetencyId, ')
+          ..write('reasonCode: $reasonCode, ')
+          ..write('sourceModuleId: $sourceModuleId, ')
+          ..write('sourceLessonId: $sourceLessonId, ')
+          ..write('sourceStepId: $sourceStepId, ')
+          ..write('detectedAt: $detectedAt, ')
+          ..write('resolvedAt: $resolvedAt, ')
+          ..write('resolutionStatus: $resolutionStatus')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    gapId,
+    attemptId,
+    assessmentTaskId,
+    microCompetencyId,
+    reasonCode,
+    sourceModuleId,
+    sourceLessonId,
+    sourceStepId,
+    detectedAt,
+    resolvedAt,
+    resolutionStatus,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CompetencyGapRow &&
+          other.gapId == this.gapId &&
+          other.attemptId == this.attemptId &&
+          other.assessmentTaskId == this.assessmentTaskId &&
+          other.microCompetencyId == this.microCompetencyId &&
+          other.reasonCode == this.reasonCode &&
+          other.sourceModuleId == this.sourceModuleId &&
+          other.sourceLessonId == this.sourceLessonId &&
+          other.sourceStepId == this.sourceStepId &&
+          other.detectedAt == this.detectedAt &&
+          other.resolvedAt == this.resolvedAt &&
+          other.resolutionStatus == this.resolutionStatus);
+}
+
+class CompetencyGapsCompanion extends UpdateCompanion<CompetencyGapRow> {
+  final Value<String> gapId;
+  final Value<String> attemptId;
+  final Value<String> assessmentTaskId;
+  final Value<String> microCompetencyId;
+  final Value<String> reasonCode;
+  final Value<String> sourceModuleId;
+  final Value<String> sourceLessonId;
+  final Value<String> sourceStepId;
+  final Value<DateTime> detectedAt;
+  final Value<DateTime?> resolvedAt;
+  final Value<String> resolutionStatus;
+  final Value<int> rowid;
+  const CompetencyGapsCompanion({
+    this.gapId = const Value.absent(),
+    this.attemptId = const Value.absent(),
+    this.assessmentTaskId = const Value.absent(),
+    this.microCompetencyId = const Value.absent(),
+    this.reasonCode = const Value.absent(),
+    this.sourceModuleId = const Value.absent(),
+    this.sourceLessonId = const Value.absent(),
+    this.sourceStepId = const Value.absent(),
+    this.detectedAt = const Value.absent(),
+    this.resolvedAt = const Value.absent(),
+    this.resolutionStatus = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CompetencyGapsCompanion.insert({
+    required String gapId,
+    required String attemptId,
+    required String assessmentTaskId,
+    required String microCompetencyId,
+    required String reasonCode,
+    required String sourceModuleId,
+    required String sourceLessonId,
+    required String sourceStepId,
+    required DateTime detectedAt,
+    this.resolvedAt = const Value.absent(),
+    required String resolutionStatus,
+    this.rowid = const Value.absent(),
+  }) : gapId = Value(gapId),
+       attemptId = Value(attemptId),
+       assessmentTaskId = Value(assessmentTaskId),
+       microCompetencyId = Value(microCompetencyId),
+       reasonCode = Value(reasonCode),
+       sourceModuleId = Value(sourceModuleId),
+       sourceLessonId = Value(sourceLessonId),
+       sourceStepId = Value(sourceStepId),
+       detectedAt = Value(detectedAt),
+       resolutionStatus = Value(resolutionStatus);
+  static Insertable<CompetencyGapRow> custom({
+    Expression<String>? gapId,
+    Expression<String>? attemptId,
+    Expression<String>? assessmentTaskId,
+    Expression<String>? microCompetencyId,
+    Expression<String>? reasonCode,
+    Expression<String>? sourceModuleId,
+    Expression<String>? sourceLessonId,
+    Expression<String>? sourceStepId,
+    Expression<DateTime>? detectedAt,
+    Expression<DateTime>? resolvedAt,
+    Expression<String>? resolutionStatus,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (gapId != null) 'gap_id': gapId,
+      if (attemptId != null) 'attempt_id': attemptId,
+      if (assessmentTaskId != null) 'assessment_task_id': assessmentTaskId,
+      if (microCompetencyId != null) 'micro_competency_id': microCompetencyId,
+      if (reasonCode != null) 'reason_code': reasonCode,
+      if (sourceModuleId != null) 'source_module_id': sourceModuleId,
+      if (sourceLessonId != null) 'source_lesson_id': sourceLessonId,
+      if (sourceStepId != null) 'source_step_id': sourceStepId,
+      if (detectedAt != null) 'detected_at': detectedAt,
+      if (resolvedAt != null) 'resolved_at': resolvedAt,
+      if (resolutionStatus != null) 'resolution_status': resolutionStatus,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CompetencyGapsCompanion copyWith({
+    Value<String>? gapId,
+    Value<String>? attemptId,
+    Value<String>? assessmentTaskId,
+    Value<String>? microCompetencyId,
+    Value<String>? reasonCode,
+    Value<String>? sourceModuleId,
+    Value<String>? sourceLessonId,
+    Value<String>? sourceStepId,
+    Value<DateTime>? detectedAt,
+    Value<DateTime?>? resolvedAt,
+    Value<String>? resolutionStatus,
+    Value<int>? rowid,
+  }) {
+    return CompetencyGapsCompanion(
+      gapId: gapId ?? this.gapId,
+      attemptId: attemptId ?? this.attemptId,
+      assessmentTaskId: assessmentTaskId ?? this.assessmentTaskId,
+      microCompetencyId: microCompetencyId ?? this.microCompetencyId,
+      reasonCode: reasonCode ?? this.reasonCode,
+      sourceModuleId: sourceModuleId ?? this.sourceModuleId,
+      sourceLessonId: sourceLessonId ?? this.sourceLessonId,
+      sourceStepId: sourceStepId ?? this.sourceStepId,
+      detectedAt: detectedAt ?? this.detectedAt,
+      resolvedAt: resolvedAt ?? this.resolvedAt,
+      resolutionStatus: resolutionStatus ?? this.resolutionStatus,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (gapId.present) {
+      map['gap_id'] = Variable<String>(gapId.value);
+    }
+    if (attemptId.present) {
+      map['attempt_id'] = Variable<String>(attemptId.value);
+    }
+    if (assessmentTaskId.present) {
+      map['assessment_task_id'] = Variable<String>(assessmentTaskId.value);
+    }
+    if (microCompetencyId.present) {
+      map['micro_competency_id'] = Variable<String>(microCompetencyId.value);
+    }
+    if (reasonCode.present) {
+      map['reason_code'] = Variable<String>(reasonCode.value);
+    }
+    if (sourceModuleId.present) {
+      map['source_module_id'] = Variable<String>(sourceModuleId.value);
+    }
+    if (sourceLessonId.present) {
+      map['source_lesson_id'] = Variable<String>(sourceLessonId.value);
+    }
+    if (sourceStepId.present) {
+      map['source_step_id'] = Variable<String>(sourceStepId.value);
+    }
+    if (detectedAt.present) {
+      map['detected_at'] = Variable<DateTime>(detectedAt.value);
+    }
+    if (resolvedAt.present) {
+      map['resolved_at'] = Variable<DateTime>(resolvedAt.value);
+    }
+    if (resolutionStatus.present) {
+      map['resolution_status'] = Variable<String>(resolutionStatus.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyGapsCompanion(')
+          ..write('gapId: $gapId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('assessmentTaskId: $assessmentTaskId, ')
+          ..write('microCompetencyId: $microCompetencyId, ')
+          ..write('reasonCode: $reasonCode, ')
+          ..write('sourceModuleId: $sourceModuleId, ')
+          ..write('sourceLessonId: $sourceLessonId, ')
+          ..write('sourceStepId: $sourceStepId, ')
+          ..write('detectedAt: $detectedAt, ')
+          ..write('resolvedAt: $resolvedAt, ')
+          ..write('resolutionStatus: $resolutionStatus, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CompetencyRecoveryExecutionsTable extends CompetencyRecoveryExecutions
+    with
+        TableInfo<
+          $CompetencyRecoveryExecutionsTable,
+          CompetencyRecoveryExecutionRow
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CompetencyRecoveryExecutionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _recoveryExecutionIdMeta =
+      const VerificationMeta('recoveryExecutionId');
+  @override
+  late final GeneratedColumn<String> recoveryExecutionId =
+      GeneratedColumn<String>(
+        'recovery_execution_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      );
+  static const VerificationMeta _attemptIdMeta = const VerificationMeta(
+    'attemptId',
+  );
+  @override
+  late final GeneratedColumn<String> attemptId = GeneratedColumn<String>(
+    'attempt_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES competency_attempts (attempt_id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _gapIdMeta = const VerificationMeta('gapId');
+  @override
+  late final GeneratedColumn<String> gapId = GeneratedColumn<String>(
+    'gap_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _recoveryStepIdMeta = const VerificationMeta(
+    'recoveryStepId',
+  );
+  @override
+  late final GeneratedColumn<String> recoveryStepId = GeneratedColumn<String>(
+    'recovery_step_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceModuleIdMeta = const VerificationMeta(
+    'sourceModuleId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceModuleId = GeneratedColumn<String>(
+    'source_module_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceLessonIdMeta = const VerificationMeta(
+    'sourceLessonId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceLessonId = GeneratedColumn<String>(
+    'source_lesson_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sourceStepIdMeta = const VerificationMeta(
+    'sourceStepId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceStepId = GeneratedColumn<String>(
+    'source_step_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+    'started_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _completedAtMeta = const VerificationMeta(
+    'completedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+    'completed_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _succeededMeta = const VerificationMeta(
+    'succeeded',
+  );
+  @override
+  late final GeneratedColumn<bool> succeeded = GeneratedColumn<bool>(
+    'succeeded',
+    aliasedName,
+    true,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("succeeded" IN (0, 1))',
+    ),
+  );
+  static const VerificationMeta _retryOccurredMeta = const VerificationMeta(
+    'retryOccurred',
+  );
+  @override
+  late final GeneratedColumn<bool> retryOccurred = GeneratedColumn<bool>(
+    'retry_occurred',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("retry_occurred" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    recoveryExecutionId,
+    attemptId,
+    gapId,
+    recoveryStepId,
+    sourceModuleId,
+    sourceLessonId,
+    sourceStepId,
+    status,
+    startedAt,
+    completedAt,
+    succeeded,
+    retryOccurred,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'competency_recovery_executions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CompetencyRecoveryExecutionRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('recovery_execution_id')) {
+      context.handle(
+        _recoveryExecutionIdMeta,
+        recoveryExecutionId.isAcceptableOrUnknown(
+          data['recovery_execution_id']!,
+          _recoveryExecutionIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_recoveryExecutionIdMeta);
+    }
+    if (data.containsKey('attempt_id')) {
+      context.handle(
+        _attemptIdMeta,
+        attemptId.isAcceptableOrUnknown(data['attempt_id']!, _attemptIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_attemptIdMeta);
+    }
+    if (data.containsKey('gap_id')) {
+      context.handle(
+        _gapIdMeta,
+        gapId.isAcceptableOrUnknown(data['gap_id']!, _gapIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_gapIdMeta);
+    }
+    if (data.containsKey('recovery_step_id')) {
+      context.handle(
+        _recoveryStepIdMeta,
+        recoveryStepId.isAcceptableOrUnknown(
+          data['recovery_step_id']!,
+          _recoveryStepIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_recoveryStepIdMeta);
+    }
+    if (data.containsKey('source_module_id')) {
+      context.handle(
+        _sourceModuleIdMeta,
+        sourceModuleId.isAcceptableOrUnknown(
+          data['source_module_id']!,
+          _sourceModuleIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceModuleIdMeta);
+    }
+    if (data.containsKey('source_lesson_id')) {
+      context.handle(
+        _sourceLessonIdMeta,
+        sourceLessonId.isAcceptableOrUnknown(
+          data['source_lesson_id']!,
+          _sourceLessonIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceLessonIdMeta);
+    }
+    if (data.containsKey('source_step_id')) {
+      context.handle(
+        _sourceStepIdMeta,
+        sourceStepId.isAcceptableOrUnknown(
+          data['source_step_id']!,
+          _sourceStepIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceStepIdMeta);
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+        _completedAtMeta,
+        completedAt.isAcceptableOrUnknown(
+          data['completed_at']!,
+          _completedAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('succeeded')) {
+      context.handle(
+        _succeededMeta,
+        succeeded.isAcceptableOrUnknown(data['succeeded']!, _succeededMeta),
+      );
+    }
+    if (data.containsKey('retry_occurred')) {
+      context.handle(
+        _retryOccurredMeta,
+        retryOccurred.isAcceptableOrUnknown(
+          data['retry_occurred']!,
+          _retryOccurredMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {recoveryExecutionId};
+  @override
+  CompetencyRecoveryExecutionRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CompetencyRecoveryExecutionRow(
+      recoveryExecutionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}recovery_execution_id'],
+      )!,
+      attemptId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attempt_id'],
+      )!,
+      gapId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}gap_id'],
+      )!,
+      recoveryStepId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}recovery_step_id'],
+      )!,
+      sourceModuleId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_module_id'],
+      )!,
+      sourceLessonId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_lesson_id'],
+      )!,
+      sourceStepId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_step_id'],
+      )!,
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}started_at'],
+      ),
+      completedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}completed_at'],
+      ),
+      succeeded: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}succeeded'],
+      ),
+      retryOccurred: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}retry_occurred'],
+      )!,
+    );
+  }
+
+  @override
+  $CompetencyRecoveryExecutionsTable createAlias(String alias) {
+    return $CompetencyRecoveryExecutionsTable(attachedDatabase, alias);
+  }
+}
+
+class CompetencyRecoveryExecutionRow extends DataClass
+    implements Insertable<CompetencyRecoveryExecutionRow> {
+  final String recoveryExecutionId;
+  final String attemptId;
+  final String gapId;
+  final String recoveryStepId;
+  final String sourceModuleId;
+  final String sourceLessonId;
+  final String sourceStepId;
+  final String status;
+  final DateTime? startedAt;
+  final DateTime? completedAt;
+  final bool? succeeded;
+  final bool retryOccurred;
+  const CompetencyRecoveryExecutionRow({
+    required this.recoveryExecutionId,
+    required this.attemptId,
+    required this.gapId,
+    required this.recoveryStepId,
+    required this.sourceModuleId,
+    required this.sourceLessonId,
+    required this.sourceStepId,
+    required this.status,
+    this.startedAt,
+    this.completedAt,
+    this.succeeded,
+    required this.retryOccurred,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['recovery_execution_id'] = Variable<String>(recoveryExecutionId);
+    map['attempt_id'] = Variable<String>(attemptId);
+    map['gap_id'] = Variable<String>(gapId);
+    map['recovery_step_id'] = Variable<String>(recoveryStepId);
+    map['source_module_id'] = Variable<String>(sourceModuleId);
+    map['source_lesson_id'] = Variable<String>(sourceLessonId);
+    map['source_step_id'] = Variable<String>(sourceStepId);
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || startedAt != null) {
+      map['started_at'] = Variable<DateTime>(startedAt);
+    }
+    if (!nullToAbsent || completedAt != null) {
+      map['completed_at'] = Variable<DateTime>(completedAt);
+    }
+    if (!nullToAbsent || succeeded != null) {
+      map['succeeded'] = Variable<bool>(succeeded);
+    }
+    map['retry_occurred'] = Variable<bool>(retryOccurred);
+    return map;
+  }
+
+  CompetencyRecoveryExecutionsCompanion toCompanion(bool nullToAbsent) {
+    return CompetencyRecoveryExecutionsCompanion(
+      recoveryExecutionId: Value(recoveryExecutionId),
+      attemptId: Value(attemptId),
+      gapId: Value(gapId),
+      recoveryStepId: Value(recoveryStepId),
+      sourceModuleId: Value(sourceModuleId),
+      sourceLessonId: Value(sourceLessonId),
+      sourceStepId: Value(sourceStepId),
+      status: Value(status),
+      startedAt: startedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(startedAt),
+      completedAt: completedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(completedAt),
+      succeeded: succeeded == null && nullToAbsent
+          ? const Value.absent()
+          : Value(succeeded),
+      retryOccurred: Value(retryOccurred),
+    );
+  }
+
+  factory CompetencyRecoveryExecutionRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CompetencyRecoveryExecutionRow(
+      recoveryExecutionId: serializer.fromJson<String>(
+        json['recoveryExecutionId'],
+      ),
+      attemptId: serializer.fromJson<String>(json['attemptId']),
+      gapId: serializer.fromJson<String>(json['gapId']),
+      recoveryStepId: serializer.fromJson<String>(json['recoveryStepId']),
+      sourceModuleId: serializer.fromJson<String>(json['sourceModuleId']),
+      sourceLessonId: serializer.fromJson<String>(json['sourceLessonId']),
+      sourceStepId: serializer.fromJson<String>(json['sourceStepId']),
+      status: serializer.fromJson<String>(json['status']),
+      startedAt: serializer.fromJson<DateTime?>(json['startedAt']),
+      completedAt: serializer.fromJson<DateTime?>(json['completedAt']),
+      succeeded: serializer.fromJson<bool?>(json['succeeded']),
+      retryOccurred: serializer.fromJson<bool>(json['retryOccurred']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'recoveryExecutionId': serializer.toJson<String>(recoveryExecutionId),
+      'attemptId': serializer.toJson<String>(attemptId),
+      'gapId': serializer.toJson<String>(gapId),
+      'recoveryStepId': serializer.toJson<String>(recoveryStepId),
+      'sourceModuleId': serializer.toJson<String>(sourceModuleId),
+      'sourceLessonId': serializer.toJson<String>(sourceLessonId),
+      'sourceStepId': serializer.toJson<String>(sourceStepId),
+      'status': serializer.toJson<String>(status),
+      'startedAt': serializer.toJson<DateTime?>(startedAt),
+      'completedAt': serializer.toJson<DateTime?>(completedAt),
+      'succeeded': serializer.toJson<bool?>(succeeded),
+      'retryOccurred': serializer.toJson<bool>(retryOccurred),
+    };
+  }
+
+  CompetencyRecoveryExecutionRow copyWith({
+    String? recoveryExecutionId,
+    String? attemptId,
+    String? gapId,
+    String? recoveryStepId,
+    String? sourceModuleId,
+    String? sourceLessonId,
+    String? sourceStepId,
+    String? status,
+    Value<DateTime?> startedAt = const Value.absent(),
+    Value<DateTime?> completedAt = const Value.absent(),
+    Value<bool?> succeeded = const Value.absent(),
+    bool? retryOccurred,
+  }) => CompetencyRecoveryExecutionRow(
+    recoveryExecutionId: recoveryExecutionId ?? this.recoveryExecutionId,
+    attemptId: attemptId ?? this.attemptId,
+    gapId: gapId ?? this.gapId,
+    recoveryStepId: recoveryStepId ?? this.recoveryStepId,
+    sourceModuleId: sourceModuleId ?? this.sourceModuleId,
+    sourceLessonId: sourceLessonId ?? this.sourceLessonId,
+    sourceStepId: sourceStepId ?? this.sourceStepId,
+    status: status ?? this.status,
+    startedAt: startedAt.present ? startedAt.value : this.startedAt,
+    completedAt: completedAt.present ? completedAt.value : this.completedAt,
+    succeeded: succeeded.present ? succeeded.value : this.succeeded,
+    retryOccurred: retryOccurred ?? this.retryOccurred,
+  );
+  CompetencyRecoveryExecutionRow copyWithCompanion(
+    CompetencyRecoveryExecutionsCompanion data,
+  ) {
+    return CompetencyRecoveryExecutionRow(
+      recoveryExecutionId: data.recoveryExecutionId.present
+          ? data.recoveryExecutionId.value
+          : this.recoveryExecutionId,
+      attemptId: data.attemptId.present ? data.attemptId.value : this.attemptId,
+      gapId: data.gapId.present ? data.gapId.value : this.gapId,
+      recoveryStepId: data.recoveryStepId.present
+          ? data.recoveryStepId.value
+          : this.recoveryStepId,
+      sourceModuleId: data.sourceModuleId.present
+          ? data.sourceModuleId.value
+          : this.sourceModuleId,
+      sourceLessonId: data.sourceLessonId.present
+          ? data.sourceLessonId.value
+          : this.sourceLessonId,
+      sourceStepId: data.sourceStepId.present
+          ? data.sourceStepId.value
+          : this.sourceStepId,
+      status: data.status.present ? data.status.value : this.status,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+      completedAt: data.completedAt.present
+          ? data.completedAt.value
+          : this.completedAt,
+      succeeded: data.succeeded.present ? data.succeeded.value : this.succeeded,
+      retryOccurred: data.retryOccurred.present
+          ? data.retryOccurred.value
+          : this.retryOccurred,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyRecoveryExecutionRow(')
+          ..write('recoveryExecutionId: $recoveryExecutionId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('gapId: $gapId, ')
+          ..write('recoveryStepId: $recoveryStepId, ')
+          ..write('sourceModuleId: $sourceModuleId, ')
+          ..write('sourceLessonId: $sourceLessonId, ')
+          ..write('sourceStepId: $sourceStepId, ')
+          ..write('status: $status, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('succeeded: $succeeded, ')
+          ..write('retryOccurred: $retryOccurred')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    recoveryExecutionId,
+    attemptId,
+    gapId,
+    recoveryStepId,
+    sourceModuleId,
+    sourceLessonId,
+    sourceStepId,
+    status,
+    startedAt,
+    completedAt,
+    succeeded,
+    retryOccurred,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CompetencyRecoveryExecutionRow &&
+          other.recoveryExecutionId == this.recoveryExecutionId &&
+          other.attemptId == this.attemptId &&
+          other.gapId == this.gapId &&
+          other.recoveryStepId == this.recoveryStepId &&
+          other.sourceModuleId == this.sourceModuleId &&
+          other.sourceLessonId == this.sourceLessonId &&
+          other.sourceStepId == this.sourceStepId &&
+          other.status == this.status &&
+          other.startedAt == this.startedAt &&
+          other.completedAt == this.completedAt &&
+          other.succeeded == this.succeeded &&
+          other.retryOccurred == this.retryOccurred);
+}
+
+class CompetencyRecoveryExecutionsCompanion
+    extends UpdateCompanion<CompetencyRecoveryExecutionRow> {
+  final Value<String> recoveryExecutionId;
+  final Value<String> attemptId;
+  final Value<String> gapId;
+  final Value<String> recoveryStepId;
+  final Value<String> sourceModuleId;
+  final Value<String> sourceLessonId;
+  final Value<String> sourceStepId;
+  final Value<String> status;
+  final Value<DateTime?> startedAt;
+  final Value<DateTime?> completedAt;
+  final Value<bool?> succeeded;
+  final Value<bool> retryOccurred;
+  final Value<int> rowid;
+  const CompetencyRecoveryExecutionsCompanion({
+    this.recoveryExecutionId = const Value.absent(),
+    this.attemptId = const Value.absent(),
+    this.gapId = const Value.absent(),
+    this.recoveryStepId = const Value.absent(),
+    this.sourceModuleId = const Value.absent(),
+    this.sourceLessonId = const Value.absent(),
+    this.sourceStepId = const Value.absent(),
+    this.status = const Value.absent(),
+    this.startedAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.succeeded = const Value.absent(),
+    this.retryOccurred = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CompetencyRecoveryExecutionsCompanion.insert({
+    required String recoveryExecutionId,
+    required String attemptId,
+    required String gapId,
+    required String recoveryStepId,
+    required String sourceModuleId,
+    required String sourceLessonId,
+    required String sourceStepId,
+    required String status,
+    this.startedAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.succeeded = const Value.absent(),
+    this.retryOccurred = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : recoveryExecutionId = Value(recoveryExecutionId),
+       attemptId = Value(attemptId),
+       gapId = Value(gapId),
+       recoveryStepId = Value(recoveryStepId),
+       sourceModuleId = Value(sourceModuleId),
+       sourceLessonId = Value(sourceLessonId),
+       sourceStepId = Value(sourceStepId),
+       status = Value(status);
+  static Insertable<CompetencyRecoveryExecutionRow> custom({
+    Expression<String>? recoveryExecutionId,
+    Expression<String>? attemptId,
+    Expression<String>? gapId,
+    Expression<String>? recoveryStepId,
+    Expression<String>? sourceModuleId,
+    Expression<String>? sourceLessonId,
+    Expression<String>? sourceStepId,
+    Expression<String>? status,
+    Expression<DateTime>? startedAt,
+    Expression<DateTime>? completedAt,
+    Expression<bool>? succeeded,
+    Expression<bool>? retryOccurred,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (recoveryExecutionId != null)
+        'recovery_execution_id': recoveryExecutionId,
+      if (attemptId != null) 'attempt_id': attemptId,
+      if (gapId != null) 'gap_id': gapId,
+      if (recoveryStepId != null) 'recovery_step_id': recoveryStepId,
+      if (sourceModuleId != null) 'source_module_id': sourceModuleId,
+      if (sourceLessonId != null) 'source_lesson_id': sourceLessonId,
+      if (sourceStepId != null) 'source_step_id': sourceStepId,
+      if (status != null) 'status': status,
+      if (startedAt != null) 'started_at': startedAt,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (succeeded != null) 'succeeded': succeeded,
+      if (retryOccurred != null) 'retry_occurred': retryOccurred,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CompetencyRecoveryExecutionsCompanion copyWith({
+    Value<String>? recoveryExecutionId,
+    Value<String>? attemptId,
+    Value<String>? gapId,
+    Value<String>? recoveryStepId,
+    Value<String>? sourceModuleId,
+    Value<String>? sourceLessonId,
+    Value<String>? sourceStepId,
+    Value<String>? status,
+    Value<DateTime?>? startedAt,
+    Value<DateTime?>? completedAt,
+    Value<bool?>? succeeded,
+    Value<bool>? retryOccurred,
+    Value<int>? rowid,
+  }) {
+    return CompetencyRecoveryExecutionsCompanion(
+      recoveryExecutionId: recoveryExecutionId ?? this.recoveryExecutionId,
+      attemptId: attemptId ?? this.attemptId,
+      gapId: gapId ?? this.gapId,
+      recoveryStepId: recoveryStepId ?? this.recoveryStepId,
+      sourceModuleId: sourceModuleId ?? this.sourceModuleId,
+      sourceLessonId: sourceLessonId ?? this.sourceLessonId,
+      sourceStepId: sourceStepId ?? this.sourceStepId,
+      status: status ?? this.status,
+      startedAt: startedAt ?? this.startedAt,
+      completedAt: completedAt ?? this.completedAt,
+      succeeded: succeeded ?? this.succeeded,
+      retryOccurred: retryOccurred ?? this.retryOccurred,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (recoveryExecutionId.present) {
+      map['recovery_execution_id'] = Variable<String>(
+        recoveryExecutionId.value,
+      );
+    }
+    if (attemptId.present) {
+      map['attempt_id'] = Variable<String>(attemptId.value);
+    }
+    if (gapId.present) {
+      map['gap_id'] = Variable<String>(gapId.value);
+    }
+    if (recoveryStepId.present) {
+      map['recovery_step_id'] = Variable<String>(recoveryStepId.value);
+    }
+    if (sourceModuleId.present) {
+      map['source_module_id'] = Variable<String>(sourceModuleId.value);
+    }
+    if (sourceLessonId.present) {
+      map['source_lesson_id'] = Variable<String>(sourceLessonId.value);
+    }
+    if (sourceStepId.present) {
+      map['source_step_id'] = Variable<String>(sourceStepId.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (succeeded.present) {
+      map['succeeded'] = Variable<bool>(succeeded.value);
+    }
+    if (retryOccurred.present) {
+      map['retry_occurred'] = Variable<bool>(retryOccurred.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CompetencyRecoveryExecutionsCompanion(')
+          ..write('recoveryExecutionId: $recoveryExecutionId, ')
+          ..write('attemptId: $attemptId, ')
+          ..write('gapId: $gapId, ')
+          ..write('recoveryStepId: $recoveryStepId, ')
+          ..write('sourceModuleId: $sourceModuleId, ')
+          ..write('sourceLessonId: $sourceLessonId, ')
+          ..write('sourceStepId: $sourceStepId, ')
+          ..write('status: $status, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('succeeded: $succeeded, ')
+          ..write('retryOccurred: $retryOccurred, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -2671,6 +5293,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $LessonAttemptsTable lessonAttempts = $LessonAttemptsTable(this);
   late final $LessonAttemptStepResultsTable lessonAttemptStepResults =
       $LessonAttemptStepResultsTable(this);
+  late final $CompetencyAttemptsTable competencyAttempts =
+      $CompetencyAttemptsTable(this);
+  late final $CompetencyTaskResultsTable competencyTaskResults =
+      $CompetencyTaskResultsTable(this);
+  late final $CompetencyGapsTable competencyGaps = $CompetencyGapsTable(this);
+  late final $CompetencyRecoveryExecutionsTable competencyRecoveryExecutions =
+      $CompetencyRecoveryExecutionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -2680,6 +5309,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     learnerProgressEvents,
     lessonAttempts,
     lessonAttemptStepResults,
+    competencyAttempts,
+    competencyTaskResults,
+    competencyGaps,
+    competencyRecoveryExecutions,
   ];
   @override
   StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
@@ -2690,6 +5323,29 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       ),
       result: [
         TableUpdate('lesson_attempt_step_results', kind: UpdateKind.delete),
+      ],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'competency_attempts',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('competency_task_results', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'competency_attempts',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('competency_gaps', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'competency_attempts',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [
+        TableUpdate('competency_recovery_executions', kind: UpdateKind.delete),
       ],
     ),
   ]);
@@ -4218,6 +6874,2008 @@ typedef $$LessonAttemptStepResultsTableProcessedTableManager =
       LessonAttemptStepResultRow,
       PrefetchHooks Function({bool attemptId})
     >;
+typedef $$CompetencyAttemptsTableCreateCompanionBuilder =
+    CompetencyAttemptsCompanion Function({
+      required String attemptId,
+      required String competencyId,
+      required String moduleId,
+      required DateTime startedAt,
+      Value<DateTime?> completedAt,
+      required String status,
+      Value<String?> finalOutcome,
+      required String definitionFingerprint,
+      Value<int> rowid,
+    });
+typedef $$CompetencyAttemptsTableUpdateCompanionBuilder =
+    CompetencyAttemptsCompanion Function({
+      Value<String> attemptId,
+      Value<String> competencyId,
+      Value<String> moduleId,
+      Value<DateTime> startedAt,
+      Value<DateTime?> completedAt,
+      Value<String> status,
+      Value<String?> finalOutcome,
+      Value<String> definitionFingerprint,
+      Value<int> rowid,
+    });
+
+final class $$CompetencyAttemptsTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $CompetencyAttemptsTable,
+          CompetencyAttemptRow
+        > {
+  $$CompetencyAttemptsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static MultiTypedResultKey<
+    $CompetencyTaskResultsTable,
+    List<CompetencyTaskResultRow>
+  >
+  _competencyTaskResultsRefsTable(
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.competencyTaskResults,
+    aliasName:
+        'competency_attempts__attempt_id__competency_task_results__attempt_id',
+  );
+
+  $$CompetencyTaskResultsTableProcessedTableManager
+  get competencyTaskResultsRefs {
+    final manager =
+        $$CompetencyTaskResultsTableTableManager(
+          $_db,
+          $_db.competencyTaskResults,
+        ).filter(
+          (f) => f.attemptId.attemptId.sqlEquals(
+            $_itemColumn<String>('attempt_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _competencyTaskResultsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<$CompetencyGapsTable, List<CompetencyGapRow>>
+  _competencyGapsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.competencyGaps,
+    aliasName: 'competency_attempts__attempt_id__competency_gaps__attempt_id',
+  );
+
+  $$CompetencyGapsTableProcessedTableManager get competencyGapsRefs {
+    final manager = $$CompetencyGapsTableTableManager($_db, $_db.competencyGaps)
+        .filter(
+          (f) => f.attemptId.attemptId.sqlEquals(
+            $_itemColumn<String>('attempt_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(_competencyGapsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $CompetencyRecoveryExecutionsTable,
+    List<CompetencyRecoveryExecutionRow>
+  >
+  _competencyRecoveryExecutionsRefsTable(
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.competencyRecoveryExecutions,
+    aliasName:
+        'competency_attempts__attempt_id__competency_recovery_executions__attempt_id',
+  );
+
+  $$CompetencyRecoveryExecutionsTableProcessedTableManager
+  get competencyRecoveryExecutionsRefs {
+    final manager =
+        $$CompetencyRecoveryExecutionsTableTableManager(
+          $_db,
+          $_db.competencyRecoveryExecutions,
+        ).filter(
+          (f) => f.attemptId.attemptId.sqlEquals(
+            $_itemColumn<String>('attempt_id')!,
+          ),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _competencyRecoveryExecutionsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $$CompetencyAttemptsTableFilterComposer
+    extends Composer<_$AppDatabase, $CompetencyAttemptsTable> {
+  $$CompetencyAttemptsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get attemptId => $composableBuilder(
+    column: $table.attemptId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get competencyId => $composableBuilder(
+    column: $table.competencyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get moduleId => $composableBuilder(
+    column: $table.moduleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get finalOutcome => $composableBuilder(
+    column: $table.finalOutcome,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get definitionFingerprint => $composableBuilder(
+    column: $table.definitionFingerprint,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> competencyTaskResultsRefs(
+    Expression<bool> Function($$CompetencyTaskResultsTableFilterComposer f) f,
+  ) {
+    final $$CompetencyTaskResultsTableFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyTaskResults,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyTaskResultsTableFilterComposer(
+                $db: $db,
+                $table: $db.competencyTaskResults,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<bool> competencyGapsRefs(
+    Expression<bool> Function($$CompetencyGapsTableFilterComposer f) f,
+  ) {
+    final $$CompetencyGapsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyGaps,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyGapsTableFilterComposer(
+            $db: $db,
+            $table: $db.competencyGaps,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> competencyRecoveryExecutionsRefs(
+    Expression<bool> Function(
+      $$CompetencyRecoveryExecutionsTableFilterComposer f,
+    )
+    f,
+  ) {
+    final $$CompetencyRecoveryExecutionsTableFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyRecoveryExecutions,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyRecoveryExecutionsTableFilterComposer(
+                $db: $db,
+                $table: $db.competencyRecoveryExecutions,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+}
+
+class $$CompetencyAttemptsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CompetencyAttemptsTable> {
+  $$CompetencyAttemptsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get attemptId => $composableBuilder(
+    column: $table.attemptId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get competencyId => $composableBuilder(
+    column: $table.competencyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get moduleId => $composableBuilder(
+    column: $table.moduleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get finalOutcome => $composableBuilder(
+    column: $table.finalOutcome,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get definitionFingerprint => $composableBuilder(
+    column: $table.definitionFingerprint,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$CompetencyAttemptsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CompetencyAttemptsTable> {
+  $$CompetencyAttemptsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get attemptId =>
+      $composableBuilder(column: $table.attemptId, builder: (column) => column);
+
+  GeneratedColumn<String> get competencyId => $composableBuilder(
+    column: $table.competencyId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get moduleId =>
+      $composableBuilder(column: $table.moduleId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get finalOutcome => $composableBuilder(
+    column: $table.finalOutcome,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get definitionFingerprint => $composableBuilder(
+    column: $table.definitionFingerprint,
+    builder: (column) => column,
+  );
+
+  Expression<T> competencyTaskResultsRefs<T extends Object>(
+    Expression<T> Function($$CompetencyTaskResultsTableAnnotationComposer a) f,
+  ) {
+    final $$CompetencyTaskResultsTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyTaskResults,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyTaskResultsTableAnnotationComposer(
+                $db: $db,
+                $table: $db.competencyTaskResults,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<T> competencyGapsRefs<T extends Object>(
+    Expression<T> Function($$CompetencyGapsTableAnnotationComposer a) f,
+  ) {
+    final $$CompetencyGapsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyGaps,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyGapsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.competencyGaps,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> competencyRecoveryExecutionsRefs<T extends Object>(
+    Expression<T> Function(
+      $$CompetencyRecoveryExecutionsTableAnnotationComposer a,
+    )
+    f,
+  ) {
+    final $$CompetencyRecoveryExecutionsTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyRecoveryExecutions,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyRecoveryExecutionsTableAnnotationComposer(
+                $db: $db,
+                $table: $db.competencyRecoveryExecutions,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+}
+
+class $$CompetencyAttemptsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CompetencyAttemptsTable,
+          CompetencyAttemptRow,
+          $$CompetencyAttemptsTableFilterComposer,
+          $$CompetencyAttemptsTableOrderingComposer,
+          $$CompetencyAttemptsTableAnnotationComposer,
+          $$CompetencyAttemptsTableCreateCompanionBuilder,
+          $$CompetencyAttemptsTableUpdateCompanionBuilder,
+          (CompetencyAttemptRow, $$CompetencyAttemptsTableReferences),
+          CompetencyAttemptRow,
+          PrefetchHooks Function({
+            bool competencyTaskResultsRefs,
+            bool competencyGapsRefs,
+            bool competencyRecoveryExecutionsRefs,
+          })
+        > {
+  $$CompetencyAttemptsTableTableManager(
+    _$AppDatabase db,
+    $CompetencyAttemptsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CompetencyAttemptsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CompetencyAttemptsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CompetencyAttemptsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> attemptId = const Value.absent(),
+                Value<String> competencyId = const Value.absent(),
+                Value<String> moduleId = const Value.absent(),
+                Value<DateTime> startedAt = const Value.absent(),
+                Value<DateTime?> completedAt = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<String?> finalOutcome = const Value.absent(),
+                Value<String> definitionFingerprint = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyAttemptsCompanion(
+                attemptId: attemptId,
+                competencyId: competencyId,
+                moduleId: moduleId,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                status: status,
+                finalOutcome: finalOutcome,
+                definitionFingerprint: definitionFingerprint,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String attemptId,
+                required String competencyId,
+                required String moduleId,
+                required DateTime startedAt,
+                Value<DateTime?> completedAt = const Value.absent(),
+                required String status,
+                Value<String?> finalOutcome = const Value.absent(),
+                required String definitionFingerprint,
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyAttemptsCompanion.insert(
+                attemptId: attemptId,
+                competencyId: competencyId,
+                moduleId: moduleId,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                status: status,
+                finalOutcome: finalOutcome,
+                definitionFingerprint: definitionFingerprint,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$CompetencyAttemptsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                competencyTaskResultsRefs = false,
+                competencyGapsRefs = false,
+                competencyRecoveryExecutionsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (competencyTaskResultsRefs) db.competencyTaskResults,
+                    if (competencyGapsRefs) db.competencyGaps,
+                    if (competencyRecoveryExecutionsRefs)
+                      db.competencyRecoveryExecutions,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (competencyTaskResultsRefs)
+                        await $_getPrefetchedData<
+                          CompetencyAttemptRow,
+                          $CompetencyAttemptsTable,
+                          CompetencyTaskResultRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$CompetencyAttemptsTableReferences
+                              ._competencyTaskResultsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$CompetencyAttemptsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).competencyTaskResultsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.attemptId == item.attemptId,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (competencyGapsRefs)
+                        await $_getPrefetchedData<
+                          CompetencyAttemptRow,
+                          $CompetencyAttemptsTable,
+                          CompetencyGapRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$CompetencyAttemptsTableReferences
+                              ._competencyGapsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$CompetencyAttemptsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).competencyGapsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.attemptId == item.attemptId,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (competencyRecoveryExecutionsRefs)
+                        await $_getPrefetchedData<
+                          CompetencyAttemptRow,
+                          $CompetencyAttemptsTable,
+                          CompetencyRecoveryExecutionRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$CompetencyAttemptsTableReferences
+                              ._competencyRecoveryExecutionsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$CompetencyAttemptsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).competencyRecoveryExecutionsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.attemptId == item.attemptId,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $$CompetencyAttemptsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CompetencyAttemptsTable,
+      CompetencyAttemptRow,
+      $$CompetencyAttemptsTableFilterComposer,
+      $$CompetencyAttemptsTableOrderingComposer,
+      $$CompetencyAttemptsTableAnnotationComposer,
+      $$CompetencyAttemptsTableCreateCompanionBuilder,
+      $$CompetencyAttemptsTableUpdateCompanionBuilder,
+      (CompetencyAttemptRow, $$CompetencyAttemptsTableReferences),
+      CompetencyAttemptRow,
+      PrefetchHooks Function({
+        bool competencyTaskResultsRefs,
+        bool competencyGapsRefs,
+        bool competencyRecoveryExecutionsRefs,
+      })
+    >;
+typedef $$CompetencyTaskResultsTableCreateCompanionBuilder =
+    CompetencyTaskResultsCompanion Function({
+      required String resultId,
+      required String attemptId,
+      required String assessmentTaskId,
+      required String microCompetencyIdsJson,
+      required int attemptSequence,
+      required String phase,
+      required String activityResultStatus,
+      Value<String?> reasonCode,
+      required DateTime createdAt,
+      Value<int> rowid,
+    });
+typedef $$CompetencyTaskResultsTableUpdateCompanionBuilder =
+    CompetencyTaskResultsCompanion Function({
+      Value<String> resultId,
+      Value<String> attemptId,
+      Value<String> assessmentTaskId,
+      Value<String> microCompetencyIdsJson,
+      Value<int> attemptSequence,
+      Value<String> phase,
+      Value<String> activityResultStatus,
+      Value<String?> reasonCode,
+      Value<DateTime> createdAt,
+      Value<int> rowid,
+    });
+
+final class $$CompetencyTaskResultsTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $CompetencyTaskResultsTable,
+          CompetencyTaskResultRow
+        > {
+  $$CompetencyTaskResultsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $CompetencyAttemptsTable _attemptIdTable(_$AppDatabase db) =>
+      db.competencyAttempts.createAlias(
+        'competency_task_results__attempt_id__competency_attempts__attempt_id',
+      );
+
+  $$CompetencyAttemptsTableProcessedTableManager get attemptId {
+    final $_column = $_itemColumn<String>('attempt_id')!;
+
+    final manager = $$CompetencyAttemptsTableTableManager(
+      $_db,
+      $_db.competencyAttempts,
+    ).filter((f) => f.attemptId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_attemptIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$CompetencyTaskResultsTableFilterComposer
+    extends Composer<_$AppDatabase, $CompetencyTaskResultsTable> {
+  $$CompetencyTaskResultsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get resultId => $composableBuilder(
+    column: $table.resultId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get microCompetencyIdsJson => $composableBuilder(
+    column: $table.microCompetencyIdsJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get attemptSequence => $composableBuilder(
+    column: $table.attemptSequence,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get activityResultStatus => $composableBuilder(
+    column: $table.activityResultStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$CompetencyAttemptsTableFilterComposer get attemptId {
+    final $$CompetencyAttemptsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableFilterComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyTaskResultsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CompetencyTaskResultsTable> {
+  $$CompetencyTaskResultsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get resultId => $composableBuilder(
+    column: $table.resultId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get microCompetencyIdsJson => $composableBuilder(
+    column: $table.microCompetencyIdsJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get attemptSequence => $composableBuilder(
+    column: $table.attemptSequence,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get phase => $composableBuilder(
+    column: $table.phase,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get activityResultStatus => $composableBuilder(
+    column: $table.activityResultStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$CompetencyAttemptsTableOrderingComposer get attemptId {
+    final $$CompetencyAttemptsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableOrderingComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyTaskResultsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CompetencyTaskResultsTable> {
+  $$CompetencyTaskResultsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get resultId =>
+      $composableBuilder(column: $table.resultId, builder: (column) => column);
+
+  GeneratedColumn<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get microCompetencyIdsJson => $composableBuilder(
+    column: $table.microCompetencyIdsJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get attemptSequence => $composableBuilder(
+    column: $table.attemptSequence,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get phase =>
+      $composableBuilder(column: $table.phase, builder: (column) => column);
+
+  GeneratedColumn<String> get activityResultStatus => $composableBuilder(
+    column: $table.activityResultStatus,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  $$CompetencyAttemptsTableAnnotationComposer get attemptId {
+    final $$CompetencyAttemptsTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyAttempts,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyAttemptsTableAnnotationComposer(
+                $db: $db,
+                $table: $db.competencyAttempts,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return composer;
+  }
+}
+
+class $$CompetencyTaskResultsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CompetencyTaskResultsTable,
+          CompetencyTaskResultRow,
+          $$CompetencyTaskResultsTableFilterComposer,
+          $$CompetencyTaskResultsTableOrderingComposer,
+          $$CompetencyTaskResultsTableAnnotationComposer,
+          $$CompetencyTaskResultsTableCreateCompanionBuilder,
+          $$CompetencyTaskResultsTableUpdateCompanionBuilder,
+          (CompetencyTaskResultRow, $$CompetencyTaskResultsTableReferences),
+          CompetencyTaskResultRow,
+          PrefetchHooks Function({bool attemptId})
+        > {
+  $$CompetencyTaskResultsTableTableManager(
+    _$AppDatabase db,
+    $CompetencyTaskResultsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CompetencyTaskResultsTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$CompetencyTaskResultsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$CompetencyTaskResultsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> resultId = const Value.absent(),
+                Value<String> attemptId = const Value.absent(),
+                Value<String> assessmentTaskId = const Value.absent(),
+                Value<String> microCompetencyIdsJson = const Value.absent(),
+                Value<int> attemptSequence = const Value.absent(),
+                Value<String> phase = const Value.absent(),
+                Value<String> activityResultStatus = const Value.absent(),
+                Value<String?> reasonCode = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyTaskResultsCompanion(
+                resultId: resultId,
+                attemptId: attemptId,
+                assessmentTaskId: assessmentTaskId,
+                microCompetencyIdsJson: microCompetencyIdsJson,
+                attemptSequence: attemptSequence,
+                phase: phase,
+                activityResultStatus: activityResultStatus,
+                reasonCode: reasonCode,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String resultId,
+                required String attemptId,
+                required String assessmentTaskId,
+                required String microCompetencyIdsJson,
+                required int attemptSequence,
+                required String phase,
+                required String activityResultStatus,
+                Value<String?> reasonCode = const Value.absent(),
+                required DateTime createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyTaskResultsCompanion.insert(
+                resultId: resultId,
+                attemptId: attemptId,
+                assessmentTaskId: assessmentTaskId,
+                microCompetencyIdsJson: microCompetencyIdsJson,
+                attemptSequence: attemptSequence,
+                phase: phase,
+                activityResultStatus: activityResultStatus,
+                reasonCode: reasonCode,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$CompetencyTaskResultsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({attemptId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (attemptId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.attemptId,
+                                referencedTable:
+                                    $$CompetencyTaskResultsTableReferences
+                                        ._attemptIdTable(db),
+                                referencedColumn:
+                                    $$CompetencyTaskResultsTableReferences
+                                        ._attemptIdTable(db)
+                                        .attemptId,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$CompetencyTaskResultsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CompetencyTaskResultsTable,
+      CompetencyTaskResultRow,
+      $$CompetencyTaskResultsTableFilterComposer,
+      $$CompetencyTaskResultsTableOrderingComposer,
+      $$CompetencyTaskResultsTableAnnotationComposer,
+      $$CompetencyTaskResultsTableCreateCompanionBuilder,
+      $$CompetencyTaskResultsTableUpdateCompanionBuilder,
+      (CompetencyTaskResultRow, $$CompetencyTaskResultsTableReferences),
+      CompetencyTaskResultRow,
+      PrefetchHooks Function({bool attemptId})
+    >;
+typedef $$CompetencyGapsTableCreateCompanionBuilder =
+    CompetencyGapsCompanion Function({
+      required String gapId,
+      required String attemptId,
+      required String assessmentTaskId,
+      required String microCompetencyId,
+      required String reasonCode,
+      required String sourceModuleId,
+      required String sourceLessonId,
+      required String sourceStepId,
+      required DateTime detectedAt,
+      Value<DateTime?> resolvedAt,
+      required String resolutionStatus,
+      Value<int> rowid,
+    });
+typedef $$CompetencyGapsTableUpdateCompanionBuilder =
+    CompetencyGapsCompanion Function({
+      Value<String> gapId,
+      Value<String> attemptId,
+      Value<String> assessmentTaskId,
+      Value<String> microCompetencyId,
+      Value<String> reasonCode,
+      Value<String> sourceModuleId,
+      Value<String> sourceLessonId,
+      Value<String> sourceStepId,
+      Value<DateTime> detectedAt,
+      Value<DateTime?> resolvedAt,
+      Value<String> resolutionStatus,
+      Value<int> rowid,
+    });
+
+final class $$CompetencyGapsTableReferences
+    extends
+        BaseReferences<_$AppDatabase, $CompetencyGapsTable, CompetencyGapRow> {
+  $$CompetencyGapsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $CompetencyAttemptsTable _attemptIdTable(_$AppDatabase db) =>
+      db.competencyAttempts.createAlias(
+        'competency_gaps__attempt_id__competency_attempts__attempt_id',
+      );
+
+  $$CompetencyAttemptsTableProcessedTableManager get attemptId {
+    final $_column = $_itemColumn<String>('attempt_id')!;
+
+    final manager = $$CompetencyAttemptsTableTableManager(
+      $_db,
+      $_db.competencyAttempts,
+    ).filter((f) => f.attemptId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_attemptIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$CompetencyGapsTableFilterComposer
+    extends Composer<_$AppDatabase, $CompetencyGapsTable> {
+  $$CompetencyGapsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get gapId => $composableBuilder(
+    column: $table.gapId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get microCompetencyId => $composableBuilder(
+    column: $table.microCompetencyId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get detectedAt => $composableBuilder(
+    column: $table.detectedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get resolvedAt => $composableBuilder(
+    column: $table.resolvedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get resolutionStatus => $composableBuilder(
+    column: $table.resolutionStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$CompetencyAttemptsTableFilterComposer get attemptId {
+    final $$CompetencyAttemptsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableFilterComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyGapsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CompetencyGapsTable> {
+  $$CompetencyGapsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get gapId => $composableBuilder(
+    column: $table.gapId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get microCompetencyId => $composableBuilder(
+    column: $table.microCompetencyId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get detectedAt => $composableBuilder(
+    column: $table.detectedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get resolvedAt => $composableBuilder(
+    column: $table.resolvedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get resolutionStatus => $composableBuilder(
+    column: $table.resolutionStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$CompetencyAttemptsTableOrderingComposer get attemptId {
+    final $$CompetencyAttemptsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableOrderingComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyGapsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CompetencyGapsTable> {
+  $$CompetencyGapsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get gapId =>
+      $composableBuilder(column: $table.gapId, builder: (column) => column);
+
+  GeneratedColumn<String> get assessmentTaskId => $composableBuilder(
+    column: $table.assessmentTaskId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get microCompetencyId => $composableBuilder(
+    column: $table.microCompetencyId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get reasonCode => $composableBuilder(
+    column: $table.reasonCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get detectedAt => $composableBuilder(
+    column: $table.detectedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get resolvedAt => $composableBuilder(
+    column: $table.resolvedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get resolutionStatus => $composableBuilder(
+    column: $table.resolutionStatus,
+    builder: (column) => column,
+  );
+
+  $$CompetencyAttemptsTableAnnotationComposer get attemptId {
+    final $$CompetencyAttemptsTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyAttempts,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyAttemptsTableAnnotationComposer(
+                $db: $db,
+                $table: $db.competencyAttempts,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return composer;
+  }
+}
+
+class $$CompetencyGapsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CompetencyGapsTable,
+          CompetencyGapRow,
+          $$CompetencyGapsTableFilterComposer,
+          $$CompetencyGapsTableOrderingComposer,
+          $$CompetencyGapsTableAnnotationComposer,
+          $$CompetencyGapsTableCreateCompanionBuilder,
+          $$CompetencyGapsTableUpdateCompanionBuilder,
+          (CompetencyGapRow, $$CompetencyGapsTableReferences),
+          CompetencyGapRow,
+          PrefetchHooks Function({bool attemptId})
+        > {
+  $$CompetencyGapsTableTableManager(
+    _$AppDatabase db,
+    $CompetencyGapsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CompetencyGapsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CompetencyGapsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CompetencyGapsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> gapId = const Value.absent(),
+                Value<String> attemptId = const Value.absent(),
+                Value<String> assessmentTaskId = const Value.absent(),
+                Value<String> microCompetencyId = const Value.absent(),
+                Value<String> reasonCode = const Value.absent(),
+                Value<String> sourceModuleId = const Value.absent(),
+                Value<String> sourceLessonId = const Value.absent(),
+                Value<String> sourceStepId = const Value.absent(),
+                Value<DateTime> detectedAt = const Value.absent(),
+                Value<DateTime?> resolvedAt = const Value.absent(),
+                Value<String> resolutionStatus = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyGapsCompanion(
+                gapId: gapId,
+                attemptId: attemptId,
+                assessmentTaskId: assessmentTaskId,
+                microCompetencyId: microCompetencyId,
+                reasonCode: reasonCode,
+                sourceModuleId: sourceModuleId,
+                sourceLessonId: sourceLessonId,
+                sourceStepId: sourceStepId,
+                detectedAt: detectedAt,
+                resolvedAt: resolvedAt,
+                resolutionStatus: resolutionStatus,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String gapId,
+                required String attemptId,
+                required String assessmentTaskId,
+                required String microCompetencyId,
+                required String reasonCode,
+                required String sourceModuleId,
+                required String sourceLessonId,
+                required String sourceStepId,
+                required DateTime detectedAt,
+                Value<DateTime?> resolvedAt = const Value.absent(),
+                required String resolutionStatus,
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyGapsCompanion.insert(
+                gapId: gapId,
+                attemptId: attemptId,
+                assessmentTaskId: assessmentTaskId,
+                microCompetencyId: microCompetencyId,
+                reasonCode: reasonCode,
+                sourceModuleId: sourceModuleId,
+                sourceLessonId: sourceLessonId,
+                sourceStepId: sourceStepId,
+                detectedAt: detectedAt,
+                resolvedAt: resolvedAt,
+                resolutionStatus: resolutionStatus,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$CompetencyGapsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({attemptId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (attemptId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.attemptId,
+                                referencedTable: $$CompetencyGapsTableReferences
+                                    ._attemptIdTable(db),
+                                referencedColumn:
+                                    $$CompetencyGapsTableReferences
+                                        ._attemptIdTable(db)
+                                        .attemptId,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$CompetencyGapsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CompetencyGapsTable,
+      CompetencyGapRow,
+      $$CompetencyGapsTableFilterComposer,
+      $$CompetencyGapsTableOrderingComposer,
+      $$CompetencyGapsTableAnnotationComposer,
+      $$CompetencyGapsTableCreateCompanionBuilder,
+      $$CompetencyGapsTableUpdateCompanionBuilder,
+      (CompetencyGapRow, $$CompetencyGapsTableReferences),
+      CompetencyGapRow,
+      PrefetchHooks Function({bool attemptId})
+    >;
+typedef $$CompetencyRecoveryExecutionsTableCreateCompanionBuilder =
+    CompetencyRecoveryExecutionsCompanion Function({
+      required String recoveryExecutionId,
+      required String attemptId,
+      required String gapId,
+      required String recoveryStepId,
+      required String sourceModuleId,
+      required String sourceLessonId,
+      required String sourceStepId,
+      required String status,
+      Value<DateTime?> startedAt,
+      Value<DateTime?> completedAt,
+      Value<bool?> succeeded,
+      Value<bool> retryOccurred,
+      Value<int> rowid,
+    });
+typedef $$CompetencyRecoveryExecutionsTableUpdateCompanionBuilder =
+    CompetencyRecoveryExecutionsCompanion Function({
+      Value<String> recoveryExecutionId,
+      Value<String> attemptId,
+      Value<String> gapId,
+      Value<String> recoveryStepId,
+      Value<String> sourceModuleId,
+      Value<String> sourceLessonId,
+      Value<String> sourceStepId,
+      Value<String> status,
+      Value<DateTime?> startedAt,
+      Value<DateTime?> completedAt,
+      Value<bool?> succeeded,
+      Value<bool> retryOccurred,
+      Value<int> rowid,
+    });
+
+final class $$CompetencyRecoveryExecutionsTableReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          $CompetencyRecoveryExecutionsTable,
+          CompetencyRecoveryExecutionRow
+        > {
+  $$CompetencyRecoveryExecutionsTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $CompetencyAttemptsTable _attemptIdTable(
+    _$AppDatabase db,
+  ) => db.competencyAttempts.createAlias(
+    'competency_recovery_executions__attempt_id__competency_attempts__attempt_id',
+  );
+
+  $$CompetencyAttemptsTableProcessedTableManager get attemptId {
+    final $_column = $_itemColumn<String>('attempt_id')!;
+
+    final manager = $$CompetencyAttemptsTableTableManager(
+      $_db,
+      $_db.competencyAttempts,
+    ).filter((f) => f.attemptId.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_attemptIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$CompetencyRecoveryExecutionsTableFilterComposer
+    extends Composer<_$AppDatabase, $CompetencyRecoveryExecutionsTable> {
+  $$CompetencyRecoveryExecutionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get recoveryExecutionId => $composableBuilder(
+    column: $table.recoveryExecutionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get gapId => $composableBuilder(
+    column: $table.gapId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get recoveryStepId => $composableBuilder(
+    column: $table.recoveryStepId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get succeeded => $composableBuilder(
+    column: $table.succeeded,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get retryOccurred => $composableBuilder(
+    column: $table.retryOccurred,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$CompetencyAttemptsTableFilterComposer get attemptId {
+    final $$CompetencyAttemptsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableFilterComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyRecoveryExecutionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CompetencyRecoveryExecutionsTable> {
+  $$CompetencyRecoveryExecutionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get recoveryExecutionId => $composableBuilder(
+    column: $table.recoveryExecutionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get gapId => $composableBuilder(
+    column: $table.gapId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get recoveryStepId => $composableBuilder(
+    column: $table.recoveryStepId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get succeeded => $composableBuilder(
+    column: $table.succeeded,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get retryOccurred => $composableBuilder(
+    column: $table.retryOccurred,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$CompetencyAttemptsTableOrderingComposer get attemptId {
+    final $$CompetencyAttemptsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.attemptId,
+      referencedTable: $db.competencyAttempts,
+      getReferencedColumn: (t) => t.attemptId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$CompetencyAttemptsTableOrderingComposer(
+            $db: $db,
+            $table: $db.competencyAttempts,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$CompetencyRecoveryExecutionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CompetencyRecoveryExecutionsTable> {
+  $$CompetencyRecoveryExecutionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get recoveryExecutionId => $composableBuilder(
+    column: $table.recoveryExecutionId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get gapId =>
+      $composableBuilder(column: $table.gapId, builder: (column) => column);
+
+  GeneratedColumn<String> get recoveryStepId => $composableBuilder(
+    column: $table.recoveryStepId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceModuleId => $composableBuilder(
+    column: $table.sourceModuleId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceLessonId => $composableBuilder(
+    column: $table.sourceLessonId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get sourceStepId => $composableBuilder(
+    column: $table.sourceStepId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get succeeded =>
+      $composableBuilder(column: $table.succeeded, builder: (column) => column);
+
+  GeneratedColumn<bool> get retryOccurred => $composableBuilder(
+    column: $table.retryOccurred,
+    builder: (column) => column,
+  );
+
+  $$CompetencyAttemptsTableAnnotationComposer get attemptId {
+    final $$CompetencyAttemptsTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.attemptId,
+          referencedTable: $db.competencyAttempts,
+          getReferencedColumn: (t) => t.attemptId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$CompetencyAttemptsTableAnnotationComposer(
+                $db: $db,
+                $table: $db.competencyAttempts,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return composer;
+  }
+}
+
+class $$CompetencyRecoveryExecutionsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $CompetencyRecoveryExecutionsTable,
+          CompetencyRecoveryExecutionRow,
+          $$CompetencyRecoveryExecutionsTableFilterComposer,
+          $$CompetencyRecoveryExecutionsTableOrderingComposer,
+          $$CompetencyRecoveryExecutionsTableAnnotationComposer,
+          $$CompetencyRecoveryExecutionsTableCreateCompanionBuilder,
+          $$CompetencyRecoveryExecutionsTableUpdateCompanionBuilder,
+          (
+            CompetencyRecoveryExecutionRow,
+            $$CompetencyRecoveryExecutionsTableReferences,
+          ),
+          CompetencyRecoveryExecutionRow,
+          PrefetchHooks Function({bool attemptId})
+        > {
+  $$CompetencyRecoveryExecutionsTableTableManager(
+    _$AppDatabase db,
+    $CompetencyRecoveryExecutionsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CompetencyRecoveryExecutionsTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$CompetencyRecoveryExecutionsTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$CompetencyRecoveryExecutionsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> recoveryExecutionId = const Value.absent(),
+                Value<String> attemptId = const Value.absent(),
+                Value<String> gapId = const Value.absent(),
+                Value<String> recoveryStepId = const Value.absent(),
+                Value<String> sourceModuleId = const Value.absent(),
+                Value<String> sourceLessonId = const Value.absent(),
+                Value<String> sourceStepId = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<DateTime?> startedAt = const Value.absent(),
+                Value<DateTime?> completedAt = const Value.absent(),
+                Value<bool?> succeeded = const Value.absent(),
+                Value<bool> retryOccurred = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyRecoveryExecutionsCompanion(
+                recoveryExecutionId: recoveryExecutionId,
+                attemptId: attemptId,
+                gapId: gapId,
+                recoveryStepId: recoveryStepId,
+                sourceModuleId: sourceModuleId,
+                sourceLessonId: sourceLessonId,
+                sourceStepId: sourceStepId,
+                status: status,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                succeeded: succeeded,
+                retryOccurred: retryOccurred,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String recoveryExecutionId,
+                required String attemptId,
+                required String gapId,
+                required String recoveryStepId,
+                required String sourceModuleId,
+                required String sourceLessonId,
+                required String sourceStepId,
+                required String status,
+                Value<DateTime?> startedAt = const Value.absent(),
+                Value<DateTime?> completedAt = const Value.absent(),
+                Value<bool?> succeeded = const Value.absent(),
+                Value<bool> retryOccurred = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CompetencyRecoveryExecutionsCompanion.insert(
+                recoveryExecutionId: recoveryExecutionId,
+                attemptId: attemptId,
+                gapId: gapId,
+                recoveryStepId: recoveryStepId,
+                sourceModuleId: sourceModuleId,
+                sourceLessonId: sourceLessonId,
+                sourceStepId: sourceStepId,
+                status: status,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                succeeded: succeeded,
+                retryOccurred: retryOccurred,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$CompetencyRecoveryExecutionsTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({attemptId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (attemptId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.attemptId,
+                                referencedTable:
+                                    $$CompetencyRecoveryExecutionsTableReferences
+                                        ._attemptIdTable(db),
+                                referencedColumn:
+                                    $$CompetencyRecoveryExecutionsTableReferences
+                                        ._attemptIdTable(db)
+                                        .attemptId,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$CompetencyRecoveryExecutionsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $CompetencyRecoveryExecutionsTable,
+      CompetencyRecoveryExecutionRow,
+      $$CompetencyRecoveryExecutionsTableFilterComposer,
+      $$CompetencyRecoveryExecutionsTableOrderingComposer,
+      $$CompetencyRecoveryExecutionsTableAnnotationComposer,
+      $$CompetencyRecoveryExecutionsTableCreateCompanionBuilder,
+      $$CompetencyRecoveryExecutionsTableUpdateCompanionBuilder,
+      (
+        CompetencyRecoveryExecutionRow,
+        $$CompetencyRecoveryExecutionsTableReferences,
+      ),
+      CompetencyRecoveryExecutionRow,
+      PrefetchHooks Function({bool attemptId})
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -4232,5 +8890,17 @@ class $AppDatabaseManager {
       $$LessonAttemptStepResultsTableTableManager(
         _db,
         _db.lessonAttemptStepResults,
+      );
+  $$CompetencyAttemptsTableTableManager get competencyAttempts =>
+      $$CompetencyAttemptsTableTableManager(_db, _db.competencyAttempts);
+  $$CompetencyTaskResultsTableTableManager get competencyTaskResults =>
+      $$CompetencyTaskResultsTableTableManager(_db, _db.competencyTaskResults);
+  $$CompetencyGapsTableTableManager get competencyGaps =>
+      $$CompetencyGapsTableTableManager(_db, _db.competencyGaps);
+  $$CompetencyRecoveryExecutionsTableTableManager
+  get competencyRecoveryExecutions =>
+      $$CompetencyRecoveryExecutionsTableTableManager(
+        _db,
+        _db.competencyRecoveryExecutions,
       );
 }

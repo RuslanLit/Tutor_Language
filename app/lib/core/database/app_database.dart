@@ -76,12 +76,96 @@ class LessonAttemptStepResults extends Table {
   Set<Column<Object>> get primaryKey => {attemptId, stepId};
 }
 
+@DataClassName('CompetencyAttemptRow')
+class CompetencyAttempts extends Table {
+  TextColumn get attemptId => text()();
+  TextColumn get competencyId => text()();
+  TextColumn get moduleId => text()();
+  DateTimeColumn get startedAt => dateTime()();
+  DateTimeColumn get completedAt => dateTime().nullable()();
+  TextColumn get status => text()();
+  TextColumn get finalOutcome => text().nullable()();
+  TextColumn get definitionFingerprint => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {attemptId};
+}
+
+@DataClassName('CompetencyTaskResultRow')
+class CompetencyTaskResults extends Table {
+  TextColumn get resultId => text()();
+  TextColumn get attemptId => text().references(
+    CompetencyAttempts,
+    #attemptId,
+    onDelete: KeyAction.cascade,
+  )();
+  TextColumn get assessmentTaskId => text()();
+  TextColumn get microCompetencyIdsJson => text()();
+  IntColumn get attemptSequence => integer()();
+  TextColumn get phase => text()();
+  TextColumn get activityResultStatus => text()();
+  TextColumn get reasonCode => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {resultId};
+}
+
+@DataClassName('CompetencyGapRow')
+class CompetencyGaps extends Table {
+  TextColumn get gapId => text()();
+  TextColumn get attemptId => text().references(
+    CompetencyAttempts,
+    #attemptId,
+    onDelete: KeyAction.cascade,
+  )();
+  TextColumn get assessmentTaskId => text()();
+  TextColumn get microCompetencyId => text()();
+  TextColumn get reasonCode => text()();
+  TextColumn get sourceModuleId => text()();
+  TextColumn get sourceLessonId => text()();
+  TextColumn get sourceStepId => text()();
+  DateTimeColumn get detectedAt => dateTime()();
+  DateTimeColumn get resolvedAt => dateTime().nullable()();
+  TextColumn get resolutionStatus => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {attemptId, gapId};
+}
+
+@DataClassName('CompetencyRecoveryExecutionRow')
+class CompetencyRecoveryExecutions extends Table {
+  TextColumn get recoveryExecutionId => text()();
+  TextColumn get attemptId => text().references(
+    CompetencyAttempts,
+    #attemptId,
+    onDelete: KeyAction.cascade,
+  )();
+  TextColumn get gapId => text()();
+  TextColumn get recoveryStepId => text()();
+  TextColumn get sourceModuleId => text()();
+  TextColumn get sourceLessonId => text()();
+  TextColumn get sourceStepId => text()();
+  TextColumn get status => text()();
+  DateTimeColumn get startedAt => dateTime().nullable()();
+  DateTimeColumn get completedAt => dateTime().nullable()();
+  BoolColumn get succeeded => boolean().nullable()();
+  BoolColumn get retryOccurred => boolean().withDefault(const Constant(false))();
+
+  @override
+  Set<Column<Object>> get primaryKey => {recoveryExecutionId};
+}
+
 @DriftDatabase(
   tables: [
     LearnerStates,
     LearnerProgressEvents,
     LessonAttempts,
     LessonAttemptStepResults,
+    CompetencyAttempts,
+    CompetencyTaskResults,
+    CompetencyGaps,
+    CompetencyRecoveryExecutions,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -89,7 +173,7 @@ class AppDatabase extends _$AppDatabase {
     : super(executor ?? driftDatabase(name: 'tutor_language'));
 
   @override
-  int get schemaVersion => 6;
+  int get schemaVersion => 7;
 
   @override
   MigrationStrategy get migration {
@@ -121,6 +205,28 @@ class AppDatabase extends _$AppDatabase {
           await migrator.addColumn(
             lessonAttempts,
             lessonAttempts.attemptPurpose,
+          );
+        }
+        if (from < 7) {
+          await migrator.createTable(competencyAttempts);
+          await migrator.createTable(competencyTaskResults);
+          await migrator.createTable(competencyGaps);
+          await migrator.createTable(competencyRecoveryExecutions);
+          await customStatement(
+            'CREATE INDEX IF NOT EXISTS idx_competency_attempts_competency '
+            'ON competency_attempts (competency_id, status)',
+          );
+          await customStatement(
+            'CREATE INDEX IF NOT EXISTS idx_competency_task_results_attempt '
+            'ON competency_task_results (attempt_id, assessment_task_id)',
+          );
+          await customStatement(
+            'CREATE INDEX IF NOT EXISTS idx_competency_gaps_attempt '
+            'ON competency_gaps (attempt_id, resolution_status)',
+          );
+          await customStatement(
+            'CREATE INDEX IF NOT EXISTS idx_competency_recovery_attempt '
+            'ON competency_recovery_executions (attempt_id, gap_id)',
           );
         }
       },

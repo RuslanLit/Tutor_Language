@@ -444,6 +444,95 @@ Introduce it because the learner now needs it.
 
 ---
 
+# Communicative Competency Checks
+
+A module may end with a communicative competency check.
+
+The check should assess whether the learner can perform the module's promised
+real-life communication task independently.
+
+Authors should declare:
+
+- the module-level communicative competency;
+- a stable definition fingerprint or authored version;
+- the diagnostic tasks used to assess it;
+- the micro-competencies assessed by each task;
+- prerequisite content references;
+- authored recovery step references;
+- the retry task after recovery;
+- finite retry policy;
+- whether a task is central/integrated;
+- any final integrated task.
+
+Each diagnostic task should assess one explicit micro-competency unless it is
+intentionally marked as an integrated task.
+
+Recovery mappings must be authored.
+
+Do not rely on the runtime to infer missing knowledge from answer text.
+
+Recovery should target the smallest meaningful missing communicative
+capability, not an isolated word.
+
+Valid recovery targets include:
+
+- a name-introduction pattern;
+- an origin statement pattern;
+- a question form;
+- a short profile-building pattern;
+- a dialogue move previously taught in the same or an earlier module.
+
+Recovery may reference earlier modules.
+
+For example, a Module 3 personal-profile check may recover a Module 2
+introduction pattern before retrying the Module 3 diagnostic task.
+
+Recovery must not introduce unrelated language.
+
+The retry must remain a genuine recall or application attempt. Do not show the
+full answer immediately before the retry.
+
+Small Module 3 example:
+
+```text
+Competency:
+The learner can give a short personal profile.
+
+Diagnostic tasks:
+- introduce_self
+- state_origin
+- state_residence
+- state_languages
+- build_personal_profile
+
+Recovery:
+introduce_self failure
+    -> Module 2 me llamo recovery step
+    -> retry introduce_self
+
+state_origin failure
+    -> Module 3 soy de recovery step
+    -> retry state_origin
+```
+
+Competency outcomes are distinct from lesson completion.
+
+A module can be content-complete while its communicative competency remains
+partially achieved or not yet achieved.
+
+Executable step references must resolve before the competency check is offered
+to the learner.
+
+Malformed competency definitions should fail validation before launch.
+
+When a competency check is implemented in the runtime, it should appear in the
+normal course flow only after the module's authored content is complete. The
+learner should be able to start a new check, continue an active attempt or retry
+after a partial or unsuccessful outcome without changing lesson completion
+history.
+
+---
+
 # Difficulty Progression
 
 Each lesson should introduce only a small increase in complexity.

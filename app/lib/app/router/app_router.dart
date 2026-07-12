@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/learner/lesson_attempt.dart';
+import '../../features/communicative_competency/competency_session_screen.dart';
 import '../../features/course_navigation/course_navigation_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/lesson_launch/lesson_launch_screen.dart';
@@ -55,6 +56,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           );
         },
       ),
+      GoRoute(
+        path: CompetencyRoute.path,
+        name: CompetencyRoute.name,
+        builder: (context, state) {
+          return CompetencySessionScreen(
+            courseId: state.pathParameters['courseId'] ?? '',
+            moduleId: state.pathParameters['moduleId'] ?? '',
+            competencyId: state.pathParameters['competencyId'] ?? '',
+            forceNewAttempt: state.uri.queryParameters['retry'] == 'true',
+          );
+        },
+      ),
     ],
   );
 });
@@ -87,4 +100,10 @@ abstract final class LessonLaunchRoute {
 abstract final class LessonRoute {
   static const name = 'lesson';
   static const path = '/lesson/:lessonId';
+}
+
+abstract final class CompetencyRoute {
+  static const name = 'competency';
+  static const path =
+      '/course/:courseId/module/:moduleId/competency/:competencyId';
 }

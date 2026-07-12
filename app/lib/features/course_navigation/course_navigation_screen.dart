@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/learner/lesson_attempt.dart';
+import '../communicative_competency/communicative_competency.dart';
 import '../lesson_launch/lesson_launch_intent.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import 'course_navigation_models.dart';
@@ -54,19 +55,35 @@ class CourseNavigationView extends StatelessWidget {
           const Text('Course complete'),
         ],
         const SizedBox(height: 16),
-        for (final unit in state.units) UnitNavigationSection(unit: unit),
+        for (final unit in state.units)
+          UnitNavigationSection(courseId: state.courseId, unit: unit),
       ],
     );
   }
 }
 
-class UnitNavigationSection extends StatelessWidget {
-  const UnitNavigationSection({required this.unit, super.key});
+class UnitNavigationSection extends ConsumerWidget {
+  const UnitNavigationSection({
+    required this.courseId,
+    required this.unit,
+    super.key,
+  });
 
+  final String courseId;
   final UnitNavigationState unit;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final competencyProjections = ref.watch(
+      moduleCompetencyProjectionsProvider(
+        ModuleCompetencyProjectionRequest(
+          moduleId: unit.unitId,
+          moduleContentComplete: unit.isCompleted,
+          checkpointComplete: unit.isCompleted,
+        ),
+      ),
+    );
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Column(
@@ -81,9 +98,129 @@ class UnitNavigationSection extends StatelessWidget {
           else
             for (final lesson in unit.lessons)
               LessonNavigationTile(lesson: lesson),
+          competencyProjections.when(
+            data: (projections) => Column(
+              children: [
+                for (final projection in projections)
+                  CompetencyNavigationTile(
+                    courseId: courseId,
+                    projection: projection,
+                  ),
+              ],
+            ),
+            error: (error, stackTrace) =>
+                Text('Competency check unavailable: $error'),
+            loading: () => const SizedBox.shrink(),
+          ),
         ],
       ),
     );
+  }
+}
+
+class CompetencyNavigationTile extends StatelessWidget {
+  const CompetencyNavigationTile({
+    required this.courseId,
+    required this.projection,
+    super.key,
+  });
+
+  final String courseId;
+  final ModuleCompetencyProjection projection;
+
+  @override
+  Widget build(BuildContext context) {
+    final action = _actionLabel(projection);
+    final enabled =
+        projection.canStart || projection.canContinue || projection.canRetry;
+
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      leading: Icon(_icon(projection.state)),
+      title: Text(_title(projection.state)),
+      subtitle: Text(_subtitle(projection.state)),
+      trailing: action == null ? null : Text(action),
+      enabled: enabled,
+      onTap: enabled
+          ? () {
+              context.goNamed(
+                CompetencyRoute.name,
+                pathParameters: {
+                  'courseId': courseId,
+                  'moduleId': projection.moduleId,
+                  'competencyId': projection.competencyId,
+                },
+                queryParameters: {if (projection.canRetry) 'retry': 'true'},
+              );
+            }
+          : null,
+    );
+  }
+
+  IconData _icon(ModuleCompetencyState state) {
+    return switch (state) {
+      ModuleCompetencyState.moduleContentIncomplete => Icons.lock_outline,
+      ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
+        Icons.flag_outlined,
+      ModuleCompetencyState.competencyInProgress => Icons.play_circle_outline,
+      ModuleCompetencyState.competencyAchieved => Icons.verified_outlined,
+      ModuleCompetencyState.competencyAchievedWithReinforcement =>
+        Icons.task_alt_outlined,
+      ModuleCompetencyState.competencyPartiallyAchieved =>
+        Icons.replay_circle_filled_outlined,
+      ModuleCompetencyState.competencyNotYetAchieved =>
+        Icons.replay_circle_filled_outlined,
+    };
+  }
+
+  String _title(ModuleCompetencyState state) {
+    return switch (state) {
+      ModuleCompetencyState.moduleContentIncomplete =>
+        'Communicative competency check',
+      ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
+        'Communicative competency check',
+      ModuleCompetencyState.competencyInProgress =>
+        'Communicative competency check',
+      ModuleCompetencyState.competencyAchieved =>
+        'Communicative competency achieved',
+      ModuleCompetencyState.competencyAchievedWithReinforcement =>
+        'Communicative competency achieved after review',
+      ModuleCompetencyState.competencyPartiallyAchieved =>
+        'Communicative competency needs more practice',
+      ModuleCompetencyState.competencyNotYetAchieved =>
+        'Communicative competency not yet achieved',
+    };
+  }
+
+  String _subtitle(ModuleCompetencyState state) {
+    return switch (state) {
+      ModuleCompetencyState.moduleContentIncomplete =>
+        'Complete this module first',
+      ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
+        'Ready to start',
+      ModuleCompetencyState.competencyInProgress => 'Continue your check',
+      ModuleCompetencyState.competencyAchieved =>
+        'You demonstrated this module goal',
+      ModuleCompetencyState.competencyAchievedWithReinforcement =>
+        'You succeeded after targeted review',
+      ModuleCompetencyState.competencyPartiallyAchieved =>
+        'Retry the check when ready',
+      ModuleCompetencyState.competencyNotYetAchieved =>
+        'Retry the check when ready',
+    };
+  }
+
+  String? _actionLabel(ModuleCompetencyProjection projection) {
+    if (projection.canStart) {
+      return 'Start';
+    }
+    if (projection.canContinue) {
+      return 'Continue';
+    }
+    if (projection.canRetry) {
+      return 'Retry';
+    }
+    return null;
   }
 }
 

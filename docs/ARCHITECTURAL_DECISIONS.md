@@ -1049,6 +1049,102 @@ Rejected alternatives:
 
 ---
 
+## ADR: Deterministic Communicative Competency Recovery
+
+Status
+
+Accepted
+
+Context
+
+Completing individual lesson steps does not necessarily prove that the learner
+can perform the module-level real-life communicative goal.
+
+The project needs a way to detect specific missing communicative capabilities
+and recover them without introducing AI, semantic inference, generated
+exercises or runtime curriculum mutation.
+
+Decision
+
+Communicative competency checks are deterministic and authored.
+
+Each check is decomposed into diagnostic tasks that assess explicit
+micro-competencies or explicit integration capabilities.
+
+Failures produce typed competency gaps only from:
+
+- authored task metadata;
+- deterministic activity results;
+- existing answer-evaluation outcomes.
+
+Recovery mappings are authored.
+
+Recovery uses existing lesson-step content and must preserve provenance:
+
+- origin competency;
+- origin assessment task;
+- origin micro-competency;
+- source module;
+- source lesson;
+- source step.
+
+The competency layer coordinates assessment, gap detection, recovery-step
+requests, retry and outcome calculation.
+
+It does not:
+
+- generate explanations;
+- generate exercises;
+- infer intent from unrestricted free text;
+- mutate curriculum assets;
+- query learner history directly;
+- replace the Lesson Session Engine.
+
+Cross-module recovery is allowed when an authored mapping references prior
+module content.
+
+Cross-module recovery does not reopen or rewrite earlier modules.
+
+Consequences
+
+Module-level communicative ability becomes distinct from lesson-step
+correctness and lesson completion.
+
+Authors must define micro-competencies, diagnostic tasks and recovery mappings
+explicitly.
+
+The implementation provides pure deterministic domain models, validation,
+recovery coordination, immutable competency outcomes and schema-versioned
+durable competency persistence.
+
+Competency persistence uses dedicated Drift tables for:
+
+- competency attempts;
+- diagnostic task results;
+- competency gaps;
+- recovery executions.
+
+It must not overload lesson-completion fields, lesson attempts, step results or
+learner progress events.
+
+Active competency attempts are reconstructed from immutable persisted records.
+
+Learner-facing integration exposes competency checks through course navigation
+and a dedicated competency session screen. That screen may reuse authored
+activity widgets, but Spanish rules, recovery selection and outcome policy stay
+outside the UI.
+
+Rejected alternatives:
+
+- diagnose one unrestricted free-form response;
+- infer recovery from answer text similarity;
+- create a second exercise runtime;
+- mutate authored lesson order at runtime;
+- mark previous modules incomplete when a later module exposes a gap;
+- store competency outcomes by overloading lesson attempt rows.
+
+---
+
 # Final Principle
 
 Architectural decisions should be:

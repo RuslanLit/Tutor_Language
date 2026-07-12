@@ -117,6 +117,32 @@ void main() {
     expect(find.text('Course complete'), findsOneWidget);
   });
 
+  testWidgets('completed competency module exposes competency action', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+    for (final lessonId in ['lesson.m03.alpha', 'lesson.m03.beta']) {
+      await repository.recordEvent(
+        ProgressEvent.create(
+          eventType: ProgressEventType.lessonCompleted,
+          topicId: lessonId,
+          now: DateTime.utc(2026),
+        ),
+      );
+    }
+
+    await tester.pumpWidget(_app(database, course: _competencyCourse));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Open course'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Communicative competency check'), findsOneWidget);
+    expect(find.text('Ready to start'), findsOneWidget);
+    expect(find.text('Start'), findsOneWidget);
+  });
+
   testWidgets('completed lesson continues directly to next course lesson', (
     tester,
   ) async {
@@ -180,11 +206,14 @@ void main() {
 ProviderScope _app(
   AppDatabase database, {
   LessonAssemblyService? assemblyService,
+  Course course = _course,
 }) {
   return ProviderScope(
     overrides: [
       appDatabaseProvider.overrideWith((ref) => database),
-      contentRepositoryProvider.overrideWith((ref) => _FakeContentRepository()),
+      contentRepositoryProvider.overrideWith(
+        (ref) => _FakeContentRepository(course),
+      ),
       if (assemblyService != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => assemblyService),
     ],
@@ -193,6 +222,10 @@ ProviderScope _app(
 }
 
 class _FakeContentRepository extends ContentRepository {
+  _FakeContentRepository(this.course);
+
+  final Course course;
+
   @override
   Future<LanguagePackDisplay> loadCurrentLanguage() async {
     return const LanguagePackDisplay(id: 'spanish', name: 'Spanish');
@@ -200,7 +233,7 @@ class _FakeContentRepository extends ContentRepository {
 
   @override
   Future<Course> loadCourse() async {
-    return _course;
+    return course;
   }
 }
 
@@ -293,6 +326,45 @@ const _course = Course(
       id: 'lesson.gamma',
       moduleId: 'unit.2',
       title: 'Gamma',
+      activities: [],
+      prerequisites: [],
+      estimatedDurationMinutes: 5,
+      completionCriteria: LessonCompletionCriteria(
+        minimumCompletedActivities: 1,
+      ),
+    ),
+  ],
+);
+
+const _competencyCourse = Course(
+  id: 'course.test',
+  languageId: 'spanish',
+  title: 'Spanish A0',
+  level: 'A0',
+  version: '1.0.0',
+  modules: [
+    Module(
+      id: 'es.a0.m03',
+      title: 'Module 3',
+      lessonIds: ['lesson.m03.alpha', 'lesson.m03.beta'],
+    ),
+  ],
+  lessons: [
+    Lesson(
+      id: 'lesson.m03.alpha',
+      moduleId: 'es.a0.m03',
+      title: 'Profile A',
+      activities: [],
+      prerequisites: [],
+      estimatedDurationMinutes: 5,
+      completionCriteria: LessonCompletionCriteria(
+        minimumCompletedActivities: 1,
+      ),
+    ),
+    Lesson(
+      id: 'lesson.m03.beta',
+      moduleId: 'es.a0.m03',
+      title: 'Profile B',
       activities: [],
       prerequisites: [],
       estimatedDurationMinutes: 5,

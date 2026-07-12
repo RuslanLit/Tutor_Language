@@ -1207,6 +1207,72 @@ missing optional audio → continue with text-only lesson.
 
 Core learning must always remain available.
 
+Communicative Competency Runtime
+
+Module-level communicative competency checks are coordinated by a dedicated
+competency runtime layer.
+
+The responsibility flow is:
+
+```text
+authored competency definition
+        │
+        ▼
+CompetencySessionController
+        │
+        ▼
+CommunicativeCompetencyCoordinator
+        │
+        ▼
+LessonSessionEngine
+        │
+        ▼
+CompetencyAttemptRepository
+        │
+        ▼
+Drift competency tables
+```
+
+The competency runtime:
+
+- starts and resumes competency attempts;
+- records diagnostic task results;
+- records typed competency gaps;
+- records authored recovery executions;
+- retries the originating diagnostic task;
+- persists final competency outcomes.
+
+It does not generate content, evaluate answer correctness, mutate curriculum,
+rewrite lesson attempts or replace the Lesson Session Engine.
+
+Course navigation may expose a competency check after the module content and
+checkpoint requirements are complete. The learner-facing competency screen
+loads authored diagnostic and recovery steps through normal content repository
+interfaces, delegates answer checking to existing activity evaluation and uses
+the competency runtime only for attempt, gap, recovery and outcome decisions.
+
+Schema version 7 stores competency state in dedicated tables:
+
+- `competency_attempts`;
+- `competency_task_results`;
+- `competency_gaps`;
+- `competency_recovery_executions`.
+
+Competency attempts are distinct from lesson attempts.
+
+Module projection may expose states such as:
+
+- content incomplete;
+- competency not started;
+- competency in progress;
+- achieved;
+- achieved with reinforcement;
+- partially achieved;
+- not yet achieved.
+
+Learner-facing UI should hide internal competency IDs, micro-competency IDs,
+reason codes and database identifiers.
+
 Architecture Principles
 
 The architecture should evolve through extension rather than replacement.

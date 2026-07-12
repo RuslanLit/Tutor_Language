@@ -233,6 +233,100 @@ canonical written form was not fully reproduced.
 
 ---
 
+# Communicative Competency Checks
+
+A learner may complete individual lesson steps while still being unable to
+perform the real-life communicative task promised by a module.
+
+For that reason, a module may define an authored communicative competency
+check.
+
+A communicative competency check answers:
+
+> Can the learner independently perform this module's target communication task?
+
+The check is deterministic and decomposed into diagnostic tasks.
+
+Each diagnostic task assesses one explicit micro-competency or one explicit
+integration capability.
+
+Examples of micro-competencies:
+
+- introduce oneself;
+- state origin;
+- ask another person's origin;
+- state spoken languages;
+- combine known facts into a short personal profile.
+
+Micro-competencies are communicative capabilities, not vocabulary tags.
+
+They may depend on vocabulary, grammar, sentence patterns, dialogue behavior,
+reading recognition, typed recall and controlled application.
+
+If a diagnostic task fails, the competency layer may create a typed competency
+gap only from authored task metadata and deterministic activity results.
+
+Accepted-with-feedback remains successful for competency checks unless a later
+documented policy explicitly says otherwise.
+
+The recovery flow is:
+
+```text
+diagnostic task
+        |
+        v
+gap detection
+        |
+        v
+authored recovery step request
+        |
+        v
+retry original diagnostic task
+        |
+        v
+competency outcome
+```
+
+Recovery content must already be authored.
+
+The runtime must not infer recovery from free text, generate exercises or alter
+the canonical curriculum.
+
+In the learner flow, an available competency check may be started from the
+course screen, resumed while an attempt is in progress and retried after a
+partial or unsuccessful outcome. Recovery is visible to the learner as authored
+practice, then the original diagnostic task is attempted again.
+
+The competency outcome statuses are:
+
+- `achieved`: all required diagnostic tasks succeeded without recovery;
+- `achievedWithReinforcement`: one or more gaps were recovered and required
+  retries succeeded;
+- `partiallyAchieved`: some required capabilities were demonstrated but at
+  least one gap remains unresolved;
+- `notYetAchieved`: the central communicative task was not demonstrated or no
+  required capability was demonstrated.
+
+Current implementation note:
+
+- competency definitions, micro-competencies, diagnostic tasks, gaps, recovery
+  references and outcomes are implemented as pure deterministic domain objects;
+- recovery references carry provenance to existing authored steps, including
+  source module, lesson and step identifiers;
+- schema version 7 persists competency attempts, diagnostic task results,
+  competency gaps, recovery executions and final competency outcomes in
+  dedicated Drift tables;
+- competency persistence is separate from lesson completion, lesson attempts,
+  step results and learner progress events;
+- active competency attempts can be reconstructed from immutable persisted
+  records rather than a large mutable controller snapshot;
+- the course screen can expose start, continue and retry states for implemented
+  module competency checks;
+- the competency session screen renders authored diagnostic tasks, authored
+  recovery, retry of the original task and final outcome states.
+
+---
+
 # Learning Objects
 
 The learning system operates on several conceptual objects.

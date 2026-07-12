@@ -232,6 +232,12 @@ The Spanish A0 course should read as a growing set of usable situations, not as 
 
 Grammar, vocabulary, reading rules and exercise templates are included because they help the learner do something concrete in Spanish.
 
+Each module should culminate in an authored communicative competency check when the needed diagnostic tasks exist.
+
+Later modules may recover earlier prerequisites through authored recovery references.
+
+Cross-module recovery must not reorder the target course or mutate prior module content.
+
 ## M01 — First Words and Reading
 
 ### Communicative Goal
