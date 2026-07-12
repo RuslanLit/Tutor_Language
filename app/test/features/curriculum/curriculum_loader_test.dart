@@ -31,7 +31,7 @@ void main() {
     expect(course.title, 'Spanish A0');
     expect(course.level, 'A0');
     expect(course.modules, hasLength(8));
-    expect(course.lessons, hasLength(33));
+    expect(course.lessons, hasLength(36));
     expect(course.modules.first.title, 'First Words and Reading');
     expect(course.lessons.first.title, 'Hello and Goodbye');
     expect(course.lessons.first.metadata, isNotNull);
@@ -116,7 +116,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(33));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(36));
   });
 
   test('prerequisites reference existing lessons', () async {

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "reading.es.a0.m02.name_tags.v1",
+    "title": "Name Tags",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "Me llamo Elena. Me llamo Diego. Me llamo Sofía.",
+    "native_translation": "My name is Elena. My name is Diego. My name is Sofía."
+  },
+  {
+    "id": "reading.es.a0.m02.question_cards.v1",
+    "title": "Question Cards",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "Hola. ¿Cómo te llamas? Me llamo Javier. Mucho gusto.",
+    "native_translation": "Hello. What is your name? My name is Javier. Nice to meet you."
+  },
+  {
+    "id": "reading.es.a0.m02.name_sounds.v1",
+    "title": "Name Sounds",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "España. José. Javier. Me llamo Laura.",
+    "native_translation": "Spain. José. Javier. My name is Laura."
+  },
+  {
+    "id": "reading.es.a0.m02.polite_replies.v1",
+    "title": "Polite Replies",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "Mucho gusto. Igualmente. Encantado. Encantada.",
+    "native_translation": "Nice to meet you. Likewise. Nice to meet you. Nice to meet you."
+  },
+  {
+    "id": "reading.es.a0.m02.profile_cards.v1",
+    "title": "Profile Cards",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "Me llamo Pablo. Soy de México. Me llamo Laura. Soy de Chile.",
+    "native_translation": "My name is Pablo. I am from Mexico. My name is Laura. I am from Chile."
+  },
+  {
+    "id": "reading.es.a0.m02.review_directory.v1",
+    "title": "Introduction Directory",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.unit1.me_llamo.v1",
+      "vocab.es.a0.unit1.como_te_llamas.v1",
+      "vocab.es.a0.unit1.soy_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1"
+    ],
+    "text": "Carmen: Colombia. Marta: Valencia. Diego: Chile. María: Barcelona.",
+    "native_translation": "Carmen: Colombia. Marta: Valencia. Diego: Chile. María: Barcelona."
+  }
+]

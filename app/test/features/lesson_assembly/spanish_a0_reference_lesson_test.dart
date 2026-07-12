@@ -120,8 +120,11 @@ void main() {
         .toSet();
 
     expect(nameReferenceIds, contains('vocab.es.a0.unit1.me_llamo.v1'));
-    expect(nameReferenceIds, contains('grammar.es.a0.unit1.name_pattern.v1'));
-    expect(nameReferenceIds, contains('dialogue.es.a0.unit1.names.v1'));
+    expect(
+      nameReferenceIds,
+      contains('grammar.es.a0.m02.me_llamo_transfer.v1'),
+    );
+    expect(nameReferenceIds, contains('dialogue.es.a0.m02.school_names.v1'));
 
     final originLesson = course.lessons.singleWhere(
       (lesson) => lesson.id == 'es.a0.m02.l005',

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "vocab.es.a0.m02.maria.v1",
+    "spanish": "María",
+    "native_translation": "Maria",
+    "cefr": "A0",
+    "example": "Me llamo María."
+  },
+  {
+    "id": "vocab.es.a0.m02.pablo.v1",
+    "spanish": "Pablo",
+    "native_translation": "Pablo",
+    "cefr": "A0",
+    "example": "Me llamo Pablo."
+  },
+  {
+    "id": "vocab.es.a0.m02.javier.v1",
+    "spanish": "Javier",
+    "native_translation": "Javier",
+    "cefr": "A0",
+    "example": "Me llamo Javier."
+  },
+  {
+    "id": "vocab.es.a0.m02.laura.v1",
+    "spanish": "Laura",
+    "native_translation": "Laura",
+    "cefr": "A0",
+    "example": "Me llamo Laura."
+  },
+  {
+    "id": "vocab.es.a0.m02.diego.v1",
+    "spanish": "Diego",
+    "native_translation": "Diego",
+    "cefr": "A0",
+    "example": "Me llamo Diego."
+  },
+  {
+    "id": "vocab.es.a0.m02.marta.v1",
+    "spanish": "Marta",
+    "native_translation": "Marta",
+    "cefr": "A0",
+    "example": "Me llamo Marta."
+  },
+  {
+    "id": "vocab.es.a0.m02.carmen.v1",
+    "spanish": "Carmen",
+    "native_translation": "Carmen",
+    "cefr": "A0",
+    "example": "Me llamo Carmen."
+  },
+  {
+    "id": "vocab.es.a0.m02.jose.v1",
+    "spanish": "José",
+    "native_translation": "Jose",
+    "cefr": "A0",
+    "example": "Me llamo José."
+  },
+  {
+    "id": "vocab.es.a0.m02.encantado.v1",
+    "spanish": "encantado",
+    "native_translation": "nice to meet you",
+    "cefr": "A0",
+    "example": "Encantado."
+  },
+  {
+    "id": "vocab.es.a0.m02.encantada.v1",
+    "spanish": "encantada",
+    "native_translation": "nice to meet you",
+    "cefr": "A0",
+    "example": "Encantada."
+  },
+  {
+    "id": "vocab.es.a0.m02.valencia.v1",
+    "spanish": "Valencia",
+    "native_translation": "Valencia",
+    "cefr": "A0",
+    "example": "Soy de Valencia."
+  },
+  {
+    "id": "vocab.es.a0.m02.barcelona.v1",
+    "spanish": "Barcelona",
+    "native_translation": "Barcelona",
+    "cefr": "A0",
+    "example": "Soy de Barcelona."
+  },
+  {
+    "id": "vocab.es.a0.m02.mexico.v1",
+    "spanish": "México",
+    "native_translation": "Mexico",
+    "cefr": "A0",
+    "example": "Soy de México."
+  },
+  {
+    "id": "vocab.es.a0.m02.chile.v1",
+    "spanish": "Chile",
+    "native_translation": "Chile",
+    "cefr": "A0",
+    "example": "Soy de Chile."
+  },
+  {
+    "id": "vocab.es.a0.m02.colombia.v1",
+    "spanish": "Colombia",
+    "native_translation": "Colombia",
+    "cefr": "A0",
+    "example": "Soy de Colombia."
+  }
+]
