@@ -3,7 +3,7 @@
   "languageId": "spanish",
   "title": "Spanish A0",
   "level": "A0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "modules": [
     {
       "id": "es.a0.m01",
@@ -48,6 +48,41 @@
         "es.a0.m05.l013",
         "es.a0.m05.l014",
         "es.a0.m05.l015"
+      ]
+    },
+    {
+      "id": "es.a0.m06",
+      "title": "Reading Spanish Basics",
+      "lessonIds": [
+        "es.a0.m06.l016",
+        "es.a0.m06.l017",
+        "es.a0.m06.l018",
+        "es.a0.m06.l019",
+        "es.a0.m06.l020"
+      ]
+    },
+    {
+      "id": "es.a0.m07",
+      "title": "Numbers and Simple Facts",
+      "lessonIds": [
+        "es.a0.m07.l021",
+        "es.a0.m07.l022",
+        "es.a0.m07.l023",
+        "es.a0.m07.l024",
+        "es.a0.m07.l025"
+      ]
+    },
+    {
+      "id": "es.a0.m08",
+      "title": "Everyday Objects and Integrated A0",
+      "lessonIds": [
+        "es.a0.m08.l026",
+        "es.a0.m08.l027",
+        "es.a0.m08.l028",
+        "es.a0.m08.l029",
+        "es.a0.m08.l030",
+        "es.a0.m08.l031",
+        "es.a0.m08.l032"
       ]
     }
   ],
@@ -1941,6 +1976,2734 @@
         "minimumCompletedActivities": 3,
         "mandatorySections": [
           "es.a0.m05.l015.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l016",
+        "title": "Silent h and Stable Vowels",
+        "description": "Recognize silent h and stable Spanish vowels in familiar words.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l015"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l016.primary",
+          "description": "Recognize silent h and stable Spanish vowels in familiar words."
+        }
+      ],
+      "communicativeOutcome": "Read hola and hambre without pronouncing h.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l016.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l016.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hola.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.hambre.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.hache.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.vocal.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l016.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.reading_basics.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l016.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.clarification_class.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l016.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.reading_h_n.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l016.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l016_h_silent_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l016_fill_hola.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l016_type_h_silent.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l016_type_hambre.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l016.summary",
+        "reviewPrompt": "Read hola and hambre without pronouncing h.",
+        "referenceIds": [
+          "objective.es.a0.m06.l016.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l016.activity.vocabulary",
+          "es.a0.m06.l016.activity.grammar",
+          "es.a0.m06.l016.activity.dialogue",
+          "es.a0.m06.l016.activity.reading",
+          "es.a0.m06.l016.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l016.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l017",
+        "title": "ñ, j, and ll",
+        "description": "Read and type a few A0 words with ñ, j, and ll.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l016"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l017.primary",
+          "description": "Read and type a few A0 words with ñ, j, and ll."
+        }
+      ],
+      "communicativeOutcome": "Recognize ñ, j, and ll in familiar beginner words.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l017.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l017.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.espana.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.anos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.jota.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.doble_ele.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.llave.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l017.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.reading_basics.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l017.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.where_object.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l017.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.reading_h_n.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l017.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l017_n_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l017_fill_espana.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l017_type_anos.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l017_type_jose_sound.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l017.summary",
+        "reviewPrompt": "Recognize ñ, j, and ll in familiar beginner words.",
+        "referenceIds": [
+          "objective.es.a0.m06.l017.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l017.activity.vocabulary",
+          "es.a0.m06.l017.activity.grammar",
+          "es.a0.m06.l017.activity.dialogue",
+          "es.a0.m06.l017.activity.reading",
+          "es.a0.m06.l017.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l017.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l018",
+        "title": "qu, gue, gui",
+        "description": "Read queso and Miguel using the course pronunciation baseline.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l017"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l018.primary",
+          "description": "Read queso and Miguel using the course pronunciation baseline."
+        }
+      ],
+      "communicativeOutcome": "Recognize qu and hard g spellings in useful words.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l018.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l018.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.queso.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.qu.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.miguel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.gue.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.gui.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l018.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.qu_gue_gui.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l018.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.food_polite.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l018.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.reading_qu_g.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l018.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l018_qu_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l018_fill_queso.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l018_type_que_significa.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l018_type_miguel.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l018.summary",
+        "reviewPrompt": "Recognize qu and hard g spellings in useful words.",
+        "referenceIds": [
+          "objective.es.a0.m06.l018.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l018.activity.vocabulary",
+          "es.a0.m06.l018.activity.grammar",
+          "es.a0.m06.l018.activity.dialogue",
+          "es.a0.m06.l018.activity.reading",
+          "es.a0.m06.l018.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l018.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l019",
+        "title": "Question Accents",
+        "description": "Recall qué and fixed question spelling in short A0 questions.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l018"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l019.primary",
+          "description": "Recall qué and fixed question spelling in short A0 questions."
+        }
+      ],
+      "communicativeOutcome": "Use accents in high-frequency direct question words.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l019.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l019.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.que.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.como.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.donde.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.adios.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l019.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l019.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.clarification_class.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l019.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.question_words.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l019.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l019_accent_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l019_fill_que.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l019_type_que_tal.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l019_type_adios.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l019.summary",
+        "reviewPrompt": "Use accents in high-frequency direct question words.",
+        "referenceIds": [
+          "objective.es.a0.m06.l019.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l019.activity.vocabulary",
+          "es.a0.m06.l019.activity.grammar",
+          "es.a0.m06.l019.activity.dialogue",
+          "es.a0.m06.l019.activity.reading",
+          "es.a0.m06.l019.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l019.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l020",
+        "title": "Reading Basics Review",
+        "description": "Apply h, ñ, qu, and question-word accents in short recall tasks.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l019"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l020.primary",
+          "description": "Apply h, ñ, qu, and question-word accents in short recall tasks."
+        }
+      ],
+      "communicativeOutcome": "Review essential A0 Spanish decoding patterns.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l020.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l020.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.hola.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.espana.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.queso.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.donde.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l020.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.reading_basics.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.qu_gue_gui.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l020.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.where_object.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l020.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.question_words.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l020.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l020_reading_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l020_fill_qu.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l020_type_question.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l020_type_espana.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l020.summary",
+        "reviewPrompt": "Review essential A0 Spanish decoding patterns.",
+        "referenceIds": [
+          "objective.es.a0.m06.l020.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l020.activity.vocabulary",
+          "es.a0.m06.l020.activity.grammar",
+          "es.a0.m06.l020.activity.dialogue",
+          "es.a0.m06.l020.activity.reading",
+          "es.a0.m06.l020.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l020.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m07.l021",
+        "title": "Numbers 0-10",
+        "description": "Use numbers 0-10 in short controlled prompts.",
+        "moduleId": "es.a0.m07",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l020"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m07.l021.primary",
+          "description": "Use numbers 0-10 in short controlled prompts."
+        }
+      ],
+      "communicativeOutcome": "Recognize and recall Spanish numbers from zero to ten.",
+      "sections": [
+        {
+          "id": "es.a0.m07.l021.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m07.l021.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.uno.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tres.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cuatro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cinco.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.seis.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.siete.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.ocho.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.nueve.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.diez.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l021.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.phone_number.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l021.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.numbers_zero_ten.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l021.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l021_number_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l021_fill_dos.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l021_type_five.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l021_type_zero.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m07.l021.summary",
+        "reviewPrompt": "Recognize and recall Spanish numbers from zero to ten.",
+        "referenceIds": [
+          "objective.es.a0.m07.l021.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m07.l021.activity.vocabulary",
+          "es.a0.m07.l021.activity.dialogue",
+          "es.a0.m07.l021.activity.reading",
+          "es.a0.m07.l021.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m07.l021.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m07.l022",
+        "title": "Numbers 11-20",
+        "description": "Use numbers 11-20 in short controlled prompts.",
+        "moduleId": "es.a0.m07",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l021"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m07.l022.primary",
+          "description": "Use numbers 11-20 in short controlled prompts."
+        }
+      ],
+      "communicativeOutcome": "Recognize and recall Spanish numbers from eleven to twenty.",
+      "sections": [
+        {
+          "id": "es.a0.m07.l022.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m07.l022.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.once.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.doce.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.trece.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.catorce.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.quince.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dieciseis.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.diecisiete.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dieciocho.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.diecinueve.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.veinte.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l022.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.age_simple.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l022.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.numbers_eleven_twenty.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l022.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l022_number_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l022_fill_veinte.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l022_type_eighteen.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l022_type_twenty.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m07.l022.summary",
+        "reviewPrompt": "Recognize and recall Spanish numbers from eleven to twenty.",
+        "referenceIds": [
+          "objective.es.a0.m07.l022.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m07.l022.activity.vocabulary",
+          "es.a0.m07.l022.activity.dialogue",
+          "es.a0.m07.l022.activity.reading",
+          "es.a0.m07.l022.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m07.l022.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m07.l023",
+        "title": "Age with Tener",
+        "description": "Produce the pattern tengo ... años without using soy.",
+        "moduleId": "es.a0.m07",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l022"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m07.l023.primary",
+          "description": "Produce the pattern tengo ... años without using soy."
+        }
+      ],
+      "communicativeOutcome": "Say a very simple age using tener.",
+      "sections": [
+        {
+          "id": "es.a0.m07.l023.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m07.l023.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tengo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tienes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.veinte.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dieciocho.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.anos.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l023.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.age_with_tener.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l023.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.age_simple.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l023.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.age_message.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l023.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l023_age_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l023_fill_tengo_age.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l023_type_age.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l023_type_age_question.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m07.l023.summary",
+        "reviewPrompt": "Say a very simple age using tener.",
+        "referenceIds": [
+          "objective.es.a0.m07.l023.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m07.l023.activity.vocabulary",
+          "es.a0.m07.l023.activity.grammar",
+          "es.a0.m07.l023.activity.dialogue",
+          "es.a0.m07.l023.activity.reading",
+          "es.a0.m07.l023.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m07.l023.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m07.l024",
+        "title": "Simple Numbers in Contact Details",
+        "description": "Recall a very short number sequence and simple quantities.",
+        "moduleId": "es.a0.m07",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l023"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m07.l024.primary",
+          "description": "Recall a very short number sequence and simple quantities."
+        }
+      ],
+      "communicativeOutcome": "Recognize a short spoken phone-number style sequence.",
+      "sections": [
+        {
+          "id": "es.a0.m07.l024.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m07.l024.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.numero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cinco.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.ocho.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tres.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l024.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.phone_number.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l024.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.numbers_zero_ten.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l024.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l024_phone_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l024_fill_phone.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l024_type_phone.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l024_type_three_books.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m07.l024.summary",
+        "reviewPrompt": "Recognize a short spoken phone-number style sequence.",
+        "referenceIds": [
+          "objective.es.a0.m07.l024.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m07.l024.activity.vocabulary",
+          "es.a0.m07.l024.activity.dialogue",
+          "es.a0.m07.l024.activity.reading",
+          "es.a0.m07.l024.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m07.l024.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m07.l025",
+        "title": "Numbers and Age Review",
+        "description": "Use numbers in age and simple quantity sentences.",
+        "moduleId": "es.a0.m07",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l024"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m07.l025.primary",
+          "description": "Use numbers in age and simple quantity sentences."
+        }
+      ],
+      "communicativeOutcome": "Review numbers and age without new grammar.",
+      "sections": [
+        {
+          "id": "es.a0.m07.l025.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m07.l025.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.catorce.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dieciocho.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.anos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.dos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l025.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.age_with_tener.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l025.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.age_simple.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l025.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.age_message.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m07.l025.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l025_review_number_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l025_fill_age.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l025_type_number_review.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l025_type_age_review.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m07.l025.summary",
+        "reviewPrompt": "Review numbers and age without new grammar.",
+        "referenceIds": [
+          "objective.es.a0.m07.l025.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m07.l025.activity.vocabulary",
+          "es.a0.m07.l025.activity.grammar",
+          "es.a0.m07.l025.activity.dialogue",
+          "es.a0.m07.l025.activity.reading",
+          "es.a0.m07.l025.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m07.l025.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l026",
+        "title": "Everyday Objects",
+        "description": "Recognize and recall book, phone, key, bag, table, and chair.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l025"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l026.primary",
+          "description": "Recognize and recall book, phone, key, bag, table, and chair."
+        }
+      ],
+      "communicativeOutcome": "Name a few high-frequency objects.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l026.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l026.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.telefono.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.llave.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.bolsa.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.mesa.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.silla.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l026.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.articles_intro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l026.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.objects_table.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l026.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l026.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l026_object_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l026_fill_book.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l026_type_phone.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l026_type_key.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l026.summary",
+        "reviewPrompt": "Name a few high-frequency objects.",
+        "referenceIds": [
+          "objective.es.a0.m08.l026.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l026.activity.vocabulary",
+          "es.a0.m08.l026.activity.grammar",
+          "es.a0.m08.l026.activity.dialogue",
+          "es.a0.m08.l026.activity.reading",
+          "es.a0.m08.l026.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l026.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l027",
+        "title": "Possession with Objects",
+        "description": "Choose and produce the correct tener form in object sentences.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l026"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l027.primary",
+          "description": "Choose and produce the correct tener form in object sentences."
+        }
+      ],
+      "communicativeOutcome": "Use tengo, tienes, and tiene with familiar objects.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l027.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l027.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tengo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tienes.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.tiene.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cafe.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.sofia.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l027.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l027.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.objects_table.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l027.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l027.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l027_tener_form_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l027_fill_tiene.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l027_type_you_have_book.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l027_type_sofia_has.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l027.summary",
+        "reviewPrompt": "Use tengo, tienes, and tiene with familiar objects.",
+        "referenceIds": [
+          "objective.es.a0.m08.l027.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l027.activity.vocabulary",
+          "es.a0.m08.l027.activity.grammar",
+          "es.a0.m08.l027.activity.dialogue",
+          "es.a0.m08.l027.activity.reading",
+          "es.a0.m08.l027.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l027.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l028",
+        "title": "Food, Drink, and Polite Requests",
+        "description": "Produce short quiero and tengo sentences with food and drink.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l027"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l028.primary",
+          "description": "Produce short quiero and tengo sentences with food and drink."
+        }
+      ],
+      "communicativeOutcome": "Ask for simple food or drink politely.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l028.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l028.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.cafe.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.pan.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.queso.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.quiero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l028.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.simple_word_order.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l028.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.food_polite.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l028.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l028.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l028_food_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l028_fill_please.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l028_type_water_please.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l028_type_bread_cheese.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l028.summary",
+        "reviewPrompt": "Ask for simple food or drink politely.",
+        "referenceIds": [
+          "objective.es.a0.m08.l028.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l028.activity.vocabulary",
+          "es.a0.m08.l028.activity.grammar",
+          "es.a0.m08.l028.activity.dialogue",
+          "es.a0.m08.l028.activity.reading",
+          "es.a0.m08.l028.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l028.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l029",
+        "title": "Family, Friend, and City",
+        "description": "Use mi with family/friend phrases and familiar city names.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l028"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l029.primary",
+          "description": "Use mi with family/friend phrases and familiar city names."
+        }
+      ],
+      "communicativeOutcome": "Give a tiny fact about family or a friend.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l029.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l029.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.familia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.amiga.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.casa.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.lima.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.bogota.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.mi.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l029.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l029.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.family_city.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l029.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.family_city.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l029.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l029_family_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l029_fill_city.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l029_type_friend.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l029_type_family_lima.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l029.summary",
+        "reviewPrompt": "Give a tiny fact about family or a friend.",
+        "referenceIds": [
+          "objective.es.a0.m08.l029.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l029.activity.vocabulary",
+          "es.a0.m08.l029.activity.grammar",
+          "es.a0.m08.l029.activity.dialogue",
+          "es.a0.m08.l029.activity.reading",
+          "es.a0.m08.l029.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l029.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l030",
+        "title": "Mixed First Conversation",
+        "description": "Produce varied A0 first-contact sentences without relying on one name or city.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l029"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l030.primary",
+          "description": "Produce varied A0 first-contact sentences without relying on one name or city."
+        }
+      ],
+      "communicativeOutcome": "Combine introductions, origin, thanks, and possessions.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l030.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l030.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.lucia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.miguel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.kyiv.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.telefono.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l030.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.name_variation.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l030.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l030.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l030.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l030_mixed_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l030_fill_origin.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l030_type_intro_lucia.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l030_type_origin_kyiv.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l030.summary",
+        "reviewPrompt": "Combine introductions, origin, thanks, and possessions.",
+        "referenceIds": [
+          "objective.es.a0.m08.l030.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l030.activity.vocabulary",
+          "es.a0.m08.l030.activity.grammar",
+          "es.a0.m08.l030.activity.dialogue",
+          "es.a0.m08.l030.activity.reading",
+          "es.a0.m08.l030.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l030.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l031",
+        "title": "Integrated A0 Review",
+        "description": "Recall core A0 patterns in varied contexts before the checkpoint.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l030"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l031.primary",
+          "description": "Recall core A0 patterns in varied contexts before the checkpoint."
+        }
+      ],
+      "communicativeOutcome": "Review names, origin, questions, and possessions.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l031.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l031.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.miguel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.sevilla.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.donde.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l031.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l031.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l031.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l031.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l031_review_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l031_fill_question.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l031_type_mixed_name.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l031_type_mixed_origin.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l031.summary",
+        "reviewPrompt": "Review names, origin, questions, and possessions.",
+        "referenceIds": [
+          "objective.es.a0.m08.l031.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l031.activity.vocabulary",
+          "es.a0.m08.l031.activity.grammar",
+          "es.a0.m08.l031.activity.dialogue",
+          "es.a0.m08.l031.activity.reading",
+          "es.a0.m08.l031.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l031.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l032",
+        "title": "Final A0 Checkpoint",
+        "description": "Complete a balanced checkpoint covering greetings, introductions, origin, questions, and tener.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.1.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l031"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l032.primary",
+          "description": "Complete a balanced checkpoint covering greetings, introductions, origin, questions, and tener."
+        }
+      ],
+      "communicativeOutcome": "Demonstrate core A0 first-contact skills.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l032.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l032.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.marta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.bogota.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
+                  "referenceId": "vocab.es.a0.c2.que.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l032.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
+                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l032.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
+                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l032.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
+                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l032.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_fill.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_intro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_origin.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_tener.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
+                  "referenceId": "template.es.a0.c2.l032_checkpoint_question.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l032.summary",
+        "reviewPrompt": "Demonstrate core A0 first-contact skills.",
+        "referenceIds": [
+          "objective.es.a0.m08.l032.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l032.activity.vocabulary",
+          "es.a0.m08.l032.activity.grammar",
+          "es.a0.m08.l032.activity.dialogue",
+          "es.a0.m08.l032.activity.reading",
+          "es.a0.m08.l032.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l032.section.main"
         ]
       },
       "references": []

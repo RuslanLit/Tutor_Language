@@ -1,0 +1,175 @@
+[
+  {
+    "id": "reading.es.a0.c2.varied_profiles.v1",
+    "title": "Three Short Profiles",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.elena.v1",
+      "vocab.es.a0.c2.luis.v1",
+      "vocab.es.a0.c2.lucia.v1",
+      "vocab.es.a0.c2.valencia.v1",
+      "vocab.es.a0.c2.mexico.v1",
+      "vocab.es.a0.c2.lima.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.origin_variation.v1"
+    ],
+    "text": "Me llamo Elena. Soy de Valencia. Me llamo Luis. Soy de México. Me llamo Lucía. Soy de Lima.",
+    "native_translation": "My name is Elena. I am from Valencia. My name is Luis. I am from Mexico. My name is Lucia. I am from Lima."
+  },
+  {
+    "id": "reading.es.a0.c2.objects_list.v1",
+    "title": "Objects I Have",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.libro.v1",
+      "vocab.es.a0.c2.telefono.v1",
+      "vocab.es.a0.c2.llave.v1",
+      "vocab.es.a0.c2.bolsa.v1",
+      "vocab.es.a0.c2.agua.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.tener_forms.v1",
+      "grammar.es.a0.c2.articles_intro.v1"
+    ],
+    "text": "Tengo un libro. Tengo un teléfono. Tengo una llave. Tengo una bolsa. Tengo agua.",
+    "native_translation": "I have a book. I have a phone. I have a key. I have a bag. I have water."
+  },
+  {
+    "id": "reading.es.a0.c2.numbers_zero_ten.v1",
+    "title": "Numbers Zero to Ten",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.cero.v1",
+      "vocab.es.a0.c2.uno.v1",
+      "vocab.es.a0.c2.dos.v1",
+      "vocab.es.a0.c2.tres.v1",
+      "vocab.es.a0.c2.cuatro.v1",
+      "vocab.es.a0.c2.cinco.v1",
+      "vocab.es.a0.c2.seis.v1",
+      "vocab.es.a0.c2.siete.v1",
+      "vocab.es.a0.c2.ocho.v1",
+      "vocab.es.a0.c2.nueve.v1",
+      "vocab.es.a0.c2.diez.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Cero, uno, dos, tres, cuatro, cinco. Seis, siete, ocho, nueve, diez.",
+    "native_translation": "Zero, one, two, three, four, five. Six, seven, eight, nine, ten."
+  },
+  {
+    "id": "reading.es.a0.c2.numbers_eleven_twenty.v1",
+    "title": "Numbers Eleven to Twenty",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.once.v1",
+      "vocab.es.a0.c2.doce.v1",
+      "vocab.es.a0.c2.trece.v1",
+      "vocab.es.a0.c2.catorce.v1",
+      "vocab.es.a0.c2.quince.v1",
+      "vocab.es.a0.c2.dieciseis.v1",
+      "vocab.es.a0.c2.diecisiete.v1",
+      "vocab.es.a0.c2.dieciocho.v1",
+      "vocab.es.a0.c2.diecinueve.v1",
+      "vocab.es.a0.c2.veinte.v1"
+    ],
+    "grammar_ids": [],
+    "text": "Once, doce, trece, catorce, quince. Dieciséis, diecisiete, dieciocho, diecinueve, veinte.",
+    "native_translation": "Eleven, twelve, thirteen, fourteen, fifteen. Sixteen, seventeen, eighteen, nineteen, twenty."
+  },
+  {
+    "id": "reading.es.a0.c2.age_message.v1",
+    "title": "Age Message",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.dieciocho.v1",
+      "vocab.es.a0.c2.veinte.v1",
+      "vocab.es.a0.c2.anos.v1",
+      "vocab.es.a0.c2.sofia.v1",
+      "vocab.es.a0.c2.diego.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.age_with_tener.v1"
+    ],
+    "text": "Sofía tiene dieciocho años. Diego tiene veinte años. Yo tengo veinte años.",
+    "native_translation": "Sofia is eighteen years old. Diego is twenty years old. I am twenty years old."
+  },
+  {
+    "id": "reading.es.a0.c2.reading_h_n.v1",
+    "title": "h and ñ",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.hache.v1",
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.c2.hambre.v1",
+      "vocab.es.a0.c2.ene.v1",
+      "vocab.es.a0.c2.espana.v1",
+      "vocab.es.a0.c2.anos.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.reading_basics.v1"
+    ],
+    "text": "Hola empieza con h. La h es silenciosa. España tiene ñ. Años también tiene ñ.",
+    "native_translation": "Hola starts with h. The h is silent. España has ñ. Años also has ñ."
+  },
+  {
+    "id": "reading.es.a0.c2.reading_qu_g.v1",
+    "title": "qu, gue, gui",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.queso.v1",
+      "vocab.es.a0.c2.qu.v1",
+      "vocab.es.a0.c2.miguel.v1",
+      "vocab.es.a0.c2.gue.v1",
+      "vocab.es.a0.c2.gui.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.qu_gue_gui.v1"
+    ],
+    "text": "Queso empieza con qu. Miguel tiene gue. Gui mantiene el sonido fuerte de g.",
+    "native_translation": "Queso starts with qu. Miguel has gue. Gui keeps the hard g sound."
+  },
+  {
+    "id": "reading.es.a0.c2.question_words.v1",
+    "title": "Question Words",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.que.v1",
+      "vocab.es.a0.c2.como.v1",
+      "vocab.es.a0.c2.donde.v1",
+      "vocab.es.a0.c2.quien.v1",
+      "vocab.es.a0.c2.libro.v1",
+      "vocab.es.a0.c2.luis.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.basic_questions.v1"
+    ],
+    "text": "¿Qué significa hola? ¿Cómo estás? ¿Dónde está el libro? ¿Quién es Luis?",
+    "native_translation": "What does hola mean? How are you? Where is the book? Who is Luis?"
+  },
+  {
+    "id": "reading.es.a0.c2.family_city.v1",
+    "title": "Family and City",
+    "vocabulary_ids": [
+      "vocab.es.a0.c2.familia.v1",
+      "vocab.es.a0.c2.amiga.v1",
+      "vocab.es.a0.c2.casa.v1",
+      "vocab.es.a0.c2.bogota.v1",
+      "vocab.es.a0.c2.lima.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.origin_variation.v1"
+    ],
+    "text": "Mi familia está en Bogotá. Mi amiga Lucía es de Lima. Mi casa está aquí.",
+    "native_translation": "My family is in Bogota. My friend Lucia is from Lima. My home is here."
+  },
+  {
+    "id": "reading.es.a0.c2.integrated_a0.v1",
+    "title": "Integrated A0 Message",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.hola.v1",
+      "vocab.es.a0.c2.marta.v1",
+      "vocab.es.a0.c2.kyiv.v1",
+      "vocab.es.a0.c2.agua.v1",
+      "vocab.es.a0.c2.libro.v1",
+      "vocab.es.a0.unit1.gracias.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.c2.origin_variation.v1",
+      "grammar.es.a0.c2.tener_forms.v1"
+    ],
+    "text": "Hola. Me llamo Marta. Soy de Kyiv. Tengo agua y un libro. Gracias. Hasta luego.",
+    "native_translation": "Hello. My name is Marta. I am from Kyiv. I have water and a book. Thank you. See you later."
+  }
+]

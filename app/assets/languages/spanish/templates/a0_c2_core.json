@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "template.es.a0.c2.l016_h_silent_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the Spanish reading rule shown by \"hola\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "h is silent"
+      },
+      {
+        "id": "option.2",
+        "label": "h sounds like English h"
+      },
+      {
+        "id": "option.3",
+        "label": "h means ñ"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l016_fill_hola.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"hello\": \"____, Elena.\"",
+    "expected_answer": "Hola"
+  },
+  {
+    "id": "template.es.a0.c2.l016_type_h_silent.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word that starts with silent h and means \"hello\".",
+    "expected_answer": "hola",
+    "review_template_ids": [
+      "template.es.a0.c2.l016_h_silent_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l016_type_hambre.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am hungry.\"",
+    "expected_answer": "Tengo hambre",
+    "review_template_ids": [
+      "template.es.a0.c2.l016_h_silent_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l017_n_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the word that contains ñ.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "España"
+      },
+      {
+        "id": "option.2",
+        "label": "casa"
+      },
+      {
+        "id": "option.3",
+        "label": "libro"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l017_fill_espana.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"Spain\": \"Soy de ____.\"",
+    "expected_answer": "España"
+  },
+  {
+    "id": "template.es.a0.c2.l017_type_anos.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"years\" with ñ.",
+    "expected_answer": "años",
+    "review_template_ids": [
+      "template.es.a0.c2.l017_n_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l017_type_jose_sound.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word/name that begins with j: \"José\".",
+    "expected_answer": "José"
+  },
+  {
+    "id": "template.es.a0.c2.l018_qu_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the word that begins with qu.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "queso"
+      },
+      {
+        "id": "option.2",
+        "label": "gente"
+      },
+      {
+        "id": "option.3",
+        "label": "perro"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l018_fill_queso.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"cheese\": \"Tengo ____.\"",
+    "expected_answer": "queso"
+  },
+  {
+    "id": "template.es.a0.c2.l018_type_que_significa.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"What does hola mean?\"",
+    "expected_answer": "¿Qué significa hola?",
+    "review_template_ids": [
+      "template.es.a0.c2.l018_qu_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l018_type_miguel.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word/name: \"Miguel\".",
+    "expected_answer": "Miguel"
+  },
+  {
+    "id": "template.es.a0.c2.l019_accent_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the correctly written direct question word.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "qué"
+      },
+      {
+        "id": "option.2",
+        "label": "que"
+      },
+      {
+        "id": "option.3",
+        "label": "qúe"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l019_fill_que.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish question word for \"what\": \"¿____ tal?\"",
+    "expected_answer": "Qué"
+  },
+  {
+    "id": "template.es.a0.c2.l019_type_que_tal.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"How is it going?\"",
+    "expected_answer": "¿Qué tal?",
+    "review_template_ids": [
+      "template.es.a0.c2.l019_accent_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l019_type_adios.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"goodbye\" with its accent.",
+    "expected_answer": "adiós"
+  },
+  {
+    "id": "template.es.a0.c2.l020_reading_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the word where h is silent.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "hola"
+      },
+      {
+        "id": "option.2",
+        "label": "mesa"
+      },
+      {
+        "id": "option.3",
+        "label": "silla"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l020_fill_qu.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish spelling group in \"queso\": \"____eso\".",
+    "expected_answer": "qu"
+  },
+  {
+    "id": "template.es.a0.c2.l020_type_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the book?\"",
+    "expected_answer": "¿Dónde está el libro?",
+    "review_template_ids": [
+      "template.es.a0.c2.l019_accent_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l020_type_espana.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for the country name \"Spain\".",
+    "expected_answer": "España",
+    "review_template_ids": [
+      "template.es.a0.c2.l017_n_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l021_number_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"ocho\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "eight"
+      },
+      {
+        "id": "option.2",
+        "label": "four"
+      },
+      {
+        "id": "option.3",
+        "label": "eleven"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l021_fill_dos.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"two\": \"____ libros.\"",
+    "expected_answer": "Dos"
+  },
+  {
+    "id": "template.es.a0.c2.l021_type_five.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"five\".",
+    "expected_answer": "cinco"
+  },
+  {
+    "id": "template.es.a0.c2.l021_type_zero.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"zero\".",
+    "expected_answer": "cero"
+  },
+  {
+    "id": "template.es.a0.c2.l022_number_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"dieciséis\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "sixteen"
+      },
+      {
+        "id": "option.2",
+        "label": "six"
+      },
+      {
+        "id": "option.3",
+        "label": "seventeen"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l022_fill_veinte.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"twenty\": \"Tengo ____ años.\"",
+    "expected_answer": "veinte"
+  },
+  {
+    "id": "template.es.a0.c2.l022_type_eighteen.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"eighteen\".",
+    "expected_answer": "dieciocho"
+  },
+  {
+    "id": "template.es.a0.c2.l022_type_twenty.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"twenty\".",
+    "expected_answer": "veinte"
+  },
+  {
+    "id": "template.es.a0.c2.l023_age_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the Spanish pattern for age.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "Tengo veinte años."
+      },
+      {
+        "id": "option.2",
+        "label": "Soy veinte años."
+      },
+      {
+        "id": "option.3",
+        "label": "Estoy veinte años."
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l023_fill_tengo_age.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the \"I have\" form of tener for age: \"____ veinte años.\"",
+    "expected_answer": "Tengo"
+  },
+  {
+    "id": "template.es.a0.c2.l023_type_age.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am twenty years old.\"",
+    "expected_answer": "Tengo veinte años",
+    "review_template_ids": [
+      "template.es.a0.c2.l023_age_choice.v1"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.c2.age_ser_twenty.v1",
+        "matching_answers": [
+          "Soy veinte años",
+          "Yo soy veinte años"
+        ],
+        "feedback_key": "spanish.age.use_tener",
+        "canonical_answer": "Tengo veinte años",
+        "explanation_reference_id": "grammar.es.a0.c2.age_with_tener.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l023_type_age_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"How old are you?\"",
+    "expected_answer": "¿Cuántos años tienes?",
+    "review_template_ids": [
+      "template.es.a0.c2.l023_age_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l024_phone_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the Spanish word for \"number\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "número"
+      },
+      {
+        "id": "option.2",
+        "label": "nombre"
+      },
+      {
+        "id": "option.3",
+        "label": "noche"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l024_fill_phone.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"zero\": \"Dos ____ cinco.\"",
+    "expected_answer": "cero"
+  },
+  {
+    "id": "template.es.a0.c2.l024_type_phone.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish phrase for the spoken number: \"two zero five eight\".",
+    "expected_answer": "dos cero cinco ocho",
+    "review_template_ids": [
+      "template.es.a0.c2.l024_phone_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l024_type_three_books.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish phrase: \"three books\".",
+    "expected_answer": "tres libros"
+  },
+  {
+    "id": "template.es.a0.c2.l025_review_number_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the correct Spanish number for \"fourteen\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "catorce"
+      },
+      {
+        "id": "option.2",
+        "label": "cuatro"
+      },
+      {
+        "id": "option.3",
+        "label": "quince"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l025_fill_age.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"years\": \"Tengo dieciocho ____.\"",
+    "expected_answer": "años"
+  },
+  {
+    "id": "template.es.a0.c2.l025_type_number_review.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I have two books.\"",
+    "expected_answer": "Tengo dos libros"
+  },
+  {
+    "id": "template.es.a0.c2.l025_type_age_review.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am eighteen years old.\"",
+    "expected_answer": "Tengo dieciocho años",
+    "review_template_ids": [
+      "template.es.a0.c2.l023_age_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l026_object_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"llave\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "key"
+      },
+      {
+        "id": "option.2",
+        "label": "chair"
+      },
+      {
+        "id": "option.3",
+        "label": "water"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l026_fill_book.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"book\": \"Tengo un ____.\"",
+    "expected_answer": "libro"
+  },
+  {
+    "id": "template.es.a0.c2.l026_type_phone.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I have a phone.\"",
+    "expected_answer": "Tengo un teléfono"
+  },
+  {
+    "id": "template.es.a0.c2.l026_type_key.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I have a key.\"",
+    "expected_answer": "Tengo una llave"
+  },
+  {
+    "id": "template.es.a0.c2.l027_tener_form_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the sentence that means \"Sofía has coffee.\"",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "Sofía tiene café."
+      },
+      {
+        "id": "option.2",
+        "label": "Sofía tengo café."
+      },
+      {
+        "id": "option.3",
+        "label": "Sofía tienes café."
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l027_fill_tiene.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the he/she/name form of tener: \"Sofía ____ café.\"",
+    "expected_answer": "tiene"
+  },
+  {
+    "id": "template.es.a0.c2.l027_type_you_have_book.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Do you have a book?\"",
+    "expected_answer": "¿Tienes un libro?",
+    "review_template_ids": [
+      "template.es.a0.c2.l027_tener_form_choice.v1"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.c2.tener_tengo_for_tienes.v1",
+        "matching_answers": [
+          "¿Tengo un libro?",
+          "Tengo un libro?"
+        ],
+        "feedback_key": "spanish.tener.use_tienes_for_you",
+        "canonical_answer": "¿Tienes un libro?",
+        "explanation_reference_id": "grammar.es.a0.c2.tener_forms.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l027_type_sofia_has.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"Sofía has coffee.\"",
+    "expected_answer": "Sofía tiene café",
+    "review_template_ids": [
+      "template.es.a0.c2.l027_tener_form_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l028_food_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the Spanish word for \"bread\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "pan"
+      },
+      {
+        "id": "option.2",
+        "label": "agua"
+      },
+      {
+        "id": "option.3",
+        "label": "llave"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l028_fill_please.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish phrase for \"please\": \"Quiero agua, ____ ____.\"",
+    "expected_answer": "por favor"
+  },
+  {
+    "id": "template.es.a0.c2.l028_type_water_please.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I want water, please.\"",
+    "expected_answer": "Quiero agua, por favor",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.c2.porfavor_joined.v1",
+        "matching_answers": [
+          "Quiero agua, porfavor"
+        ],
+        "feedback_key": "spanish.politeness.por_favor_two_words",
+        "canonical_answer": "Quiero agua, por favor",
+        "explanation_reference_id": "grammar.es.a0.c2.simple_word_order.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l028_type_bread_cheese.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I have bread and cheese.\"",
+    "expected_answer": "Tengo pan y queso"
+  },
+  {
+    "id": "template.es.a0.c2.l029_family_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the meaning of \"mi familia\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "my family"
+      },
+      {
+        "id": "option.2",
+        "label": "my phone"
+      },
+      {
+        "id": "option.3",
+        "label": "my table"
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l029_fill_city.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for the city name \"Bogota\": \"Mi familia está en ____.\"",
+    "expected_answer": "Bogotá"
+  },
+  {
+    "id": "template.es.a0.c2.l029_type_friend.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"Sofía is my friend.\"",
+    "expected_answer": "Sofía es mi amiga"
+  },
+  {
+    "id": "template.es.a0.c2.l029_type_family_lima.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"My family is in Lima.\"",
+    "expected_answer": "Mi familia está en Lima"
+  },
+  {
+    "id": "template.es.a0.c2.l030_mixed_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the best reply to \"Gracias\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "De nada."
+      },
+      {
+        "id": "option.2",
+        "label": "Tengo un libro."
+      },
+      {
+        "id": "option.3",
+        "label": "Soy de Lima."
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l030_fill_origin.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish origin pattern word: \"Soy ____ Kyiv.\"",
+    "expected_answer": "de"
+  },
+  {
+    "id": "template.es.a0.c2.l030_type_intro_lucia.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish introduction: \"My name is Lucía.\"",
+    "expected_answer": "Me llamo Lucía",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.c2.name_soy_lucia.v1",
+        "matching_answers": [
+          "Soy Lucía",
+          "Yo soy Lucía"
+        ],
+        "feedback_key": "spanish.name_pattern.use_me_llamo",
+        "canonical_answer": "Me llamo Lucía",
+        "explanation_reference_id": "grammar.es.a0.c2.name_variation.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l030_type_origin_kyiv.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am from Kyiv.\"",
+    "expected_answer": "Soy de Kyiv",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.c2.origin_missing_de_kyiv.v1",
+        "matching_answers": [
+          "Soy Kyiv",
+          "Yo soy Kyiv"
+        ],
+        "feedback_key": "spanish.origin.keep_de",
+        "canonical_answer": "Soy de Kyiv",
+        "explanation_reference_id": "grammar.es.a0.c2.origin_variation.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.c2.l031_review_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the Spanish sentence for \"I have water\".",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "Tengo agua."
+      },
+      {
+        "id": "option.2",
+        "label": "Soy agua."
+      },
+      {
+        "id": "option.3",
+        "label": "Me llamo agua."
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l031_fill_question.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish question word for \"where\": \"¿____ está el libro?\"",
+    "expected_answer": "Dónde"
+  },
+  {
+    "id": "template.es.a0.c2.l031_type_mixed_name.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish introduction: \"My name is Miguel.\"",
+    "expected_answer": "Me llamo Miguel"
+  },
+  {
+    "id": "template.es.a0.c2.l031_type_mixed_origin.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am from Sevilla.\"",
+    "expected_answer": "Soy de Sevilla"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "review_vocabulary"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Choose the sentence that asks where the book is.",
+    "answer_options": [
+      {
+        "id": "option.1",
+        "label": "¿Dónde está el libro?"
+      },
+      {
+        "id": "option.2",
+        "label": "¿Qué significa libro?"
+      },
+      {
+        "id": "option.3",
+        "label": "Tengo un libro."
+      }
+    ],
+    "correct_option_id": "option.1"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_fill.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"thank you\": \"Muchas ____.\"",
+    "expected_answer": "gracias"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_intro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"My name is Marta.\"",
+    "expected_answer": "Me llamo Marta"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_origin.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I am from Bogotá.\"",
+    "expected_answer": "Soy de Bogotá"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_tener.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I have a book and water.\"",
+    "expected_answer": "Tengo un libro y agua"
+  },
+  {
+    "id": "template.es.a0.c2.l032_checkpoint_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "review_vocabulary",
+      "review_grammar"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"What does gracias mean?\"",
+    "expected_answer": "¿Qué significa gracias?"
+  }
+]

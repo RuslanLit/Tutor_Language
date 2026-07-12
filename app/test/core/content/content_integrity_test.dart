@@ -265,6 +265,106 @@ void main() {
       );
     }
   });
+
+  test('C2 Spanish A0 expansion has substantial varied recall coverage', () async {
+    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+    final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final course = await curriculumLoader.loadCourse();
+    final contentBundle = await contentLoader.loadSpanishContent();
+    final catalog = EducationalContentCatalog(contentBundle);
+
+    final vocabularyCount = contentBundle.contents
+        .whereType<VocabularyContent>()
+        .expand((content) => content.entries)
+        .length;
+    final dialogueCount = contentBundle.contents
+        .whereType<DialogueContent>()
+        .expand((content) => content.dialogues)
+        .length;
+    final readingCount = contentBundle.contents
+        .whereType<ReadingContent>()
+        .expand((content) => content.texts)
+        .length;
+    final templateCount = contentBundle.contents
+        .whereType<ExerciseTemplateContent>()
+        .expand((content) => content.templates)
+        .length;
+
+    final referencedTemplates = <ExerciseTemplate>[];
+    for (final lesson in course.lessons) {
+      for (final activity in lesson.activities) {
+        for (final reference in activity.contentReferences) {
+          if (reference.type != 'exercise_template' ||
+              reference.referenceId == null) {
+            continue;
+          }
+          final template = catalog.lookupAs<ExerciseTemplate>(
+            reference.referenceId!,
+          );
+          expect(template, isNotNull, reason: reference.referenceId);
+          referencedTemplates.add(template!);
+        }
+      }
+    }
+
+    expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
+    expect(course.lessons, hasLength(lessThanOrEqualTo(32)));
+    expect(vocabularyCount, inInclusiveRange(150, 220));
+    expect(dialogueCount, greaterThanOrEqualTo(25));
+    expect(readingCount, greaterThanOrEqualTo(18));
+    expect(templateCount, greaterThanOrEqualTo(100));
+    expect(
+      referencedTemplates
+          .where((template) => template.exerciseType == 'text_entry')
+          .length,
+      greaterThanOrEqualTo(40),
+    );
+    expect(
+      referencedTemplates
+          .where((template) => template.authoredMisconceptions.isNotEmpty)
+          .length,
+      greaterThanOrEqualTo(5),
+    );
+    expect(
+      referencedTemplates
+          .where((template) => template.reviewTemplateIds.isNotEmpty)
+          .length,
+      greaterThanOrEqualTo(8),
+    );
+
+    final reviewAndCheckpointLessons = course.lessons.where(
+      (lesson) =>
+          lesson.title.toLowerCase().contains('review') ||
+          lesson.title.toLowerCase().contains('checkpoint'),
+    );
+
+    for (final lesson in reviewAndCheckpointLessons) {
+      final templates = lesson.activities
+          .expand((activity) => activity.contentReferences)
+          .where((reference) => reference.type == 'exercise_template')
+          .map((reference) => reference.referenceId)
+          .whereType<String>()
+          .map(catalog.lookupAs<ExerciseTemplate>)
+          .whereType<ExerciseTemplate>()
+          .toList();
+
+      expect(
+        templates.any((template) => template.exerciseType == 'text_entry'),
+        isTrue,
+        reason: '${lesson.id} should include typed recall.',
+      );
+    }
+
+    final allTemplateText = referencedTemplates
+        .map(
+          (template) =>
+              '${template.promptTemplate} ${template.expectedAnswer ?? ''}',
+        )
+        .join('\n');
+    expect(_occurrences(allTemplateText, 'Me llamo Ana'), lessThan(10));
+    expect(_occurrences(allTemplateText, 'Soy de Madrid'), lessThan(10));
+    expect(_occurrences(allTemplateText, 'Tengo un libro'), lessThan(10));
+  });
 }
 
 bool _isCheckable(ExerciseTemplate template) {
@@ -300,13 +400,17 @@ bool _hasKnownAmbiguousShape(String prompt) {
 bool _hasExplicitPromptConstraint(String prompt) {
   const constraintMarkers = [
     'Spanish word',
+    'Spanish word/name',
     'Spanish phrase',
     'Spanish command',
     'Spanish sentence',
     'Spanish introduction',
     'Spanish origin phrase',
+    'Spanish origin pattern word',
     'Spanish question word',
+    'Spanish question',
     'Spanish request',
+    'Spanish spelling group',
     'fixed Spanish pattern',
     'first word',
     'form of tener',
@@ -314,4 +418,17 @@ bool _hasExplicitPromptConstraint(String prompt) {
   ];
 
   return constraintMarkers.any(prompt.contains);
+}
+
+int _occurrences(String text, String pattern) {
+  var count = 0;
+  var index = 0;
+  while (true) {
+    index = text.indexOf(pattern, index);
+    if (index == -1) {
+      return count;
+    }
+    count += 1;
+    index += pattern.length;
+  }
 }
