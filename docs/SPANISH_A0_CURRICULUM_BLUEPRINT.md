@@ -226,6 +226,142 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 
 ---
 
+# Communicative Module Progression
+
+The Spanish A0 course should read as a growing set of usable situations, not as a sequence of grammar demonstrations.
+
+Grammar, vocabulary, reading rules and exercise templates are included because they help the learner do something concrete in Spanish.
+
+## M01 — First Words and Reading
+
+### Communicative Goal
+
+The learner can greet, say goodbye, use basic courtesy words and ask for very simple repair when communication breaks down.
+
+### Real-Life Scenarios
+
+- entering or leaving a classroom;
+- greeting a new person politely;
+- thanking someone for help;
+- saying that speech is not understood;
+- asking someone to repeat or speak more slowly.
+
+## M02 — Names and Introductions
+
+### Communicative Goal
+
+The learner can introduce themself, ask another person's name and complete a short first-meeting exchange.
+
+### Real-Life Scenarios
+
+- meeting a classmate;
+- introducing oneself to a teacher or helper;
+- asking a new person's name;
+- responding to `mucho gusto`;
+- recognizing names that include early Spanish reading challenges.
+
+## M03 — Origin and Places
+
+### Communicative Goal
+
+The learner can say where they are from, ask where another person is from and understand a tiny profile about origin.
+
+### Real-Life Scenarios
+
+- giving origin during a first conversation;
+- asking a new person where they are from;
+- reading a short profile with name and place;
+- recognizing common city and country names;
+- answering an early personal-information question without overexplaining.
+
+## M04 — How People Are and Classroom Survival
+
+### Communicative Goal
+
+The learner can ask how someone is, give a short wellbeing answer and use simple classroom-survival phrases.
+
+### Real-Life Scenarios
+
+- starting a small conversation after greeting;
+- answering `¿Qué tal?` or `¿Cómo estás?`;
+- saying that only a little Spanish is available;
+- asking what a word means;
+- repairing a classroom or tutoring exchange.
+
+## M05 — Numbers and Personal Facts
+
+### Communicative Goal
+
+The learner can recognize and produce numbers 0-20 and use them in tightly controlled personal facts.
+
+### Real-Life Scenarios
+
+- understanding a short number sequence;
+- giving a simple age statement;
+- recognizing a phone-style number sequence;
+- using one or two familiar quantities;
+- answering basic personal-information prompts.
+
+## M06 — Everyday Objects and Tener
+
+### Communicative Goal
+
+The learner can name common objects, use `un/una` with them and make simple possession statements with `tener`.
+
+### Real-Life Scenarios
+
+- saying that one has a book, phone, key or bag;
+- asking whether another person has a familiar object;
+- understanding a short object-location exchange;
+- distinguishing `tengo`, `tienes` and `tiene` in simple contexts;
+- repairing basic word order in short sentences.
+
+## M07 — Food, Drink and Needs
+
+### Communicative Goal
+
+The learner can make a tiny polite request for food or drink and express basic needs such as hunger, thirst or help.
+
+### Real-Life Scenarios
+
+- asking for water, coffee, bread or cheese;
+- saying `por favor` and `gracias` in a request exchange;
+- saying `tengo hambre` or `tengo sed`;
+- asking for help in a controlled public situation;
+- handling a very short cafe-style exchange.
+
+## M08 — People, Home and Simple Surroundings
+
+### Communicative Goal
+
+The learner can give and understand tiny facts about people, home, city and simple surroundings.
+
+### Real-Life Scenarios
+
+- saying a simple fact about a friend or family member;
+- saying where someone lives or is from in a minimal profile;
+- reading a tiny profile using known structures;
+- recognizing third-person facts with `es` and `tiene`;
+- combining people, places and familiar objects.
+
+## M09 — Integrated A0 Communication
+
+### Communicative Goal
+
+The learner can combine the A0 foundation in controlled conversations and checkpoints without relying on a single memorized script.
+
+### Real-Life Scenarios
+
+- meeting someone and exchanging name, origin and wellbeing;
+- requesting a basic item or help politely;
+- understanding a short profile or dialogue with known patterns;
+- completing a mixed first-contact interaction;
+- handling tightly controlled shopping, transport-help or health-need prompts only when they use already introduced language.
+
+Transport and health remain limited A0 scenarios in this blueprint. They should not become full topic modules until the course intentionally introduces the needed vocabulary and patterns.
+
+---
+
 # Complete Target Lesson Blueprint
 
 ID policy:

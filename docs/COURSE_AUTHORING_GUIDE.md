@@ -390,6 +390,60 @@ The exact order may vary by language.
 
 ---
 
+# Communicative Lesson Design
+
+Every lesson should teach one measurable communicative capability.
+
+Good lesson objectives describe what the learner can do:
+
+- greet someone;
+- ask a name;
+- state origin;
+- request help;
+- answer a simple question;
+- understand a tiny profile.
+
+Grammar supports communication.
+
+Do not introduce grammar solely because it is convenient to explain.
+
+Introduce a grammar pattern when the learner needs it to perform the lesson's communicative task.
+
+Vocabulary should appear in realistic situations.
+
+Do not introduce vocabulary only as an isolated list.
+
+New vocabulary should later reappear in at least one communicative context such as:
+
+- dialogue;
+- reading;
+- typed recall;
+- controlled application;
+- review;
+- checkpoint.
+
+Reading, dialogue, recall and application activities in a lesson should support the same learner goal.
+
+Avoid isolated grammar demonstrations that cannot be used in a realistic exchange.
+
+Avoid vocabulary that is not reused communicatively later in the course.
+
+Important patterns should reappear across multiple activity modes:
+
+- recognition;
+- guided recall;
+- free recall;
+- dialogue;
+- reading;
+- review;
+- checkpoint.
+
+Do not introduce language just because it completes a grammar table or expands a word category.
+
+Introduce it because the learner now needs it.
+
+---
+
 # Difficulty Progression
 
 Each lesson should introduce only a small increase in complexity.
