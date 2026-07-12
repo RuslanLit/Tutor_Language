@@ -617,17 +617,30 @@ Durable attempt evidence preserves:
 
 Durable attempts are historical evidence from completed lesson sessions.
 
-Attempt purpose distinguishes ordinary course progression, future
+Attempt purpose distinguishes ordinary course progression,
 planner-triggered reinforcement repeats and learner-triggered manual repeats.
 
 Purpose is authored by the launch path and persisted with the completed
 attempt; it is not inferred from timestamps or attempt counts.
 
 They do not prove long-term acquisition and do not by themselves schedule
-future review.
+delayed review.
 
-The Lesson Planner does not yet implement durable outcome-aware reinforcement
-policy.
+The Lesson Planner implements a bounded durable outcome-aware reinforcement
+policy:
+
+- mastered completed lessons advance normally;
+- fragile `normal` attempts receive one immediate reinforcement repeat;
+- fragile `manual_repeat` attempts also receive one immediate reinforcement
+  repeat because they are fresh learner-initiated evidence;
+- `reinforcement_repeat` attempts consume the immediate repeat opportunity;
+- fragile consumed reinforcement advances with reinforcement still recommended;
+- legacy completions advance without fabricated mastery.
+
+Incomplete lesson continuation has higher priority than reinforcement.
+
+This policy is immediate and deterministic only. It is not spaced repetition,
+mastery decay, delayed review scheduling or cross-lesson weakness planning.
 
 Legacy lesson completions that predate durable attempts remain completed, but
 their detailed outcome is unavailable.

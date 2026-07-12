@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
+import '../../core/learner/lesson_attempt.dart';
+import '../lesson_launch/lesson_launch_intent.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import 'course_navigation_models.dart';
 import 'course_navigation_providers.dart';
@@ -103,6 +105,13 @@ class LessonNavigationTile extends StatelessWidget {
               context.goNamed(
                 LessonRoute.name,
                 pathParameters: {'lessonId': lesson.lessonId},
+                extra: LessonLaunchIntent(
+                  lessonId: lesson.lessonId,
+                  attemptPurpose:
+                      lesson.status == LessonNavigationStatus.completed
+                      ? LessonAttemptPurpose.manualRepeat
+                      : LessonAttemptPurpose.normal,
+                ),
               );
             }
           : null,

@@ -18,16 +18,29 @@ class LearnerHistoryProjection {
       final events = await learnerProgressRepository.readEvents();
       final eventSummary = LearnerHistorySummary.fromProgressEvents(events);
       Map<String, LessonAttemptSummary> attemptSummaries = const {};
+      Map<String, List<LessonAttemptSummary>> attemptHistory = const {};
       if (state != null) {
         try {
-          attemptSummaries = {
-            for (final summary
-                in await learnerProgressRepository
-                    .getCourseLessonAttemptSummaries(state.currentCourseId))
-              summary.lessonId: summary,
-          };
+          final summaries = await learnerProgressRepository
+              .getCourseLessonAttemptSummaries(state.currentCourseId);
+          final latestByLessonId = <String, LessonAttemptSummary>{};
+          final historyByLessonId = <String, List<LessonAttemptSummary>>{};
+          for (final summary in summaries) {
+            latestByLessonId[summary.lessonId] = summary;
+            historyByLessonId
+                .putIfAbsent(summary.lessonId, () => <LessonAttemptSummary>[])
+                .add(summary);
+          }
+          attemptSummaries = Map.unmodifiable(latestByLessonId);
+          attemptHistory = Map<String, List<LessonAttemptSummary>>.unmodifiable(
+            {
+              for (final entry in historyByLessonId.entries)
+                entry.key: List<LessonAttemptSummary>.unmodifiable(entry.value),
+            },
+          );
         } catch (_) {
           attemptSummaries = const {};
+          attemptHistory = const {};
         }
       }
 
@@ -35,6 +48,7 @@ class LearnerHistoryProjection {
         completedLessonIds: eventSummary.completedLessonIds,
         currentLessonId: state?.currentTopicId,
         incompleteLessonIds: eventSummary.incompleteLessonIds,
+        lessonAttemptHistoryByLessonId: attemptHistory,
         latestLessonAttemptsByLessonId: Map.unmodifiable(attemptSummaries),
         recentCheckedAnswersCount: eventSummary.recentCheckedAnswersCount,
         recentCorrectAnswersCount: eventSummary.recentCorrectAnswersCount,

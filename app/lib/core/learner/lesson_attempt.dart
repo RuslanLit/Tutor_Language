@@ -289,6 +289,7 @@ class LessonAttemptSummary {
     required this.masteredStepCount,
     required this.fragileStepCount,
     required this.canonicalCheckableStepCount,
+    required this.learningPolicyVersion,
   });
 
   final String attemptId;
@@ -300,6 +301,7 @@ class LessonAttemptSummary {
   final int masteredStepCount;
   final int fragileStepCount;
   final int canonicalCheckableStepCount;
+  final String learningPolicyVersion;
 }
 
 class LessonAttemptDecodeException implements Exception {

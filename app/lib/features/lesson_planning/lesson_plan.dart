@@ -1,6 +1,14 @@
+import '../../core/learner/lesson_attempt.dart';
 import '../curriculum/curriculum_models.dart';
 
-enum LessonPlanType { newLesson, continueLesson, reviewLesson, repeatLesson }
+enum LessonPlanType {
+  newLesson,
+  continueLesson,
+  reviewLesson,
+  repeatLesson,
+  reinforcementRepeat,
+  courseComplete,
+}
 
 enum LessonPlanReasonCode {
   noHistorySelectFirstLesson,
@@ -11,6 +19,18 @@ enum LessonPlanReasonCode {
   noNextLessonAvailable,
   emptyCourse,
   invalidCurrentLessonFallback,
+  latestOutcomeMastered,
+  latestOutcomeNeedsReinforcement,
+  immediateReinforcementRepeatSelected,
+  reinforcementRepeatConsumedMastered,
+  reinforcementRepeatConsumedStillFragile,
+  manualRepeatNeedsReinforcement,
+  legacyCompletionWithoutDurableOutcome,
+  nextLessonAfterMastery,
+  nextLessonAfterBoundedReinforcement,
+  finalLessonMasteredCourseComplete,
+  finalReinforcementConsumedCourseComplete,
+  legacyFinalCompletionCourseComplete,
 }
 
 class LessonPlan {
@@ -19,6 +39,12 @@ class LessonPlan {
     required this.planType,
     required this.reasonCodes,
     required this.diagnosticExplanation,
+    this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.reinforcementRecommended = false,
+    this.sourceLessonId,
+    this.sourceOutcomeStatus,
+    this.sourceAttemptPurpose,
+    this.reinforcementConsumed = false,
     this.selectedReferences = const [],
   });
 
@@ -26,6 +52,12 @@ class LessonPlan {
   final LessonPlanType planType;
   final List<LessonPlanReasonCode> reasonCodes;
   final String diagnosticExplanation;
+  final LessonAttemptPurpose attemptPurpose;
+  final bool reinforcementRecommended;
+  final String? sourceLessonId;
+  final DurableLessonOutcomeStatus? sourceOutcomeStatus;
+  final LessonAttemptPurpose? sourceAttemptPurpose;
+  final bool reinforcementConsumed;
   final List<LessonActivityReference> selectedReferences;
 }
 

@@ -126,6 +126,13 @@ void main() {
     expect(latest!.attemptId, 'attempt.002');
     expect(latest.outcomeStatus, DurableLessonOutcomeStatus.mastered);
     expect(latest.purpose, LessonAttemptPurpose.manualRepeat);
+    expect(latest.learningPolicyVersion, 'e20-v1');
+    expect(
+      summary.lessonAttemptHistoryByLessonId['lesson.completed']?.map(
+        (attempt) => attempt.attemptId,
+      ),
+      ['attempt.001', 'attempt.002'],
+    );
   });
 
   test('legacy completion has no fabricated durable outcome', () async {

@@ -8,6 +8,7 @@ class LearnerHistorySummary {
     this.completedLessonIds = const {},
     this.currentLessonId,
     this.incompleteLessonIds = const {},
+    this.lessonAttemptHistoryByLessonId = const {},
     this.latestLessonAttemptsByLessonId = const {},
     this.recentCheckedAnswersCount = 0,
     this.recentCorrectAnswersCount = 0,
@@ -59,6 +60,7 @@ class LearnerHistorySummary {
   final Set<String> completedLessonIds;
   final String? currentLessonId;
   final Set<String> incompleteLessonIds;
+  final Map<String, List<LessonAttemptSummary>> lessonAttemptHistoryByLessonId;
   final Map<String, LessonAttemptSummary> latestLessonAttemptsByLessonId;
   final int recentCheckedAnswersCount;
   final int recentCorrectAnswersCount;
@@ -76,6 +78,7 @@ class LearnerHistorySummary {
     return completedLessonIds.isNotEmpty ||
         currentLessonId != null ||
         incompleteLessonIds.isNotEmpty ||
+        lessonAttemptHistoryByLessonId.isNotEmpty ||
         latestLessonAttemptsByLessonId.isNotEmpty ||
         recentCheckedAnswersCount > 0 ||
         lastAttemptedLessonId != null;

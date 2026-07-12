@@ -51,7 +51,7 @@ void main() {
     expect(plan.selectedLessonId, 'lesson.planned');
   });
 
-  test('LessonLaunchIntent maps plan type to attempt purpose', () {
+  test('LessonLaunchIntent executes explicit plan attempt purpose', () {
     const normalPlan = LessonPlan(
       selectedLessonId: 'lesson.normal',
       planType: LessonPlanType.newLesson,
@@ -63,6 +63,7 @@ void main() {
       planType: LessonPlanType.reinforcementRepeat,
       reasonCodes: [LessonPlanReasonCode.lowAccuracyRepeatCurrent],
       diagnosticExplanation: 'Reinforcement launch.',
+      attemptPurpose: LessonAttemptPurpose.reinforcementRepeat,
     );
 
     expect(
@@ -73,6 +74,28 @@ void main() {
       LessonLaunchIntent.fromPlan(reinforcementPlan).attemptPurpose,
       LessonAttemptPurpose.reinforcementRepeat,
     );
+  });
+
+  testWidgets('course complete plan renders completion action', (tester) async {
+    await tester.pumpWidget(
+      _app(
+        launchService: _FakeLessonLaunchService(
+          const LessonPlan(
+            selectedLessonId: 'lesson.final',
+            planType: LessonPlanType.courseComplete,
+            reasonCodes: [
+              LessonPlanReasonCode.finalLessonMasteredCourseComplete,
+            ],
+            diagnosticExplanation: 'Course complete.',
+          ),
+        ),
+        assemblyService: _RecordingLessonAssemblyService(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Course complete'), findsOneWidget);
+    expect(find.text('Back to course'), findsOneWidget);
   });
 
   testWidgets(

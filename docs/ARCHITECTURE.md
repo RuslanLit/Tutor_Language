@@ -306,7 +306,30 @@ never modifies learner data.
 
 Its decisions must remain deterministic and explainable.
 
-`LessonPlan` is the planner output. It identifies the selected LessonDefinition, the plan type and reason codes explaining the selection.
+`LessonPlan` is the planner output. It identifies the selected
+LessonDefinition, the plan type, launch attempt purpose, reinforcement metadata
+and reason codes explaining the selection.
+
+The planner consumes durable completed lesson attempts through
+`LearnerHistorySummary`.
+
+For completed lessons, durable `LessonOutcomeStatus` is authoritative when it is
+available:
+
+- `mastered` advances to the next canonical lesson;
+- `completedWithReinforcement` from `normal` or `manual_repeat` selects one
+  immediate reinforcement repeat of the same lesson;
+- `completedWithReinforcement` from `reinforcement_repeat` advances to the next
+  canonical lesson while preserving `reinforcementRecommended`;
+- legacy completion without durable attempt detail advances to the next
+  canonical lesson without fabricating mastery.
+
+Current incomplete lessons have higher priority than reinforcement of another
+completed lesson.
+
+The existing low-recent-accuracy rule remains only as a fallback when no
+durable completed-lesson outcome applies. Durable lesson outcomes must not
+compete with the older accuracy rule.
 
 Lesson Goal
 
@@ -870,8 +893,8 @@ stores an immutable completed lesson attempt containing:
 
 The Session Engine remains persistence-agnostic.
 
-Durable completed lesson attempts are projected into planner-ready history, but
-the Lesson Planner does not yet implement outcome-aware reinforcement policy.
+Durable completed lesson attempts are projected into planner-ready history. The
+Lesson Planner uses them for bounded outcome-aware reinforcement policy.
 
 Active in-progress `LessonSessionState` is still not persisted.
 
@@ -937,14 +960,23 @@ Launch provenance ownership:
 
 - ordinary planner/course launch, sequential next lesson and incomplete-lesson
   continuation use `normal`;
-- future planner-triggered immediate reinforcement repeats use
-  `reinforcement_repeat`;
+- planner-triggered immediate reinforcement repeats use `reinforcement_repeat`;
 - explicit learner repeats of completed lessons use `manual_repeat`.
 
 The Session Engine does not inspect or infer attempt purpose.
 
-The Lesson Planner does not yet apply durable outcome-aware reinforcement
-policy.
+The Lesson Planner applies a bounded immediate reinforcement policy:
+
+- a fragile `normal` or `manual_repeat` attempt may trigger one
+  `reinforcement_repeat`;
+- a `reinforcement_repeat` attempt consumes that immediate opportunity even if
+  it remains fragile;
+- a fragile consumed reinforcement advances to the next lesson with
+  `reinforcementRecommended`;
+- final lessons follow the same bounded policy before course completion.
+
+The planner does not schedule delayed review, scan the whole course for weak
+lessons, use time-based spacing or perform step-level cross-session adaptation.
 
 Legacy completions created before durable attempts remain valid completion
 progress.

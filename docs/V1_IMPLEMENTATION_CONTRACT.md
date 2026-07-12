@@ -430,18 +430,27 @@ mastery_score always remains within:
 
 # Rule-Based Lesson Planner Rules
 
-Generation 1 intentionally keeps the planner simple.
+Generation 1 intentionally keeps the planner deterministic and bounded.
 
 Current implemented rules:
 
 1. No learner history → first curriculum LessonDefinition.
 2. Current incomplete lesson → continue current LessonDefinition.
-3. Low recent accuracy → repeat or review.
-4. Completed current lesson → select next LessonDefinition.
-5. Invalid current lesson → fall back deterministically.
-6. Completed course with no next lesson → review.
+3. Durable `mastered` completion → select the next canonical
+   LessonDefinition.
+4. Durable `completedWithReinforcement` from `normal` or `manualRepeat` → one
+   immediate `reinforcementRepeat` of the same LessonDefinition.
+5. Durable `reinforcementRepeat` completion → advance, even if still fragile,
+   while preserving reinforcement as informational metadata.
+6. Legacy completion without durable attempt detail → advance without
+   fabricated mastery.
+7. Low recent accuracy → fallback repeat/review only when no durable completed
+   lesson outcome applies.
+8. Invalid current lesson → fall back deterministically.
+9. Completed course with no next lesson → course complete.
 
-Future planner rules may add review pressure, richer prerequisites, mastery and cognitive-load constraints.
+Future planner rules may add delayed review pressure, richer prerequisites,
+cognitive-load constraints and cross-lesson weakness planning.
 
 Generation 1 should remain below twenty deterministic planning rules.
 

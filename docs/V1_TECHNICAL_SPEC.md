@@ -333,6 +333,26 @@ Future local LLM support may provide:
 
 The Lesson Planner must remain deterministic.
 
+It consumes planner-ready learner history, including durable lesson outcomes
+and attempt purpose.
+
+Current outcome-aware policy:
+
+- continue an incomplete current lesson first;
+- advance after durable `mastered` completion;
+- assign one immediate `reinforcement_repeat` after fragile `normal` or
+  `manual_repeat` completion;
+- treat any `reinforcement_repeat` attempt as consuming that immediate repeat;
+- advance after consumed reinforcement while preserving
+  `reinforcementRecommended` when still fragile;
+- advance after legacy completion without fabricating mastery.
+
+The older low-recent-accuracy repeat/review rule remains only as a fallback
+when no durable completed-lesson outcome applies.
+
+The planner does not query persistence, inspect raw answers, schedule delayed
+review, perform spaced repetition or generate custom lessons.
+
 AI must not be required for lesson planning, lesson assembly, lesson presentation or activity evaluation.
 
 ---

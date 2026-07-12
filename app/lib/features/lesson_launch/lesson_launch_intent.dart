@@ -10,14 +10,7 @@ class LessonLaunchIntent {
   factory LessonLaunchIntent.fromPlan(LessonPlan plan) {
     return LessonLaunchIntent(
       lessonId: plan.selectedLessonId,
-      attemptPurpose: switch (plan.planType) {
-        LessonPlanType.reinforcementRepeat =>
-          LessonAttemptPurpose.reinforcementRepeat,
-        LessonPlanType.newLesson ||
-        LessonPlanType.continueLesson ||
-        LessonPlanType.reviewLesson ||
-        LessonPlanType.repeatLesson => LessonAttemptPurpose.normal,
-      },
+      attemptPurpose: plan.attemptPurpose,
     );
   }
 

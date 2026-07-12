@@ -192,6 +192,7 @@ class LearnerProgressRepository {
             masteredStepCount: attempt.masteredStepCount,
             fragileStepCount: attempt.fragileStepCount,
             canonicalCheckableStepCount: attempt.canonicalCheckableStepCount,
+            learningPolicyVersion: attempt.learningPolicyVersion,
           ),
         );
       } on LessonAttemptDecodeException {

@@ -954,13 +954,12 @@ special-purpose provenance was available.
 Launch ownership is:
 
 - planner/course progression and incomplete continuation: `normal`;
-- future planner-selected reinforcement repeat: `reinforcementRepeat`;
+- planner-selected reinforcement repeat: `reinforcementRepeat`;
 - explicit learner repeat of completed lessons: `manualRepeat`.
 
 The Session Engine remains unaware of attempt purpose.
 
-The Lesson Planner may consume purpose in a future bounded reinforcement phase,
-but E21C does not add that planning policy.
+The Lesson Planner consumes purpose for bounded immediate reinforcement policy.
 
 Consequences
 
@@ -977,6 +976,76 @@ Rejected alternatives:
 - infer purpose from lesson completion state;
 - keep purpose only in provider memory;
 - treat all repeats as equivalent.
+
+---
+
+## ADR: Use Durable Outcomes and Attempt Purpose for Bounded Reinforcement
+
+Status
+
+Accepted
+
+Context
+
+Lesson completion alone does not show whether the learner demonstrated strong
+mastery or completed with fragile evidence.
+
+The application now persists immutable durable lesson outcomes and explicit
+attempt purpose.
+
+Without bounded policy, fragile outcomes could either be ignored or repeat
+indefinitely.
+
+Decision
+
+The Rule-Based Lesson Planner uses durable lesson outcomes and attempt purpose
+to select one immediate deterministic reinforcement repeat when the latest
+course-position lesson was completed with reinforcement still needed.
+
+Policy:
+
+- `mastered` advances to the next canonical lesson;
+- `completedWithReinforcement` from `normal` launches the same lesson once with
+  `reinforcementRepeat`;
+- `completedWithReinforcement` from `manualRepeat` also launches one
+  `reinforcementRepeat`;
+- any `reinforcementRepeat` attempt consumes the immediate repeat opportunity;
+- if a consumed reinforcement attempt is still fragile, the planner advances
+  and preserves reinforcement as informational metadata;
+- legacy completion without durable outcome detail advances without fabricated
+  mastery;
+- current incomplete lesson continuation has priority over reinforcement.
+
+The planner remains pure. It consumes planner-ready learner history and does
+not query Drift, inspect raw answers, recalculate persisted outcomes, mutate
+session state or persist attempts.
+
+The Lesson Launch layer executes the planner's selected lesson and explicit
+attempt purpose. It must not reinterpret planner reason codes into a different
+purpose.
+
+Consequences
+
+Fragile completions receive one immediate reinforcement opportunity.
+
+Planner-triggered repeats cannot create an infinite repeat loop.
+
+Learner-triggered manual repeats remain distinct from planner-triggered
+reinforcement and may create fresh evidence.
+
+Legacy completion behavior remains compatible.
+
+Delayed review, spaced repetition, mastery decay, cross-lesson weakness
+planning and step-level adaptation remain future work.
+
+Rejected alternatives:
+
+- repeat every fragile result indefinitely;
+- infer repeat consumption from attempt counts;
+- treat manual and planner repeats as identical;
+- use timestamps to infer purpose;
+- put outcome policy in Lesson Launch;
+- schedule delayed reviews in this initial integration.
 
 ---
 

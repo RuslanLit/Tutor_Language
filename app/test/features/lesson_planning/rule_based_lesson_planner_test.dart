@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_state.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/lesson_planning/learner_history_summary.dart';
 import 'package:tutor_language/features/lesson_planning/lesson_plan.dart';
+import 'package:tutor_language/features/lesson_planning/planning_policy.dart';
 import 'package:tutor_language/features/lesson_planning/planning_request.dart';
 import 'package:tutor_language/features/lesson_planning/rule_based_lesson_planner.dart';
 
@@ -41,7 +43,7 @@ void main() {
     ]);
   });
 
-  test('completed current lesson selects next lesson', () {
+  test('legacy completed current lesson selects next lesson', () {
     final result = planner.plan(
       const PlanningRequest(
         course: _course,
@@ -55,31 +57,35 @@ void main() {
     expect(result.plan!.selectedLessonId, 'lesson.002');
     expect(result.plan!.planType, LessonPlanType.newLesson);
     expect(result.plan!.reasonCodes, [
+      LessonPlanReasonCode.legacyCompletionWithoutDurableOutcome,
       LessonPlanReasonCode.completedLessonSelectNext,
     ]);
   });
 
-  test('low recent accuracy produces repeat plan', () {
-    final result = planner.plan(
-      const PlanningRequest(
-        course: _course,
-        learnerHistory: LearnerHistorySummary(
-          completedLessonIds: {'lesson.002'},
-          currentLessonId: 'lesson.002',
-          recentCheckedAnswersCount: 4,
-          recentCorrectAnswersCount: 1,
+  test(
+    'low recent accuracy remains fallback without completed outcome evidence',
+    () {
+      final result = planner.plan(
+        const PlanningRequest(
+          course: _course,
+          learnerHistory: LearnerHistorySummary(
+            currentLessonId: 'lesson.002',
+            recentCheckedAnswersCount: 4,
+            recentCorrectAnswersCount: 1,
+          ),
+          policy: PlanningPolicy(preferIncompleteLesson: false),
         ),
-      ),
-    );
+      );
 
-    expect(result.plan!.selectedLessonId, 'lesson.002');
-    expect(result.plan!.planType, LessonPlanType.repeatLesson);
-    expect(result.plan!.reasonCodes, [
-      LessonPlanReasonCode.lowAccuracyRepeatCurrent,
-    ]);
-  });
+      expect(result.plan!.selectedLessonId, 'lesson.002');
+      expect(result.plan!.planType, LessonPlanType.repeatLesson);
+      expect(result.plan!.reasonCodes, [
+        LessonPlanReasonCode.lowAccuracyRepeatCurrent,
+      ]);
+    },
+  );
 
-  test('no next lesson produces review plan', () {
+  test('legacy final completion produces course complete plan', () {
     final result = planner.plan(
       const PlanningRequest(
         course: _course,
@@ -91,10 +97,263 @@ void main() {
     );
 
     expect(result.plan!.selectedLessonId, 'lesson.003');
-    expect(result.plan!.planType, LessonPlanType.reviewLesson);
+    expect(result.plan!.planType, LessonPlanType.courseComplete);
     expect(result.plan!.reasonCodes, [
-      LessonPlanReasonCode.noNextLessonAvailable,
+      LessonPlanReasonCode.legacyCompletionWithoutDurableOutcome,
+      LessonPlanReasonCode.legacyFinalCompletionCourseComplete,
     ]);
+  });
+
+  test('mastered normal attempt selects next lesson', () {
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: _historyWithAttempt(
+          _attempt(
+            attemptId: 'attempt.mastered',
+            lessonId: 'lesson.001',
+            outcomeStatus: DurableLessonOutcomeStatus.mastered,
+          ),
+          currentLessonId: 'lesson.001',
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.002');
+    expect(result.plan!.planType, LessonPlanType.newLesson);
+    expect(result.plan!.attemptPurpose, LessonAttemptPurpose.normal);
+    expect(result.plan!.reasonCodes, [
+      LessonPlanReasonCode.latestOutcomeMastered,
+      LessonPlanReasonCode.nextLessonAfterMastery,
+    ]);
+    expect(result.plan!.sourceLessonId, 'lesson.001');
+    expect(
+      result.plan!.sourceOutcomeStatus,
+      DurableLessonOutcomeStatus.mastered,
+    );
+    expect(result.plan!.sourceAttemptPurpose, LessonAttemptPurpose.normal);
+  });
+
+  test('fragile normal attempt selects one reinforcement repeat', () {
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: _historyWithAttempt(
+          _attempt(
+            attemptId: 'attempt.fragile',
+            lessonId: 'lesson.001',
+            outcomeStatus:
+                DurableLessonOutcomeStatus.completedWithReinforcement,
+          ),
+          currentLessonId: 'lesson.001',
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.001');
+    expect(result.plan!.planType, LessonPlanType.reinforcementRepeat);
+    expect(
+      result.plan!.attemptPurpose,
+      LessonAttemptPurpose.reinforcementRepeat,
+    );
+    expect(result.plan!.reasonCodes, [
+      LessonPlanReasonCode.latestOutcomeNeedsReinforcement,
+      LessonPlanReasonCode.immediateReinforcementRepeatSelected,
+    ]);
+  });
+
+  test('fragile manual attempt starts a new reinforcement chain', () {
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: _historyWithAttempt(
+          _attempt(
+            attemptId: 'attempt.manual.fragile',
+            lessonId: 'lesson.001',
+            purpose: LessonAttemptPurpose.manualRepeat,
+            outcomeStatus:
+                DurableLessonOutcomeStatus.completedWithReinforcement,
+          ),
+          currentLessonId: 'lesson.001',
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.001');
+    expect(result.plan!.planType, LessonPlanType.reinforcementRepeat);
+    expect(result.plan!.reasonCodes, [
+      LessonPlanReasonCode.manualRepeatNeedsReinforcement,
+      LessonPlanReasonCode.immediateReinforcementRepeatSelected,
+    ]);
+  });
+
+  test('mastered reinforcement repeat selects next lesson', () {
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: _historyWithAttempt(
+          _attempt(
+            attemptId: 'attempt.reinforced.mastered',
+            lessonId: 'lesson.001',
+            purpose: LessonAttemptPurpose.reinforcementRepeat,
+            outcomeStatus: DurableLessonOutcomeStatus.mastered,
+          ),
+          currentLessonId: 'lesson.001',
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.002');
+    expect(result.plan!.planType, LessonPlanType.newLesson);
+    expect(result.plan!.reinforcementRecommended, isFalse);
+    expect(result.plan!.reinforcementConsumed, isTrue);
+    expect(result.plan!.reasonCodes, [
+      LessonPlanReasonCode.reinforcementRepeatConsumedMastered,
+      LessonPlanReasonCode.nextLessonAfterBoundedReinforcement,
+    ]);
+  });
+
+  test('fragile reinforcement repeat advances without infinite loop', () {
+    final history = _historyWithAttempt(
+      _attempt(
+        attemptId: 'attempt.reinforced.fragile',
+        lessonId: 'lesson.001',
+        purpose: LessonAttemptPurpose.reinforcementRepeat,
+        outcomeStatus: DurableLessonOutcomeStatus.completedWithReinforcement,
+      ),
+      currentLessonId: 'lesson.001',
+    );
+    final request = PlanningRequest(course: _course, learnerHistory: history);
+
+    final first = planner.plan(request).plan!;
+    final second = planner.plan(request).plan!;
+
+    for (final plan in [first, second]) {
+      expect(plan.selectedLessonId, 'lesson.002');
+      expect(plan.planType, LessonPlanType.newLesson);
+      expect(plan.attemptPurpose, LessonAttemptPurpose.normal);
+      expect(plan.reinforcementRecommended, isTrue);
+      expect(plan.reinforcementConsumed, isTrue);
+      expect(plan.reasonCodes, [
+        LessonPlanReasonCode.reinforcementRepeatConsumedStillFragile,
+        LessonPlanReasonCode.nextLessonAfterBoundedReinforcement,
+      ]);
+    }
+  });
+
+  test(
+    'current incomplete lesson wins over earlier fragile durable history',
+    () {
+      final result = planner.plan(
+        PlanningRequest(
+          course: _course,
+          learnerHistory: LearnerHistorySummary(
+            completedLessonIds: const {'lesson.001'},
+            currentLessonId: 'lesson.002',
+            incompleteLessonIds: const {'lesson.002'},
+            latestLessonAttemptsByLessonId: {
+              'lesson.001': _attempt(
+                attemptId: 'attempt.fragile.older',
+                lessonId: 'lesson.001',
+                outcomeStatus:
+                    DurableLessonOutcomeStatus.completedWithReinforcement,
+              ),
+            },
+          ),
+        ),
+      );
+
+      expect(result.plan!.selectedLessonId, 'lesson.002');
+      expect(result.plan!.planType, LessonPlanType.continueLesson);
+    },
+  );
+
+  test('final fragile normal attempt receives one reinforcement repeat', () {
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: _historyWithAttempt(
+          _attempt(
+            attemptId: 'attempt.final.fragile',
+            lessonId: 'lesson.003',
+            outcomeStatus:
+                DurableLessonOutcomeStatus.completedWithReinforcement,
+          ),
+          completedLessonIds: const {'lesson.001', 'lesson.002'},
+          currentLessonId: 'lesson.003',
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.003');
+    expect(result.plan!.planType, LessonPlanType.reinforcementRepeat);
+  });
+
+  test(
+    'final fragile reinforcement repeat completes course with recommendation',
+    () {
+      final result = planner.plan(
+        PlanningRequest(
+          course: _course,
+          learnerHistory: _historyWithAttempt(
+            _attempt(
+              attemptId: 'attempt.final.reinforcement.fragile',
+              lessonId: 'lesson.003',
+              purpose: LessonAttemptPurpose.reinforcementRepeat,
+              outcomeStatus:
+                  DurableLessonOutcomeStatus.completedWithReinforcement,
+            ),
+            completedLessonIds: const {'lesson.001', 'lesson.002'},
+            currentLessonId: 'lesson.003',
+          ),
+        ),
+      );
+
+      expect(result.plan!.selectedLessonId, 'lesson.003');
+      expect(result.plan!.planType, LessonPlanType.courseComplete);
+      expect(result.plan!.reinforcementRecommended, isTrue);
+      expect(result.plan!.reasonCodes, [
+        LessonPlanReasonCode.reinforcementRepeatConsumedStillFragile,
+        LessonPlanReasonCode.finalReinforcementConsumedCourseComplete,
+      ]);
+    },
+  );
+
+  test('equal attempt timestamps use attempt id as stable tie-breaker', () {
+    final completedAt = DateTime.utc(2026, 7);
+    final result = planner.plan(
+      PlanningRequest(
+        course: _course,
+        learnerHistory: LearnerHistorySummary(
+          completedLessonIds: const {'lesson.001'},
+          currentLessonId: 'lesson.001',
+          lessonAttemptHistoryByLessonId: {
+            'lesson.001': [
+              _attempt(
+                attemptId: 'attempt.a',
+                lessonId: 'lesson.001',
+                completedAt: completedAt,
+                outcomeStatus: DurableLessonOutcomeStatus.mastered,
+              ),
+              _attempt(
+                attemptId: 'attempt.z',
+                lessonId: 'lesson.001',
+                completedAt: completedAt,
+                outcomeStatus:
+                    DurableLessonOutcomeStatus.completedWithReinforcement,
+              ),
+            ],
+          },
+        ),
+      ),
+    );
+
+    expect(result.plan!.selectedLessonId, 'lesson.001');
+    expect(result.plan!.planType, LessonPlanType.reinforcementRepeat);
+    expect(
+      result.plan!.sourceOutcomeStatus,
+      DurableLessonOutcomeStatus.completedWithReinforcement,
+    );
   });
 
   test('empty course returns clear failure', () {
@@ -228,6 +487,49 @@ const _emptyCourse = Course(
   modules: [],
   lessons: [],
 );
+
+LearnerHistorySummary _historyWithAttempt(
+  LessonAttemptSummary attempt, {
+  Set<String> completedLessonIds = const {},
+  String? currentLessonId,
+}) {
+  final completed = <String>{...completedLessonIds, attempt.lessonId};
+  return LearnerHistorySummary(
+    completedLessonIds: Set.unmodifiable(completed),
+    currentLessonId: currentLessonId,
+    lessonAttemptHistoryByLessonId: {
+      attempt.lessonId: [attempt],
+    },
+    latestLessonAttemptsByLessonId: {attempt.lessonId: attempt},
+  );
+}
+
+LessonAttemptSummary _attempt({
+  required String attemptId,
+  required String lessonId,
+  DurableLessonOutcomeStatus outcomeStatus =
+      DurableLessonOutcomeStatus.mastered,
+  LessonAttemptPurpose purpose = LessonAttemptPurpose.normal,
+  DateTime? completedAt,
+}) {
+  return LessonAttemptSummary(
+    attemptId: attemptId,
+    lessonId: lessonId,
+    courseId: _course.id,
+    purpose: purpose,
+    completedAt: completedAt ?? DateTime.utc(2026, 7),
+    outcomeStatus: outcomeStatus,
+    masteredStepCount: outcomeStatus == DurableLessonOutcomeStatus.mastered
+        ? 1
+        : 0,
+    fragileStepCount:
+        outcomeStatus == DurableLessonOutcomeStatus.completedWithReinforcement
+        ? 1
+        : 0,
+    canonicalCheckableStepCount: 1,
+    learningPolicyVersion: 'e20-v1',
+  );
+}
 
 const _lesson001 = Lesson(
   metadata: LessonMetadata(
