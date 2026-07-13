@@ -44,10 +44,16 @@
     },
     {
       "id": "es.a0.m04",
-      "title": "Unit 1 Review and Foundations",
+      "title": "People and Everyday Conversation",
       "lessonIds": [
-        "es.a0.m04.l011",
-        "es.a0.m04.l012"
+        "es.a0.m04.l020",
+        "es.a0.m04.l021",
+        "es.a0.m04.l022",
+        "es.a0.m04.l023",
+        "es.a0.m04.l024",
+        "es.a0.m04.l025",
+        "es.a0.m04.l026",
+        "es.a0.m04.l027"
       ]
     },
     {
@@ -1134,265 +1140,6 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m04.l010.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m04.l011",
-        "title": "Tener: I Have",
-        "moduleId": "es.a0.m04",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 15,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.0.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m04.l010"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.tener.basic",
-          "description": "Use tener in the forms tengo, tienes, and tiene for a few A0 expressions."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m04.l011.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.tener_basic",
-              "title": "Tener vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tener.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tengo.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tienes.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tiene.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tengo_hambre.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tengo_un_libro.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_foundations_review.json",
-                  "referenceId": "vocab.es.a0.foundations.tienes_razon.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.grammar.tener_basic",
-              "title": "Tener: tengo, tienes, tiene",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_foundations_review.json",
-                  "referenceId": "grammar.es.a0.foundations.tener_basic.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.dialogue.tener_basic",
-              "title": "Tener dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
-                  "referenceId": "dialogue.es.a0.foundations.tener_basic.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.tener_basic",
-              "title": "Tener reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
-                  "referenceId": "reading.es.a0.foundations.tener_basic.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.tener_basic",
-              "title": "Tener practice",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.tener_meaning_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.fill_tengo_hambre.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.type_tengo_un_libro.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.tienes_razon_choice.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m04.l011.summary",
-        "reviewPrompt": "Review tener with tengo, tienes, tiene, tengo hambre, and tengo un libro.",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.tener_basic",
-          "activity.grammar.tener_basic",
-          "activity.dialogue.tener_basic",
-          "activity.reading.tener_basic",
-          "activity.practice.tener_basic"
-        ],
-        "minimumCompletedActivities": 5,
-        "mandatorySections": [
-          "es.a0.m04.l011.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m04.l012",
-        "title": "Basic Word Order",
-        "moduleId": "es.a0.m04",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 15,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.0.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m04.l011"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.word_order.basic",
-          "description": "Keep familiar A0 sentence patterns in a clear basic word order."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m04.l012.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.grammar.word_order_basic",
-              "title": "Basic word order",
-              "type": "grammar",
-              "order": 1,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_foundations_review.json",
-                  "referenceId": "grammar.es.a0.foundations.basic_word_order.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.word_order_basic",
-              "title": "Short sentence reading",
-              "type": "reading",
-              "order": 2,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
-                  "referenceId": "reading.es.a0.foundations.word_order.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.word_order_basic",
-              "title": "Word order practice",
-              "type": "exercise_template",
-              "order": 3,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.word_order_me_llamo.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.word_order_soy_de.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.word_order_tengo.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m04.l012.summary",
-        "reviewPrompt": "Review short fixed patterns: Me llamo Ana, Soy de Madrid, and Tengo un libro.",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.grammar.word_order_basic",
-          "activity.reading.word_order_basic",
-          "activity.practice.word_order_basic"
-        ],
-        "minimumCompletedActivities": 3,
-        "mandatorySections": [
-          "es.a0.m04.l012.section.main"
         ]
       },
       "references": []
@@ -2490,6 +2237,1098 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m03.l019.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l020",
+        "title": "Who Is This Person?",
+        "description": "Ask who a person is and identify the person by name.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l019"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l020.primary",
+          "description": "Ask who a person is and say the person’s name."
+        }
+      ],
+      "communicativeOutcome": "Ask who a person is and say the person’s name.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l020.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l020.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.quien.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.es.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.se_llama.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.el.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.ella.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l020.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.who_is_person.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.se_llama.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l020.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_4_people.json",
+                  "referenceId": "dialogue.es.a0.m04.introducing_friend.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l020.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l020.who_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l020.fill_se_llama.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l020.type_quien_es.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l020.type_se_llama_marta.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l020.type_es_marta.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l020.summary",
+        "reviewPrompt": "Ask who a person is and say the person’s name.",
+        "referenceIds": [
+          "objective.es.a0.m04.l020.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l020.activity.vocabulary",
+          "es.a0.m04.l020.activity.grammar",
+          "es.a0.m04.l020.activity.dialogue",
+          "es.a0.m04.l020.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l020.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l021",
+        "title": "People and Roles",
+        "description": "Say whether a person is a friend, teacher, student or classmate.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l020"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l021.primary",
+          "description": "Identify a person’s basic relationship or role."
+        }
+      ],
+      "communicativeOutcome": "Identify a person’s basic relationship or role.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l021.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l021.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.mi.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.tu.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.amigo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.amiga.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.profesor.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.profesora.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.estudiante.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.companero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.companera.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l021.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.roles_mi_tu.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.basic_gender_agreement.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l021.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_4_people.json",
+                  "referenceId": "reading.es.a0.m04.class_intro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l021.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l021.role_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l021.fill_mi_amigo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l021.type_es_mi_amiga.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l021.type_es_mi_profesor.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l021.type_es_estudiante.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l021.summary",
+        "reviewPrompt": "Identify a person’s basic relationship or role.",
+        "referenceIds": [
+          "objective.es.a0.m04.l021.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l021.activity.vocabulary",
+          "es.a0.m04.l021.activity.grammar",
+          "es.a0.m04.l021.activity.reading",
+          "es.a0.m04.l021.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l021.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l022",
+        "title": "Basic Description",
+        "description": "Ask what a person is like and give one basic description.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l021"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l022.primary",
+          "description": "Describe a person with one controlled adjective."
+        }
+      ],
+      "communicativeOutcome": "Describe a person with one controlled adjective.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l022.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l022.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.como_es.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.simpatico.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.simpatica.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.alto.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.alta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.joven.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.serio.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.seria.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.muy.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l022.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.como_es_description.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.basic_gender_agreement.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l022.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_4_people.json",
+                  "referenceId": "reading.es.a0.m04.short_message.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l022.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l022.description_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l022.fill_simpatica.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l022.type_como_es.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l022.type_es_simpatica.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l022.type_es_alto.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l022.summary",
+        "reviewPrompt": "Describe a person with one controlled adjective.",
+        "referenceIds": [
+          "objective.es.a0.m04.l022.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l022.activity.vocabulary",
+          "es.a0.m04.l022.activity.grammar",
+          "es.a0.m04.l022.activity.reading",
+          "es.a0.m04.l022.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l022.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l023",
+        "title": "Information About Another Person",
+        "description": "State another person’s origin, residence and language.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l022"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l023.primary",
+          "description": "Use es, vive and habla for another person."
+        }
+      ],
+      "communicativeOutcome": "Use es, vive and habla for another person.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l023.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l023.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.vive.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.habla.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.tambien.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.pero.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l023.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.third_person_identity.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l023.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_4_people.json",
+                  "referenceId": "dialogue.es.a0.m04.origin_residence.v1"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_4_people.json",
+                  "referenceId": "dialogue.es.a0.m04.languages.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l023.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_4_people.json",
+                  "referenceId": "reading.es.a0.m04.marta_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l023.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l023.person_form_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l023.fill_vive.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l023.type_es_de_espana.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l023.type_vive_en_lima.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l023.type_habla_ingles.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l023.summary",
+        "reviewPrompt": "Use es, vive and habla for another person.",
+        "referenceIds": [
+          "objective.es.a0.m04.l023.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l023.activity.vocabulary",
+          "es.a0.m04.l023.activity.grammar",
+          "es.a0.m04.l023.activity.dialogue",
+          "es.a0.m04.l023.activity.reading",
+          "es.a0.m04.l023.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l023.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l024",
+        "title": "Everyday Questions and Answers",
+        "description": "Ask and answer simple yes/no questions about another person.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l023"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l024.primary",
+          "description": "Ask and answer basic questions about another person."
+        }
+      ],
+      "communicativeOutcome": "Ask and answer basic questions about another person.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l024.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l024.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.no_es.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.amigo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.habla.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_4_people.json",
+                  "referenceId": "vocab.es.a0.m04.tu.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l024.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.yes_no_person_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l024.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l024.yes_no_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l024.fill_no_es.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l024.type_es_tu_amigo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l024.type_no_no_es_mi_amigo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l024.type_habla_espanol_question.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l024.summary",
+        "reviewPrompt": "Ask and answer basic questions about another person.",
+        "referenceIds": [
+          "objective.es.a0.m04.l024.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l024.activity.vocabulary",
+          "es.a0.m04.l024.activity.grammar",
+          "es.a0.m04.l024.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l024.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l025",
+        "title": "Short Everyday Conversation",
+        "description": "Combine greeting, person identification, role, description and language facts.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l024"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l025.primary",
+          "description": "Sustain a short predictable conversation about another person."
+        }
+      ],
+      "communicativeOutcome": "Sustain a short predictable conversation about another person.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l025.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l025.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 1,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_4_people.json",
+                  "referenceId": "grammar.es.a0.m04.person_conversation.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l025.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_4_people.json",
+                  "referenceId": "dialogue.es.a0.m04.everyday_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l025.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l025.dialogue_comprehension.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l025.type_short_intro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l025.type_ask_who_and_live.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l025.type_everyday_answer.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l025.summary",
+        "reviewPrompt": "Sustain a short predictable conversation about another person.",
+        "referenceIds": [
+          "objective.es.a0.m04.l025.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l025.activity.grammar",
+          "es.a0.m04.l025.activity.dialogue",
+          "es.a0.m04.l025.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l025.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l026",
+        "title": "People and Conversation Review",
+        "description": "Review people, roles, descriptions and third-person facts.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l025"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l026.primary",
+          "description": "Recombine Module 4 material with earlier identity facts."
+        }
+      ],
+      "communicativeOutcome": "Recombine Module 4 material with earlier identity facts.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l026.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l026.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_4_people.json",
+                  "referenceId": "dialogue.es.a0.m04.everyday_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l026.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_4_people.json",
+                  "referenceId": "reading.es.a0.m04.two_people.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l026.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l026.review_person_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l026.type_review_profile.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l026.type_review_questions.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.l026.type_review_language.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l026.summary",
+        "reviewPrompt": "Recombine Module 4 material with earlier identity facts.",
+        "referenceIds": [
+          "objective.es.a0.m04.l026.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l026.activity.dialogue",
+          "es.a0.m04.l026.activity.reading",
+          "es.a0.m04.l026.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l026.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l027",
+        "title": "Module 4 People Checkpoint",
+        "description": "Assess people, roles, descriptions, third-person facts and short conversation questions.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.3.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l026"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l027.primary",
+          "description": "Complete the Module 4 people and everyday conversation checkpoint."
+        }
+      ],
+      "communicativeOutcome": "Complete the Module 4 people and everyday conversation checkpoint.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l027.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l027.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 1,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_4_people.json",
+                  "referenceId": "reading.es.a0.m04.two_people.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m04.l027.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 2,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.checkpoint.who_or_description.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.checkpoint.type_person_name.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.checkpoint.type_role_description.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.checkpoint.type_origin_residence_language.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_4_people.json",
+                  "referenceId": "template.es.a0.m04.checkpoint.type_conversation_questions.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l027.summary",
+        "reviewPrompt": "Complete the Module 4 people and everyday conversation checkpoint.",
+        "referenceIds": [
+          "objective.es.a0.m04.l027.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l027.activity.reading",
+          "es.a0.m04.l027.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l027.section.main"
         ]
       },
       "references": []

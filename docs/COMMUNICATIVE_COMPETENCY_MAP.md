@@ -160,35 +160,65 @@ At least one authored recovery mapping uses Module 2 content:
 
 ---
 
-# Module 4 — How People Are and Classroom Survival
+# Module 4 — People and Everyday Conversation
 
 ## Communicative Competencies
 
-- Ask how someone is.
-- Give a short wellbeing answer.
-- Say whether they speak Spanish a little.
-- Ask basic classroom repair questions.
+- Identify a person by name.
+- State a role or relationship.
+- Describe a person with a controlled adjective.
+- State another person's origin, residence and languages.
+- Ask simple questions about another person.
+- Respond in a short everyday exchange.
+- Sustain a bounded short conversation about another person.
 
 ## Typical Real-Life Scenarios
 
-- opening a small conversation;
-- answering `¿Qué tal?`;
-- saying `un poco`;
-- asking what a word means;
-- repairing a tutoring or classroom exchange.
+- identifying a friend, teacher, student or classmate;
+- asking `¿Quién es?` and `¿Cómo es?`;
+- saying `se llama ...`;
+- giving a role such as `mi amiga` or `mi profesora`;
+- giving origin, residence and language facts about another person;
+- answering yes/no questions such as `¿Habla español?`;
+- completing a short predictable exchange about someone.
 
 ## Language Patterns Introduced
 
-- `¿Cómo estás?`, `¿Qué tal?`;
-- `bien`, `muy bien`, `mal`, `más o menos`;
-- `¿Hablas español?`, `sí`, `no`, `un poco`;
-- `¿Qué significa ...?`.
+- `¿Quién es?`;
+- `Es ...`;
+- `Se llama ...`;
+- `Es mi amigo/amiga`;
+- `Es mi profesor/profesora`;
+- `¿Cómo es?`;
+- `Es simpático/simpática`;
+- `Es de ...`, `Vive en ...`, `Habla ...`;
+- `¿Es tu amigo?`, `¿Habla español?`.
 
 ## Typical Learner Limitations
 
-- Cannot yet explain feelings beyond a few fixed responses.
-- Cannot manage fast classroom speech.
-- Needs short, predictable repair language.
+- Cannot describe people freely.
+- Cannot handle full adjective agreement.
+- Cannot sustain open-ended conversation.
+- Needs controlled roles, adjectives, places and language names.
+
+## Production Diagnostic Mapping
+
+Implemented competency:
+
+`competency.es.a0.m04.describe_person_and_hold_basic_conversation`
+
+Diagnostic tasks:
+
+- `task.es.a0.m04.identify_person`;
+- `task.es.a0.m04.state_person_role`;
+- `task.es.a0.m04.describe_person_basic`;
+- `task.es.a0.m04.state_person_facts`;
+- `task.es.a0.m04.ask_about_person`;
+- `task.es.a0.m04.everyday_exchange`.
+
+Recovery includes Module 3 prerequisite content for origin, residence and
+languages, plus Module 4 recovery steps for third-person forms, roles and
+descriptions.
 
 ---
 

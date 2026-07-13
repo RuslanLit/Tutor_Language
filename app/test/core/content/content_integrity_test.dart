@@ -89,8 +89,10 @@ void main() {
       );
 
       const completedLessonIds = [
-        'es.a0.m04.l011',
-        'es.a0.m04.l012',
+        'es.a0.m03.l018',
+        'es.a0.m03.l019',
+        'es.a0.m04.l026',
+        'es.a0.m04.l027',
         'es.a0.m05.l013',
         'es.a0.m05.l014',
         'es.a0.m05.l015',
@@ -310,8 +312,8 @@ void main() {
       }
 
       expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
-      expect(course.lessons, hasLength(lessThanOrEqualTo(44)));
-      expect(vocabularyCount, inInclusiveRange(150, 220));
+      expect(course.lessons, hasLength(lessThanOrEqualTo(52)));
+      expect(vocabularyCount, inInclusiveRange(150, 280));
       expect(dialogueCount, greaterThanOrEqualTo(25));
       expect(readingCount, greaterThanOrEqualTo(18));
       expect(templateCount, greaterThanOrEqualTo(100));

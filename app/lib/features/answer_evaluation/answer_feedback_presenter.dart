@@ -83,6 +83,36 @@ class AnswerFeedbackPresenter {
         'Use the question that matches the information you need.',
       'spanish.origin_residence.do_not_swap' =>
         'Do not swap origin and residence: "soy de" is origin, "vivo en" is residence.',
+      'spanish.people.use_es_for_other' =>
+        'Use "es" when speaking about another person.',
+      'spanish.people.use_se_llama' =>
+        'Use "se llama" to say another person’s name.',
+      'spanish.people.use_feminine_role' =>
+        'Use the feminine role form for this person.',
+      'spanish.people.use_masculine_role' =>
+        'Use the masculine role form for this person.',
+      'spanish.people.question_quien_not_como' =>
+        '"¿Quién es?" asks who the person is.',
+      'spanish.people.question_como_not_quien' =>
+        '"¿Cómo es?" asks what the person is like.',
+      'spanish.people.use_feminine_description' =>
+        'Use the feminine description form for this person.',
+      'spanish.people.use_masculine_description' =>
+        'Use the masculine description form for this person.',
+      'spanish.people.use_vive_for_other' =>
+        'Use "vive" for where another person lives.',
+      'spanish.people.use_habla_for_other' =>
+        'Use "habla" for what another person speaks.',
+      'spanish.people.origin_residence_contrast' =>
+        '"Es de" tells origin; "vive en" tells residence.',
+      'spanish.people.language_not_nationality' =>
+        'Use "habla" to say which language another person speaks.',
+      'spanish.people.third_person_sequence' =>
+        'Keep the whole answer in third person for another person.',
+      'spanish.people.question_order_matters' =>
+        'Use the questions in the order requested by the prompt.',
+      'spanish.people.question_and_person_form' =>
+        'Use the requested question and third-person verb form.',
       _ => null,
     };
 

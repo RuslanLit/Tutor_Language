@@ -217,7 +217,7 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 | M01 | First Words and Reading | 1-6 | 22-28 | greetings, courtesy, silent h, stable vowels, early clarification |
 | M02 | Names and Introductions | 7-12 | 18-24 | name patterns, varied names, ñ/j/ll with names and Spain |
 | M03 | Origin, Languages and Personal Identity | 13-19 | 22-28 | origin, residence, languages, controlled personal profile |
-| M04 | How People Are and Classroom Survival | 19-24 | 18-24 | wellbeing, clarification, `hablas español`, classroom exchanges |
+| M04 | People and Everyday Conversation | 20-27 | 24-32 | identify and describe people, third-person facts, short everyday exchange |
 | M05 | Numbers and Personal Facts | 25-31 | 24-30 | 0-20, phone-style numbers, age with `tener` |
 | M06 | Everyday Objects and Tener | 32-38 | 22-28 | objects, `un/una`, possession, `tengo/tienes/tiene` |
 | M07 | Food, Drink and Needs | 39-44 | 18-24 | water/coffee/food, polite requests, `hambre`, `sed`, simple needs |
@@ -284,19 +284,23 @@ personal profile.
 - recognizing common city, country and language names;
 - answering early personal-information questions without overexplaining.
 
-## M04 — How People Are and Classroom Survival
+## M04 — People and Everyday Conversation
 
 ### Communicative Goal
 
-The learner can ask how someone is, give a short wellbeing answer and use simple classroom-survival phrases.
+The learner can identify another person, state a basic role or relationship,
+describe the person simply, ask and answer basic questions about the person and
+sustain a short predictable everyday exchange.
 
 ### Real-Life Scenarios
 
-- starting a small conversation after greeting;
-- answering `¿Qué tal?` or `¿Cómo estás?`;
-- saying that only a little Spanish is available;
-- asking what a word means;
-- repairing a classroom or tutoring exchange.
+- identifying a friend, teacher, student or classmate;
+- saying another person's name with `se llama`;
+- asking `¿Quién es?` and `¿Cómo es?`;
+- describing a person with a controlled adjective;
+- giving origin, residence and language facts about another person;
+- answering yes/no questions about another person;
+- completing a short conversation about a familiar person.
 
 ## M05 — Numbers and Personal Facts
 
@@ -403,12 +407,14 @@ ID policy:
 | 17 | es.a0.m03.l017 | M03 | Identity Questions and Answers | dialogue/application | Exchange origin, residence and language information. | 13-16 | none | M01-M03 | question punctuation | 2 typed recall | C2D |
 | 18 | es.a0.m03.l018 | M03 | Personal Identity Review | review | Recombine names, origin, residence and languages. | 13-17 | none | M01-M03 | accents and question marks | 3 typed recall | C2D |
 | 19 | es.a0.m03.l019 | M03 | Module 3 Foundations Checkpoint | checkpoint | Assess greetings, names, origin, residence, languages and early questions. | 1-18 | none | M01-M03 | h, ñ, accents, question marks | 4 typed recall | C2D |
-| 19 | es.a0.m02.l006 | M04 | How Are You? | teaching | Ask how someone is. | 18 | cómo estás, qué tal | greetings | cómo accent | 2 typed recall | C2E |
-| 20 | es.a0.m03.l007 | M04 | Short Wellbeing Answers | teaching | Answer with bien, mal, más o menos. | 19 | bien, muy bien, mal, más o menos | courtesy | none | 2 typed recall | C2E |
-| 21 | es.a0.m03.l009 | M04 | Do You Speak Spanish? | teaching | Ask and answer `¿Hablas español?` | 19 | hablas español, un poco | sí/no | question marks | 2 typed recall | C2E |
-| 22 | new: es.a0.m04.l021 | M04 | Classroom Repair | guided practice | Ask what a word means or ask for repetition. | 4,16 | qué significa | clarification | qué accent | 2 typed recall | C2E |
-| 23 | new: es.a0.m04.l022 | M04 | Short Classroom Dialogue | dialogue/application | Combine greeting, wellbeing and clarification. | 19-22 | none | M01-M04 | question punctuation | 2 typed recall | C2E |
-| 24 | es.a0.m05.l014 | M04 | Interaction Review | review | Recall wellbeing, Spanish question and clarification phrases. | 19-23 | none | M01-M04 | accent review | 3 typed recall | C2E |
+| 20 | es.a0.m04.l020 | M04 | Who Is This Person? | teaching | Ask who a person is and say the person's name. | 19 | quién es, es, se llama, él, ella | names | question punctuation | 3 typed recall, third-person name misconception | C2E |
+| 21 | es.a0.m04.l021 | M04 | People and Roles | teaching | Identify a person's basic relationship or role. | 20 | amigo/amiga, profesor/profesora, estudiante, compañero/compañera, mi, tu | names | ñ in compañera | 3 typed recall, gender role misconception | C2E |
+| 22 | es.a0.m04.l022 | M04 | Basic Description | teaching | Describe a person with one controlled adjective. | 21 | cómo es, simpático/simpática, alto/alta, joven, serio/seria | roles | accent in cómo | 3 typed recall, adjective agreement misconception | C2E |
+| 23 | es.a0.m04.l023 | M04 | Information About Another Person | teaching | Use es, vive and habla for another person. | 22 | vive, habla, también, pero | M03 origin/residence/languages | accents in country names | 3 typed recall, person-form misconception | C2E |
+| 24 | es.a0.m04.l024 | M04 | Everyday Questions and Answers | teaching | Ask and answer yes/no questions about another person. | 23 | no es, ¿Es tu amigo?, ¿Habla español? | M01-M03 | question punctuation | 3 typed recall | C2E |
+| 25 | es.a0.m04.l025 | M04 | Short Everyday Conversation | dialogue/application | Sustain a short predictable conversation about another person. | 20-24 | none | M01-M04 | question punctuation | 3 typed recall | C2E |
+| 26 | es.a0.m04.l026 | M04 | People and Conversation Review | review | Recombine people, roles, descriptions and third-person facts. | 20-25 | none | M01-M04 | accent review | 3 typed recall | C2E |
+| 27 | es.a0.m04.l027 | M04 | Module 4 People Checkpoint | checkpoint | Assess people, descriptions, third-person facts and short questions. | 20-26 | none | M01-M04 | sampled punctuation | 4 typed recall | C2E |
 | 25 | es.a0.m07.l021 | M05 | Numbers 0-10 | teaching | Recognize and recall 0-10. | 24 | 0-10 | none | regular vowels | 2 typed recall | C2F |
 | 26 | es.a0.m07.l022 | M05 | Numbers 11-20 | teaching | Recognize and recall 11-20. | 25 | 11-20 | 0-10 | accent in dieciséis | 2 typed recall | C2F |
 | 27 | new: es.a0.m05.l027 | M05 | Simple Quantities | teaching | Say one or two familiar items. | 25 | simple quantities | greetings, early nouns | none | 2 typed recall | C2F |
@@ -418,9 +424,9 @@ ID policy:
 | 31 | new: es.a0.m05.l031 | M05 | Personal Facts Checkpoint | checkpoint | Assess numbers, age and short personal facts. | 25-30 | none | M01-M05 | number spelling | 4 typed recall | C2F |
 | 32 | es.a0.m08.l026 | M06 | Everyday Objects | teaching | Name common objects. | 31 | libro, teléfono, llave, bolsa, mesa, silla | numbers | ll in llave | 2 typed recall | C2G |
 | 33 | new: es.a0.m06.l033 | M06 | Un and Una | teaching | Use un/una with familiar objects. | 32 | un, una | objects | none | 2 typed recall | C2G |
-| 34 | es.a0.m04.l011 | M06 | Tener: I Have | teaching | Use `tengo` with objects and states. | 32-33 | tengo | objects | none | 2 typed recall | C2G |
+| 34 | new: es.a0.m06.l034 | M06 | Tener: I Have | teaching | Use `tengo` with objects and states. | 32-33 | tengo | objects | none | 2 typed recall | C2G |
 | 35 | es.a0.m08.l027 | M06 | Tienes and Tiene | teaching | Ask and state possession with you/he/she. | 34 | tienes, tiene | objects | none | 2 typed recall, form-confusion misconception | C2G |
-| 36 | es.a0.m04.l012 | M06 | Basic Word Order | guided practice | Keep short subject-verb-complement order. | 34-35 | word order | M01-M06 | none | 3 typed recall | C2G |
+| 36 | new: es.a0.m06.l036 | M06 | Basic Word Order | guided practice | Keep short subject-verb-complement order. | 34-35 | word order | M01-M06 | none | 3 typed recall | C2G |
 | 37 | new: es.a0.m06.l037 | M06 | Where Is the Object? | teaching | Ask and answer where a known object is. | 32,16 | está, aquí, allí | objects | dónde accent | 2 typed recall | C2G |
 | 38 | new: es.a0.m06.l038 | M06 | Objects and Tener Review | review | Recall objects, articles and tener. | 32-37 | none | M06 | ll/qu review | 3 typed recall | C2G |
 | 39 | es.a0.m08.l028 | M07 | Food, Drink and Polite Requests | teaching | Request water, coffee, bread or cheese politely. | 38 | agua, café, pan, queso, quiero | por favor, tener | café accent | 2 typed recall, `porfavor` misconception | C2H |
@@ -564,7 +570,7 @@ Determinism:
 | M01 | 22-28 | 22-28 | greetings, courtesy, clarification, reading symbols |
 | M02 | 18-24 | 40-52 | names, intro phrases, ñ/j/ll words |
 | M03 | 22-28 | 62-80 | origin, places, question words |
-| M04 | 18-24 | 80-104 | wellbeing and classroom survival |
+| M04 | 20-27 | 96-128 | people and everyday conversation |
 | M05 | 24-30 | 104-134 | numbers, age, quantities |
 | M06 | 22-28 | 126-162 | objects, articles, possession |
 | M07 | 18-24 | 144-186 | food, drink, needs |
@@ -684,7 +690,7 @@ The target restructure should not be applied wholesale to production until progr
 | C2B | Module 1 | 1-6 | Move reading support early; revise first words and clarification. | curriculum order, content references, prompt constraints, typed recall |
 | C2C | Module 2 | 7-12 | Names, introductions, ñ/j/ll, name variation. | misconception, variation, typed recall, pattern transfer |
 | C2D | Module 3 | 13-19 | Origin, residence, languages, identity profile, foundations checkpoint and module competency. | checkpoint integrity, place/language variation, no answer leakage, competency recovery |
-| C2E | Module 4 | 19-24 | Wellbeing, classroom survival, interaction review. | dialogue comprehension, recall coverage, review mixes three prior lessons |
+| C2E | Module 4 | 20-27 | People, roles, basic descriptions, third-person facts and short everyday conversation. | dialogue comprehension, recall coverage, review and checkpoint preserve module ownership |
 | C2F | Module 5 | 25-31 | Numbers, quantities, age, personal facts checkpoint. | number/age references, answer constraints, delayed reuse |
 | C2G | Module 6 | 32-38 | Objects, articles, tener possession, word order. | tener misconceptions, review references, object diversity |
 | C2H | Module 7 | 39-44 | Food, drink, hunger/thirst, needs checkpoint. | request prompts, no unsupported grammar, application tasks |

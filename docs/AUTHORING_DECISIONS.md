@@ -174,4 +174,32 @@ require unrestricted creative writing or semantic inference.
 
 ---
 
+# Spanish A0 Module 4 People Scope
+
+Module 4 teaches controlled third-person people descriptions, not a broad
+pronoun or adjective-agreement unit.
+
+The controlled scope is:
+
+- identifying a person with `¿Quién es?` and `es`;
+- saying another person's name with `se llama`;
+- simple roles and relationships such as `mi amigo/amiga` and
+  `profesor/profesora`;
+- controlled descriptions such as `simpático/simpática`, `alto/alta` and
+  `joven`;
+- third-person origin, residence and language facts using `es de`, `vive en`
+  and `habla`;
+- short yes/no questions and predictable everyday exchanges about another
+  person.
+
+Canonical Module 4 production lessons use `es.a0.m04.l020` through
+`es.a0.m04.l027`. Existing older Module 4 lesson IDs must not be repurposed for
+new meanings.
+
+Module 4 competency recovery may use Module 3 prerequisite content for origin,
+residence and language facts. That recovery does not transfer lesson ownership
+across modules.
+
+---
+
 End of document.

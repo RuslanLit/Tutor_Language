@@ -516,6 +516,30 @@ micro.es.a0.state_origin failure
     -> retry task.es.a0.state_origin
 ```
 
+Small Module 4 example:
+
+```text
+Competency:
+competency.es.a0.m04.describe_person_and_hold_basic_conversation
+
+Diagnostic tasks:
+- task.es.a0.m04.identify_person
+- task.es.a0.m04.state_person_role
+- task.es.a0.m04.describe_person_basic
+- task.es.a0.m04.state_person_facts
+- task.es.a0.m04.ask_about_person
+- task.es.a0.m04.everyday_exchange
+
+Recovery:
+micro.es.a0.state_person_residence failure
+    -> template.es.a0.m03.l015.residence_choice.v1
+    -> retry task.es.a0.m04.state_person_facts
+
+micro.es.a0.describe_person_basic failure
+    -> template.es.a0.m04.l022.description_question_choice.v1
+    -> retry task.es.a0.m04.describe_person_basic
+```
+
 Competency outcomes are distinct from lesson completion.
 
 A module can be content-complete while its communicative competency remains

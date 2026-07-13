@@ -40,11 +40,21 @@ class CompetencyDefinitionRegistry {
   CommunicativeCompetencyCatalog catalogFor(
     RuntimeCompetencyDefinition definition,
   ) {
+    final assessmentTasks = _assessmentTasks
+        .where(
+          (task) => task.competencyId == definition.competency.competencyId,
+        )
+        .toList(growable: false);
     return CommunicativeCompetencyCatalog(
-      moduleSequence: const ['es.a0.m01', 'es.a0.m02', 'es.a0.m03'],
+      moduleSequence: const [
+        'es.a0.m01',
+        'es.a0.m02',
+        'es.a0.m03',
+        'es.a0.m04',
+      ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
-      assessmentTasks: _assessmentTasks,
+      assessmentTasks: assessmentTasks,
       availableRecoveryStepIds: definition.recoveryTemplateIds.values.toSet(),
     );
   }
@@ -104,6 +114,71 @@ const _defaultDefinitions = [
           'template.es.a0.m03.l017.exchange_question_choice.v1',
       'micro.es.a0.build_personal_identity_profile':
           'template.es.a0.m03.l015.origin_residence_contrast.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId:
+          'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+      moduleId: 'es.a0.m04',
+      title: 'People and everyday conversation check',
+      communicativeGoal:
+          'Describe another person and sustain a short predictable conversation.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.identify_person',
+        'micro.es.a0.state_person_name',
+        'micro.es.a0.state_person_role',
+        'micro.es.a0.describe_person_basic',
+        'micro.es.a0.state_person_origin',
+        'micro.es.a0.state_person_residence',
+        'micro.es.a0.state_person_languages',
+        'micro.es.a0.ask_about_person',
+        'micro.es.a0.respond_in_everyday_exchange',
+        'micro.es.a0.sustain_short_everyday_conversation',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m04.identify_person',
+        'task.es.a0.m04.state_person_role',
+        'task.es.a0.m04.describe_person_basic',
+        'task.es.a0.m04.state_person_facts',
+        'task.es.a0.m04.ask_about_person',
+        'task.es.a0.m04.everyday_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m04.identify_person':
+          'template.es.a0.m04.competency.identify_person.v1',
+      'task.es.a0.m04.state_person_role':
+          'template.es.a0.m04.competency.state_role.v1',
+      'task.es.a0.m04.describe_person_basic':
+          'template.es.a0.m04.competency.describe_person.v1',
+      'task.es.a0.m04.state_person_facts':
+          'template.es.a0.m04.competency.person_facts.v1',
+      'task.es.a0.m04.ask_about_person':
+          'template.es.a0.m04.competency.ask_about_person.v1',
+      'task.es.a0.m04.everyday_exchange':
+          'template.es.a0.m04.competency.everyday_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.identify_person': 'template.es.a0.m04.l020.who_choice.v1',
+      'micro.es.a0.state_person_name':
+          'template.es.a0.m04.l020.fill_se_llama.v1',
+      'micro.es.a0.state_person_role': 'template.es.a0.m04.l021.role_choice.v1',
+      'micro.es.a0.describe_person_basic':
+          'template.es.a0.m04.l022.description_question_choice.v1',
+      'micro.es.a0.state_person_origin':
+          'template.es.a0.m03.l013.origin_choice.v1',
+      'micro.es.a0.state_person_residence':
+          'template.es.a0.m03.l015.residence_choice.v1',
+      'micro.es.a0.state_person_languages':
+          'template.es.a0.m03.l016.language_choice.v1',
+      'micro.es.a0.ask_about_person':
+          'template.es.a0.m04.l024.yes_no_choice.v1',
+      'micro.es.a0.respond_in_everyday_exchange':
+          'template.es.a0.m04.l025.dialogue_comprehension.v1',
+      'micro.es.a0.sustain_short_everyday_conversation':
+          'template.es.a0.m04.l025.type_short_intro.v1',
     },
   ),
 ];
@@ -188,6 +263,99 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m03',
     prerequisiteContentReferences: [
       'template.es.a0.m03.l018.type_profile_elena.v1',
+    ],
+  ),
+
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.identify_person',
+    description: 'Identify another person with ¿Quién es? and es.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: ['template.es.a0.m04.l020.type_quien_es.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_name',
+    description: 'State another person’s name with se llama.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l020.type_se_llama_marta.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_who_person_is',
+    description: 'Ask who another person is.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: ['template.es.a0.m04.l020.type_quien_es.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_role',
+    description: 'State a simple role or relationship for another person.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l021.type_es_mi_amiga.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.describe_person_basic',
+    description: 'Describe another person with one controlled adjective.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l022.type_es_simpatica.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_about_person',
+    description: 'Ask simple questions about another person.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l025.type_ask_who_and_live.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_origin',
+    description: 'State another person’s origin with es de.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l023.type_es_de_espana.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_residence',
+    description: 'State another person’s residence with vive en.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l023.type_vive_en_lima.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_languages',
+    description: 'State another person’s languages with habla.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l023.type_habla_ingles.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_person_description',
+    description: 'Understand a short description of another person.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l025.dialogue_comprehension.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_in_everyday_exchange',
+    description: 'Respond in a short everyday exchange about another person.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.l025.type_everyday_answer.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.sustain_short_everyday_conversation',
+    description: 'Sustain a bounded short conversation about another person.',
+    introducedInModuleId: 'es.a0.m04',
+    prerequisiteContentReferences: [
+      'template.es.a0.m04.competency.everyday_exchange.v1',
     ],
   ),
   MicroCompetencyDefinition(
@@ -327,6 +495,167 @@ const _assessmentTasks = [
       ),
     ],
   ),
+
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.identify_person',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.identify_person',
+      'micro.es.a0.state_person_name',
+    ],
+    lessonStepReference: 'template.es.a0.m04.competency.identify_person.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_person_name',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l020.fill_se_llama.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l020',
+            sourceStepId: 'template.es.a0.m04.l020.fill_se_llama.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.identify_person',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.state_person_role',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: ['micro.es.a0.state_person_role'],
+    lessonStepReference: 'template.es.a0.m04.competency.state_role.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_person_role',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l021.role_choice.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l021',
+            sourceStepId: 'template.es.a0.m04.l021.role_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.state_person_role',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.describe_person_basic',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: ['micro.es.a0.describe_person_basic'],
+    lessonStepReference: 'template.es.a0.m04.competency.describe_person.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.describe_person_basic',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l022.description_question_choice.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l022',
+            sourceStepId:
+                'template.es.a0.m04.l022.description_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.describe_person_basic',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.state_person_facts',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.state_person_origin',
+      'micro.es.a0.state_person_residence',
+      'micro.es.a0.state_person_languages',
+    ],
+    lessonStepReference: 'template.es.a0.m04.competency.person_facts.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_person_origin',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m03.l013.origin_choice.v1',
+            sourceModuleId: 'es.a0.m03',
+            sourceLessonId: 'es.a0.m03.l013',
+            sourceStepId: 'template.es.a0.m03.l013.origin_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.state_person_facts',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_person_residence',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m03.l015.residence_choice.v1',
+            sourceModuleId: 'es.a0.m03',
+            sourceLessonId: 'es.a0.m03.l015',
+            sourceStepId: 'template.es.a0.m03.l015.residence_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.state_person_facts',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.ask_about_person',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_who_person_is',
+      'micro.es.a0.ask_about_person',
+    ],
+    lessonStepReference: 'template.es.a0.m04.competency.ask_about_person.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_about_person',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l024.yes_no_choice.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l024',
+            sourceStepId: 'template.es.a0.m04.l024.yes_no_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.ask_about_person',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m04.everyday_exchange',
+    competencyId:
+        'competency.es.a0.m04.describe_person_and_hold_basic_conversation',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.respond_in_everyday_exchange',
+      'micro.es.a0.sustain_short_everyday_conversation',
+    ],
+    lessonStepReference: 'template.es.a0.m04.competency.everyday_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.sustain_short_everyday_conversation',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l025',
+            sourceStepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m04.everyday_exchange',
+      ),
+    ],
+  ),
   CompetencyAssessmentTask(
     taskId: 'task.es.a0.build_personal_identity_profile',
     competencyId: 'competency.es.a0.m03.describe_basic_personal_identity',
@@ -357,7 +686,9 @@ const _assessmentTasks = [
 ];
 
 LessonContentReference templateReference(String templateId) {
-  final assetPath = templateId.startsWith('template.es.a0.m03.')
+  final assetPath = templateId.startsWith('template.es.a0.m04.')
+      ? 'assets/languages/spanish/templates/module_4_people.json'
+      : templateId.startsWith('template.es.a0.m03.')
       ? 'assets/languages/spanish/templates/module_3_identity.json'
       : 'assets/languages/spanish/templates/module_2_names.json';
   return LessonContentReference(

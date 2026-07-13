@@ -1,0 +1,69 @@
+[
+  {
+    "id": "reading.es.a0.m04.marta_profile.v1",
+    "title": "Marta profile",
+    "vocabulary_ids": [
+      "vocab.es.a0.m04.amiga.v1",
+      "vocab.es.a0.m04.se_llama.v1",
+      "vocab.es.a0.m04.vive.v1",
+      "vocab.es.a0.m04.habla.v1",
+      "vocab.es.a0.m04.simpatica.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m04.third_person_identity.v1",
+      "grammar.es.a0.m04.basic_gender_agreement.v1"
+    ],
+    "text": "Es mi amiga. Se llama Marta. Es de Colombia. Vive en Lima. Habla español. Es simpática.",
+    "native_translation": "She is my friend. Her name is Marta. She is from Colombia. She lives in Lima. She speaks Spanish. She is nice."
+  },
+  {
+    "id": "reading.es.a0.m04.two_people.v1",
+    "title": "Two people",
+    "vocabulary_ids": [
+      "vocab.es.a0.m04.profesor.v1",
+      "vocab.es.a0.m04.profesora.v1",
+      "vocab.es.a0.m04.vive.v1",
+      "vocab.es.a0.m04.habla.v1",
+      "vocab.es.a0.m04.alto.v1",
+      "vocab.es.a0.m04.alta.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m04.third_person_identity.v1",
+      "grammar.es.a0.m04.basic_gender_agreement.v1"
+    ],
+    "text": "Carlos es profesor. Es de México. Vive en Madrid. Habla español. Elena es profesora. Es de España. Vive en Valencia. Es alta.",
+    "native_translation": "Carlos is a teacher. He is from Mexico. He lives in Madrid. He speaks Spanish. Elena is a teacher. She is from Spain. She lives in Valencia. She is tall."
+  },
+  {
+    "id": "reading.es.a0.m04.class_intro.v1",
+    "title": "Class introduction",
+    "vocabulary_ids": [
+      "vocab.es.a0.m04.estudiante.v1",
+      "vocab.es.a0.m04.companera.v1",
+      "vocab.es.a0.m04.joven.v1",
+      "vocab.es.a0.m04.habla.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m04.roles_mi_tu.v1",
+      "grammar.es.a0.m04.third_person_identity.v1"
+    ],
+    "text": "Hola. Ella es mi compañera. Se llama Ana. Es estudiante. Es joven. Habla español y un poco de inglés.",
+    "native_translation": "Hello. She is my classmate. Her name is Ana. She is a student. She is young. She speaks Spanish and a little English."
+  },
+  {
+    "id": "reading.es.a0.m04.short_message.v1",
+    "title": "Short message about a friend",
+    "vocabulary_ids": [
+      "vocab.es.a0.m04.amigo.v1",
+      "vocab.es.a0.m04.vive.v1",
+      "vocab.es.a0.m04.serio.v1",
+      "vocab.es.a0.m04.pero.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m04.third_person_identity.v1",
+      "grammar.es.a0.m04.basic_gender_agreement.v1"
+    ],
+    "text": "Luis es mi amigo. Vive en Bogotá. Habla español. Es serio, pero simpático.",
+    "native_translation": "Luis is my friend. He lives in Bogotá. He speaks Spanish. He is serious but nice."
+  }
+]
