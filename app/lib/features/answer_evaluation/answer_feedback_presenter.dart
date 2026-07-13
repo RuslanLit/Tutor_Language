@@ -64,6 +64,25 @@ class AnswerFeedbackPresenter {
       'spanish.name_pattern.use_me_llamo' =>
         'For this introduction pattern, use "me llamo".',
       'spanish.origin.use_ser' => 'To state origin, Spanish uses "soy de".',
+      'spanish.origin.keep_de' => 'Keep "de" in the origin pattern: "soy de".',
+      'spanish.origin.use_soy_de' => '"Soy de" tells where someone is from.',
+      'spanish.origin_question.include_de' =>
+        'Use "¿De dónde eres?" to ask where someone is from.',
+      'spanish.residence.use_vivo_en' => '"Vivo en" tells where someone lives.',
+      'spanish.residence_question.no_de' =>
+        'Use "¿Dónde vives?" to ask where someone lives.',
+      'spanish.languages.use_hablo' =>
+        'Use "hablo" to say which language you speak.',
+      'spanish.languages.use_language_names' =>
+        'Use language names such as "ucraniano" or "ruso".',
+      'spanish.languages.keep_de_after_un_poco' =>
+        'Keep "de" in "un poco de" before the language.',
+      'spanish.languages.ask_idiomas' =>
+        'Use "idiomas" when asking which languages someone speaks.',
+      'spanish.identity.ask_specific_questions' =>
+        'Use the question that matches the information you need.',
+      'spanish.origin_residence.do_not_swap' =>
+        'Do not swap origin and residence: "soy de" is origin, "vivo en" is residence.',
       _ => null,
     };
 

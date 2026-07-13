@@ -145,4 +145,33 @@ Operational review steps belong in CONTENT_REVIEW_CHECKLIST.md.
 
 ---
 
+# Spanish A0 Module 3 Identity Scope
+
+Module 3 teaches a bounded personal identity exchange rather than a broad
+geography or language-learning unit.
+
+The controlled scope is:
+
+- origin with `soy de`;
+- residence with `vivo en`;
+- spoken languages with `hablo`;
+- limited language ability with `un poco de`;
+- short personal identity profiles using known Module 1-3 patterns.
+
+Countries, cities and languages are intentionally limited to a small reusable
+pool. Ukraine, Kyiv and Ukrainian are included because they are useful to the
+initial learner, but examples must rotate through other countries, cities and
+speakers so the module does not become country-specific.
+
+Origin and residence are authored as distinct communicative meanings. Prompts
+must specify whether the learner should answer where someone is from or where
+someone lives. Misconception feedback may explain `soy de` versus `vivo en`
+only when the exercise objective makes the distinction explicit.
+
+Integrated profile tasks must remain bounded and deterministic. They may ask
+for a specified profile using authored canonical sentences, but they must not
+require unrestricted creative writing or semantic inference.
+
+---
+
 End of document.

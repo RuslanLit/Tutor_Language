@@ -3,7 +3,7 @@
   "languageId": "spanish",
   "title": "Spanish A0",
   "level": "A0",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "modules": [
     {
       "id": "es.a0.m01",
@@ -31,13 +31,15 @@
     },
     {
       "id": "es.a0.m03",
-      "title": "Origin and First Responses",
+      "title": "Origin, Languages and Personal Identity",
       "lessonIds": [
-        "es.a0.m02.l005",
-        "es.a0.m02.l006",
-        "es.a0.m03.l007",
-        "es.a0.m03.l008",
-        "es.a0.m03.l009"
+        "es.a0.m03.l013",
+        "es.a0.m03.l014",
+        "es.a0.m03.l015",
+        "es.a0.m03.l016",
+        "es.a0.m03.l017",
+        "es.a0.m03.l018",
+        "es.a0.m03.l019"
       ]
     },
     {
@@ -957,636 +959,6 @@
     },
     {
       "metadata": {
-        "id": "es.a0.m02.l005",
-        "title": "I Am From",
-        "moduleId": "es.a0.m03",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m05.l013"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.origin.basic",
-          "description": "Give basic origin information."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m02.l005.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.origin",
-              "title": "vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.de_donde_eres.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.soy_de.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.de.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.madrid.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.mexico.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.espana.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.grammar.origin_pattern",
-              "title": "grammar",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/unit_1_first_contact.json",
-                  "referenceId": "grammar.es.a0.unit1.origin_pattern.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.dialogue.origin",
-              "title": "dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.origin.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.origin",
-              "title": "reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.origin.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.origin",
-              "title": "practice",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.origin_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.fill_soy_de.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.type_soy_de_madrid.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m02.l005.summary",
-        "reviewPrompt": "Review saying where you are from.",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.origin",
-          "activity.grammar.origin_pattern",
-          "activity.dialogue.origin",
-          "activity.reading.origin",
-          "activity.practice.origin"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m02.l005.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m02.l006",
-        "title": "How Are You?",
-        "moduleId": "es.a0.m03",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 10,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m02.l005"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.wellbeing_questions.basic",
-          "description": "Recognize two basic ways to ask how someone is."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m02.l006.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.wellbeing_questions",
-              "title": "vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.como_estas.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.que_tal.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.wellbeing_questions",
-              "title": "reading",
-              "type": "reading",
-              "order": 2,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.wellbeing_questions.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.wellbeing_questions",
-              "title": "practice",
-              "type": "exercise_template",
-              "order": 3,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.how_are_you_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.fill_que_tal.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m02.l006.summary",
-        "reviewPrompt": "Review ¿cómo estás? and ¿qué tal?",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.wellbeing_questions",
-          "activity.reading.wellbeing_questions",
-          "activity.practice.wellbeing_questions"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m02.l006.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m03.l007",
-        "title": "Answering How Are You",
-        "moduleId": "es.a0.m03",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 10,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.0.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m02.l006"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.wellbeing_answers.basic",
-          "description": "Recognize and use short answers to ¿cómo estás?"
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m03.l007.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.wellbeing_answers",
-              "title": "vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.bien.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.muy_bien.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.regular.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.mal.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.asi_asi.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.dialogue.wellbeing_answers",
-              "title": "dialogue",
-              "type": "dialogue",
-              "order": 2,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.wellbeing_answers.v1"
-                },
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.wellbeing_short_answers.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.wellbeing_answers",
-              "title": "reading",
-              "type": "reading",
-              "order": 3,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.wellbeing_answers.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.wellbeing_answers",
-              "title": "practice",
-              "type": "exercise_template",
-              "order": 4,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.bien_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.match_wellbeing_answers.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m03.l007.summary",
-        "reviewPrompt": "Review short answers to ¿cómo estás?",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.wellbeing_answers",
-          "activity.dialogue.wellbeing_answers",
-          "activity.reading.wellbeing_answers",
-          "activity.practice.wellbeing_answers"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m03.l007.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m03.l008",
-        "title": "More Courtesy",
-        "moduleId": "es.a0.m03",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.0.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m03.l007"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.courtesy.expanded",
-          "description": "Use muchas gracias with previously learned courtesy phrases."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m03.l008.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.more_courtesy",
-              "title": "vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.muchas_gracias.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.de_nada.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.dialogue.more_courtesy",
-              "title": "dialogue",
-              "type": "dialogue",
-              "order": 2,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.courtesy_more.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.more_courtesy",
-              "title": "reading",
-              "type": "reading",
-              "order": 3,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.more_courtesy.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.more_courtesy",
-              "title": "practice",
-              "type": "exercise_template",
-              "order": 4,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.muchas_gracias_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.fill_muchas_gracias.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m03.l008.summary",
-        "reviewPrompt": "Review muchas gracias with courtesy phrases.",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.more_courtesy",
-          "activity.dialogue.more_courtesy",
-          "activity.reading.more_courtesy",
-          "activity.practice.more_courtesy"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m03.l008.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m03.l009",
-        "title": "Do You Speak Spanish?",
-        "moduleId": "es.a0.m03",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.0.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m03.l008"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.language_question.basic",
-          "description": "Recognize and answer ¿hablas español? with sí, no, or un poco."
-        }
-      ],
-      "sections": [
-        {
-          "id": "es.a0.m03.l009.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "activity.vocabulary.language_question",
-              "title": "vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.hablas_espanol.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.espanol.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.un_poco.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.si.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.no.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.dialogue.language_question",
-              "title": "dialogue",
-              "type": "dialogue",
-              "order": 2,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
-                  "referenceId": "dialogue.es.a0.unit1.language_question.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.reading.language_question",
-              "title": "reading",
-              "type": "reading",
-              "order": 3,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
-                  "referenceId": "reading.es.a0.unit1.language_question.v1"
-                }
-              ]
-            },
-            {
-              "id": "activity.practice.language_question",
-              "title": "practice",
-              "type": "exercise_template",
-              "order": 4,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.hablas_espanol_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
-                  "referenceId": "template.es.a0.unit1.un_poco_choice.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m03.l009.summary",
-        "reviewPrompt": "Review ¿hablas español? and un poco.",
-        "referenceIds": []
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "activity.vocabulary.language_question",
-          "activity.dialogue.language_question",
-          "activity.reading.language_question",
-          "activity.practice.language_question"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m03.l009.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
         "id": "es.a0.m04.l010",
         "title": "First Words Review",
         "description": "Review greetings, courtesy, clarification, and early reading rules.",
@@ -2187,6 +1559,937 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m05.l013.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l013",
+        "title": "I Am From",
+        "description": "State origin with soy de and a small set of countries.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l013"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l013.primary",
+          "description": "State origin using the pattern soy de."
+        }
+      ],
+      "communicativeOutcome": "Say where you are from.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l013.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l013.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.ucrania.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.mexico.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.colombia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.chile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l013.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.origin_soy_de.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l013.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_3_identity.json",
+                  "referenceId": "reading.es.a0.m03.origin_cards.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l013.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l013.origin_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l013.fill_de_origin.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l013.type_soy_de_ucrania.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l013.type_soy_de_mexico.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l013.summary",
+        "reviewPrompt": "Say where you are from.",
+        "referenceIds": [
+          "objective.es.a0.m03.l013.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l013.activity.vocabulary",
+          "es.a0.m03.l013.activity.grammar",
+          "es.a0.m03.l013.activity.reading",
+          "es.a0.m03.l013.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l013.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l014",
+        "title": "Where Are You From?",
+        "description": "Ask and answer a basic origin question.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l013"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l014.primary",
+          "description": "Ask de dónde eres and answer with soy de."
+        }
+      ],
+      "communicativeOutcome": "Ask where someone is from.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l014.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l014.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.donde.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.de_donde.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.peru.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l014.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.ask_origin.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.question_accents.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l014.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_3_identity.json",
+                  "referenceId": "dialogue.es.a0.m03.origin_greeting.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l014.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l014.origin_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l014.fill_donde_origin.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l014.type_de_donde_eres.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l014.type_answer_colombia.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l014.summary",
+        "reviewPrompt": "Ask where someone is from.",
+        "referenceIds": [
+          "objective.es.a0.m03.l014.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l014.activity.vocabulary",
+          "es.a0.m03.l014.activity.grammar",
+          "es.a0.m03.l014.activity.dialogue",
+          "es.a0.m03.l014.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l014.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l015",
+        "title": "Where Do You Live?",
+        "description": "Say and ask where someone lives with vivo en.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l014"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l015.primary",
+          "description": "Use vivo en and dónde vives without confusing origin and residence."
+        }
+      ],
+      "communicativeOutcome": "Say and ask where someone lives.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l015.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l015.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.kyiv.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.valencia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.lima.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.bogota.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.vivo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.vives.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.en.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l015.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.residence_vivo_en.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.ask_residence.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.origin_residence_contrast.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l015.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_3_identity.json",
+                  "referenceId": "reading.es.a0.m03.residence_cards.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l015.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l015.residence_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l015.origin_residence_contrast.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l015.fill_vivo_en.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l015.type_vivo_en_kyiv.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l015.type_donde_vives.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l015.summary",
+        "reviewPrompt": "Say and ask where someone lives.",
+        "referenceIds": [
+          "objective.es.a0.m03.l015.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l015.activity.vocabulary",
+          "es.a0.m03.l015.activity.grammar",
+          "es.a0.m03.l015.activity.reading",
+          "es.a0.m03.l015.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l015.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l016",
+        "title": "Languages I Speak",
+        "description": "Say which languages you speak and limited ability.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l015"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l016.primary",
+          "description": "Use hablo, idiomas, and un poco de for simple language statements."
+        }
+      ],
+      "communicativeOutcome": "Say which languages you speak.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l016.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l016.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.idiomas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.hablo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.hablas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.espanol.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.ingles.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.ucraniano.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.ruso.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.y.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_3_identity.json",
+                  "referenceId": "vocab.es.a0.m03.un_poco_de.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l016.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.languages_hablo.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.languages_un_poco.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.question_accents.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l016.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_3_identity.json",
+                  "referenceId": "reading.es.a0.m03.language_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l016.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.language_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.fill_un_poco_de.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.type_hablo_espanol.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.type_hablo_ucraniano_y_ruso.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.type_hablo_un_poco_espanol.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l016.type_que_idiomas_hablas.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l016.summary",
+        "reviewPrompt": "Say which languages you speak.",
+        "referenceIds": [
+          "objective.es.a0.m03.l016.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l016.activity.vocabulary",
+          "es.a0.m03.l016.activity.grammar",
+          "es.a0.m03.l016.activity.reading",
+          "es.a0.m03.l016.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l016.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l017",
+        "title": "Identity Questions and Answers",
+        "description": "Exchange origin, residence and language information.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l016"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l017.primary",
+          "description": "Combine identity questions and short personal answers."
+        }
+      ],
+      "communicativeOutcome": "Ask and answer basic identity questions.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l017.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l017.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 1,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_3_identity.json",
+                  "referenceId": "grammar.es.a0.m03.identity_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l017.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 2,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_3_identity.json",
+                  "referenceId": "dialogue.es.a0.m03.identity_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l017.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l017.exchange_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l017.dialogue_comprehension.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l017.type_ask_origin_and_languages.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l017.type_answer_origin_residence.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l017.summary",
+        "reviewPrompt": "Ask and answer basic identity questions.",
+        "referenceIds": [
+          "objective.es.a0.m03.l017.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l017.activity.grammar",
+          "es.a0.m03.l017.activity.dialogue",
+          "es.a0.m03.l017.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l017.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l018",
+        "title": "Personal Identity Review",
+        "description": "Review names, origin, residence and languages in new combinations.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l017"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l018.primary",
+          "description": "Recombine Module 1-3 material in a short personal profile."
+        }
+      ],
+      "communicativeOutcome": "Review basic personal identity.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l018.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l018.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_3_identity.json",
+                  "referenceId": "dialogue.es.a0.m03.review_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l018.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_3_identity.json",
+                  "referenceId": "reading.es.a0.m03.two_people.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l018.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l018.reading_profile_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l018.type_limited_language_review.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l018.type_review_questions.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.l018.type_profile_elena.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l018.summary",
+        "reviewPrompt": "Review basic personal identity.",
+        "referenceIds": [
+          "objective.es.a0.m03.l018.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l018.activity.dialogue",
+          "es.a0.m03.l018.activity.reading",
+          "es.a0.m03.l018.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l018.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l019",
+        "title": "Module 3 Foundations Checkpoint",
+        "description": "Assess greetings, names, origin, residence, languages, and early questions.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l018"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l019.primary",
+          "description": "Demonstrate Module 3 foundations without new teaching."
+        }
+      ],
+      "communicativeOutcome": "Complete the Module 3 foundations checkpoint.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l019.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l019.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 1,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_3_identity.json",
+                  "referenceId": "reading.es.a0.m03.two_people.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l019.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 2,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.checkpoint.origin_or_residence.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.checkpoint.type_origin_question.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.checkpoint.type_residence_answer.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.checkpoint.type_languages.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_3_identity.json",
+                  "referenceId": "template.es.a0.m03.checkpoint.type_profile.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l019.summary",
+        "reviewPrompt": "Complete the Module 3 foundations checkpoint.",
+        "referenceIds": [
+          "objective.es.a0.m03.l019.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l019.activity.reading",
+          "es.a0.m03.l019.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l019.section.main"
         ]
       },
       "references": []

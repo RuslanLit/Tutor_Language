@@ -73,7 +73,7 @@ void main() {
     });
   });
 
-  test('Spanish A0 Unit 1 resolves across ten lessons', () async {
+  test('Spanish A0 early modules resolve across implemented production lessons', () async {
     final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
     final contentLoader = ContentLoader(assetBundle: rootBundle);
     final catalog = EducationalContentCatalog(
@@ -87,11 +87,12 @@ void main() {
       'es.a0.m01.l002',
       'es.a0.m01.l003',
       'es.a0.m02.l004',
-      'es.a0.m02.l005',
-      'es.a0.m02.l006',
-      'es.a0.m03.l007',
-      'es.a0.m03.l008',
-      'es.a0.m03.l009',
+      'es.a0.m03.l013',
+      'es.a0.m03.l014',
+      'es.a0.m03.l015',
+      'es.a0.m03.l016',
+      'es.a0.m03.l017',
+      'es.a0.m03.l018',
       'es.a0.m04.l010',
     ];
 
@@ -127,7 +128,7 @@ void main() {
     expect(nameReferenceIds, contains('dialogue.es.a0.m02.school_names.v1'));
 
     final originLesson = course.lessons.singleWhere(
-      (lesson) => lesson.id == 'es.a0.m02.l005',
+      (lesson) => lesson.id == 'es.a0.m03.l013',
     );
     final originReferenceIds = originLesson.activities
         .expand((activity) => activity.contentReferences)
@@ -135,15 +136,15 @@ void main() {
         .whereType<String>()
         .toSet();
 
-    expect(originReferenceIds, contains('vocab.es.a0.unit1.soy_de.v1'));
+    expect(originReferenceIds, contains('vocab.es.a0.m03.ucrania.v1'));
     expect(
       originReferenceIds,
-      contains('grammar.es.a0.unit1.origin_pattern.v1'),
+      contains('grammar.es.a0.m03.origin_soy_de.v1'),
     );
-    expect(originReferenceIds, contains('dialogue.es.a0.unit1.origin.v1'));
+    expect(originReferenceIds, contains('reading.es.a0.m03.origin_cards.v1'));
 
     final questionLesson = course.lessons.singleWhere(
-      (lesson) => lesson.id == 'es.a0.m02.l006',
+      (lesson) => lesson.id == 'es.a0.m03.l014',
     );
     final questionReferenceIds = questionLesson.activities
         .expand((activity) => activity.contentReferences)
@@ -151,11 +152,14 @@ void main() {
         .whereType<String>()
         .toSet();
 
-    expect(questionReferenceIds, contains('vocab.es.a0.unit1.como_estas.v1'));
-    expect(questionReferenceIds, contains('vocab.es.a0.unit1.que_tal.v1'));
+    expect(questionReferenceIds, contains('vocab.es.a0.m03.de_donde.v1'));
+    expect(
+      questionReferenceIds,
+      contains('template.es.a0.m03.l014.type_de_donde_eres.v1'),
+    );
 
     final languageLesson = course.lessons.singleWhere(
-      (lesson) => lesson.id == 'es.a0.m03.l009',
+      (lesson) => lesson.id == 'es.a0.m03.l016',
     );
     final languageReferenceIds = languageLesson.activities
         .expand((activity) => activity.contentReferences)
@@ -165,9 +169,9 @@ void main() {
 
     expect(
       languageReferenceIds,
-      contains('vocab.es.a0.unit1.hablas_espanol.v1'),
+      contains('vocab.es.a0.m03.espanol.v1'),
     );
-    expect(languageReferenceIds, contains('vocab.es.a0.unit1.un_poco.v1'));
+    expect(languageReferenceIds, contains('vocab.es.a0.m03.un_poco_de.v1'));
 
     final reviewLesson = course.lessons.singleWhere(
       (lesson) => lesson.id == 'es.a0.m04.l010',

@@ -97,34 +97,66 @@ content by itself.
 
 ---
 
-# Module 3 — Origin and Places
+# Module 3 — Origin, Languages and Personal Identity
 
 ## Communicative Competencies
 
 - Say where one is from.
 - Ask where another person is from.
-- Understand a tiny profile with name and origin.
+- Say where one lives.
+- Ask where another person lives.
+- Say which languages one speaks.
+- Ask which languages another person speaks.
+- Express limited language ability with `un poco de`.
+- Understand a tiny profile with name, origin, residence and languages.
 - Recognize direct-question accents in familiar questions.
 
 ## Typical Real-Life Scenarios
 
 - giving origin in a first conversation;
 - asking a new person where they are from;
-- reading a short profile;
-- recognizing city and country names.
+- saying where one lives now;
+- asking which languages another person speaks;
+- reading a short personal identity profile;
+- recognizing city, country and language names.
 
 ## Language Patterns Introduced
 
 - `soy de ...`;
 - `¿De dónde eres?`;
-- `es de ...`;
-- `qué`, `cómo`, `dónde` in direct questions.
+- `vivo en ...`;
+- `¿Dónde vives?`;
+- `hablo ...`;
+- `¿Qué idiomas hablas?`;
+- `hablo un poco de ...`;
+- `qué` and `dónde` in direct questions.
 
 ## Typical Learner Limitations
 
 - Cannot yet describe nationality in detail.
 - Cannot handle open-ended geography talk.
-- Needs controlled place names and short question-answer patterns.
+- Cannot sustain broad language-learning conversations.
+- Needs controlled place and language names and short question-answer patterns.
+
+## Production Diagnostic Mapping
+
+Implemented competency:
+
+`competency.es.a0.m03.describe_basic_personal_identity`
+
+Diagnostic tasks:
+
+- `task.es.a0.introduce_self`;
+- `task.es.a0.state_origin`;
+- `task.es.a0.state_residence`;
+- `task.es.a0.state_languages`;
+- `task.es.a0.ask_origin_and_languages`;
+- `task.es.a0.build_personal_identity_profile`.
+
+At least one authored recovery mapping uses Module 2 content:
+
+`micro.es.a0.introduce_self`
+→ `template.es.a0.m02.l004.name_pattern_choice.v1`
 
 ---
 

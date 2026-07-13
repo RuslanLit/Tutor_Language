@@ -216,7 +216,7 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 |---|---|---:|---:|---|
 | M01 | First Words and Reading | 1-6 | 22-28 | greetings, courtesy, silent h, stable vowels, early clarification |
 | M02 | Names and Introductions | 7-12 | 18-24 | name patterns, varied names, ñ/j/ll with names and Spain |
-| M03 | Origin and Places | 13-18 | 22-28 | origin, cities/countries, `soy de`, `es de`, question accents |
+| M03 | Origin, Languages and Personal Identity | 13-19 | 22-28 | origin, residence, languages, controlled personal profile |
 | M04 | How People Are and Classroom Survival | 19-24 | 18-24 | wellbeing, clarification, `hablas español`, classroom exchanges |
 | M05 | Numbers and Personal Facts | 25-31 | 24-30 | 0-20, phone-style numbers, age with `tener` |
 | M06 | Everyday Objects and Tener | 32-38 | 22-28 | objects, `un/una`, possession, `tengo/tienes/tiene` |
@@ -266,19 +266,23 @@ The learner can introduce themself, ask another person's name and complete a sho
 - responding to `mucho gusto`;
 - recognizing names that include early Spanish reading challenges.
 
-## M03 — Origin and Places
+## M03 — Origin, Languages and Personal Identity
 
 ### Communicative Goal
 
-The learner can say where they are from, ask where another person is from and understand a tiny profile about origin.
+The learner can say where they are from, say where they live, say which
+languages they speak, ask basic identity questions and understand a tiny
+personal profile.
 
 ### Real-Life Scenarios
 
 - giving origin during a first conversation;
 - asking a new person where they are from;
-- reading a short profile with name and place;
-- recognizing common city and country names;
-- answering an early personal-information question without overexplaining.
+- saying where they live now;
+- asking which languages another person speaks;
+- reading a short profile with name, origin, residence and languages;
+- recognizing common city, country and language names;
+- answering early personal-information questions without overexplaining.
 
 ## M04 — How People Are and Classroom Survival
 
@@ -392,12 +396,13 @@ ID policy:
 | 10 | new: es.a0.m02.l008 | M02 | Nice to Meet You | teaching | Complete a short introduction exchange. | 7-9 | mucho gusto, igualmente | names, greetings | none | 2 typed recall | C2C |
 | 11 | new: es.a0.m02.l009 | M02 | Introduction Dialogue Practice | dialogue/application | Choose and produce replies in a first meeting. | 7-10 | none | M01-M02 | question punctuation | 2 typed recall | C2C |
 | 12 | es.a0.m05.l013 | M02 | Names and Introductions Review | review | Recall varied introductions without relying on Ana. | 7-11 | none | M01-M02 | ll/ñ review | 3 typed recall | C2C |
-| 13 | es.a0.m02.l005 | M03 | I Am From | teaching | Say origin with `soy de`. | 12 | soy de, varied places | names | de in pattern | 2 typed recall, missing `de` misconception | C2D |
-| 14 | new: es.a0.m03.l013 | M03 | Where Are You From? | teaching | Ask and answer origin. | 13 | de dónde eres | soy de | dónde accent | 2 typed recall | C2D |
-| 15 | new: es.a0.m03.l014 | M03 | Cities and Countries | guided practice | Use a controlled pool of cities and countries. | 13-14 | México, Lima, Bogotá, Valencia, Kyiv | name pool | accents in México/Bogotá | 2 typed recall | C2D |
-| 16 | es.a0.m06.l019 | M03 | Question Accents | reading foundation | Write qué, cómo and dónde in direct questions. | 14 | qué, cómo, dónde | M01-M03 | accents, question marks | 3 typed recall | C2D |
-| 17 | new: es.a0.m03.l015 | M03 | He or She Is From | teaching | Understand `es de` in a mini-profile. | 15 | es de, él, ella | places | none | 2 typed recall | C2D |
-| 18 | es.a0.m05.l015 | M03 | Foundations Checkpoint | checkpoint | Assess greetings, names, origin and early questions. | 1-17 | none | M01-M03 | h, ñ, question marks | 4 typed recall | C2D |
+| 13 | es.a0.m03.l013 | M03 | I Am From | teaching | Say origin with `soy de`. | 12 | soy de, varied places | names | de in pattern | 2 typed recall, missing `de` misconception | C2D |
+| 14 | es.a0.m03.l014 | M03 | Where Are You From? | teaching | Ask and answer origin. | 13 | de dónde eres | soy de | dónde accent | 2 typed recall | C2D |
+| 15 | es.a0.m03.l015 | M03 | Where Do You Live? | teaching | Say and ask residence. | 13-14 | vivo en, dónde vives, Kyiv, Lima, Bogotá, Valencia | origin contrast | dónde accent | 2 typed recall, origin/residence misconception | C2D |
+| 16 | es.a0.m03.l016 | M03 | Languages I Speak | teaching | Say and ask which languages someone speaks. | 15 | hablo, hablas, idiomas, español, inglés, ucraniano, ruso, un poco de | identity questions | qué accent | 3 typed recall | C2D |
+| 17 | es.a0.m03.l017 | M03 | Identity Questions and Answers | dialogue/application | Exchange origin, residence and language information. | 13-16 | none | M01-M03 | question punctuation | 2 typed recall | C2D |
+| 18 | es.a0.m03.l018 | M03 | Personal Identity Review | review | Recombine names, origin, residence and languages. | 13-17 | none | M01-M03 | accents and question marks | 3 typed recall | C2D |
+| 19 | es.a0.m03.l019 | M03 | Module 3 Foundations Checkpoint | checkpoint | Assess greetings, names, origin, residence, languages and early questions. | 1-18 | none | M01-M03 | h, ñ, accents, question marks | 4 typed recall | C2D |
 | 19 | es.a0.m02.l006 | M04 | How Are You? | teaching | Ask how someone is. | 18 | cómo estás, qué tal | greetings | cómo accent | 2 typed recall | C2E |
 | 20 | es.a0.m03.l007 | M04 | Short Wellbeing Answers | teaching | Answer with bien, mal, más o menos. | 19 | bien, muy bien, mal, más o menos | courtesy | none | 2 typed recall | C2E |
 | 21 | es.a0.m03.l009 | M04 | Do You Speak Spanish? | teaching | Ask and answer `¿Hablas español?` | 19 | hablas español, un poco | sí/no | question marks | 2 typed recall | C2E |
@@ -678,7 +683,7 @@ The target restructure should not be applied wholesale to production until progr
 |---|---|---|---|---|
 | C2B | Module 1 | 1-6 | Move reading support early; revise first words and clarification. | curriculum order, content references, prompt constraints, typed recall |
 | C2C | Module 2 | 7-12 | Names, introductions, ñ/j/ll, name variation. | misconception, variation, typed recall, pattern transfer |
-| C2D | Module 3 | 13-18 | Origin, places, question accents, foundations checkpoint. | checkpoint integrity, place variation, no answer leakage |
+| C2D | Module 3 | 13-19 | Origin, residence, languages, identity profile, foundations checkpoint and module competency. | checkpoint integrity, place/language variation, no answer leakage, competency recovery |
 | C2E | Module 4 | 19-24 | Wellbeing, classroom survival, interaction review. | dialogue comprehension, recall coverage, review mixes three prior lessons |
 | C2F | Module 5 | 25-31 | Numbers, quantities, age, personal facts checkpoint. | number/age references, answer constraints, delayed reuse |
 | C2G | Module 6 | 32-38 | Objects, articles, tener possession, word order. | tener misconceptions, review references, object diversity |

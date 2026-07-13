@@ -1,0 +1,109 @@
+[
+  {
+    "id": "grammar.es.a0.m03.origin_soy_de.v1",
+    "title": "Origin with soy de",
+    "explanation": "Use soy de plus a country or city to say where you are from. Keep de in the pattern; it is part of the meaning.",
+    "examples": [
+      "Soy de Ucrania.",
+      "Soy de México.",
+      "Soy de Colombia."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m02.origin_seed.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m03.ask_origin.v1",
+    "title": "Asking origin",
+    "explanation": "Use ¿De dónde eres? to ask one person where they are from. De dónde asks for origin, not current residence.",
+    "examples": [
+      "¿De dónde eres?",
+      "Soy de Chile."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m03.origin_soy_de.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m03.residence_vivo_en.v1",
+    "title": "Residence with vivo en",
+    "explanation": "Use vivo en plus a place to say where you live. Use soy de for origin and vivo en for residence.",
+    "examples": [
+      "Vivo en Kyiv.",
+      "Vivo en Valencia."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m03.ask_residence.v1",
+    "title": "Asking residence",
+    "explanation": "Use ¿Dónde vives? to ask where one person lives.",
+    "examples": [
+      "¿Dónde vives?",
+      "Vivo en Lima."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m03.residence_vivo_en.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m03.languages_hablo.v1",
+    "title": "Languages with hablo",
+    "explanation": "Use hablo plus a language to say what language you speak. Use hablas in the question to ask another person.",
+    "examples": [
+      "Hablo español.",
+      "¿Qué idiomas hablas?"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m03.languages_un_poco.v1",
+    "title": "A little with un poco de",
+    "explanation": "Use hablo un poco de plus a language for limited ability. Keep de before the language.",
+    "examples": [
+      "Hablo un poco de español.",
+      "Hablo un poco de inglés."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m03.languages_hablo.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m03.question_accents.v1",
+    "title": "Question accents",
+    "explanation": "In direct questions, qué and dónde are written with accents. Spanish direct questions also begin with ¿.",
+    "examples": [
+      "¿Qué idiomas hablas?",
+      "¿De dónde eres?",
+      "¿Dónde vives?"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m03.identity_profile.v1",
+    "title": "Short personal identity profile",
+    "explanation": "A tiny profile can combine name, origin, residence and languages with short sentences.",
+    "examples": [
+      "Me llamo Marta. Soy de Ucrania. Vivo en Kyiv. Hablo ucraniano y ruso."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m02.me_llamo_transfer.v1",
+      "grammar.es.a0.m03.origin_soy_de.v1",
+      "grammar.es.a0.m03.residence_vivo_en.v1",
+      "grammar.es.a0.m03.languages_hablo.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m03.origin_residence_contrast.v1",
+    "title": "Origin and residence are different",
+    "explanation": "Soy de tells where someone is from. Vivo en tells where someone lives now. Do not swap the patterns when the prompt asks for one specific meaning.",
+    "examples": [
+      "Soy de Ucrania.",
+      "Vivo en Kyiv."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m03.origin_soy_de.v1",
+      "grammar.es.a0.m03.residence_vivo_en.v1"
+    ]
+  }
+]

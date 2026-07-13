@@ -1,0 +1,199 @@
+[
+  {
+    "id": "vocab.es.a0.m03.ucrania.v1",
+    "spanish": "Ucrania",
+    "native_translation": "Ukraine",
+    "cefr": "A0",
+    "example": "Soy de Ucrania.",
+    "pronunciation": "u-KRA-nia"
+  },
+  {
+    "id": "vocab.es.a0.m03.kyiv.v1",
+    "spanish": "Kyiv",
+    "native_translation": "Kyiv",
+    "cefr": "A0",
+    "example": "Vivo en Kyiv."
+  },
+  {
+    "id": "vocab.es.a0.m03.mexico.v1",
+    "spanish": "México",
+    "native_translation": "Mexico",
+    "cefr": "A0",
+    "example": "Soy de México."
+  },
+  {
+    "id": "vocab.es.a0.m03.colombia.v1",
+    "spanish": "Colombia",
+    "native_translation": "Colombia",
+    "cefr": "A0",
+    "example": "Soy de Colombia."
+  },
+  {
+    "id": "vocab.es.a0.m03.chile.v1",
+    "spanish": "Chile",
+    "native_translation": "Chile",
+    "cefr": "A0",
+    "example": "Soy de Chile."
+  },
+  {
+    "id": "vocab.es.a0.m03.espana.v1",
+    "spanish": "España",
+    "native_translation": "Spain",
+    "cefr": "A0",
+    "example": "Soy de España."
+  },
+  {
+    "id": "vocab.es.a0.m03.peru.v1",
+    "spanish": "Perú",
+    "native_translation": "Peru",
+    "cefr": "A0",
+    "example": "Soy de Perú."
+  },
+  {
+    "id": "vocab.es.a0.m03.argentina.v1",
+    "spanish": "Argentina",
+    "native_translation": "Argentina",
+    "cefr": "A0",
+    "example": "Soy de Argentina."
+  },
+  {
+    "id": "vocab.es.a0.m03.valencia.v1",
+    "spanish": "Valencia",
+    "native_translation": "Valencia",
+    "cefr": "A0",
+    "example": "Vivo en Valencia."
+  },
+  {
+    "id": "vocab.es.a0.m03.lima.v1",
+    "spanish": "Lima",
+    "native_translation": "Lima",
+    "cefr": "A0",
+    "example": "Vivo en Lima."
+  },
+  {
+    "id": "vocab.es.a0.m03.bogota.v1",
+    "spanish": "Bogotá",
+    "native_translation": "Bogota",
+    "cefr": "A0",
+    "example": "Vivo en Bogotá."
+  },
+  {
+    "id": "vocab.es.a0.m03.madrid.v1",
+    "spanish": "Madrid",
+    "native_translation": "Madrid",
+    "cefr": "A0",
+    "example": "Vivo en Madrid."
+  },
+  {
+    "id": "vocab.es.a0.m03.donde.v1",
+    "spanish": "dónde",
+    "native_translation": "where",
+    "cefr": "A0",
+    "example": "¿Dónde vives?"
+  },
+  {
+    "id": "vocab.es.a0.m03.de_donde.v1",
+    "spanish": "de dónde",
+    "native_translation": "from where",
+    "cefr": "A0",
+    "example": "¿De dónde eres?"
+  },
+  {
+    "id": "vocab.es.a0.m03.vivo.v1",
+    "spanish": "vivo",
+    "native_translation": "I live",
+    "cefr": "A0",
+    "example": "Vivo en Kyiv."
+  },
+  {
+    "id": "vocab.es.a0.m03.vives.v1",
+    "spanish": "vives",
+    "native_translation": "you live",
+    "cefr": "A0",
+    "example": "¿Dónde vives?"
+  },
+  {
+    "id": "vocab.es.a0.m03.en.v1",
+    "spanish": "en",
+    "native_translation": "in",
+    "cefr": "A0",
+    "example": "Vivo en Lima."
+  },
+  {
+    "id": "vocab.es.a0.m03.idioma.v1",
+    "spanish": "idioma",
+    "native_translation": "language",
+    "cefr": "A0",
+    "example": "¿Qué idiomas hablas?"
+  },
+  {
+    "id": "vocab.es.a0.m03.idiomas.v1",
+    "spanish": "idiomas",
+    "native_translation": "languages",
+    "cefr": "A0",
+    "example": "Hablo dos idiomas."
+  },
+  {
+    "id": "vocab.es.a0.m03.hablo.v1",
+    "spanish": "hablo",
+    "native_translation": "I speak",
+    "cefr": "A0",
+    "example": "Hablo español."
+  },
+  {
+    "id": "vocab.es.a0.m03.hablas.v1",
+    "spanish": "hablas",
+    "native_translation": "you speak",
+    "cefr": "A0",
+    "example": "¿Qué idiomas hablas?"
+  },
+  {
+    "id": "vocab.es.a0.m03.espanol.v1",
+    "spanish": "español",
+    "native_translation": "Spanish",
+    "cefr": "A0",
+    "example": "Hablo español."
+  },
+  {
+    "id": "vocab.es.a0.m03.ingles.v1",
+    "spanish": "inglés",
+    "native_translation": "English",
+    "cefr": "A0",
+    "example": "Hablo inglés."
+  },
+  {
+    "id": "vocab.es.a0.m03.ucraniano.v1",
+    "spanish": "ucraniano",
+    "native_translation": "Ukrainian",
+    "cefr": "A0",
+    "example": "Hablo ucraniano."
+  },
+  {
+    "id": "vocab.es.a0.m03.ruso.v1",
+    "spanish": "ruso",
+    "native_translation": "Russian",
+    "cefr": "A0",
+    "example": "Hablo ruso."
+  },
+  {
+    "id": "vocab.es.a0.m03.y.v1",
+    "spanish": "y",
+    "native_translation": "and",
+    "cefr": "A0",
+    "example": "Hablo ucraniano y ruso."
+  },
+  {
+    "id": "vocab.es.a0.m03.un_poco_de.v1",
+    "spanish": "un poco de",
+    "native_translation": "a little",
+    "cefr": "A0",
+    "example": "Hablo un poco de español."
+  },
+  {
+    "id": "vocab.es.a0.m03.persona.v1",
+    "spanish": "persona",
+    "native_translation": "person",
+    "cefr": "A0",
+    "example": "Una persona: Marta."
+  }
+]

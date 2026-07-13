@@ -496,23 +496,24 @@ Small Module 3 example:
 
 ```text
 Competency:
-The learner can give a short personal profile.
+competency.es.a0.m03.describe_basic_personal_identity
 
 Diagnostic tasks:
-- introduce_self
-- state_origin
-- state_residence
-- state_languages
-- build_personal_profile
+- task.es.a0.introduce_self
+- task.es.a0.state_origin
+- task.es.a0.state_residence
+- task.es.a0.state_languages
+- task.es.a0.ask_origin_and_languages
+- task.es.a0.build_personal_identity_profile
 
 Recovery:
-introduce_self failure
-    -> Module 2 me llamo recovery step
-    -> retry introduce_self
+micro.es.a0.introduce_self failure
+    -> template.es.a0.m02.l004.name_pattern_choice.v1
+    -> retry task.es.a0.introduce_self
 
-state_origin failure
-    -> Module 3 soy de recovery step
-    -> retry state_origin
+micro.es.a0.state_origin failure
+    -> template.es.a0.m03.l013.origin_choice.v1
+    -> retry task.es.a0.state_origin
 ```
 
 Competency outcomes are distinct from lesson completion.

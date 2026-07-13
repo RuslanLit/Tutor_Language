@@ -240,9 +240,9 @@ void main() {
       contentLoader: contentLoader,
     );
 
-    final checkpoint = await service.assembleLesson('es.a0.m05.l015');
+    final checkpoint = await service.assembleLesson('es.a0.m03.l019');
     final assessment = checkpoint.activities.singleWhere(
-      (activity) => activity.activity.id == 'activity.practice.a0_checkpoint',
+      (activity) => activity.activity.id == 'es.a0.m03.l019.activity.practice',
     );
 
     expect(
@@ -310,7 +310,7 @@ void main() {
       }
 
       expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
-      expect(course.lessons, hasLength(lessThanOrEqualTo(36)));
+      expect(course.lessons, hasLength(lessThanOrEqualTo(44)));
       expect(vocabularyCount, inInclusiveRange(150, 220));
       expect(dialogueCount, greaterThanOrEqualTo(25));
       expect(readingCount, greaterThanOrEqualTo(18));
@@ -408,6 +408,10 @@ void main() {
           .singleWhere((module) => module.id == 'es.a0.m06')
           .lessonIds,
       isNot(contains('es.a0.m06.l016')),
+    );
+    expect(
+      course.modules.expand((module) => module.lessonIds).toSet(),
+      hasLength(referencedLessonIds.length),
     );
 
     final templates = <ExerciseTemplate>[];
@@ -678,8 +682,10 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'Spanish introduction',
     'Spanish origin phrase',
     'Spanish origin pattern word',
+    'Spanish residence pattern word',
     'Spanish question word',
     'Spanish question',
+    'Spanish answer',
     'Spanish request',
     'Spanish greeting',
     'Spanish spelling group',

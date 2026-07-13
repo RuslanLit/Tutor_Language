@@ -38,15 +38,21 @@ void main() {
           home: CompetencySessionScreen(
             courseId: 'spanish_a0',
             moduleId: 'es.a0.m03',
-            competencyId: 'competency.es.a0.m03.personal_profile',
+            competencyId:
+                'competency.es.a0.m03.describe_basic_personal_identity',
           ),
         ),
       ),
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Personal identity check'), findsOneWidget);
-    expect(find.text('Type the Spanish introduction.'), findsOneWidget);
+    expect(find.text('Basic personal identity check'), findsOneWidget);
+    expect(
+      find.text(
+        'Competency check: Type the Spanish introduction and greeting as Marta.',
+      ),
+      findsOneWidget,
+    );
 
     await tester.enterText(find.byType(TextField), 'Soy Marta');
     await tester.tap(find.text('Check'));
@@ -65,12 +71,42 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Try the original task again.'), findsOneWidget);
-    await tester.enterText(find.byType(TextField), 'Me llamo Marta');
+    await tester.enterText(find.byType(TextField), 'Hola. Me llamo Marta');
     await tester.tap(find.text('Check'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Type the Spanish origin sentence.'), findsOneWidget);
-    await tester.enterText(find.byType(TextField), 'Soy de Valencia');
+    expect(
+      find.text(
+        'Competency check: Type the Spanish sentence saying that you are from Ukraine.',
+      ),
+      findsOneWidget,
+    );
+    await tester.enterText(find.byType(TextField), 'Soy de Ucrania');
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'Vivo en Kyiv');
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(
+      find.byType(TextField),
+      'Hablo ucraniano y un poco de español',
+    );
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(
+      find.byType(TextField),
+      '¿De dónde eres? ¿Qué idiomas hablas?',
+    );
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+
+    await tester.enterText(
+      find.byType(TextField),
+      'Me llamo Marta. Soy de Ucrania. Vivo en Kyiv. Hablo ucraniano y un poco de español',
+    );
     await tester.tap(find.text('Check'));
     await tester.pumpAndSettle();
 
@@ -101,20 +137,59 @@ class _CompetencyContentRepository extends ContentRepository {
       assetPath: 'assets/languages/spanish/templates/module_2_names.json',
       templates: [
         ExerciseTemplate(
-          id: 'template.es.a0.m02.review.type_me_llamo_marta.v1',
+          id: 'template.es.a0.m03.competency.type_intro_marta.v1',
           exerciseType: 'text_entry',
           supportedGoalTypes: ['recall'],
           requiredObjectTypes: ['phrase'],
-          promptTemplate: 'Type the Spanish introduction.',
-          expectedAnswer: 'Me llamo Marta',
+          promptTemplate:
+              'Competency check: Type the Spanish introduction and greeting as Marta.',
+          expectedAnswer: 'Hola. Me llamo Marta',
         ),
         ExerciseTemplate(
-          id: 'template.es.a0.m02.review.type_soy_de_valencia.v1',
+          id: 'template.es.a0.m03.competency.type_origin_ucrania.v1',
           exerciseType: 'text_entry',
           supportedGoalTypes: ['recall'],
           requiredObjectTypes: ['phrase'],
-          promptTemplate: 'Type the Spanish origin sentence.',
-          expectedAnswer: 'Soy de Valencia',
+          promptTemplate:
+              'Competency check: Type the Spanish sentence saying that you are from Ukraine.',
+          expectedAnswer: 'Soy de Ucrania',
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.competency.type_residence_kyiv.v1',
+          exerciseType: 'text_entry',
+          supportedGoalTypes: ['recall'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate:
+              'Competency check: Type the Spanish sentence saying that you live in Kyiv.',
+          expectedAnswer: 'Vivo en Kyiv',
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.competency.type_languages_ucranian_spanish.v1',
+          exerciseType: 'text_entry',
+          supportedGoalTypes: ['recall'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate:
+              'Competency check: Type the Spanish sentence saying that you speak Ukrainian and a little Spanish.',
+          expectedAnswer: 'Hablo ucraniano y un poco de español',
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.competency.type_ask_origin_languages.v1',
+          exerciseType: 'text_entry',
+          supportedGoalTypes: ['recall'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate:
+              'Competency check: Type the Spanish questions asking where the other person is from and which languages they speak.',
+          expectedAnswer: '¿De dónde eres? ¿Qué idiomas hablas?',
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.competency.type_identity_profile.v1',
+          exerciseType: 'text_entry',
+          supportedGoalTypes: ['recall'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate:
+              'Competency check: Type the Spanish sentence sequence for this profile: "My name is Marta. I am from Ukraine. I live in Kyiv. I speak Ukrainian and a little Spanish."',
+          expectedAnswer:
+              'Me llamo Marta. Soy de Ucrania. Vivo en Kyiv. Hablo ucraniano y un poco de español',
         ),
         ExerciseTemplate(
           id: 'template.es.a0.m02.l004.name_pattern_choice.v1',
@@ -138,6 +213,81 @@ class _CompetencyContentRepository extends ContentRepository {
           answerOptions: [
             ExerciseTemplateOption(id: 'soy_de', label: 'Soy de Valencia'),
             ExerciseTemplateOption(id: 'estoy_de', label: 'Estoy de Valencia'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l013.origin_choice.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the origin pattern.',
+          correctOptionId: 'soy_de',
+          answerOptions: [
+            ExerciseTemplateOption(id: 'soy_de', label: 'Soy de Ucrania'),
+            ExerciseTemplateOption(id: 'vivo_en', label: 'Vivo en Ucrania'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l015.residence_choice.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the residence pattern.',
+          correctOptionId: 'vivo_en',
+          answerOptions: [
+            ExerciseTemplateOption(id: 'vivo_en', label: 'Vivo en Kyiv'),
+            ExerciseTemplateOption(id: 'soy_de', label: 'Soy de Kyiv'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l016.language_choice.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the language pattern.',
+          correctOptionId: 'hablo',
+          answerOptions: [
+            ExerciseTemplateOption(id: 'hablo', label: 'Hablo español'),
+            ExerciseTemplateOption(id: 'vivo', label: 'Vivo español'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l014.origin_question_choice.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the origin question.',
+          correctOptionId: 'de_donde',
+          answerOptions: [
+            ExerciseTemplateOption(id: 'de_donde', label: '¿De dónde eres?'),
+            ExerciseTemplateOption(id: 'donde', label: '¿Dónde vives?'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l017.exchange_question_choice.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the language question.',
+          correctOptionId: 'idiomas',
+          answerOptions: [
+            ExerciseTemplateOption(
+              id: 'idiomas',
+              label: '¿Qué idiomas hablas?',
+            ),
+            ExerciseTemplateOption(id: 'origin', label: '¿De dónde eres?'),
+          ],
+        ),
+        ExerciseTemplate(
+          id: 'template.es.a0.m03.l015.origin_residence_contrast.v1',
+          exerciseType: 'multiple_choice',
+          supportedGoalTypes: ['recognition'],
+          requiredObjectTypes: ['phrase'],
+          promptTemplate: 'Choose the residence answer.',
+          correctOptionId: 'residence',
+          answerOptions: [
+            ExerciseTemplateOption(id: 'residence', label: 'Vivo en Kyiv.'),
+            ExerciseTemplateOption(id: 'origin', label: 'Soy de Kyiv.'),
           ],
         ),
       ],

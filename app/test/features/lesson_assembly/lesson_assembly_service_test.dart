@@ -25,7 +25,7 @@ void main() {
     expect(lessonContent.activities, hasLength(4));
   });
 
-  test('assembles Unit 1 first-contact lessons from bundled content', () async {
+  test('assembles early Spanish A0 production lessons from bundled content', () async {
     final service = LessonAssemblyService(
       curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
       contentLoader: ContentLoader(assetBundle: rootBundle),
@@ -36,11 +36,12 @@ void main() {
       'es.a0.m01.l002',
       'es.a0.m01.l003',
       'es.a0.m02.l004',
-      'es.a0.m02.l005',
-      'es.a0.m02.l006',
-      'es.a0.m03.l007',
-      'es.a0.m03.l008',
-      'es.a0.m03.l009',
+      'es.a0.m03.l013',
+      'es.a0.m03.l014',
+      'es.a0.m03.l015',
+      'es.a0.m03.l016',
+      'es.a0.m03.l017',
+      'es.a0.m03.l018',
       'es.a0.m04.l010',
     ]) {
       final lessonContent = await service.assembleLesson(lessonId);
