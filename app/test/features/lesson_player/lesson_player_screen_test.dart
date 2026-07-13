@@ -32,6 +32,12 @@ void main() {
     await _pumpUntilFound(tester, find.text('Hello and Goodbye'));
 
     expect(find.text('Hello and Goodbye'), findsOneWidget);
+    expect(find.text('Module 1'), findsOneWidget);
+    expect(find.text('Lesson 1'), findsOneWidget);
+    expect(find.text('A0'), findsOneWidget);
+    expect(find.text('es.a0.m01.l001'), findsNothing);
+    expect(find.text('es.a0.m01'), findsNothing);
+    expect(find.text('es.a0'), findsNothing);
     expect(find.text('vocabulary'), findsWidgets);
     expect(find.text('hola'), findsWidgets);
     expect(find.text('grammar'), findsNothing);
@@ -107,6 +113,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Finish Lesson'), findsOneWidget);
+    expect(find.text('Try again'), findsNothing);
     await tester.tap(find.text('wrong option'));
     await tester.pump();
     await tester.tap(find.text('Check'));
@@ -154,8 +161,11 @@ void main() {
     await tester.pump();
 
     expect(find.text('Accepted with correction'), findsOneWidget);
-    expect(find.text('Canonical answer: qué'), findsOneWidget);
-    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
+    expect(find.text('Recommended answer: qué'), findsOneWidget);
+    expect(
+      find.text('Good work. This needs a little more practice.'),
+      findsOneWidget,
+    );
     expect(
       tester
           .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
@@ -205,7 +215,7 @@ void main() {
 
     expect(find.text('Try again'), findsOneWidget);
     expect(find.text('Not correct yet'), findsNothing);
-    expect(find.text('Canonical answer: Me llamo Ana'), findsNothing);
+    expect(find.text('Recommended answer: Me llamo Ana'), findsNothing);
     expect(
       find.text('- For this introduction pattern, use "me llamo".'),
       findsNothing,
@@ -221,7 +231,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Not correct yet'), findsOneWidget);
-    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(find.text('Recommended answer: Me llamo Ana'), findsOneWidget);
     expect(
       find.text('- For this introduction pattern, use "me llamo".'),
       findsOneWidget,
@@ -239,7 +249,10 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
     expect(find.text('Not correct yet'), findsNothing);
-    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
+    expect(
+      find.text('Good work. This needs a little more practice.'),
+      findsOneWidget,
+    );
     expect(
       tester
           .widget<FilledButton>(find.widgetWithText(FilledButton, 'Next →'))
@@ -254,7 +267,7 @@ void main() {
 
     await tester.ensureVisible(find.text('Next →'));
     await tester.tap(find.text('Next →'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(find.text('Step 2 / 2'), findsOneWidget);
     expect(find.text('Remediation Vocabulary'), findsOneWidget);
@@ -322,7 +335,10 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
-    expect(find.text('Completed - needs reinforcement'), findsOneWidget);
+    expect(
+      find.text('Good work. This needs a little more practice.'),
+      findsOneWidget,
+    );
 
     await tester.tap(find.text('Next →'));
     await tester.pump();
@@ -760,6 +776,96 @@ void main() {
 
     expect(find.text('Course route reached'), findsOneWidget);
   });
+
+  testWidgets('visible back control returns completed lesson to course', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/lesson.interactive',
+        service: _FakeLessonAssemblyService(_interactiveLessonContent),
+      ),
+    );
+    await _pumpUntilFound(tester, find.text('Interactive Practice'));
+
+    expect(find.byTooltip('Back to course'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Back to course'));
+    await _pumpUntilFound(tester, find.text('Course route reached'));
+
+    expect(find.text('Course route reached'), findsOneWidget);
+  });
+
+  testWidgets('back control confirms before leaving incomplete lesson', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/lesson.interactive',
+        service: _FakeLessonAssemblyService(_interactiveLessonContent),
+        database: database,
+        completedProgress: false,
+      ),
+    );
+    await _pumpUntilFound(tester, find.text('Interactive Practice'));
+
+    await tester.tap(find.byTooltip('Back to course'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Leave lesson?'), findsOneWidget);
+    expect(
+      find.text('This unfinished lesson will restart when you open it again.'),
+      findsOneWidget,
+    );
+
+    await tester.tap(find.text('Stay'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Interactive Practice'), findsOneWidget);
+    expect(find.text('Course route reached'), findsNothing);
+
+    await tester.tap(find.byTooltip('Back to course'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Leave lesson'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Course route reached'), findsOneWidget);
+    expect(await database.select(database.lessonAttempts).get(), isEmpty);
+  });
+
+  testWidgets('leaving incomplete lesson restarts ordinary session safely', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/es.a0.m01.l001',
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        completedProgress: false,
+      ),
+    );
+    await _pumpUntilFound(tester, find.text('Step 1 / 3'));
+
+    await tester.ensureVisible(find.text('Next →'));
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+
+    expect(find.text('Step 2 / 3'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Back to course'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Leave lesson'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Course route reached'), findsOneWidget);
+
+    await tester.tap(find.text('Open test lesson'));
+    await _pumpUntilFound(tester, find.text('Navigation Lesson'));
+
+    expect(find.text('Step 1 / 3'), findsOneWidget);
+  });
 }
 
 Widget _app(
@@ -790,6 +896,7 @@ Widget _routerApp({
   required String initialLocation,
   LessonAssemblyService? service,
   AppDatabase? database,
+  bool completedProgress = true,
 }) {
   final router = GoRouter(
     initialLocation: initialLocation,
@@ -797,8 +904,22 @@ Widget _routerApp({
       GoRoute(
         path: CourseRoute.path,
         name: CourseRoute.name,
-        builder: (context, state) =>
-            const Scaffold(body: Text('Course route reached')),
+        builder: (context, state) => Scaffold(
+          body: Column(
+            children: [
+              const Text('Course route reached'),
+              FilledButton(
+                onPressed: () {
+                  context.goNamed(
+                    LessonRoute.name,
+                    pathParameters: {'lessonId': _navigationLessonId},
+                  );
+                },
+                child: const Text('Open test lesson'),
+              ),
+            ],
+          ),
+        ),
       ),
       GoRoute(
         path: LessonRoute.path,
@@ -828,8 +949,10 @@ Widget _routerApp({
         (ref) => _FinalCourseContentRepository(),
       ),
       topicProgressProvider.overrideWith(
-        (ref, topicId) async =>
-            TopicProgress(topicId: topicId, completedAt: DateTime.utc(2026)),
+        (ref, topicId) async => TopicProgress(
+          topicId: topicId,
+          completedAt: completedProgress ? DateTime.utc(2026) : null,
+        ),
       ),
       nextOrderedLessonProvider.overrideWith((ref, lessonId) async => null),
       if (service != null)

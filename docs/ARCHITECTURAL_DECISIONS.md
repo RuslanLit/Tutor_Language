@@ -1145,6 +1145,56 @@ Rejected alternatives:
 
 ---
 
+## ADR: Deterministic Support-Language Equivalence
+
+Status
+
+Accepted
+
+Context
+
+Some beginner exercises ask the learner to demonstrate meaning rather than a
+specific English written form. A learner-facing false failure can occur when
+the learner gives an equivalent support-language answer such as `I don't
+understand` for `I do not understand`, or omits a comma in a short fixed phrase
+where punctuation is not the learning objective.
+
+Decision
+
+The answer-evaluation layer may apply a narrow deterministic support
+normalizer after exact and ordinary normalized comparison.
+
+The support normalizer may handle:
+
+- a controlled set of English full-form/contraction pairs;
+- weak punctuation such as commas and terminal periods when not explicitly
+  tested.
+
+Exercise templates may opt out with an exact-form requirement when the authored
+objective is punctuation, apostrophe use, contraction form or another exact
+written form.
+
+The normalizer must not:
+
+- infer unrestricted semantic equivalents;
+- use AI, embeddings, edit distance or fuzzy matching;
+- remove Spanish accents;
+- erase Spanish question punctuation;
+- replace authored accepted answers.
+
+Consequences
+
+Meaning checks become less brittle while remaining deterministic and
+inspectable.
+
+Authors remain responsible for explicit accepted alternatives when the
+controlled normalizer does not cover a valid variant.
+
+Orthographic teaching remains possible because pedagogically meaningful Spanish
+differences are preserved for classification and feedback.
+
+---
+
 # Final Principle
 
 Architectural decisions should be:

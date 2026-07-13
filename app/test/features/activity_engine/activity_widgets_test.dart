@@ -57,7 +57,7 @@ void main() {
       await tester.pump();
 
       expect(find.text('Accepted with correction'), findsOneWidget);
-      expect(find.text('Canonical answer: ¿Qué tal?'), findsOneWidget);
+      expect(find.text('Recommended answer: ¿Qué tal?'), findsOneWidget);
       expect(find.text('- Spanish questions begin with "¿".'), findsOneWidget);
       expect(
         find.text('- "qué" requires an accent in this question.'),
@@ -90,7 +90,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
-    expect(find.text('Canonical answer: ¿Qué tal?'), findsNothing);
+    expect(find.text('Recommended answer: ¿Qué tal?'), findsNothing);
   });
 
   testWidgets('authored misconception explanation renders and resubmits', (
@@ -107,7 +107,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Not correct yet'), findsOneWidget);
-    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(find.text('Recommended answer: Me llamo Ana'), findsOneWidget);
     expect(
       find.text('- For this introduction pattern, use "me llamo".'),
       findsOneWidget,
@@ -122,7 +122,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
-    expect(find.text('Canonical answer: Me llamo Ana'), findsNothing);
+    expect(find.text('Recommended answer: Me llamo Ana'), findsNothing);
   });
 
   testWidgets('generic incorrect remains neutral', (tester) async {
@@ -137,8 +137,40 @@ void main() {
     await tester.pump();
 
     expect(find.text('Not correct yet'), findsOneWidget);
-    expect(find.text('Canonical answer: Me llamo Ana'), findsOneWidget);
+    expect(find.text('Recommended answer: Me llamo Ana'), findsOneWidget);
     expect(find.textContaining('me llamo'), findsNothing);
+  });
+
+  testWidgets('long text_entry widget uses multiline editing', (tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(body: ActivityTemplateWidget(template: _longTemplate)),
+      ),
+    );
+
+    final textField = tester.widget<TextField>(find.byType(TextField));
+
+    expect(textField.minLines, 3);
+    expect(textField.maxLines, 8);
+    expect(textField.keyboardType, TextInputType.multiline);
+    expect(textField.textInputAction, TextInputAction.newline);
+  });
+
+  testWidgets('short text_entry widget remains single-line', (tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: ActivityTemplateWidget(template: _textEntryTemplate),
+        ),
+      ),
+    );
+
+    final textField = tester.widget<TextField>(find.byType(TextField));
+
+    expect(textField.minLines, 1);
+    expect(textField.maxLines, 1);
+    expect(textField.keyboardType, TextInputType.text);
+    expect(textField.textInputAction, TextInputAction.done);
   });
 
   testWidgets('feedback does not leak between typed activities', (
@@ -226,6 +258,17 @@ const _nameTemplate = ExerciseTemplate(
       explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
     ),
   ],
+);
+
+const _longTemplate = ExerciseTemplate(
+  id: 'template.widget.long',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['grammar'],
+  promptTemplate:
+      'Write the short profile in Spanish using the details from the prompt.',
+  expectedAnswer:
+      'Me llamo Marta. Soy de Colombia. Vivo en Lima. Hablo español.',
 );
 
 const _matchingTemplate = ExerciseTemplate(

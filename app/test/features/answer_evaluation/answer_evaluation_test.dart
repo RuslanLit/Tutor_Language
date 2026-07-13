@@ -24,6 +24,37 @@ void main() {
 
       expect(normalized.value, '¿qué tal?');
     });
+
+    test('support normalization expands controlled English contractions', () {
+      final normalizer = const AnswerNormalizer();
+
+      expect(
+        normalizer.normalizeMeaningSupport("I don't understand").value,
+        'i do not understand',
+      );
+      expect(
+        normalizer.normalizeMeaningSupport("I'm from Ukraine.").value,
+        'i am from ukraine',
+      );
+      expect(
+        normalizer.normalizeMeaningSupport("He's my friend").value,
+        'he is my friend',
+      );
+    });
+
+    test('support normalization ignores weak punctuation only', () {
+      final normalizer = const AnswerNormalizer();
+
+      expect(
+        normalizer.normalizeMeaningSupport('repite, por favor').value,
+        'repite por favor',
+      );
+      expect(
+        normalizer.normalizeMeaningSupport('repite por favor.').value,
+        'repite por favor',
+      );
+      expect(normalizer.normalizeMeaningSupport('que tal?').value, 'que tal?');
+    });
   });
 
   group('AnswerComparator', () {
@@ -47,6 +78,18 @@ void main() {
       expect(comparison.isMatch, isTrue);
     });
 
+    test('ignores ordinary capitalization in name sentences', () {
+      final comparison = const AnswerComparator().compare(
+        learnerAnswer: 'me llamo marta.',
+        expectedAnswer: const ExpectedAnswerSet(
+          canonicalAnswer: 'Me llamo Marta.',
+        ),
+      );
+
+      expect(comparison.matchType, AnswerMatchType.normalizedCanonical);
+      expect(comparison.isMatch, isTrue);
+    });
+
     test('detects accepted alternatives', () {
       final comparison = const AnswerComparator().compare(
         learnerAnswer: 'buen día',
@@ -58,6 +101,46 @@ void main() {
 
       expect(comparison.matchType, AnswerMatchType.acceptedAlternative);
       expect(comparison.isMatch, isTrue);
+    });
+
+    test('detects controlled contraction equivalents', () {
+      final comparison = const AnswerComparator().compare(
+        learnerAnswer: "I don't understand",
+        expectedAnswer: const ExpectedAnswerSet(
+          canonicalAnswer: 'I do not understand',
+        ),
+      );
+
+      expect(comparison.matchType, AnswerMatchType.normalizedCanonical);
+      expect(comparison.isMatch, isTrue);
+    });
+
+    test('detects weak punctuation equivalents without erasing questions', () {
+      final commaComparison = const AnswerComparator().compare(
+        learnerAnswer: 'repite por favor',
+        expectedAnswer: const ExpectedAnswerSet(
+          canonicalAnswer: 'repite, por favor',
+        ),
+      );
+      final questionComparison = const AnswerComparator().compare(
+        learnerAnswer: 'Qué tal',
+        expectedAnswer: const ExpectedAnswerSet(canonicalAnswer: 'Qué tal?'),
+      );
+
+      expect(commaComparison.isMatch, isTrue);
+      expect(questionComparison.isMatch, isFalse);
+    });
+
+    test('can disable support equivalence for exact-form tasks', () {
+      final comparison = const AnswerComparator().compare(
+        learnerAnswer: "I don't understand",
+        expectedAnswer: const ExpectedAnswerSet(
+          canonicalAnswer: 'I do not understand',
+        ),
+        allowMeaningSupport: false,
+      );
+
+      expect(comparison.isMatch, isFalse);
     });
   });
 
@@ -314,6 +397,26 @@ void main() {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'hola?',
         canonicalAnswer: 'hola',
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+    });
+
+    test('accepts weak punctuation difference in short phrase', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'repite por favor',
+        canonicalAnswer: 'repite, por favor',
+      );
+
+      expect(result.status, AnswerEvaluationStatus.correct);
+      expect(result.isAccepted, isTrue);
+    });
+
+    test('can require explicit form when authored as exact', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: "I don't understand",
+        canonicalAnswer: 'I do not understand',
+        allowMeaningSupport: false,
       );
 
       expect(result.status, AnswerEvaluationStatus.incorrect);

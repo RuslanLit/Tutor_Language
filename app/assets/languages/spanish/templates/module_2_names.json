@@ -301,7 +301,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish word \"encantada\".",
+    "prompt_template": "Type the Spanish word a woman can use for \"pleased to meet you\".",
     "expected_answer": "encantada",
     "review_template_ids": [
       "template.es.a0.m02.l008.reply_choice.v1"

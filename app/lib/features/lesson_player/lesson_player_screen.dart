@@ -31,18 +31,132 @@ class LessonPlayerScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final lessonContent = ref.watch(assembledLessonProvider(lessonId));
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('Lesson Player')),
-      body: lessonContent.when(
-        data: (lessonContent) => LessonPlayerView(
-          lessonContent: lessonContent,
-          attemptPurpose: attemptPurpose,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) {
+          return;
+        }
+        _handleLessonExit(
+          context,
+          ref,
+          lessonId: lessonId,
+          dismissKeyboardFirst: true,
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          leading: _LessonExitButton(lessonId: lessonId),
+          title: const Text('Lesson Player'),
         ),
-        error: (error, stackTrace) => CourseBrowserError(message: '$error'),
-        loading: () => const Center(child: CircularProgressIndicator()),
+        body: lessonContent.when(
+          data: (lessonContent) => LessonPlayerView(
+            lessonContent: lessonContent,
+            attemptPurpose: attemptPurpose,
+          ),
+          error: (error, stackTrace) => CourseBrowserError(message: '$error'),
+          loading: () => const Center(child: CircularProgressIndicator()),
+        ),
       ),
     );
   }
+}
+
+class _LessonExitButton extends ConsumerWidget {
+  const _LessonExitButton({required this.lessonId});
+
+  final String lessonId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return IconButton(
+      tooltip: 'Back to course',
+      onPressed: () => _handleLessonExit(context, ref, lessonId: lessonId),
+      icon: const Icon(Icons.arrow_back),
+    );
+  }
+}
+
+Future<void> _handleLessonExit(
+  BuildContext context,
+  WidgetRef ref, {
+  required String lessonId,
+  bool dismissKeyboardFirst = false,
+}) async {
+  final focus = FocusManager.instance.primaryFocus;
+  final isKeyboardVisible = MediaQuery.viewInsetsOf(context).bottom > 0;
+  if (dismissKeyboardFirst &&
+      isKeyboardVisible &&
+      focus != null &&
+      focus.hasFocus) {
+    focus.unfocus();
+    return;
+  }
+
+  final session = ref.read(lessonPlayerSessionProvider(lessonId));
+  final isSessionCompleted =
+      session.sessionState.status == LessonSessionStatus.completed ||
+      session.completionPersistenceStatus ==
+          LessonCompletionPersistenceStatus.persisted;
+  final hasDurableCompletion = await _hasDurableLessonCompletion(ref, lessonId);
+
+  if (!context.mounted) {
+    return;
+  }
+
+  if (isSessionCompleted || hasDurableCompletion) {
+    _returnToCourse(context);
+    return;
+  }
+
+  final shouldLeave = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Leave lesson?'),
+      content: const Text(
+        'This unfinished lesson will restart when you open it again.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: const Text('Stay'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(context).pop(true),
+          child: const Text('Leave lesson'),
+        ),
+      ],
+    ),
+  );
+
+  if (shouldLeave != true || !context.mounted) {
+    return;
+  }
+
+  ref.read(lessonPlayerSessionProvider(lessonId).notifier).state =
+      const LessonPlayerSessionState();
+
+  if (context.mounted) {
+    _returnToCourse(context);
+  }
+}
+
+Future<bool> _hasDurableLessonCompletion(WidgetRef ref, String lessonId) async {
+  try {
+    final progress = await ref.read(topicProgressProvider(lessonId).future);
+    return progress.hasBeenCompleted;
+  } catch (_) {
+    return false;
+  }
+}
+
+void _returnToCourse(BuildContext context) {
+  if (context.canPop()) {
+    context.pop();
+    return;
+  }
+
+  context.goNamed(CourseRoute.name);
 }
 
 class LessonPlayerView extends ConsumerWidget {
@@ -101,13 +215,12 @@ class LessonPlayerView extends ConsumerWidget {
           spacing: 8,
           runSpacing: 8,
           children: [
-            _MetadataChip(label: lesson.id),
+            if (_moduleLabel(lesson.moduleId) != null)
+              _MetadataChip(label: _moduleLabel(lesson.moduleId)!),
+            if (_lessonNumberLabel(lesson.id) != null)
+              _MetadataChip(label: _lessonNumberLabel(lesson.id)!),
             if (lesson.difficulty.isNotEmpty)
               _MetadataChip(label: lesson.difficulty),
-            if (lesson.courseId.isNotEmpty)
-              _MetadataChip(label: lesson.courseId),
-            if (lesson.moduleId.isNotEmpty)
-              _MetadataChip(label: lesson.moduleId),
           ],
         ),
         if (lesson.description.isNotEmpty) ...[
@@ -618,9 +731,26 @@ bool _shouldShowMasteryLabel(StepMasteryAssessment? assessment) {
 String _masteryLabel(StepMasteryStatus status) {
   return switch (status) {
     StepMasteryStatus.mastered => 'Mastered',
-    StepMasteryStatus.fragile => 'Completed - needs reinforcement',
+    StepMasteryStatus.fragile =>
+      'Good work. This needs a little more practice.',
     StepMasteryStatus.notMastered || StepMasteryStatus.notAssessed => '',
   };
+}
+
+String? _moduleLabel(String moduleId) {
+  final match = RegExp(r'\.m0*([0-9]+)$').firstMatch(moduleId);
+  if (match == null) {
+    return null;
+  }
+  return 'Module ${match.group(1)}';
+}
+
+String? _lessonNumberLabel(String lessonId) {
+  final match = RegExp(r'\.l0*([0-9]+)$').firstMatch(lessonId);
+  if (match == null) {
+    return null;
+  }
+  return 'Lesson ${match.group(1)}';
 }
 
 class LessonContentObjectView extends StatelessWidget {
@@ -695,7 +825,7 @@ class GrammarTopicView extends StatelessWidget {
         ],
         if (topic.prerequisiteIds.isNotEmpty) ...[
           const SizedBox(height: 8),
-          Text('Prerequisites: ${topic.prerequisiteIds.join(', ')}'),
+          const Text('Builds on earlier material.'),
         ],
       ],
     );

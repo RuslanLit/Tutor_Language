@@ -22,6 +22,20 @@ String? optionalString(Map<String, Object?> json, String key) {
   throw FormatException('Invalid optional string field: $key');
 }
 
+bool? optionalBool(Map<String, Object?> json, String key) {
+  final value = json[key];
+
+  if (value == null) {
+    return null;
+  }
+
+  if (value is bool) {
+    return value;
+  }
+
+  throw FormatException('Invalid optional bool field: $key');
+}
+
 List<String> optionalStringList(Map<String, Object?> json, String key) {
   final value = json[key];
 

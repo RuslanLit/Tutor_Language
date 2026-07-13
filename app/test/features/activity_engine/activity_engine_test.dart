@@ -86,6 +86,39 @@ void main() {
     expect(result.isCorrect, isTrue);
     expect(result.matchedPairs, {'hola': 'hello', 'adiós': 'goodbye'});
   });
+
+  test('uses authored accepted answers for typed activities', () {
+    final result = const ActivityEngine().evaluate(
+      template: _acceptedAnswerTemplate,
+      submission: const ActivitySubmission(submittedAnswer: 'Hi'),
+    );
+
+    expect(result.isCorrect, isTrue);
+    expect(result.status, ActivityResultStatus.correct);
+  });
+
+  test('accepts controlled contraction equivalents in matching activities', () {
+    final result = const ActivityEngine().evaluate(
+      template: _matchingMeaningTemplate,
+      submission: const ActivitySubmission(
+        matchedPairs: {'no entiendo': "I don't understand"},
+      ),
+    );
+
+    expect(result.isCorrect, isTrue);
+  });
+
+  test('allows exact-form activities to reject support equivalents', () {
+    final result = const ActivityEngine().evaluate(
+      template: _exactFormTemplate,
+      submission: const ActivitySubmission(
+        submittedAnswer: "I don't understand",
+      ),
+    );
+
+    expect(result.isCorrect, isFalse);
+    expect(result.status, ActivityResultStatus.incorrect);
+  });
 }
 
 const _multipleChoiceTemplate = ExerciseTemplate(
@@ -153,4 +186,33 @@ const _matchingTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Match greetings.',
   expectedAnswer: 'hola=hello; adiós=goodbye',
+);
+
+const _matchingMeaningTemplate = ExerciseTemplate(
+  id: 'template.matching.meaning',
+  exerciseType: 'matching',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Match meanings.',
+  expectedAnswer: 'no entiendo=I do not understand',
+);
+
+const _acceptedAnswerTemplate = ExerciseTemplate(
+  id: 'template.accepted.answer',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Type another accepted English greeting.',
+  expectedAnswer: 'Hello',
+  acceptedAnswers: ['Hi'],
+);
+
+const _exactFormTemplate = ExerciseTemplate(
+  id: 'template.exact.form',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Type the exact full English form.',
+  expectedAnswer: 'I do not understand',
+  requiresExactAnswer: true,
 );

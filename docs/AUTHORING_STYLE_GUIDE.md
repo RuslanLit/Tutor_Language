@@ -220,6 +220,21 @@ Prompts should test the intended educational goal, not the learner's ability to 
 
 Keep instructions shorter than the task whenever practical.
 
+Meaning-based translation and comprehension prompts should accept natural
+authored equivalents unless the exact form is the learning objective.
+
+Examples:
+
+- `I do not understand` and `I don't understand`;
+- `I am from Ukraine` and `I'm from Ukraine`;
+- `He is my friend` and `He's my friend`.
+
+If punctuation, apostrophes, contractions or a full written form are the point
+of the exercise, the prompt must say so explicitly.
+
+Reviews should require active recall, discrimination or application. Do not
+display both sides of a pair and then treat the activity as completed learning.
+
 Supported exercise-template structure and validation rules belong in CONTENT_AUTHORING_GUIDE.md.
 
 ---

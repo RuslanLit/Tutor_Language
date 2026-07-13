@@ -56,7 +56,9 @@ class ActivityEngine {
     final evaluation = answerEvaluator.evaluateTypedAnswer(
       learnerAnswer: submitted,
       canonicalAnswer: expected,
+      acceptedAnswers: template.acceptedAnswers,
       authoredMisconceptions: template.authoredMisconceptions,
+      allowMeaningSupport: !template.requiresExactAnswer,
     );
 
     return ActivityResult(
@@ -153,7 +155,7 @@ class ActivityEngine {
   }
 
   String _normalize(String value) {
-    return const AnswerNormalizer().normalize(value).value;
+    return const AnswerNormalizer().normalizeMeaningSupport(value).value;
   }
 
   String _feedbackKey(bool isCorrect) {

@@ -202,4 +202,28 @@ across modules.
 
 ---
 
+# QA1 Meaning Equivalence and Active Review Corrections
+
+Spanish A0 Modules 1-4 use deterministic answer acceptance for learner-facing
+meaning checks.
+
+Meaning-equivalent English support answers may be accepted when they preserve
+the intended meaning. Controlled full-form/contraction pairs such as `I do not`
+and `I don't` are equivalent unless the exercise explicitly tests the written
+form.
+
+Weak punctuation such as a comma in `repite, por favor` must not create a hard
+failure when punctuation is not the learning objective.
+
+Question punctuation and Spanish accents remain pedagogically meaningful and
+must not be globally stripped. They should continue to produce either correct,
+accepted-with-correction or incorrect according to the existing answer
+evaluation policy.
+
+Review tasks in Modules 1-4 must require active learner retrieval,
+discrimination or application. Passive display of both sides of a pair is not a
+valid review activity.
+
+---
+
 End of document.

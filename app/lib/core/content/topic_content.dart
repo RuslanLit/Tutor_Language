@@ -382,6 +382,8 @@ class ExerciseTemplate {
     this.answerOptions = const [],
     this.correctOptionId,
     this.expectedAnswer,
+    this.acceptedAnswers = const [],
+    this.requiresExactAnswer = false,
     this.authoredMisconceptions = const [],
     this.reviewTemplateIds = const [],
   });
@@ -402,6 +404,8 @@ class ExerciseTemplate {
             ),
       correctOptionId: optionalString(json, 'correct_option_id'),
       expectedAnswer: optionalString(json, 'expected_answer'),
+      acceptedAnswers: optionalStringList(json, 'accepted_answers'),
+      requiresExactAnswer: optionalBool(json, 'requires_exact_answer') ?? false,
       authoredMisconceptions: json['authored_misconceptions'] == null
           ? const []
           : requiredList(
@@ -421,6 +425,8 @@ class ExerciseTemplate {
   final List<ExerciseTemplateOption> answerOptions;
   final String? correctOptionId;
   final String? expectedAnswer;
+  final List<String> acceptedAnswers;
+  final bool requiresExactAnswer;
   final List<AuthoredMisconception> authoredMisconceptions;
   final List<String> reviewTemplateIds;
 
@@ -437,6 +443,8 @@ class ExerciseTemplate {
             .toList(growable: false),
       if (correctOptionId != null) 'correct_option_id': correctOptionId,
       if (expectedAnswer != null) 'expected_answer': expectedAnswer,
+      if (acceptedAnswers.isNotEmpty) 'accepted_answers': acceptedAnswers,
+      if (requiresExactAnswer) 'requires_exact_answer': requiresExactAnswer,
       if (authoredMisconceptions.isNotEmpty)
         'authored_misconceptions': authoredMisconceptions
             .map((misconception) => misconception.toJson())
@@ -458,6 +466,8 @@ class ExerciseTemplate {
             listEquals(other.answerOptions, answerOptions) &&
             other.correctOptionId == correctOptionId &&
             other.expectedAnswer == expectedAnswer &&
+            listEquals(other.acceptedAnswers, acceptedAnswers) &&
+            other.requiresExactAnswer == requiresExactAnswer &&
             listEquals(other.authoredMisconceptions, authoredMisconceptions) &&
             listEquals(other.reviewTemplateIds, reviewTemplateIds);
   }
@@ -472,6 +482,8 @@ class ExerciseTemplate {
     Object.hashAll(answerOptions),
     correctOptionId,
     expectedAnswer,
+    Object.hashAll(acceptedAnswers),
+    requiresExactAnswer,
     Object.hashAll(authoredMisconceptions),
     Object.hashAll(reviewTemplateIds),
   );

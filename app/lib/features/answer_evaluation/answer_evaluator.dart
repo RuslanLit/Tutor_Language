@@ -20,6 +20,7 @@ class AnswerEvaluator {
     required String? canonicalAnswer,
     List<String> acceptedAnswers = const [],
     List<AuthoredMisconception> authoredMisconceptions = const [],
+    bool allowMeaningSupport = true,
   }) {
     if (canonicalAnswer == null || canonicalAnswer.trim().isEmpty) {
       return const AnswerEvaluationResult(
@@ -36,6 +37,7 @@ class AnswerEvaluator {
     final comparison = comparator.compare(
       learnerAnswer: learnerAnswer,
       expectedAnswer: expectedAnswer,
+      allowMeaningSupport: allowMeaningSupport,
     );
     final normalizedLearnerAnswer = normalizer.normalize(learnerAnswer).value;
     final normalizedCanonicalAnswer = normalizer
@@ -51,6 +53,7 @@ class AnswerEvaluator {
             learnerAnswer: learnerAnswer,
             canonicalAnswer: canonicalAnswer,
             acceptedAnswers: acceptedAnswers,
+            allowMeaningSupport: allowMeaningSupport,
           ),
         ),
         matchType: comparison.matchType,
@@ -115,6 +118,7 @@ class AnswerEvaluator {
     required String learnerAnswer,
     required String canonicalAnswer,
     required List<String> acceptedAnswers,
+    required bool allowMeaningSupport,
   }) {
     final normalizedLearner = normalizer.normalize(learnerAnswer).value;
     if (normalizedLearner == normalizer.normalize(canonicalAnswer).value) {
@@ -123,6 +127,25 @@ class AnswerEvaluator {
 
     for (final acceptedAnswer in acceptedAnswers) {
       if (normalizedLearner == normalizer.normalize(acceptedAnswer).value) {
+        return acceptedAnswer;
+      }
+    }
+
+    if (!allowMeaningSupport) {
+      return canonicalAnswer;
+    }
+
+    final supportNormalizedLearner = normalizer
+        .normalizeMeaningSupport(learnerAnswer)
+        .value;
+    if (supportNormalizedLearner ==
+        normalizer.normalizeMeaningSupport(canonicalAnswer).value) {
+      return canonicalAnswer;
+    }
+
+    for (final acceptedAnswer in acceptedAnswers) {
+      if (supportNormalizedLearner ==
+          normalizer.normalizeMeaningSupport(acceptedAnswer).value) {
         return acceptedAnswer;
       }
     }
@@ -161,11 +184,16 @@ class AnswerEvaluator {
     required List<AuthoredMisconception> authoredMisconceptions,
   }) {
     final normalizedLearner = normalizer.normalize(learnerAnswer).value;
+    final supportNormalizedLearner = normalizer
+        .normalizeMeaningSupport(learnerAnswer)
+        .value;
 
     for (final misconception in authoredMisconceptions) {
       for (final matchingAnswer in misconception.matchingAnswers) {
         if (learnerAnswer == matchingAnswer ||
-            normalizedLearner == normalizer.normalize(matchingAnswer).value) {
+            normalizedLearner == normalizer.normalize(matchingAnswer).value ||
+            supportNormalizedLearner ==
+                normalizer.normalizeMeaningSupport(matchingAnswer).value) {
           return misconception;
         }
       }

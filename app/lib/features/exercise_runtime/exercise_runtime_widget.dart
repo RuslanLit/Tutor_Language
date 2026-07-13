@@ -141,7 +141,7 @@ class _ExerciseItemView extends StatelessWidget {
     return switch (status) {
       AnswerCheckStatus.unchecked => 'Unchecked',
       AnswerCheckStatus.correct => 'Correct',
-      AnswerCheckStatus.acceptedWithFeedback => 'Accepted with feedback',
+      AnswerCheckStatus.acceptedWithFeedback => 'Accepted with correction',
       AnswerCheckStatus.incorrect => 'Incorrect',
       AnswerCheckStatus.unsupported => 'Unsupported exercise type',
     };
@@ -210,6 +210,14 @@ class _TextInteractionState extends State<_TextInteraction> {
     return TextField(
       controller: _controller,
       decoration: const InputDecoration(labelText: 'Answer'),
+      keyboardType: _usesLongAnswerInput(widget.item)
+          ? TextInputType.multiline
+          : TextInputType.text,
+      minLines: _usesLongAnswerInput(widget.item) ? 3 : 1,
+      maxLines: _usesLongAnswerInput(widget.item) ? 8 : 1,
+      textInputAction: _usesLongAnswerInput(widget.item)
+          ? TextInputAction.newline
+          : TextInputAction.done,
       onChanged: (value) {
         widget.onAnswerChanged(
           ExerciseAnswer(id: '${widget.item.id}.text', label: value),
@@ -217,4 +225,9 @@ class _TextInteractionState extends State<_TextInteraction> {
       },
     );
   }
+}
+
+bool _usesLongAnswerInput(ExerciseItem item) {
+  final expectedAnswer = item.expectedTextAnswer ?? '';
+  return expectedAnswer.length > 48 || item.prompt.length > 140;
 }

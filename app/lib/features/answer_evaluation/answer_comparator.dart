@@ -9,6 +9,7 @@ class AnswerComparator {
   AnswerComparison compare({
     required String learnerAnswer,
     required ExpectedAnswerSet expectedAnswer,
+    bool allowMeaningSupport = true,
   }) {
     if (learnerAnswer == expectedAnswer.canonicalAnswer) {
       return const AnswerComparison(matchType: AnswerMatchType.exactCanonical);
@@ -27,6 +28,32 @@ class AnswerComparator {
 
     for (final acceptedAnswer in expectedAnswer.acceptedAnswers) {
       if (normalizedLearner == normalizer.normalize(acceptedAnswer).value) {
+        return const AnswerComparison(
+          matchType: AnswerMatchType.acceptedAlternative,
+        );
+      }
+    }
+
+    if (!allowMeaningSupport) {
+      return const AnswerComparison(matchType: AnswerMatchType.none);
+    }
+
+    final supportNormalizedLearner = normalizer
+        .normalizeMeaningSupport(learnerAnswer)
+        .value;
+    final supportNormalizedCanonical = normalizer
+        .normalizeMeaningSupport(expectedAnswer.canonicalAnswer)
+        .value;
+
+    if (supportNormalizedLearner == supportNormalizedCanonical) {
+      return const AnswerComparison(
+        matchType: AnswerMatchType.normalizedCanonical,
+      );
+    }
+
+    for (final acceptedAnswer in expectedAnswer.acceptedAnswers) {
+      if (supportNormalizedLearner ==
+          normalizer.normalizeMeaningSupport(acceptedAnswer).value) {
         return const AnswerComparison(
           matchType: AnswerMatchType.acceptedAlternative,
         );

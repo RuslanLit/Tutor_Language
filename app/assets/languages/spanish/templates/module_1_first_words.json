@@ -128,7 +128,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Type the Spanish word \"hambre\" with the silent h.",
+    "prompt_template": "Type the Spanish word for hunger. It begins with silent h.",
     "expected_answer": "hambre",
     "authored_misconceptions": [
       {

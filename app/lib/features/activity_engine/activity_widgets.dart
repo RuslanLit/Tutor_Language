@@ -215,6 +215,14 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
         TextField(
           controller: _controller,
           decoration: const InputDecoration(labelText: 'Answer'),
+          keyboardType: _usesLongAnswerInput(widget.template)
+              ? TextInputType.multiline
+              : TextInputType.text,
+          minLines: _usesLongAnswerInput(widget.template) ? 3 : 1,
+          maxLines: _usesLongAnswerInput(widget.template) ? 8 : 1,
+          textInputAction: _usesLongAnswerInput(widget.template)
+              ? TextInputAction.newline
+              : TextInputAction.done,
           onChanged: (value) {
             _updateState(state.copyWith(submittedAnswer: value, result: null));
           },
@@ -403,7 +411,7 @@ class ActivityFeedback extends StatelessWidget {
             if (feedback.canonicalAnswer != null &&
                 result.status != ActivityResultStatus.correct) ...[
               const SizedBox(height: 4),
-              Text('Canonical answer: ${feedback.canonicalAnswer}'),
+              Text('Recommended answer: ${feedback.canonicalAnswer}'),
             ],
             for (final correction in feedback.corrections) ...[
               const SizedBox(height: 4),
@@ -423,11 +431,17 @@ class ActivityFeedback extends StatelessWidget {
   String _labelFor(ActivityResultStatus status) {
     return switch (status) {
       ActivityResultStatus.correct => 'Correct',
-      ActivityResultStatus.acceptedWithFeedback => 'Accepted with feedback',
+      ActivityResultStatus.acceptedWithFeedback => 'Accepted with correction',
       ActivityResultStatus.incorrect => 'Try again',
       ActivityResultStatus.unsupported => 'Unsupported activity type',
     };
   }
+}
+
+bool _usesLongAnswerInput(ExerciseTemplate template) {
+  final expectedAnswer = template.expectedAnswer ?? '';
+  return template.exerciseType == 'text_entry' &&
+      (expectedAnswer.length > 48 || template.promptTemplate.length > 140);
 }
 
 class _CheckButton extends StatelessWidget {

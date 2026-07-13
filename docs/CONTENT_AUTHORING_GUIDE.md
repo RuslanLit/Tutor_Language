@@ -100,7 +100,10 @@ Exercise Templates currently support:
 - answer_options
 - correct_option_id
 - expected_answer
+- accepted_answers
+- requires_exact_answer
 - authored_misconceptions
+- review_template_ids
 
 Unsupported fields should not be added to content assets.
 
@@ -143,6 +146,38 @@ Educational content should be:
 Content should teach one concept at a time whenever practical.
 
 Large conceptual jumps should be avoided.
+
+---
+
+# Exercise Answer Authoring
+
+Typed and fill-gap exercises should define one canonical expected answer.
+
+When the task checks meaning rather than an exact written form, authors should
+include natural deterministic variants in `accepted_answers` when the variant
+is not already covered by the controlled support normalizer.
+
+The implementation supports a narrow, deterministic support normalizer for:
+
+- common English full-form/contraction pairs such as `I am` / `I'm`,
+  `do not` / `don't`, `he is` / `he's`;
+- weak punctuation that is not usually pedagogically meaningful in short
+  support-language answers or fixed phrases, such as commas and terminal
+  periods.
+
+The normalizer does not provide unrestricted paraphrase acceptance.
+
+It does not erase Spanish accents or Spanish question punctuation. Those remain
+available for orthographic feedback.
+
+Use `requires_exact_answer` only when the exercise explicitly tests the exact
+form, such as a contraction, apostrophe, comma, question mark or full written
+form.
+
+Review and checkpoint tasks must require learner action. A review task may use
+typed recall, fill gaps, multiple choice or real checkable matching, but it
+must not show both the prompt and answer as passive display content and then
+mark success without retrieval.
 
 ---
 

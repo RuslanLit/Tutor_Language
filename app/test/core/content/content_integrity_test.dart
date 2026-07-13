@@ -5,6 +5,8 @@ import 'package:tutor_language/core/content/educational_content_validator.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
+import 'package:tutor_language/features/activity_engine/activity_engine.dart';
+import 'package:tutor_language/features/activity_engine/activity_result.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_step.dart';
 
@@ -642,7 +644,204 @@ void main() {
     expect(reviewIds, contains('reading.es.a0.m02.review_directory.v1'));
     expect(reviewIds, contains('template.es.a0.m02.review.type_question.v1'));
   });
+
+  test('QA1 Modules 1-4 active recall and answer acceptance audit', () async {
+    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+    final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final course = await curriculumLoader.loadCourse();
+    final contentBundle = await contentLoader.loadSpanishContent();
+    final catalog = EducationalContentCatalog(contentBundle);
+
+    final auditedLessonIds = course.modules
+        .where(
+          (module) => const {
+            'es.a0.m01',
+            'es.a0.m02',
+            'es.a0.m03',
+            'es.a0.m04',
+          }.contains(module.id),
+        )
+        .expand((module) => module.lessonIds)
+        .toSet();
+    final auditedTemplates = <ExerciseTemplate>[];
+    final reviewTemplates = <ExerciseTemplate>[];
+
+    for (final lesson in course.lessons.where(
+      (lesson) => auditedLessonIds.contains(lesson.id),
+    )) {
+      final isReviewOrCheckpoint =
+          lesson.title.toLowerCase().contains('review') ||
+          lesson.title.toLowerCase().contains('checkpoint');
+      for (final reference
+          in lesson.activities
+              .expand((activity) => activity.contentReferences)
+              .where((reference) => reference.type == 'exercise_template')) {
+        final template = catalog.lookupAs<ExerciseTemplate>(
+          reference.referenceId!,
+        );
+        expect(template, isNotNull, reason: reference.referenceId);
+        auditedTemplates.add(template!);
+        if (isReviewOrCheckpoint) {
+          reviewTemplates.add(template);
+        }
+      }
+    }
+
+    expect(auditedLessonIds, hasLength(27));
+    expect(auditedTemplates, hasLength(greaterThanOrEqualTo(100)));
+    expect(
+      auditedTemplates.where(
+        (template) =>
+            template.exerciseType == 'text_entry' ||
+            template.exerciseType == 'fill_gap',
+      ),
+      hasLength(greaterThanOrEqualTo(55)),
+    );
+    expect(reviewTemplates, isNotEmpty);
+    expect(
+      reviewTemplates.every(
+        (template) =>
+            template.exerciseType == 'text_entry' ||
+            template.exerciseType == 'fill_gap' ||
+            template.exerciseType == 'multiple_choice' ||
+            (template.exerciseType == 'matching' &&
+                _matchingPairs(template).isNotEmpty),
+      ),
+      isTrue,
+    );
+    expect(
+      reviewTemplates.any((template) => template.exerciseType == 'text_entry'),
+      isTrue,
+    );
+    for (final template in reviewTemplates) {
+      expect(
+        template.promptTemplate,
+        isNot(contains(template.expectedAnswer ?? '__never__')),
+        reason: 'Review/checkpoint prompt exposes ${template.id}',
+      );
+    }
+  });
+
+  test(
+    'QA1 controlled support equivalents work on authored Module 1 tasks',
+    () async {
+      final contentLoader = ContentLoader(assetBundle: rootBundle);
+      final catalog = EducationalContentCatalog(
+        await contentLoader.loadSpanishContent(),
+      );
+
+      final repeatTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.l003.type_repite_por_favor.v1',
+      )!;
+      final matchingTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.review.match_first_words.v1',
+      )!;
+
+      final repeatResult = const ActivityEngine().evaluate(
+        template: repeatTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'repite por favor',
+        ),
+      );
+      final matchingResult = const ActivityEngine().evaluate(
+        template: matchingTemplate,
+        submission: const ActivitySubmission(
+          matchedPairs: {
+            'hola': 'hello',
+            'gracias': 'thank you',
+            'no entiendo': "I don't understand",
+          },
+        ),
+      );
+
+      expect(repeatResult.isCorrect, isTrue);
+      expect(matchingResult.isCorrect, isTrue);
+    },
+  );
+
+  test('QA2 Modules 1-4 authored prompts match expected answer type', () async {
+    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+    final contentLoader = ContentLoader(assetBundle: rootBundle);
+    final course = await curriculumLoader.loadCourse();
+    final catalog = EducationalContentCatalog(
+      await contentLoader.loadSpanishContent(),
+    );
+
+    final auditedTemplates = <ExerciseTemplate>[];
+    final auditedLessonIds = course.modules
+        .where((module) => _qaAuditedModuleIds.contains(module.id))
+        .expand((module) => module.lessonIds)
+        .toSet();
+
+    for (final lesson in course.lessons.where(
+      (lesson) => auditedLessonIds.contains(lesson.id),
+    )) {
+      for (final reference
+          in lesson.activities
+              .expand((activity) => activity.contentReferences)
+              .where((reference) => reference.type == 'exercise_template')) {
+        final template = catalog.lookupAs<ExerciseTemplate>(
+          reference.referenceId!,
+        );
+        expect(template, isNotNull, reason: reference.referenceId);
+        auditedTemplates.add(template!);
+      }
+    }
+
+    for (final template in auditedTemplates.where(_isTypedRecallTemplate)) {
+      final expectedAnswer = template.expectedAnswer!;
+      expect(
+        _promptExposesExpectedAnswer(template.promptTemplate, expectedAnswer),
+        isFalse,
+        reason: 'Prompt exposes expected answer in ${template.id}',
+      );
+
+      final promptAsksForQuestion = _promptRequestsQuestion(
+        template.promptTemplate,
+      );
+      final promptAsksForStatement = _promptRequestsStatementOrAnswer(
+        template.promptTemplate,
+      );
+      final expectedIsQuestion = _isSpanishQuestion(expectedAnswer);
+
+      if (promptAsksForQuestion) {
+        expect(
+          expectedIsQuestion,
+          isTrue,
+          reason:
+              'Prompt asks for a question but expected is not: '
+              '${template.id}',
+        );
+      }
+      if (promptAsksForStatement) {
+        expect(
+          expectedIsQuestion,
+          isFalse,
+          reason:
+              'Prompt asks for an answer/statement but expected is a '
+              'question: ${template.id}',
+        );
+      }
+
+      for (final acceptedAnswer in template.acceptedAnswers) {
+        expect(
+          _isSpanishQuestion(acceptedAnswer),
+          expectedIsQuestion,
+          reason:
+              'accepted_answers must match expected answer type in '
+              '${template.id}',
+        );
+      }
+    }
+  });
 }
+
+const _qaAuditedModuleIds = {
+  'es.a0.m01',
+  'es.a0.m02',
+  'es.a0.m03',
+  'es.a0.m04',
+};
 
 bool _isCheckable(ExerciseTemplate template) {
   return switch (template.exerciseType) {
@@ -652,6 +851,63 @@ bool _isCheckable(ExerciseTemplate template) {
     'matching' => template.expectedAnswer != null,
     _ => false,
   };
+}
+
+bool _isTypedRecallTemplate(ExerciseTemplate template) {
+  return (template.exerciseType == 'fill_gap' ||
+          template.exerciseType == 'text_entry') &&
+      template.expectedAnswer != null;
+}
+
+bool _promptExposesExpectedAnswer(String prompt, String expectedAnswer) {
+  final normalizedPrompt = _normalizeForAuthoringAudit(prompt);
+  final normalizedExpected = _normalizeForAuthoringAudit(expectedAnswer);
+  if (normalizedExpected.length < 6) {
+    return false;
+  }
+  return normalizedPrompt.contains(normalizedExpected);
+}
+
+bool _promptRequestsQuestion(String prompt) {
+  final normalized = prompt.toLowerCase();
+  return normalized.contains('type the spanish question') ||
+      normalized.contains('write the spanish question') ||
+      normalized.contains('ask the spanish question') ||
+      normalized.contains('ask where') ||
+      normalized.contains('ask which') ||
+      normalized.contains('ask who') ||
+      normalized.contains('ask what');
+}
+
+bool _promptRequestsStatementOrAnswer(String prompt) {
+  final normalized = prompt.toLowerCase();
+  return normalized.contains('answer ') ||
+      normalized.contains('respond ') ||
+      normalized.contains('reply ') ||
+      normalized.contains('state ') ||
+      normalized.contains('say where') ||
+      normalized.contains('say which') ||
+      normalized.contains('say your') ||
+      normalized.contains('say someone') ||
+      normalized.contains('describe ');
+}
+
+bool _isSpanishQuestion(String answer) {
+  final trimmed = answer.trim();
+  return trimmed.contains('?') || trimmed.startsWith('¿');
+}
+
+String _normalizeForAuthoringAudit(String value) {
+  return value
+      .replaceAll('\u00A0', ' ')
+      .replaceAll('¿', '')
+      .replaceAll('?', '')
+      .replaceAll('¡', '')
+      .replaceAll('!', '')
+      .replaceAll(RegExp(r'[.,:;"“”]'), ' ')
+      .toLowerCase()
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .trim();
 }
 
 bool _hasKnownAmbiguousShape(String prompt) {
@@ -711,4 +967,34 @@ int _occurrences(String text, String pattern) {
     count += 1;
     index += pattern.length;
   }
+}
+
+Map<String, String> _matchingPairs(ExerciseTemplate template) {
+  final expectedAnswer = template.expectedAnswer;
+  if (expectedAnswer == null || expectedAnswer.trim().isEmpty) {
+    return const {};
+  }
+  final pairs = <String, String>{};
+  for (final rawPair in expectedAnswer.split(RegExp(r'[;\n]'))) {
+    final separator = rawPair.contains('=>')
+        ? '=>'
+        : rawPair.contains('=')
+        ? '='
+        : rawPair.contains(':')
+        ? ':'
+        : null;
+    if (separator == null) {
+      continue;
+    }
+    final parts = rawPair.split(separator);
+    if (parts.length < 2) {
+      continue;
+    }
+    final left = parts.first.trim();
+    final right = parts.sublist(1).join(separator).trim();
+    if (left.isNotEmpty && right.isNotEmpty) {
+      pairs[left] = right;
+    }
+  }
+  return Map.unmodifiable(pairs);
 }
