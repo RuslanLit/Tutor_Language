@@ -1,0 +1,473 @@
+# RELEASE_CHECKLIST.md
+
+Status: Active
+
+Version: 1.0
+
+Created: 2026-07-14
+
+---
+
+# Purpose
+
+This document defines the release readiness criteria for Tutor Language.
+
+Its purpose is to ensure that every public release satisfies the project's
+requirements for educational quality, technical quality, privacy, stability,
+and user experience.
+
+No release should be published while mandatory release gates remain incomplete.
+
+This document applies to all future releases unless explicitly superseded.
+
+---
+
+# Release Status
+
+Current Release Target
+
+Version:
+1.0
+
+Current Phase:
+R2 — Localization Foundation
+
+Overall Readiness:
+IN PROGRESS
+
+---
+
+# Release Gates
+
+A public release is allowed only after all mandatory gates are complete.
+
+| Gate | Status |
+|-------|--------|
+| Functional completeness | ✅ |
+| Educational completeness | ✅ |
+| User interface completeness | ✅ |
+| Localization | ⏳ |
+| Branding | ⏳ |
+| Legal documentation | ⏳ |
+| Release packaging | ⏳ |
+| F-Droid compliance | ⏳ |
+| Community review | ⏳ |
+
+Legend
+
+```
+[ ] not started
+[~] in progress
+[x] complete
+[-] not applicable
+```
+
+---
+
+# R1 — Production Readiness
+
+Core Quality
+
+```
+[x] flutter analyze passes
+
+[x] all automated tests pass
+
+[x] release build succeeds
+
+[x] application installs successfully
+
+[x] application starts successfully
+
+[x] no known crash on startup
+```
+
+Lesson System
+
+```
+[x] lesson navigation works
+
+[x] lesson completion works
+
+[x] remediation works
+
+[x] competency sessions work
+
+[x] persistence works
+
+[x] learner history preserved
+```
+
+User Interface
+
+```
+[x] no placeholder screens
+
+[x] landscape layout verified
+
+[x] portrait layout verified
+
+[x] accessibility reviewed
+
+[x] scrolling verified
+
+[x] lesson controls always reachable
+```
+
+---
+
+# R2 — Localization Foundation
+
+Architecture
+
+```
+[ ] Flutter gen-l10n configured
+
+[ ] ARB localization files created
+
+[ ] English source locale established
+
+[ ] locale resolution implemented
+
+[ ] automatic system language selection
+```
+
+Languages
+
+```
+[ ] English
+
+[ ] Ukrainian
+
+[ ] Russian
+
+[ ] Polish
+
+[ ] German
+```
+
+Application
+
+```
+[ ] no learner-facing hardcoded strings
+
+[ ] Settings localized
+
+[ ] Lesson Player localized
+
+[ ] Course screens localized
+
+[ ] competency flow localized
+
+[ ] validation messages localized
+
+[ ] accessibility labels localized
+```
+
+Verification
+
+```
+[ ] fallback language tested
+
+[ ] unsupported locale tested
+
+[ ] localization widget tests pass
+```
+
+---
+
+# R3 — Branding & Identity
+
+Identity
+
+```
+[ ] final application name
+
+[ ] launcher icon
+
+[ ] adaptive icon
+
+[ ] monochrome icon
+
+[ ] splash screen
+```
+
+Visual Identity
+
+```
+[ ] application colors reviewed
+
+[ ] typography reviewed
+
+[ ] About screen reviewed
+
+[ ] consistent terminology
+```
+
+Store Assets
+
+```
+[ ] feature graphic
+
+[ ] screenshots
+
+[ ] application description
+
+[ ] short description
+```
+
+---
+
+# R4 — Release UX
+
+First Experience
+
+```
+[ ] first launch reviewed
+
+[ ] onboarding decision finalized
+
+[ ] empty states reviewed
+
+[ ] error messages reviewed
+
+[ ] progress feedback reviewed
+```
+
+Accessibility
+
+```
+[ ] screen reader review
+
+[ ] touch targets verified
+
+[ ] landscape usability verified
+
+[ ] long text verified
+```
+
+Performance
+
+```
+[ ] cold start acceptable
+
+[ ] lesson loading acceptable
+
+[ ] scrolling smooth
+
+[ ] no visible jank
+```
+
+---
+
+# R5 — F-Droid Compliance
+
+Licensing
+
+```
+[ ] LICENSE
+
+[ ] copyright notices
+
+[ ] third-party licenses
+```
+
+Privacy
+
+```
+[ ] Privacy Policy
+
+[ ] privacy statement reviewed
+
+[ ] permissions reviewed
+
+[ ] INTERNET permission reviewed
+
+[ ] no analytics
+
+[ ] no tracking
+
+[ ] offline behaviour verified
+```
+
+Packaging
+
+```
+[ ] release signing
+
+[ ] reproducible build
+
+[ ] version finalized
+
+[ ] changelog prepared
+```
+
+Metadata
+
+```
+[ ] fastlane metadata
+
+[ ] F-Droid metadata
+
+[ ] release notes
+
+[ ] screenshots
+
+[ ] application icon assets
+```
+
+---
+
+# R6 — Release Candidate
+
+Regression
+
+```
+[ ] complete regression testing
+
+[ ] manual device testing
+
+[ ] clean Git tree
+
+[ ] release APK verified
+```
+
+Approval
+
+```
+[ ] release candidate approved
+
+[ ] release tag prepared
+```
+
+---
+
+# R7 — Publish to F-Droid
+
+Publication
+
+```
+[ ] release tag created
+
+[ ] source archive available
+
+[ ] submission completed
+
+[ ] package accepted
+```
+
+---
+
+# R8 — Community Feedback
+
+Initial Release
+
+```
+[ ] early issues collected
+
+[ ] crash reports reviewed
+
+[ ] usability feedback reviewed
+
+[ ] documentation updated
+```
+
+Maintenance
+
+```
+[ ] priority fixes identified
+
+[ ] roadmap updated
+```
+
+---
+
+# R9 — Google Play Release
+
+Preparation
+
+```
+[ ] Play Store assets
+
+[ ] Play privacy information
+
+[ ] Play signing
+
+[ ] Play testing
+```
+
+Publication
+
+```
+[ ] internal testing
+
+[ ] production rollout
+
+[ ] first production review
+```
+
+---
+
+# Release Principles
+
+Every public release should satisfy the following principles.
+
+## Educational First
+
+Educational correctness always has higher priority than release speed.
+
+---
+
+## Privacy First
+
+No learner data leaves the device unless the learner explicitly exports it.
+
+---
+
+## Offline First
+
+The application must remain fully usable without Internet access.
+
+---
+
+## Stability First
+
+A stable release is preferred over a feature-rich release.
+
+---
+
+## Accessibility First
+
+Every learner should be able to complete every lesson regardless of screen size or orientation.
+
+---
+
+## Deterministic Behaviour
+
+Learning outcomes must never depend on nondeterministic behaviour.
+
+---
+
+## Documentation First
+
+Every architectural or release decision should be documented before publication.
+
+---
+
+# Definition of Release Ready
+
+Tutor Language is considered Release Ready only when:
+
+• every mandatory Release Gate is complete;
+
+• no known Critical or High severity defects remain;
+
+• all automated tests pass;
+
+• manual device validation succeeds;
+
+• release packaging is reproducible;
+
+• licensing and privacy documentation are complete;
+
+• the application satisfies the Educational Principles of the project.
