@@ -6,6 +6,8 @@ import '../../app/router/app_router.dart';
 import '../../core/content/content_providers.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
@@ -124,8 +126,10 @@ class _CompetencySessionScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Competency Check')),
+      appBar: AppBar(title: Text(l10n.competencyScreenTitle)),
       body: FutureBuilder<void>(
         future: _initialization,
         builder: (context, snapshot) {
@@ -142,9 +146,10 @@ class _CompetencySessionScreenState
   }
 
   Widget _buildBody(BuildContext context) {
+    final l10n = context.l10n;
     final bundle = _templateBundle;
     if (bundle == null) {
-      return const Center(child: Text('Competency check unavailable.'));
+      return Center(child: Text(l10n.competencyUnavailable));
     }
 
     return ListView(
@@ -159,13 +164,13 @@ class _CompetencySessionScreenState
         const SizedBox(height: 20),
         switch (_phase) {
           _CompetencyScreenPhase.diagnosticTask => _taskView(
-            intro: 'Show what you can do without help.',
+            intro: l10n.competencyDiagnosticIntro,
             taskId: _currentTaskId,
           ),
           _CompetencyScreenPhase.recoveryTransition => _recoveryTransition(),
           _CompetencyScreenPhase.recoveryTask => _recoveryTaskView(),
           _CompetencyScreenPhase.retryTask => _taskView(
-            intro: 'Try the original task again.',
+            intro: l10n.competencyRetryIntro,
             taskId: _currentTaskId,
           ),
           _CompetencyScreenPhase.finalizing => const Center(
@@ -178,6 +183,7 @@ class _CompetencySessionScreenState
   }
 
   Widget _taskView({required String intro, required String? taskId}) {
+    final l10n = context.l10n;
     final bundle = _templateBundle!;
     if (taskId == null) {
       return _outcomeView();
@@ -187,7 +193,7 @@ class _CompetencySessionScreenState
         ? null
         : bundle.templatesById[templateId];
     if (template == null) {
-      return const Text('This competency task is unavailable.');
+      return Text(l10n.competencyTaskUnavailable);
     }
 
     return Column(
@@ -212,10 +218,12 @@ class _CompetencySessionScreenState
   }
 
   Widget _recoveryTransition() {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Let's briefly review one part and try again."),
+        Text(l10n.competencyRecoveryIntro),
         const SizedBox(height: 12),
         FilledButton(
           onPressed: _busy
@@ -225,25 +233,26 @@ class _CompetencySessionScreenState
                     _phase = _CompetencyScreenPhase.recoveryTask;
                   });
                 },
-          child: const Text('Start review'),
+          child: Text(l10n.startReview),
         ),
       ],
     );
   }
 
   Widget _recoveryTaskView() {
+    final l10n = context.l10n;
     final templateId = _currentRecoveryTemplateId;
     final template = templateId == null
         ? null
         : _templateBundle!.templatesById[templateId];
     if (template == null) {
-      return const Text('Recovery activity unavailable.');
+      return Text(l10n.recoveryActivityUnavailable);
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Quick review'),
+        Text(l10n.quickReview),
         const SizedBox(height: 12),
         ActivityTemplateWidget(
           template: template,
@@ -262,9 +271,10 @@ class _CompetencySessionScreenState
   }
 
   Widget _outcomeView() {
+    final l10n = context.l10n;
     final outcome = _outcome;
     if (outcome == null) {
-      return const Text('Competency check complete.');
+      return Text(l10n.competencyCheckComplete);
     }
 
     final canRetry =
@@ -274,9 +284,9 @@ class _CompetencySessionScreenState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(_outcomeTitle(outcome.status)),
+        Text(_outcomeTitle(outcome.status, l10n)),
         const SizedBox(height: 8),
-        Text(_outcomeDescription(outcome.status)),
+        Text(_outcomeDescription(outcome.status, l10n)),
         const SizedBox(height: 16),
         Wrap(
           spacing: 8,
@@ -288,7 +298,7 @@ class _CompetencySessionScreenState
                 ref.invalidate(courseNavigationStateProvider);
                 context.goNamed(CourseRoute.name);
               },
-              child: const Text('Back to course'),
+              child: Text(l10n.backToCourse),
             ),
             if (canRetry)
               OutlinedButton(
@@ -303,7 +313,7 @@ class _CompetencySessionScreenState
                     queryParameters: const {'retry': 'true'},
                   );
                 },
-                child: const Text('Retry competency check'),
+                child: Text(l10n.retryCompetencyCheck),
               ),
           ],
         ),
@@ -410,27 +420,30 @@ class _CompetencySessionScreenState
     }
   }
 
-  String _outcomeTitle(CompetencyOutcomeStatus status) {
+  String _outcomeTitle(CompetencyOutcomeStatus status, AppLocalizations l10n) {
     return switch (status) {
-      CompetencyOutcomeStatus.achieved => 'Competency achieved',
+      CompetencyOutcomeStatus.achieved => l10n.competencyAchievedTitle,
       CompetencyOutcomeStatus.achievedWithReinforcement =>
-        'Competency achieved after review',
+        l10n.competencyAchievedAfterReviewTitle,
       CompetencyOutcomeStatus.partiallyAchieved =>
-        'Competency needs more practice',
-      CompetencyOutcomeStatus.notYetAchieved => 'Competency not yet achieved',
+        l10n.competencyNeedsPracticeTitle,
+      CompetencyOutcomeStatus.notYetAchieved =>
+        l10n.competencyNotYetAchievedTitle,
     };
   }
 
-  String _outcomeDescription(CompetencyOutcomeStatus status) {
+  String _outcomeDescription(
+    CompetencyOutcomeStatus status,
+    AppLocalizations l10n,
+  ) {
     return switch (status) {
-      CompetencyOutcomeStatus.achieved =>
-        'You completed the communicative task independently.',
+      CompetencyOutcomeStatus.achieved => l10n.competencyAchievedDescription,
       CompetencyOutcomeStatus.achievedWithReinforcement =>
-        'You used review and then completed the communicative task.',
+        l10n.competencyAchievedAfterReviewDescription,
       CompetencyOutcomeStatus.partiallyAchieved =>
-        'You demonstrated part of the goal. Retry when ready.',
+        l10n.competencyNeedsPracticeDescription,
       CompetencyOutcomeStatus.notYetAchieved =>
-        'The core goal is not secure yet. Retry after review.',
+        l10n.competencyNotYetAchievedDescription,
     };
   }
 }

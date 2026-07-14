@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
+import 'package:tutor_language/app/router/app_router.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
@@ -23,6 +24,7 @@ import 'package:tutor_language/features/lesson_planning/learner_history_summary.
 import 'package:tutor_language/features/lesson_planning/lesson_plan.dart';
 import 'package:tutor_language/features/lesson_planning/planning_request.dart';
 import 'package:tutor_language/features/lesson_planning/rule_based_lesson_planner.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -137,7 +139,18 @@ void main() {
             return database;
           }),
         ],
-        child: const TutorLanguageApp(),
+        child: Consumer(
+          builder: (context, ref, child) {
+            final router = ref.watch(appRouterProvider);
+            return MaterialApp.router(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: supportedTutorLanguageLocales,
+              localeListResolutionCallback: resolveTutorLanguageLocale,
+              theme: ThemeData(useMaterial3: false),
+              routerConfig: router,
+            );
+          },
+        ),
       ),
     );
     await tester.pumpAndSettle();
@@ -226,7 +239,13 @@ Widget _app({
       lessonLaunchServiceProvider.overrideWith((ref) => launchService),
       lessonAssemblyServiceProvider.overrideWith((ref) => assemblyService),
     ],
-    child: const MaterialApp(home: LessonLaunchScreen()),
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: supportedTutorLanguageLocales,
+      localeListResolutionCallback: resolveTutorLanguageLocale,
+      theme: ThemeData(useMaterial3: false),
+      home: const LessonLaunchScreen(),
+    ),
   );
 }
 

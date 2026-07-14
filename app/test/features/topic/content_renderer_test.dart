@@ -22,6 +22,7 @@ import 'package:tutor_language/features/topic/rendering/topic_content_renderer_r
 import 'package:tutor_language/features/topic/rendering/unsupported_content_renderer.dart';
 import 'package:tutor_language/features/topic/rendering/vocabulary_content_renderer.dart';
 import 'package:tutor_language/features/topic/topic_screen.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets('Vocabulary renderer displays term and translation', (
@@ -149,9 +150,7 @@ void main() {
           }),
           topicContentRendererRegistryProvider.overrideWith((ref) => registry),
         ],
-        child: const MaterialApp(
-          home: TopicScreen(topicId: 'topic.greetings.v1'),
-        ),
+        child: _localizedApp(const TopicScreen(topicId: 'topic.greetings.v1')),
       ),
     );
     await tester.pumpAndSettle();
@@ -175,9 +174,7 @@ void main() {
             return database;
           }),
         ],
-        child: const MaterialApp(
-          home: TopicScreen(topicId: 'topic.greetings.v1'),
-        ),
+        child: _localizedApp(const TopicScreen(topicId: 'topic.greetings.v1')),
       ),
     );
     await tester.pumpAndSettle();
@@ -209,9 +206,7 @@ void main() {
             return TopicProgress(topicId: topicId);
           }),
         ],
-        child: const MaterialApp(
-          home: TopicScreen(topicId: 'topic.greetings.v1'),
-        ),
+        child: _localizedApp(const TopicScreen(topicId: 'topic.greetings.v1')),
       ),
     );
     await tester.pumpAndSettle();
@@ -245,9 +240,7 @@ void main() {
             );
           }),
         ],
-        child: const MaterialApp(
-          home: TopicScreen(topicId: 'topic.greetings.v1'),
-        ),
+        child: _localizedApp(const TopicScreen(topicId: 'topic.greetings.v1')),
       ),
     );
     await tester.pumpAndSettle();
@@ -273,9 +266,7 @@ void main() {
             return TopicProgress(topicId: topicId);
           }),
         ],
-        child: const MaterialApp(
-          home: TopicScreen(topicId: 'topic.greetings.v1'),
-        ),
+        child: _localizedApp(const TopicScreen(topicId: 'topic.greetings.v1')),
       ),
     );
     await tester.pumpAndSettle();
@@ -286,8 +277,15 @@ void main() {
 }
 
 Widget _renderWithContext(Widget Function(BuildContext context) builder) {
+  return _localizedApp(Scaffold(body: Builder(builder: builder)));
+}
+
+Widget _localizedApp(Widget child) {
   return MaterialApp(
-    home: Scaffold(body: Builder(builder: builder)),
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    theme: ThemeData(useMaterial3: false),
+    home: child,
   );
 }
 

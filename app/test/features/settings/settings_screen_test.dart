@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/app/app_release_info.dart';
 import 'package:tutor_language/features/settings/settings_screen.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets('settings screen shows release information without placeholder', (
     tester,
   ) async {
-    await tester.pumpWidget(const MaterialApp(home: SettingsScreen()));
+    await tester.pumpWidget(_localizedApp(const SettingsScreen()));
 
     expect(find.text('Settings placeholder'), findsNothing);
     expect(find.text('About and Settings'), findsOneWidget);
@@ -31,7 +32,7 @@ void main() {
       tester.view.resetDevicePixelRatio();
     });
 
-    await tester.pumpWidget(const MaterialApp(home: SettingsScreen()));
+    await tester.pumpWidget(_localizedApp(const SettingsScreen()));
 
     expect(find.byType(ListView), findsOneWidget);
     await tester.drag(find.byType(ListView), const Offset(0, -300));
@@ -50,4 +51,12 @@ void main() {
     expect(match, isNotNull);
     expect(AppReleaseInfo.version, match!.group(1));
   });
+}
+
+Widget _localizedApp(Widget child) {
+  return MaterialApp(
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    home: child,
+  );
 }

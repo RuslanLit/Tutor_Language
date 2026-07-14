@@ -1,12 +1,15 @@
 import 'package:drift/native.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
+import 'package:tutor_language/app/router/app_router.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets('Home displays course entry point', (tester) async {
@@ -41,7 +44,18 @@ ProviderScope _testApp(ContentRepository repository) {
         return database;
       }),
     ],
-    child: const TutorLanguageApp(),
+    child: Consumer(
+      builder: (context, ref, child) {
+        final router = ref.watch(appRouterProvider);
+        return MaterialApp.router(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: supportedTutorLanguageLocales,
+          localeListResolutionCallback: resolveTutorLanguageLocale,
+          theme: ThemeData(useMaterial3: false),
+          routerConfig: router,
+        );
+      },
+    ),
   );
 }
 

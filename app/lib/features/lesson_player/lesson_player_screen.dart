@@ -6,6 +6,8 @@ import '../../app/router/app_router.dart';
 import '../../core/content/topic_content.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../core/learner/learner_progress_providers.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
@@ -30,6 +32,7 @@ class LessonPlayerScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final lessonContent = ref.watch(assembledLessonProvider(lessonId));
 
     return PopScope(
@@ -48,7 +51,7 @@ class LessonPlayerScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: _LessonExitButton(lessonId: lessonId),
-          title: const Text('Lesson Player'),
+          title: Text(l10n.lessonPlayerTitle),
         ),
         body: lessonContent.when(
           data: (lessonContent) => LessonPlayerView(
@@ -70,8 +73,10 @@ class _LessonExitButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+
     return IconButton(
-      tooltip: 'Back to course',
+      tooltip: l10n.backToCourse,
       onPressed: () => _handleLessonExit(context, ref, lessonId: lessonId),
       icon: const Icon(Icons.arrow_back),
     );
@@ -104,6 +109,7 @@ Future<void> _handleLessonExit(
   if (!context.mounted) {
     return;
   }
+  final l10n = context.l10n;
 
   if (isSessionCompleted || hasDurableCompletion) {
     _returnToCourse(context);
@@ -113,18 +119,16 @@ Future<void> _handleLessonExit(
   final shouldLeave = await showDialog<bool>(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Leave lesson?'),
-      content: const Text(
-        'This unfinished lesson will restart when you open it again.',
-      ),
+      title: Text(l10n.leaveLessonTitle),
+      content: Text(l10n.leaveLessonBody),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(false),
-          child: const Text('Stay'),
+          child: Text(l10n.stay),
         ),
         FilledButton(
           onPressed: () => Navigator.of(context).pop(true),
-          child: const Text('Leave lesson'),
+          child: Text(l10n.leaveLesson),
         ),
       ],
     ),
@@ -174,6 +178,7 @@ class LessonPlayerView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final lesson = lessonContent.lesson;
     final steps = _stepBuilder.buildSteps(lessonContent);
     final sessionProvider = lessonPlayerSessionProvider(lesson.id);
@@ -262,7 +267,7 @@ class LessonPlayerView extends ConsumerWidget {
                 else
                   _LessonHeader(lesson: lesson),
                 const SizedBox(height: 12),
-                stepView ?? const Text('No activities available.'),
+                stepView ?? Text(l10n.noActivitiesAvailable),
               ],
             ),
           ),
@@ -292,6 +297,8 @@ class _LessonHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -301,10 +308,10 @@ class _LessonHeader extends StatelessWidget {
           spacing: 8,
           runSpacing: 8,
           children: [
-            if (_moduleLabel(lesson.moduleId) != null)
-              _MetadataChip(label: _moduleLabel(lesson.moduleId)!),
-            if (_lessonNumberLabel(lesson.id) != null)
-              _MetadataChip(label: _lessonNumberLabel(lesson.id)!),
+            if (_moduleLabel(lesson.moduleId, l10n) != null)
+              _MetadataChip(label: _moduleLabel(lesson.moduleId, l10n)!),
+            if (_lessonNumberLabel(lesson.id, l10n) != null)
+              _MetadataChip(label: _lessonNumberLabel(lesson.id, l10n)!),
             if (lesson.difficulty.isNotEmpty)
               _MetadataChip(label: lesson.difficulty),
           ],
@@ -387,6 +394,7 @@ class _LessonNavigationControlsState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final progress = ref.watch(topicProgressProvider(widget.lessonId));
     final isLastStep = widget.currentStepIndex == widget.stepCount - 1;
     final previousDecision = _sessionEngine.requestPrevious(
@@ -430,12 +438,14 @@ class _LessonNavigationControlsState
                   children: [
                     OutlinedButton(
                       onPressed: canGoPrevious ? _goToPreviousStep : null,
-                      child: const Text('← Previous'),
+                      child: Text(l10n.previous),
                     ),
                     const Spacer(),
                     Text(
-                      'Step ${widget.currentStepIndex + 1} / '
-                      '${widget.stepCount}',
+                      l10n.stepCounter(
+                        widget.currentStepIndex + 1,
+                        widget.stepCount,
+                      ),
                     ),
                     const Spacer(),
                     if (isLastStep)
@@ -445,14 +455,14 @@ class _LessonNavigationControlsState
                             : _completeLesson,
                         child: Text(
                           _isCompleting || isPersisting
-                              ? 'Finishing...'
-                              : 'Finish Lesson',
+                              ? l10n.finishing
+                              : l10n.finishLesson,
                         ),
                       )
                     else
                       FilledButton(
                         onPressed: canGoNext ? _goToNextStep : null,
-                        child: const Text('Next →'),
+                        child: Text(l10n.next),
                       ),
                   ],
                 ),
@@ -467,7 +477,7 @@ class _LessonNavigationControlsState
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Lesson completed'),
+              Text(l10n.lessonCompleted),
               if (widget.session.lessonOutcome != null) ...[
                 const SizedBox(height: 4),
                 _LessonOutcomeLabel(outcome: widget.session.lessonOutcome!),
@@ -498,7 +508,7 @@ class _LessonNavigationControlsState
                             ),
                           );
                         },
-                        child: const Text('Continue to next lesson'),
+                        child: Text(l10n.continueToNextLesson),
                       ),
                     ],
                   );
@@ -517,6 +527,7 @@ class _LessonNavigationControlsState
   }
 
   Future<void> _completeLesson() async {
+    final l10n = context.l10n;
     if (_isCompleting ||
         widget.session.completionPersistenceStatus ==
             LessonCompletionPersistenceStatus.persisting ||
@@ -570,13 +581,11 @@ class _LessonNavigationControlsState
             .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
             .state = pendingSession.copyWith(
           completionPersistenceStatus: LessonCompletionPersistenceStatus.failed,
-          completionError:
-              'Could not save lesson completion. Please try again.',
+          completionError: l10n.completionSaveError,
         );
         if (mounted) {
           setState(() {
-            _completionError =
-                'Could not save lesson completion. Please try again.';
+            _completionError = l10n.completionSaveError;
             _isCompleting = false;
           });
         }
@@ -587,12 +596,11 @@ class _LessonNavigationControlsState
           .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
           .state = pendingSession.copyWith(
         completionPersistenceStatus: LessonCompletionPersistenceStatus.failed,
-        completionError: 'Could not save lesson completion. Please try again.',
+        completionError: l10n.completionSaveError,
       );
       if (mounted) {
         setState(() {
-          _completionError =
-              'Could not save lesson completion. Please try again.';
+          _completionError = l10n.completionSaveError;
           _isCompleting = false;
         });
       }
@@ -652,10 +660,15 @@ class _CourseCompletionActions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Course complete', style: Theme.of(context).textTheme.titleMedium),
+        Text(
+          l10n.courseComplete,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         if (lessonOutcome != null) ...[
           const SizedBox(height: 4),
           _LessonOutcomeLabel(outcome: lessonOutcome!),
@@ -669,19 +682,19 @@ class _CourseCompletionActions extends ConsumerWidget {
               onPressed: () {
                 context.goNamed(CourseRoute.name);
               },
-              child: const Text('Back to course'),
+              child: Text(l10n.backToCourse),
             ),
             OutlinedButton(
               onPressed: () {
                 context.goNamed(CourseRoute.name);
               },
-              child: const Text('Review completed lessons'),
+              child: Text(l10n.reviewCompletedLessons),
             ),
             OutlinedButton(
               onPressed: () {
                 _startManualRepeat(context, ref, lessonId);
               },
-              child: const Text('Repeat lesson'),
+              child: Text(l10n.repeatLesson),
             ),
           ],
         ),
@@ -697,9 +710,11 @@ class _RepeatLessonButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+
     return OutlinedButton(
       onPressed: () => _startManualRepeat(context, ref, lessonId),
-      child: const Text('Repeat lesson'),
+      child: Text(l10n.repeatLesson),
     );
   }
 }
@@ -724,11 +739,13 @@ class _LessonOutcomeLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Text(switch (outcome.status) {
-      LessonOutcomeStatus.mastered => 'Lesson mastered',
+      LessonOutcomeStatus.mastered => l10n.lessonMastered,
       LessonOutcomeStatus.completedWithReinforcement =>
-        'Some topics will need reinforcement.',
-      LessonOutcomeStatus.incomplete => 'Lesson incomplete',
+        l10n.someTopicsNeedReinforcement,
+      LessonOutcomeStatus.incomplete => l10n.lessonIncompleteOutcome,
     });
   }
 }
@@ -751,6 +768,8 @@ class LessonPlayerStepView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       child: Padding(
@@ -760,7 +779,7 @@ class LessonPlayerStepView extends StatelessWidget {
           children: [
             Text(
               step.isInsertedReview
-                  ? 'Quick Review'
+                  ? l10n.quickReview
                   : step.sourceActivity.activity.title,
               style: Theme.of(context).textTheme.titleMedium,
             ),
@@ -773,7 +792,7 @@ class LessonPlayerStepView extends StatelessWidget {
               const SizedBox(height: 4),
             ],
             Text(
-              _stepTypeLabel(step.stepType),
+              _stepTypeLabel(step.stepType, l10n),
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: 12),
@@ -789,7 +808,7 @@ class LessonPlayerStepView extends StatelessWidget {
               ),
             if (_shouldShowMasteryLabel(masteryAssessment)) ...[
               const SizedBox(height: 4),
-              Text(_masteryLabel(masteryAssessment!.status)),
+              Text(_masteryLabel(masteryAssessment!.status, l10n)),
             ],
           ],
         ),
@@ -803,29 +822,28 @@ bool _shouldShowMasteryLabel(StepMasteryAssessment? assessment) {
       assessment?.status == StepMasteryStatus.fragile;
 }
 
-String _masteryLabel(StepMasteryStatus status) {
+String _masteryLabel(StepMasteryStatus status, AppLocalizations l10n) {
   return switch (status) {
-    StepMasteryStatus.mastered => 'Mastered',
-    StepMasteryStatus.fragile =>
-      'Good work. This needs a little more practice.',
+    StepMasteryStatus.mastered => l10n.mastered,
+    StepMasteryStatus.fragile => l10n.fragileMastery,
     StepMasteryStatus.notMastered || StepMasteryStatus.notAssessed => '',
   };
 }
 
-String? _moduleLabel(String moduleId) {
+String? _moduleLabel(String moduleId, AppLocalizations l10n) {
   final match = RegExp(r'\.m0*([0-9]+)$').firstMatch(moduleId);
   if (match == null) {
     return null;
   }
-  return 'Module ${match.group(1)}';
+  return l10n.moduleNumber(match.group(1)!);
 }
 
-String? _lessonNumberLabel(String lessonId) {
+String? _lessonNumberLabel(String lessonId, AppLocalizations l10n) {
   final match = RegExp(r'\.l0*([0-9]+)$').firstMatch(lessonId);
   if (match == null) {
     return null;
   }
-  return 'Lesson ${match.group(1)}';
+  return l10n.lessonNumber(match.group(1)!);
 }
 
 class LessonContentObjectView extends StatelessWidget {
@@ -844,6 +862,8 @@ class LessonContentObjectView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return switch (content) {
       VocabularyItem item => VocabularyItemView(item: item),
       GrammarTopic topic => GrammarTopicView(topic: topic),
@@ -855,7 +875,7 @@ class LessonContentObjectView extends StatelessWidget {
         showRemediation: showRemediation,
         onStateChanged: onStateChanged,
       ),
-      _ => Text('Unsupported content: ${content.runtimeType}'),
+      _ => Text(l10n.unsupportedContent('${content.runtimeType}')),
     };
   }
 }
@@ -888,6 +908,8 @@ class GrammarTopicView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -900,7 +922,7 @@ class GrammarTopicView extends StatelessWidget {
         ],
         if (topic.prerequisiteIds.isNotEmpty) ...[
           const SizedBox(height: 8),
-          const Text('Builds on earlier material.'),
+          Text(l10n.buildsOnEarlierMaterial),
         ],
       ],
     );
@@ -984,14 +1006,14 @@ class ExerciseTemplateView extends StatelessWidget {
   }
 }
 
-String _stepTypeLabel(LessonPlayerStepType stepType) {
+String _stepTypeLabel(LessonPlayerStepType stepType, AppLocalizations l10n) {
   return switch (stepType) {
-    LessonPlayerStepType.vocabulary => 'vocabulary',
-    LessonPlayerStepType.grammar => 'grammar',
-    LessonPlayerStepType.dialogue => 'dialogue',
-    LessonPlayerStepType.reading => 'reading',
-    LessonPlayerStepType.exercise => 'exercise',
-    LessonPlayerStepType.mixed => 'mixed',
+    LessonPlayerStepType.vocabulary => l10n.stepTypeVocabulary,
+    LessonPlayerStepType.grammar => l10n.stepTypeGrammar,
+    LessonPlayerStepType.dialogue => l10n.stepTypeDialogue,
+    LessonPlayerStepType.reading => l10n.stepTypeReading,
+    LessonPlayerStepType.exercise => l10n.stepTypeExercise,
+    LessonPlayerStepType.mixed => l10n.stepTypeMixed,
   };
 }
 

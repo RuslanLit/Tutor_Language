@@ -7,6 +7,7 @@ import 'package:tutor_language/features/exercise_runtime/answer_check_models.dar
 import 'package:tutor_language/features/exercise_runtime/answer_checker.dart';
 import 'package:tutor_language/features/exercise_runtime/exercise_runtime_models.dart';
 import 'package:tutor_language/features/exercise_runtime/exercise_runtime_widget.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   test('exercise runtime model creation', () {
@@ -209,8 +210,8 @@ void main() {
 
   testWidgets('selecting an answer updates local state', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
+      _localizedApp(
+        const Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
       ),
     );
 
@@ -222,14 +223,14 @@ void main() {
 
   testWidgets('UI displays result after checking', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
+      _localizedApp(
+        const Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
       ),
     );
 
     await tester.tap(find.text('hello'));
     await tester.pump();
-    await tester.tap(find.text('Check answer'));
+    await tester.tap(find.text('Check'));
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
@@ -239,8 +240,8 @@ void main() {
     final events = <ExerciseRuntimeEvent>[];
 
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        Scaffold(
           body: ExerciseRuntimeWidget(
             session: _choiceSession,
             onRuntimeEvent: events.add,
@@ -251,7 +252,7 @@ void main() {
 
     await tester.tap(find.text('hello'));
     await tester.pump();
-    await tester.tap(find.text('Check answer'));
+    await tester.tap(find.text('Check'));
     await tester.pump();
 
     expect(events.map((event) => event.eventType), [
@@ -265,14 +266,14 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
+      _localizedApp(
+        const Scaffold(body: ExerciseRuntimeWidget(session: _choiceSession)),
       ),
     );
 
     await tester.tap(find.text('hello'));
     await tester.pump();
-    await tester.tap(find.text('Check answer'));
+    await tester.tap(find.text('Check'));
     await tester.pump();
 
     expect(find.textContaining('Score'), findsNothing);
@@ -305,6 +306,15 @@ ExerciseResponse _responseFor(ExerciseItem item, ExerciseAnswer answer) {
     itemId: item.id,
     answer: answer,
     respondedAt: DateTime.utc(2026),
+  );
+}
+
+Widget _localizedApp(Widget child) {
+  return MaterialApp(
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    theme: ThemeData(useMaterial3: false),
+    home: child,
   );
 }
 

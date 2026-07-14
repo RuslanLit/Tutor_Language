@@ -21,6 +21,7 @@ import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
 import 'package:tutor_language/features/lesson_launch/lesson_launch_intent.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_screen.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -500,6 +501,9 @@ void main() {
         child: StatefulBuilder(
           builder: (context, setState) {
             return MaterialApp(
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              theme: ThemeData(useMaterial3: false),
               home: Scaffold(
                 body: showLesson
                     ? const LessonPlayerScreen(lessonId: _navigationLessonId)
@@ -1052,7 +1056,12 @@ Widget _app(
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),
     ],
-    child: MaterialApp(home: child),
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: ThemeData(useMaterial3: false),
+      home: child,
+    ),
   );
 }
 
@@ -1130,7 +1139,12 @@ Widget _routerApp({
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),
     ],
-    child: MaterialApp.router(routerConfig: router),
+    child: MaterialApp.router(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: ThemeData(useMaterial3: false),
+      routerConfig: router,
+    ),
   );
 }
 

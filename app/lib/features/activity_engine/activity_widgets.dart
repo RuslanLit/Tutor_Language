@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/topic_content.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import '../answer_evaluation/answer_evaluation.dart';
 import 'activity_engine.dart';
 import 'activity_result.dart';
@@ -24,6 +26,8 @@ class ActivityTemplateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return switch (template.exerciseType) {
       'multiple_choice' => MultipleChoiceActivityWidget(
         template: template,
@@ -53,7 +57,7 @@ class ActivityTemplateWidget extends StatelessWidget {
         onStateChanged: onStateChanged,
         showIncorrectDetails: showIncorrectDetails,
       ),
-      _ => Text('Unsupported activity type: ${template.exerciseType}'),
+      _ => Text(l10n.unsupportedActivityTypeValue(template.exerciseType)),
     };
   }
 }
@@ -210,6 +214,7 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final state = _currentState;
 
     return Column(
@@ -219,7 +224,7 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
         const SizedBox(height: 8),
         TextField(
           controller: _controller,
-          decoration: const InputDecoration(labelText: 'Answer'),
+          decoration: InputDecoration(labelText: l10n.answerLabel),
           keyboardType: _usesLongAnswerInput(widget.template)
               ? TextInputType.multiline
               : TextInputType.text,
@@ -306,6 +311,7 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final state = _currentState;
     final expectedPairs = widget.engine.expectedMatchingPairs(widget.template);
 
@@ -315,7 +321,7 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
         children: [
           _ActivityPrompt(widget.template.promptTemplate),
           const SizedBox(height: 8),
-          const Text('This matching activity is not checkable yet.'),
+          Text(l10n.matchingNotCheckableYet),
         ],
       );
     }
@@ -397,6 +403,7 @@ class ActivityFeedback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final result = this.result;
     if (result == null) {
       return const SizedBox.shrink();
@@ -408,7 +415,7 @@ class ActivityFeedback extends StatelessWidget {
           !showIncorrectDetails) {
         return Padding(
           padding: const EdgeInsets.only(top: 8),
-          child: Text(result.feedbackText ?? _labelFor(result.status)),
+          child: Text(result.feedbackText ?? _labelFor(result.status, l10n)),
         );
       }
 
@@ -421,15 +428,15 @@ class ActivityFeedback extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(feedback.statusLabel),
+            Text(_statusLabelFor(evaluation.status, l10n)),
             if (feedback.canonicalAnswer != null &&
                 result.status != ActivityResultStatus.correct) ...[
               const SizedBox(height: 4),
-              Text('Recommended answer: ${feedback.canonicalAnswer}'),
+              Text(l10n.recommendedAnswer(feedback.canonicalAnswer!)),
             ],
             for (final correction in feedback.corrections) ...[
               const SizedBox(height: 4),
-              Text('- $correction'),
+              Text(l10n.feedbackBullet(correction)),
             ],
           ],
         ),
@@ -438,16 +445,26 @@ class ActivityFeedback extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(top: 8),
-      child: Text(result.feedbackText ?? _labelFor(result.status)),
+      child: Text(result.feedbackText ?? _labelFor(result.status, l10n)),
     );
   }
 
-  String _labelFor(ActivityResultStatus status) {
+  String _labelFor(ActivityResultStatus status, AppLocalizations l10n) {
     return switch (status) {
-      ActivityResultStatus.correct => 'Correct',
-      ActivityResultStatus.acceptedWithFeedback => 'Accepted with correction',
-      ActivityResultStatus.incorrect => 'Try again',
-      ActivityResultStatus.unsupported => 'Unsupported activity type',
+      ActivityResultStatus.correct => l10n.correct,
+      ActivityResultStatus.acceptedWithFeedback => l10n.acceptedWithCorrection,
+      ActivityResultStatus.incorrect => l10n.tryAgain,
+      ActivityResultStatus.unsupported => l10n.unsupportedActivityType,
+    };
+  }
+
+  String _statusLabelFor(AnswerEvaluationStatus status, AppLocalizations l10n) {
+    return switch (status) {
+      AnswerEvaluationStatus.correct => l10n.correct,
+      AnswerEvaluationStatus.acceptedWithFeedback =>
+        l10n.acceptedWithCorrection,
+      AnswerEvaluationStatus.incorrect => l10n.notCorrectYet,
+      AnswerEvaluationStatus.unsupported => l10n.unsupportedActivityType,
     };
   }
 }
@@ -459,7 +476,9 @@ class _ActivityPrompt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(prompt, semanticsLabel: 'Exercise prompt: $prompt');
+    final l10n = context.l10n;
+
+    return Text(prompt, semanticsLabel: l10n.exercisePromptSemantics(prompt));
   }
 }
 
@@ -476,9 +495,14 @@ class _CheckButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Padding(
       padding: const EdgeInsets.only(top: 8),
-      child: OutlinedButton(onPressed: onPressed, child: const Text('Check')),
+      child: OutlinedButton(
+        onPressed: onPressed,
+        child: Text(l10n.checkAnswer),
+      ),
     );
   }
 }

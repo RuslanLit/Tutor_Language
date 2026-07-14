@@ -3,17 +3,20 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/app/app_release_info.dart';
+import '../../l10n/l10n.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About and Settings'),
+        title: Text(l10n.settingsTitle),
         leading: IconButton(
-          tooltip: 'Back',
+          tooltip: l10n.backTooltip,
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.goNamed(HomeRoute.name),
         ),
@@ -21,49 +24,34 @@ class SettingsScreen extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
-          children: const [
+          children: [
             _SettingsSection(
-              title: AppReleaseInfo.name,
+              title: l10n.appTitle,
               children: [
-                Text(AppReleaseInfo.scope),
-                SizedBox(height: 4),
-                Text(AppReleaseInfo.status),
-                SizedBox(height: 4),
-                Text('Version ${AppReleaseInfo.version}'),
+                Text(l10n.releaseScopeLabel),
+                const SizedBox(height: 4),
+                Text(l10n.releaseStatusLabel),
+                const SizedBox(height: 4),
+                Text(l10n.versionLabel(AppReleaseInfo.version)),
               ],
             ),
             _SettingsSection(
-              title: 'Privacy',
+              title: l10n.privacyTitle,
               children: [
-                Text('Works offline.'),
-                Text('No account is required.'),
-                Text('No ads, tracking, or analytics are used.'),
-                Text('No AI service is contacted during lessons.'),
-                Text('Learner progress stays on this device.'),
+                Text(l10n.privacyOffline),
+                Text(l10n.privacyNoAccount),
+                Text(l10n.privacyNoTracking),
+                Text(l10n.privacyNoAi),
+                Text(l10n.privacyLocalProgress),
               ],
             ),
             _SettingsSection(
-              title: 'Feedback',
-              children: [
-                Text(
-                  'For this early release, report issues through the project '
-                  'repository or directly to the project maintainer.',
-                ),
-              ],
+              title: l10n.feedbackTitle,
+              children: [Text(l10n.feedbackBody)],
             ),
             _SettingsSection(
-              title: 'Licenses and Credits',
-              children: [
-                Text(
-                  'Tutor Language is built with Flutter and includes authored '
-                  'Spanish A0 learning content bundled with the app.',
-                ),
-                SizedBox(height: 4),
-                Text(
-                  'Full license and third-party credit information will be '
-                  'included with the public release package.',
-                ),
-              ],
+              title: l10n.licensesTitle,
+              children: [Text(l10n.licensesBody)],
             ),
           ],
         ),

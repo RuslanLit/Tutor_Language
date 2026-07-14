@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import 'answer_check_models.dart';
 import 'answer_checker.dart';
 import 'exercise_runtime_models.dart';
@@ -107,6 +109,8 @@ class _ExerciseItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -122,28 +126,28 @@ class _ExerciseItemView extends StatelessWidget {
           _TextInteraction(item: item, onAnswerChanged: onAnswerChanged),
         if (response != null) ...[
           const SizedBox(height: 8),
-          Text('Selected answer: ${response!.answer.label}'),
+          Text(l10n.selectedAnswer(response!.answer.label)),
           const SizedBox(height: 8),
           OutlinedButton(
             onPressed: onCheckAnswer,
-            child: const Text('Check answer'),
+            child: Text(l10n.checkAnswer),
           ),
         ],
         if (checkResult != null) ...[
           const SizedBox(height: 8),
-          Text(_resultLabel(checkResult!.status)),
+          Text(_resultLabel(checkResult!.status, l10n)),
         ],
       ],
     );
   }
 
-  String _resultLabel(AnswerCheckStatus status) {
+  String _resultLabel(AnswerCheckStatus status, AppLocalizations l10n) {
     return switch (status) {
-      AnswerCheckStatus.unchecked => 'Unchecked',
-      AnswerCheckStatus.correct => 'Correct',
-      AnswerCheckStatus.acceptedWithFeedback => 'Accepted with correction',
-      AnswerCheckStatus.incorrect => 'Incorrect',
-      AnswerCheckStatus.unsupported => 'Unsupported exercise type',
+      AnswerCheckStatus.unchecked => l10n.unchecked,
+      AnswerCheckStatus.correct => l10n.correct,
+      AnswerCheckStatus.acceptedWithFeedback => l10n.acceptedWithCorrection,
+      AnswerCheckStatus.incorrect => l10n.incorrect,
+      AnswerCheckStatus.unsupported => l10n.unsupportedActivityType,
     };
   }
 }
@@ -161,8 +165,10 @@ class _MultipleChoiceInteraction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     if (item.answerOptions.isEmpty) {
-      return const Text('No answer choices are bundled with this template.');
+      return Text(l10n.noAnswerChoices);
     }
 
     return Wrap(
@@ -207,9 +213,11 @@ class _TextInteractionState extends State<_TextInteraction> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return TextField(
       controller: _controller,
-      decoration: const InputDecoration(labelText: 'Answer'),
+      decoration: InputDecoration(labelText: l10n.answerLabel),
       keyboardType: _usesLongAnswerInput(widget.item)
           ? TextInputType.multiline
           : TextInputType.text,

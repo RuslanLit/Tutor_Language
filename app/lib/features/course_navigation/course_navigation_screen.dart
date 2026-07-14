@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/learner/lesson_attempt.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import '../communicative_competency/communicative_competency.dart';
 import '../lesson_launch/lesson_launch_intent.dart';
 import '../../shared/widgets/course_browser_error.dart';
@@ -15,10 +17,11 @@ class CourseNavigationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final navigationState = ref.watch(courseNavigationStateProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Course')),
+      appBar: AppBar(title: Text(l10n.courseTitle)),
       body: navigationState.when(
         data: (state) => CourseNavigationView(state: state),
         error: (error, stackTrace) => CourseBrowserError(message: '$error'),
@@ -35,8 +38,10 @@ class CourseNavigationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     if (state.units.isEmpty) {
-      return const Center(child: Text('No units available.'));
+      return Center(child: Text(l10n.noUnitsAvailable));
     }
 
     return ListView(
@@ -48,11 +53,14 @@ class CourseNavigationView extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          '${state.completedLessonCount} of ${state.totalLessonCount} lessons completed',
+          l10n.courseProgress(
+            state.completedLessonCount,
+            state.totalLessonCount,
+          ),
         ),
         if (state.isCourseCompleted) ...[
           const SizedBox(height: 8),
-          const Text('Course complete'),
+          Text(l10n.courseComplete),
         ],
         const SizedBox(height: 16),
         for (final unit in state.units)
@@ -74,6 +82,7 @@ class UnitNavigationSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final competencyProjections = ref.watch(
       moduleCompetencyProjectionsProvider(
         ModuleCompetencyProjectionRequest(
@@ -91,9 +100,9 @@ class UnitNavigationSection extends ConsumerWidget {
         children: [
           Text(unit.title, style: Theme.of(context).textTheme.titleLarge),
           if (unit.lessons.isEmpty)
-            const Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: Text('No lessons available.'),
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(l10n.noLessonsAvailable),
             )
           else
             for (final lesson in unit.lessons)
@@ -109,7 +118,7 @@ class UnitNavigationSection extends ConsumerWidget {
               ],
             ),
             error: (error, stackTrace) =>
-                Text('Competency check unavailable: $error'),
+                Text(l10n.competencyUnavailableWithError('$error')),
             loading: () => const SizedBox.shrink(),
           ),
         ],
@@ -130,15 +139,16 @@ class CompetencyNavigationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final action = _actionLabel(projection);
+    final l10n = context.l10n;
+    final action = _actionLabel(projection, l10n);
     final enabled =
         projection.canStart || projection.canContinue || projection.canRetry;
 
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(_icon(projection.state)),
-      title: Text(_title(projection.state)),
-      subtitle: Text(_subtitle(projection.state)),
+      title: Text(_title(projection.state, l10n)),
+      subtitle: Text(_subtitle(projection.state, l10n)),
       trailing: action == null ? null : Text(action),
       enabled: enabled,
       onTap: enabled
@@ -173,52 +183,53 @@ class CompetencyNavigationTile extends StatelessWidget {
     };
   }
 
-  String _title(ModuleCompetencyState state) {
+  String _title(ModuleCompetencyState state, AppLocalizations l10n) {
+    return switch (state) {
+      ModuleCompetencyState.moduleContentIncomplete => l10n.competencyCheck,
+      ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
+        l10n.competencyCheck,
+      ModuleCompetencyState.competencyInProgress => l10n.competencyCheck,
+      ModuleCompetencyState.competencyAchieved => l10n.competencyAchieved,
+      ModuleCompetencyState.competencyAchievedWithReinforcement =>
+        l10n.competencyAchievedAfterReview,
+      ModuleCompetencyState.competencyPartiallyAchieved =>
+        l10n.competencyNeedsPractice,
+      ModuleCompetencyState.competencyNotYetAchieved =>
+        l10n.competencyNotYetAchieved,
+    };
+  }
+
+  String _subtitle(ModuleCompetencyState state, AppLocalizations l10n) {
     return switch (state) {
       ModuleCompetencyState.moduleContentIncomplete =>
-        'Communicative competency check',
+        l10n.competencyCompleteModuleFirst,
       ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
-        'Communicative competency check',
+        l10n.competencyReadyToStart,
       ModuleCompetencyState.competencyInProgress =>
-        'Communicative competency check',
+        l10n.competencyContinueCheck,
       ModuleCompetencyState.competencyAchieved =>
-        'Communicative competency achieved',
+        l10n.competencyGoalDemonstrated,
       ModuleCompetencyState.competencyAchievedWithReinforcement =>
-        'Communicative competency achieved after review',
+        l10n.competencySucceededAfterReview,
       ModuleCompetencyState.competencyPartiallyAchieved =>
-        'Communicative competency needs more practice',
+        l10n.competencyRetryWhenReady,
       ModuleCompetencyState.competencyNotYetAchieved =>
-        'Communicative competency not yet achieved',
+        l10n.competencyRetryWhenReady,
     };
   }
 
-  String _subtitle(ModuleCompetencyState state) {
-    return switch (state) {
-      ModuleCompetencyState.moduleContentIncomplete =>
-        'Complete this module first',
-      ModuleCompetencyState.moduleContentCompleteCompetencyNotStarted =>
-        'Ready to start',
-      ModuleCompetencyState.competencyInProgress => 'Continue your check',
-      ModuleCompetencyState.competencyAchieved =>
-        'You demonstrated this module goal',
-      ModuleCompetencyState.competencyAchievedWithReinforcement =>
-        'You succeeded after targeted review',
-      ModuleCompetencyState.competencyPartiallyAchieved =>
-        'Retry the check when ready',
-      ModuleCompetencyState.competencyNotYetAchieved =>
-        'Retry the check when ready',
-    };
-  }
-
-  String? _actionLabel(ModuleCompetencyProjection projection) {
+  String? _actionLabel(
+    ModuleCompetencyProjection projection,
+    AppLocalizations l10n,
+  ) {
     if (projection.canStart) {
-      return 'Start';
+      return l10n.start;
     }
     if (projection.canContinue) {
-      return 'Continue';
+      return l10n.continueAction;
     }
     if (projection.canRetry) {
-      return 'Retry';
+      return l10n.retry;
     }
     return null;
   }
@@ -231,11 +242,13 @@ class LessonNavigationTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return ListTile(
       contentPadding: EdgeInsets.zero,
       leading: Icon(_statusIcon(lesson.status)),
       title: Text(lesson.title),
-      subtitle: Text(_statusLabel(lesson.status)),
+      subtitle: Text(_statusLabel(lesson.status, l10n)),
       enabled: lesson.isTappable,
       onTap: lesson.isTappable
           ? () {
@@ -263,11 +276,11 @@ class LessonNavigationTile extends StatelessWidget {
     };
   }
 
-  String _statusLabel(LessonNavigationStatus status) {
+  String _statusLabel(LessonNavigationStatus status, AppLocalizations l10n) {
     return switch (status) {
-      LessonNavigationStatus.completed => 'Completed',
-      LessonNavigationStatus.available => 'Available next',
-      LessonNavigationStatus.locked => 'Locked',
+      LessonNavigationStatus.completed => l10n.lessonStatusCompleted,
+      LessonNavigationStatus.available => l10n.lessonStatusAvailableNext,
+      LessonNavigationStatus.locked => l10n.lessonStatusLocked,
     };
   }
 }

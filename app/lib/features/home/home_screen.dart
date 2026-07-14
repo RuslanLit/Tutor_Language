@@ -6,6 +6,8 @@ import '../../app/router/app_router.dart';
 import '../../core/content/content_providers.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
+import '../../l10n/generated/app_localizations.dart';
+import '../../l10n/l10n.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../curriculum/curriculum_models.dart';
 
@@ -14,15 +16,16 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final language = ref.watch(currentLanguageProvider);
     final course = ref.watch(currentCourseProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tutor Language'),
+        title: Text(l10n.appTitle),
         actions: [
           IconButton(
-            tooltip: 'Settings',
+            tooltip: l10n.settingsTooltip,
             icon: const Icon(Icons.settings_outlined),
             onPressed: () => context.goNamed(SettingsRoute.name),
           ),
@@ -56,6 +59,8 @@ class CourseOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -65,7 +70,7 @@ class CourseOverview extends StatelessWidget {
         const SizedBox(height: 16),
         FilledButton(
           onPressed: () => context.goNamed(CourseRoute.name),
-          child: const Text('Open course'),
+          child: Text(l10n.openCourse),
         ),
       ],
     );
@@ -95,6 +100,7 @@ class LessonTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final course = ref.watch(currentCourseProvider).asData?.value;
     final progress = ref.watch(topicProgressProvider(lessonId));
     final lesson = _lessonById(course, lessonId);
@@ -104,11 +110,11 @@ class LessonTile extends ConsumerWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('${lesson?.activities.length ?? 0} activities'),
+          Text(l10n.activitiesCount(lesson?.activities.length ?? 0)),
           progress.when(
-            data: (progress) => Text(_topicStatusLabel(progress)),
-            error: (error, stackTrace) => const Text('Not viewed'),
-            loading: () => const Text('Not viewed'),
+            data: (progress) => Text(_topicStatusLabel(progress, l10n)),
+            error: (error, stackTrace) => Text(l10n.notViewed),
+            loading: () => Text(l10n.notViewed),
           ),
         ],
       ),
@@ -119,12 +125,12 @@ class LessonTile extends ConsumerWidget {
     );
   }
 
-  String _topicStatusLabel(TopicProgress progress) {
+  String _topicStatusLabel(TopicProgress progress, AppLocalizations l10n) {
     if (progress.hasBeenCompleted) {
-      return 'Completed';
+      return l10n.lessonStatusCompleted;
     }
 
-    return progress.hasBeenViewed ? 'Viewed' : 'Not viewed';
+    return progress.hasBeenViewed ? l10n.viewed : l10n.notViewed;
   }
 
   Lesson? _lessonById(Course? course, String lessonId) {

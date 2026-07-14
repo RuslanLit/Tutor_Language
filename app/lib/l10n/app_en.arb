@@ -1,0 +1,218 @@
+{
+  "@@locale": "en",
+  "appTitle": "Tutor Language",
+  "settingsTooltip": "Settings",
+  "backTooltip": "Back",
+  "backToCourse": "Back to course",
+  "openCourse": "Open course",
+  "courseTitle": "Course",
+  "courseProgress": "{completed} of {total} lessons completed",
+  "@courseProgress": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "courseComplete": "Course complete",
+  "noUnitsAvailable": "No units available.",
+  "noLessonsAvailable": "No lessons available.",
+  "lessonStatusCompleted": "Completed",
+  "lessonStatusAvailableNext": "Available next",
+  "lessonStatusLocked": "Locked",
+  "moduleNumber": "Module {number}",
+  "@moduleNumber": {
+    "placeholders": {
+      "number": { "type": "String" }
+    }
+  },
+  "lessonNumber": "Lesson {number}",
+  "@lessonNumber": {
+    "placeholders": {
+      "number": { "type": "String" }
+    }
+  },
+  "competencyCheck": "Communicative competency check",
+  "competencyAchieved": "Communicative competency achieved",
+  "competencyAchievedAfterReview": "Communicative competency achieved after review",
+  "competencyNeedsPractice": "Communicative competency needs more practice",
+  "competencyNotYetAchieved": "Communicative competency not yet achieved",
+  "competencyCompleteModuleFirst": "Complete this module first",
+  "competencyReadyToStart": "Ready to start",
+  "competencyContinueCheck": "Continue your check",
+  "competencyGoalDemonstrated": "You demonstrated this module goal",
+  "competencySucceededAfterReview": "You succeeded after targeted review",
+  "competencyRetryWhenReady": "Retry the check when ready",
+  "start": "Start",
+  "continueAction": "Continue",
+  "retry": "Retry",
+  "lessonTitle": "Lesson",
+  "previousLesson": "Previous lesson",
+  "nextLesson": "Next lesson",
+  "lessonLaunchError": "Unable to launch lesson.\n{error}",
+  "@lessonLaunchError": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "lessonPlayerTitle": "Lesson Player",
+  "leaveLessonTitle": "Leave lesson?",
+  "leaveLessonBody": "This unfinished lesson will restart when you open it again.",
+  "stay": "Stay",
+  "leaveLesson": "Leave lesson",
+  "noActivitiesAvailable": "No activities available.",
+  "previous": "← Previous",
+  "next": "Next →",
+  "stepCounter": "Step {current} / {total}",
+  "@stepCounter": {
+    "placeholders": {
+      "current": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "finishLesson": "Finish Lesson",
+  "finishing": "Finishing...",
+  "completionSaveError": "Could not save lesson completion. Please try again.",
+  "lessonCompleted": "Lesson completed",
+  "continueToNextLesson": "Continue to next lesson",
+  "repeatLesson": "Repeat lesson",
+  "repeatCheckpoint": "Repeat checkpoint",
+  "reviewCompletedLessons": "Review completed lessons",
+  "someTopicsNeedReinforcement": "Some topics will need reinforcement.",
+  "lessonMasteredOutcome": "Strong mastery demonstrated.",
+  "lessonReinforcementOutcome": "Completed with reinforcement.",
+  "lessonIncompleteOutcome": "Lesson outcome incomplete.",
+  "lessonMastered": "Lesson mastered",
+  "courseCompletionRecommended": "Course complete. Keep reviewing completed lessons.",
+  "quickReview": "Quick Review",
+  "mastered": "Mastered",
+  "fragileMastery": "Good work. This needs a little more practice.",
+  "unsupportedContent": "Unsupported content: {type}",
+  "@unsupportedContent": {
+    "placeholders": {
+      "type": { "type": "String" }
+    }
+  },
+  "buildsOnEarlierMaterial": "Builds on earlier material.",
+  "stepTypeVocabulary": "vocabulary",
+  "stepTypeGrammar": "grammar",
+  "stepTypeDialogue": "dialogue",
+  "stepTypeReading": "reading",
+  "stepTypeExercise": "exercise",
+  "stepTypeMixed": "mixed",
+  "answerLabel": "Answer",
+  "checkAnswer": "Check",
+  "selectedAnswer": "Selected answer: {answer}",
+  "@selectedAnswer": {
+    "placeholders": {
+      "answer": { "type": "String" }
+    }
+  },
+  "correct": "Correct",
+  "acceptedWithCorrection": "Accepted with correction",
+  "tryAgain": "Try again",
+  "notCorrectYet": "Not correct yet",
+  "incorrect": "Incorrect",
+  "unsupportedActivityType": "Unsupported activity type",
+  "unsupportedActivityTypeValue": "Unsupported activity type: {type}",
+  "@unsupportedActivityTypeValue": {
+    "placeholders": {
+      "type": { "type": "String" }
+    }
+  },
+  "matchingNotCheckableYet": "This matching activity is not checkable yet.",
+  "recommendedAnswer": "Recommended answer: {answer}",
+  "@recommendedAnswer": {
+    "placeholders": {
+      "answer": { "type": "String" }
+    }
+  },
+  "feedbackBullet": "- {message}",
+  "@feedbackBullet": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "exercisePromptSemantics": "Exercise prompt: {prompt}",
+  "@exercisePromptSemantics": {
+    "placeholders": {
+      "prompt": { "type": "String" }
+    }
+  },
+  "settingsTitle": "About and Settings",
+  "releaseStatusLabel": "Early public release",
+  "releaseScopeLabel": "Offline Spanish A0 course",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "privacyTitle": "Privacy",
+  "privacyOffline": "Works offline.",
+  "privacyNoAccount": "No account is required.",
+  "privacyNoTracking": "No ads, tracking, or analytics are used.",
+  "privacyNoAi": "No AI service is contacted during lessons.",
+  "privacyLocalProgress": "Learner progress stays on this device.",
+  "feedbackTitle": "Feedback",
+  "feedbackBody": "For this early release, report issues through the project repository or directly to the project maintainer.",
+  "licensesTitle": "Licenses and Credits",
+  "licensesBody": "Tutor Language is built with Flutter and includes authored Spanish A0 educational content. Full license and third-party credit information will be included with the public release package.",
+  "competencyScreenTitle": "Competency Check",
+  "competencyUnavailable": "Competency check unavailable.",
+  "competencyUnavailableWithError": "Competency check unavailable. {error}",
+  "@competencyUnavailableWithError": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "competencyTaskUnavailable": "This competency task is unavailable.",
+  "competencyDiagnosticIntro": "Show what you can do without help.",
+  "competencyRetryIntro": "Try the original task again.",
+  "competencyRecoveryIntro": "Let's briefly review one part and try again.",
+  "startReview": "Start review",
+  "recoveryActivityUnavailable": "Recovery activity unavailable.",
+  "competencyCheckComplete": "Competency check complete.",
+  "retryCompetencyCheck": "Retry competency check",
+  "competencyAchievedTitle": "Competency achieved",
+  "competencyAchievedAfterReviewTitle": "Competency achieved after review",
+  "competencyNeedsPracticeTitle": "Competency needs more practice",
+  "competencyNotYetAchievedTitle": "Competency not yet achieved",
+  "competencyAchievedDescription": "You completed the communicative task independently.",
+  "competencyAchievedAfterReviewDescription": "You used review and then completed the communicative task.",
+  "competencyNeedsPracticeDescription": "You demonstrated part of the goal. Retry when ready.",
+  "competencyNotYetAchievedDescription": "The core goal is not secure yet. Retry after review.",
+  "notViewed": "Not viewed",
+  "viewed": "Viewed",
+  "activitiesCount": "{count, plural, =0{No activities} =1{1 activity} other{{count} activities}}",
+  "@activitiesCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "noAnswerChoices": "No answer choices are bundled with this template.",
+  "unchecked": "Unchecked",
+  "templateType": "Type: {type}",
+  "@templateType": {
+    "placeholders": {
+      "type": { "type": "String" }
+    }
+  },
+  "templatePrompt": "Prompt: {prompt}",
+  "@templatePrompt": {
+    "placeholders": {
+      "prompt": { "type": "String" }
+    }
+  },
+  "requiredObjectTypesCount": "Required object types: {count}",
+  "@requiredObjectTypesCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "supportedGoalsCount": "Supported goals: {count}",
+  "@supportedGoalsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  }
+}

@@ -121,57 +121,57 @@ User Interface
 Architecture
 
 ```
-[ ] Flutter gen-l10n configured
+[x] Flutter gen-l10n configured
 
-[ ] ARB localization files created
+[x] ARB localization files created
 
-[ ] English source locale established
+[x] English source locale established
 
-[ ] locale resolution implemented
+[x] locale resolution implemented
 
-[ ] automatic system language selection
+[x] automatic system language selection
 ```
 
 Languages
 
 ```
-[ ] English
+[x] English
 
-[ ] Ukrainian
+[~] Ukrainian
 
-[ ] Russian
+[~] Russian
 
-[ ] Polish
+[~] Polish
 
-[ ] German
+[~] German
 ```
 
 Application
 
 ```
-[ ] no learner-facing hardcoded strings
+[~] no learner-facing hardcoded strings
 
-[ ] Settings localized
+[x] Settings localized
 
-[ ] Lesson Player localized
+[x] Lesson Player localized
 
-[ ] Course screens localized
+[x] Course screens localized
 
-[ ] competency flow localized
+[x] competency flow localized
 
-[ ] validation messages localized
+[~] validation messages localized
 
-[ ] accessibility labels localized
+[x] accessibility labels localized
 ```
 
 Verification
 
 ```
-[ ] fallback language tested
+[x] fallback language tested
 
-[ ] unsupported locale tested
+[x] unsupported locale tested
 
-[ ] localization widget tests pass
+[x] localization widget tests pass
 ```
 
 ---

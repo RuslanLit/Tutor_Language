@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   drift: ^2.34.0
   drift_flutter: ^0.3.0
@@ -26,6 +28,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:

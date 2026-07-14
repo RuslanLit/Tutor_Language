@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/activity_engine/activity_widgets.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets('fill_gap widget checks normalized answer', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _fillGapTemplate),
         ),
       ),
@@ -24,8 +25,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _textEntryTemplate),
         ),
       ),
@@ -47,8 +48,8 @@ void main() {
     final semantics = tester.ensureSemantics();
 
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _textEntryTemplate),
         ),
       ),
@@ -65,8 +66,8 @@ void main() {
     'accepted-with-feedback renders canonical answer and corrections',
     (tester) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
+        _localizedApp(
+          const Scaffold(
             body: ActivityTemplateWidget(template: _questionTemplate),
           ),
         ),
@@ -88,8 +89,8 @@ void main() {
 
   testWidgets('editing and resubmitting clears stale feedback', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _questionTemplate),
         ),
       ),
@@ -117,8 +118,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
+      _localizedApp(
+        const Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
       ),
     );
 
@@ -147,8 +148,8 @@ void main() {
 
   testWidgets('generic incorrect remains neutral', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
+      _localizedApp(
+        const Scaffold(body: ActivityTemplateWidget(template: _nameTemplate)),
       ),
     );
 
@@ -165,8 +166,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _questionExpectedTemplate),
         ),
       ),
@@ -198,8 +199,8 @@ void main() {
 
   testWidgets('long text_entry widget uses multiline editing', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(body: ActivityTemplateWidget(template: _longTemplate)),
+      _localizedApp(
+        const Scaffold(body: ActivityTemplateWidget(template: _longTemplate)),
       ),
     );
 
@@ -213,8 +214,8 @@ void main() {
 
   testWidgets('short text_entry widget remains single-line', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _textEntryTemplate),
         ),
       ),
@@ -232,8 +233,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: Column(
             children: [
               ActivityTemplateWidget(template: _questionTemplate),
@@ -254,8 +255,8 @@ void main() {
 
   testWidgets('matching widget checks submitted pairs', (tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
+      _localizedApp(
+        const Scaffold(
           body: ActivityTemplateWidget(template: _matchingTemplate),
         ),
       ),
@@ -268,6 +269,15 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
   });
+}
+
+Widget _localizedApp(Widget child) {
+  return MaterialApp(
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
+    theme: ThemeData(useMaterial3: false),
+    home: child,
+  );
 }
 
 const _fillGapTemplate = ExerciseTemplate(

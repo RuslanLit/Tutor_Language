@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../../../core/content/topic_content.dart';
+import '../../../l10n/l10n.dart';
 import '../../exercise_runtime/exercise_runtime_models.dart';
 import '../../exercise_runtime/exercise_runtime_widget.dart';
 import '../rendering/topic_content_renderer.dart';
@@ -19,15 +20,19 @@ class ExerciseTemplateContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         for (final template in content.templates) ...[
           Text(template.id),
-          Text('Type: ${template.exerciseType}'),
-          Text('Prompt: ${template.promptTemplate}'),
-          Text('Required object types: ${template.requiredObjectTypes.length}'),
-          Text('Supported goals: ${template.supportedGoalTypes.length}'),
+          Text(l10n.templateType(template.exerciseType)),
+          Text(l10n.templatePrompt(template.promptTemplate)),
+          Text(
+            l10n.requiredObjectTypesCount(template.requiredObjectTypes.length),
+          ),
+          Text(l10n.supportedGoalsCount(template.supportedGoalTypes.length)),
           const SizedBox(height: 8),
           ExerciseRuntimeWidget(
             session: ExerciseSession.fromTemplate(template),

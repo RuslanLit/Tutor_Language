@@ -7,6 +7,7 @@ import '../../core/content/content_providers.dart';
 import '../../core/content/content_repository.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
+import '../../l10n/l10n.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../curriculum/curriculum_models.dart';
 import '../exercise_runtime/exercise_runtime_models.dart';
@@ -29,6 +30,7 @@ class _TopicScreenState extends ConsumerState<TopicScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final details = ref.watch(lessonDetailsProvider(widget.topicId));
     final course = ref.watch(currentCourseProvider);
     final progress = ref.watch(topicProgressProvider(widget.topicId));
@@ -40,7 +42,7 @@ class _TopicScreenState extends ConsumerState<TopicScreen> {
     _sessionController = sessionController;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Lesson')),
+      appBar: AppBar(title: Text(l10n.lessonTitle)),
       body: details.when(
         data: (details) {
           final loadedCourse = course.asData?.value;
@@ -157,6 +159,8 @@ class TopicNavigationControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Wrap(
       spacing: 8,
       runSpacing: 8,
@@ -164,17 +168,17 @@ class TopicNavigationControls extends StatelessWidget {
         if (previousTopic != null)
           OutlinedButton(
             onPressed: () => _openTopic(context, previousTopic!),
-            child: const Text('Previous lesson'),
+            child: Text(l10n.previousLesson),
           ),
         if (nextTopic != null)
           OutlinedButton(
             onPressed: () => _openTopic(context, nextTopic!),
-            child: const Text('Next lesson'),
+            child: Text(l10n.nextLesson),
           ),
         if (isCompleted && nextTopic != null)
           FilledButton(
             onPressed: () => _openTopic(context, nextTopic!),
-            child: const Text('Continue to next lesson'),
+            child: Text(l10n.continueToNextLesson),
           ),
       ],
     );

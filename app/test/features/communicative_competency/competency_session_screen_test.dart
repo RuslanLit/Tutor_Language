@@ -11,6 +11,7 @@ import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/communicative_competency/competency_session_screen.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets('competency session shows recovery and retry flow', (
@@ -34,7 +35,10 @@ void main() {
             (ref) => _CompetencyContentRepository(),
           ),
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: ThemeData(useMaterial3: false),
           home: CompetencySessionScreen(
             courseId: 'spanish_a0',
             moduleId: 'es.a0.m03',
@@ -138,7 +142,10 @@ void main() {
             (ref) => _CompetencyContentRepository(),
           ),
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          theme: ThemeData(useMaterial3: false),
           home: CompetencySessionScreen(
             courseId: 'spanish_a0',
             moduleId: 'es.a0.m03',
