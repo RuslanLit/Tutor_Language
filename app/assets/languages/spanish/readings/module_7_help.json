@@ -1,0 +1,88 @@
+[
+  {
+    "id": "reading.es.a0.m07.attention_note.v1",
+    "title": "A short help note",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.disculpe.v1",
+      "vocab.es.a0.m07.puede_ayudarme.v1",
+      "vocab.es.a0.m07.claro.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.polite_attention.v1",
+      "grammar.es.a0.m07.puede_ayudarme.v1"
+    ],
+    "text": "Disculpe. ¿Puede ayudarme? Sí, claro.",
+    "native_translation": "Excuse me. Can you help me? Yes, of course."
+  },
+  {
+    "id": "reading.es.a0.m07.help_request_note.v1",
+    "title": "Needing help",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.necesito_ayuda.v1",
+      "vocab.es.a0.unit1.por_favor.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.necesito.v1"
+    ],
+    "text": "Necesito ayuda, por favor. No entiendo.",
+    "native_translation": "I need help, please. I don't understand."
+  },
+  {
+    "id": "reading.es.a0.m07.communication_note.v1",
+    "title": "Communication repair",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.no_entiendo.v1",
+      "vocab.es.a0.m07.repita.v1",
+      "vocab.es.a0.m07.hable_mas_despacio.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.communication_repair.v1"
+    ],
+    "text": "No entiendo. Repita, por favor. Hable más despacio, por favor.",
+    "native_translation": "I don't understand. Please repeat. Please speak more slowly."
+  },
+  {
+    "id": "reading.es.a0.m07.services_note.v1",
+    "title": "Important places",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.bano.v1",
+      "vocab.es.a0.m06.farmacia.v1",
+      "vocab.es.a0.m06.hospital.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.service_location_questions.v1"
+    ],
+    "text": "¿Dónde está el baño? El baño está aquí. ¿Dónde está la farmacia? La farmacia está cerca.",
+    "native_translation": "Where is the bathroom? The bathroom is here. Where is the pharmacy? The pharmacy is near."
+  },
+  {
+    "id": "reading.es.a0.m07.emergency_note.v1",
+    "title": "Urgent help",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.medico.v1",
+      "vocab.es.a0.m07.policia.v1",
+      "vocab.es.a0.m07.emergencia.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.emergency_requests.v1"
+    ],
+    "text": "Necesito un médico. Es una emergencia. Necesito la policía.",
+    "native_translation": "I need a doctor. It is an emergency. I need the police."
+  },
+  {
+    "id": "reading.es.a0.m07.checkpoint_note.v1",
+    "title": "Help exchange",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.disculpe.v1",
+      "vocab.es.a0.m07.puede_ayudarme.v1",
+      "vocab.es.a0.m07.bano.v1",
+      "vocab.es.a0.m07.necesito_ayuda.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.puede_ayudarme.v1",
+      "grammar.es.a0.m07.service_location_questions.v1"
+    ],
+    "text": "Disculpe. ¿Puede ayudarme? Necesito ayuda. ¿Dónde está el baño?",
+    "native_translation": "Excuse me. Can you help me? I need help. Where is the bathroom?"
+  }
+]

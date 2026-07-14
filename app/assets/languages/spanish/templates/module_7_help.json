@@ -1,0 +1,963 @@
+[
+  {
+    "id": "template.es.a0.m07.l044.attention_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the polite Spanish word for \"excuse me\".",
+    "answer_options": [
+      {
+        "id": "disculpe",
+        "label": "disculpe"
+      },
+      {
+        "id": "ayuda",
+        "label": "ayuda"
+      },
+      {
+        "id": "metro",
+        "label": "metro"
+      }
+    ],
+    "correct_option_id": "disculpe"
+  },
+  {
+    "id": "template.es.a0.m07.l044.fill_disculpe.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"excuse me\": \"____, ¿puede ayudarme?\"",
+    "expected_answer": "Disculpe"
+  },
+  {
+    "id": "template.es.a0.m07.l044.type_disculpe.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word: \"excuse me.\"",
+    "expected_answer": "Disculpe",
+    "review_template_ids": [
+      "template.es.a0.m07.l044.attention_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l044.type_disculpe_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"Excuse me. Can you help me?\"",
+    "expected_answer": "Disculpe. ¿Puede ayudarme?",
+    "accepted_answers": [
+      "Disculpe, ¿puede ayudarme?"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l044.answer_only.v1",
+        "matching_answers": [
+          "Sí, claro",
+          "Claro"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "Disculpe. ¿Puede ayudarme?",
+        "explanation_reference_id": "grammar.es.a0.m07.polite_attention.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l044.fill_disculpe.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l045.help_question_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish question for \"Can you help me?\".",
+    "answer_options": [
+      {
+        "id": "puede",
+        "label": "¿Puede ayudarme?"
+      },
+      {
+        "id": "donde",
+        "label": "¿Dónde está el baño?"
+      },
+      {
+        "id": "toma",
+        "label": "Toma el metro."
+      }
+    ],
+    "correct_option_id": "puede"
+  },
+  {
+    "id": "template.es.a0.m07.l045.fill_ayudarme.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"help me\": \"¿Puede ____?\"",
+    "expected_answer": "ayudarme"
+  },
+  {
+    "id": "template.es.a0.m07.l045.type_puede_ayudarme.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Can you help me?\"",
+    "expected_answer": "¿Puede ayudarme?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l045.statement_for_question.v1",
+        "matching_answers": [
+          "Necesito ayuda",
+          "Necesito ayuda."
+        ],
+        "feedback_key": "response.question_expected_statement_provided",
+        "canonical_answer": "¿Puede ayudarme?",
+        "explanation_reference_id": "grammar.es.a0.m07.puede_ayudarme.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l045.help_question_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l045.type_necesito_ayuda.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I need help.\"",
+    "expected_answer": "Necesito ayuda",
+    "accepted_answers": [
+      "Necesito ayuda."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l045.question_for_statement.v1",
+        "matching_answers": [
+          "¿Puede ayudarme?",
+          "Puede ayudarme?"
+        ],
+        "feedback_key": "response.statement_expected_question_provided",
+        "canonical_answer": "Necesito ayuda",
+        "explanation_reference_id": "grammar.es.a0.m07.necesito.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l045.fill_ayudarme.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l046.repair_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish phrase for \"I do not understand\".",
+    "answer_options": [
+      {
+        "id": "entiendo",
+        "label": "No entiendo"
+      },
+      {
+        "id": "repita",
+        "label": "Repita, por favor"
+      },
+      {
+        "id": "claro",
+        "label": "Claro"
+      }
+    ],
+    "correct_option_id": "entiendo"
+  },
+  {
+    "id": "template.es.a0.m07.l046.fill_repita.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"repeat\": \"____, por favor.\"",
+    "expected_answer": "Repita"
+  },
+  {
+    "id": "template.es.a0.m07.l046.type_no_entiendo.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I do not understand.\"",
+    "expected_answer": "No entiendo",
+    "accepted_answers": [
+      "No entiendo."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l046.repair_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l046.type_repita_por_favor.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish request: \"Please repeat.\"",
+    "expected_answer": "Repita, por favor",
+    "accepted_answers": [
+      "Repita por favor",
+      "Repita, por favor."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l046.source_copy.v1",
+        "matching_answers": [
+          "Please repeat",
+          "Repeat please"
+        ],
+        "feedback_key": "response.translation_expected_source_language",
+        "canonical_answer": "Repita, por favor",
+        "explanation_reference_id": "grammar.es.a0.m07.communication_repair.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l046.fill_repita.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l046.type_hable_mas_despacio.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish request: \"Please speak more slowly.\"",
+    "expected_answer": "Hable más despacio, por favor",
+    "accepted_answers": [
+      "Hable mas despacio, por favor",
+      "Hable más despacio por favor"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l046.repair_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l047.service_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"bathroom\".",
+    "answer_options": [
+      {
+        "id": "bano",
+        "label": "baño"
+      },
+      {
+        "id": "farmacia",
+        "label": "farmacia"
+      },
+      {
+        "id": "hospital",
+        "label": "hospital"
+      }
+    ],
+    "correct_option_id": "bano"
+  },
+  {
+    "id": "template.es.a0.m07.l047.fill_bano.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"bathroom\": \"¿Dónde está el ____?\"",
+    "expected_answer": "baño"
+  },
+  {
+    "id": "template.es.a0.m07.l047.type_donde_bano.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the bathroom?\"",
+    "expected_answer": "¿Dónde está el baño?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l047.location_answer_for_question.v1",
+        "matching_answers": [
+          "Está aquí",
+          "El baño está aquí"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está el baño?",
+        "explanation_reference_id": "grammar.es.a0.m07.service_location_questions.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l047.service_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l047.type_donde_farmacia.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the pharmacy?\"",
+    "expected_answer": "¿Dónde está la farmacia?",
+    "review_template_ids": [
+      "template.es.a0.m07.l047.fill_bano.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l047.type_hospital_cerca.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Answer the question \"¿Dónde está el hospital?\" with the Spanish sentence: \"It is near.\"",
+    "expected_answer": "Está cerca",
+    "accepted_answers": [
+      "El hospital está cerca"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l047.service_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l048.emergency_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence for \"I need a doctor.\".",
+    "answer_options": [
+      {
+        "id": "medico",
+        "label": "Necesito un médico."
+      },
+      {
+        "id": "policia",
+        "label": "Necesito la policía."
+      },
+      {
+        "id": "bano",
+        "label": "¿Dónde está el baño?"
+      }
+    ],
+    "correct_option_id": "medico"
+  },
+  {
+    "id": "template.es.a0.m07.l048.fill_medico.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"doctor\": \"Necesito un ____.\"",
+    "expected_answer": "médico"
+  },
+  {
+    "id": "template.es.a0.m07.l048.type_necesito_medico.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I need a doctor.\"",
+    "expected_answer": "Necesito un médico",
+    "accepted_answers": [
+      "Necesito un médico."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l048.where_doctor.v1",
+        "matching_answers": [
+          "¿Dónde está el médico?",
+          "Donde esta el medico?"
+        ],
+        "feedback_key": "response.statement_expected_question_provided",
+        "canonical_answer": "Necesito un médico",
+        "explanation_reference_id": "grammar.es.a0.m07.emergency_requests.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l048.emergency_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l048.type_necesito_policia.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I need the police.\"",
+    "expected_answer": "Necesito la policía",
+    "accepted_answers": [
+      "Necesito la policía."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l048.fill_medico.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l048.type_es_emergencia.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"It is an emergency.\"",
+    "expected_answer": "Es una emergencia",
+    "accepted_answers": [
+      "Es una emergencia."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l048.emergency_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l049.dialogue_comprehension.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "In the dialogue, Sara says \"Necesito un médico.\" Choose what she needs.",
+    "answer_options": [
+      {
+        "id": "doctor",
+        "label": "a doctor"
+      },
+      {
+        "id": "metro",
+        "label": "the metro"
+      },
+      {
+        "id": "price",
+        "label": "a price"
+      }
+    ],
+    "correct_option_id": "doctor"
+  },
+  {
+    "id": "template.es.a0.m07.l049.type_help_opening.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence opening: \"Excuse me. I need help.\"",
+    "expected_answer": "Disculpe. Necesito ayuda",
+    "accepted_answers": [
+      "Disculpe, necesito ayuda",
+      "Disculpe. Necesito ayuda."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l044.attention_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l049.type_help_dialogue.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer to \"¿Qué necesita?\": \"I need a doctor.\"",
+    "expected_answer": "Necesito un médico",
+    "accepted_answers": [
+      "Necesito un médico."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l048.emergency_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.l049.type_service_help_sequence.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the two Spanish sentences in this exact order: \"Excuse me. Where is the pharmacy?\"",
+    "expected_answer": "Disculpe. ¿Dónde está la farmacia?",
+    "accepted_answers": [
+      "Disculpe, ¿dónde está la farmacia?"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.l049.order_matters.v1",
+        "matching_answers": [
+          "¿Dónde está la farmacia? Disculpe",
+          "Donde esta la farmacia? Disculpe"
+        ],
+        "feedback_key": "spanish.help.polite_opening_first",
+        "canonical_answer": "Disculpe. ¿Dónde está la farmacia?",
+        "explanation_reference_id": "grammar.es.a0.m07.polite_attention.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m07.l047.service_choice.v1"
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m07.review.type_disculpe.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish word: \"excuse me.\"",
+    "expected_answer": "Disculpe"
+  },
+  {
+    "id": "template.es.a0.m07.review.type_puede_ayudarme.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish question: \"Can you help me?\"",
+    "expected_answer": "¿Puede ayudarme?"
+  },
+  {
+    "id": "template.es.a0.m07.review.type_no_entiendo.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish sentence: \"I do not understand.\"",
+    "expected_answer": "No entiendo"
+  },
+  {
+    "id": "template.es.a0.m07.review.type_repita.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish request: \"Please repeat.\"",
+    "expected_answer": "Repita, por favor",
+    "accepted_answers": [
+      "Repita por favor"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.review.type_donde_bano.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish question: \"Where is the bathroom?\"",
+    "expected_answer": "¿Dónde está el baño?"
+  },
+  {
+    "id": "template.es.a0.m07.review.type_necesito_policia.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish sentence: \"I need the police.\"",
+    "expected_answer": "Necesito la policía"
+  },
+  {
+    "id": "template.es.a0.m07.review.reading_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The note says \"Necesito ayuda.\" Choose the meaning.",
+    "answer_options": [
+      {
+        "id": "help",
+        "label": "I need help"
+      },
+      {
+        "id": "doctor",
+        "label": "I need a doctor"
+      },
+      {
+        "id": "bathroom",
+        "label": "Where is the bathroom?"
+      }
+    ],
+    "correct_option_id": "help"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.attention_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: choose a polite way to attract attention.",
+    "answer_options": [
+      {
+        "id": "disculpe",
+        "label": "Disculpe."
+      },
+      {
+        "id": "metro",
+        "label": "Metro."
+      },
+      {
+        "id": "barato",
+        "label": "Barato."
+      }
+    ],
+    "correct_option_id": "disculpe"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_help_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish question: \"Can you help me?\"",
+    "expected_answer": "¿Puede ayudarme?"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_need_help.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish sentence: \"I need help.\"",
+    "expected_answer": "Necesito ayuda"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_speak_slowly.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish request: \"Please speak more slowly.\"",
+    "expected_answer": "Hable más despacio, por favor",
+    "accepted_answers": [
+      "Hable mas despacio, por favor",
+      "Hable más despacio por favor"
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_where_pharmacy.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish question: \"Where is the pharmacy?\"",
+    "expected_answer": "¿Dónde está la farmacia?"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_need_doctor.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish sentence: \"I need a doctor.\"",
+    "expected_answer": "Necesito un médico"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_emergency.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish sentence: \"It is an emergency.\"",
+    "expected_answer": "Es una emergencia"
+  },
+  {
+    "id": "template.es.a0.m07.checkpoint.type_integrated_help.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the two Spanish sentences in this exact order: \"Excuse me. I need the police.\"",
+    "expected_answer": "Disculpe. Necesito la policía",
+    "accepted_answers": [
+      "Disculpe, necesito la policía"
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m07.competency.get_attention.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Ask for attention politely. Type the Spanish word: \"excuse me.\"",
+    "expected_answer": "Disculpe"
+  },
+  {
+    "id": "template.es.a0.m07.competency.ask_for_help.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Ask for help. Type the Spanish question: \"Can you help me?\"",
+    "expected_answer": "¿Puede ayudarme?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.competency.statement_for_question.v1",
+        "matching_answers": [
+          "Necesito ayuda"
+        ],
+        "feedback_key": "response.question_expected_statement_provided",
+        "canonical_answer": "¿Puede ayudarme?",
+        "explanation_reference_id": "grammar.es.a0.m07.puede_ayudarme.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.competency.repair_communication.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Say you do not understand and ask for repetition. Type the two Spanish sentences in this exact order: \"I do not understand. Please repeat.\"",
+    "expected_answer": "No entiendo. Repita, por favor",
+    "accepted_answers": [
+      "No entiendo. Repita por favor"
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m07.competency.find_service.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Ask where the bathroom is. Type the Spanish question.",
+    "expected_answer": "¿Dónde está el baño?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.competency.answer_for_question.v1",
+        "matching_answers": [
+          "Está aquí",
+          "El baño está aquí"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está el baño?",
+        "explanation_reference_id": "grammar.es.a0.m07.service_location_questions.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m07.competency.request_emergency_help.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Request urgent help. Type the Spanish sentence: \"I need the police.\"",
+    "expected_answer": "Necesito la policía"
+  },
+  {
+    "id": "template.es.a0.m07.competency.complete_help_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the help exchange. First attract attention. Then say: \"I need a doctor.\"",
+    "expected_answer": "Disculpe. Necesito un médico",
+    "accepted_answers": [
+      "Disculpe, necesito un médico"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m07.competency.missing_attention.v1",
+        "matching_answers": [
+          "Necesito un médico"
+        ],
+        "feedback_key": "spanish.help.include_polite_attention",
+        "canonical_answer": "Disculpe. Necesito un médico",
+        "explanation_reference_id": "grammar.es.a0.m07.polite_attention.v1"
+      }
+    ],
+    "requires_exact_answer": true
+  }
+]

@@ -337,35 +337,49 @@ question-answer flow.
 
 ---
 
-# Module 7 — Food, Drink and Needs
+# Module 7 — Asking for Help
 
 ## Communicative Competencies
 
-- Request basic food or drink politely.
-- Say simple hunger, thirst or help needs.
-- Complete a tiny cafe-style exchange.
-- Reuse courtesy and clarification in a request context.
+- Get polite attention before asking for help.
+- Ask for help with `¿Puede ayudarme?` and `necesito ayuda`.
+- Repair communication with `no entiendo`, `repita` and `hable más despacio`.
+- Ask where important services are.
+- Request simple urgent help with controlled emergency phrases.
 
 ## Typical Real-Life Scenarios
 
-- asking for water, coffee, bread or cheese;
-- saying `por favor` and `gracias`;
-- saying `tengo hambre` or `tengo sed`;
-- asking for help in a controlled situation.
+- getting attention with `disculpe` or `oiga`;
+- asking `¿Puede ayudarme?`;
+- saying `No entiendo` and asking someone to repeat;
+- asking `¿Dónde está el baño?` or `¿Dónde está la farmacia?`;
+- saying `Necesito un médico`, `Necesito la policía` or `Es una emergencia`.
 
 ## Language Patterns Introduced
 
-- food and drink nouns;
-- `quiero ...`;
-- `tengo hambre`, `tengo sed`;
-- `necesito ayuda`;
-- polite request exchanges.
+- polite attention words before help requests;
+- `puede` in the fixed help question `¿Puede ayudarme?`;
+- `necesito` in short help and emergency statements;
+- communication repair imperatives as fixed expressions;
+- controlled service-location questions.
 
 ## Typical Learner Limitations
 
-- Cannot yet order from a full menu.
-- Cannot manage prices or substitutions unless separately taught.
-- Cannot describe medical or emergency situations beyond tightly controlled needs.
+- Cannot describe symptoms, incidents or legal problems.
+- Cannot handle emergency phone calls beyond fixed requests.
+- Cannot understand broad service directions or opening hours.
+- Uses fixed polite help patterns, not the full formal-register system.
+
+Implemented competency:
+
+`competency.es.a0.m07.ask_for_basic_help`
+
+Diagnostic tasks cover getting attention, asking for help, repairing
+communication, finding a service, requesting urgent help and completing a
+short help exchange.
+
+Recovery uses Module 7 help steps, plus earlier clarification and conversation
+content where a predictable exchange requires prerequisite interaction skills.
 
 ---
 

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "grammar.es.a0.m07.polite_attention.v1",
+    "title": "Polite attention phrases",
+    "explanation": "Use a short polite word before asking for help. Disculpe is the safest general choice in this module. Oiga can attract attention, but keep it polite and follow with a clear request.",
+    "examples": [
+      "Disculpe, ¿puede ayudarme?",
+      "Oiga, necesito ayuda."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m07.puede_ayudarme.v1",
+    "title": "Asking for help with ¿Puede ayudarme?",
+    "explanation": "¿Puede ayudarme? is a polite fixed question meaning Can you help me? Use it when you need help from another person. It is a question, so it keeps Spanish question marks.",
+    "examples": [
+      "Disculpe, ¿puede ayudarme?",
+      "¿Puede ayudarme, por favor?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m07.polite_attention.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m07.necesito.v1",
+    "title": "Necesito for simple needs",
+    "explanation": "Necesito means I need. At A0, use it with one clear thing: necesito ayuda, necesito un médico, necesito la policía. Do not use it for long explanations yet.",
+    "examples": [
+      "Necesito ayuda.",
+      "Necesito un médico.",
+      "Necesito la policía."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m07.communication_repair.v1",
+    "title": "Communication repair requests",
+    "explanation": "When you do not understand, say no entiendo. Then ask for one clear action: repita, por favor or hable más despacio, por favor. These are fixed polite requests in this module.",
+    "examples": [
+      "No entiendo.",
+      "Repita, por favor.",
+      "Hable más despacio, por favor."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m07.service_location_questions.v1",
+    "title": "Asking where an important service is",
+    "explanation": "Use the known pattern ¿Dónde está...? to ask where an important place is. In this module, the places are el baño, la farmacia and el hospital.",
+    "examples": [
+      "¿Dónde está el baño?",
+      "¿Dónde está la farmacia?",
+      "¿Dónde está el hospital?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m06.where_questions.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m07.emergency_requests.v1",
+    "title": "Simple emergency requests",
+    "explanation": "For urgent help, keep the sentence short and direct. Use necesito with médico or policía, or say es una emergencia. The app does not teach broad emergency conversation yet.",
+    "examples": [
+      "Necesito un médico.",
+      "Necesito la policía.",
+      "Es una emergencia."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m07.necesito.v1"
+    ]
+  }
+]

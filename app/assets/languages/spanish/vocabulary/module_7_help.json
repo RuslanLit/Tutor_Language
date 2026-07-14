@@ -1,0 +1,182 @@
+[
+  {
+    "id": "vocab.es.a0.m07.disculpe.v1",
+    "spanish": "disculpe",
+    "native_translation": "excuse me / pardon me",
+    "cefr": "A0",
+    "example": "Disculpe, ¿puede ayudarme?",
+    "pronunciation": "dees-KOOL-peh",
+    "notes": "Polite way to attract attention."
+  },
+  {
+    "id": "vocab.es.a0.m07.oiga.v1",
+    "spanish": "oiga",
+    "native_translation": "excuse me / listen",
+    "cefr": "A0",
+    "example": "Oiga, necesito ayuda.",
+    "pronunciation": "OY-gah",
+    "notes": "Useful for attracting attention; use politely and sparingly."
+  },
+  {
+    "id": "vocab.es.a0.m07.puede.v1",
+    "spanish": "puede",
+    "native_translation": "can you / can he or she",
+    "cefr": "A0",
+    "example": "¿Puede ayudarme?",
+    "pronunciation": "PWEH-deh",
+    "notes": "Used here as a fixed polite help question."
+  },
+  {
+    "id": "vocab.es.a0.m07.ayudarme.v1",
+    "spanish": "ayudarme",
+    "native_translation": "help me",
+    "cefr": "A0",
+    "example": "¿Puede ayudarme?",
+    "pronunciation": "ah-yoo-DAR-meh",
+    "notes": "A fixed form for asking someone to help you."
+  },
+  {
+    "id": "vocab.es.a0.m07.puede_ayudarme.v1",
+    "spanish": "¿Puede ayudarme?",
+    "native_translation": "Can you help me?",
+    "cefr": "A0",
+    "example": "Disculpe, ¿puede ayudarme?",
+    "pronunciation": "PWEH-deh ah-yoo-DAR-meh",
+    "notes": "Polite fixed question for help."
+  },
+  {
+    "id": "vocab.es.a0.m07.necesito.v1",
+    "spanish": "necesito",
+    "native_translation": "I need",
+    "cefr": "A0",
+    "example": "Necesito ayuda.",
+    "pronunciation": "neh-seh-SEE-toh",
+    "notes": "Used with one needed thing or service."
+  },
+  {
+    "id": "vocab.es.a0.m07.necesito_ayuda.v1",
+    "spanish": "necesito ayuda",
+    "native_translation": "I need help",
+    "cefr": "A0",
+    "example": "Necesito ayuda, por favor.",
+    "pronunciation": "neh-seh-SEE-toh ah-YOO-dah",
+    "notes": "Simple help request."
+  },
+  {
+    "id": "vocab.es.a0.m07.repita.v1",
+    "spanish": "repita",
+    "native_translation": "repeat / please repeat",
+    "cefr": "A0",
+    "example": "Repita, por favor.",
+    "pronunciation": "reh-PEE-tah",
+    "notes": "Polite form used here as a fixed classroom/help phrase."
+  },
+  {
+    "id": "vocab.es.a0.m07.hable.v1",
+    "spanish": "hable",
+    "native_translation": "speak",
+    "cefr": "A0",
+    "example": "Hable más despacio, por favor.",
+    "pronunciation": "AH-bleh",
+    "notes": "Used in the fixed request hable más despacio."
+  },
+  {
+    "id": "vocab.es.a0.m07.hable_mas_despacio.v1",
+    "spanish": "hable más despacio",
+    "native_translation": "speak more slowly",
+    "cefr": "A0",
+    "example": "Hable más despacio, por favor.",
+    "pronunciation": "AH-bleh mahs dehs-PAH-syoh",
+    "notes": "Polite fixed request when speech is too fast."
+  },
+  {
+    "id": "vocab.es.a0.m07.bano.v1",
+    "spanish": "baño",
+    "native_translation": "bathroom / toilet",
+    "cefr": "A0",
+    "example": "¿Dónde está el baño?",
+    "pronunciation": "BAH-nyoh",
+    "notes": "Useful service word for asking where something is."
+  },
+  {
+    "id": "vocab.es.a0.m07.medico.v1",
+    "spanish": "médico",
+    "native_translation": "doctor",
+    "cefr": "A0",
+    "example": "Necesito un médico.",
+    "pronunciation": "MEH-dee-koh",
+    "notes": "Useful in basic help and emergency contexts."
+  },
+  {
+    "id": "vocab.es.a0.m07.policia.v1",
+    "spanish": "policía",
+    "native_translation": "police",
+    "cefr": "A0",
+    "example": "Necesito la policía.",
+    "pronunciation": "poh-lee-SEE-ah",
+    "notes": "Useful in basic emergency contexts."
+  },
+  {
+    "id": "vocab.es.a0.m07.emergencia.v1",
+    "spanish": "emergencia",
+    "native_translation": "emergency",
+    "cefr": "A0",
+    "example": "Es una emergencia.",
+    "pronunciation": "eh-mehr-HEN-syah",
+    "notes": "Use only for serious situations."
+  },
+  {
+    "id": "vocab.es.a0.m07.una_emergencia.v1",
+    "spanish": "una emergencia",
+    "native_translation": "an emergency",
+    "cefr": "A0",
+    "example": "Es una emergencia.",
+    "pronunciation": "OO-nah eh-mehr-HEN-syah",
+    "notes": "Fixed phrase for a serious urgent situation."
+  },
+  {
+    "id": "vocab.es.a0.m07.llame.v1",
+    "spanish": "llame",
+    "native_translation": "call",
+    "cefr": "A0",
+    "example": "Llame a la policía, por favor.",
+    "pronunciation": "YAH-meh",
+    "notes": "Polite fixed form used in emergency requests."
+  },
+  {
+    "id": "vocab.es.a0.m07.claro.v1",
+    "spanish": "claro",
+    "native_translation": "of course / sure",
+    "cefr": "A0",
+    "example": "Claro. ¿Qué necesita?",
+    "pronunciation": "KLAH-roh",
+    "notes": "Common positive response to a request for help."
+  },
+  {
+    "id": "vocab.es.a0.m07.espere.v1",
+    "spanish": "espere",
+    "native_translation": "wait / please wait",
+    "cefr": "A0",
+    "example": "Espere aquí, por favor.",
+    "pronunciation": "ehs-PEH-reh",
+    "notes": "Simple response someone may give while helping."
+  },
+  {
+    "id": "vocab.es.a0.m07.no_se.v1",
+    "spanish": "no sé",
+    "native_translation": "I don't know",
+    "cefr": "A0",
+    "example": "No sé, perdón.",
+    "pronunciation": "noh SEH",
+    "notes": "Common response when someone cannot help."
+  },
+  {
+    "id": "vocab.es.a0.m07.servicio.v1",
+    "spanish": "servicio",
+    "native_translation": "service",
+    "cefr": "A0",
+    "example": "Necesito un servicio.",
+    "pronunciation": "sehr-BEE-syoh",
+    "notes": "Not a broad topic here; used only to group basic services."
+  }
+]

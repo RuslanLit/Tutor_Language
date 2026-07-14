@@ -53,6 +53,7 @@ class CompetencyDefinitionRegistry {
         'es.a0.m04',
         'es.a0.m05',
         'es.a0.m06',
+        'es.a0.m07',
       ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
@@ -325,6 +326,78 @@ const _defaultDefinitions = [
           'template.es.a0.m04.l025.dialogue_comprehension.v1',
       'micro.es.a0.complete_basic_route_exchange':
           'template.es.a0.m06.l041.transport_answer_choice.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+      moduleId: 'es.a0.m07',
+      title: 'Basic help request check',
+      communicativeGoal:
+          'Attract attention, ask for help, repair communication, find important services, and request urgent help in predictable situations.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.get_attention_politely',
+        'micro.es.a0.ask_for_help',
+        'micro.es.a0.state_need_for_help',
+        'micro.es.a0.state_lack_of_understanding',
+        'micro.es.a0.request_repetition',
+        'micro.es.a0.request_slower_speech',
+        'micro.es.a0.ask_where_service_is',
+        'micro.es.a0.request_medical_help',
+        'micro.es.a0.request_police_help',
+        'micro.es.a0.state_emergency',
+        'micro.es.a0.respond_in_help_exchange',
+        'micro.es.a0.complete_basic_help_exchange',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m07.get_attention',
+        'task.es.a0.m07.ask_for_help',
+        'task.es.a0.m07.repair_communication',
+        'task.es.a0.m07.find_service',
+        'task.es.a0.m07.request_emergency_help',
+        'task.es.a0.m07.complete_help_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m07.get_attention':
+          'template.es.a0.m07.competency.get_attention.v1',
+      'task.es.a0.m07.ask_for_help':
+          'template.es.a0.m07.competency.ask_for_help.v1',
+      'task.es.a0.m07.repair_communication':
+          'template.es.a0.m07.competency.repair_communication.v1',
+      'task.es.a0.m07.find_service':
+          'template.es.a0.m07.competency.find_service.v1',
+      'task.es.a0.m07.request_emergency_help':
+          'template.es.a0.m07.competency.request_emergency_help.v1',
+      'task.es.a0.m07.complete_help_exchange':
+          'template.es.a0.m07.competency.complete_help_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.get_attention_politely':
+          'template.es.a0.m07.l044.attention_choice.v1',
+      'micro.es.a0.ask_for_help':
+          'template.es.a0.m07.l045.help_question_choice.v1',
+      'micro.es.a0.state_need_for_help':
+          'template.es.a0.m07.l045.fill_ayudarme.v1',
+      'micro.es.a0.state_lack_of_understanding':
+          'template.es.a0.m01.l003.type_no_entiendo.v1',
+      'micro.es.a0.request_repetition':
+          'template.es.a0.m07.l046.fill_repita.v1',
+      'micro.es.a0.request_slower_speech':
+          'template.es.a0.m07.l046.repair_choice.v1',
+      'micro.es.a0.ask_where_service_is':
+          'template.es.a0.m07.l047.service_choice.v1',
+      'micro.es.a0.request_medical_help':
+          'template.es.a0.m07.l048.emergency_choice.v1',
+      'micro.es.a0.request_police_help':
+          'template.es.a0.m07.l048.fill_medico.v1',
+      'micro.es.a0.state_emergency':
+          'template.es.a0.m07.l048.emergency_choice.v1',
+      'micro.es.a0.respond_in_help_exchange':
+          'template.es.a0.m04.l025.dialogue_comprehension.v1',
+      'micro.es.a0.complete_basic_help_exchange':
+          'template.es.a0.m07.l049.dialogue_comprehension.v1',
     },
   ),
 ];
@@ -743,6 +816,101 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m06',
     prerequisiteContentReferences: [
       'template.es.a0.m06.competency.route_exchange.v1',
+    ],
+  ),
+
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.get_attention_politely',
+    description: 'Attract attention politely with disculpe.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: ['template.es.a0.m07.l044.type_disculpe.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_for_help',
+    description: 'Ask for help with ¿Puede ayudarme?',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l045.type_puede_ayudarme.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_need_for_help',
+    description: 'State a need for help with necesito ayuda.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l045.type_necesito_ayuda.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_lack_of_understanding',
+    description: 'Say that the learner does not understand.',
+    introducedInModuleId: 'es.a0.m01',
+    prerequisiteContentReferences: [
+      'template.es.a0.m01.l003.type_no_entiendo.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_repetition',
+    description: 'Ask someone to repeat politely.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l046.type_repita_por_favor.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_slower_speech',
+    description: 'Ask someone to speak more slowly.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l046.type_hable_mas_despacio.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_where_service_is',
+    description: 'Ask where an important service is.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l047.type_donde_bano.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_medical_help',
+    description: 'Request a doctor in a simple urgent situation.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l048.type_necesito_medico.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_police_help',
+    description: 'Request the police in a simple urgent situation.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l048.type_necesito_policia.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_emergency',
+    description: 'State that a situation is an emergency.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l048.type_es_emergencia.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_in_help_exchange',
+    description: 'Respond appropriately in a short help exchange.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.l049.dialogue_comprehension.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_basic_help_exchange',
+    description: 'Complete a short predictable help exchange.',
+    introducedInModuleId: 'es.a0.m07',
+    prerequisiteContentReferences: [
+      'template.es.a0.m07.competency.complete_help_exchange.v1',
     ],
   ),
 ];
@@ -1375,6 +1543,179 @@ const _assessmentTasks = [
     ],
   ),
   CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.get_attention',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: ['micro.es.a0.get_attention_politely'],
+    lessonStepReference: 'template.es.a0.m07.competency.get_attention.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.get_attention_politely',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l044.attention_choice.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l044',
+            sourceStepId: 'template.es.a0.m07.l044.attention_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.get_attention',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.ask_for_help',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_for_help',
+      'micro.es.a0.state_need_for_help',
+    ],
+    lessonStepReference: 'template.es.a0.m07.competency.ask_for_help.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_for_help',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l045.help_question_choice.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l045',
+            sourceStepId: 'template.es.a0.m07.l045.help_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.ask_for_help',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.repair_communication',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.state_lack_of_understanding',
+      'micro.es.a0.request_repetition',
+      'micro.es.a0.request_slower_speech',
+    ],
+    lessonStepReference:
+        'template.es.a0.m07.competency.repair_communication.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.request_repetition',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l046.fill_repita.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l046',
+            sourceStepId: 'template.es.a0.m07.l046.fill_repita.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.repair_communication',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_lack_of_understanding',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m01.l003.type_no_entiendo.v1',
+            sourceModuleId: 'es.a0.m01',
+            sourceLessonId: 'es.a0.m01.l003',
+            sourceStepId: 'template.es.a0.m01.l003.type_no_entiendo.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.repair_communication',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.find_service',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_where_service_is'],
+    lessonStepReference: 'template.es.a0.m07.competency.find_service.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_where_service_is',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l047.service_choice.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l047',
+            sourceStepId: 'template.es.a0.m07.l047.service_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.find_service',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.request_emergency_help',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.request_medical_help',
+      'micro.es.a0.request_police_help',
+      'micro.es.a0.state_emergency',
+    ],
+    lessonStepReference:
+        'template.es.a0.m07.competency.request_emergency_help.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.request_police_help',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l048.emergency_choice.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l048',
+            sourceStepId: 'template.es.a0.m07.l048.emergency_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.request_emergency_help',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m07.complete_help_exchange',
+    competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.get_attention_politely',
+      'micro.es.a0.ask_for_help',
+      'micro.es.a0.request_medical_help',
+      'micro.es.a0.respond_in_help_exchange',
+      'micro.es.a0.complete_basic_help_exchange',
+    ],
+    lessonStepReference:
+        'template.es.a0.m07.competency.complete_help_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_basic_help_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l049.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l049',
+            sourceStepId: 'template.es.a0.m07.l049.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.complete_help_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_in_help_exchange',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l025',
+            sourceStepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m07.complete_help_exchange',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
     taskId: 'task.es.a0.build_personal_identity_profile',
     competencyId: 'competency.es.a0.m03.describe_basic_personal_identity',
     assessedMicroCompetencyIds: [
@@ -1404,7 +1745,9 @@ const _assessmentTasks = [
 ];
 
 LessonContentReference templateReference(String templateId) {
-  final assetPath = templateId.startsWith('template.es.a0.m06.')
+  final assetPath = templateId.startsWith('template.es.a0.m07.')
+      ? 'assets/languages/spanish/templates/module_7_help.json'
+      : templateId.startsWith('template.es.a0.m06.')
       ? 'assets/languages/spanish/templates/module_6_transport.json'
       : templateId.startsWith('template.es.a0.m05.')
       ? 'assets/languages/spanish/templates/module_5_shopping.json'

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "dialogue.es.a0.m07.get_attention.v1",
+    "title": "Getting help politely",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.disculpe.v1",
+      "vocab.es.a0.m07.puede_ayudarme.v1",
+      "vocab.es.a0.m07.claro.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.polite_attention.v1",
+      "grammar.es.a0.m07.puede_ayudarme.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Disculpe.",
+        "native_translation": "Excuse me."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Sí, claro.",
+        "native_translation": "Yes, of course."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿Puede ayudarme?",
+        "native_translation": "Can you help me?"
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Sí.",
+        "native_translation": "Yes."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m07.communication_problem.v1",
+    "title": "Asking someone to repeat",
+    "vocabulary_ids": [
+      "vocab.es.a0.unit1.no_entiendo.v1",
+      "vocab.es.a0.m07.repita.v1",
+      "vocab.es.a0.m07.hable_mas_despacio.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.communication_repair.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Marta",
+        "spanish": "No entiendo.",
+        "native_translation": "I don't understand."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Perdón.",
+        "native_translation": "Sorry."
+      },
+      {
+        "speaker": "Marta",
+        "spanish": "Repita, por favor.",
+        "native_translation": "Please repeat."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Sí. Más despacio.",
+        "native_translation": "Yes. More slowly."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m07.service_location.v1",
+    "title": "Finding the pharmacy",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.disculpe.v1",
+      "vocab.es.a0.m06.farmacia.v1",
+      "vocab.es.a0.m06.cerca.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.service_location_questions.v1",
+      "grammar.es.a0.m06.location_with_estar.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Elena",
+        "spanish": "Disculpe, ¿dónde está la farmacia?",
+        "native_translation": "Excuse me, where is the pharmacy?"
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "La farmacia está cerca.",
+        "native_translation": "The pharmacy is near."
+      },
+      {
+        "speaker": "Elena",
+        "spanish": "Gracias.",
+        "native_translation": "Thank you."
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "De nada.",
+        "native_translation": "You're welcome."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m07.emergency_help.v1",
+    "title": "Requesting urgent help",
+    "vocabulary_ids": [
+      "vocab.es.a0.m07.necesito_ayuda.v1",
+      "vocab.es.a0.m07.medico.v1",
+      "vocab.es.a0.m07.emergencia.v1",
+      "vocab.es.a0.m07.espere.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m07.necesito.v1",
+      "grammar.es.a0.m07.emergency_requests.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Sara",
+        "spanish": "Necesito ayuda.",
+        "native_translation": "I need help."
+      },
+      {
+        "speaker": "Nico",
+        "spanish": "¿Qué necesita?",
+        "native_translation": "What do you need?"
+      },
+      {
+        "speaker": "Sara",
+        "spanish": "Necesito un médico.",
+        "native_translation": "I need a doctor."
+      },
+      {
+        "speaker": "Nico",
+        "spanish": "Espere aquí, por favor.",
+        "native_translation": "Please wait here."
+      }
+    ]
+  }
+]

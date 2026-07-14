@@ -62,25 +62,25 @@ Current metrics:
 | Metric | Current value |
 |---|---:|
 | Modules | 8 |
-| Live lessons | 55 |
+| Live lessons | 58 |
 | Reviews | 8 |
 | Checkpoints | 5 |
-| Vocabulary items across Spanish assets | 318 |
-| Grammar topics | 55 |
-| Dialogues | 52 |
-| Readings | 58 |
-| Exercise templates | 343 |
-| Referenced multiple-choice steps | 58 |
+| Vocabulary items across Spanish assets | 338 |
+| Grammar topics | 61 |
+| Dialogues | 56 |
+| Readings | 64 |
+| Exercise templates | 391 |
+| Referenced multiple-choice steps | 61 |
 | Referenced fill-gap steps | 46 |
-| Referenced text-entry steps | 147 |
+| Referenced text-entry steps | 166 |
 | Referenced matching steps | 2 |
 
 Major findings:
 
-- The 55-lesson course is valid and playable, with Modules 1-6 now implemented as production content.
+- The 58-lesson course is valid and playable, with Modules 1-7 now implemented as production content.
 - Early lessons over-concentrate greetings, names, origin, courtesy and short first-contact phrases.
 - Reading foundations have been partially moved earlier, but old reading-basics lesson IDs remain retired rather than repurposed.
-- `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because lessons 16-32 add reading, numbers, age, objects, food, family and integrated communication.
+- `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because later lessons add reading, objects, directions, help, family and integrated communication.
 - The later modules still contain inherited topic density and should be refined in future content sprints.
 - First 15 lessons are structurally valid but many lack explicit `communicativeOutcome` values in production JSON.
 - Typed recall is now significant, but some early lessons still lean too much on recognition/fill-gap scaffolding.
@@ -117,11 +117,11 @@ Estimated educational value scale:
 | 18 | es.a0.m06.l018 | m06 | qu, gue, gui | reading foundation | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Good content; should be integrated with queso/Miguel. | Move earlier and connect to object/food content. |
 | 19 | es.a0.m06.l019 | m06 | Question Accents | reading foundation | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Should appear before repeated qué/cómo/dónde tasks. | Move near first question module. |
 | 20 | es.a0.m06.l020 | m06 | Reading Basics Review | review | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 2 | High | Useful review; currently isolated. | Convert to early reading review. |
-| 21 | es.a0.m07.l021 | m07 | Numbers 0-10 | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | High | Good but needs earlier small quantity use. | Keep; minor revision. |
-| 22 | es.a0.m07.l022 | m07 | Numbers 11-20 | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | High | Good progression. | Keep. |
-| 23 | es.a0.m07.l023 | m07 | Age with Tener | teaching | 8 | 4 | 2 | 1 | 1 | 0 | 1 | 2 | High | Depends on tener and numbers. | Keep after numbers and tener intro. |
-| 24 | es.a0.m07.l024 | m07 | Simple Numbers in Contact Details | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | Medium | Good practical context but narrow. | Keep; add varied contact facts. |
-| 25 | es.a0.m07.l025 | m07 | Numbers and Age Review | review | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Good cumulative function. | Keep. |
+| 21 | es.a0.m07.l021 | m07 | Numbers 0-10 | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | High | Retired from the active Module 7 path by C2H. | Reintroduce later only with new active identity. |
+| 22 | es.a0.m07.l022 | m07 | Numbers 11-20 | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | High | Retired from the active Module 7 path by C2H. | Reintroduce later only with new active identity. |
+| 23 | es.a0.m07.l023 | m07 | Age with Tener | teaching | 8 | 4 | 2 | 1 | 1 | 0 | 1 | 2 | High | Retired from the active Module 7 path by C2H. | Reintroduce later only with new active identity. |
+| 24 | es.a0.m07.l024 | m07 | Simple Numbers in Contact Details | teaching | 7 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | Medium | Retired from the active Module 7 path by C2H. | Reintroduce later only with new active identity. |
+| 25 | es.a0.m07.l025 | m07 | Numbers and Age Review | review | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Retired from the active Module 7 path by C2H. | Reintroduce later only with new active identity. |
 | 26 | es.a0.m08.l026 | m08 | Everyday Objects | teaching | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | High | Belongs before tener possession. | Move before possession. |
 | 27 | es.a0.m08.l027 | m08 | Possession with Objects | teaching | 8 | 4 | 2 | 1 | 1 | 0 | 1 | 2 | High | Good once objects are established. | Keep after object lesson. |
 | 28 | es.a0.m08.l028 | m08 | Food, Drink, and Polite Requests | teaching | 8 | 4 | 2 | 1 | 1 | 0 | 1 | 0 | High | Misclassified by title audit as reading; content is requests. | Split food/drink from need states if expanded. |
@@ -206,7 +206,11 @@ Target metrics:
 
 Target learner outcome:
 
-The learner can handle a short controlled A0 interaction: greet, introduce themself, ask and answer a name/origin/wellbeing question, ask for clarification, read common beginner words, use numbers 0-20, state age or a simple possession/need, understand a short profile or dialogue and close politely.
+The learner can handle a short controlled A0 interaction: greet, introduce
+themself, ask and answer a name/origin/wellbeing question, ask for
+clarification, read common beginner words, ask for basic help, find important
+services, request simple urgent help, understand a short profile or dialogue
+and close politely.
 
 ---
 
@@ -220,7 +224,7 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 | M04 | People and Everyday Conversation | 20-27 | 24-32 | identify and describe people, third-person facts, short everyday exchange |
 | M05 | Shopping and Everyday Objects | 28-35 | 30-38 | objects, availability, prices, cheap/expensive, purchase request |
 | M06 | Transport and Directions | 36-43 | 28-34 | transport, location questions, simple directions, near/far, route exchange |
-| M07 | Food, Drink and Needs | 39-44 | 18-24 | water/coffee/food, polite requests, `hambre`, `sed`, simple needs |
+| M07 | Asking for Help | 44-51 | 18-24 | attention words, help requests, communication repair, services, urgent help |
 | M08 | People, Home and Simple Surroundings | 45-49 | 16-22 | family, friend, house, city, third-person mini-profiles |
 | M09 | Integrated A0 Communication | 50-52 | 0-8 | cumulative integration, final review, final checkpoint |
 
@@ -334,19 +338,22 @@ The learner can name basic transport, ask where a place is, ask how to get somew
 - distinguishing `cerca` and `lejos`;
 - completing a short route and transport exchange.
 
-## M07 — Food, Drink and Needs
+## M07 — Asking for Help
 
 ### Communicative Goal
 
-The learner can make a tiny polite request for food or drink and express basic needs such as hunger, thirst or help.
+The learner can get polite attention, ask for help, repair communication, ask
+where an important service is and request simple urgent help in a controlled
+A0 situation.
 
 ### Real-Life Scenarios
 
-- asking for water, coffee, bread or cheese;
-- saying `por favor` and `gracias` in a request exchange;
-- saying `tengo hambre` or `tengo sed`;
-- asking for help in a controlled public situation;
-- handling a very short cafe-style exchange.
+- getting attention with `disculpe` or `oiga`;
+- asking `¿Puede ayudarme?`;
+- saying `No entiendo`, `Repita, por favor` or `Hable más despacio`;
+- asking where the bathroom, pharmacy, hospital or police are;
+- saying `Necesito un médico`, `Necesito la policía` or `Es una emergencia`;
+- completing a short help exchange without describing complex problems.
 
 ## M08 — People, Home and Simple Surroundings
 

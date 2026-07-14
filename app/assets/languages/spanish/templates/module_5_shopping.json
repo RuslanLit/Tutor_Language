@@ -537,9 +537,6 @@
     ],
     "prompt_template": "Type the Spanish request: \"This book, please.\"",
     "expected_answer": "Este libro, por favor",
-    "accepted_answers": [
-      "Este libro por favor"
-    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.m05.l032.esta_libro.v1",
@@ -635,9 +632,7 @@
     "prompt_template": "Type the two Spanish sentences for these customer lines: \"How much does it cost?\" and \"Nothing else, thank you.\"",
     "expected_answer": "¿Cuánto cuesta? Nada más, gracias",
     "accepted_answers": [
-      "¿Cuánto cuesta? Nada más gracias",
-      "Cuánto cuesta? Nada más, gracias",
-      "Cuanto cuesta? Nada más, gracias"
+      "¿Cuánto cuesta? Nada más gracias"
     ],
     "review_template_ids": [
       "template.es.a0.m05.l030.price_question_choice.v1",
@@ -733,9 +728,6 @@
     ],
     "prompt_template": "Type the Spanish question and request: \"Do you have water? I want a bottle.\"",
     "expected_answer": "¿Tiene agua? Quiero una botella",
-    "accepted_answers": [
-      "Tiene agua? Quiero una botella"
-    ],
     "review_template_ids": [
       "template.es.a0.m05.l029.availability_question_choice.v1",
       "template.es.a0.m05.l032.request_choice.v1"

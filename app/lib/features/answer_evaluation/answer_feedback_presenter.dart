@@ -184,6 +184,10 @@ class AnswerFeedbackPresenter {
         'Use "toma" when advising which transport to take.',
       'spanish.directions.direction_not_location' =>
         'This exercise asks for directions, not only the place location.',
+      'spanish.help.polite_opening_first' =>
+        'Start with the polite attention word, then ask for the service.',
+      'spanish.help.include_polite_attention' =>
+        'Include a polite attention word before the urgent request.',
       _ => null,
     };
 

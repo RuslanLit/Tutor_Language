@@ -329,4 +329,39 @@ the route and transport knowledge remains owned by Module 6.
 
 ---
 
+# Spanish A0 Module 7 Asking for Help Scope
+
+Module 7 teaches controlled basic help requests, not broad emergency,
+medical, legal or service-navigation language.
+
+The selected A0 help register is a small fixed set:
+
+- `disculpe`;
+- `oiga`;
+- `¿Puede ayudarme?`;
+- `necesito ayuda`;
+- `no entiendo`;
+- `repita, por favor`;
+- `hable más despacio`;
+- `¿Dónde está...?`;
+- `necesito un médico`;
+- `necesito la policía`;
+- `es una emergencia`.
+
+The module does not teach symptom descriptions, police reports, emergency
+calls, formal imperative morphology, broad public-service vocabulary or
+open-ended problem explanations.
+
+Help competency recovery may use earlier clarification and conversation
+content when the learner fails the predictable exchange flow. The help
+requests, urgent phrases and service-location questions remain owned by
+Module 7.
+
+Prompt-intent misconceptions for this module may explain wrong response type
+and missing polite attention only when the exercise authored that rule
+explicitly. The evaluator must not infer arbitrary emergency intent or
+generate situational advice.
+
+---
+
 End of document.
