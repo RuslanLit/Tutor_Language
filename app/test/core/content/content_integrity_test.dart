@@ -314,8 +314,8 @@ void main() {
       }
 
       expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
-      expect(course.lessons, hasLength(lessThanOrEqualTo(58)));
-      expect(vocabularyCount, inInclusiveRange(150, 360));
+      expect(course.lessons, hasLength(lessThanOrEqualTo(60)));
+      expect(vocabularyCount, inInclusiveRange(150, 390));
       expect(dialogueCount, greaterThanOrEqualTo(25));
       expect(readingCount, greaterThanOrEqualTo(18));
       expect(templateCount, greaterThanOrEqualTo(100));
@@ -965,9 +965,12 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'Spanish word',
     'Spanish word/name',
     'Spanish phrase',
+    'Spanish pattern',
     'Spanish command',
     'Spanish sentence',
+    'Spanish form',
     'Spanish introduction',
+    'Spanish location',
     'Spanish origin phrase',
     'Spanish origin pattern word',
     'Spanish residence pattern word',
@@ -978,9 +981,11 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'Spanish request',
     'Spanish greeting',
     'Spanish spelling group',
+    'Spanish room word',
     'fixed Spanish pattern',
     'first word',
     'form of tener',
+    'location word',
     'word that finishes',
   ];
 

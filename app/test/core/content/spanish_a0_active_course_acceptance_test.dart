@@ -15,66 +15,77 @@ import 'package:tutor_language/features/lesson_player/lesson_player_step.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('QA7 Modules 1-7 curriculum ownership and ordering are valid', () async {
-    final course = await CurriculumLoader(assetBundle: rootBundle).loadCourse();
-    final modules = _productionModules(course);
+  test(
+    'C2I active Modules 1-8 curriculum ownership and ordering are valid',
+    () async {
+      final course = await CurriculumLoader(
+        assetBundle: rootBundle,
+      ).loadCourse();
+      final modules = _productionModules(course);
 
-    expect(modules.map((module) => module.id), _moduleIds);
-    expect(modules[6].lessonIds.last, 'es.a0.m07.l051');
-    expect(
-      course.modules
-          .singleWhere((module) => module.id == 'es.a0.m08')
-          .lessonIds
-          .first,
-      'es.a0.m08.l026',
-    );
-    expect(modules[0].lessonIds, _module1Lessons);
-    expect(modules[1].lessonIds, _module2Lessons);
-    expect(modules[2].lessonIds, _module3Lessons);
-    expect(modules[3].lessonIds, _module4Lessons);
-    expect(modules[4].lessonIds, _module5Lessons);
-    expect(modules[5].lessonIds, _module6Lessons);
-    expect(modules[6].lessonIds, _module7Lessons);
+      expect(modules.map((module) => module.id), _moduleIds);
+      expect(modules[6].lessonIds.last, 'es.a0.m07.l051');
+      expect(modules[7].lessonIds.first, 'es.a0.m08.l052');
+      expect(modules[7].lessonIds.last, 'es.a0.m08.l060');
+      expect(modules[0].lessonIds, _module1Lessons);
+      expect(modules[1].lessonIds, _module2Lessons);
+      expect(modules[2].lessonIds, _module3Lessons);
+      expect(modules[3].lessonIds, _module4Lessons);
+      expect(modules[4].lessonIds, _module5Lessons);
+      expect(modules[5].lessonIds, _module6Lessons);
+      expect(modules[6].lessonIds, _module7Lessons);
+      expect(modules[7].lessonIds, _module8Lessons);
 
-    final lessonById = {for (final lesson in course.lessons) lesson.id: lesson};
-    final activeLessonIds = [for (final module in modules) ...module.lessonIds];
+      final lessonById = {
+        for (final lesson in course.lessons) lesson.id: lesson,
+      };
+      final activeLessonIds = [
+        for (final module in modules) ...module.lessonIds,
+      ];
 
-    expect(activeLessonIds, hasLength(51));
-    expect(activeLessonIds.toSet(), hasLength(activeLessonIds.length));
-    expect(activeLessonIds, isNot(containsAll(_retiredModule7LessonIds)));
+      expect(activeLessonIds, hasLength(60));
+      expect(activeLessonIds.toSet(), hasLength(activeLessonIds.length));
+      expect(activeLessonIds, isNot(containsAll(_retiredModule7LessonIds)));
+      expect(activeLessonIds, isNot(containsAll(_retiredModule8LessonIds)));
 
-    for (final module in modules) {
-      for (final lessonId in module.lessonIds) {
-        final lesson = lessonById[lessonId];
-        expect(lesson, isNotNull, reason: lessonId);
-        expect(lesson!.moduleId, module.id, reason: lessonId);
-        expect(lesson.activities, isNotEmpty, reason: lessonId);
+      for (final module in modules) {
+        for (final lessonId in module.lessonIds) {
+          final lesson = lessonById[lessonId];
+          expect(lesson, isNotNull, reason: lessonId);
+          expect(lesson!.moduleId, module.id, reason: lessonId);
+          expect(lesson.activities, isNotEmpty, reason: lessonId);
+        }
       }
-    }
 
-    for (final module in modules.take(2)) {
-      final lastLesson = lessonById[module.lessonIds.last]!;
-      expect(
-        lastLesson.title.toLowerCase(),
-        contains('review'),
-        reason: module.id,
-      );
-    }
+      for (final module in modules.take(2)) {
+        final lastLesson = lessonById[module.lessonIds.last]!;
+        expect(
+          lastLesson.title.toLowerCase(),
+          contains('review'),
+          reason: module.id,
+        );
+      }
 
-    for (final module in modules.skip(2)) {
-      final review = lessonById[module.lessonIds[module.lessonIds.length - 2]]!;
-      final checkpoint = lessonById[module.lessonIds.last]!;
-      expect(review.title.toLowerCase(), contains('review'), reason: module.id);
-      expect(
-        checkpoint.title.toLowerCase(),
-        contains('checkpoint'),
-        reason: module.id,
-      );
-    }
-  });
+      for (final module in modules.skip(2)) {
+        final review =
+            lessonById[module.lessonIds[module.lessonIds.length - 2]]!;
+        final checkpoint = lessonById[module.lessonIds.last]!;
+        expect(
+          review.title.toLowerCase(),
+          contains('review'),
+          reason: module.id,
+        );
+        expect(
+          checkpoint.title.toLowerCase(),
+          contains('checkpoint'),
+          reason: module.id,
+        );
+      }
+    },
+  );
 
   test(
-    'QA7 Modules 1-7 content resolves and assembles into checkable steps',
+    'C2I active Modules 1-8 content resolves and assembles into checkable steps',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -135,7 +146,7 @@ void main() {
   );
 
   test(
-    'QA7 Modules 1-7 lessons are distinct and review/checkpoint active',
+    'C2I active Modules 1-8 lessons are distinct and review/checkpoint active',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -181,107 +192,112 @@ void main() {
     },
   );
 
-  test('QA7 Modules 1-7 answer contracts reject false positives', () async {
-    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
-    final contentLoader = ContentLoader(assetBundle: rootBundle);
-    final catalog = EducationalContentCatalog(
-      await contentLoader.loadSpanishContent(),
-    );
-    final course = await curriculumLoader.loadCourse();
-    const engine = ActivityEngine();
+  test(
+    'C2I active Modules 1-8 answer contracts reject false positives',
+    () async {
+      final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+      final contentLoader = ContentLoader(assetBundle: rootBundle);
+      final catalog = EducationalContentCatalog(
+        await contentLoader.loadSpanishContent(),
+      );
+      final course = await curriculumLoader.loadCourse();
+      const engine = ActivityEngine();
 
-    for (final lesson in _productionLessons(course)) {
-      for (final template in _lessonTemplates(lesson, catalog)) {
-        switch (template.exerciseType) {
-          case 'multiple_choice':
-            final correct = engine.evaluate(
-              template: template,
-              submission: ActivitySubmission(
-                selectedAnswerId: template.correctOptionId,
-              ),
-            );
-            expect(correct.status, ActivityResultStatus.correct);
-
-            final wrongOption = template.answerOptions
-                .where((option) => option.id != template.correctOptionId)
-                .firstOrNull;
-            if (wrongOption != null) {
-              final wrong = engine.evaluate(
+      for (final lesson in _productionLessons(course)) {
+        for (final template in _lessonTemplates(lesson, catalog)) {
+          switch (template.exerciseType) {
+            case 'multiple_choice':
+              final correct = engine.evaluate(
                 template: template,
                 submission: ActivitySubmission(
-                  selectedAnswerId: wrongOption.id,
+                  selectedAnswerId: template.correctOptionId,
                 ),
               );
-              expect(wrong.status, ActivityResultStatus.incorrect);
-            }
-          case 'fill_gap' || 'text_entry':
-            final expected = template.expectedAnswer;
-            expect(expected, isNotNull, reason: template.id);
-            final canonical = engine.evaluate(
-              template: template,
-              submission: ActivitySubmission(submittedAnswer: expected),
-            );
-            expect(canonical.isCorrect, isTrue, reason: template.id);
+              expect(correct.status, ActivityResultStatus.correct);
 
-            for (final answer in template.acceptedAnswers) {
-              final result = engine.evaluate(
+              final wrongOption = template.answerOptions
+                  .where((option) => option.id != template.correctOptionId)
+                  .firstOrNull;
+              if (wrongOption != null) {
+                final wrong = engine.evaluate(
+                  template: template,
+                  submission: ActivitySubmission(
+                    selectedAnswerId: wrongOption.id,
+                  ),
+                );
+                expect(wrong.status, ActivityResultStatus.incorrect);
+              }
+            case 'fill_gap' || 'text_entry':
+              final expected = template.expectedAnswer;
+              expect(expected, isNotNull, reason: template.id);
+              final canonical = engine.evaluate(
                 template: template,
-                submission: ActivitySubmission(submittedAnswer: answer),
+                submission: ActivitySubmission(submittedAnswer: expected),
               );
-              expect(result.status, ActivityResultStatus.correct);
-            }
+              expect(canonical.isCorrect, isTrue, reason: template.id);
 
-            for (final answer in template.acceptedWithFeedbackAnswers) {
-              final result = engine.evaluate(
-                template: template,
-                submission: ActivitySubmission(submittedAnswer: answer.answer),
-              );
-              expect(
-                result.status,
-                ActivityResultStatus.acceptedWithFeedback,
-                reason: template.id,
-              );
-            }
-
-            for (final misconception in template.authoredMisconceptions) {
-              for (final answer in misconception.matchingAnswers) {
+              for (final answer in template.acceptedAnswers) {
                 final result = engine.evaluate(
                   template: template,
                   submission: ActivitySubmission(submittedAnswer: answer),
                 );
-                expect(result.status, ActivityResultStatus.incorrect);
+                expect(result.status, ActivityResultStatus.correct);
+              }
+
+              for (final answer in template.acceptedWithFeedbackAnswers) {
+                final result = engine.evaluate(
+                  template: template,
+                  submission: ActivitySubmission(
+                    submittedAnswer: answer.answer,
+                  ),
+                );
                 expect(
-                  result.feedbackKey,
-                  misconception.feedbackKey,
-                  reason: '${template.id}/${misconception.id}',
+                  result.status,
+                  ActivityResultStatus.acceptedWithFeedback,
+                  reason: template.id,
                 );
               }
-            }
 
-            final sentinel = engine.evaluate(
-              template: template,
-              submission: const ActivitySubmission(
-                submittedAnswer: '__qa7_invalid_answer__',
-              ),
-            );
-            expect(sentinel.status, ActivityResultStatus.incorrect);
-          case 'matching':
-            final pairs = engine.expectedMatchingPairs(template);
-            expect(pairs, isNotEmpty, reason: template.id);
-            final correct = engine.evaluate(
-              template: template,
-              submission: ActivitySubmission(matchedPairs: pairs),
-            );
-            expect(correct.status, ActivityResultStatus.correct);
-          default:
-            fail('Unsupported exercise type ${template.exerciseType}');
+              for (final misconception in template.authoredMisconceptions) {
+                for (final answer in misconception.matchingAnswers) {
+                  final result = engine.evaluate(
+                    template: template,
+                    submission: ActivitySubmission(submittedAnswer: answer),
+                  );
+                  expect(result.status, ActivityResultStatus.incorrect);
+                  expect(
+                    result.feedbackKey,
+                    misconception.feedbackKey,
+                    reason: '${template.id}/${misconception.id}',
+                  );
+                }
+              }
+
+              final sentinel = engine.evaluate(
+                template: template,
+                submission: const ActivitySubmission(
+                  submittedAnswer: '__qa7_invalid_answer__',
+                ),
+              );
+              expect(sentinel.status, ActivityResultStatus.incorrect);
+            case 'matching':
+              final pairs = engine.expectedMatchingPairs(template);
+              expect(pairs, isNotEmpty, reason: template.id);
+              final correct = engine.evaluate(
+                template: template,
+                submission: ActivitySubmission(matchedPairs: pairs),
+              );
+              expect(correct.status, ActivityResultStatus.correct);
+            default:
+              fail('Unsupported exercise type ${template.exerciseType}');
+          }
         }
       }
-    }
-  });
+    },
+  );
 
   test(
-    'QA7 question punctuation variants remain accepted with correction',
+    'C2I question punctuation variants remain accepted with correction',
     () async {
       final catalog = EducationalContentCatalog(
         await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
@@ -309,52 +325,114 @@ void main() {
     },
   );
 
-  test('QA7 Modules 1-7 authored answer variants are deterministic', () async {
-    final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
-    final contentLoader = ContentLoader(assetBundle: rootBundle);
-    final catalog = EducationalContentCatalog(
-      await contentLoader.loadSpanishContent(),
-    );
-    final course = await curriculumLoader.loadCourse();
-    const normalizer = AnswerNormalizer();
+  test(
+    'C2I active Modules 1-8 authored answer variants are deterministic',
+    () async {
+      final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
+      final contentLoader = ContentLoader(assetBundle: rootBundle);
+      final catalog = EducationalContentCatalog(
+        await contentLoader.loadSpanishContent(),
+      );
+      final course = await curriculumLoader.loadCourse();
+      const normalizer = AnswerNormalizer();
 
-    for (final lesson in _productionLessons(course)) {
-      for (final template in _lessonTemplates(lesson, catalog)) {
-        if (!_isTypedTemplate(template)) {
-          continue;
-        }
+      for (final lesson in _productionLessons(course)) {
+        for (final template in _lessonTemplates(lesson, catalog)) {
+          if (!_isTypedTemplate(template)) {
+            continue;
+          }
 
-        final normalizedAnswers = <String, String>{};
-        for (final entry in _answerEntries(template)) {
-          final normalized = normalizer.normalize(entry.value).value;
-          final previous = normalizedAnswers[normalized];
-          expect(
-            previous,
-            isNull,
-            reason:
-                '${template.id} duplicates normalized answer "$normalized" in '
-                '$previous and ${entry.kind}.',
-          );
-          normalizedAnswers[normalized] = entry.kind;
-        }
-
-        final expected = template.expectedAnswer;
-        if (expected != null && expected.trim().startsWith('¿')) {
-          for (final accepted in template.acceptedAnswers) {
+          final normalizedAnswers = <String, String>{};
+          for (final entry in _answerEntries(template)) {
+            final normalized = normalizer.normalize(entry.value).value;
+            final previous = normalizedAnswers[normalized];
             expect(
-              accepted.trim().startsWith('¿'),
-              isTrue,
+              previous,
+              isNull,
               reason:
-                  '${template.id} accepts a question variant as fully correct '
-                  'without opening ¿.',
+                  '${template.id} duplicates normalized answer "$normalized" in '
+                  '$previous and ${entry.kind}.',
             );
+            normalizedAnswers[normalized] = entry.kind;
+          }
+
+          final expected = template.expectedAnswer;
+          if (expected != null && expected.trim().startsWith('¿')) {
+            for (final accepted in template.acceptedAnswers) {
+              expect(
+                accepted.trim().startsWith('¿'),
+                isTrue,
+                reason:
+                    '${template.id} accepts a question variant as fully correct '
+                    'without opening ¿.',
+              );
+            }
           }
         }
       }
+    },
+  );
+
+  test('C2I Module 8 family, home and location distinctions hold', () async {
+    final catalog = EducationalContentCatalog(
+      await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
+    );
+    const engine = ActivityEngine();
+
+    ActivityResult evaluate(String templateId, String answer) {
+      final template = catalog.lookupAs<ExerciseTemplate>(templateId);
+      expect(template, isNotNull, reason: templateId);
+      return engine.evaluate(
+        template: template!,
+        submission: ActivitySubmission(submittedAnswer: answer),
+      );
     }
+
+    expect(
+      evaluate(
+        'template.es.a0.m08.l052.type_este_es_mi_padre.v1',
+        'Este es mi padre',
+      ).status,
+      ActivityResultStatus.correct,
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m08.l052.type_este_es_mi_padre.v1',
+        'Esta es mi padre',
+      ).feedbackKey,
+      'spanish.family.use_este_with_padre',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+        'Tengo un hermano',
+      ).feedbackKey,
+      'response.question_expected_answer',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1',
+        'La mesa es en la cocina',
+      ).feedbackKey,
+      'spanish.location.use_esta_for_location',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m08.l056.type_hay_mesa_cocina.v1',
+        'La mesa está en la cocina',
+      ).feedbackKey,
+      'spanish.location.use_hay_for_existence',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m08.l058.type_ask_and_answer_location.v1',
+        'Está en el salón',
+      ).feedbackKey,
+      'response.question_expected_answer',
+    );
   });
 
-  test('QA7 Modules 3-7 production competencies resolve and recover', () async {
+  test('C2I Modules 3-8 production competencies resolve and recover', () async {
     const registry = CompetencyDefinitionRegistry();
     const coordinator = CommunicativeCompetencyCoordinator();
     final contentCatalog = EducationalContentCatalog(
@@ -495,6 +573,7 @@ const _moduleIds = [
   'es.a0.m05',
   'es.a0.m06',
   'es.a0.m07',
+  'es.a0.m08',
 ];
 
 const _module1Lessons = [
@@ -569,12 +648,34 @@ const _module7Lessons = [
   'es.a0.m07.l051',
 ];
 
+const _module8Lessons = [
+  'es.a0.m08.l052',
+  'es.a0.m08.l053',
+  'es.a0.m08.l054',
+  'es.a0.m08.l055',
+  'es.a0.m08.l056',
+  'es.a0.m08.l057',
+  'es.a0.m08.l058',
+  'es.a0.m08.l059',
+  'es.a0.m08.l060',
+];
+
 const _retiredModule7LessonIds = {
   'es.a0.m07.l021',
   'es.a0.m07.l022',
   'es.a0.m07.l023',
   'es.a0.m07.l024',
   'es.a0.m07.l025',
+};
+
+const _retiredModule8LessonIds = {
+  'es.a0.m08.l026',
+  'es.a0.m08.l027',
+  'es.a0.m08.l028',
+  'es.a0.m08.l029',
+  'es.a0.m08.l030',
+  'es.a0.m08.l031',
+  'es.a0.m08.l032',
 };
 
 List<Module> _productionModules(Course course) {
@@ -712,6 +813,7 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'spanish command',
     'spanish greeting',
     'spanish introduction',
+    'spanish location',
     'spanish reply',
     'spanish request',
     'spanish direction',

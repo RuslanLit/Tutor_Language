@@ -1,0 +1,272 @@
+[
+  {
+    "id": "vocab.es.a0.m08.familia.v1",
+    "spanish": "familia",
+    "native_translation": "family",
+    "cefr": "A0",
+    "example": "Esta es mi familia.",
+    "pronunciation": "fah-MEE-lyah",
+    "notes": "Neutral family word."
+  },
+  {
+    "id": "vocab.es.a0.m08.madre.v1",
+    "spanish": "madre",
+    "native_translation": "mother",
+    "cefr": "A0",
+    "example": "Esta es mi madre.",
+    "pronunciation": "MAH-dreh",
+    "notes": "Use for a mother in a fictional family."
+  },
+  {
+    "id": "vocab.es.a0.m08.padre.v1",
+    "spanish": "padre",
+    "native_translation": "father",
+    "cefr": "A0",
+    "example": "Este es mi padre.",
+    "pronunciation": "PAH-dreh",
+    "notes": "Use for a father in a fictional family."
+  },
+  {
+    "id": "vocab.es.a0.m08.hermano.v1",
+    "spanish": "hermano",
+    "native_translation": "brother",
+    "cefr": "A0",
+    "example": "Tengo un hermano.",
+    "pronunciation": "ehr-MAH-noh",
+    "notes": "Masculine sibling term."
+  },
+  {
+    "id": "vocab.es.a0.m08.hermana.v1",
+    "spanish": "hermana",
+    "native_translation": "sister",
+    "cefr": "A0",
+    "example": "Tengo una hermana.",
+    "pronunciation": "ehr-MAH-nah",
+    "notes": "Feminine sibling term."
+  },
+  {
+    "id": "vocab.es.a0.m08.hijo.v1",
+    "spanish": "hijo",
+    "native_translation": "son",
+    "cefr": "A0",
+    "example": "Tiene un hijo.",
+    "pronunciation": "EE-hoh",
+    "notes": "Masculine child term."
+  },
+  {
+    "id": "vocab.es.a0.m08.hija.v1",
+    "spanish": "hija",
+    "native_translation": "daughter",
+    "cefr": "A0",
+    "example": "Tiene una hija.",
+    "pronunciation": "EE-hah",
+    "notes": "Feminine child term."
+  },
+  {
+    "id": "vocab.es.a0.m08.abuelo.v1",
+    "spanish": "abuelo",
+    "native_translation": "grandfather",
+    "cefr": "A0",
+    "example": "Mi abuelo está en casa.",
+    "pronunciation": "ah-BWEH-loh",
+    "notes": "Close family term."
+  },
+  {
+    "id": "vocab.es.a0.m08.abuela.v1",
+    "spanish": "abuela",
+    "native_translation": "grandmother",
+    "cefr": "A0",
+    "example": "Mi abuela está en casa.",
+    "pronunciation": "ah-BWEH-lah",
+    "notes": "Close family term."
+  },
+  {
+    "id": "vocab.es.a0.m08.mi.v1",
+    "spanish": "mi",
+    "native_translation": "my",
+    "cefr": "A0",
+    "example": "Mi hermana se llama Marta.",
+    "pronunciation": "mee",
+    "notes": "Controlled possessive used before one noun."
+  },
+  {
+    "id": "vocab.es.a0.m08.tu.v1",
+    "spanish": "tu",
+    "native_translation": "your",
+    "cefr": "A0",
+    "example": "¿Dónde está tu madre?",
+    "pronunciation": "too",
+    "notes": "Controlled possessive for one person."
+  },
+  {
+    "id": "vocab.es.a0.m08.mis.v1",
+    "spanish": "mis",
+    "native_translation": "my, plural",
+    "cefr": "A0",
+    "example": "Mis hermanos están en casa.",
+    "pronunciation": "mees",
+    "notes": "Plural possessive used only in fixed family phrases."
+  },
+  {
+    "id": "vocab.es.a0.m08.casa.v1",
+    "spanish": "casa",
+    "native_translation": "house / home",
+    "cefr": "A0",
+    "example": "Esta es mi casa.",
+    "pronunciation": "KAH-sah",
+    "notes": "Simple home word."
+  },
+  {
+    "id": "vocab.es.a0.m08.piso.v1",
+    "spanish": "piso",
+    "native_translation": "apartment / flat",
+    "cefr": "A0",
+    "example": "Vivo en un piso.",
+    "pronunciation": "PEE-soh",
+    "notes": "Used as a simple home type."
+  },
+  {
+    "id": "vocab.es.a0.m08.habitacion.v1",
+    "spanish": "habitación",
+    "native_translation": "room",
+    "cefr": "A0",
+    "example": "La habitación está aquí.",
+    "pronunciation": "ah-bee-tah-SYON",
+    "notes": "Generic room."
+  },
+  {
+    "id": "vocab.es.a0.m08.dormitorio.v1",
+    "spanish": "dormitorio",
+    "native_translation": "bedroom",
+    "cefr": "A0",
+    "example": "El dormitorio está allí.",
+    "pronunciation": "dor-mee-TOH-ryoh",
+    "notes": "Common room."
+  },
+  {
+    "id": "vocab.es.a0.m08.cocina.v1",
+    "spanish": "cocina",
+    "native_translation": "kitchen",
+    "cefr": "A0",
+    "example": "La mesa está en la cocina.",
+    "pronunciation": "koh-SEE-nah",
+    "notes": "Common room."
+  },
+  {
+    "id": "vocab.es.a0.m08.bano.v1",
+    "spanish": "baño",
+    "native_translation": "bathroom",
+    "cefr": "A0",
+    "example": "El baño está a la derecha.",
+    "pronunciation": "BAH-nyoh",
+    "notes": "Common room; reinforces ñ."
+  },
+  {
+    "id": "vocab.es.a0.m08.salon.v1",
+    "spanish": "salón",
+    "native_translation": "living room",
+    "cefr": "A0",
+    "example": "Mi padre está en el salón.",
+    "pronunciation": "sah-LON",
+    "notes": "Common room."
+  },
+  {
+    "id": "vocab.es.a0.m08.puerta.v1",
+    "spanish": "puerta",
+    "native_translation": "door",
+    "cefr": "A0",
+    "example": "La puerta está aquí.",
+    "pronunciation": "PWEHR-tah",
+    "notes": "Home object."
+  },
+  {
+    "id": "vocab.es.a0.m08.mesa.v1",
+    "spanish": "mesa",
+    "native_translation": "table",
+    "cefr": "A0",
+    "example": "La mesa está en la cocina.",
+    "pronunciation": "MEH-sah",
+    "notes": "Home object reused from earlier object work."
+  },
+  {
+    "id": "vocab.es.a0.m08.silla.v1",
+    "spanish": "silla",
+    "native_translation": "chair",
+    "cefr": "A0",
+    "example": "La silla está en el salón.",
+    "pronunciation": "SEE-yah",
+    "notes": "Home object."
+  },
+  {
+    "id": "vocab.es.a0.m08.cama.v1",
+    "spanish": "cama",
+    "native_translation": "bed",
+    "cefr": "A0",
+    "example": "La cama está en el dormitorio.",
+    "pronunciation": "KAH-mah",
+    "notes": "Home object."
+  },
+  {
+    "id": "vocab.es.a0.m08.ventana.v1",
+    "spanish": "ventana",
+    "native_translation": "window",
+    "cefr": "A0",
+    "example": "La ventana está en el dormitorio.",
+    "pronunciation": "behn-TAH-nah",
+    "notes": "Home object."
+  },
+  {
+    "id": "vocab.es.a0.m08.al_lado_de.v1",
+    "spanish": "al lado de",
+    "native_translation": "next to",
+    "cefr": "A0",
+    "example": "La silla está al lado de la mesa.",
+    "pronunciation": "ahl LAH-doh deh",
+    "notes": "Small location phrase for home objects."
+  },
+  {
+    "id": "vocab.es.a0.m08.hay.v1",
+    "spanish": "hay",
+    "native_translation": "there is / there are",
+    "cefr": "A0",
+    "example": "Hay una mesa en la cocina.",
+    "pronunciation": "eye",
+    "notes": "Used to introduce existence, not a known object."
+  },
+  {
+    "id": "vocab.es.a0.m08.quien.v1",
+    "spanish": "quién",
+    "native_translation": "who",
+    "cefr": "A0",
+    "example": "¿Quién es ella?",
+    "pronunciation": "KYEHN",
+    "notes": "Question word for identifying a person."
+  },
+  {
+    "id": "vocab.es.a0.m08.donde.v1",
+    "spanish": "dónde",
+    "native_translation": "where",
+    "cefr": "A0",
+    "example": "¿Dónde está la mesa?",
+    "pronunciation": "DON-deh",
+    "notes": "Question word for location."
+  },
+  {
+    "id": "vocab.es.a0.m08.esta.v1",
+    "spanish": "está",
+    "native_translation": "is located / is",
+    "cefr": "A0",
+    "example": "La mesa está en la cocina.",
+    "pronunciation": "ehs-TAH",
+    "notes": "Used here to locate a known person or object."
+  },
+  {
+    "id": "vocab.es.a0.m08.hermanos.v1",
+    "spanish": "hermanos",
+    "native_translation": "brothers or siblings",
+    "cefr": "A0",
+    "example": "¿Tienes hermanos?",
+    "pronunciation": "ehr-MAH-nohs",
+    "notes": "Plural family question form."
+  }
+]

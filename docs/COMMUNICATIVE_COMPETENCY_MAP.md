@@ -383,34 +383,60 @@ content where a predictable exchange requires prerequisite interaction skills.
 
 ---
 
-# Module 8 — People, Home and Simple Surroundings
+# Module 8 — Home and Family
 
 ## Communicative Competencies
 
-- State tiny facts about family or a friend.
-- Say a simple home or city fact.
-- Understand third-person mini-profiles.
-- Combine people, places and possession patterns.
+- Identify close family members.
+- Say a family member's name.
+- Ask and answer whether someone has brothers or sisters.
+- Identify common rooms and simple household objects.
+- Ask and state where a known person, room or object is.
+- Distinguish `hay` for existence from `está` for locating a known person or
+  object.
+- Complete a short family-and-home exchange.
 
 ## Typical Real-Life Scenarios
 
-- saying `mi amiga ...` or `mi familia ...` in a controlled sentence;
-- reading a tiny profile;
-- recognizing `es de` and `tiene` for another person;
-- giving a short home or city fact.
+- showing a family photo and saying `Esta es mi madre`;
+- asking `¿Quién es ella?`;
+- answering `Tengo una hermana` or `No tengo hermanos`;
+- naming a room such as `la cocina` or `el salón`;
+- asking `¿Dónde está la mesa?`;
+- saying `La mesa está en la cocina`;
+- saying that something exists in a room with `hay`.
 
 ## Language Patterns Introduced
 
 - `mi`;
-- family and friend words;
-- `casa`, `ciudad`, `en`;
-- third-person reuse of `es`, `tiene` and `es de`.
+- controlled `tu` and `mis`;
+- close family words;
+- rooms and common household objects;
+- `este/esta` with family members and objects;
+- `tengo`, `tienes`, `tiene` in family facts;
+- `hay` for existence;
+- `está` for known-location statements;
+- `en` and `al lado de` in bounded home contexts.
 
 ## Typical Learner Limitations
 
-- Cannot yet describe family relationships broadly.
-- Cannot narrate daily life.
-- Needs profile-style input with known structures.
+- Cannot describe broad family trees.
+- Cannot describe daily routines or household chores.
+- Cannot discuss rent, addresses, furniture shopping or housing problems.
+- Uses bounded family/home patterns rather than open home descriptions.
+
+Implemented competency:
+
+`competency.es.a0.m08.describe_basic_family_and_home`
+
+Diagnostic tasks cover family-member identification, asking about family,
+answering family questions, room/object recognition, asking and stating
+location, writing a bounded home profile and completing a short family-home
+exchange.
+
+Recovery uses Module 8 family, room, object and location steps, plus earlier
+Module 4 person-identification and Module 6 location-question content when a
+predictable exchange requires those prerequisite skills.
 
 ---
 

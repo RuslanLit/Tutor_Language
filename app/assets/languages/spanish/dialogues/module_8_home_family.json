@@ -1,0 +1,208 @@
+[
+  {
+    "id": "dialogue.es.a0.m08.identify_family.v1",
+    "title": "Identifying family",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.hermana.v1",
+      "vocab.es.a0.m08.quien.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.family_identification.v1",
+      "grammar.es.a0.m08.third_person_family_name.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Luis",
+        "spanish": "¿Quién es ella?",
+        "native_translation": "Who is she?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Es mi hermana.",
+        "native_translation": "She is my sister."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "¿Cómo se llama?",
+        "native_translation": "What is her name?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Se llama Marta.",
+        "native_translation": "Her name is Marta."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m08.siblings_question.v1",
+    "title": "Asking about siblings",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.hermanos.v1",
+      "vocab.es.a0.m08.hermano.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.tener_family.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Marta",
+        "spanish": "¿Tienes hermanos?",
+        "native_translation": "Do you have siblings?"
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "Sí, tengo un hermano.",
+        "native_translation": "Yes, I have a brother."
+      },
+      {
+        "speaker": "Marta",
+        "spanish": "¿Cómo se llama?",
+        "native_translation": "What is his name?"
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "Se llama Diego.",
+        "native_translation": "His name is Diego."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m08.no_siblings.v1",
+    "title": "Negative sibling answer",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.hermanos.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.tener_family.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Sofia",
+        "spanish": "¿Tienes hermanos?",
+        "native_translation": "Do you have siblings?"
+      },
+      {
+        "speaker": "Elena",
+        "spanish": "No, no tengo hermanos.",
+        "native_translation": "No, I do not have siblings."
+      },
+      {
+        "speaker": "Sofia",
+        "spanish": "Gracias.",
+        "native_translation": "Thank you."
+      },
+      {
+        "speaker": "Elena",
+        "spanish": "De nada.",
+        "native_translation": "You are welcome."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m08.rooms_home.v1",
+    "title": "Home and rooms",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.casa.v1",
+      "vocab.es.a0.m08.cocina.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.home_rooms.v1",
+      "grammar.es.a0.m08.where_who_questions_home.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "Esta es mi casa.",
+        "native_translation": "This is my home."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "¿Dónde está la cocina?",
+        "native_translation": "Where is the kitchen?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Está allí.",
+        "native_translation": "It is there."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Gracias.",
+        "native_translation": "Thank you."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m08.person_location.v1",
+    "title": "Person at home",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.padre.v1",
+      "vocab.es.a0.m08.salon.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.location_with_estar_home.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Marta",
+        "spanish": "¿Dónde está tu padre?",
+        "native_translation": "Where is your father?"
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "Está en el salón.",
+        "native_translation": "He is in the living room."
+      },
+      {
+        "speaker": "Marta",
+        "spanish": "¿Y tu madre?",
+        "native_translation": "And your mother?"
+      },
+      {
+        "speaker": "Pablo",
+        "spanish": "Está en la cocina.",
+        "native_translation": "She is in the kitchen."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m08.integrated_family_home.v1",
+    "title": "Family and home exchange",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.familia.v1",
+      "vocab.es.a0.m08.mesa.v1",
+      "vocab.es.a0.m08.cocina.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.hay_vs_esta_home.v1",
+      "grammar.es.a0.m08.where_who_questions_home.v1"
+    ],
+    "lines": [
+      {
+        "speaker": "Elena",
+        "spanish": "Esta es mi familia.",
+        "native_translation": "This is my family."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "¿Quién es él?",
+        "native_translation": "Who is he?"
+      },
+      {
+        "speaker": "Elena",
+        "spanish": "Es mi hermano. Se llama Luis.",
+        "native_translation": "He is my brother. His name is Luis."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "¿Dónde está Luis?",
+        "native_translation": "Where is Luis?"
+      },
+      {
+        "speaker": "Elena",
+        "spanish": "Está en la cocina. Hay una mesa allí.",
+        "native_translation": "He is in the kitchen. There is a table there."
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "reading.es.a0.m08.family_profile.v1",
+    "title": "Marta's family profile",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.familia.v1",
+      "vocab.es.a0.m08.madre.v1",
+      "vocab.es.a0.m08.padre.v1",
+      "vocab.es.a0.m08.hermana.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.third_person_family_name.v1",
+      "grammar.es.a0.m08.tener_family.v1"
+    ],
+    "text": "Esta es Marta. Esta es su familia. Su madre se llama Ana. Su padre se llama Luis. Marta tiene una hermana. Su hermana se llama Elena.",
+    "native_translation": "This is Marta. This is her family. Her mother is named Ana. Her father is named Luis. Marta has a sister. Her sister is named Elena."
+  },
+  {
+    "id": "reading.es.a0.m08.siblings_note.v1",
+    "title": "Sibling note",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.hermano.v1",
+      "vocab.es.a0.m08.hermanos.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.tener_family.v1"
+    ],
+    "text": "Pablo tiene un hermano. Su hermano se llama Diego. Elena no tiene hermanos.",
+    "native_translation": "Pablo has a brother. His brother is named Diego. Elena does not have siblings."
+  },
+  {
+    "id": "reading.es.a0.m08.home_rooms.v1",
+    "title": "A simple home",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.casa.v1",
+      "vocab.es.a0.m08.cocina.v1",
+      "vocab.es.a0.m08.salon.v1",
+      "vocab.es.a0.m08.dormitorio.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.home_rooms.v1",
+      "grammar.es.a0.m08.location_with_estar_home.v1"
+    ],
+    "text": "Esta es la casa de Ana. La cocina está aquí. El salón está allí. El dormitorio está a la derecha.",
+    "native_translation": "This is Ana's home. The kitchen is here. The living room is there. The bedroom is on the right."
+  },
+  {
+    "id": "reading.es.a0.m08.objects_location.v1",
+    "title": "Objects at home",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.mesa.v1",
+      "vocab.es.a0.m08.silla.v1",
+      "vocab.es.a0.m08.cama.v1",
+      "vocab.es.a0.m08.al_lado_de.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.hay_vs_esta_home.v1"
+    ],
+    "text": "Hay una mesa en la cocina. La silla está al lado de la mesa. La cama está en el dormitorio.",
+    "native_translation": "There is a table in the kitchen. The chair is next to the table. The bed is in the bedroom."
+  },
+  {
+    "id": "reading.es.a0.m08.family_home_note.v1",
+    "title": "Where family members are",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.madre.v1",
+      "vocab.es.a0.m08.padre.v1",
+      "vocab.es.a0.m08.hermana.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.location_with_estar_home.v1"
+    ],
+    "text": "Mi madre está en el salón. Mi padre está en la cocina. Mi hermana está en el dormitorio.",
+    "native_translation": "My mother is in the living room. My father is in the kitchen. My sister is in the bedroom."
+  },
+  {
+    "id": "reading.es.a0.m08.integrated_profile.v1",
+    "title": "Short family and home profile",
+    "vocabulary_ids": [
+      "vocab.es.a0.m08.piso.v1",
+      "vocab.es.a0.m08.familia.v1",
+      "vocab.es.a0.m08.hermana.v1",
+      "vocab.es.a0.m08.mesa.v1",
+      "vocab.es.a0.m08.silla.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m08.tener_family.v1",
+      "grammar.es.a0.m08.hay_vs_esta_home.v1"
+    ],
+    "text": "Me llamo Carlos. Vivo en un piso. Mi familia vive aquí. Tengo una hermana. Se llama Sofia. En mi casa hay una mesa y una silla.",
+    "native_translation": "My name is Carlos. I live in an apartment. My family lives here. I have a sister. Her name is Sofia. In my home there is a table and a chair."
+  }
+]

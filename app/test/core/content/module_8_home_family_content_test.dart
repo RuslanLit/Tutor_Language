@@ -13,14 +13,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'C2H Module 7 uses canonical help lesson IDs and preserves course order',
+    'C2I Module 8 uses new home/family lesson IDs and retires legacy IDs',
     () async {
       final course = await CurriculumLoader(
         assetBundle: rootBundle,
       ).loadCourse();
-      final module6 = course.modules.singleWhere(
-        (module) => module.id == 'es.a0.m06',
-      );
       final module7 = course.modules.singleWhere(
         (module) => module.id == 'es.a0.m07',
       );
@@ -28,35 +25,41 @@ void main() {
         (module) => module.id == 'es.a0.m08',
       );
 
-      expect(module7.title, 'Asking for Help');
-      expect(module7.lessonIds, [
-        'es.a0.m07.l044',
-        'es.a0.m07.l045',
-        'es.a0.m07.l046',
-        'es.a0.m07.l047',
-        'es.a0.m07.l048',
-        'es.a0.m07.l049',
-        'es.a0.m07.l050',
-        'es.a0.m07.l051',
+      expect(module8.title, 'Home and Family');
+      expect(module8.lessonIds, [
+        'es.a0.m08.l052',
+        'es.a0.m08.l053',
+        'es.a0.m08.l054',
+        'es.a0.m08.l055',
+        'es.a0.m08.l056',
+        'es.a0.m08.l057',
+        'es.a0.m08.l058',
+        'es.a0.m08.l059',
+        'es.a0.m08.l060',
       ]);
-      expect(module6.lessonIds.last, 'es.a0.m06.l043');
-      expect(module8.lessonIds.first, 'es.a0.m08.l052');
+      expect(module7.lessonIds.last, 'es.a0.m07.l051');
 
       final activeLessonIds = [
         for (final module in course.modules) ...module.lessonIds,
       ];
       expect(activeLessonIds.toSet(), hasLength(activeLessonIds.length));
-      expect(activeLessonIds, isNot(contains('es.a0.m07.l021')));
-      expect(activeLessonIds, isNot(contains('es.a0.m07.l022')));
-      expect(activeLessonIds, isNot(contains('es.a0.m07.l023')));
-      expect(activeLessonIds, isNot(contains('es.a0.m07.l024')));
-      expect(activeLessonIds, isNot(contains('es.a0.m07.l025')));
+      for (final retiredId in {
+        'es.a0.m08.l026',
+        'es.a0.m08.l027',
+        'es.a0.m08.l028',
+        'es.a0.m08.l029',
+        'es.a0.m08.l030',
+        'es.a0.m08.l031',
+        'es.a0.m08.l032',
+      }) {
+        expect(activeLessonIds, isNot(contains(retiredId)));
+      }
 
-      for (final lessonId in module7.lessonIds) {
+      for (final lessonId in module8.lessonIds) {
         final lesson = course.lessons.singleWhere(
           (lesson) => lesson.id == lessonId,
         );
-        expect(lesson.moduleId, 'es.a0.m07');
+        expect(lesson.moduleId, 'es.a0.m08');
         expect(lesson.communicativeOutcome, isNotNull);
         expect(lesson.activities, isNotEmpty);
       }
@@ -64,7 +67,7 @@ void main() {
   );
 
   test(
-    'C2H Module 7 assets parse and lessons assemble with typed recall',
+    'C2I Module 8 assets parse and lessons assemble with active recall',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -77,22 +80,22 @@ void main() {
       );
       final course = await curriculumLoader.loadCourse();
       final module = course.modules.singleWhere(
-        (module) => module.id == 'es.a0.m07',
+        (module) => module.id == 'es.a0.m08',
       );
 
       final requiredCoverage = <String>{
-        'grammar.es.a0.m07.polite_attention.v1',
-        'grammar.es.a0.m07.puede_ayudarme.v1',
-        'grammar.es.a0.m07.necesito.v1',
-        'grammar.es.a0.m07.communication_repair.v1',
-        'grammar.es.a0.m07.service_location_questions.v1',
-        'grammar.es.a0.m07.emergency_requests.v1',
-        'template.es.a0.m07.l044.type_disculpe_question.v1',
-        'template.es.a0.m07.l045.type_puede_ayudarme.v1',
-        'template.es.a0.m07.l046.type_hable_mas_despacio.v1',
-        'template.es.a0.m07.l047.type_donde_bano.v1',
-        'template.es.a0.m07.l048.type_necesito_medico.v1',
-        'template.es.a0.m07.checkpoint.type_integrated_help.v1',
+        'grammar.es.a0.m08.family_identification.v1',
+        'grammar.es.a0.m08.third_person_family_name.v1',
+        'grammar.es.a0.m08.tener_family.v1',
+        'grammar.es.a0.m08.home_rooms.v1',
+        'grammar.es.a0.m08.location_with_estar_home.v1',
+        'grammar.es.a0.m08.hay_vs_esta_home.v1',
+        'template.es.a0.m08.l052.type_esta_es_mi_madre.v1',
+        'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+        'template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1',
+        'template.es.a0.m08.l056.type_hay_mesa_cocina.v1',
+        'template.es.a0.m08.l058.type_ask_and_answer_location.v1',
+        'template.es.a0.m08.checkpoint.type_integrated_exchange.v1',
       };
       final referencedIds = <String>{};
       final templates = <ExerciseTemplate>[];
@@ -132,96 +135,92 @@ void main() {
         templates
             .where((template) => template.exerciseType == 'text_entry')
             .length,
-        greaterThanOrEqualTo(28),
+        greaterThanOrEqualTo(25),
       );
       expect(
         templates
             .where((template) => template.authoredMisconceptions.isNotEmpty)
             .length,
-        greaterThanOrEqualTo(7),
+        greaterThanOrEqualTo(18),
       );
       expect(
         templates
             .where((template) => template.reviewTemplateIds.isNotEmpty)
             .length,
-        greaterThanOrEqualTo(8),
+        greaterThanOrEqualTo(12),
       );
     },
   );
 
-  test('C2H help answer evaluation preserves task distinctions', () async {
-    final catalog = EducationalContentCatalog(
-      await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
-    );
-    const engine = ActivityEngine();
-
-    ActivityResult evaluate(String templateId, String answer) {
-      final template = catalog.lookupAs<ExerciseTemplate>(templateId);
-      expect(template, isNotNull, reason: templateId);
-      return engine.evaluate(
-        template: template!,
-        submission: ActivitySubmission(submittedAnswer: answer),
+  test(
+    'C2I family and home answer evaluation preserves distinctions',
+    () async {
+      final catalog = EducationalContentCatalog(
+        await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
       );
-    }
+      const engine = ActivityEngine();
 
-    expect(
-      evaluate(
-        'template.es.a0.m07.l045.type_puede_ayudarme.v1',
-        '¿Puede ayudarme?',
-      ).status,
-      ActivityResultStatus.correct,
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.l045.type_puede_ayudarme.v1',
-        'Puede ayudarme?',
-      ).status,
-      ActivityResultStatus.acceptedWithFeedback,
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.l045.type_puede_ayudarme.v1',
-        'Necesito ayuda',
-      ).feedbackKey,
-      'response.question_expected_statement_provided',
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.l045.type_necesito_ayuda.v1',
-        '¿Puede ayudarme?',
-      ).feedbackKey,
-      'response.statement_expected_question_provided',
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.l047.type_donde_bano.v1',
-        'Está aquí',
-      ).feedbackKey,
-      'response.question_expected_answer',
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.l049.type_service_help_sequence.v1',
-        '¿Dónde está la farmacia? Disculpe',
-      ).feedbackKey,
-      'spanish.help.polite_opening_first',
-    );
-    expect(
-      evaluate(
-        'template.es.a0.m07.competency.complete_help_exchange.v1',
-        'Necesito un médico',
-      ).feedbackKey,
-      'spanish.help.include_polite_attention',
-    );
-  });
+      ActivityResult evaluate(String templateId, String answer) {
+        final template = catalog.lookupAs<ExerciseTemplate>(templateId);
+        expect(template, isNotNull, reason: templateId);
+        return engine.evaluate(
+          template: template!,
+          submission: ActivitySubmission(submittedAnswer: answer),
+        );
+      }
+
+      expect(
+        evaluate(
+          'template.es.a0.m08.l053.type_quien_es_ella.v1',
+          '¿Quién es ella?',
+        ).status,
+        ActivityResultStatus.correct,
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m08.l053.type_quien_es_ella.v1',
+          'Quien es ella?',
+        ).status,
+        ActivityResultStatus.acceptedWithFeedback,
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m08.l053.type_quien_es_ella.v1',
+          'Es mi hermana',
+        ).feedbackKey,
+        'response.question_expected_answer',
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m08.l054.type_tengo_una_hermana.v1',
+          'Tiene una hermana',
+        ).feedbackKey,
+        'spanish.tener.use_tengo_for_self',
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1',
+          'Hay la mesa en la cocina',
+        ).feedbackKey,
+        'spanish.location.use_esta_for_known_item',
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m08.l056.type_hay_mesa_cocina.v1',
+          'La mesa está en la cocina',
+        ).feedbackKey,
+        'spanish.location.use_hay_for_existence',
+      );
+    },
+  );
 
   test(
-    'production Module 7 competency resolves diagnostics and recovery flow',
+    'production Module 8 competency resolves diagnostics and recovery flow',
     () async {
       const registry = CompetencyDefinitionRegistry();
       final definition = registry.lookup(
-        moduleId: 'es.a0.m07',
-        competencyId: 'competency.es.a0.m07.ask_for_basic_help',
+        moduleId: 'es.a0.m08',
+        competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
       );
       expect(definition, isNotNull);
 
@@ -248,27 +247,13 @@ void main() {
       }
 
       final centralTask = competencyCatalog.task(
-        'task.es.a0.m07.complete_help_exchange',
+        'task.es.a0.m08.family_home_exchange',
       );
-      final centralTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
-        'template.es.a0.m07.competency.complete_help_exchange.v1',
-      )!;
-      final missingAttention = const ActivityEngine().evaluate(
-        template: centralTemplate,
-        submission: const ActivitySubmission(
-          submittedAnswer: 'Necesito un médico',
-        ),
-      );
-      expect(
-        missingAttention.feedbackKey,
-        'spanish.help.include_polite_attention',
-      );
-
       final recoverySources = centralTask.recoveryMappings
           .expand((mapping) => mapping.recoveryStepReferences)
           .map((reference) => reference.sourceModuleId)
           .toSet();
-      expect(recoverySources, contains('es.a0.m07'));
+      expect(recoverySources, contains('es.a0.m08'));
       expect(recoverySources, contains('es.a0.m04'));
 
       const coordinator = CommunicativeCompetencyCoordinator();
@@ -276,26 +261,27 @@ void main() {
         competencyId: definition.competency.competencyId,
       );
       for (final taskId in definition.competency.assessmentTaskIds.take(3)) {
-        final decision = coordinator.recordTaskResult(
-          catalog: competencyCatalog,
-          state: state,
-          taskId: taskId,
-          result: _correct(taskId),
-        );
-        state = decision.updatedState;
+        state = coordinator
+            .recordTaskResult(
+              catalog: competencyCatalog,
+              state: state,
+              taskId: taskId,
+              result: _correct(taskId),
+            )
+            .updatedState;
       }
 
       final failure = coordinator.recordTaskResult(
         catalog: competencyCatalog,
         state: state,
-        taskId: 'task.es.a0.m07.find_service',
-        result: _incorrect('task.es.a0.m07.find_service'),
+        taskId: 'task.es.a0.m08.identify_room_object',
+        result: _incorrect('task.es.a0.m08.identify_room_object'),
       );
       expect(
         failure.type,
         CompetencyAssessmentDecisionType.insertRecoverySteps,
       );
-      expect(failure.recoveryInsertions.single.sourceModuleId, 'es.a0.m07');
+      expect(failure.recoveryInsertions.single.sourceModuleId, 'es.a0.m08');
 
       final recovered = coordinator.recordRecoveryCompleted(
         catalog: competencyCatalog,
@@ -311,19 +297,20 @@ void main() {
           .recordTaskResult(
             catalog: competencyCatalog,
             state: recovered.updatedState,
-            taskId: 'task.es.a0.m07.find_service',
-            result: _correct('task.es.a0.m07.find_service'),
+            taskId: 'task.es.a0.m08.identify_room_object',
+            result: _correct('task.es.a0.m08.identify_room_object'),
           )
           .updatedState;
 
       for (final taskId in definition.competency.assessmentTaskIds.skip(4)) {
-        final decision = coordinator.recordTaskResult(
-          catalog: competencyCatalog,
-          state: state,
-          taskId: taskId,
-          result: _correct(taskId),
-        );
-        state = decision.updatedState;
+        state = coordinator
+            .recordTaskResult(
+              catalog: competencyCatalog,
+              state: state,
+              taskId: taskId,
+              result: _correct(taskId),
+            )
+            .updatedState;
       }
 
       final outcome = coordinator.evaluateOutcome(

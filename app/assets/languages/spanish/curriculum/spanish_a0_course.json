@@ -100,15 +100,17 @@
     },
     {
       "id": "es.a0.m08",
-      "title": "Everyday Objects and Integrated A0",
+      "title": "Home and Family",
       "lessonIds": [
-        "es.a0.m08.l026",
-        "es.a0.m08.l027",
-        "es.a0.m08.l028",
-        "es.a0.m08.l029",
-        "es.a0.m08.l030",
-        "es.a0.m08.l031",
-        "es.a0.m08.l032"
+        "es.a0.m08.l052",
+        "es.a0.m08.l053",
+        "es.a0.m08.l054",
+        "es.a0.m08.l055",
+        "es.a0.m08.l056",
+        "es.a0.m08.l057",
+        "es.a0.m08.l058",
+        "es.a0.m08.l059",
+        "es.a0.m08.l060"
       ]
     }
   ],
@@ -7879,15 +7881,15 @@
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l026",
-        "title": "Everyday Objects",
-        "description": "Recognize and recall book, phone, key, bag, table, and chair.",
+        "id": "es.a0.m08.l052",
+        "title": "My Family",
+        "description": "Identify close family members with este/esta and mi.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
             "lessonId": "es.a0.m07.l051"
@@ -7896,119 +7898,109 @@
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l026.primary",
-          "description": "Recognize and recall book, phone, key, bag, table, and chair."
+          "id": "objective.es.a0.m08.l052.primary",
+          "description": "Identify basic family relationships and type Este es mi padre / Esta es mi madre."
         }
       ],
-      "communicativeOutcome": "Name a few high-frequency objects.",
+      "communicativeOutcome": "Identify close family members in simple Spanish sentences.",
       "sections": [
         {
-          "id": "es.a0.m08.l026.section.main",
+          "id": "es.a0.m08.l052.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l026.activity.vocabulary",
+              "id": "es.a0.m08.l052.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.familia.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.telefono.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.madre.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.llave.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.padre.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.bolsa.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.mesa.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.silla.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.mi.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l026.activity.grammar",
+              "id": "es.a0.m08.l052.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.articles_intro.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.family_identification.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l026.activity.dialogue",
+              "id": "es.a0.m08.l052.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.objects_table.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.identify_family.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l026.activity.reading",
+              "id": "es.a0.m08.l052.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.family_profile.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l026.activity.practice",
+              "id": "es.a0.m08.l052.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l026_object_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l052.family_member_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l026_fill_book.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l052.fill_padre.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l026_type_phone.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l052.type_esta_es_mi_madre.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l026_type_key.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l052.type_este_es_mi_padre.v1"
                 }
               ]
             }
@@ -8016,159 +8008,149 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l026.summary",
-        "reviewPrompt": "Name a few high-frequency objects.",
+        "id": "es.a0.m08.l052.summary",
+        "reviewPrompt": "Identify close family members in simple Spanish sentences.",
         "referenceIds": [
-          "objective.es.a0.m08.l026.primary"
+          "objective.es.a0.m08.l052.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l026.activity.vocabulary",
-          "es.a0.m08.l026.activity.grammar",
-          "es.a0.m08.l026.activity.dialogue",
-          "es.a0.m08.l026.activity.reading",
-          "es.a0.m08.l026.activity.practice"
+          "es.a0.m08.l052.activity.vocabulary",
+          "es.a0.m08.l052.activity.grammar",
+          "es.a0.m08.l052.activity.dialogue",
+          "es.a0.m08.l052.activity.reading",
+          "es.a0.m08.l052.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l026.section.main"
+          "es.a0.m08.l052.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l027",
-        "title": "Possession with Objects",
-        "description": "Choose and produce the correct tener form in object sentences.",
+        "id": "es.a0.m08.l053",
+        "title": "Names and Family Information",
+        "description": "State a family member name and ask who someone is.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l026"
+            "lessonId": "es.a0.m08.l052"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l027.primary",
-          "description": "Choose and produce the correct tener form in object sentences."
+          "id": "objective.es.a0.m08.l053.primary",
+          "description": "State another family member's name and ask who she is."
         }
       ],
-      "communicativeOutcome": "Use tengo, tienes, and tiene with familiar objects.",
+      "communicativeOutcome": "Give a basic family relationship and name.",
       "sections": [
         {
-          "id": "es.a0.m08.l027.section.main",
+          "id": "es.a0.m08.l053.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l027.activity.vocabulary",
+              "id": "es.a0.m08.l053.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.tengo.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermana.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.tienes.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.quien.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.tiene.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.libro.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.cafe.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.sofia.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.tu.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l027.activity.grammar",
+              "id": "es.a0.m08.l053.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.third_person_family_name.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.where_who_questions_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l027.activity.dialogue",
+              "id": "es.a0.m08.l053.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.objects_table.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.identify_family.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l027.activity.reading",
+              "id": "es.a0.m08.l053.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.family_profile.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l027.activity.practice",
+              "id": "es.a0.m08.l053.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l027_tener_form_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l053.who_sister_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l027_fill_tiene.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l053.fill_se_llama.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l027_type_you_have_book.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l053.type_mi_hermana_se_llama.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l027_type_sofia_has.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l053.type_quien_es_ella.v1"
                 }
               ]
             }
@@ -8176,159 +8158,154 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l027.summary",
-        "reviewPrompt": "Use tengo, tienes, and tiene with familiar objects.",
+        "id": "es.a0.m08.l053.summary",
+        "reviewPrompt": "Give a basic family relationship and name.",
         "referenceIds": [
-          "objective.es.a0.m08.l027.primary"
+          "objective.es.a0.m08.l053.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l027.activity.vocabulary",
-          "es.a0.m08.l027.activity.grammar",
-          "es.a0.m08.l027.activity.dialogue",
-          "es.a0.m08.l027.activity.reading",
-          "es.a0.m08.l027.activity.practice"
+          "es.a0.m08.l053.activity.vocabulary",
+          "es.a0.m08.l053.activity.grammar",
+          "es.a0.m08.l053.activity.dialogue",
+          "es.a0.m08.l053.activity.reading",
+          "es.a0.m08.l053.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l027.section.main"
+          "es.a0.m08.l053.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l028",
-        "title": "Food, Drink, and Polite Requests",
-        "description": "Produce short quiero and tengo sentences with food and drink.",
+        "id": "es.a0.m08.l054",
+        "title": "Brothers, Sisters and Simple Questions",
+        "description": "Ask and answer controlled sibling questions.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l027"
+            "lessonId": "es.a0.m08.l053"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l028.primary",
-          "description": "Produce short quiero and tengo sentences with food and drink."
+          "id": "objective.es.a0.m08.l054.primary",
+          "description": "Ask ¿Tienes hermanos? and answer with tengo or no tengo."
         }
       ],
-      "communicativeOutcome": "Ask for simple food or drink politely.",
+      "communicativeOutcome": "Ask and answer whether someone has siblings.",
       "sections": [
         {
-          "id": "es.a0.m08.l028.section.main",
+          "id": "es.a0.m08.l054.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l028.activity.vocabulary",
+              "id": "es.a0.m08.l054.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermano.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.cafe.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermana.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.pan.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.queso.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.quiero.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.por_favor.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermanos.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l028.activity.grammar",
+              "id": "es.a0.m08.l054.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.simple_word_order.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.tener_family.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l028.activity.dialogue",
+              "id": "es.a0.m08.l054.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.food_polite.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.siblings_question.v1"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.no_siblings.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l028.activity.reading",
+              "id": "es.a0.m08.l054.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.objects_list.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.siblings_note.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l028.activity.practice",
+              "id": "es.a0.m08.l054.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l028_food_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l054.tengo_form_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l028_fill_please.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l054.fill_hermana.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l028_type_water_please.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l054.type_tienes_hermanos.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l028_type_bread_cheese.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l054.type_tengo_una_hermana.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l054.type_no_tengo_hermanos.v1"
                 }
               ]
             }
@@ -8336,159 +8313,159 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l028.summary",
-        "reviewPrompt": "Ask for simple food or drink politely.",
+        "id": "es.a0.m08.l054.summary",
+        "reviewPrompt": "Ask and answer whether someone has siblings.",
         "referenceIds": [
-          "objective.es.a0.m08.l028.primary"
+          "objective.es.a0.m08.l054.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l028.activity.vocabulary",
-          "es.a0.m08.l028.activity.grammar",
-          "es.a0.m08.l028.activity.dialogue",
-          "es.a0.m08.l028.activity.reading",
-          "es.a0.m08.l028.activity.practice"
+          "es.a0.m08.l054.activity.vocabulary",
+          "es.a0.m08.l054.activity.grammar",
+          "es.a0.m08.l054.activity.dialogue",
+          "es.a0.m08.l054.activity.reading",
+          "es.a0.m08.l054.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l028.section.main"
+          "es.a0.m08.l054.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l029",
-        "title": "Family, Friend, and City",
-        "description": "Use mi with family/friend phrases and familiar city names.",
+        "id": "es.a0.m08.l055",
+        "title": "Rooms in the Home",
+        "description": "Identify common rooms and ask where a room is.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l028"
+            "lessonId": "es.a0.m08.l054"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l029.primary",
-          "description": "Use mi with family/friend phrases and familiar city names."
+          "id": "objective.es.a0.m08.l055.primary",
+          "description": "Identify common rooms and ask where the kitchen is."
         }
       ],
-      "communicativeOutcome": "Give a tiny fact about family or a friend.",
+      "communicativeOutcome": "Name common rooms and ask where one is.",
       "sections": [
         {
-          "id": "es.a0.m08.l029.section.main",
+          "id": "es.a0.m08.l055.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l029.activity.vocabulary",
+              "id": "es.a0.m08.l055.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.familia.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.casa.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.amiga.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cocina.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.casa.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.salon.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.lima.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.dormitorio.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.bogota.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.mi.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.bano.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l029.activity.grammar",
+              "id": "es.a0.m08.l055.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.home_rooms.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.where_who_questions_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l029.activity.dialogue",
+              "id": "es.a0.m08.l055.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.family_city.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.rooms_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l029.activity.reading",
+              "id": "es.a0.m08.l055.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.family_city.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.home_rooms.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l029.activity.practice",
+              "id": "es.a0.m08.l055.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l029_family_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l055.room_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l029_fill_city.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l055.fill_cocina.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l029_type_friend.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l055.type_esta_es_la_cocina.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l029_type_family_lima.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l055.type_donde_esta_cocina.v1"
                 }
               ]
             }
@@ -8496,164 +8473,169 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l029.summary",
-        "reviewPrompt": "Give a tiny fact about family or a friend.",
+        "id": "es.a0.m08.l055.summary",
+        "reviewPrompt": "Name common rooms and ask where one is.",
         "referenceIds": [
-          "objective.es.a0.m08.l029.primary"
+          "objective.es.a0.m08.l055.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l029.activity.vocabulary",
-          "es.a0.m08.l029.activity.grammar",
-          "es.a0.m08.l029.activity.dialogue",
-          "es.a0.m08.l029.activity.reading",
-          "es.a0.m08.l029.activity.practice"
+          "es.a0.m08.l055.activity.vocabulary",
+          "es.a0.m08.l055.activity.grammar",
+          "es.a0.m08.l055.activity.dialogue",
+          "es.a0.m08.l055.activity.reading",
+          "es.a0.m08.l055.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l029.section.main"
+          "es.a0.m08.l055.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l030",
-        "title": "Mixed First Conversation",
-        "description": "Produce varied A0 first-contact sentences without relying on one name or city.",
+        "id": "es.a0.m08.l056",
+        "title": "Objects and Location",
+        "description": "Locate common household objects with está and hay.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l029"
+            "lessonId": "es.a0.m08.l055"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l030.primary",
-          "description": "Produce varied A0 first-contact sentences without relying on one name or city."
+          "id": "objective.es.a0.m08.l056.primary",
+          "description": "Ask where an object is and state its location."
         }
       ],
-      "communicativeOutcome": "Combine introductions, origin, thanks, and possessions.",
+      "communicativeOutcome": "Locate a common object in a room.",
       "sections": [
         {
-          "id": "es.a0.m08.l030.section.main",
+          "id": "es.a0.m08.l056.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l030.activity.vocabulary",
+              "id": "es.a0.m08.l056.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.lucia.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.mesa.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.miguel.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.silla.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.kyiv.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cama.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.ventana.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.telefono.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.al_lado_de.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hay.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l030.activity.grammar",
+              "id": "es.a0.m08.l056.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.name_variation.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.location_with_estar_home.v1"
                 },
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
-                },
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.hay_vs_esta_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l030.activity.dialogue",
+              "id": "es.a0.m08.l056.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.rooms_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l030.activity.reading",
+              "id": "es.a0.m08.l056.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.objects_location.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l030.activity.practice",
+              "id": "es.a0.m08.l056.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l030_mixed_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l056.object_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l030_fill_origin.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l056.fill_en.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l030_type_intro_lucia.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l056.type_donde_esta_mesa.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l030_type_origin_kyiv.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l056.type_hay_mesa_cocina.v1"
                 }
               ]
             }
@@ -8661,164 +8643,154 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l030.summary",
-        "reviewPrompt": "Combine introductions, origin, thanks, and possessions.",
+        "id": "es.a0.m08.l056.summary",
+        "reviewPrompt": "Locate a common object in a room.",
         "referenceIds": [
-          "objective.es.a0.m08.l030.primary"
+          "objective.es.a0.m08.l056.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l030.activity.vocabulary",
-          "es.a0.m08.l030.activity.grammar",
-          "es.a0.m08.l030.activity.dialogue",
-          "es.a0.m08.l030.activity.reading",
-          "es.a0.m08.l030.activity.practice"
+          "es.a0.m08.l056.activity.vocabulary",
+          "es.a0.m08.l056.activity.grammar",
+          "es.a0.m08.l056.activity.dialogue",
+          "es.a0.m08.l056.activity.reading",
+          "es.a0.m08.l056.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l030.section.main"
+          "es.a0.m08.l056.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l031",
-        "title": "Integrated A0 Review",
-        "description": "Recall core A0 patterns in varied contexts before the checkpoint.",
+        "id": "es.a0.m08.l057",
+        "title": "Describing a Home and Family",
+        "description": "Combine a family fact with a home description.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l030"
+            "lessonId": "es.a0.m08.l056"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l031.primary",
-          "description": "Recall core A0 patterns in varied contexts before the checkpoint."
+          "id": "objective.es.a0.m08.l057.primary",
+          "description": "Produce bounded family and home statements with known patterns."
         }
       ],
-      "communicativeOutcome": "Review names, origin, questions, and possessions.",
+      "communicativeOutcome": "Describe a simple home and family fact.",
       "sections": [
         {
-          "id": "es.a0.m08.l031.section.main",
+          "id": "es.a0.m08.l057.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l031.activity.vocabulary",
+              "id": "es.a0.m08.l057.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.miguel.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.piso.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.sevilla.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.puerta.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.agua.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.abuelo.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.donde.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.abuela.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l031.activity.grammar",
+              "id": "es.a0.m08.l057.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.location_with_estar_home.v1"
                 },
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
-                },
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.hay_vs_esta_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l031.activity.dialogue",
+              "id": "es.a0.m08.l057.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.person_location.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l031.activity.reading",
+              "id": "es.a0.m08.l057.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.family_home_note.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l031.activity.practice",
+              "id": "es.a0.m08.l057.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l031_review_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l057.profile_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l031_fill_question.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l057.fill_salon.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l031_type_mixed_name.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l057.type_mi_madre_salon.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l031_type_mixed_origin.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l057.type_basic_home_profile.v1"
                 }
               ]
             }
@@ -8826,179 +8798,494 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l031.summary",
-        "reviewPrompt": "Review names, origin, questions, and possessions.",
+        "id": "es.a0.m08.l057.summary",
+        "reviewPrompt": "Describe a simple home and family fact.",
         "referenceIds": [
-          "objective.es.a0.m08.l031.primary"
+          "objective.es.a0.m08.l057.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l031.activity.vocabulary",
-          "es.a0.m08.l031.activity.grammar",
-          "es.a0.m08.l031.activity.dialogue",
-          "es.a0.m08.l031.activity.reading",
-          "es.a0.m08.l031.activity.practice"
+          "es.a0.m08.l057.activity.vocabulary",
+          "es.a0.m08.l057.activity.grammar",
+          "es.a0.m08.l057.activity.dialogue",
+          "es.a0.m08.l057.activity.reading",
+          "es.a0.m08.l057.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l031.section.main"
+          "es.a0.m08.l057.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m08.l032",
-        "title": "Final A0 Checkpoint",
-        "description": "Complete a balanced checkpoint covering greetings, introductions, origin, questions, and tener.",
+        "id": "es.a0.m08.l058",
+        "title": "Integrated Family and Home Conversation",
+        "description": "Ask and answer bounded family and home questions.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l057"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l058.primary",
+          "description": "Complete a short family/home exchange with identity and location."
+        }
+      ],
+      "communicativeOutcome": "Participate in a predictable family and home exchange.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l058.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l058.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.familia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermano.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cocina.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.salon.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l058.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.where_who_questions_home.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.location_with_estar_home.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l058.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.integrated_family_home.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l058.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.integrated_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l058.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l058.dialogue_comprehension.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l058.fill_quien.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l058.type_integrated_family_home.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.l058.type_ask_and_answer_location.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l058.summary",
+        "reviewPrompt": "Participate in a predictable family and home exchange.",
+        "referenceIds": [
+          "objective.es.a0.m08.l058.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l058.activity.vocabulary",
+          "es.a0.m08.l058.activity.grammar",
+          "es.a0.m08.l058.activity.dialogue",
+          "es.a0.m08.l058.activity.reading",
+          "es.a0.m08.l058.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l058.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l059",
+        "title": "Home and Family Review",
+        "description": "Actively recall family, home, tener, hay and location patterns.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.2.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l058"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l059.primary",
+          "description": "Review family and home language in new combinations."
+        }
+      ],
+      "communicativeOutcome": "Review Module 8 family and home communication.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l059.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l059.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.familia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermanos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.dormitorio.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cama.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l059.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.tener_family.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l059.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.integrated_family_home.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l059.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.integrated_profile.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m08.l059.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.relationship_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.fill_tiene.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.type_family_name.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.type_location_question.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.type_home_location.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.review.type_integrated_profile.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l059.summary",
+        "reviewPrompt": "Review Module 8 family and home communication.",
+        "referenceIds": [
+          "objective.es.a0.m08.l059.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l059.activity.vocabulary",
+          "es.a0.m08.l059.activity.grammar",
+          "es.a0.m08.l059.activity.dialogue",
+          "es.a0.m08.l059.activity.reading",
+          "es.a0.m08.l059.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l059.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l060",
+        "title": "Home and Family Checkpoint",
+        "description": "Assess Module 8 family and home communication.",
         "moduleId": "es.a0.m08",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 15,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "1.2.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m08.l031"
+            "lessonId": "es.a0.m08.l059"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.es.a0.m08.l032.primary",
-          "description": "Complete a balanced checkpoint covering greetings, introductions, origin, questions, and tener."
+          "id": "objective.es.a0.m08.l060.primary",
+          "description": "Complete a mixed checkpoint covering family, rooms, objects and location."
         }
       ],
-      "communicativeOutcome": "Demonstrate core A0 first-contact skills.",
+      "communicativeOutcome": "Demonstrate bounded Module 8 family and home communication.",
       "sections": [
         {
-          "id": "es.a0.m08.l032.section.main",
+          "id": "es.a0.m08.l060.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "es.a0.m08.l032.activity.vocabulary",
+              "id": "es.a0.m08.l060.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
               "order": 1,
               "references": [
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.marta.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.abuela.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.bogota.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.hermanos.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.libro.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cama.v1"
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.agua.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.gracias.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.que.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/module_8_home_family.json",
+                  "referenceId": "vocab.es.a0.m08.cocina.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l032.activity.grammar",
+              "id": "es.a0.m08.l060.activity.grammar",
               "title": "Pattern",
               "type": "grammar",
               "order": 2,
               "references": [
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.family_identification.v1"
                 },
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.origin_variation.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.tener_family.v1"
                 },
                 {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.tener_forms.v1"
+                  "assetPath": "assets/languages/spanish/grammar/module_8_home_family.json",
+                  "referenceId": "grammar.es.a0.m08.hay_vs_esta_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l032.activity.dialogue",
+              "id": "es.a0.m08.l060.activity.dialogue",
               "title": "Dialogue",
               "type": "dialogue",
               "order": 3,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.integrated_checkpoint.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_8_home_family.json",
+                  "referenceId": "dialogue.es.a0.m08.integrated_family_home.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l032.activity.reading",
+              "id": "es.a0.m08.l060.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 4,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.integrated_a0.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_8_home_family.json",
+                  "referenceId": "reading.es.a0.m08.integrated_profile.v1"
                 }
               ]
             },
             {
-              "id": "es.a0.m08.l032.activity.practice",
+              "id": "es.a0.m08.l060.activity.practice",
               "title": "Practice",
               "type": "exercise_template",
               "order": 5,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.room_object_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_fill.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.fill_hermanos.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_intro.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.type_identify_family.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_origin.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.type_family_question.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_tener.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.type_home_description.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l032_checkpoint_question.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.type_person_location.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_8_home_family.json",
+                  "referenceId": "template.es.a0.m08.checkpoint.type_integrated_exchange.v1"
                 }
               ]
             }
@@ -9006,23 +9293,23 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m08.l032.summary",
-        "reviewPrompt": "Demonstrate core A0 first-contact skills.",
+        "id": "es.a0.m08.l060.summary",
+        "reviewPrompt": "Demonstrate bounded Module 8 family and home communication.",
         "referenceIds": [
-          "objective.es.a0.m08.l032.primary"
+          "objective.es.a0.m08.l060.primary"
         ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "es.a0.m08.l032.activity.vocabulary",
-          "es.a0.m08.l032.activity.grammar",
-          "es.a0.m08.l032.activity.dialogue",
-          "es.a0.m08.l032.activity.reading",
-          "es.a0.m08.l032.activity.practice"
+          "es.a0.m08.l060.activity.vocabulary",
+          "es.a0.m08.l060.activity.grammar",
+          "es.a0.m08.l060.activity.dialogue",
+          "es.a0.m08.l060.activity.reading",
+          "es.a0.m08.l060.activity.practice"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "es.a0.m08.l032.section.main"
+          "es.a0.m08.l060.section.main"
         ]
       },
       "references": []

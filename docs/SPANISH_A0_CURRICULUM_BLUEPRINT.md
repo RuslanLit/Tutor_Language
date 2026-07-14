@@ -62,14 +62,14 @@ Current metrics:
 | Metric | Current value |
 |---|---:|
 | Modules | 8 |
-| Live lessons | 58 |
+| Live lessons | 60 |
 | Reviews | 8 |
-| Checkpoints | 5 |
-| Vocabulary items across Spanish assets | 338 |
-| Grammar topics | 61 |
-| Dialogues | 56 |
-| Readings | 64 |
-| Exercise templates | 391 |
+| Checkpoints | 6 |
+| Vocabulary items across Spanish assets | 368 |
+| Grammar topics | 68 |
+| Dialogues | 62 |
+| Readings | 70 |
+| Exercise templates | 441 |
 | Referenced multiple-choice steps | 61 |
 | Referenced fill-gap steps | 46 |
 | Referenced text-entry steps | 166 |
@@ -77,11 +77,11 @@ Current metrics:
 
 Major findings:
 
-- The 58-lesson course is valid and playable, with Modules 1-7 now implemented as production content.
+- The 60-lesson course is valid and playable, with Modules 1-8 now implemented as production content.
 - Early lessons over-concentrate greetings, names, origin, courtesy and short first-contact phrases.
 - Reading foundations have been partially moved earlier, but old reading-basics lesson IDs remain retired rather than repurposed.
 - `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because later lessons add reading, objects, directions, help, family and integrated communication.
-- The later modules still contain inherited topic density and should be refined in future content sprints.
+- The later modules still contain inherited topic density outside the implemented Modules 1-8 path and should be refined in future content sprints.
 - First 15 lessons are structurally valid but many lack explicit `communicativeOutcome` values in production JSON.
 - Typed recall is now significant, but some early lessons still lean too much on recognition/fill-gap scaffolding.
 
@@ -447,14 +447,18 @@ ID policy:
 | 42 | new: es.a0.m07.l042 | M07 | Café Exchange | dialogue/application | Handle a tiny polite request exchange. | 39-41 | none | M01-M07 | accents in café | 2 typed recall | C2H |
 | 43 | new: es.a0.m07.l043 | M07 | Needs and Requests Review | review | Recall food, drink, needs and courtesy. | 39-42 | none | M07 | h/café review | 3 typed recall | C2H |
 | 44 | new: es.a0.m07.l044 | M07 | Needs Checkpoint | checkpoint | Assess polite request and need patterns. | 39-43 | none | M01-M07 | none | 4 typed recall | C2H |
-| 45 | es.a0.m08.l029 | M08 | Family and Friend | teaching | Say a tiny fact about family or a friend. | 44 | familia, amigo/amiga, mi | names | none | 2 typed recall | C2I |
-| 46 | new: es.a0.m08.l046 | M08 | Home and City | teaching | Say a simple home/city fact. | 45 | casa, ciudad, en | places | none | 2 typed recall | C2I |
-| 47 | new: es.a0.m08.l047 | M08 | Third-Person Mini Profile | teaching | Understand and produce `es`, `tiene`, `es de`. | 45-46 | él/ella review | tener, origin | none | 2 typed recall | C2I |
-| 48 | new: es.a0.m08.l048 | M08 | Short Profile Reading | reading/application | Read a tiny profile using known structures. | 45-47 | none | M01-M08 | accents and punctuation | 2 typed recall | C2I |
-| 49 | new: es.a0.m08.l049 | M08 | People and Places Review | review | Recall people, family, home, city and profile facts. | 45-48 | none | M08 | reading review | 3 typed recall | C2I |
-| 50 | es.a0.m08.l030 | M09 | Mixed First Conversation | integrated practice | Combine first-contact, origin, need and object language. | 49 | none | all prior | question punctuation | 3 typed recall | C2J |
-| 51 | es.a0.m08.l031 | M09 | Integrated A0 Review | review | Recall all major A0 patterns in varied contexts. | 50 | none | all prior | all reading basics | 4 typed recall | C2J |
-| 52 | es.a0.m08.l032 | M09 | Final A0 Checkpoint | final checkpoint | Assess the complete Spanish A0 foundation. | 51 | none | all prior | sampled reading rules | 5 typed recall | C2J |
+| 45 | es.a0.m08.l052 | M08 | My Family | teaching | Identify close family members with `este/esta` and `mi`. | 44 | madre, padre, hermano, hermana, hijo, hija, mi | people and names | none | 2 typed recall | C2I |
+| 46 | es.a0.m08.l053 | M08 | Names and Family Information | teaching | State a family member's name and ask who she is. | 45 | `se llama` family pattern, `quién` review | M04 names | question punctuation | 2 typed recall | C2I |
+| 47 | es.a0.m08.l054 | M08 | Brothers, Sisters and Simple Questions | teaching | Ask and answer whether someone has siblings. | 45-46 | hermanos, `tengo`, `tienes`, `tiene` in family facts | M06 tener | none | 3 typed recall | C2I |
+| 48 | es.a0.m08.l055 | M08 | Rooms in the Home | teaching | Identify rooms and ask where a room is. | 47 | casa, piso, habitación, dormitorio, cocina, baño, salón | M06 location | question punctuation | 2 typed recall | C2I |
+| 49 | es.a0.m08.l056 | M08 | Objects and Location | teaching | Locate simple household objects with `está` and `hay`. | 48 | puerta, mesa, silla, cama, ventana, `hay`, `al lado de` | M06 objects/location | accent in `está` | 3 typed recall | C2I |
+| 50 | es.a0.m08.l057 | M08 | Describing a Home and Family | application | Produce a bounded family-and-home profile. | 45-49 | combined family/home facts | M01-M08 | none | 2 typed recall | C2I |
+| 51 | es.a0.m08.l058 | M08 | Integrated Family and Home Conversation | dialogue/application | Exchange short family and home information. | 45-50 | integrated question-answer flow | M01-M08 | question punctuation | 2 typed recall | C2I |
+| 52 | es.a0.m08.l059 | M08 | Home and Family Review | review | Recombine family, rooms, objects and simple location. | 45-51 | none | M08 | reading review | 4 typed recall | C2I |
+| 53 | es.a0.m08.l060 | M08 | Home and Family Checkpoint | checkpoint | Assess family and home communication without new teaching. | 45-52 | none | M01-M08 | sampled punctuation | 5 typed recall | C2I |
+| 61 | future | M09 | Mixed First Conversation | integrated practice | Combine first-contact, origin, need and object language. | 60 | none | all prior | question punctuation | 3 typed recall | C2J |
+| 62 | future | M09 | Integrated A0 Review | review | Recall all major A0 patterns in varied contexts. | 61 | none | all prior | all reading basics | 4 typed recall | C2J |
+| 63 | future | M09 | Final A0 Checkpoint | final checkpoint | Assess the complete Spanish A0 foundation. | 62 | none | all prior | sampled reading rules | 5 typed recall | C2J |
 
 ---
 
@@ -706,7 +710,7 @@ The target restructure should not be applied wholesale to production until progr
 | C2F | Module 5 | 25-31 | Numbers, quantities, age, personal facts checkpoint. | number/age references, answer constraints, delayed reuse |
 | C2G | Module 6 | 32-38 | Objects, articles, tener possession, word order. | tener misconceptions, review references, object diversity |
 | C2H | Module 7 | 39-44 | Food, drink, hunger/thirst, needs checkpoint. | request prompts, no unsupported grammar, application tasks |
-| C2I | Module 8 | 45-49 | Family, friends, home, city, profiles. | profile reading integrity, third-person transfer |
+| C2I | Module 8 | 52-60 | Home and family: close family members, family names, siblings, rooms, household objects, `hay` versus `está`, integrated review and checkpoint. | family/home prompt constraints, `hay`/`está` misconceptions, Module 8 competency recovery |
 | C2J | Module 9 | 50-52 | Integrated review and final checkpoint. | final coverage matrix, no answer leakage, course quality targets |
 | C2K | Production reorder | all | Apply approved curriculum order after progress policy. | planner/progress compatibility |
 

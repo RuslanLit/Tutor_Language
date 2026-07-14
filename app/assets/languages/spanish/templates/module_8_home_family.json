@@ -1,0 +1,1300 @@
+[
+  {
+    "id": "template.es.a0.m08.l052.family_member_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"mother\".",
+    "answer_options": [
+      {
+        "id": "madre",
+        "label": "madre"
+      },
+      {
+        "id": "padre",
+        "label": "padre"
+      },
+      {
+        "id": "hermano",
+        "label": "hermano"
+      }
+    ],
+    "correct_option_id": "madre"
+  },
+  {
+    "id": "template.es.a0.m08.l052.fill_padre.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"father\": \"Este es mi ____.\"",
+    "expected_answer": "padre",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l052.madre_for_padre.v1",
+        "matching_answers": [
+          "madre"
+        ],
+        "feedback_key": "spanish.family.padre_madre_contrast",
+        "canonical_answer": "padre",
+        "explanation_reference_id": "grammar.es.a0.m08.family_identification.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l052.type_esta_es_mi_madre.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"This is my mother.\"",
+    "expected_answer": "Esta es mi madre",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l052.este_madre.v1",
+        "matching_answers": [
+          "Este es mi madre"
+        ],
+        "feedback_key": "spanish.family.use_esta_with_madre",
+        "canonical_answer": "Esta es mi madre",
+        "explanation_reference_id": "grammar.es.a0.m08.family_identification.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l052.family_member_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l052.type_este_es_mi_padre.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"This is my father.\"",
+    "expected_answer": "Este es mi padre",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l052.esta_padre.v1",
+        "matching_answers": [
+          "Esta es mi padre"
+        ],
+        "feedback_key": "spanish.family.use_este_with_padre",
+        "canonical_answer": "Este es mi padre",
+        "explanation_reference_id": "grammar.es.a0.m08.family_identification.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l052.fill_padre.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l053.who_sister_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish answer to identify a sister.",
+    "answer_options": [
+      {
+        "id": "hermana",
+        "label": "Es mi hermana."
+      },
+      {
+        "id": "cocina",
+        "label": "Está en la cocina."
+      },
+      {
+        "id": "pregunta",
+        "label": "¿Dónde está?"
+      }
+    ],
+    "correct_option_id": "hermana"
+  },
+  {
+    "id": "template.es.a0.m08.l053.fill_se_llama.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish pattern for another person's name: \"Mi hermana ____ Marta.\"",
+    "expected_answer": "se llama"
+  },
+  {
+    "id": "template.es.a0.m08.l053.type_mi_hermana_se_llama.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"My sister is named Marta.\"",
+    "expected_answer": "Mi hermana se llama Marta",
+    "accepted_answers": [
+      "Mi hermana se llama Marta."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l053.name_only.v1",
+        "matching_answers": [
+          "Marta"
+        ],
+        "feedback_key": "response.family_relationship_expected_name_provided",
+        "canonical_answer": "Mi hermana se llama Marta",
+        "explanation_reference_id": "grammar.es.a0.m08.third_person_family_name.v1"
+      },
+      {
+        "id": "misconception.es.a0.m08.l053.soy_marta.v1",
+        "matching_answers": [
+          "Soy Marta"
+        ],
+        "feedback_key": "spanish.name.use_se_llama_for_another_person",
+        "canonical_answer": "Mi hermana se llama Marta",
+        "explanation_reference_id": "grammar.es.a0.m08.third_person_family_name.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l053.fill_se_llama.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l053.type_quien_es_ella.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Who is she?\"",
+    "expected_answer": "¿Quién es ella?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l053.answer_for_question.v1",
+        "matching_answers": [
+          "Es mi hermana",
+          "Es mi hermana."
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Quién es ella?",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l053.who_sister_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l054.tengo_form_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish form that means \"I have\".",
+    "answer_options": [
+      {
+        "id": "tengo",
+        "label": "tengo"
+      },
+      {
+        "id": "tienes",
+        "label": "tienes"
+      },
+      {
+        "id": "tiene",
+        "label": "tiene"
+      }
+    ],
+    "correct_option_id": "tengo"
+  },
+  {
+    "id": "template.es.a0.m08.l054.fill_hermana.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"sister\": \"Tengo una ____.\"",
+    "expected_answer": "hermana",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l054.hermano_for_hermana.v1",
+        "matching_answers": [
+          "hermano"
+        ],
+        "feedback_key": "spanish.family.hermano_hermana_contrast",
+        "canonical_answer": "hermana",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l054.type_tienes_hermanos.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Do you have siblings?\"",
+    "expected_answer": "¿Tienes hermanos?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l054.answer_for_question.v1",
+        "matching_answers": [
+          "Tengo un hermano",
+          "Tengo una hermana",
+          "No tengo hermanos"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Tienes hermanos?",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l054.tengo_form_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l054.type_tengo_una_hermana.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer: \"I have a sister.\"",
+    "expected_answer": "Tengo una hermana",
+    "accepted_answers": [
+      "Tengo una hermana."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l054.tiene_for_tengo.v1",
+        "matching_answers": [
+          "Tiene una hermana"
+        ],
+        "feedback_key": "spanish.tener.use_tengo_for_self",
+        "canonical_answer": "Tengo una hermana",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      },
+      {
+        "id": "misconception.es.a0.m08.l054.un_hermana.v1",
+        "matching_answers": [
+          "Tengo un hermana"
+        ],
+        "feedback_key": "spanish.family.use_una_with_hermana",
+        "canonical_answer": "Tengo una hermana",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l054.fill_hermana.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l054.type_no_tengo_hermanos.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer: \"I do not have siblings.\"",
+    "expected_answer": "No tengo hermanos",
+    "accepted_answers": [
+      "No tengo hermanos."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l054.question_for_answer.v1",
+        "matching_answers": [
+          "¿Tienes hermanos?",
+          "Tienes hermanos?"
+        ],
+        "feedback_key": "response.answer_expected_question",
+        "canonical_answer": "No tengo hermanos",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l054.type_tienes_hermanos.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l055.room_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"kitchen\".",
+    "answer_options": [
+      {
+        "id": "cocina",
+        "label": "cocina"
+      },
+      {
+        "id": "madre",
+        "label": "madre"
+      },
+      {
+        "id": "mesa",
+        "label": "mesa"
+      }
+    ],
+    "correct_option_id": "cocina"
+  },
+  {
+    "id": "template.es.a0.m08.l055.fill_cocina.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"kitchen\": \"Esta es la ____.\"",
+    "expected_answer": "cocina"
+  },
+  {
+    "id": "template.es.a0.m08.l055.type_esta_es_la_cocina.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"This is the kitchen.\"",
+    "expected_answer": "Esta es la cocina",
+    "accepted_answers": [
+      "Esta es la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l055.object_for_room.v1",
+        "matching_answers": [
+          "Esta es la mesa"
+        ],
+        "feedback_key": "response.room_expected_object_provided",
+        "canonical_answer": "Esta es la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.home_rooms.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l055.room_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l055.type_donde_esta_cocina.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the kitchen?\"",
+    "expected_answer": "¿Dónde está la cocina?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l055.answer_for_question.v1",
+        "matching_answers": [
+          "Está allí",
+          "Está aquí"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está la cocina?",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      },
+      {
+        "id": "misconception.es.a0.m08.l055.quien_for_donde.v1",
+        "matching_answers": [
+          "¿Quién es la cocina?",
+          "Quien es la cocina?"
+        ],
+        "feedback_key": "spanish.questions.use_donde_for_location",
+        "canonical_answer": "¿Dónde está la cocina?",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l055.fill_cocina.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l056.object_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"bed\".",
+    "answer_options": [
+      {
+        "id": "cama",
+        "label": "cama"
+      },
+      {
+        "id": "salon",
+        "label": "salón"
+      },
+      {
+        "id": "padre",
+        "label": "padre"
+      }
+    ],
+    "correct_option_id": "cama"
+  },
+  {
+    "id": "template.es.a0.m08.l056.fill_en.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the location word from the pattern: \"La mesa está ____ la cocina.\"",
+    "expected_answer": "en"
+  },
+  {
+    "id": "template.es.a0.m08.l056.type_donde_esta_mesa.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the table?\"",
+    "expected_answer": "¿Dónde está la mesa?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l056.identity_for_location.v1",
+        "matching_answers": [
+          "Es una mesa",
+          "Es la mesa"
+        ],
+        "feedback_key": "response.location_expected_object_identification",
+        "canonical_answer": "¿Dónde está la mesa?",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l056.object_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish location statement: \"The table is in the kitchen.\"",
+    "expected_answer": "La mesa está en la cocina",
+    "accepted_answers": [
+      "La mesa está en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l056.es_for_esta.v1",
+        "matching_answers": [
+          "La mesa es en la cocina"
+        ],
+        "feedback_key": "spanish.location.use_esta_for_location",
+        "canonical_answer": "La mesa está en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.location_with_estar_home.v1"
+      },
+      {
+        "id": "misconception.es.a0.m08.l056.hay_for_known_table.v1",
+        "matching_answers": [
+          "Hay la mesa en la cocina"
+        ],
+        "feedback_key": "spanish.location.use_esta_for_known_item",
+        "canonical_answer": "La mesa está en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l056.fill_en.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l056.type_hay_mesa_cocina.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"There is a table in the kitchen.\"",
+    "expected_answer": "Hay una mesa en la cocina",
+    "accepted_answers": [
+      "Hay una mesa en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l056.esta_for_existence.v1",
+        "matching_answers": [
+          "Está una mesa en la cocina",
+          "La mesa está en la cocina"
+        ],
+        "feedback_key": "spanish.location.use_hay_for_existence",
+        "canonical_answer": "Hay una mesa en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l057.profile_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence that says there is a chair in the living room.",
+    "answer_options": [
+      {
+        "id": "silla",
+        "label": "Hay una silla en el salón."
+      },
+      {
+        "id": "padre",
+        "label": "Mi padre está en el salón."
+      },
+      {
+        "id": "pregunta",
+        "label": "¿Dónde está la silla?"
+      }
+    ],
+    "correct_option_id": "silla"
+  },
+  {
+    "id": "template.es.a0.m08.l057.fill_salon.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish room word: \"Mi padre está en el ____.\"",
+    "expected_answer": "salón"
+  },
+  {
+    "id": "template.es.a0.m08.l057.type_mi_madre_salon.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish location statement: \"My mother is in the living room.\"",
+    "expected_answer": "Mi madre está en el salón",
+    "accepted_answers": [
+      "Mi madre está en el salón."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l057.es_for_location.v1",
+        "matching_answers": [
+          "Mi madre es en el salón"
+        ],
+        "feedback_key": "spanish.location.use_esta_for_location",
+        "canonical_answer": "Mi madre está en el salón",
+        "explanation_reference_id": "grammar.es.a0.m08.location_with_estar_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l057.fill_salon.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l057.type_basic_home_profile.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the two Spanish sentences: \"This is my house. There is a table in the kitchen.\"",
+    "expected_answer": "Esta es mi casa. Hay una mesa en la cocina",
+    "accepted_answers": [
+      "Esta es mi casa. Hay una mesa en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l057.only_family.v1",
+        "matching_answers": [
+          "Esta es mi familia"
+        ],
+        "feedback_key": "response.home_description_expected_family_statement",
+        "canonical_answer": "Esta es mi casa. Hay una mesa en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l057.profile_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l058.dialogue_comprehension.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "From the dialogue, choose where Luis is.",
+    "answer_options": [
+      {
+        "id": "cocina",
+        "label": "en la cocina"
+      },
+      {
+        "id": "salon",
+        "label": "en el salón"
+      },
+      {
+        "id": "bano",
+        "label": "en el baño"
+      }
+    ],
+    "correct_option_id": "cocina"
+  },
+  {
+    "id": "template.es.a0.m08.l058.fill_quien.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish question word for asking who someone is: \"¿____ es él?\"",
+    "expected_answer": "Quién"
+  },
+  {
+    "id": "template.es.a0.m08.l058.type_integrated_family_home.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the two Spanish sentences: \"He is my brother. He is in the kitchen.\"",
+    "expected_answer": "Es mi hermano. Está en la cocina",
+    "accepted_answers": [
+      "Es mi hermano. Está en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l058.name_only.v1",
+        "matching_answers": [
+          "Se llama Luis"
+        ],
+        "feedback_key": "response.family_relationship_expected_name_provided",
+        "canonical_answer": "Es mi hermano. Está en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.family_identification.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l058.dialogue_comprehension.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.l058.type_ask_and_answer_location.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question and answer: \"Where is your father? He is in the living room.\"",
+    "expected_answer": "¿Dónde está tu padre? Está en el salón",
+    "accepted_answers": [
+      "¿Dónde está tu padre? Está en el salón."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.l058.answer_only.v1",
+        "matching_answers": [
+          "Está en el salón"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está tu padre? Está en el salón",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l058.fill_quien.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.review.relationship_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence that identifies a father.",
+    "answer_options": [
+      {
+        "id": "padre",
+        "label": "Este es mi padre."
+      },
+      {
+        "id": "madre",
+        "label": "Esta es mi madre."
+      },
+      {
+        "id": "mesa",
+        "label": "Esta es la mesa."
+      }
+    ],
+    "correct_option_id": "padre"
+  },
+  {
+    "id": "template.es.a0.m08.review.fill_tiene.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish form for \"he/she has\": \"Marta ____ una hermana.\"",
+    "expected_answer": "tiene"
+  },
+  {
+    "id": "template.es.a0.m08.review.type_family_name.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish sentence about the fictional profile: her sister is named Elena.",
+    "expected_answer": "Su hermana se llama Elena",
+    "accepted_answers": [
+      "Su hermana se llama Elena."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l053.fill_se_llama.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.review.type_location_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish question asking where the bedroom is.",
+    "expected_answer": "¿Dónde está el dormitorio?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.review.answer_for_question.v1",
+        "matching_answers": [
+          "Está allí",
+          "Está a la derecha"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está el dormitorio?",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l055.type_donde_esta_cocina.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.review.type_home_location.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish location statement: the bed is in the bedroom.",
+    "expected_answer": "La cama está en el dormitorio",
+    "accepted_answers": [
+      "La cama está en el dormitorio."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.review.type_integrated_profile.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write two Spanish sentences for a fictional profile: I have a sister. My house has a kitchen.",
+    "expected_answer": "Tengo una hermana. Mi casa tiene una cocina",
+    "accepted_answers": [
+      "Tengo una hermana. Mi casa tiene una cocina."
+    ],
+    "review_template_ids": [
+      "template.es.a0.m08.l054.type_tengo_una_hermana.v1",
+      "template.es.a0.m08.l055.type_esta_es_la_cocina.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.room_object_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence that locates an object.",
+    "answer_options": [
+      {
+        "id": "mesa",
+        "label": "La mesa está en la cocina."
+      },
+      {
+        "id": "quien",
+        "label": "¿Quién es ella?"
+      },
+      {
+        "id": "familia",
+        "label": "Esta es mi familia."
+      }
+    ],
+    "correct_option_id": "mesa"
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.fill_hermanos.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for siblings: \"¿Tienes ____?\"",
+    "expected_answer": "hermanos"
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.type_identify_family.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish sentence for the checkpoint profile: she is my grandmother.",
+    "expected_answer": "Es mi abuela",
+    "accepted_answers": [
+      "Es mi abuela."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.checkpoint.abuelo_for_abuela.v1",
+        "matching_answers": [
+          "Es mi abuelo"
+        ],
+        "feedback_key": "spanish.family.abuelo_abuela_contrast",
+        "canonical_answer": "Es mi abuela",
+        "explanation_reference_id": "grammar.es.a0.m08.family_identification.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.type_family_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish question asking whether the other person has siblings.",
+    "expected_answer": "¿Tienes hermanos?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.checkpoint.answer_for_family_question.v1",
+        "matching_answers": [
+          "Tengo una hermana"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Tienes hermanos?",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.type_home_description.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish sentence saying there is a bed in the bedroom.",
+    "expected_answer": "Hay una cama en el dormitorio",
+    "accepted_answers": [
+      "Hay una cama en el dormitorio."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.checkpoint.esta_for_hay.v1",
+        "matching_answers": [
+          "La cama está en el dormitorio"
+        ],
+        "feedback_key": "spanish.location.use_hay_for_existence",
+        "canonical_answer": "Hay una cama en el dormitorio",
+        "explanation_reference_id": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.type_person_location.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish location statement: my father is in the kitchen.",
+    "expected_answer": "Mi padre está en la cocina",
+    "accepted_answers": [
+      "Mi padre está en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.checkpoint.es_for_location.v1",
+        "matching_answers": [
+          "Mi padre es en la cocina"
+        ],
+        "feedback_key": "spanish.location.use_esta_for_location",
+        "canonical_answer": "Mi padre está en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.location_with_estar_home.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.checkpoint.type_integrated_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Write the Spanish question and answer: who is she? She is my sister.",
+    "expected_answer": "¿Quién es ella? Es mi hermana",
+    "accepted_answers": [
+      "¿Quién es ella? Es mi hermana."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.checkpoint.location_question.v1",
+        "matching_answers": [
+          "¿Dónde está ella? Está en el salón"
+        ],
+        "feedback_key": "spanish.questions.use_quien_for_identity",
+        "canonical_answer": "¿Quién es ella? Es mi hermana",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.identify_family_member.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: say who Marta is in the fictional family and state her name.",
+    "expected_answer": "Es mi hermana. Se llama Marta",
+    "accepted_answers": [
+      "Se llama Marta. Es mi hermana.",
+      "Es mi hermana. Se llama Marta."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.name_only.v1",
+        "matching_answers": [
+          "Marta",
+          "Se llama Marta"
+        ],
+        "feedback_key": "response.family_relationship_expected_name_provided",
+        "canonical_answer": "Es mi hermana. Se llama Marta",
+        "explanation_reference_id": "grammar.es.a0.m08.third_person_family_name.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.ask_about_family.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: ask whether the other person has siblings.",
+    "expected_answer": "¿Tienes hermanos?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.answer_for_question.v1",
+        "matching_answers": [
+          "Tengo un hermano",
+          "No tengo hermanos"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Tienes hermanos?",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.answer_family_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic profile: answer that you have a brother and a sister.",
+    "expected_answer": "Tengo un hermano y una hermana",
+    "accepted_answers": [
+      "Tengo un hermano y una hermana."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.tiene_for_tengo.v1",
+        "matching_answers": [
+          "Tiene un hermano y una hermana"
+        ],
+        "feedback_key": "spanish.tener.use_tengo_for_self",
+        "canonical_answer": "Tengo un hermano y una hermana",
+        "explanation_reference_id": "grammar.es.a0.m08.tener_family.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.identify_room_object.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: identify the room and object in Spanish: the kitchen and the table.",
+    "expected_answer": "La cocina y la mesa",
+    "accepted_answers": [
+      "cocina y mesa",
+      "La cocina y la mesa."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.only_room.v1",
+        "matching_answers": [
+          "La cocina"
+        ],
+        "feedback_key": "response.room_and_object_expected",
+        "canonical_answer": "La cocina y la mesa",
+        "explanation_reference_id": "grammar.es.a0.m08.home_rooms.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.ask_and_state_location.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: ask where the table is and answer that it is in the kitchen.",
+    "expected_answer": "¿Dónde está la mesa? Está en la cocina",
+    "accepted_answers": [
+      "¿Dónde está la mesa? La mesa está en la cocina.",
+      "¿Dónde está la mesa? Está en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.answer_only_location.v1",
+        "matching_answers": [
+          "Está en la cocina",
+          "La mesa está en la cocina"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está la mesa? Está en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.where_who_questions_home.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.basic_home_description.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: describe a simple home with two Spanish sentences: this is my house; there is a table in the kitchen.",
+    "expected_answer": "Esta es mi casa. Hay una mesa en la cocina",
+    "accepted_answers": [
+      "Esta es mi casa. Hay una mesa en la cocina."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.location_not_existence.v1",
+        "matching_answers": [
+          "Esta es mi casa. La mesa está en la cocina"
+        ],
+        "feedback_key": "spanish.location.use_hay_for_existence",
+        "canonical_answer": "Esta es mi casa. Hay una mesa en la cocina",
+        "explanation_reference_id": "grammar.es.a0.m08.hay_vs_esta_home.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m08.competency.family_home_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Diagnostic: complete the family/home exchange with two Spanish sentences: she is my sister; she is in the living room.",
+    "expected_answer": "Es mi hermana. Está en el salón",
+    "accepted_answers": [
+      "Es mi hermana. Está en el salón."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m08.competency.identity_only.v1",
+        "matching_answers": [
+          "Es mi hermana"
+        ],
+        "feedback_key": "spanish.home.include_location",
+        "canonical_answer": "Es mi hermana. Está en el salón",
+        "explanation_reference_id": "grammar.es.a0.m08.location_with_estar_home.v1"
+      }
+    ]
+  }
+]

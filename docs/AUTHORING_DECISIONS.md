@@ -364,4 +364,41 @@ generate situational advice.
 
 ---
 
+# Spanish A0 Module 8 Home and Family Scope
+
+Module 8 teaches controlled home-and-family communication, not broad family
+description, household life or personal biography.
+
+The active production lesson IDs are `es.a0.m08.l052` through
+`es.a0.m08.l060`. Older Module 8 placeholder/integration lesson IDs were not
+reused for different educational identities.
+
+The selected A0 scope is:
+
+- close family members;
+- `mi`, controlled `tu` and `mis`;
+- `este/esta` for identifying a known family member or object;
+- `tengo`, `tienes` and `tiene` only in family facts;
+- common rooms and simple household objects;
+- `hay` for existence in a place;
+- `está` for locating a known person, room or object;
+- `en` and `al lado de` in bounded home contexts.
+
+The module does not teach broad family trees, daily routines, chores, rent,
+addresses, housing problems, open biographies or real learner family claims.
+Personal-looking examples must remain fictional or clearly task-bounded unless
+the learner explicitly supplies the personal content in a future feature.
+
+`hay` and `está` must be taught before they are assessed together. Authored
+misconceptions may explain only the narrow implemented distinctions, such as
+using `está` where the task asks for existence or using `hay` where the task
+asks for a known object's location.
+
+Home-and-family competency recovery may use earlier person-identification and
+location-question content when the learner fails a predictable exchange. The
+family terms, room/object words and `hay` versus `está` contrast remain owned
+by Module 8.
+
+---
+
 End of document.

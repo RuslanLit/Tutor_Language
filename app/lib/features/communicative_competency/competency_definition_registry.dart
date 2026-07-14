@@ -54,6 +54,7 @@ class CompetencyDefinitionRegistry {
         'es.a0.m05',
         'es.a0.m06',
         'es.a0.m07',
+        'es.a0.m08',
       ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
@@ -398,6 +399,94 @@ const _defaultDefinitions = [
           'template.es.a0.m04.l025.dialogue_comprehension.v1',
       'micro.es.a0.complete_basic_help_exchange':
           'template.es.a0.m07.l049.dialogue_comprehension.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+      moduleId: 'es.a0.m08',
+      title: 'Basic family and home check',
+      communicativeGoal:
+          'Identify close family members, describe a simple home, and complete a short family/home exchange.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.identify_family_member',
+        'micro.es.a0.state_family_member_name',
+        'micro.es.a0.state_family_relationship',
+        'micro.es.a0.ask_about_family',
+        'micro.es.a0.state_basic_family_information',
+        'micro.es.a0.state_have_family_member',
+        'micro.es.a0.understand_short_family_profile',
+        'micro.es.a0.identify_home_room',
+        'micro.es.a0.name_household_object',
+        'micro.es.a0.ask_where_person_or_object_is',
+        'micro.es.a0.state_person_or_object_location',
+        'micro.es.a0.describe_basic_home',
+        'micro.es.a0.understand_short_home_description',
+        'micro.es.a0.respond_in_family_home_exchange',
+        'micro.es.a0.complete_basic_family_home_exchange',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m08.identify_family_member',
+        'task.es.a0.m08.ask_about_family',
+        'task.es.a0.m08.answer_family_question',
+        'task.es.a0.m08.identify_room_object',
+        'task.es.a0.m08.ask_and_state_location',
+        'task.es.a0.m08.describe_basic_home',
+        'task.es.a0.m08.family_home_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m08.identify_family_member':
+          'template.es.a0.m08.competency.identify_family_member.v1',
+      'task.es.a0.m08.ask_about_family':
+          'template.es.a0.m08.competency.ask_about_family.v1',
+      'task.es.a0.m08.answer_family_question':
+          'template.es.a0.m08.competency.answer_family_question.v1',
+      'task.es.a0.m08.identify_room_object':
+          'template.es.a0.m08.competency.identify_room_object.v1',
+      'task.es.a0.m08.ask_and_state_location':
+          'template.es.a0.m08.competency.ask_and_state_location.v1',
+      'task.es.a0.m08.describe_basic_home':
+          'template.es.a0.m08.competency.basic_home_description.v1',
+      'task.es.a0.m08.family_home_exchange':
+          'template.es.a0.m08.competency.family_home_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.identify_family_member':
+          'template.es.a0.m08.l052.family_member_choice.v1',
+      'micro.es.a0.state_family_member_name':
+          'template.es.a0.m08.l053.fill_se_llama.v1',
+      'micro.es.a0.state_family_relationship':
+          'template.es.a0.m08.l053.who_sister_choice.v1',
+      'micro.es.a0.ask_about_family':
+          'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+      'micro.es.a0.state_basic_family_information':
+          'template.es.a0.m08.l054.type_tengo_una_hermana.v1',
+      'micro.es.a0.state_have_family_member':
+          'template.es.a0.m08.l054.tengo_form_choice.v1',
+      'micro.es.a0.understand_short_family_profile':
+          'template.es.a0.m08.l053.who_sister_choice.v1',
+      'micro.es.a0.identify_home_room':
+          'template.es.a0.m08.l055.room_choice.v1',
+      'micro.es.a0.name_household_object':
+          'template.es.a0.m08.l056.object_choice.v1',
+      'micro.es.a0.ask_where_person_or_object_is':
+          'template.es.a0.m06.l037.where_question_choice.v1',
+      'micro.es.a0.state_person_or_object_location':
+          'template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1',
+      'micro.es.a0.describe_basic_home':
+          'template.es.a0.m08.l057.type_basic_home_profile.v1',
+      'micro.es.a0.understand_short_home_description':
+          'template.es.a0.m08.l057.profile_choice.v1',
+      'micro.es.a0.respond_in_family_home_exchange':
+          'template.es.a0.m04.l025.dialogue_comprehension.v1',
+      'micro.es.a0.complete_basic_family_home_exchange':
+          'template.es.a0.m08.l058.dialogue_comprehension.v1',
+      'recovery.es.a0.m08.state_person_name.m04':
+          'template.es.a0.m04.l020.fill_se_llama.v1',
+      'recovery.es.a0.m08.state_location.m06':
+          'template.es.a0.m06.l037.where_question_choice.v1',
     },
   ),
 ];
@@ -911,6 +1000,116 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m07',
     prerequisiteContentReferences: [
       'template.es.a0.m07.competency.complete_help_exchange.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.identify_family_member',
+    description: 'Identify a close family member in a controlled prompt.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l052.family_member_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_family_member_name',
+    description: 'State a family member name with se llama.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: ['template.es.a0.m08.l053.fill_se_llama.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_family_relationship',
+    description: 'State a basic family relationship.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l053.who_sister_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_about_family',
+    description: 'Ask a controlled question about siblings.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_basic_family_information',
+    description: 'State one bounded fact about a family member.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l054.type_tengo_una_hermana.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_have_family_member',
+    description: 'Use tengo/tienes/tiene for controlled family facts.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l054.tengo_form_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_short_family_profile',
+    description: 'Understand a short authored family profile.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: ['reading.es.a0.m08.family_profile.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.identify_home_room',
+    description: 'Identify a common room in a home.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: ['template.es.a0.m08.l055.room_choice.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.name_household_object',
+    description: 'Name a common household object.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: ['template.es.a0.m08.l056.object_choice.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_where_person_or_object_is',
+    description: 'Ask where a person or object is.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l056.type_donde_esta_mesa.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_person_or_object_location',
+    description: 'State the simple location of a person or object.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l056.type_la_mesa_esta_cocina.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.describe_basic_home',
+    description: 'Describe a simple home with bounded known patterns.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l057.type_basic_home_profile.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_short_home_description',
+    description: 'Understand a short authored home description.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: ['reading.es.a0.m08.objects_location.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_in_family_home_exchange',
+    description: 'Respond in a short family and home exchange.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.l058.dialogue_comprehension.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_basic_family_home_exchange',
+    description: 'Complete a bounded family and home exchange.',
+    introducedInModuleId: 'es.a0.m08',
+    prerequisiteContentReferences: [
+      'template.es.a0.m08.competency.family_home_exchange.v1',
     ],
   ),
 ];
@@ -1712,6 +1911,201 @@ const _assessmentTasks = [
           ),
         ],
         retryTaskId: 'task.es.a0.m07.complete_help_exchange',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.identify_family_member',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.identify_family_member',
+      'micro.es.a0.state_family_relationship',
+      'micro.es.a0.state_family_member_name',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.identify_family_member.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_family_relationship',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l053.who_sister_choice.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l053',
+            sourceStepId: 'template.es.a0.m08.l053.who_sister_choice.v1',
+          ),
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l020.fill_se_llama.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l020',
+            sourceStepId: 'template.es.a0.m04.l020.fill_se_llama.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.identify_family_member',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.ask_about_family',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_about_family'],
+    lessonStepReference: 'template.es.a0.m08.competency.ask_about_family.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_about_family',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l054',
+            sourceStepId: 'template.es.a0.m08.l054.type_tienes_hermanos.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.ask_about_family',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.answer_family_question',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.state_have_family_member',
+      'micro.es.a0.state_basic_family_information',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.answer_family_question.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_have_family_member',
+        reasonCode: CompetencyGapReasonCode.incorrectVerbForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l054.tengo_form_choice.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l054',
+            sourceStepId: 'template.es.a0.m08.l054.tengo_form_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.answer_family_question',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.identify_room_object',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.identify_home_room',
+      'micro.es.a0.name_household_object',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.identify_room_object.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.identify_home_room',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l055.room_choice.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l055',
+            sourceStepId: 'template.es.a0.m08.l055.room_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.identify_room_object',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.ask_and_state_location',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_where_person_or_object_is',
+      'micro.es.a0.state_person_or_object_location',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.ask_and_state_location.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_where_person_or_object_is',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l037.where_question_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l037',
+            sourceStepId: 'template.es.a0.m06.l037.where_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.ask_and_state_location',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.describe_basic_home',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.describe_basic_home',
+      'micro.es.a0.understand_short_home_description',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.basic_home_description.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.describe_basic_home',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l057.type_basic_home_profile.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l057',
+            sourceStepId: 'template.es.a0.m08.l057.type_basic_home_profile.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.describe_basic_home',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m08.family_home_exchange',
+    competencyId: 'competency.es.a0.m08.describe_basic_family_and_home',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.identify_family_member',
+      'micro.es.a0.state_family_relationship',
+      'micro.es.a0.state_person_or_object_location',
+      'micro.es.a0.respond_in_family_home_exchange',
+      'micro.es.a0.complete_basic_family_home_exchange',
+    ],
+    lessonStepReference:
+        'template.es.a0.m08.competency.family_home_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_basic_family_home_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l058.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l058',
+            sourceStepId: 'template.es.a0.m08.l058.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.family_home_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_in_family_home_exchange',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l025',
+            sourceStepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m08.family_home_exchange',
       ),
     ],
   ),
