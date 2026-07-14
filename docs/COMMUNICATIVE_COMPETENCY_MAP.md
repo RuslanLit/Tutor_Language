@@ -282,34 +282,58 @@ Modules 1 and 4.
 
 ---
 
-# Module 6 — Everyday Objects and Tener
+# Module 6 — Transport and Directions
 
 ## Communicative Competencies
 
-- Name common everyday objects.
-- Use `un/una` with familiar objects.
-- Say that someone has a familiar object.
-- Understand a simple object-location exchange.
+- Identify common transport words.
+- Say a simple transport method.
+- Ask where a familiar place is.
+- State whether a place is near or far.
+- Ask how to get to a familiar place.
+- Understand and give simple directions.
+- Complete a short predictable route exchange.
 
 ## Typical Real-Life Scenarios
 
-- saying `tengo un libro`;
-- asking if someone has a phone or key;
-- understanding `aquí` and `allí` with familiar objects;
-- correcting short word-order problems.
+- saying `Voy en metro` or `Voy a pie`;
+- asking `¿Dónde está la estación?`;
+- understanding `Está cerca` and `Está lejos`;
+- asking `¿Cómo llego al hotel?`;
+- following or giving `sigue recto`, `gira a la izquierda` and
+  `gira a la derecha`;
+- asking which transport to take in a controlled exchange.
 
 ## Language Patterns Introduced
 
-- object nouns such as book, phone, key, bag, table and chair;
-- `un`, `una`;
-- `tengo`, `tienes`, `tiene`;
-- `está aquí`, `está allí` in controlled use.
+- basic transport nouns such as `autobús`, `tren`, `metro`, `taxi` and
+  `bicicleta`;
+- route places such as `estación`, `parada`, `centro`, `hotel`, `hospital`,
+  `farmacia` and `supermercado`;
+- `¿Dónde está...?`;
+- `Está cerca/lejos`;
+- `¿Cómo llego...?`;
+- `sigue recto`, `gira a la izquierda`, `gira a la derecha`;
+- `¿Qué transporte tomo?` and `Toma el metro`.
 
 ## Typical Learner Limitations
 
-- Cannot yet describe objects freely.
-- Cannot handle broad article or gender explanations.
-- Needs small object pools and explicit person constraints.
+- Cannot handle open-ended city navigation.
+- Cannot understand detailed route descriptions, maps, times or schedules.
+- Uses a small fixed direction register; the full command system is not taught.
+- Needs explicit route order and short place/transport pools.
+
+Implemented competency:
+
+`competency.es.a0.m06.ask_and_follow_basic_directions`
+
+Diagnostic tasks cover transport method, asking where a place is, recognizing a
+simple direction, asking how to get somewhere, giving a short route and one
+integrated route exchange.
+
+Recovery uses Module 6 transport/direction steps, plus earlier Module 4
+conversation behavior where the route exchange requires a predictable
+question-answer flow.
 
 ---
 

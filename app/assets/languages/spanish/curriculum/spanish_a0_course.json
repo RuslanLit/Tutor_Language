@@ -3,7 +3,7 @@
   "languageId": "spanish",
   "title": "Spanish A0",
   "level": "A0",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "modules": [
     {
       "id": "es.a0.m01",
@@ -72,11 +72,16 @@
     },
     {
       "id": "es.a0.m06",
-      "title": "Reading Spanish Basics",
+      "title": "Transport and Directions",
       "lessonIds": [
-        "es.a0.m06.l018",
-        "es.a0.m06.l019",
-        "es.a0.m06.l020"
+        "es.a0.m06.l036",
+        "es.a0.m06.l037",
+        "es.a0.m06.l038",
+        "es.a0.m06.l039",
+        "es.a0.m06.l040",
+        "es.a0.m06.l041",
+        "es.a0.m06.l042",
+        "es.a0.m06.l043"
       ]
     },
     {
@@ -4523,6 +4528,1398 @@
     },
     {
       "metadata": {
+        "id": "es.a0.m06.l036",
+        "title": "Transport",
+        "description": "Identify common transport and say how you travel.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l035"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l036.primary",
+          "description": "Identify common transport and say a basic transport method."
+        }
+      ],
+      "communicativeOutcome": "Identify transport and say how you travel.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l036.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l036.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.autobus.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.tren.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.metro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.taxi.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.coche.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.bicicleta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.a_pie.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.voy.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l036.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.transport_method.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l036.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.transport_choice.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l036.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.transport_note.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l036.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l036.transport_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l036.fill_voy_en_autobus.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l036.type_voy_en_metro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l036.type_voy_a_pie.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l036.summary",
+        "reviewPrompt": "Review transport.",
+        "referenceIds": [
+          "objective.es.a0.m06.l036.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l036.activity.vocabulary",
+          "es.a0.m06.l036.activity.grammar",
+          "es.a0.m06.l036.activity.dialogue",
+          "es.a0.m06.l036.activity.reading",
+          "es.a0.m06.l036.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l036.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l037",
+        "title": "Where Is It?",
+        "description": "Ask where a place is and answer with a simple location.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l036"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l037.primary",
+          "description": "Ask ¿Dónde está...? and answer with está."
+        }
+      ],
+      "communicativeOutcome": "Ask where a place is and state a simple location.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l037.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l037.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.estacion.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.parada.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hotel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.donde_esta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.cerca.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.aqui.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.alli.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l037.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.location_with_estar.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.where_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l037.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.where_station.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l037.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.station_location.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l037.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l037.where_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l037.fill_esta_cerca.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l037.type_donde_esta_estacion.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l037.type_esta_cerca.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l037.summary",
+        "reviewPrompt": "Review where is it?.",
+        "referenceIds": [
+          "objective.es.a0.m06.l037.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l037.activity.vocabulary",
+          "es.a0.m06.l037.activity.grammar",
+          "es.a0.m06.l037.activity.dialogue",
+          "es.a0.m06.l037.activity.reading",
+          "es.a0.m06.l037.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l037.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l038",
+        "title": "Left, Right and Straight",
+        "description": "Understand and produce three simple direction commands.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l037"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l038.primary",
+          "description": "Use sigue recto, gira a la izquierda and gira a la derecha."
+        }
+      ],
+      "communicativeOutcome": "Understand and give left, right and straight directions.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l038.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l038.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.sigue.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.gira.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.recto.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.izquierda.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.derecha.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l038.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.simple_directions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l038.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.simple_hotel_route.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l038.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.direction_note.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l038.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l038.left_right_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l038.fill_sigue_recto.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l038.type_sigue_recto.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l038.type_gira_izquierda.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l038.type_gira_derecha.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l038.summary",
+        "reviewPrompt": "Review left, right and straight.",
+        "referenceIds": [
+          "objective.es.a0.m06.l038.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l038.activity.vocabulary",
+          "es.a0.m06.l038.activity.grammar",
+          "es.a0.m06.l038.activity.dialogue",
+          "es.a0.m06.l038.activity.reading",
+          "es.a0.m06.l038.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l038.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l039",
+        "title": "Near and Far",
+        "description": "Use cerca and lejos with familiar places.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l038"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l039.primary",
+          "description": "Distinguish and produce near and far location statements."
+        }
+      ],
+      "communicativeOutcome": "Say whether a place is near or far.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l039.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l039.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.farmacia.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hospital.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.calle.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.cerca.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.lejos.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l039.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.near_far.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.location_with_estar.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l039.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.near_far_message.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l039.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l039.near_far_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l039.fill_lejos.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l039.type_esta_lejos.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l039.type_parada_cerca.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l039.summary",
+        "reviewPrompt": "Review near and far.",
+        "referenceIds": [
+          "objective.es.a0.m06.l039.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l039.activity.vocabulary",
+          "es.a0.m06.l039.activity.grammar",
+          "es.a0.m06.l039.activity.reading",
+          "es.a0.m06.l039.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l039.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l040",
+        "title": "How Do I Get There?",
+        "description": "Ask how to get somewhere and follow a short ordered route.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l039"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l040.primary",
+          "description": "Ask cómo llego/cómo voy questions and keep route order."
+        }
+      ],
+      "communicativeOutcome": "Ask how to get somewhere and understand ordered directions.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l040.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l040.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.como_llego.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.como_voy.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hotel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.centro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.sigue.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.recto.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.derecha.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l040.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.how_to_get_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.simple_directions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l040.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.simple_hotel_route.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l040.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.route_to_center.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l040.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l040.route_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l040.fill_como_llego.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l040.type_como_llego_hotel.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l040.type_route_sequence.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l040.summary",
+        "reviewPrompt": "Review how do i get there?.",
+        "referenceIds": [
+          "objective.es.a0.m06.l040.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l040.activity.vocabulary",
+          "es.a0.m06.l040.activity.grammar",
+          "es.a0.m06.l040.activity.dialogue",
+          "es.a0.m06.l040.activity.reading",
+          "es.a0.m06.l040.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l040.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l041",
+        "title": "Transport and Route Exchange",
+        "description": "Ask which transport to take and answer with a simple method.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l040"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l041.primary",
+          "description": "Ask what transport to take and give simple transport advice."
+        }
+      ],
+      "communicativeOutcome": "Complete a short transport and route exchange.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l041.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l041.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.transporte.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.toma.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.ve.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.autobus.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.metro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.tren.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.centro.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l041.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.transport_method.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.how_to_get_questions.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l041.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.transport_choice.v1"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.route_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l041.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l041.transport_answer_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l041.fill_toma_metro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l041.type_que_transporte_tomo.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l041.type_toma_metro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.l041.type_voy_en_tren.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l041.summary",
+        "reviewPrompt": "Review transport and route exchange.",
+        "referenceIds": [
+          "objective.es.a0.m06.l041.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l041.activity.vocabulary",
+          "es.a0.m06.l041.activity.grammar",
+          "es.a0.m06.l041.activity.dialogue",
+          "es.a0.m06.l041.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l041.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l042",
+        "title": "Transport and Directions Review",
+        "description": "Recall transport, location questions, directions and route order.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l041"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l042.primary",
+          "description": "Actively recall Module 6 transport and directions language."
+        }
+      ],
+      "communicativeOutcome": "Review transport, location and directions in new combinations.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l042.section.main",
+          "title": "Review Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l042.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.autobus.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.metro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.estacion.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hotel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.parada.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.izquierda.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.derecha.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.cerca.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.lejos.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l042.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.where_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.how_to_get_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.simple_directions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.transport_method.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l042.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.route_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l042.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.route_to_center.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l042.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.review.type_donde_estacion.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.review.type_gira_derecha.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.review.type_voy_a_pie.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.review.type_short_route.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.review.route_note_choice.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l042.summary",
+        "reviewPrompt": "Review transport and directions review.",
+        "referenceIds": [
+          "objective.es.a0.m06.l042.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l042.activity.vocabulary",
+          "es.a0.m06.l042.activity.grammar",
+          "es.a0.m06.l042.activity.dialogue",
+          "es.a0.m06.l042.activity.reading",
+          "es.a0.m06.l042.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l042.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l043",
+        "title": "Transport and Directions Checkpoint",
+        "description": "Assess Module 6 transport, location, directions and route exchange skills.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l042"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l043.primary",
+          "description": "Demonstrate Module 6 transport and direction skills without new teaching."
+        }
+      ],
+      "communicativeOutcome": "Checkpoint transport, location questions, route directions and exchange.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l043.section.main",
+          "title": "Checkpoint Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l043.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.tren.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.autobus.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hotel.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.hospital.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.centro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.estacion.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.parada.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.izquierda.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_6_transport.json",
+                  "referenceId": "vocab.es.a0.m06.derecha.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l043.activity.grammar",
+              "title": "Pattern",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.where_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.how_to_get_questions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.simple_directions.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.near_far.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_6_transport.json",
+                  "referenceId": "grammar.es.a0.m06.transport_method.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l043.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_6_transport.json",
+                  "referenceId": "dialogue.es.a0.m06.route_exchange.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l043.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_6_transport.json",
+                  "referenceId": "reading.es.a0.m06.checkpoint_route.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m06.l043.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.transport_name.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_where_hotel.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_how_center.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_location_far.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_direction_left.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_transport_method.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_strict_route.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_6_transport.json",
+                  "referenceId": "template.es.a0.m06.checkpoint.type_route_exchange.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l043.summary",
+        "reviewPrompt": "Review transport and directions checkpoint.",
+        "referenceIds": [
+          "objective.es.a0.m06.l043.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l043.activity.vocabulary",
+          "es.a0.m06.l043.activity.grammar",
+          "es.a0.m06.l043.activity.dialogue",
+          "es.a0.m06.l043.activity.reading",
+          "es.a0.m06.l043.activity.practice"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l043.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
         "id": "es.a0.m06.l016",
         "title": "Silent h and Stable Vowels",
         "description": "Read familiar words with silent h and stable Spanish vowels.",
@@ -5105,476 +6502,6 @@
     },
     {
       "metadata": {
-        "id": "es.a0.m06.l018",
-        "title": "qu, gue, gui",
-        "description": "Read queso and Miguel using the course pronunciation baseline.",
-        "moduleId": "es.a0.m06",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m06.l017"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.es.a0.m06.l018.primary",
-          "description": "Read queso and Miguel using the course pronunciation baseline."
-        }
-      ],
-      "communicativeOutcome": "Recognize qu and hard g spellings in useful words.",
-      "sections": [
-        {
-          "id": "es.a0.m06.l018.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "es.a0.m06.l018.activity.vocabulary",
-              "title": "Vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.queso.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.qu.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.miguel.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.gue.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.gui.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l018.activity.grammar",
-              "title": "Pattern",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.qu_gue_gui.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l018.activity.dialogue",
-              "title": "Dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.food_polite.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l018.activity.reading",
-              "title": "Reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.reading_qu_g.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l018.activity.practice",
-              "title": "Practice",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l018_qu_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l018_fill_queso.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l018_type_que_significa.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l018_type_miguel.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m06.l018.summary",
-        "reviewPrompt": "Recognize qu and hard g spellings in useful words.",
-        "referenceIds": [
-          "objective.es.a0.m06.l018.primary"
-        ]
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "es.a0.m06.l018.activity.vocabulary",
-          "es.a0.m06.l018.activity.grammar",
-          "es.a0.m06.l018.activity.dialogue",
-          "es.a0.m06.l018.activity.reading",
-          "es.a0.m06.l018.activity.practice"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m06.l018.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m06.l019",
-        "title": "Question Accents",
-        "description": "Recall qué and fixed question spelling in short A0 questions.",
-        "moduleId": "es.a0.m06",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m06.l018"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.es.a0.m06.l019.primary",
-          "description": "Recall qué and fixed question spelling in short A0 questions."
-        }
-      ],
-      "communicativeOutcome": "Use accents in high-frequency direct question words.",
-      "sections": [
-        {
-          "id": "es.a0.m06.l019.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "es.a0.m06.l019.activity.vocabulary",
-              "title": "Vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.que.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.como.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.donde.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.adios.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l019.activity.grammar",
-              "title": "Pattern",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l019.activity.dialogue",
-              "title": "Dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.clarification_class.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l019.activity.reading",
-              "title": "Reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.question_words.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l019.activity.practice",
-              "title": "Practice",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l019_accent_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l019_fill_que.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l019_type_que_tal.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l019_type_adios.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m06.l019.summary",
-        "reviewPrompt": "Use accents in high-frequency direct question words.",
-        "referenceIds": [
-          "objective.es.a0.m06.l019.primary"
-        ]
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "es.a0.m06.l019.activity.vocabulary",
-          "es.a0.m06.l019.activity.grammar",
-          "es.a0.m06.l019.activity.dialogue",
-          "es.a0.m06.l019.activity.reading",
-          "es.a0.m06.l019.activity.practice"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m06.l019.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
-        "id": "es.a0.m06.l020",
-        "title": "Reading Basics Review",
-        "description": "Apply h, ñ, qu, and question-word accents in short recall tasks.",
-        "moduleId": "es.a0.m06",
-        "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
-        "difficulty": "A0",
-        "tags": [],
-        "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m06.l019"
-          }
-        ]
-      },
-      "objectives": [
-        {
-          "id": "objective.es.a0.m06.l020.primary",
-          "description": "Apply h, ñ, qu, and question-word accents in short recall tasks."
-        }
-      ],
-      "communicativeOutcome": "Review essential A0 Spanish decoding patterns.",
-      "sections": [
-        {
-          "id": "es.a0.m06.l020.section.main",
-          "title": "Main Activities",
-          "order": 1,
-          "activities": [
-            {
-              "id": "es.a0.m06.l020.activity.vocabulary",
-              "title": "Vocabulary",
-              "type": "vocabulary",
-              "order": 1,
-              "references": [
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.hola.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.espana.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.queso.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.donde.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.libro.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l020.activity.grammar",
-              "title": "Pattern",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.reading_basics.v1"
-                },
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.qu_gue_gui.v1"
-                },
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/a0_c2_core.json",
-                  "referenceId": "grammar.es.a0.c2.basic_questions.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l020.activity.dialogue",
-              "title": "Dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
-                {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_c2_core.json",
-                  "referenceId": "dialogue.es.a0.c2.where_object.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l020.activity.reading",
-              "title": "Reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
-                {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_c2_core.json",
-                  "referenceId": "reading.es.a0.c2.question_words.v1"
-                }
-              ]
-            },
-            {
-              "id": "es.a0.m06.l020.activity.practice",
-              "title": "Practice",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l020_reading_choice.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l020_fill_qu.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l020_type_question.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_c2_core.json",
-                  "referenceId": "template.es.a0.c2.l020_type_espana.v1"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "summary": {
-        "id": "es.a0.m06.l020.summary",
-        "reviewPrompt": "Review essential A0 Spanish decoding patterns.",
-        "referenceIds": [
-          "objective.es.a0.m06.l020.primary"
-        ]
-      },
-      "completionCriteria": {
-        "requiredActivities": [
-          "es.a0.m06.l020.activity.vocabulary",
-          "es.a0.m06.l020.activity.grammar",
-          "es.a0.m06.l020.activity.dialogue",
-          "es.a0.m06.l020.activity.reading",
-          "es.a0.m06.l020.activity.practice"
-        ],
-        "minimumCompletedActivities": 1,
-        "mandatorySections": [
-          "es.a0.m06.l020.section.main"
-        ]
-      },
-      "references": []
-    },
-    {
-      "metadata": {
         "id": "es.a0.m07.l021",
         "title": "Numbers 0-10",
         "description": "Use numbers 0-10 in short controlled prompts.",
@@ -5586,7 +6513,7 @@
         "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m06.l020"
+            "lessonId": "es.a0.m06.l043"
           }
         ]
       },

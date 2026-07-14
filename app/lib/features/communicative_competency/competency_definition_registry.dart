@@ -52,6 +52,7 @@ class CompetencyDefinitionRegistry {
         'es.a0.m03',
         'es.a0.m04',
         'es.a0.m05',
+        'es.a0.m06',
       ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
@@ -246,6 +247,84 @@ const _defaultDefinitions = [
           'template.es.a0.m05.l033.dialogue_order_choice.v1',
       'recovery.es.a0.m05.respond_to_seller.m04':
           'template.es.a0.m04.l025.dialogue_comprehension.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+      moduleId: 'es.a0.m06',
+      title: 'Basic directions check',
+      communicativeGoal:
+          'Ask where a place is, ask how to get there, understand simple directions, and complete a short route exchange.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.identify_transport',
+        'micro.es.a0.name_transport',
+        'micro.es.a0.ask_where_place_is',
+        'micro.es.a0.state_place_location',
+        'micro.es.a0.ask_how_to_get_somewhere',
+        'micro.es.a0.understand_simple_directions',
+        'micro.es.a0.give_simple_directions',
+        'micro.es.a0.distinguish_left_right',
+        'micro.es.a0.understand_near_far',
+        'micro.es.a0.ask_which_transport',
+        'micro.es.a0.state_transport_method',
+        'micro.es.a0.understand_short_route_instruction',
+        'micro.es.a0.respond_in_direction_exchange',
+        'micro.es.a0.complete_basic_route_exchange',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m06.state_transport_method',
+        'task.es.a0.m06.ask_where_place_is',
+        'task.es.a0.m06.understand_simple_direction',
+        'task.es.a0.m06.ask_how_to_get_somewhere',
+        'task.es.a0.m06.give_simple_directions',
+        'task.es.a0.m06.complete_route_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m06.state_transport_method':
+          'template.es.a0.m06.competency.state_transport_method.v1',
+      'task.es.a0.m06.ask_where_place_is':
+          'template.es.a0.m06.competency.ask_where_station.v1',
+      'task.es.a0.m06.understand_simple_direction':
+          'template.es.a0.m06.competency.understand_direction.v1',
+      'task.es.a0.m06.ask_how_to_get_somewhere':
+          'template.es.a0.m06.competency.ask_how_hotel.v1',
+      'task.es.a0.m06.give_simple_directions':
+          'template.es.a0.m06.competency.give_directions.v1',
+      'task.es.a0.m06.complete_route_exchange':
+          'template.es.a0.m06.competency.route_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.identify_transport':
+          'template.es.a0.m06.l036.transport_choice.v1',
+      'micro.es.a0.name_transport':
+          'template.es.a0.m06.l036.fill_voy_en_autobus.v1',
+      'micro.es.a0.ask_where_place_is':
+          'template.es.a0.m06.l037.where_question_choice.v1',
+      'micro.es.a0.state_place_location':
+          'template.es.a0.m06.l037.fill_esta_cerca.v1',
+      'micro.es.a0.ask_how_to_get_somewhere':
+          'template.es.a0.m06.l040.route_question_choice.v1',
+      'micro.es.a0.understand_simple_directions':
+          'template.es.a0.m06.l038.left_right_choice.v1',
+      'micro.es.a0.give_simple_directions':
+          'template.es.a0.m06.l038.fill_sigue_recto.v1',
+      'micro.es.a0.distinguish_left_right':
+          'template.es.a0.m06.l038.left_right_choice.v1',
+      'micro.es.a0.understand_near_far':
+          'template.es.a0.m06.l039.near_far_choice.v1',
+      'micro.es.a0.ask_which_transport':
+          'template.es.a0.m06.l041.transport_answer_choice.v1',
+      'micro.es.a0.state_transport_method':
+          'template.es.a0.m06.l041.fill_toma_metro.v1',
+      'micro.es.a0.understand_short_route_instruction':
+          'template.es.a0.m06.review.route_note_choice.v1',
+      'micro.es.a0.respond_in_direction_exchange':
+          'template.es.a0.m04.l025.dialogue_comprehension.v1',
+      'micro.es.a0.complete_basic_route_exchange':
+          'template.es.a0.m06.l041.transport_answer_choice.v1',
     },
   ),
 ];
@@ -550,6 +629,120 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m05',
     prerequisiteContentReferences: [
       'template.es.a0.m05.l033.dialogue_order_choice.v1',
+    ],
+  ),
+
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.identify_transport',
+    description: 'Recognize common transport words.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l036.transport_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.name_transport',
+    description: 'Name a common transport method in a short phrase.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l036.type_voy_en_metro.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_where_place_is',
+    description: 'Ask where a familiar place is.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l037.type_donde_esta_estacion.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_place_location',
+    description: 'State a familiar place location with está.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l037.type_esta_cerca.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_how_to_get_somewhere',
+    description: 'Ask how to get to a familiar place.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l040.type_como_llego_hotel.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_simple_directions',
+    description: 'Understand simple directions such as straight, left, right.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l038.left_right_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.give_simple_directions',
+    description: 'Give one or two simple directions in order.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l038.type_sigue_recto.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.distinguish_left_right',
+    description: 'Distinguish izquierda and derecha.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l038.type_gira_izquierda.v1',
+      'template.es.a0.m06.l038.type_gira_derecha.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_near_far',
+    description: 'Understand and use cerca and lejos.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l039.type_esta_lejos.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_which_transport',
+    description: 'Ask which transport to take.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l041.type_que_transporte_tomo.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_transport_method',
+    description: 'State a simple transport method.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l041.type_toma_metro.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_short_route_instruction',
+    description: 'Understand a short route instruction in order.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.review.route_note_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_in_direction_exchange',
+    description: 'Respond appropriately in a short directions exchange.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.l041.transport_answer_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_basic_route_exchange',
+    description: 'Complete a short predictable route exchange.',
+    introducedInModuleId: 'es.a0.m06',
+    prerequisiteContentReferences: [
+      'template.es.a0.m06.competency.route_exchange.v1',
     ],
   ),
 ];
@@ -1021,6 +1214,167 @@ const _assessmentTasks = [
     ],
   ),
   CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.state_transport_method',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.identify_transport',
+      'micro.es.a0.name_transport',
+      'micro.es.a0.state_transport_method',
+    ],
+    lessonStepReference:
+        'template.es.a0.m06.competency.state_transport_method.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_transport_method',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l041.fill_toma_metro.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l041',
+            sourceStepId: 'template.es.a0.m06.l041.fill_toma_metro.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.state_transport_method',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.ask_where_place_is',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_where_place_is',
+      'micro.es.a0.state_place_location',
+    ],
+    lessonStepReference: 'template.es.a0.m06.competency.ask_where_station.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_where_place_is',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l037.where_question_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l037',
+            sourceStepId: 'template.es.a0.m06.l037.where_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.ask_where_place_is',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.understand_simple_direction',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.understand_simple_directions',
+      'micro.es.a0.distinguish_left_right',
+    ],
+    lessonStepReference:
+        'template.es.a0.m06.competency.understand_direction.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.distinguish_left_right',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l038.left_right_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l038',
+            sourceStepId: 'template.es.a0.m06.l038.left_right_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.understand_simple_direction',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.ask_how_to_get_somewhere',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_how_to_get_somewhere'],
+    lessonStepReference: 'template.es.a0.m06.competency.ask_how_hotel.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_how_to_get_somewhere',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l040.route_question_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l040',
+            sourceStepId: 'template.es.a0.m06.l040.route_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.ask_how_to_get_somewhere',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.give_simple_directions',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.give_simple_directions',
+      'micro.es.a0.understand_short_route_instruction',
+    ],
+    lessonStepReference: 'template.es.a0.m06.competency.give_directions.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.give_simple_directions',
+        reasonCode: CompetencyGapReasonCode.wordOrderFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l038.fill_sigue_recto.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l038',
+            sourceStepId: 'template.es.a0.m06.l038.fill_sigue_recto.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.give_simple_directions',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m06.complete_route_exchange',
+    competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_where_place_is',
+      'micro.es.a0.ask_how_to_get_somewhere',
+      'micro.es.a0.state_transport_method',
+      'micro.es.a0.respond_in_direction_exchange',
+      'micro.es.a0.complete_basic_route_exchange',
+    ],
+    lessonStepReference: 'template.es.a0.m06.competency.route_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_basic_route_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l041.transport_answer_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l041',
+            sourceStepId: 'template.es.a0.m06.l041.transport_answer_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.complete_route_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_in_direction_exchange',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l025',
+            sourceStepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m06.complete_route_exchange',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
     taskId: 'task.es.a0.build_personal_identity_profile',
     competencyId: 'competency.es.a0.m03.describe_basic_personal_identity',
     assessedMicroCompetencyIds: [
@@ -1050,7 +1404,9 @@ const _assessmentTasks = [
 ];
 
 LessonContentReference templateReference(String templateId) {
-  final assetPath = templateId.startsWith('template.es.a0.m05.')
+  final assetPath = templateId.startsWith('template.es.a0.m06.')
+      ? 'assets/languages/spanish/templates/module_6_transport.json'
+      : templateId.startsWith('template.es.a0.m05.')
       ? 'assets/languages/spanish/templates/module_5_shopping.json'
       : templateId.startsWith('template.es.a0.m04.')
       ? 'assets/languages/spanish/templates/module_4_people.json'

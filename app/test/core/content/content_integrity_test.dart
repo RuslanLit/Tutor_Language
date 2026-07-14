@@ -314,7 +314,7 @@ void main() {
       }
 
       expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
-      expect(course.lessons, hasLength(lessThanOrEqualTo(52)));
+      expect(course.lessons, hasLength(lessThanOrEqualTo(55)));
       expect(vocabularyCount, inInclusiveRange(150, 330));
       expect(dialogueCount, greaterThanOrEqualTo(25));
       expect(readingCount, greaterThanOrEqualTo(18));

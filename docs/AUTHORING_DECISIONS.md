@@ -300,4 +300,33 @@ changed.
 
 ---
 
+# Spanish A0 Module 6 Transport and Directions Scope
+
+Module 6 teaches a controlled A0 directions exchange, not broad travel,
+transport schedules or map navigation.
+
+The selected route register is a small fixed informal command set:
+
+- `sigue recto`;
+- `gira a la izquierda`;
+- `gira a la derecha`;
+- `toma el metro`;
+- `ve en autobús`;
+- `ve a pie`.
+
+The module does not teach the full imperative system, formal/informal command
+contrast, timetables, ticket buying, addresses, time, platform numbers or
+city-map reading.
+
+Route-sequence production tasks may require strict authored order when the
+order changes the physical path. Any tolerated alternate sequence must be
+authored explicitly; no global sentence reordering or route inference is
+allowed.
+
+Transport and directions competency recovery may use earlier conversation
+content when the learner fails the predictable question-answer exchange, but
+the route and transport knowledge remains owned by Module 6.
+
+---
+
 End of document.

@@ -1,0 +1,907 @@
+[
+  {
+    "id": "template.es.a0.m06.l036.transport_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"bus\".",
+    "answer_options": [
+      {
+        "id": "autobus",
+        "label": "autobús"
+      },
+      {
+        "id": "metro",
+        "label": "metro"
+      },
+      {
+        "id": "taxi",
+        "label": "taxi"
+      }
+    ],
+    "correct_option_id": "autobus"
+  },
+  {
+    "id": "template.es.a0.m06.l036.fill_voy_en_autobus.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"bus\": \"Voy en ____.\"",
+    "expected_answer": "autobús"
+  },
+  {
+    "id": "template.es.a0.m06.l036.type_voy_en_metro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I go by metro.\"",
+    "expected_answer": "Voy en metro",
+    "review_template_ids": [
+      "template.es.a0.m06.l036.transport_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l036.type_voy_a_pie.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I go on foot.\"",
+    "expected_answer": "Voy a pie",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l036.en_pie.v1",
+        "matching_answers": [
+          "Voy en pie"
+        ],
+        "feedback_key": "spanish.transport.use_a_pie",
+        "canonical_answer": "Voy a pie",
+        "explanation_reference_id": "grammar.es.a0.m06.transport_method.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m06.l036.fill_voy_en_autobus.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l037.where_question_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish question for \"Where is the station?\".",
+    "answer_options": [
+      {
+        "id": "donde",
+        "label": "¿Dónde está la estación?"
+      },
+      {
+        "id": "como",
+        "label": "¿Cómo llego a la estación?"
+      },
+      {
+        "id": "que",
+        "label": "¿Qué transporte tomo?"
+      }
+    ],
+    "correct_option_id": "donde"
+  },
+  {
+    "id": "template.es.a0.m06.l037.fill_esta_cerca.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"is\": \"La estación ____ cerca.\"",
+    "expected_answer": "está"
+  },
+  {
+    "id": "template.es.a0.m06.l037.type_donde_esta_estacion.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"Where is the station?\"",
+    "expected_answer": "¿Dónde está la estación?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l037.como_for_where.v1",
+        "matching_answers": [
+          "¿Cómo llego a la estación?",
+          "Como llego a la estacion?"
+        ],
+        "feedback_key": "spanish.directions.use_donde_for_location",
+        "canonical_answer": "¿Dónde está la estación?",
+        "explanation_reference_id": "grammar.es.a0.m06.where_questions.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m06.l037.where_question_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l037.type_esta_cerca.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Answer the question \"¿Dónde está la estación?\" with the Spanish sentence: \"It is near.\"",
+    "expected_answer": "Está cerca",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l037.es_cerca.v1",
+        "matching_answers": [
+          "Es cerca"
+        ],
+        "feedback_key": "spanish.directions.use_esta_for_location",
+        "canonical_answer": "Está cerca",
+        "explanation_reference_id": "grammar.es.a0.m06.location_with_estar.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m06.l037.fill_esta_cerca.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l038.left_right_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish direction for \"Turn right.\".",
+    "answer_options": [
+      {
+        "id": "derecha",
+        "label": "Gira a la derecha."
+      },
+      {
+        "id": "izquierda",
+        "label": "Gira a la izquierda."
+      },
+      {
+        "id": "recto",
+        "label": "Sigue recto."
+      }
+    ],
+    "correct_option_id": "derecha"
+  },
+  {
+    "id": "template.es.a0.m06.l038.fill_sigue_recto.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish command with the word for \"straight\": \"Sigue ____.\"",
+    "expected_answer": "recto"
+  },
+  {
+    "id": "template.es.a0.m06.l038.type_sigue_recto.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish command: \"Go straight.\"",
+    "expected_answer": "Sigue recto",
+    "review_template_ids": [
+      "template.es.a0.m06.l038.fill_sigue_recto.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l038.type_gira_izquierda.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish command: \"Turn left.\"",
+    "expected_answer": "Gira a la izquierda",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l038.right_for_left.v1",
+        "matching_answers": [
+          "Gira a la derecha"
+        ],
+        "feedback_key": "spanish.directions.left_not_right",
+        "canonical_answer": "Gira a la izquierda",
+        "explanation_reference_id": "grammar.es.a0.m06.simple_directions.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l038.type_gira_derecha.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish command: \"Turn right.\"",
+    "expected_answer": "Gira a la derecha",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l038.left_for_right.v1",
+        "matching_answers": [
+          "Gira a la izquierda"
+        ],
+        "feedback_key": "spanish.directions.right_not_left",
+        "canonical_answer": "Gira a la derecha",
+        "explanation_reference_id": "grammar.es.a0.m06.simple_directions.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l039.near_far_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The note says \"La farmacia está cerca.\" Choose the meaning of cerca.",
+    "answer_options": [
+      {
+        "id": "near",
+        "label": "near"
+      },
+      {
+        "id": "far",
+        "label": "far"
+      },
+      {
+        "id": "left",
+        "label": "left"
+      }
+    ],
+    "correct_option_id": "near"
+  },
+  {
+    "id": "template.es.a0.m06.l039.fill_lejos.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for \"far\": \"Está ____.\"",
+    "expected_answer": "lejos"
+  },
+  {
+    "id": "template.es.a0.m06.l039.type_esta_lejos.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"It is far.\"",
+    "expected_answer": "Está lejos",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l039.cerca_for_lejos.v1",
+        "matching_answers": [
+          "Está cerca"
+        ],
+        "feedback_key": "spanish.directions.far_not_near",
+        "canonical_answer": "Está lejos",
+        "explanation_reference_id": "grammar.es.a0.m06.near_far.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l039.type_parada_cerca.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"The stop is near.\"",
+    "expected_answer": "La parada está cerca",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l039.es_cerca.v1",
+        "matching_answers": [
+          "La parada es cerca"
+        ],
+        "feedback_key": "spanish.directions.use_esta_for_location",
+        "canonical_answer": "La parada está cerca",
+        "explanation_reference_id": "grammar.es.a0.m06.location_with_estar.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l040.route_question_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish route question for \"How do I get to the hotel?\".",
+    "answer_options": [
+      {
+        "id": "llego",
+        "label": "¿Cómo llego al hotel?"
+      },
+      {
+        "id": "donde",
+        "label": "¿Dónde está el hotel?"
+      },
+      {
+        "id": "transporte",
+        "label": "¿Qué transporte tomo?"
+      }
+    ],
+    "correct_option_id": "llego"
+  },
+  {
+    "id": "template.es.a0.m06.l040.fill_como_llego.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish question word in: \"¿____ llego al hotel?\"",
+    "expected_answer": "Cómo"
+  },
+  {
+    "id": "template.es.a0.m06.l040.type_como_llego_hotel.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"How do I get to the hotel?\"",
+    "expected_answer": "¿Cómo llego al hotel?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l040.donde_for_route.v1",
+        "matching_answers": [
+          "¿Dónde está el hotel?",
+          "Donde esta el hotel?"
+        ],
+        "feedback_key": "spanish.directions.use_como_for_route",
+        "canonical_answer": "¿Cómo llego al hotel?",
+        "explanation_reference_id": "grammar.es.a0.m06.how_to_get_questions.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l040.type_route_sequence.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the two Spanish commands in this exact order: \"Go straight. Turn right.\"",
+    "expected_answer": "Sigue recto. Gira a la derecha.",
+    "accepted_answers": [
+      "Sigue recto. Gira a la derecha"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l040.reversed_route.v1",
+        "matching_answers": [
+          "Gira a la derecha. Sigue recto.",
+          "Gira a la derecha Sigue recto"
+        ],
+        "feedback_key": "spanish.directions.route_order_matters",
+        "canonical_answer": "Sigue recto. Gira a la derecha.",
+        "explanation_reference_id": "grammar.es.a0.m06.simple_directions.v1"
+      }
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m06.l041.transport_answer_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Answer \"¿Cómo vas al centro?\" Choose the Spanish answer.",
+    "answer_options": [
+      {
+        "id": "metro",
+        "label": "Voy en metro."
+      },
+      {
+        "id": "donde",
+        "label": "¿Dónde está el metro?"
+      },
+      {
+        "id": "recto",
+        "label": "Sigue recto."
+      }
+    ],
+    "correct_option_id": "metro"
+  },
+  {
+    "id": "template.es.a0.m06.l041.fill_toma_metro.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish command for \"take\": \"____ el metro.\"",
+    "expected_answer": "Toma"
+  },
+  {
+    "id": "template.es.a0.m06.l041.type_que_transporte_tomo.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"What transport do I take?\"",
+    "expected_answer": "¿Qué transporte tomo?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l041.answer_for_question.v1",
+        "matching_answers": [
+          "Toma el metro",
+          "Voy en metro"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Qué transporte tomo?",
+        "explanation_reference_id": "grammar.es.a0.m06.transport_method.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l041.type_toma_metro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish command: \"Take the metro.\"",
+    "expected_answer": "Toma el metro",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.l041.voy_for_advice.v1",
+        "matching_answers": [
+          "Voy en metro"
+        ],
+        "feedback_key": "spanish.transport.use_toma_for_advice",
+        "canonical_answer": "Toma el metro",
+        "explanation_reference_id": "grammar.es.a0.m06.transport_method.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.l041.type_voy_en_tren.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Answer the question \"¿Cómo vas?\" with the Spanish sentence: \"I go by train.\"",
+    "expected_answer": "Voy en tren"
+  },
+  {
+    "id": "template.es.a0.m06.review.type_donde_estacion.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish question: \"Where is the station?\"",
+    "expected_answer": "¿Dónde está la estación?"
+  },
+  {
+    "id": "template.es.a0.m06.review.type_gira_derecha.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish command: \"Turn right.\"",
+    "expected_answer": "Gira a la derecha"
+  },
+  {
+    "id": "template.es.a0.m06.review.type_voy_a_pie.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the Spanish sentence: \"I go on foot.\"",
+    "expected_answer": "Voy a pie"
+  },
+  {
+    "id": "template.es.a0.m06.review.type_short_route.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Review: type the two Spanish commands in this exact order: \"Go straight. Turn left.\"",
+    "expected_answer": "Sigue recto. Gira a la izquierda.",
+    "accepted_answers": [
+      "Sigue recto. Gira a la izquierda"
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m06.review.route_note_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The note says \"Toma el metro. Sigue recto.\" What transport is used?",
+    "answer_options": [
+      {
+        "id": "metro",
+        "label": "metro"
+      },
+      {
+        "id": "taxi",
+        "label": "taxi"
+      },
+      {
+        "id": "tren",
+        "label": "tren"
+      }
+    ],
+    "correct_option_id": "metro"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.transport_name.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: choose the Spanish word for \"train\".",
+    "answer_options": [
+      {
+        "id": "tren",
+        "label": "tren"
+      },
+      {
+        "id": "taxi",
+        "label": "taxi"
+      },
+      {
+        "id": "calle",
+        "label": "calle"
+      }
+    ],
+    "correct_option_id": "tren"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_where_hotel.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish question: \"Where is the hotel?\"",
+    "expected_answer": "¿Dónde está el hotel?"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_how_center.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish question: \"How do I get to the center?\"",
+    "expected_answer": "¿Cómo llego al centro?"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_location_far.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish answer to \"¿Dónde está el hospital?\": \"It is far.\"",
+    "expected_answer": "Está lejos"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_direction_left.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish command: \"Turn left.\"",
+    "expected_answer": "Gira a la izquierda"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_transport_method.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the Spanish answer to \"¿Cómo vas al centro?\": \"I go by bus.\"",
+    "expected_answer": "Voy en autobús"
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_strict_route.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the two Spanish commands in this exact order: \"Go straight. Turn right.\"",
+    "expected_answer": "Sigue recto. Gira a la derecha.",
+    "accepted_answers": [
+      "Sigue recto. Gira a la derecha"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.checkpoint.reversed_route.v1",
+        "matching_answers": [
+          "Gira a la derecha. Sigue recto."
+        ],
+        "feedback_key": "spanish.directions.route_order_matters",
+        "canonical_answer": "Sigue recto. Gira a la derecha.",
+        "explanation_reference_id": "grammar.es.a0.m06.simple_directions.v1"
+      }
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m06.checkpoint.type_route_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: type the short Spanish answer to \"¿Qué transporte tomo?\": \"Take the bus.\"",
+    "expected_answer": "Toma el autobús"
+  },
+  {
+    "id": "template.es.a0.m06.competency.state_transport_method.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Say how you travel to the center. Type: \"I go by metro.\"",
+    "expected_answer": "Voy en metro"
+  },
+  {
+    "id": "template.es.a0.m06.competency.ask_where_station.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Ask where the station is. Type the Spanish question.",
+    "expected_answer": "¿Dónde está la estación?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.competency.location_answer_for_question.v1",
+        "matching_answers": [
+          "Está cerca",
+          "La estación está cerca"
+        ],
+        "feedback_key": "response.question_expected_answer",
+        "canonical_answer": "¿Dónde está la estación?",
+        "explanation_reference_id": "grammar.es.a0.m06.where_questions.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m06.competency.understand_direction.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The direction is \"Gira a la izquierda.\" Choose the meaning.",
+    "answer_options": [
+      {
+        "id": "left",
+        "label": "turn left"
+      },
+      {
+        "id": "right",
+        "label": "turn right"
+      },
+      {
+        "id": "straight",
+        "label": "go straight"
+      }
+    ],
+    "correct_option_id": "left"
+  },
+  {
+    "id": "template.es.a0.m06.competency.ask_how_hotel.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Ask how to get to the hotel. Type the Spanish question.",
+    "expected_answer": "¿Cómo llego al hotel?"
+  },
+  {
+    "id": "template.es.a0.m06.competency.give_directions.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Give the two Spanish directions in this exact order: \"Go straight. Turn left.\"",
+    "expected_answer": "Sigue recto. Gira a la izquierda.",
+    "accepted_answers": [
+      "Sigue recto. Gira a la izquierda"
+    ],
+    "requires_exact_answer": true
+  },
+  {
+    "id": "template.es.a0.m06.competency.route_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the route exchange. Question: \"¿Dónde está la parada?\" Answer with: \"Go straight and turn right.\"",
+    "expected_answer": "Sigue recto y gira a la derecha",
+    "accepted_answers": [
+      "Sigue recto. Gira a la derecha"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m06.competency.location_for_direction.v1",
+        "matching_answers": [
+          "Está allí",
+          "La parada está allí"
+        ],
+        "feedback_key": "spanish.directions.direction_not_location",
+        "canonical_answer": "Sigue recto y gira a la derecha",
+        "explanation_reference_id": "grammar.es.a0.m06.simple_directions.v1"
+      }
+    ]
+  }
+]

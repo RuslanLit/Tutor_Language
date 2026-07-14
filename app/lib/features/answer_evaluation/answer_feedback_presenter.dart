@@ -168,6 +168,22 @@ class AnswerFeedbackPresenter {
         'Use the masculine adjective form with this masculine object.',
       'spanish.shopping.use_feminine_price_adjective' =>
         'Use the feminine adjective form with this feminine object.',
+      'spanish.transport.use_a_pie' => 'Use "a pie" for going on foot.',
+      'spanish.directions.use_donde_for_location' =>
+        'Use "¿Dónde está...?" to ask where a place is.',
+      'spanish.directions.use_esta_for_location' =>
+        'Use "está" to say where a place is.',
+      'spanish.directions.left_not_right' => '"Izquierda" means left.',
+      'spanish.directions.right_not_left' => '"Derecha" means right.',
+      'spanish.directions.far_not_near' => '"Lejos" means far.',
+      'spanish.directions.use_como_for_route' =>
+        'Use "¿Cómo llego...?" to ask how to get somewhere.',
+      'spanish.directions.route_order_matters' =>
+        'Route order matters in this exercise. Follow the requested sequence.',
+      'spanish.transport.use_toma_for_advice' =>
+        'Use "toma" when advising which transport to take.',
+      'spanish.directions.direction_not_location' =>
+        'This exercise asks for directions, not only the place location.',
       _ => null,
     };
 

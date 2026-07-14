@@ -62,26 +62,26 @@ Current metrics:
 | Metric | Current value |
 |---|---:|
 | Modules | 8 |
-| Live lessons | 32 |
-| Reviews | 5 |
-| Checkpoints | 2 |
-| Vocabulary items across Spanish assets | 176 |
-| Grammar topics | 17 |
-| Dialogues | 27 |
-| Readings | 28 |
-| Exercise templates | 119 |
-| Referenced multiple-choice steps | 35 |
-| Referenced fill-gap steps | 30 |
-| Referenced text-entry steps | 48 |
+| Live lessons | 55 |
+| Reviews | 8 |
+| Checkpoints | 5 |
+| Vocabulary items across Spanish assets | 318 |
+| Grammar topics | 55 |
+| Dialogues | 52 |
+| Readings | 58 |
+| Exercise templates | 343 |
+| Referenced multiple-choice steps | 58 |
+| Referenced fill-gap steps | 46 |
+| Referenced text-entry steps | 147 |
 | Referenced matching steps | 2 |
 
 Major findings:
 
-- The 32-lesson course is valid and playable, but still too compressed for a complete useful A0 foundation.
+- The 55-lesson course is valid and playable, with Modules 1-6 now implemented as production content.
 - Early lessons over-concentrate greetings, names, origin, courtesy and short first-contact phrases.
-- Reading foundations are currently lessons 16-20, after many words that need decoding support.
+- Reading foundations have been partially moved earlier, but old reading-basics lesson IDs remain retired rather than repurposed.
 - `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because lessons 16-32 add reading, numbers, age, objects, food, family and integrated communication.
-- The final module combines too many domains: objects, possession, food, family, city, review and final checkpoint.
+- The later modules still contain inherited topic density and should be refined in future content sprints.
 - First 15 lessons are structurally valid but many lack explicit `communicativeOutcome` values in production JSON.
 - Typed recall is now significant, but some early lessons still lean too much on recognition/fill-gap scaffolding.
 
@@ -219,7 +219,7 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 | M03 | Origin, Languages and Personal Identity | 13-19 | 22-28 | origin, residence, languages, controlled personal profile |
 | M04 | People and Everyday Conversation | 20-27 | 24-32 | identify and describe people, third-person facts, short everyday exchange |
 | M05 | Shopping and Everyday Objects | 28-35 | 30-38 | objects, availability, prices, cheap/expensive, purchase request |
-| M06 | Everyday Objects and Tener | 36-42 | 22-28 | objects, `un/una`, possession, `tengo/tienes/tiene` |
+| M06 | Transport and Directions | 36-43 | 28-34 | transport, location questions, simple directions, near/far, route exchange |
 | M07 | Food, Drink and Needs | 39-44 | 18-24 | water/coffee/food, polite requests, `hambre`, `sed`, simple needs |
 | M08 | People, Home and Simple Surroundings | 45-49 | 16-22 | family, friend, house, city, third-person mini-profiles |
 | M09 | Integrated A0 Communication | 50-52 | 0-8 | cumulative integration, final review, final checkpoint |
@@ -319,19 +319,20 @@ intention and complete a short predictable shopping exchange.
 - requesting one familiar item with `quiero` or `este/esta, por favor`;
 - responding to `¿Algo más?` with a polite closing.
 
-## M06 — Everyday Objects and Tener
+## M06 — Transport and Directions
 
 ### Communicative Goal
 
-The learner can name common objects, use `un/una` with them and make simple possession statements with `tener`.
+The learner can name basic transport, ask where a place is, ask how to get somewhere, understand short route instructions and complete a controlled directions exchange.
 
 ### Real-Life Scenarios
 
-- saying that one has a book, phone, key or bag;
-- asking whether another person has a familiar object;
-- understanding a short object-location exchange;
-- distinguishing `tengo`, `tienes` and `tiene` in simple contexts;
-- repairing basic word order in short sentences.
+- saying `Voy en metro` or `Voy a pie`;
+- asking `¿Dónde está la estación?`;
+- asking `¿Cómo llego al hotel?`;
+- understanding `sigue recto`, `gira a la izquierda` and `gira a la derecha`;
+- distinguishing `cerca` and `lejos`;
+- completing a short route and transport exchange.
 
 ## M07 — Food, Drink and Needs
 
@@ -375,7 +376,7 @@ The learner can combine the A0 foundation in controlled conversations and checkp
 - completing a mixed first-contact interaction;
 - handling tightly controlled shopping, transport-help or health-need prompts only when they use already introduced language.
 
-Transport and health remain limited A0 scenarios in this blueprint. They should not become full topic modules until the course intentionally introduces the needed vocabulary and patterns.
+Transport is now a limited A0 production module focused on basic directions. Health remains a later controlled scenario and should not be introduced until the course intentionally adds the needed vocabulary and patterns.
 
 ---
 

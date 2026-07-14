@@ -13,58 +13,56 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'C2F Module 5 uses canonical shopping lesson IDs and preserves earlier modules',
+    'C2G Module 6 uses canonical transport lesson IDs and preserves course order',
     () async {
       final course = await CurriculumLoader(
         assetBundle: rootBundle,
       ).loadCourse();
-      final module4 = course.modules.singleWhere(
-        (module) => module.id == 'es.a0.m04',
-      );
       final module5 = course.modules.singleWhere(
         (module) => module.id == 'es.a0.m05',
       );
       final module6 = course.modules.singleWhere(
         (module) => module.id == 'es.a0.m06',
       );
-
-      expect(module5.title, 'Shopping and Everyday Objects');
-      expect(module5.lessonIds, [
-        'es.a0.m05.l028',
-        'es.a0.m05.l029',
-        'es.a0.m05.l030',
-        'es.a0.m05.l031',
-        'es.a0.m05.l032',
-        'es.a0.m05.l033',
-        'es.a0.m05.l034',
-        'es.a0.m05.l035',
-      ]);
-      expect(
-        module5.lessonIds.every((id) => id.startsWith('es.a0.m05.')),
-        isTrue,
+      final module7 = course.modules.singleWhere(
+        (module) => module.id == 'es.a0.m07',
       );
-      expect(module4.lessonIds.last, 'es.a0.m04.l027');
-      expect(module6.lessonIds.first, 'es.a0.m06.l036');
+
+      expect(module6.title, 'Transport and Directions');
+      expect(module6.lessonIds, [
+        'es.a0.m06.l036',
+        'es.a0.m06.l037',
+        'es.a0.m06.l038',
+        'es.a0.m06.l039',
+        'es.a0.m06.l040',
+        'es.a0.m06.l041',
+        'es.a0.m06.l042',
+        'es.a0.m06.l043',
+      ]);
+      expect(module5.lessonIds.last, 'es.a0.m05.l035');
+      expect(module7.lessonIds.first, 'es.a0.m07.l021');
 
       final activeLessonIds = [
         for (final module in course.modules) ...module.lessonIds,
       ];
       expect(activeLessonIds.toSet(), hasLength(activeLessonIds.length));
-      expect(activeLessonIds, isNot(contains('es.a0.m05.l014')));
-      expect(activeLessonIds, isNot(contains('es.a0.m05.l015')));
+      expect(activeLessonIds, isNot(contains('es.a0.m06.l018')));
+      expect(activeLessonIds, isNot(contains('es.a0.m06.l019')));
+      expect(activeLessonIds, isNot(contains('es.a0.m06.l020')));
 
-      for (final lessonId in module5.lessonIds) {
+      for (final lessonId in module6.lessonIds) {
         final lesson = course.lessons.singleWhere(
           (lesson) => lesson.id == lessonId,
         );
-        expect(lesson.moduleId, 'es.a0.m05');
+        expect(lesson.moduleId, 'es.a0.m06');
         expect(lesson.communicativeOutcome, isNotNull);
+        expect(lesson.activities, isNotEmpty);
       }
     },
   );
 
   test(
-    'C2F Module 5 assets parse and lessons assemble with typed recall',
+    'C2G Module 6 assets parse and lessons assemble with typed recall',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -77,22 +75,22 @@ void main() {
       );
       final course = await curriculumLoader.loadCourse();
       final module = course.modules.singleWhere(
-        (module) => module.id == 'es.a0.m05',
+        (module) => module.id == 'es.a0.m06',
       );
 
       final requiredCoverage = <String>{
-        'grammar.es.a0.m05.que_es_esto.v1',
-        'grammar.es.a0.m05.polite_availability.v1',
-        'grammar.es.a0.m05.price_question.v1',
-        'grammar.es.a0.m05.caro_barato_gender.v1',
-        'grammar.es.a0.m05.purchase_request.v1',
-        'template.es.a0.m05.l028.type_que_es_esto.v1',
-        'template.es.a0.m05.l029.type_tiene_agua.v1',
-        'template.es.a0.m05.l030.type_cuanto_cuesta.v1',
-        'template.es.a0.m05.l031.type_la_bolsa_es_barata.v1',
-        'template.es.a0.m05.l032.type_quiero_una_botella.v1',
-        'template.es.a0.m05.l033.type_basic_purchase_exchange.v1',
-        'template.es.a0.m05.checkpoint.type_short_exchange.v1',
+        'grammar.es.a0.m06.location_with_estar.v1',
+        'grammar.es.a0.m06.where_questions.v1',
+        'grammar.es.a0.m06.how_to_get_questions.v1',
+        'grammar.es.a0.m06.simple_directions.v1',
+        'grammar.es.a0.m06.transport_method.v1',
+        'template.es.a0.m06.l036.type_voy_en_metro.v1',
+        'template.es.a0.m06.l037.type_donde_esta_estacion.v1',
+        'template.es.a0.m06.l038.type_gira_izquierda.v1',
+        'template.es.a0.m06.l039.type_esta_lejos.v1',
+        'template.es.a0.m06.l040.type_como_llego_hotel.v1',
+        'template.es.a0.m06.l041.type_que_transporte_tomo.v1',
+        'template.es.a0.m06.checkpoint.type_route_exchange.v1',
       };
       final referencedIds = <String>{};
       final templates = <ExerciseTemplate>[];
@@ -132,25 +130,25 @@ void main() {
         templates
             .where((template) => template.exerciseType == 'text_entry')
             .length,
-        greaterThanOrEqualTo(20),
+        greaterThanOrEqualTo(24),
       );
       expect(
         templates
             .where((template) => template.authoredMisconceptions.isNotEmpty)
             .length,
-        greaterThanOrEqualTo(10),
+        greaterThanOrEqualTo(8),
       );
       expect(
         templates
             .where((template) => template.reviewTemplateIds.isNotEmpty)
             .length,
-        greaterThanOrEqualTo(10),
+        greaterThanOrEqualTo(5),
       );
     },
   );
 
   test(
-    'C2F shopping answer evaluation preserves function and price distinctions',
+    'C2G transport answer evaluation preserves route and question distinctions',
     () async {
       final catalog = EducationalContentCatalog(
         await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
@@ -168,64 +166,57 @@ void main() {
 
       expect(
         evaluate(
-          'template.es.a0.m05.l028.type_que_es_esto.v1',
-          '¿Qué es esto?',
+          'template.es.a0.m06.l037.type_donde_esta_estacion.v1',
+          '¿Dónde está la estación?',
         ).status,
         ActivityResultStatus.correct,
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l028.type_que_es_esto.v1',
-          'Que es esto?',
+          'template.es.a0.m06.l040.type_como_llego_hotel.v1',
+          'Como llego al hotel?',
         ).status,
         ActivityResultStatus.acceptedWithFeedback,
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l030.type_cuanto_cuesta.v1',
-          '¿Qué es esto?',
+          'template.es.a0.m06.l037.type_donde_esta_estacion.v1',
+          '¿Cómo llego a la estación?',
         ).feedbackKey,
-        'spanish.shopping.use_cuanto_for_price',
+        'spanish.directions.use_donde_for_location',
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l030.type_cuesta_cinco_euros.v1',
-          'Es cinco euros',
+          'template.es.a0.m06.l037.type_esta_cerca.v1',
+          'Es cerca',
         ).feedbackKey,
-        'spanish.shopping.use_cuesta_for_price',
+        'spanish.directions.use_esta_for_location',
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l032.type_quiero_una_botella.v1',
-          'Tengo una botella',
+          'template.es.a0.m06.l036.type_voy_a_pie.v1',
+          'Voy en pie',
         ).feedbackKey,
-        'spanish.shopping.use_quiero_for_purchase',
+        'spanish.transport.use_a_pie',
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l032.type_quiero_una_botella.v1',
-          'Quiero un botella',
+          'template.es.a0.m06.l038.type_gira_izquierda.v1',
+          'Gira a la derecha',
         ).feedbackKey,
-        'spanish.shopping.use_una_feminine',
+        'spanish.directions.left_not_right',
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l032.type_este_libro.v1',
-          'Esta libro por favor',
+          'template.es.a0.m06.l040.type_route_sequence.v1',
+          'Gira a la derecha. Sigue recto.',
         ).feedbackKey,
-        'spanish.shopping.use_este_masculine',
+        'spanish.directions.route_order_matters',
       );
       expect(
         evaluate(
-          'template.es.a0.m05.l031.type_la_bolsa_es_barata.v1',
-          'La bolsa es barato',
-        ).feedbackKey,
-        'spanish.shopping.use_feminine_price_adjective',
-      );
-      expect(
-        evaluate(
-          'template.es.a0.m05.checkpoint.type_price_answer.v1',
-          'Cuesta dos euros',
+          'template.es.a0.m06.checkpoint.type_strict_route.v1',
+          'Gira a la izquierda. Sigue recto.',
         ).status,
         ActivityResultStatus.incorrect,
       );
@@ -233,12 +224,12 @@ void main() {
   );
 
   test(
-    'production Module 5 competency resolves diagnostics and recovery flow',
+    'production Module 6 competency resolves diagnostics and recovery flow',
     () async {
       const registry = CompetencyDefinitionRegistry();
       final definition = registry.lookup(
-        moduleId: 'es.a0.m05',
-        competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+        moduleId: 'es.a0.m06',
+        competencyId: 'competency.es.a0.m06.ask_and_follow_basic_directions',
       );
       expect(definition, isNotNull);
 
@@ -265,36 +256,32 @@ void main() {
       }
 
       final centralTask = competencyCatalog.task(
-        'task.es.a0.m05.basic_purchase_exchange',
+        'task.es.a0.m06.complete_route_exchange',
       );
       final centralTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
-        'template.es.a0.m05.competency.basic_purchase_exchange.v1',
+        'template.es.a0.m06.competency.route_exchange.v1',
       )!;
-      expect(centralTemplate.acceptedWithFeedbackAnswers, isEmpty);
-      final wrongShoppingOrder = const ActivityEngine().evaluate(
+      final locationOnlyAnswer = const ActivityEngine().evaluate(
         template: centralTemplate,
-        submission: const ActivitySubmission(
-          submittedAnswer:
-              'Nada más, gracias. Hola. ¿Tiene agua? ¿Cuánto cuesta? Quiero una botella, por favor',
-        ),
+        submission: const ActivitySubmission(submittedAnswer: 'Está allí'),
       );
-      expect(wrongShoppingOrder.status, ActivityResultStatus.incorrect);
+      expect(
+        locationOnlyAnswer.feedbackKey,
+        'spanish.directions.direction_not_location',
+      );
 
       final recoverySources = centralTask.recoveryMappings
           .expand((mapping) => mapping.recoveryStepReferences)
           .map((reference) => reference.sourceModuleId)
           .toSet();
+      expect(recoverySources, contains('es.a0.m06'));
       expect(recoverySources, contains('es.a0.m04'));
-      expect(
-        definition.recoveryTemplateIds['micro.es.a0.respond_to_seller'],
-        startsWith('template.es.a0.m01.'),
-      );
 
       const coordinator = CommunicativeCompetencyCoordinator();
       var state = coordinator.startAssessment(
         competencyId: definition.competency.competencyId,
       );
-      for (final taskId in definition.competency.assessmentTaskIds.take(2)) {
+      for (final taskId in definition.competency.assessmentTaskIds.take(4)) {
         final decision = coordinator.recordTaskResult(
           catalog: competencyCatalog,
           state: state,
@@ -307,14 +294,14 @@ void main() {
       final failure = coordinator.recordTaskResult(
         catalog: competencyCatalog,
         state: state,
-        taskId: 'task.es.a0.m05.ask_price',
-        result: _incorrect('task.es.a0.m05.ask_price'),
+        taskId: 'task.es.a0.m06.give_simple_directions',
+        result: _incorrect('task.es.a0.m06.give_simple_directions'),
       );
       expect(
         failure.type,
         CompetencyAssessmentDecisionType.insertRecoverySteps,
       );
-      expect(failure.recoveryInsertions.single.sourceModuleId, 'es.a0.m05');
+      expect(failure.recoveryInsertions.single.sourceModuleId, 'es.a0.m06');
 
       final recovered = coordinator.recordRecoveryCompleted(
         catalog: competencyCatalog,
@@ -330,12 +317,12 @@ void main() {
           .recordTaskResult(
             catalog: competencyCatalog,
             state: recovered.updatedState,
-            taskId: 'task.es.a0.m05.ask_price',
-            result: _correct('task.es.a0.m05.ask_price'),
+            taskId: 'task.es.a0.m06.give_simple_directions',
+            result: _correct('task.es.a0.m06.give_simple_directions'),
           )
           .updatedState;
 
-      for (final taskId in definition.competency.assessmentTaskIds.skip(3)) {
+      for (final taskId in definition.competency.assessmentTaskIds.skip(5)) {
         final decision = coordinator.recordTaskResult(
           catalog: competencyCatalog,
           state: state,

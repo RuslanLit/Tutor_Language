@@ -1,0 +1,281 @@
+[
+  {
+    "id": "vocab.es.a0.m06.autobus.v1",
+    "spanish": "autobús",
+    "native_translation": "bus",
+    "cefr": "A0",
+    "example": "Voy en autobús.",
+    "pronunciation": "ow-toh-BOOS",
+    "notes": "Common city transport."
+  },
+  {
+    "id": "vocab.es.a0.m06.tren.v1",
+    "spanish": "tren",
+    "native_translation": "train",
+    "cefr": "A0",
+    "example": "Voy en tren.",
+    "pronunciation": "tren",
+    "notes": "Common intercity transport."
+  },
+  {
+    "id": "vocab.es.a0.m06.metro.v1",
+    "spanish": "metro",
+    "native_translation": "metro / subway",
+    "cefr": "A0",
+    "example": "Voy en metro.",
+    "pronunciation": "MEH-troh",
+    "notes": "Common city transport."
+  },
+  {
+    "id": "vocab.es.a0.m06.taxi.v1",
+    "spanish": "taxi",
+    "native_translation": "taxi",
+    "cefr": "A0",
+    "example": "Voy en taxi.",
+    "pronunciation": "TAK-see",
+    "notes": "Common city transport."
+  },
+  {
+    "id": "vocab.es.a0.m06.coche.v1",
+    "spanish": "coche",
+    "native_translation": "car",
+    "cefr": "A0",
+    "example": "Voy en coche.",
+    "pronunciation": "KOH-cheh",
+    "notes": "A car."
+  },
+  {
+    "id": "vocab.es.a0.m06.bicicleta.v1",
+    "spanish": "bicicleta",
+    "native_translation": "bicycle",
+    "cefr": "A0",
+    "example": "Voy en bicicleta.",
+    "pronunciation": "bee-see-KLEH-tah",
+    "notes": "A bicycle."
+  },
+  {
+    "id": "vocab.es.a0.m06.a_pie.v1",
+    "spanish": "a pie",
+    "native_translation": "on foot",
+    "cefr": "A0",
+    "example": "Voy a pie.",
+    "pronunciation": "ah PYEH",
+    "notes": "Use a pie, not en pie, for going on foot."
+  },
+  {
+    "id": "vocab.es.a0.m06.estacion.v1",
+    "spanish": "estación",
+    "native_translation": "station",
+    "cefr": "A0",
+    "example": "¿Dónde está la estación?",
+    "pronunciation": "es-tah-SYON",
+    "notes": "A train, metro, or bus station in this module."
+  },
+  {
+    "id": "vocab.es.a0.m06.parada.v1",
+    "spanish": "parada",
+    "native_translation": "stop",
+    "cefr": "A0",
+    "example": "La parada está cerca.",
+    "pronunciation": "pah-RAH-dah",
+    "notes": "A bus or transport stop."
+  },
+  {
+    "id": "vocab.es.a0.m06.centro.v1",
+    "spanish": "centro",
+    "native_translation": "center / downtown",
+    "cefr": "A0",
+    "example": "Voy al centro.",
+    "pronunciation": "SEN-troh",
+    "notes": "The town or city center."
+  },
+  {
+    "id": "vocab.es.a0.m06.hotel.v1",
+    "spanish": "hotel",
+    "native_translation": "hotel",
+    "cefr": "A0",
+    "example": "¿Cómo llego al hotel?",
+    "pronunciation": "oh-TEL",
+    "notes": "A hotel."
+  },
+  {
+    "id": "vocab.es.a0.m06.hospital.v1",
+    "spanish": "hospital",
+    "native_translation": "hospital",
+    "cefr": "A0",
+    "example": "El hospital está lejos.",
+    "pronunciation": "ohs-pee-TAL",
+    "notes": "A hospital."
+  },
+  {
+    "id": "vocab.es.a0.m06.farmacia.v1",
+    "spanish": "farmacia",
+    "native_translation": "pharmacy",
+    "cefr": "A0",
+    "example": "La farmacia está cerca.",
+    "pronunciation": "far-MAH-syah",
+    "notes": "A pharmacy."
+  },
+  {
+    "id": "vocab.es.a0.m06.supermercado.v1",
+    "spanish": "supermercado",
+    "native_translation": "supermarket",
+    "cefr": "A0",
+    "example": "El supermercado está allí.",
+    "pronunciation": "soo-per-mer-KAH-doh",
+    "notes": "A supermarket."
+  },
+  {
+    "id": "vocab.es.a0.m06.calle.v1",
+    "spanish": "calle",
+    "native_translation": "street",
+    "cefr": "A0",
+    "example": "La calle está aquí.",
+    "pronunciation": "KAH-yeh",
+    "notes": "A street."
+  },
+  {
+    "id": "vocab.es.a0.m06.donde_esta.v1",
+    "spanish": "dónde está",
+    "native_translation": "where is",
+    "cefr": "A0",
+    "example": "¿Dónde está la estación?",
+    "pronunciation": "DON-deh es-TAH",
+    "notes": "Use dónde for location questions."
+  },
+  {
+    "id": "vocab.es.a0.m06.como_llego.v1",
+    "spanish": "cómo llego",
+    "native_translation": "how do I get",
+    "cefr": "A0",
+    "example": "¿Cómo llego al hotel?",
+    "pronunciation": "KOH-moh YEH-goh",
+    "notes": "Use cómo llego for route questions."
+  },
+  {
+    "id": "vocab.es.a0.m06.como_voy.v1",
+    "spanish": "cómo voy",
+    "native_translation": "how do I go",
+    "cefr": "A0",
+    "example": "¿Cómo voy al centro?",
+    "pronunciation": "KOH-moh voy",
+    "notes": "Use cómo voy to ask how to travel somewhere."
+  },
+  {
+    "id": "vocab.es.a0.m06.voy.v1",
+    "spanish": "voy",
+    "native_translation": "I go / I am going",
+    "cefr": "A0",
+    "example": "Voy en metro.",
+    "pronunciation": "boy",
+    "notes": "First-person movement form."
+  },
+  {
+    "id": "vocab.es.a0.m06.ve.v1",
+    "spanish": "ve",
+    "native_translation": "go (command)",
+    "cefr": "A0",
+    "example": "Ve en autobús.",
+    "pronunciation": "beh",
+    "notes": "Controlled informal instruction."
+  },
+  {
+    "id": "vocab.es.a0.m06.toma.v1",
+    "spanish": "toma",
+    "native_translation": "take (command)",
+    "cefr": "A0",
+    "example": "Toma el metro.",
+    "pronunciation": "TOH-mah",
+    "notes": "Controlled informal instruction."
+  },
+  {
+    "id": "vocab.es.a0.m06.sigue.v1",
+    "spanish": "sigue",
+    "native_translation": "continue / go straight",
+    "cefr": "A0",
+    "example": "Sigue recto.",
+    "pronunciation": "SEE-geh",
+    "notes": "Controlled informal direction."
+  },
+  {
+    "id": "vocab.es.a0.m06.gira.v1",
+    "spanish": "gira",
+    "native_translation": "turn",
+    "cefr": "A0",
+    "example": "Gira a la derecha.",
+    "pronunciation": "HEE-rah",
+    "notes": "Controlled informal direction."
+  },
+  {
+    "id": "vocab.es.a0.m06.recto.v1",
+    "spanish": "recto",
+    "native_translation": "straight",
+    "cefr": "A0",
+    "example": "Sigue recto.",
+    "pronunciation": "REK-toh",
+    "notes": "Direction word."
+  },
+  {
+    "id": "vocab.es.a0.m06.izquierda.v1",
+    "spanish": "izquierda",
+    "native_translation": "left",
+    "cefr": "A0",
+    "example": "Gira a la izquierda.",
+    "pronunciation": "ees-KYER-dah",
+    "notes": "Direction word."
+  },
+  {
+    "id": "vocab.es.a0.m06.derecha.v1",
+    "spanish": "derecha",
+    "native_translation": "right",
+    "cefr": "A0",
+    "example": "Gira a la derecha.",
+    "pronunciation": "deh-REH-chah",
+    "notes": "Direction word."
+  },
+  {
+    "id": "vocab.es.a0.m06.aqui.v1",
+    "spanish": "aquí",
+    "native_translation": "here",
+    "cefr": "A0",
+    "example": "Está aquí.",
+    "pronunciation": "ah-KEE",
+    "notes": "Location word."
+  },
+  {
+    "id": "vocab.es.a0.m06.alli.v1",
+    "spanish": "allí",
+    "native_translation": "there",
+    "cefr": "A0",
+    "example": "Está allí.",
+    "pronunciation": "ah-YEE",
+    "notes": "Location word."
+  },
+  {
+    "id": "vocab.es.a0.m06.cerca.v1",
+    "spanish": "cerca",
+    "native_translation": "near",
+    "cefr": "A0",
+    "example": "Está cerca.",
+    "pronunciation": "SER-kah",
+    "notes": "Location word."
+  },
+  {
+    "id": "vocab.es.a0.m06.lejos.v1",
+    "spanish": "lejos",
+    "native_translation": "far",
+    "cefr": "A0",
+    "example": "Está lejos.",
+    "pronunciation": "LEH-hohs",
+    "notes": "Location word."
+  },
+  {
+    "id": "vocab.es.a0.m06.transporte.v1",
+    "spanish": "transporte",
+    "native_translation": "transport",
+    "cefr": "A0",
+    "example": "¿Qué transporte tomo?",
+    "pronunciation": "trans-POR-teh",
+    "notes": "Use in simple transport-choice questions."
+  }
+]
