@@ -9,6 +9,7 @@ import '../../core/learner/learner_progress_providers.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
+import '../curriculum/curriculum_models.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
 import '../lesson_launch/lesson_launch_intent.dart';
@@ -206,32 +207,9 @@ class LessonPlayerView extends ConsumerWidget {
             sessionState: activeSession.sessionState,
           );
 
-    return ListView(
-      padding: const EdgeInsets.all(16),
-      children: [
-        Text(lesson.title, style: Theme.of(context).textTheme.headlineSmall),
-        const SizedBox(height: 8),
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: [
-            if (_moduleLabel(lesson.moduleId) != null)
-              _MetadataChip(label: _moduleLabel(lesson.moduleId)!),
-            if (_lessonNumberLabel(lesson.id) != null)
-              _MetadataChip(label: _lessonNumberLabel(lesson.id)!),
-            if (lesson.difficulty.isNotEmpty)
-              _MetadataChip(label: lesson.difficulty),
-          ],
-        ),
-        if (lesson.description.isNotEmpty) ...[
-          const SizedBox(height: 12),
-          Text(lesson.description),
-        ],
-        const SizedBox(height: 20),
-        if (currentStep == null)
-          const Text('No activities available.')
-        else ...[
-          LessonPlayerStepView(
+    final stepView = currentStep == null
+        ? null
+        : LessonPlayerStepView(
             step: currentStep,
             state: activeSession.stepStates[currentStep.id],
             masteryAssessment: activeSession
@@ -267,17 +245,87 @@ class LessonPlayerView extends ConsumerWidget {
                 stepStates: nextStepStates,
               );
             },
+          );
+
+    return SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              key: ValueKey(
+                'lesson.${lesson.id}.step.${currentStep?.id ?? 'empty'}',
+              ),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+              children: [
+                if (currentStep?.isCheckable == true)
+                  _CompactLessonHeader(title: lesson.title)
+                else
+                  _LessonHeader(lesson: lesson),
+                const SizedBox(height: 12),
+                stepView ?? const Text('No activities available.'),
+              ],
+            ),
           ),
-          LessonNavigationControls(
-            lessonId: lesson.id,
-            courseId: lesson.courseId,
-            stepCount: activeStepIds.length,
-            currentStepIndex: currentStepIndex,
-            session: activeSession,
-          ),
+          if (currentStep != null) ...[
+            const Divider(height: 1),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: LessonNavigationControls(
+                lessonId: lesson.id,
+                courseId: lesson.courseId,
+                stepCount: activeStepIds.length,
+                currentStepIndex: currentStepIndex,
+                session: activeSession,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _LessonHeader extends StatelessWidget {
+  const _LessonHeader({required this.lesson});
+
+  final LessonDefinition lesson;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(lesson.title, style: Theme.of(context).textTheme.headlineSmall),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            if (_moduleLabel(lesson.moduleId) != null)
+              _MetadataChip(label: _moduleLabel(lesson.moduleId)!),
+            if (_lessonNumberLabel(lesson.id) != null)
+              _MetadataChip(label: _lessonNumberLabel(lesson.id)!),
+            if (lesson.difficulty.isNotEmpty)
+              _MetadataChip(label: lesson.difficulty),
+          ],
+        ),
+        if (lesson.description.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          Text(lesson.description),
         ],
       ],
     );
+  }
+}
+
+class _CompactLessonHeader extends StatelessWidget {
+  const _CompactLessonHeader({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(title, style: Theme.of(context).textTheme.titleMedium);
   }
 }
 

@@ -104,21 +104,24 @@ class _MultipleChoiceActivityWidgetState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.template.promptTemplate),
+        _ActivityPrompt(widget.template.promptTemplate),
         const SizedBox(height: 8),
-        for (final option in widget.template.answerOptions)
-          Padding(
-            padding: const EdgeInsets.only(right: 8, bottom: 8),
-            child: ChoiceChip(
-              label: Text(option.label),
-              selected: state.selectedOptionId == option.id,
-              onSelected: (_) {
-                _updateState(
-                  state.copyWith(selectedOptionId: option.id, result: null),
-                );
-              },
-            ),
-          ),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final option in widget.template.answerOptions)
+              ChoiceChip(
+                label: Text(option.label),
+                selected: state.selectedOptionId == option.id,
+                onSelected: (_) {
+                  _updateState(
+                    state.copyWith(selectedOptionId: option.id, result: null),
+                  );
+                },
+              ),
+          ],
+        ),
         _CheckButton(
           onPressed: state.selectedOptionId == null
               ? null
@@ -212,7 +215,7 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.template.promptTemplate),
+        _ActivityPrompt(widget.template.promptTemplate),
         const SizedBox(height: 8),
         TextField(
           controller: _controller,
@@ -310,7 +313,7 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.template.promptTemplate),
+          _ActivityPrompt(widget.template.promptTemplate),
           const SizedBox(height: 8),
           const Text('This matching activity is not checkable yet.'),
         ],
@@ -329,7 +332,7 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.template.promptTemplate),
+        _ActivityPrompt(widget.template.promptTemplate),
         const SizedBox(height: 8),
         for (final left in expectedPairs.keys)
           Padding(
@@ -446,6 +449,17 @@ class ActivityFeedback extends StatelessWidget {
       ActivityResultStatus.incorrect => 'Try again',
       ActivityResultStatus.unsupported => 'Unsupported activity type',
     };
+  }
+}
+
+class _ActivityPrompt extends StatelessWidget {
+  const _ActivityPrompt(this.prompt);
+
+  final String prompt;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(prompt, semanticsLabel: 'Exercise prompt: $prompt');
   }
 }
 

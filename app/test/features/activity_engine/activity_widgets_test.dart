@@ -41,6 +41,26 @@ void main() {
     expect(find.text('Correct'), findsOneWidget);
   });
 
+  testWidgets('activity prompt is exposed to accessibility semantics', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: ActivityTemplateWidget(template: _textEntryTemplate),
+        ),
+      ),
+    );
+
+    expect(
+      find.bySemanticsLabel('Exercise prompt: Type the greeting.'),
+      findsOneWidget,
+    );
+    semantics.dispose();
+  });
+
   testWidgets(
     'accepted-with-feedback renders canonical answer and corrections',
     (tester) async {

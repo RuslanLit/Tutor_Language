@@ -142,6 +142,37 @@ void main() {
     expect(find.text('Mastered'), findsOneWidget);
   });
 
+  testWidgets('practice controls remain reachable in landscape viewport', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(2260, 1080);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'lesson.interactive'),
+        service: _FakeLessonAssemblyService(_interactiveLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final checkRect = tester.getRect(
+      find.widgetWithText(OutlinedButton, 'Check'),
+    );
+    expect(checkRect.bottom, lessThanOrEqualTo(1080));
+
+    await tester.tap(find.text('right option'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Correct'), findsOneWidget);
+  });
+
   testWidgets('accepted-with-correction answer can advance', (tester) async {
     tester.view.physicalSize = const Size(800, 1200);
     tester.view.devicePixelRatio = 1;
