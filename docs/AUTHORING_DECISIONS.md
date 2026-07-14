@@ -401,4 +401,37 @@ by Module 8.
 
 ---
 
+# Spanish A0 Module 9 Health and Integrated Communication Scope
+
+Module 9 teaches controlled health-help communication and final integrated A0
+use. It is not a medical advice module.
+
+The active production lesson IDs are `es.a0.m09.l061` through
+`es.a0.m09.l070`. The module owns the current final integrated A0 checkpoint;
+there is no separate final integrated competency outside Module 9.
+
+The selected A0 scope is:
+
+- `estoy bien` and `no estoy bien` for condition;
+- `tengo fiebre`;
+- `me duele...` only with a small fixed set of body words;
+- basic health questions such as `¿Qué te pasa?` and `¿Tienes fiebre?`;
+- bounded requests for `un médico`, `una médica`, `una farmacia` and
+  `un hospital`;
+- reuse of earlier repair phrases such as `repita, por favor` and
+  `más despacio`;
+- integrated exchanges using previously taught identity, origin, transport,
+  help, family and home material.
+
+The module does not teach diagnosis, medication, treatment, dosage, emergency
+protocols, symptom triage, anatomy beyond the authored words, or real learner
+medical disclosure.
+
+Health examples must remain fictional or task-bounded. Authored
+misconceptions may explain only narrow implemented contrasts, such as using
+`soy` where the task asks for `estoy`, using the wrong service word, or
+writing an answer where the task asks for a question.
+
+---
+
 End of document.

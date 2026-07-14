@@ -1,0 +1,84 @@
+[
+  {
+    "id": "reading.es.a0.m09.health_note_luis.v1",
+    "title": "Luis is not well",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.no_estoy_bien.v1",
+      "vocab.es.a0.m09.cabeza.v1",
+      "vocab.es.a0.m09.farmacia.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.me_duele.v1",
+      "grammar.es.a0.m09.service_requests.v1"
+    ],
+    "text": "Luis no está bien. Le duele la cabeza. Luis necesita una farmacia. La farmacia está cerca.",
+    "native_translation": "Luis is not well. His head hurts. Luis needs a pharmacy. The pharmacy is nearby."
+  },
+  {
+    "id": "reading.es.a0.m09.pharmacy_location.v1",
+    "title": "The pharmacy location",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.farmacia.v1",
+      "vocab.es.a0.m09.hospital.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.condition_vs_location.v1"
+    ],
+    "text": "La farmacia está a la derecha. El hospital está cerca. Marta necesita ayuda.",
+    "native_translation": "The pharmacy is on the right. The hospital is nearby. Marta needs help."
+  },
+  {
+    "id": "reading.es.a0.m09.short_transcript.v1",
+    "title": "A short health transcript",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.fiebre.v1",
+      "vocab.es.a0.m09.tienes_fiebre.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.tener_fever.v1"
+    ],
+    "text": "Médica: ¿Tienes fiebre? Luis: Sí, tengo fiebre. Médica: ¿Te duele la cabeza? Luis: No.",
+    "native_translation": "Doctor: Do you have a fever? Luis: Yes, I have a fever. Doctor: Does your head hurt? Luis: No."
+  },
+  {
+    "id": "reading.es.a0.m09.help_scenario.v1",
+    "title": "Help scenario",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.no_estoy_bien.v1",
+      "vocab.es.a0.m09.medico.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.service_requests.v1"
+    ],
+    "text": "Elena está en la estación. No está bien. Dice: Necesito un médico. Pablo dice: El hospital está allí.",
+    "native_translation": "Elena is at the station. She is not well. She says: I need a doctor. Pablo says: The hospital is there."
+  },
+  {
+    "id": "reading.es.a0.m09.travel_help.v1",
+    "title": "Travel and help",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.estoy_mal.v1",
+      "vocab.es.a0.m09.farmacia.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.integrated_health_exchange.v1"
+    ],
+    "text": "Ana va en metro al centro. Está mal. Pregunta: ¿Dónde está la farmacia? La farmacia está cerca del hotel.",
+    "native_translation": "Ana goes by metro to the center. She feels bad. She asks: Where is the pharmacy? The pharmacy is near the hotel."
+  },
+  {
+    "id": "reading.es.a0.m09.final_profile.v1",
+    "title": "Final A0 profile",
+    "vocabulary_ids": [
+      "vocab.es.a0.m09.enferma.v1",
+      "vocab.es.a0.m09.estomago.v1",
+      "vocab.es.a0.m09.descanso.v1"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m09.me_duele.v1",
+      "grammar.es.a0.m09.integrated_health_exchange.v1"
+    ],
+    "text": "Marta vive en Lima. Su hermana se llama Ana. Ana está enferma. Le duele el estómago. Marta necesita ayuda y agua.",
+    "native_translation": "Marta lives in Lima. Her sister is named Ana. Ana is sick. Her stomach hurts. Marta needs help and water."
+  }
+]

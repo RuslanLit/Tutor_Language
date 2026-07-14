@@ -16,7 +16,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'C2I active Modules 1-8 curriculum ownership and ordering are valid',
+    'C2J active Modules 1-9 curriculum ownership and ordering are valid',
     () async {
       final course = await CurriculumLoader(
         assetBundle: rootBundle,
@@ -27,6 +27,8 @@ void main() {
       expect(modules[6].lessonIds.last, 'es.a0.m07.l051');
       expect(modules[7].lessonIds.first, 'es.a0.m08.l052');
       expect(modules[7].lessonIds.last, 'es.a0.m08.l060');
+      expect(modules[8].lessonIds.first, 'es.a0.m09.l061');
+      expect(modules[8].lessonIds.last, 'es.a0.m09.l070');
       expect(modules[0].lessonIds, _module1Lessons);
       expect(modules[1].lessonIds, _module2Lessons);
       expect(modules[2].lessonIds, _module3Lessons);
@@ -35,6 +37,7 @@ void main() {
       expect(modules[5].lessonIds, _module6Lessons);
       expect(modules[6].lessonIds, _module7Lessons);
       expect(modules[7].lessonIds, _module8Lessons);
+      expect(modules[8].lessonIds, _module9Lessons);
 
       final lessonById = {
         for (final lesson in course.lessons) lesson.id: lesson,
@@ -43,7 +46,7 @@ void main() {
         for (final module in modules) ...module.lessonIds,
       ];
 
-      expect(activeLessonIds, hasLength(60));
+      expect(activeLessonIds, hasLength(70));
       expect(activeLessonIds.toSet(), hasLength(activeLessonIds.length));
       expect(activeLessonIds, isNot(containsAll(_retiredModule7LessonIds)));
       expect(activeLessonIds, isNot(containsAll(_retiredModule8LessonIds)));
@@ -85,7 +88,7 @@ void main() {
   );
 
   test(
-    'C2I active Modules 1-8 content resolves and assembles into checkable steps',
+    'C2J active Modules 1-9 content resolves and assembles into checkable steps',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -146,7 +149,7 @@ void main() {
   );
 
   test(
-    'C2I active Modules 1-8 lessons are distinct and review/checkpoint active',
+    'C2J active Modules 1-9 lessons are distinct and review/checkpoint active',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -193,7 +196,7 @@ void main() {
   );
 
   test(
-    'C2I active Modules 1-8 answer contracts reject false positives',
+    'C2J active Modules 1-9 answer contracts reject false positives',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -326,7 +329,7 @@ void main() {
   );
 
   test(
-    'C2I active Modules 1-8 authored answer variants are deterministic',
+    'C2J active Modules 1-9 authored answer variants are deterministic',
     () async {
       final curriculumLoader = CurriculumLoader(assetBundle: rootBundle);
       final contentLoader = ContentLoader(assetBundle: rootBundle);
@@ -432,7 +435,73 @@ void main() {
     );
   });
 
-  test('C2I Modules 3-8 production competencies resolve and recover', () async {
+  test('C2J Module 9 health and integration distinctions hold', () async {
+    final catalog = EducationalContentCatalog(
+      await ContentLoader(assetBundle: rootBundle).loadSpanishContent(),
+    );
+    const engine = ActivityEngine();
+
+    ActivityResult evaluate(String templateId, String answer) {
+      final template = catalog.lookupAs<ExerciseTemplate>(templateId);
+      expect(template, isNotNull, reason: templateId);
+      return engine.evaluate(
+        template: template!,
+        submission: ActivitySubmission(submittedAnswer: answer),
+      );
+    }
+
+    expect(
+      evaluate(
+        'template.es.a0.m09.l061.type_no_estoy_bien.v1',
+        'No estoy bien',
+      ).status,
+      ActivityResultStatus.correct,
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l061.type_no_estoy_bien.v1',
+        'No soy bien',
+      ).feedbackKey,
+      'spanish.health.use_estoy_for_condition',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l062.type_tengo_fiebre.v1',
+        'Estoy fiebre',
+      ).feedbackKey,
+      'spanish.health.use_tengo_fiebre',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l062.type_me_duele_cabeza.v1',
+        'Me tengo la cabeza',
+      ).feedbackKey,
+      'spanish.health.use_me_duele_for_pain',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l064.type_necesito_medico.v1',
+        'Necesito medicina',
+      ).feedbackKey,
+      'spanish.health.medico_not_medicina',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l064.type_donde_hospital.v1',
+        'Necesito un hospital',
+      ).feedbackKey,
+      'response.question_expected_answer',
+    );
+    expect(
+      evaluate(
+        'template.es.a0.m09.l068.type_integrated_a0_identity_help.v1',
+        'Soy de Perú. Me llamo Ana. Necesito ayuda',
+      ).status,
+      ActivityResultStatus.acceptedWithFeedback,
+    );
+  });
+
+  test('C2J Modules 3-9 production competencies resolve and recover', () async {
     const registry = CompetencyDefinitionRegistry();
     const coordinator = CommunicativeCompetencyCoordinator();
     final contentCatalog = EducationalContentCatalog(
@@ -574,6 +643,7 @@ const _moduleIds = [
   'es.a0.m06',
   'es.a0.m07',
   'es.a0.m08',
+  'es.a0.m09',
 ];
 
 const _module1Lessons = [
@@ -658,6 +728,19 @@ const _module8Lessons = [
   'es.a0.m08.l058',
   'es.a0.m08.l059',
   'es.a0.m08.l060',
+];
+
+const _module9Lessons = [
+  'es.a0.m09.l061',
+  'es.a0.m09.l062',
+  'es.a0.m09.l063',
+  'es.a0.m09.l064',
+  'es.a0.m09.l065',
+  'es.a0.m09.l066',
+  'es.a0.m09.l067',
+  'es.a0.m09.l068',
+  'es.a0.m09.l069',
+  'es.a0.m09.l070',
 ];
 
 const _retiredModule7LessonIds = {

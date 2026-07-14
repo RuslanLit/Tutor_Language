@@ -61,27 +61,27 @@ Current metrics:
 
 | Metric | Current value |
 |---|---:|
-| Modules | 8 |
-| Live lessons | 60 |
-| Reviews | 8 |
-| Checkpoints | 6 |
-| Vocabulary items across Spanish assets | 368 |
-| Grammar topics | 68 |
-| Dialogues | 62 |
-| Readings | 70 |
-| Exercise templates | 441 |
-| Referenced multiple-choice steps | 61 |
-| Referenced fill-gap steps | 46 |
-| Referenced text-entry steps | 166 |
+| Modules | 9 |
+| Live lessons | 70 |
+| Reviews | 9 |
+| Checkpoints | 7 |
+| Vocabulary items across Spanish assets | 388 |
+| Grammar topics | 75 |
+| Dialogues | 68 |
+| Readings | 76 |
+| Exercise templates | 495 |
+| Referenced multiple-choice steps | 73 |
+| Referenced fill-gap steps | 58 |
+| Referenced text-entry steps | 199 |
 | Referenced matching steps | 2 |
 
 Major findings:
 
-- The 60-lesson course is valid and playable, with Modules 1-8 now implemented as production content.
+- The 70-lesson course is valid and playable, with Modules 1-9 now implemented as production content.
 - Early lessons over-concentrate greetings, names, origin, courtesy and short first-contact phrases.
 - Reading foundations have been partially moved earlier, but old reading-basics lesson IDs remain retired rather than repurposed.
-- `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because later lessons add reading, objects, directions, help, family and integrated communication.
-- The later modules still contain inherited topic density outside the implemented Modules 1-8 path and should be refined in future content sprints.
+- `A0 Checkpoint` at lesson 15 is no longer a true final A0 checkpoint because later lessons add reading, objects, directions, help, family, health and integrated communication.
+- Module 9 provides the current final integrated A0 checkpoint; no separate final competency layer is defined in this blueprint.
 - First 15 lessons are structurally valid but many lack explicit `communicativeOutcome` values in production JSON.
 - Typed recall is now significant, but some early lessons still lean too much on recognition/fill-gap scaffolding.
 
@@ -225,8 +225,8 @@ and close politely.
 | M05 | Shopping and Everyday Objects | 28-35 | 30-38 | objects, availability, prices, cheap/expensive, purchase request |
 | M06 | Transport and Directions | 36-43 | 28-34 | transport, location questions, simple directions, near/far, route exchange |
 | M07 | Asking for Help | 44-51 | 18-24 | attention words, help requests, communication repair, services, urgent help |
-| M08 | People, Home and Simple Surroundings | 45-49 | 16-22 | family, friend, house, city, third-person mini-profiles |
-| M09 | Integrated A0 Communication | 50-52 | 0-8 | cumulative integration, final review, final checkpoint |
+| M08 | Home and Family | 52-60 | 24-30 | family, rooms, household objects, `hay` versus `está`, integrated home profile |
+| M09 | Health and Integrated Communication | 61-70 | 20-26 | basic wellbeing, symptoms, service requests, controlled integrated A0 communication |
 
 ---
 
@@ -369,21 +369,22 @@ The learner can give and understand tiny facts about people, home, city and simp
 - recognizing third-person facts with `es` and `tiene`;
 - combining people, places and familiar objects.
 
-## M09 — Integrated A0 Communication
+## M09 — Health and Integrated Communication
 
 ### Communicative Goal
 
-The learner can combine the A0 foundation in controlled conversations and checkpoints without relying on a single memorized script.
+The learner can state basic wellbeing, ask for simple help, and combine the A0 foundation in controlled conversations and checkpoints without relying on a single memorized script.
 
 ### Real-Life Scenarios
 
-- meeting someone and exchanging name, origin and wellbeing;
-- requesting a basic item or help politely;
+- saying whether they are well or not well;
+- naming a small set of basic symptoms without diagnosis or treatment;
+- asking for a doctor, pharmacy or hospital in a bounded help scenario;
 - understanding a short profile or dialogue with known patterns;
 - completing a mixed first-contact interaction;
 - handling tightly controlled shopping, transport-help or health-need prompts only when they use already introduced language.
 
-Transport is now a limited A0 production module focused on basic directions. Health remains a later controlled scenario and should not be introduced until the course intentionally adds the needed vocabulary and patterns.
+Health is limited to basic communication and service requests. It does not teach diagnosis, medication, treatment, dosage, medical advice or emergency-procedure content.
 
 ---
 
@@ -456,9 +457,16 @@ ID policy:
 | 51 | es.a0.m08.l058 | M08 | Integrated Family and Home Conversation | dialogue/application | Exchange short family and home information. | 45-50 | integrated question-answer flow | M01-M08 | question punctuation | 2 typed recall | C2I |
 | 52 | es.a0.m08.l059 | M08 | Home and Family Review | review | Recombine family, rooms, objects and simple location. | 45-51 | none | M08 | reading review | 4 typed recall | C2I |
 | 53 | es.a0.m08.l060 | M08 | Home and Family Checkpoint | checkpoint | Assess family and home communication without new teaching. | 45-52 | none | M01-M08 | sampled punctuation | 5 typed recall | C2I |
-| 61 | future | M09 | Mixed First Conversation | integrated practice | Combine first-contact, origin, need and object language. | 60 | none | all prior | question punctuation | 3 typed recall | C2J |
-| 62 | future | M09 | Integrated A0 Review | review | Recall all major A0 patterns in varied contexts. | 61 | none | all prior | all reading basics | 4 typed recall | C2J |
-| 63 | future | M09 | Final A0 Checkpoint | final checkpoint | Assess the complete Spanish A0 foundation. | 62 | none | all prior | sampled reading rules | 5 typed recall | C2J |
+| 61 | es.a0.m09.l061 | M09 | How Do You Feel? | teaching | Say whether you are well or not well. | 60 | `estoy bien`, `no estoy bien`, `¿estás bien?` | M01-M08 | accents in `estás` | 2 typed recall, `soy`/`estoy` misconception | C2J |
+| 62 | es.a0.m09.l062 | M09 | Basic Symptoms | teaching | State a fever or simple pain location. | 61 | `tengo fiebre`, `me duele la cabeza`, `me duele el estómago` | tener, body words | accents in `estómago` | 2 typed recall, symptom contrast | C2J |
+| 63 | es.a0.m09.l063 | M09 | Basic Health Questions | teaching | Ask and answer basic health questions. | 61-62 | `¿Qué te pasa?`, `¿Tienes fiebre?` | question/answer distinction | `qué`, `sí` | 2 typed recall, response-type misconception | C2J |
+| 64 | es.a0.m09.l064 | M09 | Doctor and Pharmacy Requests | teaching | Request a doctor, pharmacy or hospital in a bounded context. | 62-63 | `médico`, `médica`, `farmacia`, `hospital` | need/request patterns | accents in `médico` | 2 typed recall, service contrast | C2J |
+| 65 | es.a0.m09.l065 | M09 | Understanding Simple Help | teaching | Ask for repetition or slower speech in a health-help exchange. | 64 | `repita`, `más despacio`, health yes/no answers | M07 repair phrases | none | 2 typed recall | C2J |
+| 66 | es.a0.m09.l066 | M09 | Basic Health Exchange | dialogue/application | Complete a short bounded health-help exchange. | 61-65 | no major new vocabulary | M01-M09 | none | 2 typed recall, sequence misconception | C2J |
+| 67 | es.a0.m09.l067 | M09 | Integrated Everyday Help | application | Combine help, health state and location question. | 66 | none | M06-M09 | question punctuation | 2 typed recall | C2J |
+| 68 | es.a0.m09.l068 | M09 | Integrated A0 Communication | integrated practice | Combine identity, origin, transport repair and health help. | 67 | none | M01-M09 | punctuation and accents | 2 typed recall, preferred-order feedback | C2J |
+| 69 | es.a0.m09.l069 | M09 | Health and Integrated Communication Review | review | Recombine health, help, origin, directions and family/home material. | 61-68 | none | M01-M09 | mixed review | 3 typed recall | C2J |
+| 70 | es.a0.m09.l070 | M09 | Health and Integrated Communication Checkpoint | checkpoint | Assess bounded health and integrated A0 communication without new teaching. | 69 | none | M01-M09 | sampled reading rules | 4 typed recall | C2J |
 
 ---
 
@@ -711,7 +719,7 @@ The target restructure should not be applied wholesale to production until progr
 | C2G | Module 6 | 32-38 | Objects, articles, tener possession, word order. | tener misconceptions, review references, object diversity |
 | C2H | Module 7 | 39-44 | Food, drink, hunger/thirst, needs checkpoint. | request prompts, no unsupported grammar, application tasks |
 | C2I | Module 8 | 52-60 | Home and family: close family members, family names, siblings, rooms, household objects, `hay` versus `está`, integrated review and checkpoint. | family/home prompt constraints, `hay`/`está` misconceptions, Module 8 competency recovery |
-| C2J | Module 9 | 50-52 | Integrated review and final checkpoint. | final coverage matrix, no answer leakage, course quality targets |
+| C2J | Module 9 | 61-70 | Health and integrated communication: bounded wellbeing, symptoms, service requests, integrated review and checkpoint. | health-scope audit, final coverage matrix, no answer leakage, course quality targets |
 | C2K | Production reorder | all | Apply approved curriculum order after progress policy. | planner/progress compatibility |
 
 ---
@@ -720,7 +728,7 @@ The target restructure should not be applied wholesale to production until progr
 
 These targets are binding for the final Spanish A0 course.
 
-They are not all immediate pass/fail gates for the current 32-lesson production course. During C2B-C2J, each completed module should move the implemented curriculum toward these targets and add tests for the rules that are enforceable for the completed slice.
+They are not all immediate pass/fail gates for the current 70-lesson production course. During C2B-C2J, each completed module should move the implemented curriculum toward these targets and add tests for the rules that are enforceable for the completed slice.
 
 ## Lesson Quality
 

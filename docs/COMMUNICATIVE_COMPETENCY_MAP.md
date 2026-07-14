@@ -440,32 +440,45 @@ predictable exchange requires those prerequisite skills.
 
 ---
 
-# Module 9 — Integrated A0 Communication
+# Module 9 — Health and Integrated Communication
 
 ## Communicative Competencies
 
-- Combine first-contact, origin, wellbeing, need and object language.
+- State basic wellbeing and simple symptoms.
+- Ask and answer tightly controlled health-help questions.
+- Request a doctor, pharmacy or hospital without giving medical advice.
+- Combine first-contact, origin, help, transport, family/home and health language.
 - Understand short controlled dialogues and profiles.
 - Complete mixed recall and application tasks.
 - Demonstrate the A0 foundation without relying on one memorized script.
 
+Production competency:
+
+`competency.es.a0.m09.handle_basic_health_and_help_exchange`
+
 ## Typical Real-Life Scenarios
 
 - meeting someone and exchanging basic personal information;
-- asking for a basic item or help politely;
+- saying that you are well, not well, have a fever or have simple pain;
+- asking where a pharmacy, doctor or hospital is;
+- asking for repetition or slower speech in a help exchange;
 - reading a tiny integrated profile;
 - handling controlled shopping, transport-help or health-need prompts when they reuse known language.
 
 ## Language Patterns Introduced
 
-- no major new grammar;
-- cumulative use of greetings, names, origin, wellbeing, numbers, `tener`, requests and simple profiles;
+- `estoy bien` / `no estoy bien` for condition;
+- `tengo fiebre` for a simple symptom;
+- `me duele...` for a small fixed set of pain statements;
+- `¿Qué te pasa?`, `¿Tienes fiebre?` and service-location questions;
+- cumulative use of greetings, names, origin, wellbeing, `tener`, help requests, directions and simple profiles;
 - checkpoint-style integration of reading, recall and application.
 
 ## Typical Learner Limitations
 
 - Cannot yet handle natural-speed conversation.
 - Cannot manage open-ended travel, shopping or health tasks.
+- Cannot diagnose, discuss treatment, medication, dosage or emergency procedure.
 - Can communicate only inside short, controlled A0 scenarios.
 
 ---

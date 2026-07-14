@@ -55,6 +55,7 @@ class CompetencyDefinitionRegistry {
         'es.a0.m06',
         'es.a0.m07',
         'es.a0.m08',
+        'es.a0.m09',
       ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
@@ -487,6 +488,99 @@ const _defaultDefinitions = [
           'template.es.a0.m04.l020.fill_se_llama.v1',
       'recovery.es.a0.m08.state_location.m06':
           'template.es.a0.m06.l037.where_question_choice.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId:
+          'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+      moduleId: 'es.a0.m09',
+      title: 'Basic health and integrated communication check',
+      communicativeGoal:
+          'Handle a bounded health-help exchange and integrate core A0 communication skills.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.state_feeling_unwell',
+        'micro.es.a0.state_basic_symptom',
+        'micro.es.a0.state_basic_pain_location',
+        'micro.es.a0.ask_if_person_is_well',
+        'micro.es.a0.answer_basic_health_question',
+        'micro.es.a0.request_doctor',
+        'micro.es.a0.request_pharmacy',
+        'micro.es.a0.ask_where_health_service_is',
+        'micro.es.a0.understand_basic_health_instruction',
+        'micro.es.a0.respond_in_basic_health_exchange',
+        'micro.es.a0.complete_basic_health_exchange',
+        'micro.es.a0.integrate_identity_and_help',
+        'micro.es.a0.integrate_transport_and_help',
+        'micro.es.a0.integrate_family_home_and_help',
+        'micro.es.a0.complete_integrated_a0_exchange',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m09.state_unwell',
+        'task.es.a0.m09.state_symptom',
+        'task.es.a0.m09.state_pain',
+        'task.es.a0.m09.answer_health_question',
+        'task.es.a0.m09.request_doctor',
+        'task.es.a0.m09.request_pharmacy',
+        'task.es.a0.m09.ask_where_health_service',
+        'task.es.a0.m09.understand_instruction',
+        'task.es.a0.m09.complete_health_exchange',
+        'task.es.a0.m09.integrated_a0_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m09.state_unwell':
+          'template.es.a0.m09.competency.state_unwell.v1',
+      'task.es.a0.m09.state_symptom':
+          'template.es.a0.m09.competency.state_symptom.v1',
+      'task.es.a0.m09.state_pain':
+          'template.es.a0.m09.competency.state_pain.v1',
+      'task.es.a0.m09.answer_health_question':
+          'template.es.a0.m09.competency.answer_health_question.v1',
+      'task.es.a0.m09.request_doctor':
+          'template.es.a0.m09.competency.request_doctor.v1',
+      'task.es.a0.m09.request_pharmacy':
+          'template.es.a0.m09.competency.request_pharmacy.v1',
+      'task.es.a0.m09.ask_where_health_service':
+          'template.es.a0.m09.competency.ask_where_service.v1',
+      'task.es.a0.m09.understand_instruction':
+          'template.es.a0.m09.competency.understand_instruction.v1',
+      'task.es.a0.m09.complete_health_exchange':
+          'template.es.a0.m09.competency.health_exchange.v1',
+      'task.es.a0.m09.integrated_a0_exchange':
+          'template.es.a0.m09.competency.integrated_a0_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.state_feeling_unwell':
+          'template.es.a0.m09.l061.condition_choice.v1',
+      'micro.es.a0.state_basic_symptom':
+          'template.es.a0.m09.l062.symptom_choice.v1',
+      'micro.es.a0.state_basic_pain_location':
+          'template.es.a0.m09.l062.type_me_duele_cabeza.v1',
+      'micro.es.a0.ask_if_person_is_well':
+          'template.es.a0.m09.l061.type_estas_bien.v1',
+      'micro.es.a0.answer_basic_health_question':
+          'template.es.a0.m09.l063.fill_tienes.v1',
+      'micro.es.a0.request_doctor': 'template.es.a0.m09.l064.fill_medico.v1',
+      'micro.es.a0.request_pharmacy':
+          'template.es.a0.m09.l064.service_choice.v1',
+      'micro.es.a0.ask_where_health_service_is':
+          'template.es.a0.m07.l047.service_choice.v1',
+      'micro.es.a0.understand_basic_health_instruction':
+          'template.es.a0.m07.l046.fill_repita.v1',
+      'micro.es.a0.respond_in_basic_health_exchange':
+          'template.es.a0.m07.l049.dialogue_comprehension.v1',
+      'micro.es.a0.complete_basic_health_exchange':
+          'template.es.a0.m09.l066.exchange_choice.v1',
+      'micro.es.a0.integrate_identity_and_help':
+          'template.es.a0.m03.competency.type_intro_marta.v1',
+      'micro.es.a0.integrate_transport_and_help':
+          'template.es.a0.m06.l040.route_question_choice.v1',
+      'micro.es.a0.integrate_family_home_and_help':
+          'template.es.a0.m08.l058.dialogue_comprehension.v1',
+      'micro.es.a0.complete_integrated_a0_exchange':
+          'template.es.a0.m09.l068.situation_choice.v1',
     },
   ),
 ];
@@ -1110,6 +1204,124 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m08',
     prerequisiteContentReferences: [
       'template.es.a0.m08.competency.family_home_exchange.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_feeling_unwell',
+    description: 'State that the speaker is not well.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l061.type_no_estoy_bien.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_basic_symptom',
+    description: 'State one controlled symptom such as fever.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l062.type_tengo_fiebre.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_basic_pain_location',
+    description: 'State one controlled pain location with me duele.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l062.type_me_duele_cabeza.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_if_person_is_well',
+    description: 'Ask if one person is well.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l061.type_estas_bien.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.answer_basic_health_question',
+    description: 'Answer a short health question with a bounded response.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l063.type_si_tengo_fiebre.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_doctor',
+    description: 'Request a doctor in a language-learning role-play.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l064.type_necesito_medico.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_pharmacy',
+    description: 'Request a pharmacy in a language-learning role-play.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l064.service_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_where_health_service_is',
+    description: 'Ask where a health service is.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l064.type_donde_hospital.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_basic_health_instruction',
+    description: 'Understand a simple non-diagnostic help or repair line.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: ['template.es.a0.m09.l065.repair_choice.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_in_basic_health_exchange',
+    description: 'Respond inside a short bounded health exchange.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l065.type_no_no_tengo_fiebre.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_basic_health_exchange',
+    description: 'Complete a short predictable health-help exchange.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l066.type_basic_health_exchange.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.integrate_identity_and_help',
+    description: 'Combine an identity statement with a help request.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l068.type_integrated_a0_identity_help.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.integrate_transport_and_help',
+    description: 'Combine transport or directions language with a help need.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l068.type_integrated_transport_health.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.integrate_family_home_and_help',
+    description: 'Combine family or home context with a health-help need.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.l067.type_family_health_need.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_integrated_a0_exchange',
+    description: 'Complete a bounded integrated A0 exchange.',
+    introducedInModuleId: 'es.a0.m09',
+    prerequisiteContentReferences: [
+      'template.es.a0.m09.competency.integrated_a0_exchange.v1',
     ],
   ),
 ];
@@ -2110,6 +2322,293 @@ const _assessmentTasks = [
     ],
   ),
   CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.state_unwell',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.state_feeling_unwell'],
+    lessonStepReference: 'template.es.a0.m09.competency.state_unwell.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_feeling_unwell',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l061.condition_choice.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l061',
+            sourceStepId: 'template.es.a0.m09.l061.condition_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.state_unwell',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.state_symptom',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.state_basic_symptom'],
+    lessonStepReference: 'template.es.a0.m09.competency.state_symptom.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_basic_symptom',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l062.symptom_choice.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l062',
+            sourceStepId: 'template.es.a0.m09.l062.symptom_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.state_symptom',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.state_pain',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.state_basic_pain_location'],
+    lessonStepReference: 'template.es.a0.m09.competency.state_pain.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.state_basic_pain_location',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l062.type_me_duele_cabeza.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l062',
+            sourceStepId: 'template.es.a0.m09.l062.type_me_duele_cabeza.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.state_pain',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.answer_health_question',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_if_person_is_well',
+      'micro.es.a0.answer_basic_health_question',
+    ],
+    lessonStepReference:
+        'template.es.a0.m09.competency.answer_health_question.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.answer_basic_health_question',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l063.fill_tienes.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l063',
+            sourceStepId: 'template.es.a0.m09.l063.fill_tienes.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.answer_health_question',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.request_doctor',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.request_doctor'],
+    lessonStepReference: 'template.es.a0.m09.competency.request_doctor.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.request_doctor',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l064.fill_medico.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l064',
+            sourceStepId: 'template.es.a0.m09.l064.fill_medico.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.request_doctor',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.request_pharmacy',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.request_pharmacy'],
+    lessonStepReference: 'template.es.a0.m09.competency.request_pharmacy.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.request_pharmacy',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l064.service_choice.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l064',
+            sourceStepId: 'template.es.a0.m09.l064.service_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.request_pharmacy',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.ask_where_health_service',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_where_health_service_is'],
+    lessonStepReference: 'template.es.a0.m09.competency.ask_where_service.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_where_health_service_is',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l047.service_choice.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l047',
+            sourceStepId: 'template.es.a0.m07.l047.service_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.ask_where_health_service',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.understand_instruction',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.understand_basic_health_instruction',
+      'micro.es.a0.request_repetition',
+    ],
+    lessonStepReference:
+        'template.es.a0.m09.competency.understand_instruction.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.request_repetition',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l046.fill_repita.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l046',
+            sourceStepId: 'template.es.a0.m07.l046.fill_repita.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.understand_instruction',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.complete_health_exchange',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.state_feeling_unwell',
+      'micro.es.a0.state_basic_pain_location',
+      'micro.es.a0.request_pharmacy',
+      'micro.es.a0.respond_in_basic_health_exchange',
+      'micro.es.a0.complete_basic_health_exchange',
+    ],
+    lessonStepReference: 'template.es.a0.m09.competency.health_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_basic_health_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l066.exchange_choice.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l066',
+            sourceStepId: 'template.es.a0.m09.l066.exchange_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.complete_health_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_in_basic_health_exchange',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m07.l049.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m07',
+            sourceLessonId: 'es.a0.m07.l049',
+            sourceStepId: 'template.es.a0.m07.l049.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.complete_health_exchange',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m09.integrated_a0_exchange',
+    competencyId: 'competency.es.a0.m09.handle_basic_health_and_help_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.introduce_self',
+      'micro.es.a0.ask_for_help',
+      'micro.es.a0.ask_where_health_service_is',
+      'micro.es.a0.integrate_identity_and_help',
+      'micro.es.a0.integrate_transport_and_help',
+      'micro.es.a0.integrate_family_home_and_help',
+      'micro.es.a0.complete_integrated_a0_exchange',
+    ],
+    lessonStepReference:
+        'template.es.a0.m09.competency.integrated_a0_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_integrated_a0_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m09.l068.situation_choice.v1',
+            sourceModuleId: 'es.a0.m09',
+            sourceLessonId: 'es.a0.m09.l068',
+            sourceStepId: 'template.es.a0.m09.l068.situation_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.integrated_a0_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.introduce_self',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m03.competency.type_intro_marta.v1',
+            sourceModuleId: 'es.a0.m03',
+            sourceLessonId: 'es.a0.m03.l013',
+            sourceStepId: 'template.es.a0.m03.competency.type_intro_marta.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.integrated_a0_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.integrate_transport_and_help',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m06.l040.route_question_choice.v1',
+            sourceModuleId: 'es.a0.m06',
+            sourceLessonId: 'es.a0.m06.l040',
+            sourceStepId: 'template.es.a0.m06.l040.route_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.integrated_a0_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.integrate_family_home_and_help',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m08.l058.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m08',
+            sourceLessonId: 'es.a0.m08.l058',
+            sourceStepId: 'template.es.a0.m08.l058.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m09.integrated_a0_exchange',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
     taskId: 'task.es.a0.build_personal_identity_profile',
     competencyId: 'competency.es.a0.m03.describe_basic_personal_identity',
     assessedMicroCompetencyIds: [
@@ -2139,7 +2638,11 @@ const _assessmentTasks = [
 ];
 
 LessonContentReference templateReference(String templateId) {
-  final assetPath = templateId.startsWith('template.es.a0.m07.')
+  final assetPath = templateId.startsWith('template.es.a0.m09.')
+      ? 'assets/languages/spanish/templates/module_9_health_integrated.json'
+      : templateId.startsWith('template.es.a0.m08.')
+      ? 'assets/languages/spanish/templates/module_8_home_family.json'
+      : templateId.startsWith('template.es.a0.m07.')
       ? 'assets/languages/spanish/templates/module_7_help.json'
       : templateId.startsWith('template.es.a0.m06.')
       ? 'assets/languages/spanish/templates/module_6_transport.json'

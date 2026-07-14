@@ -1,0 +1,92 @@
+[
+  {
+    "id": "grammar.es.a0.m09.estar_condition.v1",
+    "title": "Estar for how someone feels",
+    "explanation": "Use estoy to say how you feel, estás to ask one person, and está to speak about another person. Keep this bounded to simple health or condition phrases.",
+    "examples": [
+      "Estoy bien.",
+      "No estoy bien.",
+      "¿Estás bien?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m06.location_with_estar.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m09.condition_vs_location.v1",
+    "title": "Estoy for condition, está for location",
+    "explanation": "Estoy describes the speaker condition. Está can locate a known place or person. Do not use soy for temporary health condition.",
+    "examples": [
+      "Estoy mal.",
+      "La farmacia está cerca.",
+      "El hospital está allí."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m09.estar_condition.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m09.tener_fever.v1",
+    "title": "Tener for fever",
+    "explanation": "Use tengo fiebre for I have a fever. Use tienes fiebre to ask one person. This is a fixed beginner health pattern, not a full medical explanation.",
+    "examples": [
+      "Tengo fiebre.",
+      "¿Tienes fiebre?",
+      "No, no tengo fiebre."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m08.tener_family.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m09.me_duele.v1",
+    "title": "Me duele for basic pain",
+    "explanation": "Use me duele plus one controlled body word to say where something hurts. Treat it as a fixed useful pattern at A0.",
+    "examples": [
+      "Me duele la cabeza.",
+      "Me duele el estómago.",
+      "Me duele la garganta."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m09.health_questions.v1",
+    "title": "Basic health questions",
+    "explanation": "Use short questions to check what is wrong. This module uses tú questions such as ¿Qué te pasa? and ¿Tienes fiebre?",
+    "examples": [
+      "¿Estás bien?",
+      "¿Qué te pasa?",
+      "¿Te duele la cabeza?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m09.estar_condition.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m09.service_requests.v1",
+    "title": "Health service requests",
+    "explanation": "Use necesito with one clear health service or help word. The app teaches language for requesting help, not medical advice.",
+    "examples": [
+      "Necesito un médico.",
+      "Necesito una farmacia.",
+      "Necesito ayuda."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m07.necesito.v1"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m09.integrated_health_exchange.v1",
+    "title": "Bounded health help exchange",
+    "explanation": "A simple health exchange can combine attention, condition, symptom, service request, location and communication repair. Keep the sequence short and authored.",
+    "examples": [
+      "Disculpe. No estoy bien. Necesito una farmacia.",
+      "¿Qué te pasa? Me duele la cabeza.",
+      "No entiendo. Repita, por favor."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m07.communication_repair.v1",
+      "grammar.es.a0.m09.service_requests.v1"
+    ]
+  }
+]
