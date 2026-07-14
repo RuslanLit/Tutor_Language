@@ -383,6 +383,7 @@ class ExerciseTemplate {
     this.correctOptionId,
     this.expectedAnswer,
     this.acceptedAnswers = const [],
+    this.acceptedWithFeedbackAnswers = const [],
     this.requiresExactAnswer = false,
     this.authoredMisconceptions = const [],
     this.reviewTemplateIds = const [],
@@ -405,6 +406,14 @@ class ExerciseTemplate {
       correctOptionId: optionalString(json, 'correct_option_id'),
       expectedAnswer: optionalString(json, 'expected_answer'),
       acceptedAnswers: optionalStringList(json, 'accepted_answers'),
+      acceptedWithFeedbackAnswers:
+          json['accepted_with_feedback_answers'] == null
+          ? const []
+          : requiredList(
+              json,
+              'accepted_with_feedback_answers',
+              AcceptedWithFeedbackAnswer.fromJson,
+            ),
       requiresExactAnswer: optionalBool(json, 'requires_exact_answer') ?? false,
       authoredMisconceptions: json['authored_misconceptions'] == null
           ? const []
@@ -426,6 +435,7 @@ class ExerciseTemplate {
   final String? correctOptionId;
   final String? expectedAnswer;
   final List<String> acceptedAnswers;
+  final List<AcceptedWithFeedbackAnswer> acceptedWithFeedbackAnswers;
   final bool requiresExactAnswer;
   final List<AuthoredMisconception> authoredMisconceptions;
   final List<String> reviewTemplateIds;
@@ -444,6 +454,10 @@ class ExerciseTemplate {
       if (correctOptionId != null) 'correct_option_id': correctOptionId,
       if (expectedAnswer != null) 'expected_answer': expectedAnswer,
       if (acceptedAnswers.isNotEmpty) 'accepted_answers': acceptedAnswers,
+      if (acceptedWithFeedbackAnswers.isNotEmpty)
+        'accepted_with_feedback_answers': acceptedWithFeedbackAnswers
+            .map((answer) => answer.toJson())
+            .toList(growable: false),
       if (requiresExactAnswer) 'requires_exact_answer': requiresExactAnswer,
       if (authoredMisconceptions.isNotEmpty)
         'authored_misconceptions': authoredMisconceptions
@@ -467,6 +481,10 @@ class ExerciseTemplate {
             other.correctOptionId == correctOptionId &&
             other.expectedAnswer == expectedAnswer &&
             listEquals(other.acceptedAnswers, acceptedAnswers) &&
+            listEquals(
+              other.acceptedWithFeedbackAnswers,
+              acceptedWithFeedbackAnswers,
+            ) &&
             other.requiresExactAnswer == requiresExactAnswer &&
             listEquals(other.authoredMisconceptions, authoredMisconceptions) &&
             listEquals(other.reviewTemplateIds, reviewTemplateIds);
@@ -483,10 +501,51 @@ class ExerciseTemplate {
     correctOptionId,
     expectedAnswer,
     Object.hashAll(acceptedAnswers),
+    Object.hashAll(acceptedWithFeedbackAnswers),
     requiresExactAnswer,
     Object.hashAll(authoredMisconceptions),
     Object.hashAll(reviewTemplateIds),
   );
+}
+
+class AcceptedWithFeedbackAnswer {
+  const AcceptedWithFeedbackAnswer({
+    required this.answer,
+    required this.feedbackKey,
+    this.canonicalAnswer,
+  });
+
+  factory AcceptedWithFeedbackAnswer.fromJson(Map<String, Object?> json) {
+    return AcceptedWithFeedbackAnswer(
+      answer: requiredString(json, 'answer'),
+      feedbackKey: requiredString(json, 'feedback_key'),
+      canonicalAnswer: optionalString(json, 'canonical_answer'),
+    );
+  }
+
+  final String answer;
+  final String feedbackKey;
+  final String? canonicalAnswer;
+
+  Map<String, Object?> toJson() {
+    return {
+      'answer': answer,
+      'feedback_key': feedbackKey,
+      if (canonicalAnswer != null) 'canonical_answer': canonicalAnswer,
+    };
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is AcceptedWithFeedbackAnswer &&
+            other.answer == answer &&
+            other.feedbackKey == feedbackKey &&
+            other.canonicalAnswer == canonicalAnswer;
+  }
+
+  @override
+  int get hashCode => Object.hash(answer, feedbackKey, canonicalAnswer);
 }
 
 class AuthoredMisconception {

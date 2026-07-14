@@ -315,6 +315,49 @@ void main() {
       },
     );
 
+    test(
+      'authored preferred-order alternative is accepted with correction',
+      () {
+        final result = const AnswerEvaluator().evaluateTypedAnswer(
+          learnerAnswer: 'Me llamo Marta. Hola.',
+          canonicalAnswer: 'Hola. Me llamo Marta.',
+          acceptedWithFeedbackAnswers: const [
+            AcceptedWithFeedbackAnswer(
+              answer: 'Me llamo Marta. Hola.',
+              feedbackKey: 'answer.preferred_order',
+              canonicalAnswer: 'Hola. Me llamo Marta.',
+            ),
+          ],
+        );
+
+        expect(result.status, AnswerEvaluationStatus.acceptedWithFeedback);
+        expect(result.isAccepted, isTrue);
+        expect(
+          result.matchType,
+          AnswerMatchType.acceptedAlternativeWithFeedback,
+        );
+        expect(result.feedback.key, 'answer.preferred_order');
+        expect(result.feedback.canonicalAnswer, 'Hola. Me llamo Marta.');
+      },
+    );
+
+    test('preferred-order alternatives remain explicitly authored', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Ana llamo me. Hola.',
+        canonicalAnswer: 'Hola. Me llamo Ana.',
+        acceptedWithFeedbackAnswers: const [
+          AcceptedWithFeedbackAnswer(
+            answer: 'Me llamo Ana. Hola.',
+            feedbackKey: 'answer.preferred_order',
+            canonicalAnswer: 'Hola. Me llamo Ana.',
+          ),
+        ],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.matchType, AnswerMatchType.none);
+    });
+
     test('exact authored misconception is incorrect with explanation', () {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'Soy Ana',
@@ -336,6 +379,73 @@ void main() {
         'grammar.es.a0.unit1.name_pattern.v1',
       );
     });
+
+    test(
+      'question expected statement provided gets task-mismatch feedback',
+      () {
+        final result = const AnswerEvaluator().evaluateTypedAnswer(
+          learnerAnswer: 'Soy de Perú',
+          canonicalAnswer: '¿De dónde eres?',
+          authoredMisconceptions: const [
+            AuthoredMisconception(
+              id: 'misconception.response.question_expected_statement.v1',
+              matchingAnswers: ['Soy de Perú'],
+              feedbackKey: 'response.question_expected_statement_provided',
+              canonicalAnswer: '¿De dónde eres?',
+            ),
+          ],
+        );
+
+        expect(result.status, AnswerEvaluationStatus.incorrect);
+        expect(result.matchType, AnswerMatchType.authoredMisconception);
+        expect(
+          result.feedback.key,
+          'response.question_expected_statement_provided',
+        );
+      },
+    );
+
+    test('answer expected question provided gets task-mismatch feedback', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: '¿Cómo estás?',
+        canonicalAnswer: 'Bien, gracias',
+        authoredMisconceptions: const [
+          AuthoredMisconception(
+            id: 'misconception.response.answer_expected_question.v1',
+            matchingAnswers: ['¿Cómo estás?'],
+            feedbackKey: 'response.answer_expected_question',
+            canonicalAnswer: 'Bien, gracias',
+          ),
+        ],
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.feedback.key, 'response.answer_expected_question');
+    });
+
+    test(
+      'statement expected question provided gets task-mismatch feedback',
+      () {
+        final result = const AnswerEvaluator().evaluateTypedAnswer(
+          learnerAnswer: '¿De dónde eres?',
+          canonicalAnswer: 'Soy de Colombia',
+          authoredMisconceptions: const [
+            AuthoredMisconception(
+              id: 'misconception.response.statement_expected_question.v1',
+              matchingAnswers: ['¿De dónde eres?'],
+              feedbackKey: 'response.statement_expected_question_provided',
+              canonicalAnswer: 'Soy de Colombia',
+            ),
+          ],
+        );
+
+        expect(result.status, AnswerEvaluationStatus.incorrect);
+        expect(
+          result.feedback.key,
+          'response.statement_expected_question_provided',
+        );
+      },
+    );
 
     test('normalized authored misconception matches conservatively', () {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
@@ -482,6 +592,53 @@ void main() {
         presented.corrections,
         contains('For this introduction pattern, use "me llamo".'),
       );
+    });
+
+    test('renders preferred-order correction', () {
+      final presented = const AnswerFeedbackPresenter().present(
+        const AnswerEvaluationResult(
+          status: AnswerEvaluationStatus.acceptedWithFeedback,
+          feedback: AnswerFeedback(
+            key: 'answer.preferred_order',
+            canonicalAnswer: 'Hola. Me llamo Marta.',
+          ),
+          matchType: AnswerMatchType.acceptedAlternativeWithFeedback,
+        ),
+      );
+
+      expect(presented.statusLabel, 'Accepted with correction');
+      expect(presented.corrections, [
+        'A more natural order is: Hola. Me llamo Marta.',
+      ]);
+    });
+
+    test('renders progressive task-mismatch hints', () {
+      const result = AnswerEvaluationResult(
+        status: AnswerEvaluationStatus.incorrect,
+        feedback: AnswerFeedback(
+          key: 'response.question_expected_statement_provided',
+          canonicalAnswer: '¿De dónde eres?',
+        ),
+        matchType: AnswerMatchType.authoredMisconception,
+      );
+
+      final first = const AnswerFeedbackPresenter().present(
+        result,
+        attemptCount: 1,
+      );
+      final third = const AnswerFeedbackPresenter().present(
+        result,
+        attemptCount: 3,
+      );
+
+      expect(
+        first.corrections,
+        contains(
+          'This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.',
+        ),
+      );
+      expect(third.corrections, contains('Questions begin with: ¿...'));
+      expect(third.corrections, contains('Starts with: ¿De'));
     });
   });
 }

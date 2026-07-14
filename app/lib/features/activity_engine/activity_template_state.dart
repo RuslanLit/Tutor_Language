@@ -8,12 +8,14 @@ class ActivityTemplateState {
     this.submittedAnswer = '',
     this.matchedPairs = const {},
     this.result,
+    this.attemptCount = 0,
   });
 
   final String? selectedOptionId;
   final String submittedAnswer;
   final Map<String, String> matchedPairs;
   final ActivityResult? result;
+  final int attemptCount;
 
   bool get isCompleted => result != null;
 
@@ -22,6 +24,7 @@ class ActivityTemplateState {
     String? submittedAnswer,
     Map<String, String>? matchedPairs,
     Object? result = _unset,
+    int? attemptCount,
   }) {
     return ActivityTemplateState(
       selectedOptionId: selectedOptionId == _unset
@@ -30,6 +33,7 @@ class ActivityTemplateState {
       submittedAnswer: submittedAnswer ?? this.submittedAnswer,
       matchedPairs: matchedPairs ?? this.matchedPairs,
       result: result == _unset ? this.result : result as ActivityResult?,
+      attemptCount: attemptCount ?? this.attemptCount,
     );
   }
 }

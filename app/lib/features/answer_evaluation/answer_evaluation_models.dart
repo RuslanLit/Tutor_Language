@@ -9,6 +9,7 @@ enum AnswerMatchType {
   exactCanonical,
   normalizedCanonical,
   acceptedAlternative,
+  acceptedAlternativeWithFeedback,
   orthographicEquivalent,
   authoredMisconception,
   none,

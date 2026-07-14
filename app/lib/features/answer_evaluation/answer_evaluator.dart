@@ -19,6 +19,7 @@ class AnswerEvaluator {
     required String learnerAnswer,
     required String? canonicalAnswer,
     List<String> acceptedAnswers = const [],
+    List<AcceptedWithFeedbackAnswer> acceptedWithFeedbackAnswers = const [],
     List<AuthoredMisconception> authoredMisconceptions = const [],
     bool allowMeaningSupport = true,
   }) {
@@ -79,6 +80,27 @@ class AnswerEvaluator {
         normalizedLearnerAnswer: normalizedLearnerAnswer,
         normalizedCanonicalAnswer: normalizer
             .normalize(orthographicAnalysis.canonicalAnswer)
+            .value,
+      );
+    }
+
+    final acceptedWithFeedback = _acceptedWithFeedbackFor(
+      learnerAnswer: learnerAnswer,
+      acceptedWithFeedbackAnswers: acceptedWithFeedbackAnswers,
+    );
+    if (acceptedWithFeedback != null) {
+      final feedbackCanonicalAnswer =
+          acceptedWithFeedback.canonicalAnswer ?? canonicalAnswer;
+      return AnswerEvaluationResult(
+        status: AnswerEvaluationStatus.acceptedWithFeedback,
+        feedback: AnswerFeedback(
+          key: acceptedWithFeedback.feedbackKey,
+          canonicalAnswer: feedbackCanonicalAnswer,
+        ),
+        matchType: AnswerMatchType.acceptedAlternativeWithFeedback,
+        normalizedLearnerAnswer: normalizedLearnerAnswer,
+        normalizedCanonicalAnswer: normalizer
+            .normalize(feedbackCanonicalAnswer)
             .value,
       );
     }
@@ -173,6 +195,28 @@ class AnswerEvaluator {
       );
       if (acceptedAnalysis != null) {
         return acceptedAnalysis;
+      }
+    }
+
+    return null;
+  }
+
+  AcceptedWithFeedbackAnswer? _acceptedWithFeedbackFor({
+    required String learnerAnswer,
+    required List<AcceptedWithFeedbackAnswer> acceptedWithFeedbackAnswers,
+  }) {
+    final normalizedLearner = normalizer.normalize(learnerAnswer).value;
+    final supportNormalizedLearner = normalizer
+        .normalizeMeaningSupport(learnerAnswer)
+        .value;
+
+    for (final acceptedAnswer in acceptedWithFeedbackAnswers) {
+      if (learnerAnswer == acceptedAnswer.answer ||
+          normalizedLearner ==
+              normalizer.normalize(acceptedAnswer.answer).value ||
+          supportNormalizedLearner ==
+              normalizer.normalizeMeaningSupport(acceptedAnswer.answer).value) {
+        return acceptedAnswer;
       }
     }
 

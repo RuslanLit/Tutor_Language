@@ -31,6 +31,24 @@
         "feedback_key": "spanish.silent_h.hola",
         "canonical_answer": "hola",
         "explanation_reference_id": "grammar.es.a0.m01.silent_h.v1"
+      },
+      {
+        "id": "misconception.es.a0.m01.hola.source_copied.v1",
+        "matching_answers": [
+          "hello"
+        ],
+        "feedback_key": "response.translation_expected_source_language",
+        "canonical_answer": "hola"
+      },
+      {
+        "id": "misconception.es.a0.m01.hola.farewell.v1",
+        "matching_answers": [
+          "adiós",
+          "adios",
+          "hasta luego"
+        ],
+        "feedback_key": "response.greeting_expected_farewell",
+        "canonical_answer": "hola"
       }
     ],
     "review_template_ids": [
@@ -48,6 +66,16 @@
     ],
     "prompt_template": "Type the Spanish word for \"goodbye\".",
     "expected_answer": "adiós",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m01.adios.greeting.v1",
+        "matching_answers": [
+          "hola"
+        ],
+        "feedback_key": "response.farewell_expected_greeting",
+        "canonical_answer": "adiós"
+      }
+    ],
     "review_template_ids": [
       "template.es.a0.unit1.greeting_choice.v1"
     ]

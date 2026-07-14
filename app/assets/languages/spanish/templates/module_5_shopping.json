@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "template.es.a0.m05.l028.object_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish word for \"book\".",
+    "answer_options": [
+      {
+        "id": "libro",
+        "label": "libro"
+      },
+      {
+        "id": "botella",
+        "label": "botella"
+      },
+      {
+        "id": "bolsa",
+        "label": "bolsa"
+      }
+    ],
+    "correct_option_id": "libro"
+  },
+  {
+    "id": "template.es.a0.m05.l028.fill_una_botella.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the correct Spanish article for bottle: \"Es ____ botella.\"",
+    "expected_answer": "una"
+  },
+  {
+    "id": "template.es.a0.m05.l028.type_que_es_esto.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"What is this?\"",
+    "expected_answer": "¿Qué es esto?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l028.cuanto_for_what.v1",
+        "matching_answers": [
+          "¿Cuánto cuesta?",
+          "Cuanto cuesta?"
+        ],
+        "feedback_key": "spanish.shopping.use_que_for_object",
+        "canonical_answer": "¿Qué es esto?",
+        "explanation_reference_id": "grammar.es.a0.m05.que_es_esto.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l028.object_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l028.type_es_una_botella.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"It is a bottle.\"",
+    "expected_answer": "Es una botella",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l028.un_botella.v1",
+        "matching_answers": [
+          "Es un botella"
+        ],
+        "feedback_key": "spanish.shopping.use_una_feminine",
+        "canonical_answer": "Es una botella",
+        "explanation_reference_id": "grammar.es.a0.m05.un_una_objects.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l028.fill_una_botella.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l028.type_libro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish word for \"book\".",
+    "expected_answer": "libro"
+  },
+  {
+    "id": "template.es.a0.m05.l029.availability_question_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the polite Spanish question for \"Do you have water?\" in a shop.",
+    "answer_options": [
+      {
+        "id": "tiene",
+        "label": "¿Tiene agua?"
+      },
+      {
+        "id": "que",
+        "label": "¿Qué es agua?"
+      },
+      {
+        "id": "cuanto",
+        "label": "¿Cuánto cuesta agua?"
+      }
+    ],
+    "correct_option_id": "tiene"
+  },
+  {
+    "id": "template.es.a0.m05.l029.fill_tenemos.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish answer with \"we have\": \"Sí, ____ agua.\"",
+    "expected_answer": "tenemos"
+  },
+  {
+    "id": "template.es.a0.m05.l029.type_tiene_agua.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the polite Spanish question: \"Do you have water?\"",
+    "expected_answer": "¿Tiene agua?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l029.tienes_agua.v1",
+        "matching_answers": [
+          "¿Tienes agua?",
+          "Tienes agua?"
+        ],
+        "feedback_key": "spanish.shopping.use_polite_tiene",
+        "canonical_answer": "¿Tiene agua?",
+        "explanation_reference_id": "grammar.es.a0.m05.polite_availability.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l029.availability_question_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l029.type_si_tenemos_agua.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer: \"Yes, we have water.\"",
+    "expected_answer": "Sí, tenemos agua",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l029.tengo_agua.v1",
+        "matching_answers": [
+          "Sí, tengo agua",
+          "Tengo agua"
+        ],
+        "feedback_key": "spanish.shopping.use_tenemos_for_shop",
+        "canonical_answer": "Sí, tenemos agua",
+        "explanation_reference_id": "grammar.es.a0.m05.polite_availability.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l029.fill_tenemos.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l029.type_no_tenemos_llave.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer: \"No, we do not have a key.\"",
+    "expected_answer": "No, no tenemos una llave",
+    "accepted_answers": [
+      "No tenemos una llave"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l030.price_question_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish question for \"How much does it cost?\"",
+    "answer_options": [
+      {
+        "id": "cuesta",
+        "label": "¿Cuánto cuesta?"
+      },
+      {
+        "id": "que",
+        "label": "¿Qué es esto?"
+      },
+      {
+        "id": "tiene",
+        "label": "¿Tiene agua?"
+      }
+    ],
+    "correct_option_id": "cuesta"
+  },
+  {
+    "id": "template.es.a0.m05.l030.price_comprehension_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The sign says \"Botella: dos euros.\" Choose the price.",
+    "answer_options": [
+      {
+        "id": "uno",
+        "label": "one euro"
+      },
+      {
+        "id": "dos",
+        "label": "two euros"
+      },
+      {
+        "id": "cinco",
+        "label": "five euros"
+      }
+    ],
+    "correct_option_id": "dos"
+  },
+  {
+    "id": "template.es.a0.m05.l030.type_cuanto_cuesta.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question: \"How much does it cost?\"",
+    "expected_answer": "¿Cuánto cuesta?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l030.que_es_esto.v1",
+        "matching_answers": [
+          "¿Qué es esto?",
+          "Que es esto?"
+        ],
+        "feedback_key": "spanish.shopping.use_cuanto_for_price",
+        "canonical_answer": "¿Cuánto cuesta?",
+        "explanation_reference_id": "grammar.es.a0.m05.price_question.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l030.price_question_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l030.type_cuesta_cinco_euros.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"It costs five euros.\"",
+    "expected_answer": "Cuesta cinco euros",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l030.es_cinco_euros.v1",
+        "matching_answers": [
+          "Es cinco euros",
+          "Es cinco"
+        ],
+        "feedback_key": "spanish.shopping.use_cuesta_for_price",
+        "canonical_answer": "Cuesta cinco euros",
+        "explanation_reference_id": "grammar.es.a0.m05.price_question.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l030.price_comprehension_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l030.fill_diez_euros.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish sentence from the sign Libro: diez euros. \"Cuesta ____ euros.\"",
+    "expected_answer": "diez"
+  },
+  {
+    "id": "template.es.a0.m05.l031.gender_price_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence for \"The bottle is expensive.\"",
+    "answer_options": [
+      {
+        "id": "cara",
+        "label": "La botella es cara."
+      },
+      {
+        "id": "caro",
+        "label": "La botella es caro."
+      },
+      {
+        "id": "barata",
+        "label": "La botella es barata."
+      }
+    ],
+    "correct_option_id": "cara"
+  },
+  {
+    "id": "template.es.a0.m05.l031.fill_barato.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete with the Spanish word for cheap in masculine form: \"El lápiz es ____.\"",
+    "expected_answer": "barato"
+  },
+  {
+    "id": "template.es.a0.m05.l031.type_el_libro_es_caro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"The book is expensive.\"",
+    "expected_answer": "El libro es caro",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l031.cara_libro.v1",
+        "matching_answers": [
+          "El libro es cara"
+        ],
+        "feedback_key": "spanish.shopping.use_masculine_price_adjective",
+        "canonical_answer": "El libro es caro",
+        "explanation_reference_id": "grammar.es.a0.m05.caro_barato_gender.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l031.gender_price_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l031.type_la_bolsa_es_barata.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"The bag is cheap.\"",
+    "expected_answer": "La bolsa es barata",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l031.barato_bolsa.v1",
+        "matching_answers": [
+          "La bolsa es barato"
+        ],
+        "feedback_key": "spanish.shopping.use_feminine_price_adjective",
+        "canonical_answer": "La bolsa es barata",
+        "explanation_reference_id": "grammar.es.a0.m05.caro_barato_gender.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l031.fill_barato.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l032.request_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Choose the Spanish sentence for \"I want a bottle.\"",
+    "answer_options": [
+      {
+        "id": "botella",
+        "label": "Quiero una botella."
+      },
+      {
+        "id": "precio",
+        "label": "Cuesta una botella."
+      },
+      {
+        "id": "tengo",
+        "label": "Tengo una botella."
+      }
+    ],
+    "correct_option_id": "botella"
+  },
+  {
+    "id": "template.es.a0.m05.l032.fill_este.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish request for a masculine object: \"____ libro, por favor.\"",
+    "expected_answer": "Este"
+  },
+  {
+    "id": "template.es.a0.m05.l032.fill_esta.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish request for a feminine object: \"____ botella, por favor.\"",
+    "expected_answer": "Esta"
+  },
+  {
+    "id": "template.es.a0.m05.l032.type_quiero_una_botella.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"I want a bottle.\"",
+    "expected_answer": "Quiero una botella",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l032.tengo_botella.v1",
+        "matching_answers": [
+          "Tengo una botella"
+        ],
+        "feedback_key": "spanish.shopping.use_quiero_for_purchase",
+        "canonical_answer": "Quiero una botella",
+        "explanation_reference_id": "grammar.es.a0.m05.purchase_request.v1"
+      },
+      {
+        "id": "misconception.es.a0.m05.l032.un_botella.v1",
+        "matching_answers": [
+          "Quiero un botella"
+        ],
+        "feedback_key": "spanish.shopping.use_una_feminine",
+        "canonical_answer": "Quiero una botella",
+        "explanation_reference_id": "grammar.es.a0.m05.un_una_objects.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l032.request_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l032.type_este_libro.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish request: \"This book, please.\"",
+    "expected_answer": "Este libro, por favor",
+    "accepted_answers": [
+      "Este libro por favor"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.l032.esta_libro.v1",
+        "matching_answers": [
+          "Esta libro, por favor",
+          "Esta libro por favor"
+        ],
+        "feedback_key": "spanish.shopping.use_este_masculine",
+        "canonical_answer": "Este libro, por favor",
+        "explanation_reference_id": "grammar.es.a0.m05.controlled_demonstratives.v1"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l032.fill_este.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l032.type_nada_mas.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer to \"Anything else?\": \"Nothing else, thank you.\"",
+    "expected_answer": "Nada más, gracias",
+    "accepted_answers": [
+      "Nada más gracias"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l032.request_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l033.dialogue_order_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "In a shop dialogue, what should you ask after choosing an item if you need the price?",
+    "answer_options": [
+      {
+        "id": "price",
+        "label": "¿Cuánto cuesta?"
+      },
+      {
+        "id": "object",
+        "label": "¿Qué es esto?"
+      },
+      {
+        "id": "name",
+        "label": "¿Cómo te llamas?"
+      }
+    ],
+    "correct_option_id": "price"
+  },
+  {
+    "id": "template.es.a0.m05.l033.type_shop_greeting_request.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence for the customer line: \"Hello. I want a notebook, please.\"",
+    "expected_answer": "Hola. Quiero un cuaderno, por favor",
+    "accepted_answers": [
+      "Hola, quiero un cuaderno, por favor",
+      "Hola quiero un cuaderno por favor"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l032.request_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l033.type_price_question_and_close.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the two Spanish sentences for these customer lines: \"How much does it cost?\" and \"Nothing else, thank you.\"",
+    "expected_answer": "¿Cuánto cuesta? Nada más, gracias",
+    "accepted_answers": [
+      "¿Cuánto cuesta? Nada más gracias",
+      "Cuánto cuesta? Nada más, gracias",
+      "Cuanto cuesta? Nada más, gracias"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l030.price_question_choice.v1",
+      "template.es.a0.m05.l032.request_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.l033.type_basic_purchase_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type this short Spanish sentence sequence: greet, request one bottle, ask the price, then say nothing else.",
+    "expected_answer": "Hola. Quiero una botella, por favor. ¿Cuánto cuesta? Nada más, gracias",
+    "accepted_answers": [
+      "Hola, quiero una botella, por favor. ¿Cuánto cuesta? Nada más, gracias",
+      "Hola. Quiero una botella por favor. ¿Cuánto cuesta? Nada más gracias"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l032.type_quiero_una_botella.v1",
+      "template.es.a0.m05.l030.type_cuanto_cuesta.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.review.object_price_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "The sign says \"Lápiz: un euro.\" What object is cheap?",
+    "answer_options": [
+      {
+        "id": "lapiz",
+        "label": "lápiz"
+      },
+      {
+        "id": "libro",
+        "label": "libro"
+      },
+      {
+        "id": "botella",
+        "label": "botella"
+      }
+    ],
+    "correct_option_id": "lapiz"
+  },
+  {
+    "id": "template.es.a0.m05.review.fill_question_word.v1",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Complete the Spanish question: \"¿____ cuesta?\"",
+    "expected_answer": "Cuánto"
+  },
+  {
+    "id": "template.es.a0.m05.review.type_object_and_price.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish sentence: \"It is a notebook and it costs five euros.\"",
+    "expected_answer": "Es un cuaderno y cuesta cinco euros",
+    "accepted_answers": [
+      "Es un cuaderno. Cuesta cinco euros"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.review.type_availability_and_request.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish question and request: \"Do you have water? I want a bottle.\"",
+    "expected_answer": "¿Tiene agua? Quiero una botella",
+    "accepted_answers": [
+      "Tiene agua? Quiero una botella"
+    ],
+    "review_template_ids": [
+      "template.es.a0.m05.l029.availability_question_choice.v1",
+      "template.es.a0.m05.l032.request_choice.v1"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.review.type_closing.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Type the Spanish answer for the closing response: \"Nothing else, thank you.\"",
+    "expected_answer": "Nada más, gracias",
+    "accepted_answers": [
+      "Nada más gracias"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.reading_price_choice.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Read: \"Bolsa: tres euros.\" Choose the price.",
+    "answer_options": [
+      {
+        "id": "dos",
+        "label": "two euros"
+      },
+      {
+        "id": "tres",
+        "label": "three euros"
+      },
+      {
+        "id": "diez",
+        "label": "ten euros"
+      }
+    ],
+    "correct_option_id": "tres"
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_what_is_this.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish question: \"What is this?\"",
+    "expected_answer": "¿Qué es esto?"
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_item_identity.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish sentence: \"It is a bag.\"",
+    "expected_answer": "Es una bolsa",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.checkpoint.un_bolsa.v1",
+        "matching_answers": [
+          "Es un bolsa"
+        ],
+        "feedback_key": "spanish.shopping.use_una_feminine",
+        "canonical_answer": "Es una bolsa",
+        "explanation_reference_id": "grammar.es.a0.m05.un_una_objects.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_price_question.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish question: \"How much does it cost?\"",
+    "expected_answer": "¿Cuánto cuesta?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.checkpoint.que_for_price.v1",
+        "matching_answers": [
+          "¿Qué es esto?",
+          "Que es esto?"
+        ],
+        "feedback_key": "spanish.shopping.use_cuanto_for_price",
+        "canonical_answer": "¿Cuánto cuesta?",
+        "explanation_reference_id": "grammar.es.a0.m05.price_question.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_price_answer.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish sentence: \"It costs three euros.\"",
+    "expected_answer": "Cuesta tres euros",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.checkpoint.es_tres.v1",
+        "matching_answers": [
+          "Es tres euros"
+        ],
+        "feedback_key": "spanish.shopping.use_cuesta_for_price",
+        "canonical_answer": "Cuesta tres euros",
+        "explanation_reference_id": "grammar.es.a0.m05.price_question.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_purchase_intention.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish sentence: \"I want this bag, please.\"",
+    "expected_answer": "Quiero esta bolsa, por favor",
+    "accepted_answers": [
+      "Quiero esta bolsa por favor"
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.checkpoint.este_bolsa.v1",
+        "matching_answers": [
+          "Quiero este bolsa, por favor",
+          "Quiero este bolsa por favor"
+        ],
+        "feedback_key": "spanish.shopping.use_esta_feminine",
+        "canonical_answer": "Quiero esta bolsa, por favor",
+        "explanation_reference_id": "grammar.es.a0.m05.controlled_demonstratives.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_seller_response.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type the Spanish answer to \"¿Algo más?\": \"Nothing else, thank you.\"",
+    "expected_answer": "Nada más, gracias",
+    "accepted_answers": [
+      "Nada más gracias"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.checkpoint.type_short_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Checkpoint: Type a short Spanish sentence sequence for this customer exchange: greet, ask for water, ask the price, and close politely.",
+    "expected_answer": "Hola. ¿Tiene agua? ¿Cuánto cuesta? Nada más, gracias",
+    "accepted_answers": [
+      "Hola. Tiene agua? ¿Cuánto cuesta? Nada más, gracias",
+      "Hola. ¿Tiene agua? Cuánto cuesta? Nada más gracias"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.identify_object.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish question asking what this is, then the Spanish answer saying it is a notebook, in that order.",
+    "expected_answer": "¿Qué es esto? Es un cuaderno",
+    "accepted_answers": [
+      "¿Qué es esto? Es un cuaderno."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.competency.price_for_object.v1",
+        "matching_answers": [
+          "¿Cuánto cuesta? Es un cuaderno"
+        ],
+        "feedback_key": "spanish.shopping.use_que_for_object",
+        "canonical_answer": "¿Qué es esto? Es un cuaderno",
+        "explanation_reference_id": "grammar.es.a0.m05.que_es_esto.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.ask_availability.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish question asking politely whether the shop has water.",
+    "expected_answer": "¿Tiene agua?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.competency.tienes_agua.v1",
+        "matching_answers": [
+          "¿Tienes agua?",
+          "Tienes agua?"
+        ],
+        "feedback_key": "spanish.shopping.use_polite_tiene",
+        "canonical_answer": "¿Tiene agua?",
+        "explanation_reference_id": "grammar.es.a0.m05.polite_availability.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.ask_price.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish question asking how much it costs.",
+    "expected_answer": "¿Cuánto cuesta?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.competency.que_price.v1",
+        "matching_answers": [
+          "¿Qué es esto?",
+          "Que es esto?"
+        ],
+        "feedback_key": "spanish.shopping.use_cuanto_for_price",
+        "canonical_answer": "¿Cuánto cuesta?",
+        "explanation_reference_id": "grammar.es.a0.m05.price_question.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.understand_price.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognition"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: The seller says \"Cuesta cinco euros.\" Choose the price.",
+    "answer_options": [
+      {
+        "id": "dos",
+        "label": "two euros"
+      },
+      {
+        "id": "cinco",
+        "label": "five euros"
+      },
+      {
+        "id": "diez",
+        "label": "ten euros"
+      }
+    ],
+    "correct_option_id": "cinco"
+  },
+  {
+    "id": "template.es.a0.m05.competency.request_item.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish sentence: \"I want one bottle.\"",
+    "expected_answer": "Quiero una botella",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m05.competency.tengo_botella.v1",
+        "matching_answers": [
+          "Tengo una botella"
+        ],
+        "feedback_key": "spanish.shopping.use_quiero_for_purchase",
+        "canonical_answer": "Quiero una botella",
+        "explanation_reference_id": "grammar.es.a0.m05.purchase_request.v1"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.respond_seller.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "recall"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish answer to \"¿Algo más?\" meaning \"Nothing else, thank you.\"",
+    "expected_answer": "Nada más, gracias",
+    "accepted_answers": [
+      "Nada más gracias"
+    ]
+  },
+  {
+    "id": "template.es.a0.m05.competency.basic_purchase_exchange.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "application"
+    ],
+    "required_object_types": [
+      "vocabulary",
+      "grammar"
+    ],
+    "prompt_template": "Competency check: Type the Spanish sentence sequence for this purchase in this order: hello, ask if there is water, ask the price, request one bottle, and close with nothing else.",
+    "expected_answer": "Hola. ¿Tiene agua? ¿Cuánto cuesta? Quiero una botella, por favor. Nada más, gracias",
+    "accepted_answers": [
+      "Hola. Tiene agua? ¿Cuánto cuesta? Quiero una botella, por favor. Nada más gracias"
+    ]
+  }
+]

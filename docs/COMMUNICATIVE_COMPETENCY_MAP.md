@@ -222,34 +222,63 @@ descriptions.
 
 ---
 
-# Module 5 — Numbers and Personal Facts
+# Module 5 — Shopping and Everyday Objects
 
 ## Communicative Competencies
 
-- Recognize and produce numbers 0-20.
-- Understand short number sequences.
-- State a controlled age.
-- Use simple quantities with familiar content.
+- Identify a familiar everyday object.
+- Ask what an object is.
+- Ask whether a shop has a familiar item.
+- Ask and understand a simple price.
+- Say whether a familiar item is cheap or expensive.
+- Express a basic purchase intention.
+- Request one familiar item.
+- Respond to a seller's `¿Algo más?`.
+- Complete a short predictable shopping exchange.
 
 ## Typical Real-Life Scenarios
 
-- hearing or giving a short number sequence;
-- saying an age in a controlled prompt;
-- understanding a simple personal fact;
-- using one or two familiar quantities.
+- asking `¿Qué es esto?`;
+- asking `¿Tiene agua?` in a fixed polite shopping register;
+- asking `¿Cuánto cuesta?`;
+- understanding prices such as one, two, three, five and ten euros;
+- requesting an item with `Quiero una botella` or `Este libro, por favor`;
+- closing with `Nada más, gracias`.
 
 ## Language Patterns Introduced
 
-- numbers 0-20;
-- `número`;
-- `tengo ... años`;
-- simple quantity patterns with familiar nouns.
+- `¿Qué es esto?`;
+- `Es un/una...`;
+- fixed polite shop question `¿Tiene...?`;
+- `Sí, tenemos...` / `No, no tenemos...`;
+- `¿Cuánto cuesta?`;
+- `Cuesta... euros` / controlled total `Son... euros`;
+- `caro/cara` and `barato/barata` with practiced nouns;
+- `Quiero...`;
+- `Este/Esta..., por favor`;
+- `¿Algo más?` / `Nada más, gracias`.
 
 ## Typical Learner Limitations
 
-- Cannot yet handle prices, dates or time broadly.
-- Cannot give complex personal information.
-- Needs numbers in short, constrained contexts.
+- Cannot handle arbitrary shop conversations, bargaining, payment methods or
+  broad prices.
+- Uses a controlled polite fixed-form register; the full tú/usted contrast is
+  not taught.
+- Uses only one, two, three, five and ten in price/quantity contexts.
+- Uses only `esto`, `este` and `esta`; the full demonstrative paradigm is not
+  introduced.
+
+Implemented competency:
+
+`competency.es.a0.m05.complete_basic_shopping_exchange`
+
+Diagnostic tasks cover object identification, item availability, price
+question, price understanding, item request, seller response and one integrated
+purchase exchange.
+
+Recovery uses Module 5 object/availability/price/request steps, plus real
+earlier-module recovery for courtesy and everyday-exchange behavior from
+Modules 1 and 4.
 
 ---
 

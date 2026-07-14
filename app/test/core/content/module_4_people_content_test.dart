@@ -48,7 +48,16 @@ void main() {
       'es.a0.m03.l018',
       'es.a0.m03.l019',
     ]);
-    expect(module5.lessonIds, ['es.a0.m05.l014', 'es.a0.m05.l015']);
+    expect(module5.lessonIds, [
+      'es.a0.m05.l028',
+      'es.a0.m05.l029',
+      'es.a0.m05.l030',
+      'es.a0.m05.l031',
+      'es.a0.m05.l032',
+      'es.a0.m05.l033',
+      'es.a0.m05.l034',
+      'es.a0.m05.l035',
+    ]);
 
     final referencedLessonIds = [
       for (final module in course.modules) ...module.lessonIds,
@@ -240,6 +249,36 @@ void main() {
           .map((reference) => reference.sourceModuleId)
           .toSet();
       expect(recoverySources, contains('es.a0.m03'));
+
+      final identifyTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m04.competency.identify_person.v1',
+      )!;
+      final reverseIdentity = const ActivityEngine().evaluate(
+        template: identifyTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'Se llama Marta. Es Marta',
+        ),
+      );
+      expect(reverseIdentity.status, ActivityResultStatus.acceptedWithFeedback);
+
+      final wrongPerson = const ActivityEngine().evaluate(
+        template: identifyTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'Me llamo Marta. Es Marta',
+        ),
+      );
+      expect(wrongPerson.status, ActivityResultStatus.incorrect);
+
+      final exchangeTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m04.competency.everyday_exchange.v1',
+      )!;
+      final reverseExchange = const ActivityEngine().evaluate(
+        template: exchangeTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'Habla español. Es mi profesora',
+        ),
+      );
+      expect(reverseExchange.status, ActivityResultStatus.acceptedWithFeedback);
     },
   );
 }

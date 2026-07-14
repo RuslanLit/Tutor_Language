@@ -15,7 +15,10 @@ class PresentedAnswerFeedback {
 class AnswerFeedbackPresenter {
   const AnswerFeedbackPresenter();
 
-  PresentedAnswerFeedback present(AnswerEvaluationResult result) {
+  PresentedAnswerFeedback present(
+    AnswerEvaluationResult result, {
+    int attemptCount = 1,
+  }) {
     return switch (result.status) {
       AnswerEvaluationStatus.correct => const PresentedAnswerFeedback(
         statusLabel: 'Correct',
@@ -23,14 +26,15 @@ class AnswerFeedbackPresenter {
       AnswerEvaluationStatus.acceptedWithFeedback => PresentedAnswerFeedback(
         statusLabel: 'Accepted with correction',
         canonicalAnswer: result.feedback.canonicalAnswer,
-        corrections: result.feedback.differences
-            .map(_correctionFor)
-            .toList(growable: false),
+        corrections: _acceptedCorrectionsFor(result.feedback),
       ),
       AnswerEvaluationStatus.incorrect => PresentedAnswerFeedback(
         statusLabel: 'Not correct yet',
         canonicalAnswer: result.feedback.canonicalAnswer,
-        corrections: _incorrectCorrectionsFor(result.feedback),
+        corrections: _incorrectCorrectionsFor(
+          result.feedback,
+          attemptCount: attemptCount,
+        ),
       ),
       AnswerEvaluationStatus.unsupported => const PresentedAnswerFeedback(
         statusLabel: 'Unsupported activity type',
@@ -59,8 +63,37 @@ class AnswerFeedbackPresenter {
     };
   }
 
-  List<String> _incorrectCorrectionsFor(AnswerFeedback feedback) {
+  List<String> _acceptedCorrectionsFor(AnswerFeedback feedback) {
+    if (feedback.key == 'answer.preferred_order') {
+      final canonical = feedback.canonicalAnswer;
+      if (canonical == null || canonical.isEmpty) {
+        return const ['A different order is accepted here.'];
+      }
+      return ['A more natural order is: $canonical'];
+    }
+
+    return feedback.differences.map(_correctionFor).toList(growable: false);
+  }
+
+  List<String> _incorrectCorrectionsFor(
+    AnswerFeedback feedback, {
+    required int attemptCount,
+  }) {
     final correction = switch (feedback.key) {
+      'response.question_expected_statement_provided' =>
+        'This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.',
+      'response.statement_expected_question_provided' =>
+        'This exercise asks for a statement.\nYou wrote a question.\nTry writing the Spanish statement instead.',
+      'response.answer_expected_question' =>
+        'This exercise asks for an answer.\nYou wrote another question.',
+      'response.question_expected_answer' =>
+        'Write the question, not the answer.',
+      'response.translation_expected_source_language' =>
+        'Translate the prompt instead of copying it.',
+      'response.greeting_expected_farewell' =>
+        'This exercise asks for a greeting.\nYou wrote a farewell.',
+      'response.farewell_expected_greeting' =>
+        'This exercise asks for a farewell.\nYou wrote a greeting.',
       'spanish.name_pattern.use_me_llamo' =>
         'For this introduction pattern, use "me llamo".',
       'spanish.origin.use_ser' => 'To state origin, Spanish uses "soy de".',
@@ -113,6 +146,28 @@ class AnswerFeedbackPresenter {
         'Use the questions in the order requested by the prompt.',
       'spanish.people.question_and_person_form' =>
         'Use the requested question and third-person verb form.',
+      'spanish.shopping.use_que_for_object' =>
+        'Use "¿Qué es esto?" to ask what the object is.',
+      'spanish.shopping.use_cuanto_for_price' =>
+        'Use "¿Cuánto cuesta?" to ask the price.',
+      'spanish.shopping.use_cuesta_for_price' =>
+        'Use "cuesta" when stating the price of one item.',
+      'spanish.shopping.use_polite_tiene' =>
+        'Use the polite shop question "¿Tiene...?" in this module.',
+      'spanish.shopping.use_tenemos_for_shop' =>
+        'Use "tenemos" when the shop says what it has.',
+      'spanish.shopping.use_quiero_for_purchase' =>
+        'Use "quiero" to say what you want to buy.',
+      'spanish.shopping.use_una_feminine' =>
+        'Use "una" with a practiced feminine noun such as "botella" or "bolsa".',
+      'spanish.shopping.use_este_masculine' =>
+        'Use "este" before a practiced masculine noun such as "libro".',
+      'spanish.shopping.use_esta_feminine' =>
+        'Use "esta" before a practiced feminine noun such as "bolsa".',
+      'spanish.shopping.use_masculine_price_adjective' =>
+        'Use the masculine adjective form with this masculine object.',
+      'spanish.shopping.use_feminine_price_adjective' =>
+        'Use the feminine adjective form with this feminine object.',
       _ => null,
     };
 
@@ -120,6 +175,45 @@ class AnswerFeedbackPresenter {
       return const [];
     }
 
-    return [correction];
+    return [
+      correction,
+      ..._progressiveResponseTypeHints(feedback, attemptCount),
+    ];
+  }
+
+  List<String> _progressiveResponseTypeHints(
+    AnswerFeedback feedback,
+    int attemptCount,
+  ) {
+    if (feedback.key != 'response.question_expected_statement_provided' &&
+        feedback.key != 'response.question_expected_answer') {
+      if (attemptCount >= 2 &&
+          (feedback.key == 'response.answer_expected_question' ||
+              feedback.key ==
+                  'response.statement_expected_question_provided')) {
+        return ['Answers and statements usually do not begin with "¿".'];
+      }
+      return const [];
+    }
+
+    final hints = <String>[];
+    if (attemptCount >= 2) {
+      hints.add('Questions begin with: ¿...');
+    }
+    if (attemptCount >= 3) {
+      final canonical = feedback.canonicalAnswer;
+      if (canonical != null && canonical.trim().isNotEmpty) {
+        hints.add('Starts with: ${_prefixHint(canonical)}');
+      }
+    }
+    return hints;
+  }
+
+  String _prefixHint(String canonicalAnswer) {
+    final trimmed = canonicalAnswer.trim();
+    if (trimmed.length <= 3) {
+      return trimmed;
+    }
+    return trimmed.substring(0, 3);
   }
 }

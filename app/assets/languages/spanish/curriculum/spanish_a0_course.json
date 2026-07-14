@@ -3,7 +3,7 @@
   "languageId": "spanish",
   "title": "Spanish A0",
   "level": "A0",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "modules": [
     {
       "id": "es.a0.m01",
@@ -58,10 +58,16 @@
     },
     {
       "id": "es.a0.m05",
-      "title": "Review and Consolidation",
+      "title": "Shopping and Everyday Objects",
       "lessonIds": [
-        "es.a0.m05.l014",
-        "es.a0.m05.l015"
+        "es.a0.m05.l028",
+        "es.a0.m05.l029",
+        "es.a0.m05.l030",
+        "es.a0.m05.l031",
+        "es.a0.m05.l032",
+        "es.a0.m05.l033",
+        "es.a0.m05.l034",
+        "es.a0.m05.l035"
       ]
     },
     {
@@ -3335,8 +3341,816 @@
     },
     {
       "metadata": {
-        "id": "es.a0.m05.l014",
-        "title": "Review 2",
+        "id": "es.a0.m05.l028",
+        "title": "What Is This?",
+        "description": "Ask what an object is and name familiar everyday objects.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l027"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l028.primary",
+          "description": "Ask ¿Qué es esto? and answer with a familiar object name."
+        }
+      ],
+      "communicativeOutcome": "Ask what an object is and identify it.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l028.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l028.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.esto.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.libro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.cuaderno.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.botella.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.bolsa.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l028.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.que_es_esto.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.un_una_objects.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l028.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.object_question.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l028.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.object_list.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l028.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l028.object_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l028.fill_una_botella.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l028.type_que_es_esto.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l028.type_es_una_botella.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l028.type_libro.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l028.summary",
+        "reviewPrompt": "Ask what an object is and name familiar everyday objects.",
+        "referenceIds": [
+          "objective.es.a0.m05.l028.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l028.activity.vocabulary",
+          "es.a0.m05.l028.activity.grammar",
+          "es.a0.m05.l028.activity.dialogue",
+          "es.a0.m05.l028.activity.reading",
+          "es.a0.m05.l028.activity.practice"
+        ],
+        "minimumCompletedActivities": 5,
+        "mandatorySections": [
+          "es.a0.m05.l028.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l029",
+        "title": "Objects and Availability",
+        "description": "Ask politely whether a shop has a familiar item.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l028"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l029.primary",
+          "description": "Use the fixed polite shopping question ¿Tiene...? and answer with tenemos."
+        }
+      ],
+      "communicativeOutcome": "Ask and answer item availability.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l029.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l029.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.tiene.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.tenemos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.agua.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.boligrafo.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.llave.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l029.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.polite_availability.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l029.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.availability.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l029.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.shop_availability.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l029.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l029.availability_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l029.fill_tenemos.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l029.type_tiene_agua.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l029.type_si_tenemos_agua.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l029.type_no_tenemos_llave.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l029.summary",
+        "reviewPrompt": "Ask politely whether a shop has a familiar item.",
+        "referenceIds": [
+          "objective.es.a0.m05.l029.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l029.activity.vocabulary",
+          "es.a0.m05.l029.activity.grammar",
+          "es.a0.m05.l029.activity.dialogue",
+          "es.a0.m05.l029.activity.reading",
+          "es.a0.m05.l029.activity.practice"
+        ],
+        "minimumCompletedActivities": 5,
+        "mandatorySections": [
+          "es.a0.m05.l029.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l030",
+        "title": "Asking the Price",
+        "description": "Ask and understand a simple price in euros.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l029"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l030.primary",
+          "description": "Use ¿Cuánto cuesta? and state one controlled price."
+        }
+      ],
+      "communicativeOutcome": "Ask and understand a simple price.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l030.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l030.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.cuanto_cuesta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.cuesta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.euro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.euros.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.uno.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.dos.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.cinco.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.diez.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l030.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.price_question.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l030.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 3,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.price.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l030.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 4,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.price_list.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l030.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 5,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l030.price_question_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l030.price_comprehension_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l030.type_cuanto_cuesta.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l030.type_cuesta_cinco_euros.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l030.fill_diez_euros.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l030.summary",
+        "reviewPrompt": "Ask and understand a simple price in euros.",
+        "referenceIds": [
+          "objective.es.a0.m05.l030.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l030.activity.vocabulary",
+          "es.a0.m05.l030.activity.grammar",
+          "es.a0.m05.l030.activity.dialogue",
+          "es.a0.m05.l030.activity.reading",
+          "es.a0.m05.l030.activity.practice"
+        ],
+        "minimumCompletedActivities": 5,
+        "mandatorySections": [
+          "es.a0.m05.l030.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l031",
+        "title": "Cheap or Expensive",
+        "description": "Say whether a familiar object is cheap or expensive.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l030"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l031.primary",
+          "description": "Use caro/cara and barato/barata with familiar nouns."
+        }
+      ],
+      "communicativeOutcome": "Describe a familiar item as cheap or expensive.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l031.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l031.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.caro.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.cara.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.barato.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.barata.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.lapiz.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l031.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.caro_barato_gender.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l031.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.cheap_expensive.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l031.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l031.gender_price_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l031.fill_barato.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l031.type_el_libro_es_caro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l031.type_la_bolsa_es_barata.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l031.summary",
+        "reviewPrompt": "Say whether a familiar object is cheap or expensive.",
+        "referenceIds": [
+          "objective.es.a0.m05.l031.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l031.activity.vocabulary",
+          "es.a0.m05.l031.activity.grammar",
+          "es.a0.m05.l031.activity.reading",
+          "es.a0.m05.l031.activity.practice"
+        ],
+        "minimumCompletedActivities": 4,
+        "mandatorySections": [
+          "es.a0.m05.l031.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l032",
+        "title": "Asking for an Item",
+        "description": "Request one familiar item politely.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 12,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l031"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l032.primary",
+          "description": "Use Quiero..., Este/Esta..., and Nada más, gracias in bounded shopping turns."
+        }
+      ],
+      "communicativeOutcome": "Request a familiar item and close politely.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l032.section.main",
+          "title": "Main Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l032.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
+              "order": 1,
+              "references": [
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.quiero.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.necesito.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.comprar.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.este.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.esta.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.algo_mas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.nada_mas.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l032.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
+              "order": 2,
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.controlled_demonstratives.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.purchase_request.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l032.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 3,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.purchase_note.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l032.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.request_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.fill_este.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.fill_esta.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.type_quiero_una_botella.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.type_este_libro.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l032.type_nada_mas.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l032.summary",
+        "reviewPrompt": "Request one familiar item politely.",
+        "referenceIds": [
+          "objective.es.a0.m05.l032.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l032.activity.vocabulary",
+          "es.a0.m05.l032.activity.grammar",
+          "es.a0.m05.l032.activity.reading",
+          "es.a0.m05.l032.activity.practice"
+        ],
+        "minimumCompletedActivities": 4,
+        "mandatorySections": [
+          "es.a0.m05.l032.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l033",
+        "title": "Basic Shopping Exchange",
+        "description": "Complete a short predictable shopping exchange.",
         "moduleId": "es.a0.m05",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 15,
@@ -3345,73 +4159,102 @@
         "version": "1.0.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m05.l013"
+            "lessonId": "es.a0.m05.l032"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.review_2.basic",
-          "description": "Actively review polite phrases, clarification phrases, tener, and short conversations."
+          "id": "objective.es.a0.m05.l033.primary",
+          "description": "Combine greeting, item request, price question, and polite closing."
         }
       ],
+      "communicativeOutcome": "Complete a short shopping exchange.",
       "sections": [
         {
-          "id": "es.a0.m05.l014.section.main",
+          "id": "es.a0.m05.l033.section.main",
           "title": "Main Activities",
           "order": 1,
           "activities": [
             {
-              "id": "activity.dialogue.review2_survival_grammar",
-              "title": "Survival phrase review dialogue",
-              "type": "dialogue",
+              "id": "es.a0.m05.l033.activity.vocabulary",
+              "title": "Vocabulary",
+              "type": "vocabulary",
               "order": 1,
               "references": [
                 {
-                  "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
-                  "referenceId": "dialogue.es.a0.foundations.review2.v1"
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.aqui_tiene.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.algo_mas.v1"
+                },
+                {
+                  "type": "vocabulary",
+                  "assetPath": "assets/languages/spanish/vocabulary/module_5_shopping.json",
+                  "referenceId": "vocab.es.a0.m05.nada_mas.v1"
                 }
               ]
             },
             {
-              "id": "activity.reading.review2_survival_grammar",
-              "title": "Survival phrase review reading",
-              "type": "reading",
+              "id": "es.a0.m05.l033.activity.grammar",
+              "title": "Grammar",
+              "type": "grammar",
               "order": 2,
               "references": [
                 {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
-                  "referenceId": "reading.es.a0.foundations.review2.v1"
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.price_question.v1"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_5_shopping.json",
+                  "referenceId": "grammar.es.a0.m05.purchase_request.v1"
                 }
               ]
             },
             {
-              "id": "activity.practice.review2_survival_grammar",
-              "title": "Survival phrase recall practice",
-              "type": "exercise_template",
+              "id": "es.a0.m05.l033.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
               "order": 3,
               "references": [
                 {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.purchase.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l033.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 4,
+              "references": [
+                {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.review2_repeat_recall.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l033.dialogue_order_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.review2_understand_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l033.type_shop_greeting_request.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.review2_tener_recall.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l033.type_price_question_and_close.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.tener_meaning_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.l033.type_basic_purchase_exchange.v1"
                 }
               ]
             }
@@ -3419,27 +4262,143 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m05.l014.summary",
-        "reviewPrompt": "Review polite and clarification phrases with tener in short A0 conversations.",
-        "referenceIds": []
+        "id": "es.a0.m05.l033.summary",
+        "reviewPrompt": "Complete a short predictable shopping exchange.",
+        "referenceIds": [
+          "objective.es.a0.m05.l033.primary"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.dialogue.review2_survival_grammar",
-          "activity.reading.review2_survival_grammar",
-          "activity.practice.review2_survival_grammar"
+          "es.a0.m05.l033.activity.vocabulary",
+          "es.a0.m05.l033.activity.grammar",
+          "es.a0.m05.l033.activity.dialogue",
+          "es.a0.m05.l033.activity.practice"
         ],
-        "minimumCompletedActivities": 3,
+        "minimumCompletedActivities": 4,
         "mandatorySections": [
-          "es.a0.m05.l014.section.main"
+          "es.a0.m05.l033.section.main"
         ]
       },
       "references": []
     },
     {
       "metadata": {
-        "id": "es.a0.m05.l015",
-        "title": "A0 Checkpoint",
+        "id": "es.a0.m05.l034",
+        "title": "Shopping Review",
+        "description": "Review Module 5 objects, availability, prices and requests.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 15,
+        "difficulty": "A0",
+        "tags": [],
+        "version": "1.0.0",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l033"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l034.primary",
+          "description": "Actively recall object, price, availability and request patterns in new combinations."
+        }
+      ],
+      "communicativeOutcome": "Review Module 5 shopping communication.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l034.section.main",
+          "title": "Review Activities",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l034.activity.dialogue",
+              "title": "Dialogue",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.purchase.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l034.activity.reading",
+              "title": "Reading",
+              "type": "reading",
+              "order": 2,
+              "references": [
+                {
+                  "type": "reading",
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.review_receipt.v1"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m05.l034.activity.practice",
+              "title": "Practice",
+              "type": "exercise_template",
+              "order": 3,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.review.object_price_choice.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.review.fill_question_word.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.review.type_object_and_price.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.review.type_availability_and_request.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.review.type_closing.v1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l034.summary",
+        "reviewPrompt": "Review Module 5 objects, availability, prices and requests.",
+        "referenceIds": [
+          "objective.es.a0.m05.l034.primary"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l034.activity.dialogue",
+          "es.a0.m05.l034.activity.reading",
+          "es.a0.m05.l034.activity.practice"
+        ],
+        "minimumCompletedActivities": 3,
+        "mandatorySections": [
+          "es.a0.m05.l034.section.main"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l035",
+        "title": "Shopping Checkpoint",
+        "description": "Checkpoint Module 5 shopping skills without teaching new material.",
         "moduleId": "es.a0.m05",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 20,
@@ -3448,83 +4407,94 @@
         "version": "1.0.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m05.l014"
+            "lessonId": "es.a0.m05.l034"
           }
         ]
       },
       "objectives": [
         {
-          "id": "objective.a0_checkpoint.basic",
-          "description": "Demonstrate readiness to move beyond A0 foundations through a short balanced checkpoint."
+          "id": "objective.es.a0.m05.l035.primary",
+          "description": "Demonstrate object identification, availability, price and purchase-request skills."
         }
       ],
+      "communicativeOutcome": "Complete a bounded Module 5 shopping checkpoint.",
       "sections": [
         {
-          "id": "es.a0.m05.l015.section.main",
-          "title": "Main Activities",
+          "id": "es.a0.m05.l035.section.main",
+          "title": "Checkpoint Activities",
           "order": 1,
           "activities": [
             {
-              "id": "activity.dialogue.a0_checkpoint",
-              "title": "Checkpoint dialogue",
+              "id": "es.a0.m05.l035.activity.dialogue",
+              "title": "Dialogue",
               "type": "dialogue",
               "order": 1,
               "references": [
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/a0_foundations_review.json",
-                  "referenceId": "dialogue.es.a0.foundations.checkpoint.v1"
+                  "assetPath": "assets/languages/spanish/dialogues/module_5_shopping.json",
+                  "referenceId": "dialogue.es.a0.m05.checkpoint_exchange.v1"
                 }
               ]
             },
             {
-              "id": "activity.reading.a0_checkpoint",
-              "title": "Checkpoint reading",
+              "id": "es.a0.m05.l035.activity.reading",
+              "title": "Reading",
               "type": "reading",
               "order": 2,
               "references": [
                 {
                   "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/a0_foundations_review.json",
-                  "referenceId": "reading.es.a0.foundations.checkpoint.v1"
+                  "assetPath": "assets/languages/spanish/readings/module_5_shopping.json",
+                  "referenceId": "reading.es.a0.m05.checkpoint_list.v1"
                 }
               ]
             },
             {
-              "id": "activity.practice.a0_checkpoint",
-              "title": "Checkpoint assessment",
+              "id": "es.a0.m05.l035.activity.practice",
+              "title": "Practice",
               "type": "exercise_template",
               "order": 3,
               "references": [
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_greeting_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.reading_price_choice.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_name_recall.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_what_is_this.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_origin_fill.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_item_identity.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_tener_recall.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_price_question.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_dialogue_choice.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_price_answer.v1"
                 },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/a0_foundations_review.json",
-                  "referenceId": "template.es.a0.foundations.checkpoint_goodbye_fill.v1"
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_purchase_intention.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_seller_response.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_5_shopping.json",
+                  "referenceId": "template.es.a0.m05.checkpoint.type_short_exchange.v1"
                 }
               ]
             }
@@ -3532,19 +4502,21 @@
         }
       ],
       "summary": {
-        "id": "es.a0.m05.l015.summary",
-        "reviewPrompt": "Checkpoint greetings, names, origin, courtesy, tener, reading, and dialogue understanding.",
-        "referenceIds": []
+        "id": "es.a0.m05.l035.summary",
+        "reviewPrompt": "Checkpoint Module 5 shopping skills without teaching new material.",
+        "referenceIds": [
+          "objective.es.a0.m05.l035.primary"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity.dialogue.a0_checkpoint",
-          "activity.reading.a0_checkpoint",
-          "activity.practice.a0_checkpoint"
+          "es.a0.m05.l035.activity.dialogue",
+          "es.a0.m05.l035.activity.reading",
+          "es.a0.m05.l035.activity.practice"
         ],
         "minimumCompletedActivities": 3,
         "mandatorySections": [
-          "es.a0.m05.l015.section.main"
+          "es.a0.m05.l035.section.main"
         ]
       },
       "references": []

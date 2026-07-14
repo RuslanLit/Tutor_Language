@@ -325,6 +325,7 @@ void main() {
         contains('task.introduce_self'),
       );
       expect(decision.updatedState.detectedGaps, isEmpty);
+      expect(decision.recoveryInsertions, isEmpty);
     });
 
     test('informational session steps do not create false gaps', () {

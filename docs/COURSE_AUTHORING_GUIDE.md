@@ -471,6 +471,16 @@ Recovery mappings must be authored.
 
 Do not rely on the runtime to infer missing knowledge from answer text.
 
+Multi-component diagnostics must state whether order is required. If the task
+only checks that several communicative components are present, authors may
+provide bounded accepted-with-feedback alternatives for less natural but valid
+orders. Those alternatives should count as task success and must not create a
+competency gap.
+
+If the sequence is itself the skill, such as a dialogue exchange or a
+question-answer sequence, the prompt must say that the answer should be written
+in that order.
+
 Recovery should target the smallest meaningful missing communicative
 capability, not an isolated word.
 

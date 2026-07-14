@@ -1034,6 +1034,13 @@
     ],
     "prompt_template": "Type the Spanish sentence sequence that identifies the person: \"She is Marta. Her name is Marta.\"",
     "expected_answer": "Es Marta. Se llama Marta",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Se llama Marta. Es Marta",
+        "feedback_key": "answer.preferred_order",
+        "canonical_answer": "Es Marta. Se llama Marta"
+      }
+    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.m04.comp.identify.first_person.v1",
@@ -1113,7 +1120,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish sentence sequence: \"She is from Colombia. She lives in Lima. She speaks Spanish.\"",
+    "prompt_template": "Type the Spanish sentence sequence in this order: \"She is from Colombia. She lives in Lima. She speaks Spanish.\"",
     "expected_answer": "Es de Colombia. Vive en Lima. Habla español",
     "authored_misconceptions": [
       {
@@ -1140,7 +1147,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish questions: \"Who is she? Where does she live?\"",
+    "prompt_template": "Type the Spanish questions in this order: \"Who is she? Where does she live?\"",
     "expected_answer": "¿Quién es? ¿Dónde vive?",
     "authored_misconceptions": [
       {
@@ -1170,6 +1177,13 @@
     ],
     "prompt_template": "Type the Spanish answer for the short conversation: \"She is my teacher. She speaks Spanish.\"",
     "expected_answer": "Es mi profesora. Habla español",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Habla español. Es mi profesora",
+        "feedback_key": "answer.preferred_order",
+        "canonical_answer": "Es mi profesora. Habla español"
+      }
+    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.m04.comp.exchange.first_person.v1",

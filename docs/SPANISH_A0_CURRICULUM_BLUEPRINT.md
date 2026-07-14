@@ -110,8 +110,8 @@ Estimated educational value scale:
 | 11 | es.a0.m04.l011 | m04 | Tener: I Have | teaching | 8 | 4 | 1 | 2 | 1 | 0 | 0 | 1 | Medium | Appears before enough objects, numbers and states. | Move later to possession module; split age/state uses. |
 | 12 | es.a0.m04.l012 | m04 | Basic Word Order | teaching | 5 | 3 | 2 | 0 | 1 | 0 | 0 | 0 | Medium | Abstract unless tied to varied known patterns. | Move after name/origin/tener foundations. |
 | 13 | es.a0.m05.l013 | m05 | Review 1 | review | 6 | 4 | 2 | 1 | 1 | 0 | 0 | 0 | Medium | Name/origin examples still narrow. | Keep as early cumulative review; broaden examples. |
-| 14 | es.a0.m05.l014 | m05 | Review 2 | review | 6 | 4 | 2 | 2 | 0 | 0 | 0 | 0 | Medium | Reviews material from modules that should be rebalanced. | Keep with revised scope after modules 4-5. |
-| 15 | es.a0.m05.l015 | m05 | A0 Checkpoint | checkpoint | 8 | 6 | 2 | 2 | 2 | 0 | 0 | 0 | Medium | Premature final label. | Rename/reassign as Foundations Checkpoint. |
+| 14 | es.a0.m05.l028 | m05 | What Is This? | teaching | 6 | 4 | 2 | 1 | 1 | 0 | 2 | 1 | High | Teaches object identification and `¿Qué es esto?`. | Active Module 5 lesson. |
+| 15 | es.a0.m05.l029 | m05 | Objects and Availability | teaching | 6 | 4 | 2 | 1 | 1 | 0 | 1 | 1 | High | Teaches polite fixed availability questions. | Active Module 5 lesson. |
 | 16 | es.a0.m06.l016 | m06 | Silent h and Stable Vowels | reading foundation | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 2 | High | Arrives too late. | Move earlier near lesson 2. |
 | 17 | es.a0.m06.l017 | m06 | ñ, j, and ll | reading foundation | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Arrives too late. | Move earlier near first place/name content. |
 | 18 | es.a0.m06.l018 | m06 | qu, gue, gui | reading foundation | 8 | 4 | 2 | 1 | 1 | 0 | 0 | 1 | High | Good content; should be integrated with queso/Miguel. | Move earlier and connect to object/food content. |
@@ -136,7 +136,7 @@ Estimated educational value scale:
 
 ## Premature Checkpoint
 
-`es.a0.m05.l015` is titled `A0 Checkpoint`, but it appears before reading foundations, numbers, age, everyday objects, food/drink, family/friends and integrated communication.
+Historical lesson `es.a0.m05.l015` was titled `A0 Checkpoint`, but it appeared before reading foundations, numbers, age, everyday objects, food/drink, family/friends and integrated communication.
 
 Target role:
 
@@ -218,8 +218,8 @@ The learner can handle a short controlled A0 interaction: greet, introduce thems
 | M02 | Names and Introductions | 7-12 | 18-24 | name patterns, varied names, ñ/j/ll with names and Spain |
 | M03 | Origin, Languages and Personal Identity | 13-19 | 22-28 | origin, residence, languages, controlled personal profile |
 | M04 | People and Everyday Conversation | 20-27 | 24-32 | identify and describe people, third-person facts, short everyday exchange |
-| M05 | Numbers and Personal Facts | 25-31 | 24-30 | 0-20, phone-style numbers, age with `tener` |
-| M06 | Everyday Objects and Tener | 32-38 | 22-28 | objects, `un/una`, possession, `tengo/tienes/tiene` |
+| M05 | Shopping and Everyday Objects | 28-35 | 30-38 | objects, availability, prices, cheap/expensive, purchase request |
+| M06 | Everyday Objects and Tener | 36-42 | 22-28 | objects, `un/una`, possession, `tengo/tienes/tiene` |
 | M07 | Food, Drink and Needs | 39-44 | 18-24 | water/coffee/food, polite requests, `hambre`, `sed`, simple needs |
 | M08 | People, Home and Simple Surroundings | 45-49 | 16-22 | family, friend, house, city, third-person mini-profiles |
 | M09 | Integrated A0 Communication | 50-52 | 0-8 | cumulative integration, final review, final checkpoint |
@@ -302,19 +302,22 @@ sustain a short predictable everyday exchange.
 - answering yes/no questions about another person;
 - completing a short conversation about a familiar person.
 
-## M05 — Numbers and Personal Facts
+## M05 — Shopping and Everyday Objects
 
 ### Communicative Goal
 
-The learner can recognize and produce numbers 0-20 and use them in tightly controlled personal facts.
+The learner can identify common everyday objects, ask whether an item is
+available, ask and understand a simple price, express a basic purchase
+intention and complete a short predictable shopping exchange.
 
 ### Real-Life Scenarios
 
-- understanding a short number sequence;
-- giving a simple age statement;
-- recognizing a phone-style number sequence;
-- using one or two familiar quantities;
-- answering basic personal-information prompts.
+- asking `¿Qué es esto?` and naming a familiar object;
+- asking the seller `¿Tiene...?` in a fixed polite shopping pattern;
+- asking `¿Cuánto cuesta?` and understanding one controlled price;
+- saying whether a practiced item is cheap or expensive;
+- requesting one familiar item with `quiero` or `este/esta, por favor`;
+- responding to `¿Algo más?` with a polite closing.
 
 ## M06 — Everyday Objects and Tener
 
@@ -415,13 +418,14 @@ ID policy:
 | 25 | es.a0.m04.l025 | M04 | Short Everyday Conversation | dialogue/application | Sustain a short predictable conversation about another person. | 20-24 | none | M01-M04 | question punctuation | 3 typed recall | C2E |
 | 26 | es.a0.m04.l026 | M04 | People and Conversation Review | review | Recombine people, roles, descriptions and third-person facts. | 20-25 | none | M01-M04 | accent review | 3 typed recall | C2E |
 | 27 | es.a0.m04.l027 | M04 | Module 4 People Checkpoint | checkpoint | Assess people, descriptions, third-person facts and short questions. | 20-26 | none | M01-M04 | sampled punctuation | 4 typed recall | C2E |
-| 25 | es.a0.m07.l021 | M05 | Numbers 0-10 | teaching | Recognize and recall 0-10. | 24 | 0-10 | none | regular vowels | 2 typed recall | C2F |
-| 26 | es.a0.m07.l022 | M05 | Numbers 11-20 | teaching | Recognize and recall 11-20. | 25 | 11-20 | 0-10 | accent in dieciséis | 2 typed recall | C2F |
-| 27 | new: es.a0.m05.l027 | M05 | Simple Quantities | teaching | Say one or two familiar items. | 25 | simple quantities | greetings, early nouns | none | 2 typed recall | C2F |
-| 28 | es.a0.m07.l024 | M05 | Contact Number Practice | guided practice | Understand a short number sequence. | 25-26 | número | 0-20 | none | 2 typed recall | C2F |
-| 29 | es.a0.m07.l023 | M05 | Age with Tener | teaching | Say a controlled age with `tengo ... años`. | 26 | años, age pattern | tener seed | ñ in años | 2 typed recall, `soy age` misconception | C2F |
-| 30 | es.a0.m07.l025 | M05 | Numbers and Age Review | review | Recall numbers, age and short facts. | 25-29 | none | M05 | dieciséis/años | 3 typed recall | C2F |
-| 31 | new: es.a0.m05.l031 | M05 | Personal Facts Checkpoint | checkpoint | Assess numbers, age and short personal facts. | 25-30 | none | M01-M05 | number spelling | 4 typed recall | C2F |
+| 28 | es.a0.m05.l028 | M05 | What Is This? | teaching | Ask what an object is and identify it. | 27 | esto, libro, cuaderno, botella, bolsa | M01-M04 | question punctuation | 3 typed recall | C2F |
+| 29 | es.a0.m05.l029 | M05 | Objects and Availability | teaching | Ask and answer whether a shop has an item. | 28 | tiene, tenemos, agua, bolígrafo, llave | objects | none | 3 typed recall | C2F |
+| 30 | es.a0.m05.l030 | M05 | Asking the Price | teaching | Ask and understand a simple price. | 29 | cuánto cuesta, cuesta, euro/euros, one/two/five/ten | availability | accent in cuánto | 3 typed recall | C2F |
+| 31 | es.a0.m05.l031 | M05 | Cheap or Expensive | teaching | Describe a familiar item as cheap or expensive. | 30 | caro/cara, barato/barata | object gender | none | 2 typed recall | C2F |
+| 32 | es.a0.m05.l032 | M05 | Asking for an Item | teaching | Request one familiar item and close politely. | 31 | quiero, necesito, comprar, este/esta, nada más | price/courtesy | none | 3 typed recall | C2F |
+| 33 | es.a0.m05.l033 | M05 | Basic Shopping Exchange | dialogue/application | Combine greeting, item request, price question and closing. | 28-32 | none | M01-M05 | question punctuation | 3 typed recall | C2F |
+| 34 | es.a0.m05.l034 | M05 | Shopping Review | review | Recombine objects, availability, prices and requests. | 28-33 | none | M01-M05 | price/list reading | 3 typed recall | C2F |
+| 35 | es.a0.m05.l035 | M05 | Shopping Checkpoint | checkpoint | Assess Module 5 shopping skills without new teaching. | 28-34 | none | M01-M05 | sampled punctuation | 5 typed recall | C2F |
 | 32 | es.a0.m08.l026 | M06 | Everyday Objects | teaching | Name common objects. | 31 | libro, teléfono, llave, bolsa, mesa, silla | numbers | ll in llave | 2 typed recall | C2G |
 | 33 | new: es.a0.m06.l033 | M06 | Un and Una | teaching | Use un/una with familiar objects. | 32 | un, una | objects | none | 2 typed recall | C2G |
 | 34 | new: es.a0.m06.l034 | M06 | Tener: I Have | teaching | Use `tengo` with objects and states. | 32-33 | tengo | objects | none | 2 typed recall | C2G |

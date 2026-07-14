@@ -241,6 +241,77 @@ void main() {
     ]);
   });
 
+  test(
+    'multiple completed repeats preserve attempts without duplicate completion progress',
+    () async {
+      await repository.recordCompletedLessonAttempt(
+        _attemptCommand(
+          attemptId: 'attempt.original',
+          lessonId: 'lesson.repeat.progress',
+          courseId: 'course.spanish.a0',
+          completedAt: DateTime.utc(2026, 7, 11),
+          purpose: LessonAttemptPurpose.normal,
+        ),
+      );
+      await repository.recordCompletedLessonAttempt(
+        _attemptCommand(
+          attemptId: 'attempt.repeat.001',
+          lessonId: 'lesson.repeat.progress',
+          courseId: 'course.spanish.a0',
+          completedAt: DateTime.utc(2026, 7, 12),
+          purpose: LessonAttemptPurpose.manualRepeat,
+        ),
+      );
+      await repository.recordCompletedLessonAttempt(
+        _attemptCommand(
+          attemptId: 'attempt.repeat.002',
+          lessonId: 'lesson.repeat.progress',
+          courseId: 'course.spanish.a0',
+          completedAt: DateTime.utc(2026, 7, 13),
+          purpose: LessonAttemptPurpose.manualRepeat,
+        ),
+      );
+
+      final attempts = await repository.getLessonAttempts(
+        'lesson.repeat.progress',
+      );
+      final events = await repository.readEventsForTopic(
+        'lesson.repeat.progress',
+      );
+
+      expect(attempts.map((attempt) => attempt.attemptId), [
+        'attempt.original',
+        'attempt.repeat.001',
+        'attempt.repeat.002',
+      ]);
+      expect(attempts.map((attempt) => attempt.purpose), [
+        LessonAttemptPurpose.normal,
+        LessonAttemptPurpose.manualRepeat,
+        LessonAttemptPurpose.manualRepeat,
+      ]);
+      expect(
+        events
+            .where(
+              (event) => event.eventType == ProgressEventType.lessonCompleted,
+            )
+            .length,
+        1,
+      );
+      expect(
+        await repository.getAttemptStepResults('attempt.original'),
+        hasLength(1),
+      );
+      expect(
+        await repository.getAttemptStepResults('attempt.repeat.001'),
+        hasLength(1),
+      );
+      expect(
+        await repository.getAttemptStepResults('attempt.repeat.002'),
+        hasLength(1),
+      );
+    },
+  );
+
   test('duplicate attempt id is idempotent', () async {
     final command = _attemptCommand(
       attemptId: 'attempt.same',

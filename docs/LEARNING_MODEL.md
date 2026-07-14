@@ -778,6 +778,16 @@ overwritten.
 If durable attempt detail is malformed, learner-history projection may omit that
 detail while preserving legacy completion progress and other valid attempts.
 
+Completed lessons remain reviewable.
+
+When a learner explicitly repeats a completed lesson, the repeat starts a fresh
+in-memory lesson session with attempt purpose `manual_repeat`.
+
+This does not reset completed progress, delete prior attempts or rewrite the
+original completion. If the repeat is finished, it appends a new immutable
+completed lesson attempt while the existing lesson-completed progress event
+remains intact.
+
 ---
 
 # Learning Progression

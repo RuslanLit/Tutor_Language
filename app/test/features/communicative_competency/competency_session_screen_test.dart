@@ -49,7 +49,7 @@ void main() {
     expect(find.text('Basic personal identity check'), findsOneWidget);
     expect(
       find.text(
-        'Competency check: Type the Spanish introduction and greeting as Marta.',
+        'Competency check: Greet the person and introduce yourself as Marta.',
       ),
       findsOneWidget,
     );
@@ -116,6 +116,55 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets('competency session accepts preferred-order correction', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    await LearnerProgressRepository(database).recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: 'es.a0.m03.l001',
+        now: DateTime.utc(2026),
+      ),
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWith((ref) => database),
+          contentRepositoryProvider.overrideWith(
+            (ref) => _CompetencyContentRepository(),
+          ),
+        ],
+        child: const MaterialApp(
+          home: CompetencySessionScreen(
+            courseId: 'spanish_a0',
+            moduleId: 'es.a0.m03',
+            competencyId:
+                'competency.es.a0.m03.describe_basic_personal_identity',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'Me llamo Marta. Hola');
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text("Let's briefly review one part and try again."),
+      findsNothing,
+    );
+    expect(
+      find.text(
+        'Competency check: Type the Spanish sentence saying that you are from Ukraine.',
+      ),
+      findsOneWidget,
+    );
+  });
 }
 
 class _CompetencyContentRepository extends ContentRepository {
@@ -142,8 +191,16 @@ class _CompetencyContentRepository extends ContentRepository {
           supportedGoalTypes: ['recall'],
           requiredObjectTypes: ['phrase'],
           promptTemplate:
-              'Competency check: Type the Spanish introduction and greeting as Marta.',
+              'Competency check: Greet the person and introduce yourself as Marta.',
           expectedAnswer: 'Hola. Me llamo Marta',
+          acceptedAnswers: ['Hola\nMe llamo Marta'],
+          acceptedWithFeedbackAnswers: [
+            AcceptedWithFeedbackAnswer(
+              answer: 'Me llamo Marta. Hola',
+              feedbackKey: 'answer.preferred_order',
+              canonicalAnswer: 'Hola. Me llamo Marta',
+            ),
+          ],
         ),
         ExerciseTemplate(
           id: 'template.es.a0.m03.competency.type_origin_ucrania.v1',
@@ -178,8 +235,15 @@ class _CompetencyContentRepository extends ContentRepository {
           supportedGoalTypes: ['recall'],
           requiredObjectTypes: ['phrase'],
           promptTemplate:
-              'Competency check: Type the Spanish questions asking where the other person is from and which languages they speak.',
+              'Competency check: Ask where the other person is from and which languages they speak.',
           expectedAnswer: '¿De dónde eres? ¿Qué idiomas hablas?',
+          acceptedWithFeedbackAnswers: [
+            AcceptedWithFeedbackAnswer(
+              answer: '¿Qué idiomas hablas? ¿De dónde eres?',
+              feedbackKey: 'answer.preferred_order',
+              canonicalAnswer: '¿De dónde eres? ¿Qué idiomas hablas?',
+            ),
+          ],
         ),
         ExerciseTemplate(
           id: 'template.es.a0.m03.competency.type_identity_profile.v1',
@@ -187,7 +251,7 @@ class _CompetencyContentRepository extends ContentRepository {
           supportedGoalTypes: ['recall'],
           requiredObjectTypes: ['phrase'],
           promptTemplate:
-              'Competency check: Type the Spanish sentence sequence for this profile: "My name is Marta. I am from Ukraine. I live in Kyiv. I speak Ukrainian and a little Spanish."',
+              'Competency check: Type the Spanish sentence sequence in this order for this profile: "My name is Marta. I am from Ukraine. I live in Kyiv. I speak Ukrainian and a little Spanish."',
           expectedAnswer:
               'Me llamo Marta. Soy de Ucrania. Vivo en Kyiv. Hablo ucraniano y un poco de español',
         ),

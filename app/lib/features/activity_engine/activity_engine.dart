@@ -57,6 +57,7 @@ class ActivityEngine {
       learnerAnswer: submitted,
       canonicalAnswer: expected,
       acceptedAnswers: template.acceptedAnswers,
+      acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
       authoredMisconceptions: template.authoredMisconceptions,
       allowMeaningSupport: !template.requiresExactAnswer,
     );

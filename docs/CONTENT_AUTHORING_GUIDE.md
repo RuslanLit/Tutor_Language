@@ -101,6 +101,7 @@ Exercise Templates currently support:
 - correct_option_id
 - expected_answer
 - accepted_answers
+- accepted_with_feedback_answers
 - requires_exact_answer
 - authored_misconceptions
 - review_template_ids
@@ -156,6 +157,30 @@ Typed and fill-gap exercises should define one canonical expected answer.
 When the task checks meaning rather than an exact written form, authors should
 include natural deterministic variants in `accepted_answers` when the variant
 is not already covered by the controlled support normalizer.
+
+Use `accepted_with_feedback_answers` for authored answers that demonstrate the
+required communicative components but should still receive a correction. A
+common case is preferred sentence order: `Hola. Me llamo Marta.` may be the
+canonical discourse order, while `Me llamo Marta. Hola.` can be accepted with
+feedback if order is not the learning objective.
+
+Do not use accepted-with-feedback variants for missing components, wrong
+identity, wrong meaning, dialogue turns in the wrong order or anything that
+requires semantic inference.
+
+Use `authored_misconceptions` for deterministic response-type mismatches when
+the learner's answer is a known wrong task type rather than unknown language.
+Examples include:
+
+- question expected, statement provided;
+- statement expected, question provided;
+- answer expected, question provided;
+- translation expected, source language copied;
+- greeting expected, farewell provided;
+- farewell expected, greeting provided.
+
+These misconceptions must list explicit `matching_answers`. The evaluator must
+not infer response type from arbitrary free text.
 
 The implementation supports a narrow, deterministic support normalizer for:
 

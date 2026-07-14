@@ -141,6 +141,41 @@ void main() {
     expect(find.textContaining('me llamo'), findsNothing);
   });
 
+  testWidgets('task-mismatch feedback becomes more helpful after retries', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: ActivityTemplateWidget(template: _questionExpectedTemplate),
+        ),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Soy de Perú');
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('Not correct yet'), findsOneWidget);
+    expect(
+      find.text(
+        '- This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.text('- Questions begin with: ¿...'), findsNothing);
+
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('- Questions begin with: ¿...'), findsOneWidget);
+
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+
+    expect(find.text('- Starts with: ¿De'), findsOneWidget);
+  });
+
   testWidgets('long text_entry widget uses multiline editing', (tester) async {
     await tester.pumpWidget(
       const MaterialApp(
@@ -256,6 +291,23 @@ const _nameTemplate = ExerciseTemplate(
       feedbackKey: 'spanish.name_pattern.use_me_llamo',
       canonicalAnswer: 'Me llamo Ana',
       explanationReferenceId: 'grammar.es.a0.unit1.name_pattern.v1',
+    ),
+  ],
+);
+
+const _questionExpectedTemplate = ExerciseTemplate(
+  id: 'template.widget.question.expected',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['grammar'],
+  promptTemplate: 'Type the Spanish question: "Where are you from?"',
+  expectedAnswer: '¿De dónde eres?',
+  authoredMisconceptions: [
+    AuthoredMisconception(
+      id: 'misconception.widget.question.expected.statement.v1',
+      matchingAnswers: ['Soy de Perú'],
+      feedbackKey: 'response.question_expected_statement_provided',
+      canonicalAnswer: '¿De dónde eres?',
     ),
   ],
 );

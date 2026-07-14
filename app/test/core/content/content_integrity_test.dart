@@ -96,8 +96,8 @@ void main() {
         'es.a0.m04.l026',
         'es.a0.m04.l027',
         'es.a0.m05.l013',
-        'es.a0.m05.l014',
-        'es.a0.m05.l015',
+        'es.a0.m05.l034',
+        'es.a0.m05.l035',
       ];
       const placeholderActivityTitles = {
         'grammar',
@@ -315,7 +315,7 @@ void main() {
 
       expect(course.lessons, hasLength(greaterThanOrEqualTo(24)));
       expect(course.lessons, hasLength(lessThanOrEqualTo(52)));
-      expect(vocabularyCount, inInclusiveRange(150, 280));
+      expect(vocabularyCount, inInclusiveRange(150, 330));
       expect(dialogueCount, greaterThanOrEqualTo(25));
       expect(readingCount, greaterThanOrEqualTo(18));
       expect(templateCount, greaterThanOrEqualTo(100));
@@ -736,6 +736,12 @@ void main() {
       final matchingTemplate = catalog.lookupAs<ExerciseTemplate>(
         'template.es.a0.m01.review.match_first_words.v1',
       )!;
+      final helloTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.l001.type_hola.v1',
+      )!;
+      final goodbyeTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.l001.type_adios.v1',
+      )!;
 
       final repeatResult = const ActivityEngine().evaluate(
         template: repeatTemplate,
@@ -753,9 +759,33 @@ void main() {
           },
         ),
       );
+      final copiedSourceResult = const ActivityEngine().evaluate(
+        template: helloTemplate,
+        submission: const ActivitySubmission(submittedAnswer: 'hello'),
+      );
+      final farewellForGreetingResult = const ActivityEngine().evaluate(
+        template: helloTemplate,
+        submission: const ActivitySubmission(submittedAnswer: 'adiós'),
+      );
+      final greetingForFarewellResult = const ActivityEngine().evaluate(
+        template: goodbyeTemplate,
+        submission: const ActivitySubmission(submittedAnswer: 'hola'),
+      );
 
       expect(repeatResult.isCorrect, isTrue);
       expect(matchingResult.isCorrect, isTrue);
+      expect(
+        copiedSourceResult.feedbackKey,
+        'response.translation_expected_source_language',
+      );
+      expect(
+        farewellForGreetingResult.feedbackKey,
+        'response.greeting_expected_farewell',
+      );
+      expect(
+        greetingForFarewellResult.feedbackKey,
+        'response.farewell_expected_greeting',
+      );
     },
   );
 
@@ -944,6 +974,7 @@ bool _hasExplicitPromptConstraint(String prompt) {
     'Spanish question word',
     'Spanish question',
     'Spanish answer',
+    'Spanish article',
     'Spanish request',
     'Spanish greeting',
     'Spanish spelling group',

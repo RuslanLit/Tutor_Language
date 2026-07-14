@@ -1,0 +1,254 @@
+[
+  {
+    "id": "vocab.es.a0.m05.esto.v1",
+    "spanish": "esto",
+    "native_translation": "this / this thing",
+    "cefr": "A0",
+    "example": "¿Qué es esto?"
+  },
+  {
+    "id": "vocab.es.a0.m05.este.v1",
+    "spanish": "este",
+    "native_translation": "this (masculine)",
+    "cefr": "A0",
+    "example": "Este libro, por favor."
+  },
+  {
+    "id": "vocab.es.a0.m05.esta.v1",
+    "spanish": "esta",
+    "native_translation": "this (feminine)",
+    "cefr": "A0",
+    "example": "Esta botella, por favor."
+  },
+  {
+    "id": "vocab.es.a0.m05.libro.v1",
+    "spanish": "libro",
+    "native_translation": "book",
+    "cefr": "A0",
+    "example": "Es un libro."
+  },
+  {
+    "id": "vocab.es.a0.m05.cuaderno.v1",
+    "spanish": "cuaderno",
+    "native_translation": "notebook",
+    "cefr": "A0",
+    "example": "Quiero un cuaderno."
+  },
+  {
+    "id": "vocab.es.a0.m05.boligrafo.v1",
+    "spanish": "bolígrafo",
+    "native_translation": "pen",
+    "cefr": "A0",
+    "example": "¿Tiene un bolígrafo?"
+  },
+  {
+    "id": "vocab.es.a0.m05.lapiz.v1",
+    "spanish": "lápiz",
+    "native_translation": "pencil",
+    "cefr": "A0",
+    "example": "Quiero un lápiz."
+  },
+  {
+    "id": "vocab.es.a0.m05.telefono.v1",
+    "spanish": "teléfono",
+    "native_translation": "phone",
+    "cefr": "A0",
+    "example": "Es un teléfono."
+  },
+  {
+    "id": "vocab.es.a0.m05.bolsa.v1",
+    "spanish": "bolsa",
+    "native_translation": "bag",
+    "cefr": "A0",
+    "example": "Es una bolsa."
+  },
+  {
+    "id": "vocab.es.a0.m05.botella.v1",
+    "spanish": "botella",
+    "native_translation": "bottle",
+    "cefr": "A0",
+    "example": "Quiero una botella."
+  },
+  {
+    "id": "vocab.es.a0.m05.llave.v1",
+    "spanish": "llave",
+    "native_translation": "key",
+    "cefr": "A0",
+    "example": "Es una llave."
+  },
+  {
+    "id": "vocab.es.a0.m05.agua.v1",
+    "spanish": "agua",
+    "native_translation": "water",
+    "cefr": "A0",
+    "example": "¿Tiene agua?"
+  },
+  {
+    "id": "vocab.es.a0.m05.precio.v1",
+    "spanish": "precio",
+    "native_translation": "price",
+    "cefr": "A0",
+    "example": "El precio es cinco euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.euro.v1",
+    "spanish": "euro",
+    "native_translation": "euro",
+    "cefr": "A0",
+    "example": "Cuesta un euro."
+  },
+  {
+    "id": "vocab.es.a0.m05.euros.v1",
+    "spanish": "euros",
+    "native_translation": "euros",
+    "cefr": "A0",
+    "example": "Son dos euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.cuanto_cuesta.v1",
+    "spanish": "cuánto cuesta",
+    "native_translation": "how much does it cost",
+    "cefr": "A0",
+    "example": "¿Cuánto cuesta?"
+  },
+  {
+    "id": "vocab.es.a0.m05.cuesta.v1",
+    "spanish": "cuesta",
+    "native_translation": "it costs",
+    "cefr": "A0",
+    "example": "Cuesta cinco euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.son.v1",
+    "spanish": "son",
+    "native_translation": "they are / it is (price total)",
+    "cefr": "A0",
+    "example": "Son diez euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.tiene.v1",
+    "spanish": "tiene",
+    "native_translation": "do you have / has (polite fixed shopping form)",
+    "cefr": "A0",
+    "example": "¿Tiene agua?"
+  },
+  {
+    "id": "vocab.es.a0.m05.tenemos.v1",
+    "spanish": "tenemos",
+    "native_translation": "we have",
+    "cefr": "A0",
+    "example": "Sí, tenemos agua."
+  },
+  {
+    "id": "vocab.es.a0.m05.quiero.v1",
+    "spanish": "quiero",
+    "native_translation": "I want",
+    "cefr": "A0",
+    "example": "Quiero una botella."
+  },
+  {
+    "id": "vocab.es.a0.m05.necesito.v1",
+    "spanish": "necesito",
+    "native_translation": "I need",
+    "cefr": "A0",
+    "example": "Necesito un bolígrafo."
+  },
+  {
+    "id": "vocab.es.a0.m05.comprar.v1",
+    "spanish": "comprar",
+    "native_translation": "to buy",
+    "cefr": "A0",
+    "example": "Quiero comprar un libro."
+  },
+  {
+    "id": "vocab.es.a0.m05.uno.v1",
+    "spanish": "uno",
+    "native_translation": "one",
+    "cefr": "A0",
+    "example": "Quiero uno."
+  },
+  {
+    "id": "vocab.es.a0.m05.una.v1",
+    "spanish": "una",
+    "native_translation": "one / a (feminine)",
+    "cefr": "A0",
+    "example": "Quiero una botella."
+  },
+  {
+    "id": "vocab.es.a0.m05.dos.v1",
+    "spanish": "dos",
+    "native_translation": "two",
+    "cefr": "A0",
+    "example": "Quiero dos lápices."
+  },
+  {
+    "id": "vocab.es.a0.m05.tres.v1",
+    "spanish": "tres",
+    "native_translation": "three",
+    "cefr": "A0",
+    "example": "Tres euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.cinco.v1",
+    "spanish": "cinco",
+    "native_translation": "five",
+    "cefr": "A0",
+    "example": "Cinco euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.diez.v1",
+    "spanish": "diez",
+    "native_translation": "ten",
+    "cefr": "A0",
+    "example": "Diez euros."
+  },
+  {
+    "id": "vocab.es.a0.m05.caro.v1",
+    "spanish": "caro",
+    "native_translation": "expensive (masculine)",
+    "cefr": "A0",
+    "example": "El libro es caro."
+  },
+  {
+    "id": "vocab.es.a0.m05.cara.v1",
+    "spanish": "cara",
+    "native_translation": "expensive (feminine)",
+    "cefr": "A0",
+    "example": "La botella es cara."
+  },
+  {
+    "id": "vocab.es.a0.m05.barato.v1",
+    "spanish": "barato",
+    "native_translation": "cheap (masculine)",
+    "cefr": "A0",
+    "example": "El lápiz es barato."
+  },
+  {
+    "id": "vocab.es.a0.m05.barata.v1",
+    "spanish": "barata",
+    "native_translation": "cheap (feminine)",
+    "cefr": "A0",
+    "example": "La bolsa es barata."
+  },
+  {
+    "id": "vocab.es.a0.m05.algo_mas.v1",
+    "spanish": "algo más",
+    "native_translation": "anything else",
+    "cefr": "A0",
+    "example": "¿Algo más?"
+  },
+  {
+    "id": "vocab.es.a0.m05.nada_mas.v1",
+    "spanish": "nada más",
+    "native_translation": "nothing else",
+    "cefr": "A0",
+    "example": "Nada más, gracias."
+  },
+  {
+    "id": "vocab.es.a0.m05.aqui_tiene.v1",
+    "spanish": "aquí tiene",
+    "native_translation": "here you are",
+    "cefr": "A0",
+    "example": "Aquí tiene."
+  }
+]

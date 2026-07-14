@@ -14,9 +14,11 @@ import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_providers.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
+import 'package:tutor_language/features/course_navigation/course_navigation_models.dart';
 import 'package:tutor_language/features/course_navigation/course_navigation_providers.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
+import 'package:tutor_language/features/lesson_launch/lesson_launch_intent.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_screen.dart';
 
@@ -688,6 +690,145 @@ void main() {
     expect(latest?.purpose, LessonAttemptPurpose.manualRepeat);
   });
 
+  testWidgets(
+    'completed lesson screen offers repeat and continue without resetting progress',
+    (tester) async {
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+      final database = AppDatabase(NativeDatabase.memory());
+      addTearDown(database.close);
+      final repository = LearnerProgressRepository(database);
+      await repository.recordEvent(
+        ProgressEvent.create(
+          eventType: ProgressEventType.lessonCompleted,
+          topicId: _navigationLessonId,
+          now: DateTime.utc(2026),
+        ),
+      );
+
+      await tester.pumpWidget(
+        _routerApp(
+          initialLocation: '/lesson/$_navigationLessonId',
+          service: _FakeLessonAssemblyService(_navigationLessonContent),
+          database: database,
+          completedProgress: true,
+          nextOrderedLesson: _nextOrderedLesson,
+        ),
+      );
+      await _pumpUntilFound(tester, find.text('Lesson completed'));
+      await _pumpUntilFound(tester, find.text('Repeat lesson'));
+
+      expect(find.text('Repeat lesson'), findsOneWidget);
+      expect(find.text('Continue to next lesson'), findsOneWidget);
+
+      await tester.ensureVisible(find.text('Repeat lesson'));
+      await tester.tap(find.text('Repeat lesson'));
+      await _pumpUntilFound(tester, find.text('Step 1 / 3'));
+
+      expect(find.text('Navigation Vocabulary'), findsOneWidget);
+      expect(find.text('Correct'), findsNothing);
+      final progress = await repository.readTopicProgress(_navigationLessonId);
+      expect(progress.hasBeenCompleted, isTrue);
+    },
+  );
+
+  testWidgets('repeat completion creates a separate attempt history', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/$_navigationLessonId',
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        database: database,
+        completedProgress: false,
+        nextOrderedLesson: _nextOrderedLesson,
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _completeNavigationLesson(tester);
+    await _pumpUntilFound(tester, find.text('Lesson mastered'));
+
+    final originalAttempts = await repository.getLessonAttempts(
+      _navigationLessonId,
+    );
+    final originalAttemptId = originalAttempts.single.attemptId;
+    final originalSteps = await repository.getAttemptStepResults(
+      originalAttemptId,
+    );
+
+    await _pumpUntilFound(tester, find.text('Repeat lesson'));
+    await tester.ensureVisible(find.text('Repeat lesson'));
+    await tester.tap(find.text('Repeat lesson'));
+    await _pumpUntilFound(tester, find.text('Step 1 / 3'));
+
+    expect(find.text('Correct'), findsNothing);
+    expect(find.text('right option'), findsNothing);
+
+    await _completeNavigationLesson(tester);
+    await _pumpUntilFound(tester, find.text('Lesson mastered'));
+
+    final attempts = await repository.getLessonAttempts(_navigationLessonId);
+    final completionEvents = await repository.readEventsForTopic(
+      _navigationLessonId,
+    );
+
+    expect(attempts, hasLength(2));
+    expect(attempts.map((attempt) => attempt.attemptId).toSet(), hasLength(2));
+    expect(attempts.first.attemptId, originalAttemptId);
+    expect(attempts.first.purpose, LessonAttemptPurpose.normal);
+    expect(attempts.last.purpose, LessonAttemptPurpose.manualRepeat);
+    expect(
+      completionEvents
+          .where(
+            (event) => event.eventType == ProgressEventType.lessonCompleted,
+          )
+          .length,
+      1,
+    );
+    expect(
+      await repository.getAttemptStepResults(originalAttemptId),
+      hasLength(originalSteps.length),
+    );
+  });
+
+  testWidgets(
+    'completed final lesson screen offers repeat and back to course',
+    (tester) async {
+      tester.view.physicalSize = const Size(800, 1200);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
+
+      await tester.pumpWidget(
+        _routerApp(
+          initialLocation: '/lesson/es.a0.m05.l015',
+          service: _FakeLessonAssemblyService(_finalCheckpointLessonContent),
+        ),
+      );
+      await _pumpUntilFound(tester, find.text('Course complete'));
+
+      expect(find.text('Repeat lesson'), findsOneWidget);
+      expect(find.text('Back to course'), findsOneWidget);
+    },
+  );
+
   testWidgets('explicit reinforcement launch persists reinforcement purpose', (
     tester,
   ) async {
@@ -757,24 +898,16 @@ void main() {
     expect(find.text('Course complete'), findsOneWidget);
     expect(find.text('Back to course'), findsOneWidget);
     expect(find.text('Review completed lessons'), findsOneWidget);
-    expect(find.text('Repeat checkpoint'), findsOneWidget);
+    expect(find.text('Repeat lesson'), findsOneWidget);
 
     await tester.ensureVisible(
-      find.widgetWithText(OutlinedButton, 'Repeat checkpoint'),
+      find.widgetWithText(OutlinedButton, 'Repeat lesson'),
     );
-    await tester.tap(find.widgetWithText(OutlinedButton, 'Repeat checkpoint'));
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Repeat lesson'));
     await _pumpUntilFound(tester, find.text('Final Vocabulary'));
 
     expect(find.text('Final Vocabulary'), findsOneWidget);
-    expect(find.text('Course complete'), findsOneWidget);
-
-    await tester.ensureVisible(
-      find.widgetWithText(FilledButton, 'Back to course'),
-    );
-    await tester.tap(find.widgetWithText(FilledButton, 'Back to course'));
-    await _pumpUntilFound(tester, find.text('Course route reached'));
-
-    expect(find.text('Course route reached'), findsOneWidget);
+    expect(find.text('Course complete'), findsNothing);
   });
 
   testWidgets('visible back control returns completed lesson to course', (
@@ -897,6 +1030,7 @@ Widget _routerApp({
   LessonAssemblyService? service,
   AppDatabase? database,
   bool completedProgress = true,
+  OrderedLesson? nextOrderedLesson,
 }) {
   final router = GoRouter(
     initialLocation: initialLocation,
@@ -925,8 +1059,13 @@ Widget _routerApp({
         path: LessonRoute.path,
         name: LessonRoute.name,
         builder: (context, state) {
+          final extra = state.extra;
+          final intent = extra is LessonLaunchIntent ? extra : null;
           return LessonPlayerScreen(
-            lessonId: state.pathParameters['lessonId'] ?? '',
+            lessonId:
+                intent?.lessonId ?? state.pathParameters['lessonId'] ?? '',
+            attemptPurpose:
+                intent?.attemptPurpose ?? LessonAttemptPurpose.normal,
           );
         },
       ),
@@ -954,7 +1093,9 @@ Widget _routerApp({
           completedAt: completedProgress ? DateTime.utc(2026) : null,
         ),
       ),
-      nextOrderedLessonProvider.overrideWith((ref, lessonId) async => null),
+      nextOrderedLessonProvider.overrideWith(
+        (ref, lessonId) async => nextOrderedLesson,
+      ),
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),
     ],
@@ -1682,6 +1823,37 @@ const _reviewInsertionLessonContent = LessonContent(
 );
 
 const _navigationLessonId = 'es.a0.m01.l001';
+
+const _nextOrderedLesson = OrderedLesson(
+  lesson: Lesson(
+    metadata: LessonMetadata(
+      id: 'es.a0.m01.l002',
+      title: 'Next Navigation Lesson',
+      description: 'Next lesson description.',
+      moduleId: 'es.a0.m01',
+      courseId: 'es.a0',
+      estimatedDurationMinutes: 5,
+      difficulty: 'A0',
+      tags: [],
+      version: '1.0.0',
+      prerequisites: [],
+    ),
+    objectives: [
+      LessonObjective(
+        id: 'objective.next.navigation',
+        description: 'Continue after a completed lesson.',
+      ),
+    ],
+    sections: [],
+    completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 1),
+    references: [],
+  ),
+  unit: Module(
+    id: 'es.a0.m01',
+    title: 'Navigation Module',
+    lessonIds: [_navigationLessonId, 'es.a0.m01.l002'],
+  ),
+);
 
 const _navigationLessonContent = LessonContent(
   lesson: Lesson(

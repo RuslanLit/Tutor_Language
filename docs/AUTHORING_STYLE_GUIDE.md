@@ -216,6 +216,24 @@ Exercise prompts should be unambiguous.
 
 The learner should understand what to do before they start answering.
 
+For multi-sentence answers, prompt wording should make order explicit:
+
+- flexible order: "Include a greeting and introduce yourself as Marta."
+- preferred order: "Greet the person and introduce yourself as Marta."
+- required order: "First greet the person. Then introduce yourself as Marta."
+
+Do not make learners guess whether sentence order is being assessed.
+
+When a common wrong response type is predictable, prefer specific feedback over
+generic failure. For example, if a prompt asks for a question and a learner may
+write the answer, author a deterministic misconception whose feedback explains:
+
+- this exercise asks for a question;
+- the learner wrote an answer;
+- what kind of response to try next.
+
+Keep feedback about task intent concise and non-punitive.
+
 Prompts should test the intended educational goal, not the learner's ability to interpret confusing instructions.
 
 Keep instructions shorter than the task whenever practical.

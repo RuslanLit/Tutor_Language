@@ -884,6 +884,11 @@ rejects it as an immutable-history conflict and does not update existing rows.
 The Lesson Player creates one pending completion attempt ID for one finished
 in-memory session and reuses it across save retries.
 
+When the learner explicitly repeats a completed lesson, Lesson Player starts a
+new in-memory session with `manualRepeat` launch provenance. This clears only
+the active presentation/session state for that lesson. It does not clear
+durable completion progress or mutate previous attempts.
+
 Malformed durable attempt detail is isolated so one unreadable attempt does not
 erase unrelated legacy progress or other valid durable attempts.
 
@@ -1192,6 +1197,48 @@ controlled normalizer does not cover a valid variant.
 
 Orthographic teaching remains possible because pedagogically meaningful Spanish
 differences are preserved for classification and feedback.
+
+---
+
+## ADR: Authored Preferred-Order Answer Equivalence
+
+Status
+
+Accepted
+
+Context
+
+Some competency diagnostics ask for multiple communicative components in one
+typed response. A false negative can occur when the learner supplies all
+required components in a less natural order and order is not the assessed
+skill.
+
+Decision
+
+Exercise templates may declare explicit accepted-with-feedback answers for
+bounded preferred-order variants.
+
+The answer-evaluation layer may mark those authored variants as accepted with
+feedback. This counts as task success for competency assessment, while still
+allowing learner-facing correction toward the canonical order.
+
+This mechanism must not:
+
+- globally reorder sentences;
+- infer semantic equivalence;
+- accept missing or wrong components;
+- relax dialogue sequences where turn order is part of the task;
+- create competency gaps for order preference alone.
+
+Consequences
+
+Authors must decide whether a multi-component task has flexible, preferred or
+required order.
+
+Preferred-order alternatives remain inspectable in content assets.
+
+Strict dialogue and question-answer sequences remain strict unless an
+alternative is explicitly authored.
 
 ---
 

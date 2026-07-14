@@ -434,18 +434,25 @@ class _LessonNavigationControlsState
                     );
                   }
 
-                  return FilledButton(
-                    onPressed: () {
-                      context.goNamed(
-                        LessonRoute.name,
-                        pathParameters: {'lessonId': nextLesson.lesson.id},
-                        extra: LessonLaunchIntent(
-                          lessonId: nextLesson.lesson.id,
-                          attemptPurpose: LessonAttemptPurpose.normal,
-                        ),
-                      );
-                    },
-                    child: const Text('Continue to next lesson'),
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _RepeatLessonButton(lessonId: widget.lessonId),
+                      const SizedBox(height: 8),
+                      FilledButton(
+                        onPressed: () {
+                          context.goNamed(
+                            LessonRoute.name,
+                            pathParameters: {'lessonId': nextLesson.lesson.id},
+                            extra: LessonLaunchIntent(
+                              lessonId: nextLesson.lesson.id,
+                              attemptPurpose: LessonAttemptPurpose.normal,
+                            ),
+                          );
+                        },
+                        child: const Text('Continue to next lesson'),
+                      ),
+                    ],
                   );
                 },
                 error: (error, stackTrace) =>
@@ -478,6 +485,7 @@ class _LessonNavigationControlsState
     final completedAt =
         widget.session.completionCompletedAt ?? DateTime.now().toUtc();
     final attemptId =
+        widget.session.attemptId ??
         widget.session.completionAttemptId ??
         '${completedAt.microsecondsSinceEpoch}.${widget.lessonId}.attempt';
     final command = _snapshotFactory.create(
@@ -488,6 +496,7 @@ class _LessonNavigationControlsState
       finalState: decision.updatedState,
       finishDecision: decision,
       completedAt: completedAt,
+      startedAt: widget.session.attemptStartedAt,
     );
     final pendingSession = widget.session.copyWith(
       completionAttemptId: attemptId,
@@ -622,24 +631,42 @@ class _CourseCompletionActions extends ConsumerWidget {
             ),
             OutlinedButton(
               onPressed: () {
-                ref.read(lessonPlayerSessionProvider(lessonId).notifier).state =
-                    const LessonPlayerSessionState();
-                context.goNamed(
-                  LessonRoute.name,
-                  pathParameters: {'lessonId': lessonId},
-                  extra: LessonLaunchIntent(
-                    lessonId: lessonId,
-                    attemptPurpose: LessonAttemptPurpose.manualRepeat,
-                  ),
-                );
+                _startManualRepeat(context, ref, lessonId);
               },
-              child: const Text('Repeat checkpoint'),
+              child: const Text('Repeat lesson'),
             ),
           ],
         ),
       ],
     );
   }
+}
+
+class _RepeatLessonButton extends ConsumerWidget {
+  const _RepeatLessonButton({required this.lessonId});
+
+  final String lessonId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return OutlinedButton(
+      onPressed: () => _startManualRepeat(context, ref, lessonId),
+      child: const Text('Repeat lesson'),
+    );
+  }
+}
+
+void _startManualRepeat(BuildContext context, WidgetRef ref, String lessonId) {
+  ref.read(lessonPlayerSessionProvider(lessonId).notifier).state =
+      const LessonPlayerSessionState();
+  context.goNamed(
+    LessonRoute.name,
+    pathParameters: {'lessonId': lessonId},
+    extra: LessonLaunchIntent(
+      lessonId: lessonId,
+      attemptPurpose: LessonAttemptPurpose.manualRepeat,
+    ),
+  );
 }
 
 class _LessonOutcomeLabel extends StatelessWidget {

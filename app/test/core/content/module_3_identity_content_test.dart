@@ -46,9 +46,7 @@ void main() {
   );
 
   test('C2D-Fix preserves existing module ownership boundaries', () async {
-    final course = await CurriculumLoader(
-      assetBundle: rootBundle,
-    ).loadCourse();
+    final course = await CurriculumLoader(assetBundle: rootBundle).loadCourse();
 
     final module2 = course.modules.singleWhere(
       (module) => module.id == 'es.a0.m02',
@@ -68,7 +66,16 @@ void main() {
       'es.a0.m02.l009',
       'es.a0.m05.l013',
     ]);
-    expect(module5.lessonIds, ['es.a0.m05.l014', 'es.a0.m05.l015']);
+    expect(module5.lessonIds, [
+      'es.a0.m05.l028',
+      'es.a0.m05.l029',
+      'es.a0.m05.l030',
+      'es.a0.m05.l031',
+      'es.a0.m05.l032',
+      'es.a0.m05.l033',
+      'es.a0.m05.l034',
+      'es.a0.m05.l035',
+    ]);
     expect(module3.lessonIds, isNot(contains('es.a0.m02.l005')));
     expect(module3.lessonIds, isNot(contains('es.a0.m05.l015')));
     expect(module3.lessonIds.last, 'es.a0.m03.l019');
@@ -86,11 +93,11 @@ void main() {
       expect(lesson.id.startsWith('es.a0.m03.'), isTrue);
     }
 
-    final restoredModule5Checkpoint = course.lessons.singleWhere(
-      (lesson) => lesson.id == 'es.a0.m05.l015',
+    final module5Checkpoint = course.lessons.singleWhere(
+      (lesson) => lesson.id == 'es.a0.m05.l035',
     );
-    expect(restoredModule5Checkpoint.title, 'A0 Checkpoint');
-    expect(restoredModule5Checkpoint.moduleId, 'es.a0.m05');
+    expect(module5Checkpoint.title, 'Shopping Checkpoint');
+    expect(module5Checkpoint.moduleId, 'es.a0.m05');
   });
 
   test(
@@ -210,6 +217,20 @@ void main() {
       );
       expect(
         evaluate(
+          'template.es.a0.m03.l014.type_de_donde_eres.v1',
+          'Soy de Perú',
+        ).feedbackKey,
+        'response.question_expected_statement_provided',
+      );
+      expect(
+        evaluate(
+          'template.es.a0.m03.l014.type_answer_colombia.v1',
+          '¿De dónde eres?',
+        ).feedbackKey,
+        'response.answer_expected_question',
+      );
+      expect(
+        evaluate(
           'template.es.a0.m03.l013.type_soy_de_ucrania.v1',
           'Vivo en Ucrania',
         ).feedbackKey,
@@ -277,6 +298,46 @@ void main() {
       expect(
         introRecovery.sourceStepId,
         'template.es.a0.m02.l004.name_pattern_choice.v1',
+      );
+
+      final introTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m03.competency.type_intro_marta.v1',
+      )!;
+      final reverseIntro = const ActivityEngine().evaluate(
+        template: introTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'Me llamo Marta. Hola',
+        ),
+      );
+      expect(reverseIntro.status, ActivityResultStatus.acceptedWithFeedback);
+      expect(reverseIntro.feedbackKey, 'answer.preferred_order');
+
+      final lineBreakIntro = const ActivityEngine().evaluate(
+        template: introTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: 'Hola\nMe llamo Marta',
+        ),
+      );
+      expect(lineBreakIntro.status, ActivityResultStatus.correct);
+
+      final missingGreeting = const ActivityEngine().evaluate(
+        template: introTemplate,
+        submission: const ActivitySubmission(submittedAnswer: 'Me llamo Marta'),
+      );
+      expect(missingGreeting.status, ActivityResultStatus.incorrect);
+
+      final questionTemplate = contentCatalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m03.competency.type_ask_origin_languages.v1',
+      )!;
+      final reverseQuestions = const ActivityEngine().evaluate(
+        template: questionTemplate,
+        submission: const ActivitySubmission(
+          submittedAnswer: '¿Qué idiomas hablas? ¿De dónde eres?',
+        ),
+      );
+      expect(
+        reverseQuestions.status,
+        ActivityResultStatus.acceptedWithFeedback,
       );
     },
   );

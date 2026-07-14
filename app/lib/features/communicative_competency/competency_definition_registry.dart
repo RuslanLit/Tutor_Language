@@ -51,6 +51,7 @@ class CompetencyDefinitionRegistry {
         'es.a0.m02',
         'es.a0.m03',
         'es.a0.m04',
+        'es.a0.m05',
       ],
       competencies: [definition.competency],
       microCompetencies: _microCompetencies,
@@ -179,6 +180,72 @@ const _defaultDefinitions = [
           'template.es.a0.m04.l025.dialogue_comprehension.v1',
       'micro.es.a0.sustain_short_everyday_conversation':
           'template.es.a0.m04.l025.type_short_intro.v1',
+    },
+  ),
+
+  RuntimeCompetencyDefinition(
+    competency: CommunicativeCompetencyDefinition(
+      competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+      moduleId: 'es.a0.m05',
+      title: 'Basic shopping exchange check',
+      communicativeGoal:
+          'Identify an everyday object, ask availability and price, request an item, and close a short shopping exchange.',
+      requiredMicroCompetencyIds: [
+        'micro.es.a0.identify_everyday_object',
+        'micro.es.a0.ask_what_object_is',
+        'micro.es.a0.ask_item_availability',
+        'micro.es.a0.ask_price',
+        'micro.es.a0.understand_price',
+        'micro.es.a0.express_purchase_intention',
+        'micro.es.a0.request_one_item',
+        'micro.es.a0.respond_to_seller',
+        'micro.es.a0.complete_basic_purchase_exchange',
+      ],
+      assessmentTaskIds: [
+        'task.es.a0.m05.identify_object',
+        'task.es.a0.m05.ask_availability',
+        'task.es.a0.m05.ask_price',
+        'task.es.a0.m05.understand_price',
+        'task.es.a0.m05.request_item',
+        'task.es.a0.m05.respond_seller',
+        'task.es.a0.m05.basic_purchase_exchange',
+      ],
+    ),
+    diagnosticTaskTemplateIds: {
+      'task.es.a0.m05.identify_object':
+          'template.es.a0.m05.competency.identify_object.v1',
+      'task.es.a0.m05.ask_availability':
+          'template.es.a0.m05.competency.ask_availability.v1',
+      'task.es.a0.m05.ask_price': 'template.es.a0.m05.competency.ask_price.v1',
+      'task.es.a0.m05.understand_price':
+          'template.es.a0.m05.competency.understand_price.v1',
+      'task.es.a0.m05.request_item':
+          'template.es.a0.m05.competency.request_item.v1',
+      'task.es.a0.m05.respond_seller':
+          'template.es.a0.m05.competency.respond_seller.v1',
+      'task.es.a0.m05.basic_purchase_exchange':
+          'template.es.a0.m05.competency.basic_purchase_exchange.v1',
+    },
+    recoveryTemplateIds: {
+      'micro.es.a0.identify_everyday_object':
+          'template.es.a0.m05.l028.object_choice.v1',
+      'micro.es.a0.ask_what_object_is':
+          'template.es.a0.m05.l028.type_que_es_esto.v1',
+      'micro.es.a0.ask_item_availability':
+          'template.es.a0.m05.l029.availability_question_choice.v1',
+      'micro.es.a0.ask_price':
+          'template.es.a0.m05.l030.price_question_choice.v1',
+      'micro.es.a0.understand_price':
+          'template.es.a0.m05.l030.price_comprehension_choice.v1',
+      'micro.es.a0.express_purchase_intention':
+          'template.es.a0.m05.l032.request_choice.v1',
+      'micro.es.a0.request_one_item': 'template.es.a0.m05.l032.fill_esta.v1',
+      'micro.es.a0.respond_to_seller':
+          'template.es.a0.m01.l002.type_gracias.v1',
+      'micro.es.a0.complete_basic_purchase_exchange':
+          'template.es.a0.m05.l033.dialogue_order_choice.v1',
+      'recovery.es.a0.m05.respond_to_seller.m04':
+          'template.es.a0.m04.l025.dialogue_comprehension.v1',
     },
   ),
 ];
@@ -364,6 +431,125 @@ const _microCompetencies = [
     introducedInModuleId: 'es.a0.m03',
     prerequisiteContentReferences: [
       'template.es.a0.m03.l017.type_ask_origin_and_languages.v1',
+    ],
+  ),
+
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.identify_everyday_object',
+    description: 'Identify a familiar everyday object by name.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l028.type_es_una_botella.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_what_object_is',
+    description: 'Ask what an unknown object is.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l028.type_que_es_esto.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.name_everyday_object',
+    description: 'Name a familiar object with un or una.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l028.type_es_una_botella.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_item_availability',
+    description: 'Ask politely whether a shop has a familiar item.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l029.type_tiene_agua.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_item_availability',
+    description: 'Answer availability with tenemos or no tenemos.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l029.type_si_tenemos_agua.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.ask_price',
+    description: 'Ask a simple price with ¿Cuánto cuesta?',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l030.type_cuanto_cuesta.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_price',
+    description: 'Understand a controlled price in euros.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l030.price_comprehension_choice.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.state_price',
+    description: 'State a controlled price in euros.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l030.type_cuesta_cinco_euros.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.express_expensive_or_cheap',
+    description: 'Say whether a familiar item is cheap or expensive.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l031.type_el_libro_es_caro.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.express_purchase_intention',
+    description: 'Express a basic purchase intention with quiero.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l032.type_quiero_una_botella.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_one_item',
+    description: 'Request one familiar item politely.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l032.type_este_libro.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.request_small_quantity',
+    description: 'Request a small controlled quantity of a familiar item.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l032.type_quiero_una_botella.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.respond_to_seller',
+    description: 'Respond to a seller with a polite closing.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: ['template.es.a0.m05.l032.type_nada_mas.v1'],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.complete_basic_purchase_exchange',
+    description: 'Complete a short predictable shopping exchange.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l033.type_basic_purchase_exchange.v1',
+    ],
+  ),
+  MicroCompetencyDefinition(
+    microCompetencyId: 'micro.es.a0.understand_short_shopping_dialogue',
+    description: 'Understand a short shopping dialogue.',
+    introducedInModuleId: 'es.a0.m05',
+    prerequisiteContentReferences: [
+      'template.es.a0.m05.l033.dialogue_order_choice.v1',
     ],
   ),
 ];
@@ -656,6 +842,184 @@ const _assessmentTasks = [
       ),
     ],
   ),
+
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.identify_object',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_what_object_is',
+      'micro.es.a0.identify_everyday_object',
+      'micro.es.a0.name_everyday_object',
+    ],
+    lessonStepReference: 'template.es.a0.m05.competency.identify_object.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.identify_everyday_object',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l028.object_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l028',
+            sourceStepId: 'template.es.a0.m05.l028.object_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.identify_object',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.ask_availability',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_item_availability'],
+    lessonStepReference: 'template.es.a0.m05.competency.ask_availability.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_item_availability',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l029.availability_question_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l029',
+            sourceStepId:
+                'template.es.a0.m05.l029.availability_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.ask_availability',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.ask_price',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.ask_price'],
+    lessonStepReference: 'template.es.a0.m05.competency.ask_price.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.ask_price',
+        reasonCode: CompetencyGapReasonCode.incorrectQuestionForm,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l030.price_question_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l030',
+            sourceStepId: 'template.es.a0.m05.l030.price_question_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.ask_price',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.understand_price',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.understand_price'],
+    lessonStepReference: 'template.es.a0.m05.competency.understand_price.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.understand_price',
+        reasonCode: CompetencyGapReasonCode.missingVocabulary,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l030.price_comprehension_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l030',
+            sourceStepId:
+                'template.es.a0.m05.l030.price_comprehension_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.understand_price',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.request_item',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.express_purchase_intention',
+      'micro.es.a0.request_one_item',
+    ],
+    lessonStepReference: 'template.es.a0.m05.competency.request_item.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.express_purchase_intention',
+        reasonCode: CompetencyGapReasonCode.missingStructure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l032.request_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l032',
+            sourceStepId: 'template.es.a0.m05.l032.request_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.request_item',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.respond_seller',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: ['micro.es.a0.respond_to_seller'],
+    lessonStepReference: 'template.es.a0.m05.competency.respond_seller.v1',
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_to_seller',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m01.l002.type_gracias.v1',
+            sourceModuleId: 'es.a0.m01',
+            sourceLessonId: 'es.a0.m01.l002',
+            sourceStepId: 'template.es.a0.m01.l002.type_gracias.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.respond_seller',
+      ),
+    ],
+  ),
+  CompetencyAssessmentTask(
+    taskId: 'task.es.a0.m05.basic_purchase_exchange',
+    competencyId: 'competency.es.a0.m05.complete_basic_shopping_exchange',
+    assessedMicroCompetencyIds: [
+      'micro.es.a0.ask_item_availability',
+      'micro.es.a0.ask_price',
+      'micro.es.a0.express_purchase_intention',
+      'micro.es.a0.respond_to_seller',
+      'micro.es.a0.complete_basic_purchase_exchange',
+    ],
+    lessonStepReference:
+        'template.es.a0.m05.competency.basic_purchase_exchange.v1',
+    isCentralTask: true,
+    recoveryMappings: [
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.complete_basic_purchase_exchange',
+        reasonCode: CompetencyGapReasonCode.integrationFailure,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m05.l033.dialogue_order_choice.v1',
+            sourceModuleId: 'es.a0.m05',
+            sourceLessonId: 'es.a0.m05.l033',
+            sourceStepId: 'template.es.a0.m05.l033.dialogue_order_choice.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.basic_purchase_exchange',
+      ),
+      CompetencyRecoveryMapping(
+        microCompetencyId: 'micro.es.a0.respond_to_seller',
+        reasonCode: CompetencyGapReasonCode.prerequisiteNotRetained,
+        recoveryStepReferences: [
+          CompetencyRecoveryStepReference(
+            stepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+            sourceModuleId: 'es.a0.m04',
+            sourceLessonId: 'es.a0.m04.l025',
+            sourceStepId: 'template.es.a0.m04.l025.dialogue_comprehension.v1',
+          ),
+        ],
+        retryTaskId: 'task.es.a0.m05.basic_purchase_exchange',
+      ),
+    ],
+  ),
   CompetencyAssessmentTask(
     taskId: 'task.es.a0.build_personal_identity_profile',
     competencyId: 'competency.es.a0.m03.describe_basic_personal_identity',
@@ -686,10 +1050,14 @@ const _assessmentTasks = [
 ];
 
 LessonContentReference templateReference(String templateId) {
-  final assetPath = templateId.startsWith('template.es.a0.m04.')
+  final assetPath = templateId.startsWith('template.es.a0.m05.')
+      ? 'assets/languages/spanish/templates/module_5_shopping.json'
+      : templateId.startsWith('template.es.a0.m04.')
       ? 'assets/languages/spanish/templates/module_4_people.json'
       : templateId.startsWith('template.es.a0.m03.')
       ? 'assets/languages/spanish/templates/module_3_identity.json'
+      : templateId.startsWith('template.es.a0.m01.')
+      ? 'assets/languages/spanish/templates/module_1_first_words.json'
       : 'assets/languages/spanish/templates/module_2_names.json';
   return LessonContentReference(
     type: 'exercise_template',

@@ -36,6 +36,8 @@ class LessonPlayerSessionState {
     this.sessionState = const LessonSessionState(lessonId: ''),
     this.stepStates = const {},
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.attemptId,
+    this.attemptStartedAt,
     this.lessonOutcome,
     this.completionAttemptId,
     this.completionCompletedAt,
@@ -47,6 +49,8 @@ class LessonPlayerSessionState {
   final LessonSessionState sessionState;
   final Map<String, ActivityTemplateState> stepStates;
   final LessonAttemptPurpose attemptPurpose;
+  final String? attemptId;
+  final DateTime? attemptStartedAt;
   final LessonOutcome? lessonOutcome;
   final String? completionAttemptId;
   final DateTime? completionCompletedAt;
@@ -57,6 +61,8 @@ class LessonPlayerSessionState {
     LessonSessionState? sessionState,
     Map<String, ActivityTemplateState>? stepStates,
     LessonAttemptPurpose? attemptPurpose,
+    Object? attemptId = _unset,
+    Object? attemptStartedAt = _unset,
     Object? lessonOutcome = _unset,
     Object? completionAttemptId = _unset,
     Object? completionCompletedAt = _unset,
@@ -67,6 +73,10 @@ class LessonPlayerSessionState {
       sessionState: sessionState ?? this.sessionState,
       stepStates: stepStates ?? this.stepStates,
       attemptPurpose: attemptPurpose ?? this.attemptPurpose,
+      attemptId: attemptId == _unset ? this.attemptId : attemptId as String?,
+      attemptStartedAt: attemptStartedAt == _unset
+          ? this.attemptStartedAt
+          : attemptStartedAt as DateTime?,
       lessonOutcome: lessonOutcome == _unset
           ? this.lessonOutcome
           : lessonOutcome as LessonOutcome?,
@@ -116,9 +126,14 @@ class LessonPlayerSessionState {
           .toList(growable: false),
     );
 
+    final startedAt = DateTime.now().toUtc();
+
     return LessonPlayerSessionState(
       sessionState: decision.updatedState,
       attemptPurpose: attemptPurpose,
+      attemptId:
+          '${startedAt.microsecondsSinceEpoch}.$lessonId.${attemptPurpose.code}.attempt',
+      attemptStartedAt: startedAt,
     );
   }
 }

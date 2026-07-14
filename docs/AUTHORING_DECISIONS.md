@@ -202,6 +202,34 @@ across modules.
 
 ---
 
+# Spanish A0 Module 5 Shopping Scope
+
+Module 5 teaches a controlled shopping exchange, not a broad commerce unit.
+
+The selected seller/customer register is a polite fixed-form interaction:
+
+- learner asks `¿Tiene...?`;
+- seller answers with `tenemos`;
+- the module does not teach the full `tú` versus `usted` contrast.
+
+The controlled price and quantity range is intentionally small:
+
+- one, two, three, five and ten;
+- prices use `euro/euros`;
+- broad numbers, dates, time, bargaining and payment methods are out of scope.
+
+The demonstrative scope is limited to:
+
+- `esto` in `¿Qué es esto?`;
+- `este` with practiced masculine nouns;
+- `esta` with practiced feminine nouns.
+
+Integrated shopping assessment is bounded and deterministic. It may combine
+greeting, availability, price, item request and polite closing, but it must not
+require arbitrary free-form shopping dialogue.
+
+---
+
 # QA1 Meaning Equivalence and Active Review Corrections
 
 Spanish A0 Modules 1-4 use deterministic answer acceptance for learner-facing
@@ -223,6 +251,52 @@ evaluation policy.
 Review tasks in Modules 1-4 must require active learner retrieval,
 discrimination or application. Passive display of both sides of a pair is not a
 valid review activity.
+
+---
+
+# QA4 Competency Sequence Tolerance
+
+Competency diagnostics may use authored accepted-with-feedback answers when a
+learner supplies all required communicative components in a less natural order.
+
+Implemented decisions:
+
+- Module 3 accepts `Me llamo Marta. Hola` for the greeting plus self-
+  introduction diagnostic, with feedback preferring `Hola. Me llamo Marta`.
+- Module 3 accepts the reversed origin/language question pair with feedback
+  preferring the authored order.
+- Module 4 accepts reversed independent person-identification facts such as
+  `Se llama Marta. Es Marta` with feedback preferring `Es Marta. Se llama
+  Marta`.
+- Module 5 shopping purchase exchange remains strict-order because the order
+  represents a customer/seller interaction sequence.
+
+No global sentence reordering or semantic parsing is allowed. Every tolerated
+sequence variant must be authored explicitly.
+
+---
+
+# QA5 Prompt-Intent Misconception Feedback
+
+Prompt-intent mistakes are represented with existing authored misconceptions,
+not semantic inference.
+
+Implemented response-type feedback keys include:
+
+- question expected, statement or answer provided;
+- statement expected, question provided;
+- answer expected, question provided;
+- translation expected, source language copied;
+- greeting expected, farewell provided;
+- farewell expected, greeting provided.
+
+Module 3 origin-question tasks now explain when the learner writes an origin
+answer instead of the requested question. Module 1 greeting tasks now explain
+copied source-language input and greeting/farewell swaps.
+
+Progressive hints may add deterministic structural support after repeated
+local attempts, but no learner-history, persistence or remediation policy is
+changed.
 
 ---
 

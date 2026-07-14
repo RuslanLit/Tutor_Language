@@ -167,6 +167,18 @@
         "feedback_key": "spanish.origin_question.include_de",
         "canonical_answer": "¿De dónde eres?",
         "explanation_reference_id": "grammar.es.a0.m03.ask_origin.v1"
+      },
+      {
+        "id": "misconception.es.a0.m03.question.statement_answer.v1",
+        "matching_answers": [
+          "Soy de Ucrania",
+          "Soy de Perú",
+          "Soy de Peru",
+          "Soy de Colombia"
+        ],
+        "feedback_key": "response.question_expected_statement_provided",
+        "canonical_answer": "¿De dónde eres?",
+        "explanation_reference_id": "grammar.es.a0.m03.ask_origin.v1"
       }
     ],
     "review_template_ids": [
@@ -195,6 +207,16 @@
         "feedback_key": "spanish.origin.use_soy_de",
         "canonical_answer": "Soy de Colombia",
         "explanation_reference_id": "grammar.es.a0.m03.origin_residence_contrast.v1"
+      },
+      {
+        "id": "misconception.es.a0.m03.origin.question_for_statement.v1",
+        "matching_answers": [
+          "¿De dónde eres?",
+          "De donde eres?"
+        ],
+        "feedback_key": "response.answer_expected_question",
+        "canonical_answer": "Soy de Colombia",
+        "explanation_reference_id": "grammar.es.a0.m03.ask_origin.v1"
       }
     ],
     "review_template_ids": [
@@ -747,6 +769,20 @@
     ],
     "prompt_template": "Checkpoint: Type the Spanish question \"Where are you from?\"",
     "expected_answer": "¿De dónde eres?",
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m03.checkpoint.question.statement_answer.v1",
+        "matching_answers": [
+          "Soy de Ucrania",
+          "Soy de Perú",
+          "Soy de Peru",
+          "Soy de Colombia"
+        ],
+        "feedback_key": "response.question_expected_statement_provided",
+        "canonical_answer": "¿De dónde eres?",
+        "explanation_reference_id": "grammar.es.a0.m03.ask_origin.v1"
+      }
+    ],
     "review_template_ids": [
       "template.es.a0.m03.l014.origin_question_choice.v1"
     ]
@@ -832,8 +868,23 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Competency check: Type the Spanish introduction and greeting as Marta.",
+    "prompt_template": "Competency check: Greet the person and introduce yourself as Marta.",
     "expected_answer": "Hola. Me llamo Marta",
+    "accepted_answers": [
+      "Hola\nMe llamo Marta"
+    ],
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Me llamo Marta. Hola",
+        "feedback_key": "answer.preferred_order",
+        "canonical_answer": "Hola. Me llamo Marta"
+      },
+      {
+        "answer": "Me llamo Marta\nHola",
+        "feedback_key": "answer.preferred_order",
+        "canonical_answer": "Hola. Me llamo Marta"
+      }
+    ],
     "authored_misconceptions": [
       {
         "id": "misconception.es.a0.m03.competency.soy_marta.v1",
@@ -908,8 +959,15 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Competency check: Type the Spanish questions asking where the other person is from and which languages they speak.",
+    "prompt_template": "Competency check: Ask where the other person is from and which languages they speak.",
     "expected_answer": "¿De dónde eres? ¿Qué idiomas hablas?",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "¿Qué idiomas hablas? ¿De dónde eres?",
+        "feedback_key": "answer.preferred_order",
+        "canonical_answer": "¿De dónde eres? ¿Qué idiomas hablas?"
+      }
+    ],
     "review_template_ids": [
       "template.es.a0.m03.l017.exchange_question_choice.v1"
     ]
@@ -924,7 +982,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Competency check: Type the Spanish sentence sequence for this profile: \"My name is Marta. I am from Ukraine. I live in Kyiv. I speak Ukrainian and a little Spanish.\"",
+    "prompt_template": "Competency check: Type the Spanish sentence sequence in this order for this profile: \"My name is Marta. I am from Ukraine. I live in Kyiv. I speak Ukrainian and a little Spanish.\"",
     "expected_answer": "Me llamo Marta. Soy de Ucrania. Vivo en Kyiv. Hablo ucraniano y un poco de español",
     "review_template_ids": [
       "template.es.a0.m03.l018.type_profile_elena.v1"

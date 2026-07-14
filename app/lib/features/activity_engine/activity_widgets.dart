@@ -131,12 +131,14 @@ class _MultipleChoiceActivityWidgetState
                           selectedAnswerId: state.selectedOptionId,
                         ),
                       ),
+                      attemptCount: state.attemptCount + 1,
                     ),
                   );
                 },
         ),
         ActivityFeedback(
           result: state.result,
+          attemptCount: state.attemptCount,
           showIncorrectDetails: widget.showIncorrectDetails,
         ),
       ],
@@ -238,12 +240,14 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
                     submittedAnswer: _controller.text,
                   ),
                 ),
+                attemptCount: state.attemptCount + 1,
               ),
             );
           },
         ),
         ActivityFeedback(
           result: state.result,
+          attemptCount: state.attemptCount,
           showIncorrectDetails: widget.showIncorrectDetails,
         ),
       ],
@@ -359,12 +363,14 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
                   template: widget.template,
                   submission: ActivitySubmission(matchedPairs: matchedPairs),
                 ),
+                attemptCount: state.attemptCount + 1,
               ),
             );
           },
         ),
         ActivityFeedback(
           result: state.result,
+          attemptCount: state.attemptCount,
           showIncorrectDetails: widget.showIncorrectDetails,
         ),
       ],
@@ -375,12 +381,14 @@ class _MatchingActivityWidgetState extends State<MatchingActivityWidget> {
 class ActivityFeedback extends StatelessWidget {
   const ActivityFeedback({
     required this.result,
+    this.attemptCount = 0,
     this.presenter = const AnswerFeedbackPresenter(),
     this.showIncorrectDetails = true,
     super.key,
   });
 
   final ActivityResult? result;
+  final int attemptCount;
   final AnswerFeedbackPresenter presenter;
   final bool showIncorrectDetails;
 
@@ -401,7 +409,10 @@ class ActivityFeedback extends StatelessWidget {
         );
       }
 
-      final feedback = presenter.present(evaluation);
+      final feedback = presenter.present(
+        evaluation,
+        attemptCount: attemptCount,
+      );
       return Padding(
         padding: const EdgeInsets.only(top: 8),
         child: Column(

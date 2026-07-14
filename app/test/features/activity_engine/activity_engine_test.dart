@@ -75,6 +75,18 @@ void main() {
     expect(result.evaluation?.feedback.canonicalAnswer, 'Me llamo Ana');
   });
 
+  test('propagates authored task-mismatch feedback as incorrect', () {
+    final result = const ActivityEngine().evaluate(
+      template: _questionExpectedTemplate,
+      submission: const ActivitySubmission(submittedAnswer: 'Soy de Perú'),
+    );
+
+    expect(result.status, ActivityResultStatus.incorrect);
+    expect(result.isCorrect, isFalse);
+    expect(result.feedbackKey, 'response.question_expected_statement_provided');
+    expect(result.evaluation?.matchType, AnswerMatchType.authoredMisconception);
+  });
+
   test('evaluates matching correctly', () {
     final result = const ActivityEngine().evaluate(
       template: _matchingTemplate,
@@ -95,6 +107,23 @@ void main() {
 
     expect(result.isCorrect, isTrue);
     expect(result.status, ActivityResultStatus.correct);
+  });
+
+  test('uses authored accepted-with-feedback answers for typed activities', () {
+    final result = const ActivityEngine().evaluate(
+      template: _acceptedWithFeedbackAnswerTemplate,
+      submission: const ActivitySubmission(
+        submittedAnswer: 'Me llamo Marta. Hola',
+      ),
+    );
+
+    expect(result.isCorrect, isTrue);
+    expect(result.status, ActivityResultStatus.acceptedWithFeedback);
+    expect(result.feedbackKey, 'answer.preferred_order');
+    expect(
+      result.evaluation?.matchType,
+      AnswerMatchType.acceptedAlternativeWithFeedback,
+    );
   });
 
   test('accepts controlled contraction equivalents in matching activities', () {
@@ -179,6 +208,23 @@ const _nameTextTemplate = ExerciseTemplate(
   ],
 );
 
+const _questionExpectedTemplate = ExerciseTemplate(
+  id: 'template.question.expected',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['grammar'],
+  promptTemplate: 'Type the Spanish question: "Where are you from?"',
+  expectedAnswer: '¿De dónde eres?',
+  authoredMisconceptions: [
+    AuthoredMisconception(
+      id: 'misconception.question.expected.statement.v1',
+      matchingAnswers: ['Soy de Perú'],
+      feedbackKey: 'response.question_expected_statement_provided',
+      canonicalAnswer: '¿De dónde eres?',
+    ),
+  ],
+);
+
 const _matchingTemplate = ExerciseTemplate(
   id: 'template.matching',
   exerciseType: 'matching',
@@ -205,6 +251,22 @@ const _acceptedAnswerTemplate = ExerciseTemplate(
   promptTemplate: 'Type another accepted English greeting.',
   expectedAnswer: 'Hello',
   acceptedAnswers: ['Hi'],
+);
+
+const _acceptedWithFeedbackAnswerTemplate = ExerciseTemplate(
+  id: 'template.accepted.feedback.answer',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Greet and introduce yourself.',
+  expectedAnswer: 'Hola. Me llamo Marta',
+  acceptedWithFeedbackAnswers: [
+    AcceptedWithFeedbackAnswer(
+      answer: 'Me llamo Marta. Hola',
+      feedbackKey: 'answer.preferred_order',
+      canonicalAnswer: 'Hola. Me llamo Marta',
+    ),
+  ],
 );
 
 const _exactFormTemplate = ExerciseTemplate(
