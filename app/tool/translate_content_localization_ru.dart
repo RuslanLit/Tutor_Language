@@ -33,7 +33,7 @@ void main() {
         id: id,
         fieldName: field.key,
       );
-      values['ru'] = russian;
+      values['ru'] = _finalizeRussian(russian);
       fields[field.key] = values;
       translated += 1;
       if (russian.trim() == english.trim()) {
@@ -68,9 +68,6 @@ String translateRussian(
   final exact = _exact[text];
   if (exact != null) {
     return exact;
-  }
-  if (_looksLikeSpanish(text)) {
-    return text;
   }
   if (_looksLikeNameOrPlace(text)) {
     return _nameOrPlace(text);
@@ -149,6 +146,91 @@ String _translatePrompt(String text) {
         : 'Проверка навыка: ';
     final rest = output.substring(output.indexOf(': ') + 2);
     return '$prefix${_lowerFirst(_translatePrompt(rest))}';
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Type the Spanish word for "([^"]+)"(.*)\.?$'),
+    (match) {
+      final meaning = _translateEmbeddedEnglish(match.group(1)!);
+      final tail = _translatePromptTail(match.group(2)!.trim());
+      return 'Введите испанское слово со значением «$meaning»${tail.isEmpty ? '' : ' $tail'}.';
+    },
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(
+      r'^Type the Spanish word that starts with silent h and means "([^"]+)"\.?$',
+    ),
+    (match) =>
+        'Введите испанское слово, которое начинается с немой h и означает «${_translateEmbeddedEnglish(match.group(1)!)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Type the Spanish word/name that begins with j: "([^"]+)"\.?$'),
+    (match) =>
+        'Введите испанское слово или имя, которое начинается с j: «${match.group(1)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Type the Spanish word/name "([^"]+)" with its accent\.?$'),
+    (match) =>
+        'Введите испанское слово или имя «${match.group(1)}» с нужным знаком ударения.',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Choose the Spanish reading rule shown by "([^"]+)"\.?$'),
+    (match) =>
+        'Выберите испанское правило чтения, показанное словом «${match.group(1)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Choose the sentence that means "([^"]+)"\.?$'),
+    (match) =>
+        'Выберите предложение со значением «${_translateEmbeddedEnglish(match.group(1)!)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Complete with the Spanish word for "([^"]+)": "([^"]+)"\.?$'),
+    (match) =>
+        'Дополните испанским словом со значением «${_translateEmbeddedEnglish(match.group(1)!)}»: «${match.group(2)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Complete with the he/she/name form of tener: "([^"]+)"\.?$'),
+    (match) => 'Дополните формой tener для он/она/имя: «${match.group(1)}».',
+  );
+  if (output != text) {
+    return output;
+  }
+
+  output = output.replaceAllMapped(
+    RegExp(r'^Complete with the "I have" form of tener for age: "([^"]+)"\.?$'),
+    (match) =>
+        'Дополните формой tener «у меня есть» для возраста: «${match.group(1)}».',
+  );
+  if (output != text) {
+    return output;
   }
 
   output = output.replaceAllMapped(
@@ -288,7 +370,37 @@ String _ruChoiceKind(String value) {
 
 String _translatePromptTail(String text) {
   var out = text.trim();
+  out = out.replaceFirst(RegExp(r'\.$'), '');
   if (out.isEmpty) return '';
+  var match = RegExp(r'^word for "([^"]+)"$').firstMatch(out);
+  if (match != null) {
+    return 'словом со значением «${_translateEmbeddedEnglish(match.group(1)!)}»';
+  }
+  match = RegExp(r'^phrase for "([^"]+)"$').firstMatch(out);
+  if (match != null) {
+    return 'фразой со значением «${_translateEmbeddedEnglish(match.group(1)!)}»';
+  }
+  match = RegExp(r'^question word for "([^"]+)"$').firstMatch(out);
+  if (match != null) {
+    return 'вопросительным словом со значением «${_translateEmbeddedEnglish(match.group(1)!)}»';
+  }
+  match = RegExp(r'^spelling group in "([^"]+)"$').firstMatch(out);
+  if (match != null) return 'буквосочетанием из слова «${match.group(1)}»';
+  if (out == 'origin pattern word') {
+    return 'словом из конструкции происхождения';
+  }
+  if (out == 'introduction pattern') {
+    return 'конструкцией представления';
+  }
+  if (out == 'the "I have" form of tener for age') {
+    return 'формой tener для возраста «у меня есть»';
+  }
+  if (out == 'he/she/name form of tener') {
+    return 'формой tener для он/она/имя';
+  }
+  if (out == 'spoken number') {
+    return 'произнесённого номера';
+  }
   out = out
       .replaceAll('for age', 'для возраста')
       .replaceAll('for "take"', 'для «возьми/сядь на»')
@@ -309,7 +421,9 @@ String _translateTitle(String text) {
   final exact = _exactTitle[text] ?? _exact[text];
   if (exact != null) return exact;
   final sentence = _translateSentences(text);
-  if (sentence != text) return _titleCaseRu(sentence);
+  if (sentence != text && !RegExp(r'[A-Za-z]').hasMatch(sentence)) {
+    return _titleCaseRu(sentence);
+  }
   return _translateTitleWords(text);
 }
 
@@ -350,7 +464,10 @@ String _translateEmbeddedEnglish(String text) {
   var out = text.trim();
   final exact = _embedded[out] ?? _vocabulary[out] ?? _exact[out];
   if (exact != null) return exact;
-  if (_looksLikeSpanish(out) || _looksLikeNameOrPlace(out)) return out;
+  final simple = _translateSimpleLine(out);
+  if (simple != null) return simple;
+  if (_looksLikeNameOrPlace(out)) return _nameOrPlace(out);
+  if (_looksLikeSpanish(out)) return out;
 
   out = out
       .replaceAll('I am ', 'я ')
@@ -401,19 +518,21 @@ String _translateEmbeddedEnglish(String text) {
       .replaceAll('near', 'близко')
       .replaceAll('far', 'далеко');
   out = _replaceWholeWords(out, _wordReplacements);
+  out = _replaceWholeWords(out, _names);
   return out;
 }
 
 String _translateSentences(String text) {
   final exact = _exact[text] ?? _embedded[text];
   if (exact != null) return exact;
-  if (_looksLikeSpanish(text) || _looksLikeNameOrPlace(text)) return text;
   final simple = _translateSimpleLine(text);
   if (simple != null) return simple;
+  if (_looksLikeSpanish(text) || _looksLikeNameOrPlace(text)) return text;
 
   var out = text;
   out = _translateQuotedSegments(out);
   out = _replaceWholeWords(out, _wordReplacements);
+  out = _replaceWholeWords(out, _names);
   out = out
       .replaceAll(' plus ', ' плюс ')
       .replaceAll(' with ', ' с ')
@@ -424,6 +543,31 @@ String _translateSentences(String text) {
       .replaceAll('...', '...');
   out = out.replaceAll(RegExp(r'\s+'), ' ').trim();
   return _cleanupRussian(out);
+}
+
+String _finalizeRussian(String text) {
+  var out = _replaceWholeWords(text, _wordReplacements);
+  out = _replaceWholeWords(out, _names);
+  out = out
+      .replaceAll(' /name', ' или имя')
+      .replaceAll('/name', ' или имя')
+      .replaceAll(' a ', ' ')
+      .replaceAll('с its', 'с нужным')
+      .replaceAll('of tener', 'tener')
+      .replaceAll('  ', ' ')
+      .replaceAll(' .', '.')
+      .replaceAll('..', '.')
+      .replaceAll('«"', '«')
+      .replaceAll('"»', '»')
+      .replaceAll('«I ', '«Я ')
+      .replaceAll(' is ', ' — ')
+      .replaceAll(' is:', ' —')
+      .replaceAll(' as ', ' как ')
+      .replaceAll(' at ', ' в ')
+      .replaceAll(' of ', ' ')
+      .replaceAll(' so ', ' поэтому ')
+      .trim();
+  return out;
 }
 
 String? _translateSimpleLine(String text) {
@@ -492,11 +636,43 @@ String? _translateSimpleLine(String text) {
   match = RegExp(r'^Where is ([A-Za-zíó]+) from\?$').firstMatch(text);
   if (match != null) return 'Откуда ${_nameOrPlace(match.group(1)!)}?';
 
+  match = RegExp(
+    r'^Which languages does ([A-Za-zíó]+) speak\?$',
+  ).firstMatch(text);
+  if (match != null) {
+    return 'На каких языках говорит ${_nameOrPlace(match.group(1)!)}?';
+  }
+
+  match = RegExp(r'^Does she speak ([A-Za-z]+)\?$').firstMatch(text);
+  if (match != null) {
+    return 'Она говорит по-${_translateEmbeddedEnglish(match.group(1)!).toLowerCase()}?';
+  }
+
+  match = RegExp(r'^No, she does not speak ([A-Za-z]+)\.$').firstMatch(text);
+  if (match != null) {
+    return 'Нет, она не говорит по-${_translateEmbeddedEnglish(match.group(1)!).toLowerCase()}.';
+  }
+
+  match = RegExp(r'^She speaks ([A-Za-z]+)\?$').firstMatch(text);
+  if (match != null) {
+    return 'Она говорит по-${_translateEmbeddedEnglish(match.group(1)!).toLowerCase()}?';
+  }
+
+  match = RegExp(r'^Do you speak ([A-Za-z]+)\?$').firstMatch(text);
+  if (match != null) {
+    return 'Ты говоришь по-${_translateEmbeddedEnglish(match.group(1)!).toLowerCase()}?';
+  }
+
+  match = RegExp(r'^Do you need help\?$').firstMatch(text);
+  if (match != null) return 'Тебе нужна помощь?';
+
   match = RegExp(r'^He is from ([A-Za-z ]+)\.$').firstMatch(text);
   if (match != null) return 'Он из ${_placeGenitive(match.group(1)!)}.';
 
   match = RegExp(r'^She is from ([A-Za-z ]+)\.$').firstMatch(text);
   if (match != null) return 'Она из ${_placeGenitive(match.group(1)!)}.';
+
+  if (text == 'She is my friend.') return 'Она моя подруга.';
 
   match = RegExp(r'^He lives in ([A-Za-z ]+)\.$').firstMatch(text);
   if (match != null) {
@@ -903,6 +1079,7 @@ const _lineTranslations = {
   'Yes, you are right.': 'Да, ты прав / права.',
   'Hello.': 'Привет.',
   'Good morning.': 'Доброе утро.',
+  'Excuse me.': 'Извините.',
   'Good afternoon.': 'Добрый день.',
   'Good evening.': 'Добрый вечер.',
   'Where is the bathroom?': 'Где туалет?',
@@ -1148,6 +1325,11 @@ const _titleWords = {
   'Water': 'Вода',
   'Where': 'Где',
   'With': 'С',
+  'in': 'в',
+  'on': 'на',
+  'to': 'к',
+  'the': '',
+  'for': 'для',
 };
 
 const _exactTitle = {
@@ -1273,6 +1455,41 @@ const _exactTitle = {
   'Luis is not well': 'Луису нехорошо',
   'Recognizing Greetings': 'Распознавание приветствий',
   'More Slowly, Please': 'Медленнее, пожалуйста',
+  'Clarification in Class': 'Уточнение на уроке',
+  'Morning Meeting': 'Утренняя встреча',
+  'Objects on the Table': 'Предметы на столе',
+  'New Neighbour': 'Новый сосед',
+  'Introductions Review': 'Повторение представлений',
+  'Meeting at School': 'Встреча в школе',
+  'Two-Person Identity Exchange': 'Обмен личной информацией',
+  'Greeting, Name and Origin': 'Приветствие, имя и происхождение',
+  'Introducing Another Person': 'Как представить другого человека',
+  'Choosing Transport to the Center': 'Выбор транспорта до центра',
+  'Question Where the Station Is': 'Вопрос о том, где станция',
+  'Requesting urgent help': 'Срочная просьба о помощи',
+  'Getting help politely': 'Вежливая просьба о помощи',
+  'Identifying family': 'Как назвать членов семьи',
+  'Negative sibling answer': 'Отрицательный ответ о братьях и сёстрах',
+  'Home and rooms': 'Дом и комнаты',
+  'Integrated A0 situation': 'Комплексная ситуация A0',
+  'Integrated health help exchange': 'Комплексный разговор о здоровье и помощи',
+  'Greeting Exchange': 'Обмен приветствиями',
+  'You speak Spanish?': 'Ты говоришь по-испански?',
+  'Unit 1 Review': 'Повторение модуля 1',
+  'Introducing another person': 'Как представить другого человека',
+  'Me llamo + name': 'Me llamo + имя',
+  'Introduction origin seed': 'Основа происхождения в представлении',
+  'Third-person identity facts': 'Факты о человеке в третьем лице',
+  'Location with estar at home': 'Местоположение дома с estar',
+  'Saying your name: me llamo': 'Как назвать своё имя: me llamo',
+  'Needing help': 'Нужна помощь',
+  "Marta's family profile": 'Профиль семьи Марты',
+  'Yes/no questions about a person': 'Вопросы да/нет о человеке',
+  'A0 Checkpoint': 'Контрольная проверка A0',
+  'Question if an item is available': 'Вопрос о наличии предмета',
+  'Person at home': 'Человек дома',
+  'Do You Speak Spanish?': 'Ты говоришь по-испански?',
+  'A simple greeting': 'Простое приветствие',
 };
 
 const _vocabulary = {
@@ -1507,6 +1724,76 @@ const _embedded = {
   'Repeat the message': 'Повторите сообщение',
   'Where is it?': 'Где это?',
   'bad': 'плохо',
+  'are': 'являются',
+  'written': 'пишутся',
+  'accents': 'ударения',
+  'normally': 'обычно',
+  'begin': 'начинаются',
+  'end': 'заканчиваются',
+  'change': 'меняйте',
+  'changes': 'меняется',
+  'when': 'когда',
+  'Before': 'Перед',
+  'before': 'перед',
+  'represents': 'передаёт',
+  'hard': 'твёрдый',
+  'such': 'такие',
+  'often': 'часто',
+  'more': 'более',
+  'regular': 'регулярное',
+  'than': 'чем',
+  'stable': 'устойчивые',
+  'own': 'собственная',
+  'mark': 'обозначать',
+  'stress': 'ударение',
+  'safe': 'безопасная',
+  'beginner': 'начальный',
+  'subject': 'подлежащее',
+  'complement': 'дополнение',
+  'omits': 'опускает',
+  'already': 'уже',
+  'shows': 'показывает',
+  'fit': 'соответствуют',
+  'time': 'время',
+  'day': 'дня',
+  'boundaries': 'границы',
+  'flexible': 'гибкие',
+  'choices': 'варианты',
+  'rather': 'скорее',
+  'clock': 'часы',
+  'intact': 'без изменений',
+  'rearrange': 'переставляйте',
+  'randomly': 'случайно',
+  'vary': 'меняться',
+  'memorized': 'запоминать',
+  'chunks': 'фрагменты',
+  'Pronunciation': 'Произношение',
+  'pronunciation': 'произношение',
+  'possessions': 'обладание',
+  'uses': 'использует',
+  'expressions': 'выражения',
+  'expression': 'выражение',
+  'mistake': 'ошибка',
+  'translating': 'перевод',
+  'usually': 'обычно',
+  'pronounced': 'произносится',
+  'still': 'всё ещё',
+  'stays': 'остаётся',
+  'clear': 'ясный',
+  'night': 'ночью',
+  'works': 'работает',
+  'any': 'любое',
+  'Notice': 'Обратите внимание на',
+  'notice': 'обратите внимание на',
+  'meeting': 'знакомство',
+  'current': 'текущее',
+  'tiny': 'короткий',
+  'personal': 'личный',
+  'little': 'немного',
+  'swap': 'меняйте местами',
+  'specific': 'конкретное',
+  'part': 'часть',
+  'different': 'разные',
   'are you from Spain?': 'ты из Испании?',
   'is your name Spanish?': 'тебя зовут Spanish?',
   'what is your name?': 'как тебя зовут?',
@@ -1714,6 +2001,138 @@ const _exact = {
 const _wordReplacements = {
   'Very short Spanish sentences often use subject plus verb plus the rest of the idea.':
       'Очень короткие испанские предложения часто используют подлежащее, глагол и остальную часть мысли.',
+  'are': 'являются',
+  'written': 'пишутся',
+  'accents': 'ударения',
+  'normally': 'обычно',
+  'begin': 'начинаются',
+  'end': 'заканчиваются',
+  'change': 'меняйте',
+  'changes': 'меняется',
+  'when': 'когда',
+  'Before': 'Перед',
+  'before': 'перед',
+  'represents': 'передаёт',
+  'hard': 'твёрдый',
+  'such': 'такие',
+  'often': 'часто',
+  'more': 'более',
+  'regular': 'регулярное',
+  'than': 'чем',
+  'stable': 'устойчивые',
+  'own': 'собственная',
+  'mark': 'обозначать',
+  'stress': 'ударение',
+  'safe': 'безопасная',
+  'beginner': 'начальный',
+  'subject': 'подлежащее',
+  'complement': 'дополнение',
+  'omits': 'опускает',
+  'already': 'уже',
+  'shows': 'показывает',
+  'fit': 'соответствуют',
+  'time': 'время',
+  'day': 'дня',
+  'boundaries': 'границы',
+  'flexible': 'гибкие',
+  'choices': 'варианты',
+  'rather': 'скорее',
+  'clock': 'часы',
+  'intact': 'без изменений',
+  'rearrange': 'переставляйте',
+  'randomly': 'случайно',
+  'vary': 'меняться',
+  'memorized': 'запоминать',
+  'chunks': 'фрагменты',
+  'Pronunciation': 'Произношение',
+  'pronunciation': 'произношение',
+  'possessions': 'обладание',
+  'uses': 'использует',
+  'expressions': 'выражения',
+  'expression': 'выражение',
+  'mistake': 'ошибка',
+  'translating': 'перевод',
+  'usually': 'обычно',
+  'pronounced': 'произносится',
+  'still': 'всё ещё',
+  'stays': 'остаётся',
+  'clear': 'ясный',
+  'night': 'ночью',
+  'works': 'работает',
+  'any': 'любое',
+  'Notice': 'Обратите внимание на',
+  'notice': 'обратите внимание на',
+  'meeting': 'знакомство',
+  'current': 'текущее',
+  'tiny': 'короткий',
+  'personal': 'личный',
+  'little': 'немного',
+  'swap': 'меняйте местами',
+  'specific': 'конкретное',
+  'part': 'часть',
+  'different': 'разные',
+  'Contrast': 'Сравните',
+  'contrast': 'различие',
+  'contrasts': 'сравнивает',
+  'practiced': 'отработанные',
+  'together': 'вместе',
+  'an': '',
+  'be': 'быть',
+  'total': 'итог',
+  'prices': 'цены',
+  'teach': 'учит',
+  'full': 'полный',
+  'produce': 'составляйте',
+  'system': 'система',
+  'focus': 'цель',
+  'recognizing': 'распознавание',
+  'naming': 'называние',
+  'rooms': 'комнаты',
+  'medical': 'медицинское',
+  'explanation': 'объяснение',
+  'requests': 'просьбы',
+  'action': 'действие',
+  'direct': 'прямой',
+  'broad': 'широкая',
+  'lesson': 'урок',
+  'using': 'используя',
+  'course': 'курс',
+  'group': 'группировать',
+  'identification': 'определение',
+  'app': 'приложение',
+  'naturally': 'естественно',
+  'Assess': 'Проверьте',
+  'assess': 'проверьте',
+  'early': 'ранние',
+  'descriptions': 'описания',
+  'facts': 'факты',
+  'introductions': 'представления',
+  'varied': 'разные',
+  'relying': 'опоры',
+  'integrated': 'комплексное',
+  'Actively': 'Активно',
+  'actively': 'активно',
+  'whole': 'весь',
+  'covering': 'охватывающая',
+  'mixed': 'смешанная',
+  'Cards': 'карточки',
+  'cards': 'карточки',
+  'bad': 'плохо',
+  'Basics': 'основы',
+  'identity': 'личная информация',
+  'greetings': 'приветствия',
+  'Some': 'Некоторые',
+  'some': 'некоторые',
+  'final': 'конечный',
+  'teaches': 'учит',
+  'pairs': 'пары',
+  'lessons': 'уроки',
+  'adjective': 'прилагательное',
+  'agreement': 'согласование',
+  'description': 'описание',
+  'add': 'добавьте',
+  'fact': 'факт',
+  'roles': 'роли',
   'My name is': 'меня зовут',
   'my name is': 'меня зовут',
   'What is your name': 'как тебя зовут',
@@ -1751,6 +2170,12 @@ const _wordReplacements = {
   'he is': 'он',
   'She is': 'она',
   'she is': 'она',
+  'She': 'она',
+  'she': 'она',
+  'He': 'он',
+  'he': 'он',
+  'You': 'ты',
+  'you': 'ты',
   'He lives': 'он живёт',
   'he lives': 'он живёт',
   'She lives': 'она живёт',
@@ -1782,8 +2207,95 @@ const _wordReplacements = {
   'first-contact': 'первого контакта',
   'first contact': 'первый контакт',
   'everyday': 'повседневный',
+  'farewell': 'прощание',
+  'customer': 'покупатель',
+  'opening': 'начало',
+  'sequence': 'последовательность',
+  'spoken': 'произнесённый',
+  'Choosing': 'выберите',
+  'choosing': 'выбор',
+  'which': 'какой',
+  'Which': 'какой',
+  'transport choice': 'выбор транспорта',
+  'greet': 'поздоровайтесь',
+  'introduce': 'представьте',
+  'introduction': 'представление',
+  'yourself': 'себя',
+  'says': 'говорит',
+  'limited': 'ограниченный',
+  'ability': 'умение',
+  'both': 'оба',
+  'identifies': 'определяет',
+  'third-person': 'третьего лица',
+  'third': 'третьего лица',
+  'like': 'какой',
+  'verb': 'глагол',
+  'negative': 'отрицательный',
+  'female': 'женский род',
+  'politely': 'вежливо',
+  'whether': 'есть ли',
+  'much': 'много',
+  'costs': 'стоит',
+  'nothing': 'ничего',
+  'else': 'ещё',
+  'Anything': 'что-нибудь',
+  'anything': 'что-нибудь',
+  'seller': 'продавец',
+  'article': 'артикль',
+  'sign': 'табличка',
+  'Sign': 'табличка',
+  'closing': 'заключительный',
+  'response': 'ответ',
+  'command': 'команда',
+  'commands': 'команды',
+  'exact': 'точный',
+  'Give': 'Введите',
+  'give': 'дайте',
+  'get': 'добраться',
+  'foot': 'пешком',
+  'way': 'способ',
+  'attract': 'привлечь',
+  'understand': 'понимаете',
+  'describe': 'опишите',
+  'house': 'дом',
+  'fictional': 'учебный',
+  'statement': 'утверждение',
+  'feel': 'чувствую себя',
+  'Buy': 'Купить',
+  'buy': 'купить',
+  'needing': 'когда нужна',
+  'speech': 'речь',
+  'Match': 'Соотнесите',
+  'match': 'соотнесите',
+  'each': 'каждый',
+  'expressed': 'выражается',
+  'nouns': 'существительные',
+  'try': 'старайтесь',
+  'memorize': 'запоминать',
+  'all': 'все',
+  'rules': 'правила',
+  'yet': 'пока',
+  'locates': 'указывает местоположение',
+  'grandmother': 'бабушка',
+  'Diagnostic': 'Диагностический',
+  'diagnostic': 'диагностический',
+  'used': 'используется',
+  'these': 'эти',
+  'lines': 'реплики',
+  'note': 'заметка',
+  'read': 'прочитайте',
+  'rule': 'правило',
+  'by': '',
+  'its': 'нужный',
+  'if': 'если',
   'Module': 'модуль',
   'module': 'модуль',
+  'and': 'и',
+  'or': 'или',
+  'in': 'в',
+  'on': 'на',
+  'to': 'к',
+  'the': '',
   'hello': 'привет',
   'goodbye': 'до свидания',
   'thanks': 'спасибо',
@@ -1963,9 +2475,6 @@ const _wordReplacements = {
   'we': 'мы',
   'does': '',
   'do': '',
-  'is': '',
-  'are': '',
-  'am': '',
   'has': 'имеет',
   'have': 'иметь',
   'lives': 'живёт',
@@ -2000,6 +2509,7 @@ const _wordReplacements = {
   'tell': 'сообщает',
   'tells': 'сообщает',
   'fits': 'подходит',
+  'mean': 'означает',
   'named': 'зовут',
   'having': 'наличие',
   'At A0': 'На уровне A0',
@@ -2133,6 +2643,16 @@ const _wordReplacements = {
   'line': 'реплика',
   'prompt': 'задание',
   'source': 'исходный',
+  'request': 'просьба',
+  'greeting': 'приветствие',
+  'hunger': 'голод',
+  'finish': 'завершают',
+  'after': 'после',
+  'woman': 'женщина',
+  'meet': 'познакомиться',
+  'order': 'порядок',
+  'It': 'это',
+  'it': 'это',
   'copy': 'скопируйте',
   'copied': 'скопированный',
   'visible': 'видимый',
@@ -2141,10 +2661,6 @@ const _wordReplacements = {
   'with': 'с',
   'about': 'о',
   'into': 'на',
-  'the': '',
-  'The': '',
-  'an': '',
-  'a': '',
   'without new teaching': 'без нового материала',
   'without relying on one memorized example':
       'не полагаясь на один заученный пример',

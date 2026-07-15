@@ -21,6 +21,8 @@ ordering, competency data or UI ARB strings.
 
 Canonical source inventory: `docs/CONTENT_LOCALIZATION_R2E1_INVENTORY.md`
 
+Quality recovery follow-up: `docs/CONTENT_LOCALIZATION_R2E2A_QUALITY_REPORT.md`
+
 | Metric | Result |
 | --- | ---: |
 | Total localizable English source fields | 2741 |
@@ -95,8 +97,11 @@ Full Russian localized course traversal remains a separate release QA task.
 
 # Remaining Work
 
-Full Russian educational-content traversal should be performed before treating
-localized course QA as complete.
+R2E2A added a quality gate for mixed English/Russian support text and removed
+the English instructional remnants found during device QA.
+
+Full Russian educational-content traversal should still be performed before
+treating localized course QA as complete.
 
 Ukrainian, Polish and German educational-content translations remain future
 phases.

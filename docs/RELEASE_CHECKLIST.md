@@ -213,6 +213,10 @@ Educational Content
 
 [x] Spanish A0 Russian support translation complete
 
+[x] Russian support localization quality gate passes
+
+[x] Russian mixed-language findings resolved
+
 [x] Russian educational-content smoke QA on Redmi Note 8T
 
 [ ] Spanish A0 Polish support translation complete

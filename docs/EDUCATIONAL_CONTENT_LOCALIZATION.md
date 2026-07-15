@@ -194,6 +194,16 @@ R2E2 completed Russian support localization for the same inventory:
 - invalid fields: 0;
 - Russian coverage: 100%.
 
+R2E2A added the Russian quality gate:
+
+- forbidden English instructional fragments in Russian support text: 0;
+- generator suspicious identical fields: 0;
+- mixed-language validation findings: 0.
+
+Structural coverage alone is not sufficient for release-complete support
+localization. A support locale must also pass the quality gate for untranslated
+or mixed-language learner-facing text.
+
 Ukrainian, Polish and German educational-content translations remain separate
 future phases. Until those phases complete, they may fall back to English at
 runtime and must not be treated as release-complete educational-content

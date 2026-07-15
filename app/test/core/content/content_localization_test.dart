@@ -114,7 +114,10 @@ void main() {
       );
 
       expect(russianCourse.modules.first.title, 'Первые слова и чтение');
-      expect(russianCourse.modules.first.title, isNot('First Words and Reading'));
+      expect(
+        russianCourse.modules.first.title,
+        isNot('First Words and Reading'),
+      );
 
       final profileReading = content.contents
           .whereType<ReadingContent>()
@@ -333,6 +336,23 @@ void main() {
       expect(ukrainian.fallbackFields, ukrainian.totalFields);
     },
   );
+
+  test(
+    'Russian support localization has no English instructional fragments',
+    () async {
+      final localization = await _loadLocalization();
+      final findings = _findRussianEnglishFragments(localization);
+
+      expect(
+        findings,
+        isEmpty,
+        reason:
+            'Russian learner-support text must not contain English '
+            'instructional fragments. First findings:\n'
+            '${findings.take(40).join('\n')}',
+      );
+    },
+  );
 }
 
 Future<EducationalContentLocalizationBundle> _loadLocalization() {
@@ -340,3 +360,317 @@ Future<EducationalContentLocalizationBundle> _loadLocalization() {
     assetBundle: rootBundle,
   ).loadBundle();
 }
+
+List<String> _findRussianEnglishFragments(
+  EducationalContentLocalizationBundle bundle,
+) {
+  final findings = <String>[];
+  for (final entry in bundle.entries) {
+    for (final field in entry.fields.entries) {
+      final russian = field.value['ru'];
+      if (russian == null) {
+        continue;
+      }
+      if (entry.type == 'grammar' && field.key.startsWith('examples.')) {
+        continue;
+      }
+      final tokens = RegExp(
+        r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*[A-Za-zÀ-ÖØ-öø-ÿ]",
+      ).allMatches(russian).map((match) => match.group(0)!);
+      final badTokens = tokens.where((token) {
+        final normalized = token.toLowerCase().replaceAll('’', "'");
+        if (normalized.length < 3) {
+          return false;
+        }
+        if (_allowedRussianLatinTokens.contains(normalized)) {
+          return false;
+        }
+        if (_knownSpanishOrInvariantTokens.contains(normalized)) {
+          return false;
+        }
+        return _forbiddenEnglishTokens.contains(normalized);
+      }).toSet();
+      if (badTokens.isNotEmpty) {
+        findings.add(
+          '${entry.type}|${entry.id}|${field.key}|'
+          '${badTokens.join(', ')}|$russian',
+        );
+      }
+    }
+  }
+  return findings;
+}
+
+const _forbiddenEnglishTokens = {
+  'about',
+  'active',
+  'activities',
+  'activity',
+  'action',
+  'and',
+  'answer',
+  'answers',
+  'are',
+  'ask',
+  'asks',
+  'asking',
+  'assess',
+  'basic',
+  'best',
+  'broad',
+  'cards',
+  'checkpoint',
+  'choose',
+  'class',
+  'complete',
+  'conversation',
+  'copy',
+  'contrast',
+  'contrasts',
+  'covering',
+  'dialogue',
+  'does',
+  'direct',
+  'english',
+  'exchange',
+  'for',
+  'full',
+  'from',
+  'greeting',
+  'has',
+  'have',
+  'identity',
+  'in',
+  'integrated',
+  'introduction',
+  'introductions',
+  'is',
+  'language',
+  'lesson',
+  'lessons',
+  'live',
+  'lives',
+  'material',
+  'mean',
+  'meaning',
+  'means',
+  'meeting',
+  'module',
+  'name',
+  'names',
+  'naturally',
+  'need',
+  'needs',
+  'new',
+  'note',
+  'practiced',
+  'object',
+  'on',
+  'phrase',
+  'phrases',
+  'question',
+  'questions',
+  'read',
+  'reading',
+  'recall',
+  'recognize',
+  'request',
+  'requests',
+  'review',
+  'sentence',
+  'sentences',
+  'speak',
+  'speaks',
+  'spanish',
+  'statement',
+  'teach',
+  'support',
+  'task',
+  'the',
+  'to',
+  'translation',
+  'type',
+  'unit',
+  'use',
+  'used',
+  'using',
+  'what',
+  'where',
+  'which',
+  'who',
+  'with',
+  'word',
+  'words',
+  'write',
+  'you',
+  'your',
+};
+
+const _allowedRussianLatinTokens = {'a0', 'ai', 'cefr', 'id', 'tutor'};
+
+const _knownSpanishOrInvariantTokens = {
+  'adios',
+  'adiós',
+  'agua',
+  'algo',
+  'al',
+  'amigo',
+  'ana',
+  'años',
+  'ayuda',
+  'ayudarme',
+  'barato',
+  'barata',
+  'bien',
+  'bogotá',
+  'bolsa',
+  'buenas',
+  'buenos',
+  'botella',
+  'café',
+  'carlos',
+  'carmen',
+  'chile',
+  'cinco',
+  'centro',
+  'cocina',
+  'cómo',
+  'colombia',
+  'cuánto',
+  'cuesta',
+  'cuántos',
+  'cabeza',
+  'cerca',
+  'de',
+  'derecha',
+  'días',
+  'diego',
+  'diez',
+  'dieciocho',
+  'dieciséis',
+  'dónde',
+  'dos',
+  'duele',
+  'el',
+  'él',
+  'elena',
+  'ella',
+  'encantada',
+  'encantado',
+  'entiendo',
+  'eres',
+  'es',
+  'español',
+  'españa',
+  'está',
+  'esto',
+  'estación',
+  'estás',
+  'este',
+  'esta',
+  'estoy',
+  'familia',
+  'farmacia',
+  'favor',
+  'gracias',
+  'gusto',
+  'gira',
+  'garganta',
+  'habla',
+  'hablas',
+  'hablo',
+  'hambre',
+  'hasta',
+  'hermana',
+  'hola',
+  'igualmente',
+  'izquierda',
+  'javier',
+  'josé',
+  'la',
+  'lima',
+  'libro',
+  'libros',
+  'llave',
+  'lápiz',
+  'llama',
+  'llamas',
+  'llamo',
+  'luego',
+  'luis',
+  'lucía',
+  'llego',
+  'madrid',
+  'maría',
+  'marta',
+  'me',
+  'mesa',
+  'médico',
+  'mi',
+  'miguel',
+  'muchas',
+  'mucho',
+  'más',
+  'méxico',
+  'necesito',
+  'necesita',
+  'fiebre',
+  'no',
+  'noche',
+  'noches',
+  'ocho',
+  'pablo',
+  'padre',
+  'parada',
+  'pedro',
+  'perdón',
+  'poco',
+  'por',
+  'puede',
+  'queso',
+  'quiero',
+  'qué',
+  'razón',
+  'recto',
+  'repita',
+  'repite',
+  'se',
+  'sara',
+  'sevilla',
+  'si',
+  'sí',
+  'silla',
+  'sigue',
+  'sofía',
+  'soy',
+  'tal',
+  'tardes',
+  'te',
+  'teléfono',
+  'tener',
+  'tengo',
+  'tiene',
+  'tienes',
+  'toma',
+  'tomo',
+  'tren',
+  'transporte',
+  'tres',
+  'ucrania',
+  'un',
+  'una',
+  'valencia',
+  'vas',
+  'veinte',
+  'vivo',
+  'vive',
+  'voy',
+  'h',
+  'j',
+  'll',
+  'ñ',
+  'qu',
+  'gue',
+  'gui',
+  'rr',
+};
