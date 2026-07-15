@@ -30,6 +30,12 @@ support-language localization is defined in
 EDUCATIONAL_CONTENT_LOCALIZATION.md and must not be moved into application UI
 ARB files.
 
+Pronunciation is reusable educational knowledge. The conceptual model is
+PRONUNCIATION_MODEL.md. Pronunciation variety, IPA policy, learner-hint policy,
+regional variant policy and audio policy are defined in
+PRONUNCIATION_AUTHORING_GUIDE.md. Every future target-language course that
+teaches pronunciation must declare these policies.
+
 For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
 
 For Educational Content object authoring, use CONTENT_AUTHORING_GUIDE.md.
@@ -115,6 +121,10 @@ Every course should define:
 - expected completion level;
 - estimated course size;
 - primary educational goals.
+- pronunciation variety, IPA policy, learner-hint policy, regional variant
+  policy and audio policy when pronunciation is part of the course.
+- how course vocabulary, reading rules, lessons and exercises reference
+  reusable PronunciationUnit knowledge.
 
 Example:
 

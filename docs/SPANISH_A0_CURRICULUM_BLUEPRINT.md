@@ -633,7 +633,11 @@ Course baseline:
 
 - Use a neutral classroom pronunciation baseline.
 - Do not claim one regional pronunciation is universal.
-- Pronunciation notes should be practical text guides, not IPA, unless a later documentation decision changes that.
+- Pronunciation notes should follow PRONUNCIATION_AUTHORING_GUIDE.md:
+  target orthography, pronunciation variety, IPA and localized learner hints
+  are separate; current practical text guides remain legacy until migrated.
+- Future Spanish A0 pronunciation content should reference reusable
+  PronunciationUnit objects as defined in PRONUNCIATION_MODEL.md.
 
 | Rule | First exposure | Explicit lesson | Practice | Review | Checkpoint |
 |---|---|---|---|---|---|

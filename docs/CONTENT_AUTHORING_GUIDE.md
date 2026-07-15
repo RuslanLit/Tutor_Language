@@ -30,6 +30,11 @@ EDUCATIONAL_CONTENT_LOCALIZATION.md. Do not place vocabulary meanings, grammar
 explanations, authored prompts, dialogue translations or remediation text in
 Flutter ARB files.
 
+Pronunciation is reusable educational knowledge, not a localized text field.
+The conceptual model is PRONUNCIATION_MODEL.md. Pronunciation authoring is
+defined in PRONUNCIATION_AUTHORING_GUIDE.md. Do not author one universal
+pronunciation hint for all support languages.
+
 For learner-facing tone, explanation style and example naturalness, use AUTHORING_STYLE_GUIDE.md.
 
 For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.
@@ -63,6 +68,11 @@ Vocabulary Items currently support:
 - example
 - pronunciation
 - notes
+
+The current `pronunciation` field is legacy plain text. It may contain an
+English-oriented learner hint in existing Spanish A0 assets, but it must not be
+treated as IPA or reused as a Russian, Ukrainian, Polish or German learner
+hint.
 
 Grammar Topics currently support:
 
@@ -235,8 +245,38 @@ Each vocabulary item should include:
 
 - target-language form;
 - learner-language meaning;
-- pronunciation;
+- pronunciation data appropriate to the current implementation;
 - at least one natural example.
+
+Do not author one universal pronunciation hint for all support languages.
+
+Incorrect:
+
+```text
+pronunciation: OH-lah
+```
+
+as the only pronunciation aid shown to every learner.
+
+Correct target architecture:
+
+```text
+target form: hola
+PronunciationUnit reference: pronunciation.es.hola.general.v1
+IPA: /.../ for the declared variety
+en learner hint: English-oriented approximation
+ru learner hint: Russian-locale approximation
+pronunciation explanation: localized where needed
+```
+
+Until the runtime pronunciation model is migrated, avoid adding new
+English-only respelling unless it is explicitly scoped as an English support
+hint and release validation prevents it from appearing in other support
+locales.
+
+When pronunciation is needed by several assets, author it once as a
+PronunciationUnit in the target architecture and reference it from vocabulary,
+grammar, readings, dialogues, lessons or exercises.
 
 Example sentences should use previously introduced grammar whenever practical.
 

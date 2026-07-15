@@ -189,6 +189,18 @@ the educational-content localization layer while preserving stable educational
 IDs and target-language material. The detailed source of truth is
 EDUCATIONAL_CONTENT_LOCALIZATION.md.
 
+Pronunciation data has stricter ownership than ordinary support text.
+Target-language orthography, pronunciation variety, IPA, localized learner
+hints, localized pronunciation explanations and future audio references must
+remain separate. English-oriented respelling is not a universal pronunciation
+representation.
+
+Pronunciation is reusable educational knowledge. Long-term architecture treats
+it as PronunciationUnit objects referenced by vocabulary, grammar, readings,
+dialogues, lessons and exercises rather than copied into each asset. The
+conceptual model is PRONUNCIATION_MODEL.md. Authoring rules are defined in
+PRONUNCIATION_AUTHORING_GUIDE.md.
+
 Educational Content
 
 Educational Content defines every educational object available to the application.

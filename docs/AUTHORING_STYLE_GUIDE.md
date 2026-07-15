@@ -39,6 +39,12 @@ For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.m
 
 For publication readiness checks, use CONTENT_REVIEW_CHECKLIST.md.
 
+For pronunciation respelling, IPA, localized learner hints and reading-rule
+explanations, use PRONUNCIATION_AUTHORING_GUIDE.md. The reusable pronunciation
+knowledge model is PRONUNCIATION_MODEL.md. Learner-facing pronunciation hints
+must sound natural for the learner's support language and must not assume
+English spelling conventions outside English support mode.
+
 ---
 
 # Core Style Principle

@@ -9,6 +9,8 @@ Related documents:
 - PROJECT_VISION.md
 - ARCHITECTURE.md
 - ARCHITECTURAL_DECISIONS.md
+- PRONUNCIATION_MODEL.md
+- PRONUNCIATION_AUTHORING_GUIDE.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - V1_TECHNICAL_SPEC.md
@@ -204,6 +206,34 @@ Contains:
 - pronunciation;
 - CEFR level;
 - example usage.
+
+Current implementation note:
+
+The `pronunciation` field is a legacy plain-text learner hint. It must not be
+treated as IPA or as a universal hint for every support locale.
+
+Target architecture:
+
+Pronunciation concepts are modelled separately:
+
+- PronunciationUnit: reusable pronunciation knowledge object with stable ID.
+- PronunciationData: pronunciation information associated with a target form or
+  pronunciation concept.
+- PronunciationVariety: the declared course or content pronunciation norm.
+- IpaTranscription: locale-independent IPA for the declared variety.
+- LocalizedPronunciationHint: support-locale-specific learner approximation.
+- LocalizedPronunciationExplanation: support-locale-specific sound or reading
+  explanation.
+- AudioReference: stable reference to future target-language pronunciation
+  audio.
+
+These concepts are documented in PRONUNCIATION_MODEL.md and
+PRONUNCIATION_AUTHORING_GUIDE.md. Runtime schema migration is deferred; current
+assets should not add more universal pronunciation hints.
+
+PronunciationUnit is reusable Educational Content in the target architecture.
+Vocabulary, Grammar Topics, Dialogues, Reading Texts, Exercise Templates and
+LessonDefinitions should reference it when pronunciation knowledge is needed.
 
 Vocabulary Items may be referenced by multiple LessonDefinitions.
 

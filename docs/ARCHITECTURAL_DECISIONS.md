@@ -221,6 +221,83 @@ architecture is in place.
 
 ---
 
+# ADR-0015
+
+Status
+
+Accepted
+
+Title
+
+Pronunciation Is Reusable Educational Knowledge
+
+Context
+
+Pronunciation guidance is not ordinary translation. An English-oriented
+respelling such as `OH-lah` may help an English-speaking learner, but it is
+misleading when shown to learners using Russian, Ukrainian, Polish, German or
+another support locale.
+
+Tutor Language must support future target languages and support locales without
+assuming English spelling conventions, Spanish phonology or one universal
+learner hint.
+
+Pronunciation data is reused across vocabulary, grammar, readings, dialogues,
+reviews, competency checks and exercises. Storing copies inside each asset
+would create inconsistency and make localization unsafe.
+
+Decision
+
+Pronunciation is an educational knowledge object, not a localized text field.
+
+Long-term content should represent reusable pronunciation knowledge as
+PronunciationUnit objects.
+
+Vocabulary, grammar, readings, dialogues, LessonDefinitions and exercises
+should reference PronunciationUnit IDs instead of storing their own duplicated
+pronunciation data.
+
+Pronunciation is represented through language-neutral pronunciation data plus
+support-locale-specific learner guidance.
+
+Target-language orthography remains authentic target-language content.
+
+IPA and the declared pronunciation variety form the textual pronunciation
+source of truth.
+
+Localized learner pronunciation hints are optional pedagogical approximations.
+They must be authored for a specific support locale and must never be reused
+across unrelated support locales.
+
+English-oriented respelling is not a universal pronunciation representation.
+
+Rationale
+
+This preserves language-pack portability, support-locale correctness,
+deterministic validation and future audio integration.
+
+It also preserves the existing project principle that reusable knowledge is
+authored once and lessons organize references to it.
+
+It also prevents a release defect where English pronunciation hints appear in
+non-English educational-content localization.
+
+Consequences
+
+Future pronunciation content must declare pronunciation variety and separate
+IPA, learner hints, explanations and audio references.
+
+Future implementation should add reusable PronunciationUnit references rather
+than expanding one-off `pronunciation` strings.
+
+Renderers must not fall back from a missing Russian, Ukrainian, Polish or
+German learner hint to an English learner hint in production.
+
+Current single-field `pronunciation` values are legacy learner hints until
+migrated under PRONUNCIATION_AUTHORING_GUIDE.md.
+
+---
+
 # ADR-0003
 
 Status

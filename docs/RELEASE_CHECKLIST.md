@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2E2 — Complete Russian Support Localization
+R2E2B-DOC — Pronunciation Representation and Authoring Standard
 
 Overall Readiness:
 IN PROGRESS
@@ -218,6 +218,30 @@ Educational Content
 [x] Russian mixed-language findings resolved
 
 [x] Russian educational-content smoke QA on Redmi Note 8T
+
+[x] pronunciation authoring standard documented
+
+[x] pronunciation conceptual model documented
+
+[ ] pronunciation data model implemented
+
+[ ] target-language pronunciation variety declared for production assets
+
+[ ] IPA coverage validated
+
+[ ] English pronunciation hints validated
+
+[ ] Russian pronunciation hints complete
+
+[ ] Ukrainian pronunciation hints complete
+
+[ ] Polish pronunciation hints complete
+
+[ ] German pronunciation hints complete
+
+[ ] no cross-locale pronunciation fallback
+
+[ ] pronunciation device QA complete
 
 [ ] Spanish A0 Polish support translation complete
 

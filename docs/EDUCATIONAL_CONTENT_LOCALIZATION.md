@@ -14,6 +14,8 @@ Related documents:
 - CURRICULUM_SPEC.md
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
+- PRONUNCIATION_MODEL.md
+- PRONUNCIATION_AUTHORING_GUIDE.md
 - RELEASE_CHECKLIST.md
 
 ---
@@ -77,6 +79,16 @@ Examples:
 - `hola`
 - `adiós`
 - `¿Cómo te llamas?`
+
+Pronunciation is a special case. Target orthography, pronunciation variety and
+IPA are locale-independent pronunciation data. Learner pronunciation hints and
+pronunciation explanations are support-language content. English learner hints
+must not fall back into non-English support locales in production.
+
+PronunciationUnit IDs, related vocabulary/grammar references, reading-rule
+references, audio reference IDs, difficulty and technical metadata remain
+locale-independent. Localized learner hints and localized pronunciation
+explanations are localized support content.
 
 ## Locale-Independent Data
 
@@ -238,6 +250,11 @@ Learner-facing explanatory content:
 - exercise `prompt_template` when it gives learner instructions;
 - answer option labels only when the visible option is support-language text;
 - authored remediation and misconception explanation text.
+- localized learner pronunciation hints;
+- localized pronunciation explanations.
+
+IPA transcription and pronunciation variety are not support-language
+translations. They remain locale-independent pronunciation data.
 
 ## LOCALE_INDEPENDENT
 
