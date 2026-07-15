@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/content/topic_content.dart';
+import '../../core/content/pronunciation_providers.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -880,20 +881,25 @@ class LessonContentObjectView extends StatelessWidget {
   }
 }
 
-class VocabularyItemView extends StatelessWidget {
+class VocabularyItemView extends ConsumerWidget {
   const VocabularyItemView({required this.item, super.key});
 
   final VocabularyItem item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pronunciation = ref.watch(resolvedPronunciationProvider(item));
+    final presentation = pronunciation.value?.presentation;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(item.spanish, style: Theme.of(context).textTheme.titleSmall),
         Text(item.nativeTranslation),
-        if (item.pronunciation != null && item.pronunciation!.isNotEmpty)
-          Text(item.pronunciation!),
+        if (presentation?.localizedLearnerHint != null)
+          Text(presentation!.localizedLearnerHint!),
+        if (presentation?.localizedExplanation != null)
+          Text(presentation!.localizedExplanation!),
         if (item.example.isNotEmpty) Text(item.example),
         if (item.notes != null && item.notes!.isNotEmpty) Text(item.notes!),
       ],

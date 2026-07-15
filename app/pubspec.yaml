@@ -41,3 +41,4 @@ flutter:
     - assets/languages/spanish/curriculum/
     - assets/languages/spanish/curriculum/lessons/
     - assets/languages/spanish/localization/
+    - assets/languages/spanish/pronunciation/

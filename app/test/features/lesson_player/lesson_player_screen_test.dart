@@ -1054,10 +1054,13 @@ Widget _app(
   Widget child, {
   LessonAssemblyService? service,
   AppDatabase? database,
+  SupportLocale? supportLocale,
 }) {
   return ProviderScope(
     overrides: [
-      _emptyLocalizationOverride,
+      if (supportLocale == null) _emptyLocalizationOverride,
+      if (supportLocale != null)
+        supportLocaleControllerProvider.overrideWith((ref) => supportLocale),
       appDatabaseProvider.overrideWith((ref) {
         final providedDatabase = database;
         if (providedDatabase != null) {

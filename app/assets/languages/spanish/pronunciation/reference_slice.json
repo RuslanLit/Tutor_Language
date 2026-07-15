@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "targetLanguage": "es",
+  "pronunciationVariety": "es-general",
+  "rules": [
+    {
+      "id": "pronunciation.es.rule.silent_h.v1",
+      "targetLanguage": "es",
+      "symbol": "h",
+      "pronunciationVariety": "es-general",
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.silent_h.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.rule.enye.v1",
+      "targetLanguage": "es",
+      "symbol": "ñ",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ɲ/"
+    },
+    {
+      "id": "pronunciation.es.rule.j.v1",
+      "targetLanguage": "es",
+      "symbol": "j",
+      "pronunciationVariety": "es-general",
+      "ipa": "/x/"
+    },
+    {
+      "id": "pronunciation.es.rule.ll_y.v1",
+      "targetLanguage": "es",
+      "symbol": "ll/y",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ʝ/"
+    },
+    {
+      "id": "pronunciation.es.rule.r.v1",
+      "targetLanguage": "es",
+      "symbol": "r",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ɾ/"
+    },
+    {
+      "id": "pronunciation.es.rule.rr.v1",
+      "targetLanguage": "es",
+      "symbol": "rr",
+      "pronunciationVariety": "es-general",
+      "ipa": "/r/"
+    },
+    {
+      "id": "pronunciation.es.rule.b_v.v1",
+      "targetLanguage": "es",
+      "symbol": "b/v",
+      "pronunciationVariety": "es-general",
+      "ipa": "/b/"
+    },
+    {
+      "id": "pronunciation.es.rule.c_z.v1",
+      "targetLanguage": "es",
+      "symbol": "c/z",
+      "pronunciationVariety": "es-general"
+    },
+    {
+      "id": "pronunciation.es.rule.g_e_i.v1",
+      "targetLanguage": "es",
+      "symbol": "g before e/i",
+      "pronunciationVariety": "es-general",
+      "ipa": "/x/"
+    },
+    {
+      "id": "pronunciation.es.rule.stable_vowels.v1",
+      "targetLanguage": "es",
+      "symbol": "a e i o u",
+      "pronunciationVariety": "es-general",
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.stable_vowels.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.rule.diphthong_ue.v1",
+      "targetLanguage": "es",
+      "symbol": "ue",
+      "pronunciationVariety": "es-general"
+    },
+    {
+      "id": "pronunciation.es.rule.primary_stress.v1",
+      "targetLanguage": "es",
+      "symbol": "stress",
+      "pronunciationVariety": "es-general"
+    }
+  ],
+  "units": [
+    {
+      "id": "pronunciation.es.word.hola.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "hola",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ˈola/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.silent_h.v1",
+        "pronunciation.es.rule.stable_vowels.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "OH-lah",
+        "ru": "о́ла"
+      },
+      "difficulty": "a0-reference",
+      "commonMistakes": [
+        "english_speakers_pronounce_h",
+        "russian_speakers_may_overstress_final_a"
+      ],
+      "relatedContentIds": [
+        "vocab.es.a0.u01.l01.hola.v1",
+        "vocab.es.a0.unit1.hola.v1",
+        "vocab.hola.v1",
+        "template.es.a0.m01.l001.type_hola.v1",
+        "template.es.a0.m01.review.type_hola.v1",
+        "dialogue.es.a0.u01.l01.hello_goodbye.v1",
+        "dialogue.es.a0.unit1.hello_goodbye.v1",
+        "reading.es.a0.unit1.greeting_recognition.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.u01.l01.hola.v1",
+        "vocab.es.a0.unit1.hola.v1",
+        "vocab.hola.v1"
+      ],
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.silent_h.v1"
+      ],
+      "metadata": {
+        "migrationStatus": "reference-slice",
+        "legacyClassification": "LEGACY_ENGLISH_LEARNER_HINT"
+      }
+    },
+    {
+      "id": "pronunciation.es.word.adios.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "adiós",
+      "pronunciationVariety": "es-general",
+      "ipa": "/aˈðjos/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.stable_vowels.v1",
+        "pronunciation.es.rule.primary_stress.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "ah-DYOHS",
+        "ru": "адьо́с"
+      },
+      "difficulty": "a0-reference",
+      "relatedContentIds": [
+        "vocab.es.a0.u01.l01.adios.v1",
+        "vocab.es.a0.unit1.adios.v1",
+        "dialogue.es.a0.u01.l01.hello_goodbye.v1",
+        "dialogue.es.a0.unit1.hello_goodbye.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.u01.l01.adios.v1",
+        "vocab.es.a0.unit1.adios.v1"
+      ],
+      "metadata": {
+        "migrationStatus": "reference-slice",
+        "legacyClassification": "LEGACY_ENGLISH_LEARNER_HINT"
+      }
+    },
+    {
+      "id": "pronunciation.es.phrase.hasta_luego.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "hasta luego",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ˈasta ˈlweɣo/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.silent_h.v1",
+        "pronunciation.es.rule.diphthong_ue.v1",
+        "pronunciation.es.rule.g_e_i.v1",
+        "pronunciation.es.rule.primary_stress.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "AHS-tah LWEH-goh",
+        "ru": "а́ста луэ́го"
+      },
+      "difficulty": "a0-reference",
+      "relatedContentIds": [
+        "vocab.es.a0.unit1.hasta_luego.v1",
+        "template.es.a0.m01.l001.fill_hasta_luego.v1",
+        "dialogue.es.a0.unit1.hello_goodbye.v1",
+        "reading.es.a0.unit1.greeting_recognition.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.unit1.hasta_luego.v1"
+      ],
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.silent_h.v1"
+      ],
+      "metadata": {
+        "migrationStatus": "reference-slice",
+        "legacyClassification": "LEGACY_ENGLISH_LEARNER_HINT"
+      }
+    },
+    {
+      "id": "pronunciation.es.word.jose.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "José",
+      "pronunciationVariety": "es-general",
+      "ipa": "/xoˈse/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.j.v1",
+        "pronunciation.es.rule.primary_stress.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "hoh-SEH",
+        "ru": "хосе́"
+      },
+      "difficulty": "a0-reference",
+      "relatedContentIds": [
+        "vocab.es.a0.m02.jose.v1",
+        "reading.es.a0.m02.name_sounds.v1",
+        "template.es.a0.c2.l017_type_jose_sound.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.m02.jose.v1"
+      ],
+      "metadata": {
+        "migrationStatus": "reference-slice"
+      }
+    },
+    {
+      "id": "pronunciation.es.word.espana.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "España",
+      "pronunciationVariety": "es-general",
+      "ipa": "/esˈpaɲa/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.enye.v1",
+        "pronunciation.es.rule.primary_stress.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "es-PAH-nyah",
+        "ru": "эспа́нья"
+      },
+      "difficulty": "a0-reference",
+      "relatedContentIds": [
+        "vocab.es.a0.m03.espana.v1",
+        "vocab.es.a0.unit1.espana.v1",
+        "reading.es.a0.m01.silent_h_words.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.m03.espana.v1",
+        "vocab.es.a0.unit1.espana.v1"
+      ],
+      "metadata": {
+        "migrationStatus": "reference-slice"
+      }
+    },
+    {
+      "id": "pronunciation.es.sound.h.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "h",
+      "pronunciationVariety": "es-general",
+      "readingRuleIds": [
+        "pronunciation.es.rule.silent_h.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "silent",
+        "ru": "не произносится"
+      },
+      "relatedContentIds": [
+        "grammar.es.a0.m01.silent_h.v1",
+        "template.es.a0.m01.l016.h_silent_choice.v1"
+      ],
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.silent_h.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.enye.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "ñ",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ɲ/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.enye.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "ny",
+        "ru": "нь"
+      },
+      "relatedContentIds": [
+        "reading.es.a0.m02.name_sounds.v1",
+        "reading.es.a0.m01.silent_h_words.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.j.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "j",
+      "pronunciationVariety": "es-general",
+      "ipa": "/x/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.j.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "strong h-like sound",
+        "ru": "твёрдый х-подобный звук"
+      },
+      "relatedContentIds": [
+        "reading.es.a0.m02.name_sounds.v1",
+        "template.es.a0.c2.l017_type_jose_sound.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.ll.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "ll",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ʝ/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.ll_y.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "y-like sound",
+        "ru": "звук, близкий к й"
+      },
+      "relatedContentIds": [
+        "reading.es.a0.m02.name_sounds.v1",
+        "vocab.es.a0.m05.llave.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.y.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "y",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ʝ/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.ll_y.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "y-like sound",
+        "ru": "звук, близкий к й"
+      },
+      "relatedContentIds": [
+        "vocab.es.a0.unit1.y.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.r.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "r",
+      "pronunciationVariety": "es-general",
+      "ipa": "/ɾ/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.r.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "single tap r",
+        "ru": "короткое одноударное р"
+      },
+      "relatedContentIds": [
+        "vocab.es.a0.unit1.gracias.v1",
+        "vocab.es.a0.m06.recto.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.rr.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "rr",
+      "pronunciationVariety": "es-general",
+      "ipa": "/r/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.rr.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "rolled rr",
+        "ru": "долгое вибрирующее р"
+      },
+      "relatedContentIds": [
+        "reading.es.a0.m02.name_sounds.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.b_v.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "b/v",
+      "pronunciationVariety": "es-general",
+      "ipa": "/b/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.b_v.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "b and v are close in Spanish",
+        "ru": "b и v в испанском звучат близко"
+      },
+      "relatedContentIds": [
+        "vocab.es.a0.m06.voy.v1",
+        "vocab.es.a0.m08.ventana.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.c_z.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "c/z",
+      "pronunciationVariety": "es-general",
+      "readingRuleIds": [
+        "pronunciation.es.rule.c_z.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "regional c/z sound",
+        "ru": "звук зависит от выбранной нормы курса"
+      },
+      "relatedContentIds": [
+        "vocab.es.a0.m06.centro.v1",
+        "vocab.es.a0.m08.cocina.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.g_e_i.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "g before e/i",
+      "pronunciationVariety": "es-general",
+      "ipa": "/x/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.g_e_i.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "hard h-like sound before e or i",
+        "ru": "перед e или i звучит как твёрдый х-подобный звук"
+      },
+      "relatedContentIds": [
+        "reading.es.a0.c2.reading_qu_g.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.ruleunit.stable_vowels.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "a e i o u",
+      "pronunciationVariety": "es-general",
+      "readingRuleIds": [
+        "pronunciation.es.rule.stable_vowels.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "clear stable vowels",
+        "ru": "ясные устойчивые гласные"
+      },
+      "relatedContentIds": [
+        "grammar.es.a0.m01.stable_vowels.v1",
+        "reading.es.a0.m01.silent_h_words.v1"
+      ],
+      "relatedGrammarIds": [
+        "grammar.es.a0.m01.stable_vowels.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.sound.diphthong_ue.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "ue",
+      "pronunciationVariety": "es-general",
+      "ipa": "/we/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.diphthong_ue.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "weh",
+        "ru": "уэ"
+      },
+      "relatedContentIds": [
+        "vocab.es.a0.unit1.hasta_luego.v1"
+      ]
+    },
+    {
+      "id": "pronunciation.es.word.autobus.v1",
+      "targetLanguage": "es",
+      "targetOrthography": "autobús",
+      "pronunciationVariety": "es-general",
+      "ipa": "/autoˈbus/",
+      "readingRuleIds": [
+        "pronunciation.es.rule.primary_stress.v1",
+        "pronunciation.es.rule.stable_vowels.v1"
+      ],
+      "localizedLearnerHints": {
+        "en": "ow-toh-BOOS",
+        "ru": "аутобу́с"
+      },
+      "difficulty": "a0-reference",
+      "relatedContentIds": [
+        "vocab.es.a0.m06.autobus.v1"
+      ],
+      "relatedVocabularyIds": [
+        "vocab.es.a0.m06.autobus.v1"
+      ]
+    }
+  ],
+  "localizations": [
+    {
+      "id": "pronunciation.es.rule.silent_h.v1",
+      "learnerHints": {
+        "en": "h is silent",
+        "ru": "h не произносится"
+      },
+      "explanations": {
+        "en": "In Spanish, written h is usually silent.",
+        "ru": "В испанском буква h обычно пишется, но не произносится."
+      }
+    },
+    {
+      "id": "pronunciation.es.rule.enye.v1",
+      "learnerHints": {
+        "en": "ny",
+        "ru": "нь"
+      },
+      "explanations": {
+        "en": "The letter ñ is a separate Spanish letter.",
+        "ru": "Буква ñ — отдельная испанская буква; она передаёт мягкий носовой звук."
+      }
+    },
+    {
+      "id": "pronunciation.es.rule.j.v1",
+      "learnerHints": {
+        "en": "h-like",
+        "ru": "х-подобный звук"
+      },
+      "explanations": {
+        "en": "Spanish j is not English j.",
+        "ru": "Испанская j не читается как английская j; в этом курсе она объясняется как твёрдый х-подобный звук."
+      }
+    },
+    {
+      "id": "pronunciation.es.rule.ll_y.v1",
+      "learnerHints": {
+        "en": "y-like",
+        "ru": "близко к й"
+      },
+      "explanations": {
+        "en": "The course uses a general beginner ll/y norm.",
+        "ru": "В курсе ll и y объясняются через общий начальный ориентир: звук, близкий к й."
+      }
+    },
+    {
+      "id": "pronunciation.es.rule.primary_stress.v1",
+      "learnerHints": {
+        "en": "marked stress",
+        "ru": "ударение отмечено"
+      },
+      "explanations": {
+        "en": "Learner hints mark the stressed syllable.",
+        "ru": "В подсказках ударение отмечается явно, чтобы не читать слово механически по буквам."
+      }
+    },
+    {
+      "id": "pronunciation.es.word.hola.v1",
+      "learnerHints": {
+        "en": "OH-lah",
+        "ru": "о́ла"
+      },
+      "explanations": {
+        "en": "The h is silent.",
+        "ru": "Начальная h не произносится: читаем примерно «о́ла»."
+      }
+    },
+    {
+      "id": "pronunciation.es.word.adios.v1",
+      "learnerHints": {
+        "en": "ah-DYOHS",
+        "ru": "адьо́с"
+      },
+      "explanations": {
+        "en": "The written accent marks stress.",
+        "ru": "Ударение падает на последний слог: адьо́с."
+      }
+    },
+    {
+      "id": "pronunciation.es.phrase.hasta_luego.v1",
+      "learnerHints": {
+        "en": "AHS-tah LWEH-goh",
+        "ru": "а́ста луэ́го"
+      },
+      "explanations": {
+        "en": "The h in hasta is silent.",
+        "ru": "В hasta буква h не произносится; в luego сочетание ue читается слитно."
+      }
+    },
+    {
+      "id": "pronunciation.es.word.jose.v1",
+      "learnerHints": {
+        "en": "hoh-SEH",
+        "ru": "хосе́"
+      },
+      "explanations": {
+        "en": "The j is not English j.",
+        "ru": "В José буква j читается как твёрдый х-подобный звук."
+      }
+    },
+    {
+      "id": "pronunciation.es.word.espana.v1",
+      "learnerHints": {
+        "en": "es-PAH-nyah",
+        "ru": "эспа́нья"
+      },
+      "explanations": {
+        "en": "The letter ñ is a separate Spanish letter.",
+        "ru": "В España буква ñ передаёт мягкий носовой звук, близкий к «нь»."
+      }
+    },
+    {
+      "id": "pronunciation.es.word.autobus.v1",
+      "learnerHints": {
+        "en": "ow-toh-BOOS",
+        "ru": "аутобу́с"
+      },
+      "explanations": {
+        "en": "The written accent marks stress.",
+        "ru": "Ударение падает на последний слог: аутобу́с."
+      }
+    }
+  ]
+}
