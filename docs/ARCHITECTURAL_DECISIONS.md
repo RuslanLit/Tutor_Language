@@ -265,11 +265,19 @@ Target-language orthography remains authentic target-language content.
 IPA and the declared pronunciation variety form the textual pronunciation
 source of truth.
 
-Localized learner pronunciation hints are optional pedagogical approximations.
-They must be authored for a specific support locale and must never be reused
-across unrelated support locales.
+Localized learner pronunciation hints are pedagogical approximations rather
+than canonical pronunciation. When a vocabulary item is released with
+pronunciation guidance, its learner hints are mandatory for each released
+support locale, must be authored for that specific locale and must never be
+reused across unrelated support locales.
 
 English-oriented respelling is not a universal pronunciation representation.
+
+For new pronunciation-capable vocabulary, publication requires a complete
+PronunciationUnit. Multi-syllable items must include IPA, localized learner
+hints with explicit stress marking, localized explanations where needed and an
+example sentence. A vocabulary card is architecturally incomplete if any
+mandatory pronunciation element is missing.
 
 Rationale
 

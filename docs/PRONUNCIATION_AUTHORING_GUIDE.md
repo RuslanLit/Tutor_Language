@@ -86,6 +86,10 @@ the declared pronunciation variety before use in production content.
 
 IPA is not English dictionary respelling.
 
+IPA is the canonical textual pronunciation representation.
+
+IPA is locale-independent and never changes between support languages.
+
 ## Learner Pronunciation Hint
 
 An approximate localized reading aid written for speakers of one support
@@ -96,11 +100,16 @@ Illustrative examples for Spanish `hola`:
 - `en`: `OH-lah`
 - `ru`: `о́ла`
 - `uk`: `о́ла`
-- `pl`: `o-la`
-- `de`: `o-la`
+- `pl`: `óla`
+- `de`: `óla`
 
 A learner hint is an approximation. It does not replace the target spelling,
 IPA or audio.
+
+Localized learner hints are learner support, not canonical pronunciation.
+
+For multi-syllable words, learner hints must mark stress explicitly according
+to the support-locale profile.
 
 ## Pronunciation Explanation
 
@@ -114,6 +123,9 @@ The Spanish h is silent.
 ```
 
 The explanation must be localized by support locale.
+
+Pronunciation explanations belong to localized learner support. They are not
+locale-independent pronunciation metadata.
 
 ## Reading Rule
 
@@ -175,7 +187,8 @@ IPA transcription for a declared pronunciation variety.
 Approximate learner hint for one support locale.
 
 - support-language-localized;
-- optional unless the product chooses to show learner hints for that locale;
+- required for release vocabulary in each released support locale when
+  pronunciation guidance is applicable;
 - must not be reused across unrelated support locales.
 
 ## SUPPORT_LOCALE_PRONUNCIATION_EXPLANATION
@@ -254,6 +267,18 @@ The preferred conceptual model is:
 
 This is a conceptual model, not a required JSON schema.
 
+A production PronunciationUnit may contain:
+
+- `id`;
+- target orthography;
+- IPA;
+- pronunciation variety;
+- localized pronunciation hints;
+- localized pronunciation explanations;
+- reading rule references;
+- audio reference IDs;
+- metadata.
+
 Current implementation:
 
 - vocabulary assets contain a single optional `pronunciation` string;
@@ -277,11 +302,13 @@ Target architecture:
 
 Deferred implementation:
 
-- runtime pronunciation models;
-- migration of current `pronunciation` strings;
+- full migration of current `pronunciation` strings;
 - IPA authoring and review;
 - support-locale learner-hint authoring;
 - audio references and playback.
+
+R2E2B implemented the first runtime foundation and a Spanish A0 reference
+slice. Treat it as partial implementation, not full-course migration.
 
 ---
 
@@ -404,6 +431,31 @@ Illustrative Russian-locale forms for Spanish might be:
 Production forms must use the chosen Russian pronunciation-hint profile and
 must be reviewed against the selected Spanish pronunciation variety. The
 illustrations above are not release-ready linguistic authority.
+
+Stress marking is mandatory for multi-syllable words.
+
+Examples:
+
+```text
+hola        [о́ла]
+José        [хосе́]
+España      [эспа́нья]
+igualmente  [игуальме́нте]
+```
+
+Stress omission is not acceptable for multi-syllable words because A0 learners
+cannot reliably infer stress.
+
+Stress marking is optional for single-syllable words:
+
+```text
+de  [дэ]
+es  [эс]
+mi  [ми]
+```
+
+Use brackets for learner-facing approximate hints when the support-locale
+profile requires that visual distinction.
 
 ---
 
@@ -610,6 +662,30 @@ Vocabulary may include:
 Current Version 1 assets use `pronunciation` as a legacy learner hint. Future
 assets should not add more universal pronunciation hints.
 
+New pronunciation-capable vocabulary items containing two or more syllables
+must not be published without:
+
+- target-language orthography;
+- IPA;
+- pronunciation variety;
+- localized pronunciation hint for every released support locale;
+- explicit stress marking in each localized hint;
+- localized pronunciation explanation when required;
+- example sentence.
+
+One-syllable words may omit stress marking in the localized hint when stress is
+pedagogically obvious.
+
+Example:
+
+```text
+hambre
+/ˈambɾe/
+[а́мбре]
+голод
+Tengo hambre.
+```
+
 ## Grammar
 
 Pronunciation should appear only when relevant to the grammar or reading point.
@@ -766,6 +842,18 @@ Validators should detect:
 - inconsistent stress notation;
 - missing target word reference;
 - mismatch between pronunciation item and stable content ID.
+
+A pronunciation asset is release-complete only if:
+
+- IPA exists;
+- stress is correct;
+- every required localized learner hint exists;
+- each hint passes support-locale QA;
+- pronunciation explanation exists where required;
+- the vocabulary example sentence exists.
+
+Release validation must treat a vocabulary card as incomplete if it lacks any
+mandatory pronunciation element required by this guide.
 
 ---
 

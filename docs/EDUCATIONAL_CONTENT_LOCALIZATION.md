@@ -85,10 +85,26 @@ IPA are locale-independent pronunciation data. Learner pronunciation hints and
 pronunciation explanations are support-language content. English learner hints
 must not fall back into non-English support locales in production.
 
+IPA is the canonical textual pronunciation representation and is not
+translated. It remains the same for English, Russian, Ukrainian, Polish,
+German and any other support locale.
+
+Localized pronunciation hints are learner support. They may differ by support
+language and must follow the pronunciation-hint profile for that support
+locale. For multi-syllable words, localized hints must mark stress explicitly.
+
+Localized pronunciation explanations are support-language teaching text. They
+explain issues such as silent letters or stress placement, but they do not
+replace IPA or pronunciation variety.
+
 PronunciationUnit IDs, related vocabulary/grammar references, reading-rule
 references, audio reference IDs, difficulty and technical metadata remain
 locale-independent. Localized learner hints and localized pronunciation
 explanations are localized support content.
+
+R2E2B prohibits cross-locale learner-hint fallback in the pronunciation
+reference implementation. English pronunciation hints must not be shown as a
+fallback in Russian mode.
 
 ## Locale-Independent Data
 

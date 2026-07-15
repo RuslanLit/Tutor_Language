@@ -201,6 +201,11 @@ dialogues, lessons and exercises rather than copied into each asset. The
 conceptual model is PRONUNCIATION_MODEL.md. Authoring rules are defined in
 PRONUNCIATION_AUTHORING_GUIDE.md.
 
+The first runtime foundation is a partial reference implementation. It loads a
+Spanish A0 pronunciation reference slice and resolves support-locale-safe
+learner hints without changing lesson planning, answer evaluation or learner
+progress.
+
 Educational Content
 
 Educational Content defines every educational object available to the application.

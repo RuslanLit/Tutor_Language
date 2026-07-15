@@ -1,6 +1,6 @@
 # PRONUNCIATION_MODEL.md
 
-Status: Proposed
+Status: Active
 
 Version: 1.0
 
@@ -33,6 +33,13 @@ PronunciationUnit instead of storing its own copied pronunciation data.
 This document is conceptual. It does not introduce a runtime model, JSON schema,
 migration, editor, IPA database, audio system, generator or validator in the
 current phase.
+
+Implementation status:
+
+R2E2B introduced a typed runtime foundation and a Spanish A0 pronunciation
+reference slice. Full-course migration, complete IPA review, audio and durable
+schema expansion remain deferred. See
+PRONUNCIATION_R2E2B_IMPLEMENTATION_REPORT.md.
 
 ---
 
@@ -107,6 +114,42 @@ It must not contain learner progress.
 
 It must be reusable across lessons, exercises and content types.
 
+## Production Completeness
+
+A production PronunciationUnit for a vocabulary item is complete only when it
+contains enough information for a beginner learner and a reviewer to understand
+the intended pronunciation without guessing.
+
+For pronunciation-capable vocabulary items containing two or more syllables,
+the required production elements are:
+
+- stable PronunciationUnit ID;
+- target-language orthography;
+- declared pronunciation variety;
+- IPA transcription;
+- localized learner pronunciation hint for each released support locale;
+- explicit stress marking in each localized learner hint;
+- localized pronunciation explanation when the spelling, stress or sound is
+  not obvious for the learner group;
+- natural example sentence.
+
+One-syllable words may omit stress marking in localized learner hints when
+stress is pedagogically obvious.
+
+Examples:
+
+```text
+hambre
+/ˈambɾe/
+[а́мбре]
+голод
+Tengo hambre.
+```
+
+A vocabulary card is incomplete for release if any mandatory production
+element is missing. Authors must not publish a new lexical item without its
+complete pronunciation description when pronunciation guidance is applicable.
+
 ---
 
 # Field Responsibility
@@ -138,6 +181,11 @@ Locale-independent.
 Never depends on UI language or support locale.
 
 Authored against the declared pronunciation variety.
+
+IPA is the canonical textual pronunciation representation.
+
+It must include stress marking according to the course IPA policy whenever
+stress is relevant.
 
 ## pronunciationVariety
 
@@ -200,6 +248,16 @@ Each locale is independently authored and reviewed.
 
 English hints must not be copied into Russian, Ukrainian, Polish or German.
 
+Localized learner hints are support text, not canonical pronunciation.
+
+Hints for multi-syllable words must mark stress explicitly.
+
+Examples:
+
+- Russian: `[о́ла]`;
+- German: `[óla]`;
+- Polish: `[óla]`.
+
 ## localizedPronunciationExplanations
 
 Support-locale-specific pedagogical explanations.
@@ -209,6 +267,9 @@ Examples:
 - why a written letter is silent;
 - why stress falls on a syllable;
 - why the target form should not be pronounced literally.
+
+Pronunciation explanations are learner support. They do not replace IPA,
+pronunciation variety or reading-rule references.
 
 ## audioReferenceId
 
@@ -342,8 +403,8 @@ Detailed authoring rules live in PRONUNCIATION_AUTHORING_GUIDE.md.
 
 # Current Implementation
 
-The current Spanish assets store a single optional `pronunciation` string on
-VocabularyItem.
+The current Spanish assets still store a single optional `pronunciation` string
+on VocabularyItem for many legacy entries.
 
 That field is legacy plain text.
 
@@ -355,14 +416,24 @@ It is not support-locale-safe.
 
 It must not be expanded as the long-term model.
 
+R2E2B adds a separate PronunciationUnit runtime foundation and a migrated
+reference slice in:
+
+```text
+app/assets/languages/spanish/pronunciation/reference_slice.json
+```
+
+Unmigrated legacy hints remain visible only where support-locale policy allows
+them.
+
 ---
 
 # Deferred Work
 
 This phase does not implement:
 
-- runtime PronunciationUnit models;
-- JSON schema changes;
+- complete production PronunciationUnit migration;
+- durable JSON schema changes for all language packs;
 - migrations;
 - authoring editor support;
 - IPA database;

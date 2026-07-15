@@ -231,9 +231,19 @@ These concepts are documented in PRONUNCIATION_MODEL.md and
 PRONUNCIATION_AUTHORING_GUIDE.md. Runtime schema migration is deferred; current
 assets should not add more universal pronunciation hints.
 
+For new pronunciation-capable vocabulary, the target architecture requires a
+complete PronunciationUnit before release. Multi-syllable items must include
+target orthography, declared pronunciation variety, IPA, localized learner
+hints with explicit stress marking, localized explanations where needed and an
+example sentence. A vocabulary item is not release-complete if any mandatory
+pronunciation element is missing.
+
 PronunciationUnit is reusable Educational Content in the target architecture.
 Vocabulary, Grammar Topics, Dialogues, Reading Texts, Exercise Templates and
 LessonDefinitions should reference it when pronunciation knowledge is needed.
+
+R2E2B implements a runtime reference slice for PronunciationUnit without
+removing legacy vocabulary `pronunciation` fields.
 
 Vocabulary Items may be referenced by multiple LessonDefinitions.
 

@@ -248,6 +248,21 @@ Each vocabulary item should include:
 - pronunciation data appropriate to the current implementation;
 - at least one natural example.
 
+For new pronunciation-capable vocabulary, pronunciation data is mandatory for
+release. Multi-syllable words or expressions must have:
+
+- IPA for the declared pronunciation variety;
+- localized pronunciation hint for each released support locale;
+- explicit stress marking in each localized hint;
+- localized explanation when spelling, stress or sound may mislead the learner;
+- example sentence.
+
+One-syllable words may omit stress marking in the localized hint when stress is
+pedagogically obvious.
+
+Do not publish a new lexical item when IPA, localized transcription, stress
+marking or an example sentence is missing.
+
 Do not author one universal pronunciation hint for all support languages.
 
 Incorrect:

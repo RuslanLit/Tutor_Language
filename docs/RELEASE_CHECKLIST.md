@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2E2B-DOC — Pronunciation Representation and Authoring Standard
+R2E2B — Pronunciation Model Foundation and Russian Pronunciation Recovery
 
 Overall Readiness:
 IN PROGRESS
@@ -223,15 +223,23 @@ Educational Content
 
 [x] pronunciation conceptual model documented
 
-[ ] pronunciation data model implemented
+[x] pronunciation data model implemented
 
-[ ] target-language pronunciation variety declared for production assets
+[x] target-language pronunciation variety declared for production assets
 
-[ ] IPA coverage validated
+[~] IPA coverage validated
 
-[ ] English pronunciation hints validated
+[ ] IPA complete for every release vocabulary item requiring pronunciation
 
-[ ] Russian pronunciation hints complete
+[ ] stress marked in every multi-syllable localized pronunciation hint
+
+[ ] release vocabulary cards have complete pronunciation descriptions
+
+[x] English pronunciation hints validated for migrated slice
+
+[x] Russian pronunciation hints complete for migrated slice
+
+[ ] Russian pronunciation hints complete for full Spanish A0 course
 
 [ ] Ukrainian pronunciation hints complete
 
@@ -239,9 +247,11 @@ Educational Content
 
 [ ] German pronunciation hints complete
 
-[ ] no cross-locale pronunciation fallback
+[x] no cross-locale pronunciation fallback
 
-[ ] pronunciation device QA complete
+[~] pronunciation device QA complete
+
+[ ] pronunciation explanations present where spelling, stress or sound may mislead A0 learners
 
 [ ] Spanish A0 Polish support translation complete
 
