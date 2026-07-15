@@ -393,16 +393,21 @@ class EducationalContentLocalizationResolver {
           template.promptTemplate,
       answerOptions: List.unmodifiable(
         template.answerOptions.map((option) {
+          final shouldLocalize = shouldLocalizeSupportAnswerOption(
+            promptTemplate: template.promptTemplate,
+            optionLabel: option.label,
+          );
           return ExerciseTemplateOption(
             id: option.id,
-            label:
-                _field(
-                  'exercise_template',
-                  template.id,
-                  'answer_options.${option.id}.label',
-                  locale,
-                ) ??
-                option.label,
+            label: shouldLocalize
+                ? _field(
+                        'exercise_template',
+                        template.id,
+                        'answer_options.${option.id}.label',
+                        locale,
+                      ) ??
+                      option.label
+                : option.label,
           );
         }),
       ),
@@ -471,6 +476,508 @@ class EducationalContentLocalizationValidationIssue {
   String toString() => '$code: $message';
 }
 
+class EducationalContentLocalizationInventoryField {
+  const EducationalContentLocalizationInventoryField({
+    required this.type,
+    required this.id,
+    required this.fieldName,
+    required this.category,
+    required this.sourceText,
+  });
+
+  final String type;
+  final String id;
+  final String fieldName;
+  final String category;
+  final String sourceText;
+
+  String get entryKey => '$type|$id';
+  String get fieldKey => '$entryKey|$fieldName';
+}
+
+class EducationalContentLocalizationInventorySummary {
+  const EducationalContentLocalizationInventorySummary({
+    required this.category,
+    required this.totalLocalizableFields,
+    required this.englishSourceFields,
+    required this.missingEnglishSourceFields,
+    required this.invalidFields,
+  });
+
+  final String category;
+  final int totalLocalizableFields;
+  final int englishSourceFields;
+  final int missingEnglishSourceFields;
+  final int invalidFields;
+
+  double get coveragePercentage => totalLocalizableFields == 0
+      ? 100
+      : englishSourceFields / totalLocalizableFields * 100;
+}
+
+class EducationalContentLocalizationInventory {
+  const EducationalContentLocalizationInventory();
+
+  List<EducationalContentLocalizationInventoryField> build({
+    required Course course,
+    required EducationalContentBundle contentBundle,
+  }) {
+    final fields = <EducationalContentLocalizationInventoryField>[];
+
+    void add({
+      required String category,
+      required String type,
+      required String id,
+      required String fieldName,
+      required String? sourceText,
+    }) {
+      final text = sourceText?.trim();
+      if (text == null || text.isEmpty) {
+        return;
+      }
+      fields.add(
+        EducationalContentLocalizationInventoryField(
+          type: type,
+          id: id,
+          fieldName: fieldName,
+          category: category,
+          sourceText: sourceText!,
+        ),
+      );
+    }
+
+    add(
+      category: 'course metadata',
+      type: 'course',
+      id: course.id,
+      fieldName: 'title',
+      sourceText: course.title,
+    );
+
+    for (final module in course.modules) {
+      add(
+        category: 'module metadata',
+        type: 'module',
+        id: module.id,
+        fieldName: 'title',
+        sourceText: module.title,
+      );
+    }
+
+    for (final lesson in course.lessons) {
+      add(
+        category: 'lesson metadata',
+        type: 'lesson',
+        id: lesson.id,
+        fieldName: 'title',
+        sourceText: lesson.title,
+      );
+      add(
+        category: 'lesson metadata',
+        type: 'lesson',
+        id: lesson.id,
+        fieldName: 'description',
+        sourceText: lesson.metadata?.description,
+      );
+      add(
+        category: 'lesson metadata',
+        type: 'lesson',
+        id: lesson.id,
+        fieldName: 'communicativeOutcome',
+        sourceText: lesson.communicativeOutcome,
+      );
+      for (final objective in lesson.objectives) {
+        add(
+          category: 'lesson objectives',
+          type: 'lesson_objective',
+          id: '${lesson.id}.${objective.id}',
+          fieldName: 'description',
+          sourceText: objective.description,
+        );
+      }
+      for (final section in lesson.sections) {
+        add(
+          category: 'lesson sections',
+          type: 'lesson_section',
+          id: section.id,
+          fieldName: 'title',
+          sourceText: section.title,
+        );
+        for (final activity in section.activities) {
+          add(
+            category: 'lesson activities',
+            type: 'lesson_activity',
+            id: activity.id,
+            fieldName: 'title',
+            sourceText: activity.title,
+          );
+        }
+      }
+      if (lesson.summary != null) {
+        add(
+          category: 'lesson summaries',
+          type: 'lesson_summary',
+          id: lesson.summary!.id,
+          fieldName: 'reviewPrompt',
+          sourceText: lesson.summary!.reviewPrompt,
+        );
+      }
+    }
+
+    for (final content in contentBundle.contents) {
+      switch (content) {
+        case VocabularyContent(:final entries):
+          for (final item in entries) {
+            add(
+              category: 'vocabulary',
+              type: 'vocabulary',
+              id: item.id,
+              fieldName: 'native_translation',
+              sourceText: item.nativeTranslation,
+            );
+            add(
+              category: 'vocabulary',
+              type: 'vocabulary',
+              id: item.id,
+              fieldName: 'notes',
+              sourceText: item.notes,
+            );
+          }
+        case GrammarContent(:final topics):
+          for (final topic in topics) {
+            add(
+              category: 'grammar',
+              type: 'grammar',
+              id: topic.id,
+              fieldName: 'title',
+              sourceText: topic.title,
+            );
+            add(
+              category: 'grammar',
+              type: 'grammar',
+              id: topic.id,
+              fieldName: 'explanation',
+              sourceText: topic.explanation,
+            );
+            for (var index = 0; index < topic.examples.length; index += 1) {
+              add(
+                category: 'grammar',
+                type: 'grammar',
+                id: topic.id,
+                fieldName: 'examples.$index',
+                sourceText: topic.examples[index],
+              );
+            }
+          }
+        case DialogueContent(:final dialogues):
+          for (final dialogue in dialogues) {
+            add(
+              category: 'dialogues',
+              type: 'dialogue',
+              id: dialogue.id,
+              fieldName: 'title',
+              sourceText: dialogue.title,
+            );
+            for (var index = 0; index < dialogue.lines.length; index += 1) {
+              add(
+                category: 'dialogues',
+                type: 'dialogue',
+                id: dialogue.id,
+                fieldName: 'lines.$index.native_translation',
+                sourceText: dialogue.lines[index].nativeTranslation,
+              );
+            }
+          }
+        case ReadingContent(:final texts):
+          for (final reading in texts) {
+            add(
+              category: 'readings',
+              type: 'reading',
+              id: reading.id,
+              fieldName: 'title',
+              sourceText: reading.title,
+            );
+            add(
+              category: 'readings',
+              type: 'reading',
+              id: reading.id,
+              fieldName: 'native_translation',
+              sourceText: reading.nativeTranslation,
+            );
+          }
+        case ExerciseTemplateContent(:final templates):
+          for (final template in templates) {
+            add(
+              category: 'exercise prompts',
+              type: 'exercise_template',
+              id: template.id,
+              fieldName: 'prompt_template',
+              sourceText: template.promptTemplate,
+            );
+            for (final option in template.answerOptions) {
+              if (shouldLocalizeSupportAnswerOption(
+                promptTemplate: template.promptTemplate,
+                optionLabel: option.label,
+              )) {
+                add(
+                  category: 'support-language answer options',
+                  type: 'exercise_template',
+                  id: template.id,
+                  fieldName: 'answer_options.${option.id}.label',
+                  sourceText: option.label,
+                );
+              }
+            }
+          }
+        default:
+          break;
+      }
+    }
+
+    fields.sort((a, b) => a.fieldKey.compareTo(b.fieldKey));
+    return List.unmodifiable(fields);
+  }
+
+  List<EducationalContentLocalizationInventorySummary> summarize({
+    required List<EducationalContentLocalizationInventoryField> inventory,
+    required EducationalContentLocalizationBundle localization,
+  }) {
+    final localizedFields = {
+      for (final entry in localization.entries)
+        for (final field in entry.fields.entries)
+          '${entry.type}|${entry.id}|${field.key}': field.value,
+    };
+    final categories = <String>{for (final field in inventory) field.category};
+
+    return List.unmodifiable([
+      for (final category in categories)
+        _summaryFor(
+          category: category,
+          inventory: inventory.where((field) => field.category == category),
+          localizedFields: localizedFields,
+          sourceSupportLocale: localization.sourceSupportLocale,
+        ),
+    ]);
+  }
+
+  EducationalContentLocalizationInventorySummary _summaryFor({
+    required String category,
+    required Iterable<EducationalContentLocalizationInventoryField> inventory,
+    required Map<String, Map<String, String>> localizedFields,
+    required String sourceSupportLocale,
+  }) {
+    var total = 0;
+    var source = 0;
+    var invalid = 0;
+    for (final field in inventory) {
+      total += 1;
+      final localized = localizedFields[field.fieldKey];
+      final sourceText = localized?[sourceSupportLocale];
+      if (sourceText == null || sourceText.trim().isEmpty) {
+        continue;
+      }
+      source += 1;
+      if (sourceText.trim() != field.sourceText.trim()) {
+        invalid += 1;
+      }
+    }
+
+    return EducationalContentLocalizationInventorySummary(
+      category: category,
+      totalLocalizableFields: total,
+      englishSourceFields: source,
+      missingEnglishSourceFields: total - source,
+      invalidFields: invalid,
+    );
+  }
+}
+
+bool shouldLocalizeSupportAnswerOption({
+  required String promptTemplate,
+  required String optionLabel,
+}) {
+  final label = optionLabel.trim();
+  if (label.isEmpty || _looksLikeTargetSpanish(label)) {
+    return false;
+  }
+
+  final lowerPrompt = promptTemplate.toLowerCase();
+  if (lowerPrompt.contains('meaning') ||
+      lowerPrompt.contains('translation') ||
+      lowerPrompt.contains('what does') ||
+      lowerPrompt.contains('which letter') ||
+      lowerPrompt.contains('what is') ||
+      lowerPrompt.contains('who is') ||
+      lowerPrompt.contains('where ') ||
+      lowerPrompt.contains('what transport') ||
+      lowerPrompt.contains('which answer fits')) {
+    return true;
+  }
+
+  return _looksLikeSupportEnglish(label);
+}
+
+bool _looksLikeTargetSpanish(String value) {
+  final lower = value.toLowerCase();
+  if (RegExp(r'[¿¡áéíóúñü]').hasMatch(lower)) {
+    return true;
+  }
+
+  final tokens = RegExp(r"[a-z]+").allMatches(lower).map((match) {
+    return match.group(0)!;
+  }).toSet();
+  const spanishMarkers = {
+    'adios',
+    'agua',
+    'ahora',
+    'al',
+    'amigo',
+    'amiga',
+    'anos',
+    'autobus',
+    'ayuda',
+    'bano',
+    'bien',
+    'buenas',
+    'buenos',
+    'cafe',
+    'casa',
+    'cerca',
+    'como',
+    'de',
+    'derecha',
+    'donde',
+    'el',
+    'ella',
+    'en',
+    'eres',
+    'es',
+    'espana',
+    'espanol',
+    'esta',
+    'estoy',
+    'favor',
+    'gira',
+    'gracias',
+    'hablo',
+    'hola',
+    'hospital',
+    'izquierda',
+    'la',
+    'llego',
+    'llamo',
+    'luego',
+    'mal',
+    'me',
+    'medico',
+    'mucho',
+    'necesito',
+    'no',
+    'pan',
+    'pero',
+    'policia',
+    'por',
+    'que',
+    'recto',
+    'repite',
+    'se',
+    'si',
+    'sigue',
+    'soy',
+    'tal',
+    'te',
+    'tengo',
+    'tiene',
+    'tienes',
+    'toma',
+    'un',
+    'una',
+    'vivo',
+    'voy',
+  };
+
+  return tokens.any(spanishMarkers.contains);
+}
+
+bool _looksLikeSupportEnglish(String value) {
+  final lower = value.toLowerCase();
+  final tokens = RegExp(r"[a-z]+").allMatches(lower).map((match) {
+    return match.group(0)!;
+  }).toSet();
+  const englishMarkers = {
+    'a',
+    'about',
+    'afternoon',
+    'am',
+    'and',
+    'answer',
+    'are',
+    'bad',
+    'book',
+    'bus',
+    'do',
+    'doctor',
+    'does',
+    'eight',
+    'evening',
+    'far',
+    'fine',
+    'for',
+    'four',
+    'friend',
+    'from',
+    'go',
+    'good',
+    'goodbye',
+    'hello',
+    'help',
+    'how',
+    'hungry',
+    'i',
+    'is',
+    'key',
+    'language',
+    'left',
+    'like',
+    'little',
+    'lives',
+    'meaning',
+    'morning',
+    'mother',
+    'my',
+    'name',
+    'near',
+    'not',
+    'of',
+    'person',
+    'please',
+    'question',
+    'right',
+    'sixteen',
+    'speak',
+    'speaks',
+    'straight',
+    'student',
+    'teacher',
+    'thank',
+    'thanks',
+    'the',
+    'to',
+    'train',
+    'turn',
+    'very',
+    'welcome',
+    'what',
+    'where',
+    'which',
+    'who',
+    'you',
+    'your',
+  };
+
+  return tokens.any(englishMarkers.contains);
+}
+
 class EducationalContentLocalizationValidator {
   const EducationalContentLocalizationValidator();
 
@@ -481,6 +988,14 @@ class EducationalContentLocalizationValidator {
   }) {
     final issues = <EducationalContentLocalizationValidationIssue>[];
     final knownIdsByType = _knownIdsByType(course, contentBundle);
+    final requiredFields = {
+      for (final field in const EducationalContentLocalizationInventory().build(
+        course: course,
+        contentBundle: contentBundle,
+      ))
+        field.fieldKey: field,
+    };
+    final localizedFieldKeys = <String>{};
     final seen = <String>{};
 
     for (final locale in localization.supportLocales) {
@@ -515,6 +1030,17 @@ class EducationalContentLocalizationValidator {
       }
 
       for (final field in entry.fields.entries) {
+        final fieldKey = '$key|${field.key}';
+        localizedFieldKeys.add(fieldKey);
+        if (!requiredFields.containsKey(fieldKey)) {
+          issues.add(
+            EducationalContentLocalizationValidationIssue(
+              code: 'unknown_localized_field',
+              message: 'Localized field is not in inventory: $fieldKey',
+            ),
+          );
+        }
+
         final source = field.value[localization.sourceSupportLocale];
         if (source == null || source.trim().isEmpty) {
           issues.add(
@@ -537,6 +1063,19 @@ class EducationalContentLocalizationValidator {
             );
           }
         }
+      }
+    }
+
+    for (final field in requiredFields.values) {
+      if (!localizedFieldKeys.contains(field.fieldKey)) {
+        issues.add(
+          EducationalContentLocalizationValidationIssue(
+            code: 'missing_required_source_field',
+            message:
+                'Missing required ${localization.sourceSupportLocale} source '
+                'for ${field.entryKey} ${field.fieldName}',
+          ),
+        );
       }
     }
 

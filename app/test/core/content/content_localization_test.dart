@@ -160,17 +160,100 @@ void main() {
           'missing_source_support_text',
           'duplicate_localization_entry',
           'unknown_localized_id',
+          'unknown_localized_field',
         ]),
       );
     },
   );
 
   test(
-    'coverage report distinguishes translated fields from fallback fields',
+    'English source inventory covers every localizable educational field',
+    () async {
+      final localization = await _loadLocalization();
+      final course = await CurriculumLoader().loadCourse();
+      final content = await ContentLoader().loadLanguagePackContent();
+      final inventory = const EducationalContentLocalizationInventory().build(
+        course: course,
+        contentBundle: content,
+      );
+      final issues = const EducationalContentLocalizationValidator().validate(
+        localization: localization,
+        course: course,
+        contentBundle: content,
+      );
+      final summaries = const EducationalContentLocalizationInventory()
+          .summarize(inventory: inventory, localization: localization);
+
+      expect(inventory.length, 2741);
+      expect(
+        summaries.map(
+          (summary) => (
+            summary.category,
+            summary.totalLocalizableFields,
+            summary.englishSourceFields,
+            summary.missingEnglishSourceFields,
+            summary.invalidFields,
+          ),
+        ),
+        containsAll([
+          ('course metadata', 1, 1, 0, 0),
+          ('module metadata', 9, 9, 0, 0),
+          ('lesson metadata', 210, 210, 0, 0),
+          ('lesson objectives', 70, 70, 0, 0),
+          ('lesson sections', 70, 70, 0, 0),
+          ('lesson activities', 311, 311, 0, 0),
+          ('lesson summaries', 70, 70, 0, 0),
+          ('vocabulary', 515, 515, 0, 0),
+          ('grammar', 374, 374, 0, 0),
+          ('dialogues', 353, 353, 0, 0),
+          ('readings', 152, 152, 0, 0),
+          ('exercise prompts', 495, 495, 0, 0),
+          ('support-language answer options', 111, 111, 0, 0),
+        ]),
+      );
+      expect(issues, isEmpty);
+    },
+  );
+
+  test(
+    'inventory localizes support answer options without translating Spanish choices',
+    () async {
+      final course = await CurriculumLoader().loadCourse();
+      final content = await ContentLoader().loadLanguagePackContent();
+      final inventory = const EducationalContentLocalizationInventory().build(
+        course: course,
+        contentBundle: content,
+      );
+      final fieldKeys = inventory.map((field) => field.fieldKey).toSet();
+
+      expect(
+        fieldKeys,
+        contains(
+          'exercise_template|template.es.a0.unit1.greeting_choice.v1|'
+          'answer_options.option.hello.label',
+        ),
+      );
+      expect(
+        fieldKeys,
+        isNot(
+          contains(
+            'exercise_template|template.es.a0.m09.l061.condition_choice.v1|'
+            'answer_options.bien.label',
+          ),
+        ),
+      );
+    },
+  );
+
+  test(
+    'coverage report distinguishes source fields from fallback fields',
     () async {
       final localization = await _loadLocalization();
       final coverage = const EducationalContentLocalizationCoverageReporter()
           .report(localization);
+      final english = coverage.firstWhere(
+        (entry) => entry.locale == SupportLocale.english,
+      );
       final russian = coverage.firstWhere(
         (entry) => entry.locale == SupportLocale.russian,
       );
@@ -178,10 +261,13 @@ void main() {
         (entry) => entry.locale == SupportLocale.ukrainian,
       );
 
-      expect(russian.totalFields, greaterThan(0));
-      expect(russian.translatedFields, russian.totalFields);
-      expect(russian.fallbackFields, 0);
-      expect(ukrainian.totalFields, russian.totalFields);
+      expect(english.totalFields, 2741);
+      expect(english.translatedFields, english.totalFields);
+      expect(english.fallbackFields, 0);
+      expect(russian.totalFields, english.totalFields);
+      expect(russian.translatedFields, greaterThan(0));
+      expect(russian.fallbackFields, greaterThan(0));
+      expect(ukrainian.totalFields, english.totalFields);
       expect(ukrainian.translatedFields, 0);
       expect(ukrainian.fallbackFields, ukrainian.totalFields);
     },

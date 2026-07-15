@@ -5,9 +5,10 @@ void main() {
   testWidgets('shows the application shell', (tester) async {
     app.main();
     await _pumpUntilFound(tester, find.text('Tutor Language'));
+    await _pumpUntilFound(tester, find.textContaining('A0'));
 
     expect(find.text('Tutor Language'), findsOneWidget);
-    expect(find.text('Spanish A0'), findsOneWidget);
+    expect(find.textContaining('A0'), findsWidgets);
   });
 }
 

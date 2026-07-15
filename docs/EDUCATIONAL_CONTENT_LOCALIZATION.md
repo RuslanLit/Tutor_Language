@@ -203,7 +203,7 @@ Learner-facing explanatory content:
 - lesson descriptions;
 - section and activity titles;
 - exercise `prompt_template` when it gives learner instructions;
-- support-language answer option labels;
+- answer option labels only when the visible option is support-language text;
 - authored remediation and misconception explanation text.
 
 ## LOCALE_INDEPENDENT
@@ -279,15 +279,36 @@ No database schema change is required for educational-content localization.
 Validation must detect:
 
 - unknown localized IDs;
+- unknown localized fields;
 - duplicate localization entries;
 - unsupported locale codes;
 - missing English source support text;
+- missing required English source fields;
 - malformed locale maps.
 
 Runtime fallback and release validation are separate.
 
 Release validation for a completed support-language package may require full
 coverage for that locale.
+
+The complete R2E1 English source inventory is recorded in:
+
+```text
+docs/CONTENT_LOCALIZATION_R2E1_INVENTORY.md
+```
+
+The inventory generation tool is:
+
+```text
+app/tool/generate_content_localization_source.dart
+```
+
+Before translating any non-English support locale, English source coverage must
+have:
+
+- missing required fields = 0;
+- invalid fields = 0;
+- coverage = 100%.
 
 ---
 
@@ -303,7 +324,8 @@ The localization coverage report measures, by support locale:
 
 R2D validates only a minimal production reference slice.
 
-Full-course support-language coverage belongs to R2E.
+R2E1 validates full-course English source coverage before the translated
+support locales are completed in later R2E stages.
 
 ---
 
