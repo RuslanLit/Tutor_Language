@@ -25,6 +25,11 @@ It owns Educational Content object responsibilities, supported content types, re
 
 It does not define learner-facing writing style, Course sequencing, Module structure or publication approval.
 
+Educational-content localization is defined in
+EDUCATIONAL_CONTENT_LOCALIZATION.md. Do not place vocabulary meanings, grammar
+explanations, authored prompts, dialogue translations or remediation text in
+Flutter ARB files.
+
 For learner-facing tone, explanation style and example naturalness, use AUTHORING_STYLE_GUIDE.md.
 
 For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.

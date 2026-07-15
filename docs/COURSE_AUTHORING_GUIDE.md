@@ -25,6 +25,11 @@ It specifies how educational content is organized into complete learning program
 
 It does not define implementation details, lesson planning or lesson assembly.
 
+Course, module and lesson titles are authored educational metadata. Their
+support-language localization is defined in
+EDUCATIONAL_CONTENT_LOCALIZATION.md and must not be moved into application UI
+ARB files.
+
 For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
 
 For Educational Content object authoring, use CONTENT_AUTHORING_GUIDE.md.

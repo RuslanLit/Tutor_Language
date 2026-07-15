@@ -113,6 +113,11 @@ Every knowledge object:
 - is reusable;
 - never stores learner progress.
 
+Educational Content may contain target-language material and support-language
+presentation text. Support-language presentation text is localized through the
+educational-content localization system, not through application UI ARB files.
+Stable identifiers and target-language forms remain locale-independent.
+
 ---
 
 # Course

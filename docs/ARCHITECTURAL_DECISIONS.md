@@ -170,6 +170,57 @@ No core educational component may require Internet access.
 
 ---
 
+# ADR-0014
+
+Status
+
+Accepted
+
+Title
+
+Educational Content Localization Is Separate from UI Localization
+
+Context
+
+Tutor Language localizes application chrome through Flutter ARB files. Authored
+course content also contains learner-facing support-language text such as
+vocabulary meanings, grammar explanations, lesson titles, dialogue translations
+and exercise prompts.
+
+Placing authored educational content in ARB files would couple course authoring
+to product UI localization and would make language packs harder to review,
+validate and expand.
+
+Decision
+
+Educational-content localization belongs to the content system.
+
+UI locale, support locale and target language are distinct concepts.
+
+For version 1, support locale follows the resolved UI locale with deterministic
+English fallback.
+
+Spanish target-language material and stable educational IDs remain
+locale-independent.
+
+Rationale
+
+This preserves offline operation, deterministic loading, stable learner
+progress, language-pack portability, reviewable educational assets and future
+support for UI locale and support locale being different.
+
+Consequences
+
+The application uses a support-locale resolver and educational-content
+localization overlays.
+
+Widgets do not select localized educational fields manually.
+
+Complete course translations remain a content-authoring task after the
+architecture is in place.
+
+---
+
 # ADR-0003
 
 Status

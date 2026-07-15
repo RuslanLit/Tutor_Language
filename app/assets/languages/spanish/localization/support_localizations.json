@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "targetLanguage": "es",
+  "sourceSupportLocale": "en",
+  "supportLocales": [
+    "en",
+    "uk",
+    "ru",
+    "pl",
+    "de"
+  ],
+  "entries": [
+    {
+      "type": "course",
+      "id": "es.a0",
+      "fields": {
+        "title": {
+          "en": "Spanish A0",
+          "ru": "Испанский A0"
+        }
+      }
+    },
+    {
+      "type": "module",
+      "id": "es.a0.m01",
+      "fields": {
+        "title": {
+          "en": "First Words and Reading",
+          "ru": "Первые слова и чтение"
+        }
+      }
+    },
+    {
+      "type": "lesson",
+      "id": "es.a0.m01.l001",
+      "fields": {
+        "title": {
+          "en": "Hello and Goodbye",
+          "ru": "Приветствие и прощание"
+        },
+        "description": {
+          "en": "Greet someone and say goodbye with short Spanish phrases.",
+          "ru": "Поздоровайтесь и попрощайтесь короткими испанскими фразами."
+        },
+        "communicativeOutcome": {
+          "en": "Greet and say goodbye.",
+          "ru": "Поздороваться и попрощаться."
+        }
+      }
+    },
+    {
+      "type": "lesson_objective",
+      "id": "es.a0.m01.l001.objective.greetings.basic",
+      "fields": {
+        "description": {
+          "en": "Greet and say goodbye with hola, adiós, and hasta luego.",
+          "ru": "Поздороваться и попрощаться с помощью hola, adiós и hasta luego."
+        }
+      }
+    },
+    {
+      "type": "lesson_section",
+      "id": "es.a0.m01.l001.section.main",
+      "fields": {
+        "title": {
+          "en": "Main Activities",
+          "ru": "Основные задания"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.vocabulary.greetings",
+      "fields": {
+        "title": {
+          "en": "Vocabulary",
+          "ru": "Словарь"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.practice.greetings",
+      "fields": {
+        "title": {
+          "en": "Practice",
+          "ru": "Практика"
+        }
+      }
+    },
+    {
+      "type": "lesson_summary",
+      "id": "es.a0.m01.l001.summary",
+      "fields": {
+        "reviewPrompt": {
+          "en": "Can you greet someone and say goodbye without help?",
+          "ru": "Можете ли вы поздороваться и попрощаться без подсказки?"
+        }
+      }
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.unit1.hola.v1",
+      "fields": {
+        "native_translation": {
+          "en": "hello",
+          "ru": "привет"
+        },
+        "notes": {
+          "en": "A simple greeting used at any time of day.",
+          "ru": "Простое приветствие, которое можно использовать в любое время дня."
+        }
+      }
+    },
+    {
+      "type": "vocabulary",
+      "id": "vocab.es.a0.unit1.adios.v1",
+      "fields": {
+        "native_translation": {
+          "en": "goodbye",
+          "ru": "до свидания"
+        },
+        "notes": {
+          "en": "A common way to say goodbye.",
+          "ru": "Обычный способ попрощаться."
+        }
+      }
+    },
+    {
+      "type": "grammar",
+      "id": "grammar.es.a0.unit1.personal_pronouns.v1",
+      "fields": {
+        "title": {
+          "en": "Personal pronouns: yo and tú",
+          "ru": "Личные местоимения: yo и tú"
+        },
+        "explanation": {
+          "en": "Spanish uses personal pronouns to show who is speaking or being addressed. In first-contact phrases, yo means I and tú means you.",
+          "ru": "В испанском личные местоимения показывают, кто говорит или к кому обращаются. В первых фразах yo значит «я», а tú значит «ты»."
+        },
+        "examples.0": {
+          "en": "Yo soy Ana. = I am Ana.",
+          "ru": "Yo soy Ana. = Я Ана."
+        }
+      }
+    },
+    {
+      "type": "dialogue",
+      "id": "dialogue.es.a0.unit1.hello_goodbye.v1",
+      "fields": {
+        "title": {
+          "en": "Greeting Exchange",
+          "ru": "Обмен приветствиями"
+        },
+        "lines.0.native_translation": {
+          "en": "Good morning.",
+          "ru": "Доброе утро."
+        },
+        "lines.1.native_translation": {
+          "en": "Hello.",
+          "ru": "Привет."
+        },
+        "lines.2.native_translation": {
+          "en": "See you later.",
+          "ru": "До встречи."
+        },
+        "lines.3.native_translation": {
+          "en": "Goodbye.",
+          "ru": "До свидания."
+        }
+      }
+    },
+    {
+      "type": "reading",
+      "id": "reading.es.a0.unit1.greeting_recognition.v1",
+      "fields": {
+        "title": {
+          "en": "Greetings and Goodbyes",
+          "ru": "Приветствия и прощания"
+        },
+        "native_translation": {
+          "en": "Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye.",
+          "ru": "Привет. Доброе утро. Привет. Добрый день. До встречи. Добрый вечер. До свидания."
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.unit1.greeting_choice.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Choose the meaning of \"hola\".",
+          "ru": "Выберите значение «hola»."
+        },
+        "answer_options.option.hello.label": {
+          "en": "hello",
+          "ru": "привет"
+        },
+        "answer_options.option.goodbye.label": {
+          "en": "goodbye",
+          "ru": "до свидания"
+        },
+        "answer_options.option.please.label": {
+          "en": "please",
+          "ru": "пожалуйста"
+        }
+      }
+    }
+  ]
+}

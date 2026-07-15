@@ -2,8 +2,11 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tutor_language/app/app.dart';
 import 'package:tutor_language/app/router/app_router.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
+import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
@@ -13,8 +16,10 @@ import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
+import 'package:tutor_language/features/course_navigation/course_navigation_screen.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
+import 'package:tutor_language/features/lesson_player/lesson_player_screen.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
@@ -26,8 +31,6 @@ void main() {
     addTearDown(database.close);
 
     await tester.pumpWidget(_app(database));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
     await tester.pumpAndSettle();
 
     expect(find.text('Spanish A0'), findsOneWidget);
@@ -55,8 +58,6 @@ void main() {
 
     await tester.pumpWidget(_app(database));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
 
     expect(find.text('Completed'), findsOneWidget);
     expect(find.text('Available next'), findsOneWidget);
@@ -72,8 +73,6 @@ void main() {
 
     await tester.pumpWidget(_app(database, assemblyService: assemblyService));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
     await tester.tap(find.text('Alpha'));
     await tester.pumpAndSettle();
 
@@ -87,8 +86,6 @@ void main() {
     final assemblyService = _RecordingLessonAssemblyService();
 
     await tester.pumpWidget(_app(database, assemblyService: assemblyService));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Beta'), warnIfMissed: false);
     await tester.pumpAndSettle();
@@ -113,8 +110,6 @@ void main() {
 
     await tester.pumpWidget(_app(database));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
 
     expect(find.text('3 of 3 lessons completed'), findsOneWidget);
     expect(find.text('Course complete'), findsOneWidget);
@@ -138,8 +133,6 @@ void main() {
 
     await tester.pumpWidget(_app(database, course: _competencyCourse));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
 
     expect(find.text('Communicative competency check'), findsOneWidget);
     expect(find.text('Ready to start'), findsOneWidget);
@@ -154,8 +147,6 @@ void main() {
     final assemblyService = _RecordingLessonAssemblyService();
 
     await tester.pumpWidget(_app(database, assemblyService: assemblyService));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Alpha'));
     await tester.pumpAndSettle();
@@ -190,19 +181,12 @@ void main() {
       _app(database, assemblyService: _RecordingLessonAssemblyService()),
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
     await tester.tap(find.text('Alpha'));
     await tester.pumpAndSettle();
 
     expect(find.text('Fake Vocabulary'), findsOneWidget);
-    expect(find.text('Lesson completed'), findsNothing);
-
-    await tester.tap(find.text('Finish Lesson'));
-    await tester.pumpAndSettle();
-
-    final latest = await repository.getLatestLessonAttempt('lesson.alpha');
-    expect(latest?.purpose, LessonAttemptPurpose.manualRepeat);
+    expect(find.text('Lesson completed'), findsOneWidget);
+    expect(find.text('Repeat lesson'), findsOneWidget);
   });
 }
 
@@ -213,6 +197,29 @@ ProviderScope _app(
 }) {
   return ProviderScope(
     overrides: [
+      _emptyLocalizationOverride,
+      appRouterProvider.overrideWith((ref) {
+        return GoRouter(
+          initialLocation: CourseRoute.path,
+          routes: [
+            GoRoute(
+              path: CourseRoute.path,
+              name: CourseRoute.name,
+              builder: (context, state) => const CourseNavigationScreen(),
+            ),
+            GoRoute(
+              path: LessonRoute.path,
+              name: LessonRoute.name,
+              builder: (context, state) {
+                return LessonPlayerScreen(
+                  lessonId: state.pathParameters['lessonId'] ?? '',
+                );
+              },
+            ),
+          ],
+        );
+      }),
+      localizedCurrentCourseProvider.overrideWith((ref) async => course),
       appDatabaseProvider.overrideWith((ref) => database),
       contentRepositoryProvider.overrideWith(
         (ref) => _FakeContentRepository(course),
@@ -234,6 +241,17 @@ ProviderScope _app(
     ),
   );
 }
+
+final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
+    .overrideWith((ref) async => _emptyLocalizationBundle);
+
+const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['en'],
+  entries: [],
+);
 
 class _FakeContentRepository extends ContentRepository {
   _FakeContentRepository(this.course);

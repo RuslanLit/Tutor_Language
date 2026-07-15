@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
+import '../../core/content/content_localization_providers.dart';
 import '../../core/content/content_providers.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
@@ -18,7 +19,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final language = ref.watch(currentLanguageProvider);
-    final course = ref.watch(currentCourseProvider);
+    final course = ref.watch(localizedCurrentCourseProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -101,7 +102,7 @@ class LessonTile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    final course = ref.watch(currentCourseProvider).asData?.value;
+    final course = ref.watch(localizedCurrentCourseProvider).asData?.value;
     final progress = ref.watch(topicProgressProvider(lessonId));
     final lesson = _lessonById(course, lessonId);
 

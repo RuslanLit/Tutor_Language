@@ -182,6 +182,13 @@ Generation 1 ships only with the Spanish Language Pack.
 
 This limits content scope, not engine architecture.
 
+Educational-content localization is part of the Language Pack content system,
+not Flutter UI localization. UI locale, support locale and target language are
+distinct concepts. The runtime resolves authored support-language text through
+the educational-content localization layer while preserving stable educational
+IDs and target-language material. The detailed source of truth is
+EDUCATIONAL_CONTENT_LOCALIZATION.md.
+
 Educational Content
 
 Educational Content defines every educational object available to the application.

@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
 import 'package:tutor_language/app/router/app_router.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
+import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
@@ -130,6 +132,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          _emptyLocalizationOverride,
           contentRepositoryProvider.overrideWith(
             (ref) => _FakeContentRepository(),
           ),
@@ -231,6 +234,7 @@ Widget _app({
 }) {
   return ProviderScope(
     overrides: [
+      _emptyLocalizationOverride,
       appDatabaseProvider.overrideWith((ref) {
         final database = AppDatabase(NativeDatabase.memory());
         ref.onDispose(database.close);
@@ -248,6 +252,17 @@ Widget _app({
     ),
   );
 }
+
+final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
+    .overrideWith((ref) async => _emptyLocalizationBundle);
+
+const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['en'],
+  entries: [],
+);
 
 class _RecordingPlanner extends RuleBasedLessonPlanner {
   _RecordingPlanner(this.selectedPlan);

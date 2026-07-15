@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
+import '../../core/content/content_localization.dart';
+import '../../core/content/content_localization_providers.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../lesson_assembly/lesson_assembly_service.dart';
@@ -15,8 +17,21 @@ final lessonAssemblyServiceProvider = Provider<LessonAssemblyService>((ref) {
 final assembledLessonProvider = FutureProvider.family<LessonContent, String>((
   ref,
   lessonId,
-) {
-  return ref.watch(lessonAssemblyServiceProvider).assembleLesson(lessonId);
+) async {
+  final supportLocale = ref.watch(supportLocaleProvider);
+  final lessonContent = await ref
+      .watch(lessonAssemblyServiceProvider)
+      .assembleLesson(lessonId);
+  final localization = await ref.watch(
+    educationalContentLocalizationBundleProvider.future,
+  );
+  final resolver = EducationalContentLocalizationResolver(localization);
+
+  return resolveLocalizedLessonContent(
+    lessonContent: lessonContent,
+    resolver: resolver,
+    supportLocale: supportLocale,
+  );
 });
 
 final lessonPlayerSessionProvider =

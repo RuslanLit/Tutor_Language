@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:drift/native.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tutor_language/app/router/app_router.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
+import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
@@ -22,6 +24,17 @@ import 'package:tutor_language/features/lesson_launch/lesson_launch_intent.dart'
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_screen.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
+
+final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
+    .overrideWith((ref) async => _emptyLocalizationBundle);
+
+const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['en'],
+  entries: [],
+);
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -489,6 +502,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
+          _emptyLocalizationOverride,
           appDatabaseProvider.overrideWith((ref) {
             final database = AppDatabase(NativeDatabase.memory());
             ref.onDispose(database.close);
@@ -1043,6 +1057,7 @@ Widget _app(
 }) {
   return ProviderScope(
     overrides: [
+      _emptyLocalizationOverride,
       appDatabaseProvider.overrideWith((ref) {
         final providedDatabase = database;
         if (providedDatabase != null) {
@@ -1114,6 +1129,7 @@ Widget _routerApp({
 
   return ProviderScope(
     overrides: [
+      _emptyLocalizationOverride,
       appDatabaseProvider.overrideWith((ref) {
         final providedDatabase = database;
         if (providedDatabase != null) {

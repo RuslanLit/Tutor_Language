@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2C — Complete Interface Translations
+R2D — Educational Content Localization Architecture
 
 Overall Readiness:
 IN PROGRESS
@@ -186,6 +186,38 @@ Verification
 [x] Course screen localized on device
 
 [x] Settings/About localized on device
+```
+
+Educational Content
+
+```
+[x] educational-content localization architecture defined
+
+[x] support locale separated from UI locale
+
+[x] target language separated from support language
+
+[x] deterministic English fallback defined
+
+[x] localized content loading/resolution implemented
+
+[x] localization validation implemented
+
+[x] translation coverage reporting implemented
+
+[x] minimal production reference slice validated
+
+[ ] Spanish A0 English support content normalized
+
+[ ] Spanish A0 Ukrainian support translation complete
+
+[ ] Spanish A0 Russian support translation complete
+
+[ ] Spanish A0 Polish support translation complete
+
+[ ] Spanish A0 German support translation complete
+
+[ ] full localized course device QA
 ```
 
 ---

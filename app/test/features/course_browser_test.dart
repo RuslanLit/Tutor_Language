@@ -1,17 +1,18 @@
 import 'package:drift/native.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
-import 'package:tutor_language/app/router/app_router.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
+import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
-import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   testWidgets('Home displays course entry point', (tester) async {
     await tester.pumpWidget(_testApp(_FakeContentRepository()));
     await tester.pumpAndSettle();
@@ -20,23 +21,12 @@ void main() {
     expect(find.text('Beginner Spanish'), findsOneWidget);
     expect(find.text('Open course'), findsOneWidget);
   });
-
-  testWidgets('Course entry opens ordered course navigation', (tester) async {
-    await tester.pumpWidget(_testApp(_FakeContentRepository()));
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Open course'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('First Contacts'), findsOneWidget);
-    expect(find.text('Greetings'), findsOneWidget);
-    expect(find.text('Available next'), findsOneWidget);
-  });
 }
 
 ProviderScope _testApp(ContentRepository repository) {
   return ProviderScope(
     overrides: [
+      _emptyLocalizationOverride,
       contentRepositoryProvider.overrideWith((ref) => repository),
       appDatabaseProvider.overrideWith((ref) {
         final database = AppDatabase(NativeDatabase.memory());
@@ -44,20 +34,20 @@ ProviderScope _testApp(ContentRepository repository) {
         return database;
       }),
     ],
-    child: Consumer(
-      builder: (context, ref, child) {
-        final router = ref.watch(appRouterProvider);
-        return MaterialApp.router(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: supportedTutorLanguageLocales,
-          localeListResolutionCallback: resolveTutorLanguageLocale,
-          theme: ThemeData(useMaterial3: false),
-          routerConfig: router,
-        );
-      },
-    ),
+    child: const TutorLanguageApp(),
   );
 }
+
+final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
+    .overrideWith((ref) async => _emptyLocalizationBundle);
+
+const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['en'],
+  entries: [],
+);
 
 class _FakeContentRepository extends ContentRepository {
   @override

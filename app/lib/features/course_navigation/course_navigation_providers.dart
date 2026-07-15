@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/content/content_providers.dart';
+import '../../core/content/content_localization_providers.dart';
 import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import 'course_navigation_models.dart';
@@ -15,7 +15,7 @@ final courseNavigationServiceProvider = Provider<CourseNavigationService>((
 final courseNavigationStateProvider = FutureProvider<CourseNavigationState>((
   ref,
 ) async {
-  final course = await ref.watch(currentCourseProvider.future);
+  final course = await ref.watch(localizedCurrentCourseProvider.future);
   final progressEvents = await ref.watch(learnerProgressEventsProvider.future);
   final completedLessonIds = _completedLessonIds(progressEvents);
 
@@ -29,7 +29,7 @@ final courseNavigationStateProvider = FutureProvider<CourseNavigationState>((
 
 final nextOrderedLessonProvider = FutureProvider.family<OrderedLesson?, String>(
   (ref, lessonId) async {
-    final course = await ref.watch(currentCourseProvider.future);
+    final course = await ref.watch(localizedCurrentCourseProvider.future);
 
     return ref
         .watch(courseNavigationServiceProvider)
@@ -40,7 +40,7 @@ final nextOrderedLessonProvider = FutureProvider.family<OrderedLesson?, String>(
 final orderedCourseLessonsProvider = FutureProvider<List<OrderedLesson>>((
   ref,
 ) async {
-  final course = await ref.watch(currentCourseProvider.future);
+  final course = await ref.watch(localizedCurrentCourseProvider.future);
 
   return ref
       .watch(courseNavigationServiceProvider)
