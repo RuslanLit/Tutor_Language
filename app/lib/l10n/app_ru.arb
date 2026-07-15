@@ -1,3 +1,371 @@
 {
-  "@@locale": "ru"
+  "@@locale": "ru",
+  "appTitle": "Tutor Language",
+  "settingsTooltip": "Настройки",
+  "backTooltip": "Назад",
+  "backToCourse": "Назад к курсу",
+  "openCourse": "Открыть курс",
+  "courseTitle": "Курс",
+  "courseProgress": "Выполнено {completed} из {total} уроков",
+  "@courseProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "courseComplete": "Курс завершён",
+  "noUnitsAvailable": "Нет доступных разделов.",
+  "noLessonsAvailable": "Нет доступных уроков.",
+  "lessonStatusCompleted": "Завершено",
+  "lessonStatusAvailableNext": "Доступно следующим",
+  "lessonStatusLocked": "Заблокировано",
+  "moduleNumber": "Модуль {number}",
+  "@moduleNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonNumber": "Урок {number}",
+  "@lessonNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "competencyCheck": "Проверка коммуникативного навыка",
+  "competencyAchieved": "Коммуникативный навык подтверждён",
+  "competencyAchievedAfterReview": "Коммуникативный навык подтверждён после повторения",
+  "competencyNeedsPractice": "Коммуникативному навыку нужна практика",
+  "competencyNotYetAchieved": "Коммуникативный навык ещё не подтверждён",
+  "competencyCompleteModuleFirst": "Сначала завершите этот модуль",
+  "competencyReadyToStart": "Можно начинать",
+  "competencyContinueCheck": "Продолжить проверку",
+  "competencyGoalDemonstrated": "Вы показали цель этого модуля",
+  "competencySucceededAfterReview": "Вы справились после целевого повторения",
+  "competencyRetryWhenReady": "Повторите проверку, когда будете готовы",
+  "start": "Начать",
+  "continueAction": "Продолжить",
+  "retry": "Повторить",
+  "lessonTitle": "Урок",
+  "previousLesson": "Предыдущий урок",
+  "nextLesson": "Следующий урок",
+  "lessonLaunchError": "Не удалось открыть урок.\n{error}",
+  "@lessonLaunchError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonPlayerTitle": "Урок",
+  "leaveLessonTitle": "Выйти из урока?",
+  "leaveLessonBody": "Незавершённый урок начнётся заново, когда вы откроете его снова.",
+  "stay": "Остаться",
+  "leaveLesson": "Выйти из урока",
+  "noActivitiesAvailable": "Нет доступных заданий.",
+  "previous": "← Назад",
+  "next": "Далее →",
+  "stepCounter": "Шаг {current} / {total}",
+  "@stepCounter": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "finishLesson": "Завершить урок",
+  "finishing": "Завершение...",
+  "completionSaveError": "Не удалось сохранить завершение урока. Попробуйте ещё раз.",
+  "lessonCompleted": "Урок завершён",
+  "continueToNextLesson": "Перейти к следующему уроку",
+  "repeatLesson": "Повторить урок",
+  "repeatCheckpoint": "Повторить контрольную проверку",
+  "reviewCompletedLessons": "Просмотреть завершённые уроки",
+  "someTopicsNeedReinforcement": "Некоторые темы потребуют закрепления.",
+  "lessonMasteredOutcome": "Показано уверенное усвоение.",
+  "lessonReinforcementOutcome": "Завершено с закреплением.",
+  "lessonIncompleteOutcome": "Результат урока неполный.",
+  "lessonMastered": "Урок усвоен",
+  "courseCompletionRecommended": "Курс завершён. Продолжайте повторять завершённые уроки.",
+  "quickReview": "Краткое повторение",
+  "mastered": "Усвоено",
+  "fragileMastery": "Хорошая работа. Здесь нужно ещё немного практики.",
+  "unsupportedContent": "Неподдерживаемое содержимое: {type}",
+  "@unsupportedContent": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "buildsOnEarlierMaterial": "Опирается на предыдущий материал.",
+  "stepTypeVocabulary": "лексика",
+  "stepTypeGrammar": "грамматика",
+  "stepTypeDialogue": "диалог",
+  "stepTypeReading": "чтение",
+  "stepTypeExercise": "упражнение",
+  "stepTypeMixed": "смешанное",
+  "answerLabel": "Ответ",
+  "checkAnswer": "Проверить",
+  "selectedAnswer": "Выбранный ответ: {answer}",
+  "@selectedAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "correct": "Правильно",
+  "acceptedWithCorrection": "Принято с исправлением",
+  "tryAgain": "Попробуйте ещё раз",
+  "notCorrectYet": "Пока не правильно",
+  "incorrect": "Неправильно",
+  "unsupportedActivityType": "Неподдерживаемый тип задания",
+  "unsupportedActivityTypeValue": "Неподдерживаемый тип задания: {type}",
+  "@unsupportedActivityTypeValue": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "matchingNotCheckableYet": "Это задание на сопоставление пока нельзя проверить.",
+  "recommendedAnswer": "Рекомендуемый ответ: {answer}",
+  "@recommendedAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackBullet": "- {message}",
+  "@feedbackBullet": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "exercisePromptSemantics": "Условие упражнения: {prompt}",
+  "@exercisePromptSemantics": {
+    "placeholders": {
+      "prompt": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsTitle": "О приложении и настройки",
+  "releaseStatusLabel": "Ранний публичный выпуск",
+  "releaseScopeLabel": "Офлайн-курс испанского A0",
+  "versionLabel": "Версия {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "privacyTitle": "Приватность",
+  "privacyOffline": "Работает офлайн.",
+  "privacyNoAccount": "Учётная запись не требуется.",
+  "privacyNoTracking": "Реклама, отслеживание и аналитика не используются.",
+  "privacyNoAi": "Во время уроков приложение не обращается к AI-сервисам.",
+  "privacyLocalProgress": "Прогресс обучения хранится на этом устройстве.",
+  "feedbackTitle": "Обратная связь",
+  "feedbackBody": "Для этого раннего выпуска сообщайте о проблемах через репозиторий проекта или напрямую сопровождающему проекта.",
+  "licensesTitle": "Лицензии и благодарности",
+  "licensesBody": "Tutor Language создан на Flutter и содержит авторский учебный контент испанского A0. Полная информация о лицензиях и сторонних компонентах будет включена в публичный релизный пакет.",
+  "competencyScreenTitle": "Проверка навыка",
+  "competencyUnavailable": "Проверка навыка недоступна.",
+  "competencyUnavailableWithError": "Проверка навыка недоступна. {error}",
+  "@competencyUnavailableWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "competencyTaskUnavailable": "Это задание проверки недоступно.",
+  "competencyDiagnosticIntro": "Покажите, что можете сделать без подсказок.",
+  "competencyRetryIntro": "Попробуйте исходное задание ещё раз.",
+  "competencyRecoveryIntro": "Коротко повторим одну часть и попробуем снова.",
+  "startReview": "Начать повторение",
+  "recoveryActivityUnavailable": "Задание для повторения недоступно.",
+  "competencyCheckComplete": "Проверка навыка завершена.",
+  "retryCompetencyCheck": "Повторить проверку навыка",
+  "competencyAchievedTitle": "Навык подтверждён",
+  "competencyAchievedAfterReviewTitle": "Навык подтверждён после повторения",
+  "competencyNeedsPracticeTitle": "Навыку нужна практика",
+  "competencyNotYetAchievedTitle": "Навык ещё не подтверждён",
+  "competencyAchievedDescription": "Вы самостоятельно выполнили коммуникативное задание.",
+  "competencyAchievedAfterReviewDescription": "Вы использовали повторение, а затем выполнили коммуникативное задание.",
+  "competencyNeedsPracticeDescription": "Вы показали часть цели. Повторите, когда будете готовы.",
+  "competencyNotYetAchievedDescription": "Ключевая цель ещё не закреплена. Повторите после просмотра материала.",
+  "notViewed": "Не просмотрено",
+  "viewed": "Просмотрено",
+  "activitiesCount": "{count, plural, =0{Нет заданий} one{1 задание} few{{count} задания} many{{count} заданий} other{{count} задания}}",
+  "@activitiesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noAnswerChoices": "В этом шаблоне нет вариантов ответа.",
+  "unchecked": "Не проверено",
+  "templateType": "Тип: {type}",
+  "@templateType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "templatePrompt": "Условие: {prompt}",
+  "@templatePrompt": {
+    "placeholders": {
+      "prompt": {
+        "type": "String"
+      }
+    }
+  },
+  "requiredObjectTypesCount": "{count, plural, =0{Нет обязательных типов объектов} one{1 обязательный тип объекта} few{{count} обязательных типа объекта} many{{count} обязательных типов объектов} other{{count} обязательного типа объекта}}",
+  "@requiredObjectTypesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "supportedGoalsCount": "{count, plural, =0{Нет поддерживаемых целей} one{1 поддерживаемая цель} few{{count} поддерживаемые цели} many{{count} поддерживаемых целей} other{{count} поддерживаемой цели}}",
+  "@supportedGoalsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "feedbackPreferredOrderNoCanonical": "Здесь принимается другой порядок.",
+  "feedbackPreferredOrder": "Более естественный порядок: {answer}",
+  "@feedbackPreferredOrder": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeQueRequiresAccent": "В этом вопросе «{canonical}» пишется с ударением.",
+  "@feedbackSpanishInterrogativeQueRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeComoRequiresAccent": "В этом вопросе «{canonical}» пишется с ударением.",
+  "@feedbackSpanishInterrogativeComoRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishMissingDiacritic": "Нормативное испанское написание: «{canonical}».",
+  "@feedbackSpanishMissingDiacritic": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishQuestionMissingOpeningMark": "Испанские вопросы начинаются с «¿».",
+  "feedbackSpanishQuestionMissingClosingMark": "Испанские вопросы заканчиваются знаком «?».",
+  "feedbackSpanishExclamationMissingOpeningMark": "Испанские восклицания начинаются с «¡».",
+  "feedbackSpanishExclamationMissingClosingMark": "Испанские восклицания заканчиваются знаком «!».",
+  "feedbackUseCanonicalForm": "Используйте нормативную форму: «{canonical}».",
+  "@feedbackUseCanonicalForm": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackQuestionExpectedStatementProvided": "В этом упражнении нужен вопрос.\nВы написали ответ.\nПопробуйте написать испанский вопрос.",
+  "feedbackStatementExpectedQuestionProvided": "В этом упражнении нужно утверждение.\nВы написали вопрос.\nПопробуйте написать испанское утверждение.",
+  "feedbackAnswerExpectedQuestion": "В этом упражнении нужен ответ.\nВы написали другой вопрос.",
+  "feedbackQuestionExpectedAnswer": "Напишите вопрос, а не ответ.",
+  "feedbackTranslationExpectedSourceLanguage": "Переведите подсказку, а не копируйте её.",
+  "feedbackGreetingExpectedFarewell": "В этом упражнении нужно приветствие.\nВы написали прощание.",
+  "feedbackFarewellExpectedGreeting": "В этом упражнении нужно прощание.\nВы написали приветствие.",
+  "feedbackNamePatternUseMeLlamo": "В этом шаблоне представления используйте «me llamo».",
+  "feedbackOriginUseSer": "Чтобы сказать о происхождении, в испанском используется «soy de».",
+  "feedbackOriginKeepDe": "Сохраняйте «de» в шаблоне происхождения: «soy de».",
+  "feedbackOriginUseSoyDe": "«Soy de» говорит, откуда человек.",
+  "feedbackOriginQuestionIncludeDe": "Чтобы спросить, откуда человек, используйте «¿De dónde eres?».",
+  "feedbackResidenceUseVivoEn": "«Vivo en» говорит, где человек живёт.",
+  "feedbackResidenceQuestionNoDe": "Чтобы спросить, где человек живёт, используйте «¿Dónde vives?».",
+  "feedbackLanguagesUseHablo": "Используйте «hablo», чтобы сказать, на каком языке вы говорите.",
+  "feedbackLanguagesUseLanguageNames": "Используйте названия языков, например «ucraniano» или «ruso».",
+  "feedbackLanguagesKeepDeAfterUnPoco": "Сохраняйте «de» в «un poco de» перед названием языка.",
+  "feedbackLanguagesAskIdiomas": "Используйте «idiomas», когда спрашиваете, на каких языках кто-то говорит.",
+  "feedbackIdentityAskSpecificQuestions": "Используйте вопрос, который соответствует нужной информации.",
+  "feedbackOriginResidenceDoNotSwap": "Не путайте происхождение и место проживания: «soy de» — происхождение, «vivo en» — проживание.",
+  "feedbackPeopleUseEsForOther": "Используйте «es», когда говорите о другом человеке.",
+  "feedbackPeopleUseSeLlama": "Используйте «se llama», чтобы назвать имя другого человека.",
+  "feedbackPeopleUseFeminineRole": "Для этого человека используйте форму роли женского рода.",
+  "feedbackPeopleUseMasculineRole": "Для этого человека используйте форму роли мужского рода.",
+  "feedbackPeopleQuestionQuienNotComo": "«¿Quién es?» спрашивает, кто этот человек.",
+  "feedbackPeopleQuestionComoNotQuien": "«¿Cómo es?» спрашивает, какой этот человек.",
+  "feedbackPeopleUseFeminineDescription": "Для этого человека используйте описание в женском роде.",
+  "feedbackPeopleUseMasculineDescription": "Для этого человека используйте описание в мужском роде.",
+  "feedbackPeopleUseViveForOther": "Используйте «vive», когда говорите, где живёт другой человек.",
+  "feedbackPeopleUseHablaForOther": "Используйте «habla», когда говорите, на каком языке говорит другой человек.",
+  "feedbackPeopleOriginResidenceContrast": "«Es de» говорит о происхождении; «vive en» — о месте проживания.",
+  "feedbackPeopleLanguageNotNationality": "Используйте «habla», чтобы сказать, на каком языке говорит другой человек.",
+  "feedbackPeopleThirdPersonSequence": "Весь ответ о другом человеке должен быть в третьем лице.",
+  "feedbackPeopleQuestionOrderMatters": "Используйте вопросы в порядке, указанном в условии.",
+  "feedbackPeopleQuestionAndPersonForm": "Используйте нужный вопрос и форму глагола для третьего лица.",
+  "feedbackShoppingUseQueForObject": "Используйте «¿Qué es esto?», чтобы спросить, что это за предмет.",
+  "feedbackShoppingUseCuantoForPrice": "Используйте «¿Cuánto cuesta?», чтобы спросить цену.",
+  "feedbackShoppingUseCuestaForPrice": "Используйте «cuesta», когда называете цену одного предмета.",
+  "feedbackShoppingUsePoliteTiene": "В этом модуле используйте вежливый вопрос в магазине «¿Tiene...?».",
+  "feedbackShoppingUseTenemosForShop": "Используйте «tenemos», когда магазин говорит, что у него есть.",
+  "feedbackShoppingUseQuieroForPurchase": "Используйте «quiero», чтобы сказать, что хотите купить.",
+  "feedbackShoppingUseUnaFeminine": "Используйте «una» с отработанным существительным женского рода, например «botella» или «bolsa».",
+  "feedbackShoppingUseEsteMasculine": "Используйте «este» перед отработанным существительным мужского рода, например «libro».",
+  "feedbackShoppingUseEstaFeminine": "Используйте «esta» перед отработанным существительным женского рода, например «bolsa».",
+  "feedbackShoppingUseMasculinePriceAdjective": "С этим существительным мужского рода используйте прилагательное в мужском роде.",
+  "feedbackShoppingUseFemininePriceAdjective": "С этим существительным женского рода используйте прилагательное в женском роде.",
+  "feedbackTransportUseAPie": "Используйте «a pie», когда идёте пешком.",
+  "feedbackDirectionsUseDondeForLocation": "Используйте «¿Dónde está...?», чтобы спросить, где находится место.",
+  "feedbackDirectionsUseEstaForLocation": "Используйте «está», чтобы сказать, где находится место.",
+  "feedbackDirectionsLeftNotRight": "«Izquierda» означает налево.",
+  "feedbackDirectionsRightNotLeft": "«Derecha» означает направо.",
+  "feedbackDirectionsFarNotNear": "«Lejos» означает далеко.",
+  "feedbackDirectionsUseComoForRoute": "Используйте «¿Cómo llego...?», чтобы спросить, как добраться.",
+  "feedbackDirectionsRouteOrderMatters": "В этом упражнении важен порядок маршрута. Следуйте заданной последовательности.",
+  "feedbackTransportUseTomaForAdvice": "Используйте «toma», когда советуете, каким транспортом воспользоваться.",
+  "feedbackDirectionsDirectionNotLocation": "В этом упражнении нужны указания маршрута, а не только расположение места.",
+  "feedbackHelpPoliteOpeningFirst": "Начните с вежливого обращения, затем попросите услугу.",
+  "feedbackHelpIncludePoliteAttention": "Добавьте вежливое обращение перед срочной просьбой.",
+  "feedbackAnswersUsuallyDoNotBeginQuestionMark": "Ответы и утверждения обычно не начинаются с «¿».",
+  "feedbackQuestionsBeginWith": "Вопросы начинаются с: ¿...",
+  "feedbackStartsWith": "Начинается с: {prefix}",
+  "@feedbackStartsWith": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      }
+    }
+  }
 }

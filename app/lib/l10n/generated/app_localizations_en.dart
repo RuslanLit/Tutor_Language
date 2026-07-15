@@ -431,11 +431,310 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String requiredObjectTypesCount(int count) {
-    return 'Required object types: $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count required object types',
+      one: '1 required object type',
+      zero: 'No required object types',
+    );
+    return '$_temp0';
   }
 
   @override
   String supportedGoalsCount(int count) {
-    return 'Supported goals: $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count supported goals',
+      one: '1 supported goal',
+      zero: 'No supported goals',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get feedbackPreferredOrderNoCanonical =>
+      'A different order is accepted here.';
+
+  @override
+  String feedbackPreferredOrder(String answer) {
+    return 'A more natural order is: $answer';
+  }
+
+  @override
+  String feedbackSpanishInterrogativeQueRequiresAccent(String canonical) {
+    return '\"$canonical\" requires an accent in this question.';
+  }
+
+  @override
+  String feedbackSpanishInterrogativeComoRequiresAccent(String canonical) {
+    return '\"$canonical\" requires an accent in this question.';
+  }
+
+  @override
+  String feedbackSpanishMissingDiacritic(String canonical) {
+    return 'Canonical Spanish spelling: \"$canonical\".';
+  }
+
+  @override
+  String get feedbackSpanishQuestionMissingOpeningMark =>
+      'Spanish questions begin with \"¿\".';
+
+  @override
+  String get feedbackSpanishQuestionMissingClosingMark =>
+      'Spanish questions end with \"?\".';
+
+  @override
+  String get feedbackSpanishExclamationMissingOpeningMark =>
+      'Spanish exclamations begin with \"¡\".';
+
+  @override
+  String get feedbackSpanishExclamationMissingClosingMark =>
+      'Spanish exclamations end with \"!\".';
+
+  @override
+  String feedbackUseCanonicalForm(String canonical) {
+    return 'Use the canonical form: \"$canonical\".';
+  }
+
+  @override
+  String get feedbackQuestionExpectedStatementProvided =>
+      'This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.';
+
+  @override
+  String get feedbackStatementExpectedQuestionProvided =>
+      'This exercise asks for a statement.\nYou wrote a question.\nTry writing the Spanish statement instead.';
+
+  @override
+  String get feedbackAnswerExpectedQuestion =>
+      'This exercise asks for an answer.\nYou wrote another question.';
+
+  @override
+  String get feedbackQuestionExpectedAnswer =>
+      'Write the question, not the answer.';
+
+  @override
+  String get feedbackTranslationExpectedSourceLanguage =>
+      'Translate the prompt instead of copying it.';
+
+  @override
+  String get feedbackGreetingExpectedFarewell =>
+      'This exercise asks for a greeting.\nYou wrote a farewell.';
+
+  @override
+  String get feedbackFarewellExpectedGreeting =>
+      'This exercise asks for a farewell.\nYou wrote a greeting.';
+
+  @override
+  String get feedbackNamePatternUseMeLlamo =>
+      'For this introduction pattern, use \"me llamo\".';
+
+  @override
+  String get feedbackOriginUseSer =>
+      'To state origin, Spanish uses \"soy de\".';
+
+  @override
+  String get feedbackOriginKeepDe =>
+      'Keep \"de\" in the origin pattern: \"soy de\".';
+
+  @override
+  String get feedbackOriginUseSoyDe =>
+      '\"Soy de\" tells where someone is from.';
+
+  @override
+  String get feedbackOriginQuestionIncludeDe =>
+      'Use \"¿De dónde eres?\" to ask where someone is from.';
+
+  @override
+  String get feedbackResidenceUseVivoEn =>
+      '\"Vivo en\" tells where someone lives.';
+
+  @override
+  String get feedbackResidenceQuestionNoDe =>
+      'Use \"¿Dónde vives?\" to ask where someone lives.';
+
+  @override
+  String get feedbackLanguagesUseHablo =>
+      'Use \"hablo\" to say which language you speak.';
+
+  @override
+  String get feedbackLanguagesUseLanguageNames =>
+      'Use language names such as \"ucraniano\" or \"ruso\".';
+
+  @override
+  String get feedbackLanguagesKeepDeAfterUnPoco =>
+      'Keep \"de\" in \"un poco de\" before the language.';
+
+  @override
+  String get feedbackLanguagesAskIdiomas =>
+      'Use \"idiomas\" when asking which languages someone speaks.';
+
+  @override
+  String get feedbackIdentityAskSpecificQuestions =>
+      'Use the question that matches the information you need.';
+
+  @override
+  String get feedbackOriginResidenceDoNotSwap =>
+      'Do not swap origin and residence: \"soy de\" is origin, \"vivo en\" is residence.';
+
+  @override
+  String get feedbackPeopleUseEsForOther =>
+      'Use \"es\" when speaking about another person.';
+
+  @override
+  String get feedbackPeopleUseSeLlama =>
+      'Use \"se llama\" to say another person’s name.';
+
+  @override
+  String get feedbackPeopleUseFeminineRole =>
+      'Use the feminine role form for this person.';
+
+  @override
+  String get feedbackPeopleUseMasculineRole =>
+      'Use the masculine role form for this person.';
+
+  @override
+  String get feedbackPeopleQuestionQuienNotComo =>
+      '\"¿Quién es?\" asks who the person is.';
+
+  @override
+  String get feedbackPeopleQuestionComoNotQuien =>
+      '\"¿Cómo es?\" asks what the person is like.';
+
+  @override
+  String get feedbackPeopleUseFeminineDescription =>
+      'Use the feminine description form for this person.';
+
+  @override
+  String get feedbackPeopleUseMasculineDescription =>
+      'Use the masculine description form for this person.';
+
+  @override
+  String get feedbackPeopleUseViveForOther =>
+      'Use \"vive\" for where another person lives.';
+
+  @override
+  String get feedbackPeopleUseHablaForOther =>
+      'Use \"habla\" for what another person speaks.';
+
+  @override
+  String get feedbackPeopleOriginResidenceContrast =>
+      '\"Es de\" tells origin; \"vive en\" tells residence.';
+
+  @override
+  String get feedbackPeopleLanguageNotNationality =>
+      'Use \"habla\" to say which language another person speaks.';
+
+  @override
+  String get feedbackPeopleThirdPersonSequence =>
+      'Keep the whole answer in third person for another person.';
+
+  @override
+  String get feedbackPeopleQuestionOrderMatters =>
+      'Use the questions in the order requested by the prompt.';
+
+  @override
+  String get feedbackPeopleQuestionAndPersonForm =>
+      'Use the requested question and third-person verb form.';
+
+  @override
+  String get feedbackShoppingUseQueForObject =>
+      'Use \"¿Qué es esto?\" to ask what the object is.';
+
+  @override
+  String get feedbackShoppingUseCuantoForPrice =>
+      'Use \"¿Cuánto cuesta?\" to ask the price.';
+
+  @override
+  String get feedbackShoppingUseCuestaForPrice =>
+      'Use \"cuesta\" when stating the price of one item.';
+
+  @override
+  String get feedbackShoppingUsePoliteTiene =>
+      'Use the polite shop question \"¿Tiene...?\" in this module.';
+
+  @override
+  String get feedbackShoppingUseTenemosForShop =>
+      'Use \"tenemos\" when the shop says what it has.';
+
+  @override
+  String get feedbackShoppingUseQuieroForPurchase =>
+      'Use \"quiero\" to say what you want to buy.';
+
+  @override
+  String get feedbackShoppingUseUnaFeminine =>
+      'Use \"una\" with a practiced feminine noun such as \"botella\" or \"bolsa\".';
+
+  @override
+  String get feedbackShoppingUseEsteMasculine =>
+      'Use \"este\" before a practiced masculine noun such as \"libro\".';
+
+  @override
+  String get feedbackShoppingUseEstaFeminine =>
+      'Use \"esta\" before a practiced feminine noun such as \"bolsa\".';
+
+  @override
+  String get feedbackShoppingUseMasculinePriceAdjective =>
+      'Use the masculine adjective form with this masculine object.';
+
+  @override
+  String get feedbackShoppingUseFemininePriceAdjective =>
+      'Use the feminine adjective form with this feminine object.';
+
+  @override
+  String get feedbackTransportUseAPie => 'Use \"a pie\" for going on foot.';
+
+  @override
+  String get feedbackDirectionsUseDondeForLocation =>
+      'Use \"¿Dónde está...?\" to ask where a place is.';
+
+  @override
+  String get feedbackDirectionsUseEstaForLocation =>
+      'Use \"está\" to say where a place is.';
+
+  @override
+  String get feedbackDirectionsLeftNotRight => '\"Izquierda\" means left.';
+
+  @override
+  String get feedbackDirectionsRightNotLeft => '\"Derecha\" means right.';
+
+  @override
+  String get feedbackDirectionsFarNotNear => '\"Lejos\" means far.';
+
+  @override
+  String get feedbackDirectionsUseComoForRoute =>
+      'Use \"¿Cómo llego...?\" to ask how to get somewhere.';
+
+  @override
+  String get feedbackDirectionsRouteOrderMatters =>
+      'Route order matters in this exercise. Follow the requested sequence.';
+
+  @override
+  String get feedbackTransportUseTomaForAdvice =>
+      'Use \"toma\" when advising which transport to take.';
+
+  @override
+  String get feedbackDirectionsDirectionNotLocation =>
+      'This exercise asks for directions, not only the place location.';
+
+  @override
+  String get feedbackHelpPoliteOpeningFirst =>
+      'Start with the polite attention word, then ask for the service.';
+
+  @override
+  String get feedbackHelpIncludePoliteAttention =>
+      'Include a polite attention word before the urgent request.';
+
+  @override
+  String get feedbackAnswersUsuallyDoNotBeginQuestionMark =>
+      'Answers and statements usually do not begin with \"¿\".';
+
+  @override
+  String get feedbackQuestionsBeginWith => 'Questions begin with: ¿...';
+
+  @override
+  String feedbackStartsWith(String prefix) {
+    return 'Starts with: $prefix';
   }
 }

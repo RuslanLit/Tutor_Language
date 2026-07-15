@@ -833,14 +833,440 @@ abstract class AppLocalizations {
   /// No description provided for @requiredObjectTypesCount.
   ///
   /// In en, this message translates to:
-  /// **'Required object types: {count}'**
+  /// **'{count, plural, =0{No required object types} =1{1 required object type} other{{count} required object types}}'**
   String requiredObjectTypesCount(int count);
 
   /// No description provided for @supportedGoalsCount.
   ///
   /// In en, this message translates to:
-  /// **'Supported goals: {count}'**
+  /// **'{count, plural, =0{No supported goals} =1{1 supported goal} other{{count} supported goals}}'**
   String supportedGoalsCount(int count);
+
+  /// No description provided for @feedbackPreferredOrderNoCanonical.
+  ///
+  /// In en, this message translates to:
+  /// **'A different order is accepted here.'**
+  String get feedbackPreferredOrderNoCanonical;
+
+  /// No description provided for @feedbackPreferredOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'A more natural order is: {answer}'**
+  String feedbackPreferredOrder(String answer);
+
+  /// No description provided for @feedbackSpanishInterrogativeQueRequiresAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{canonical}\" requires an accent in this question.'**
+  String feedbackSpanishInterrogativeQueRequiresAccent(String canonical);
+
+  /// No description provided for @feedbackSpanishInterrogativeComoRequiresAccent.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{canonical}\" requires an accent in this question.'**
+  String feedbackSpanishInterrogativeComoRequiresAccent(String canonical);
+
+  /// No description provided for @feedbackSpanishMissingDiacritic.
+  ///
+  /// In en, this message translates to:
+  /// **'Canonical Spanish spelling: \"{canonical}\".'**
+  String feedbackSpanishMissingDiacritic(String canonical);
+
+  /// No description provided for @feedbackSpanishQuestionMissingOpeningMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish questions begin with \"¿\".'**
+  String get feedbackSpanishQuestionMissingOpeningMark;
+
+  /// No description provided for @feedbackSpanishQuestionMissingClosingMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish questions end with \"?\".'**
+  String get feedbackSpanishQuestionMissingClosingMark;
+
+  /// No description provided for @feedbackSpanishExclamationMissingOpeningMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish exclamations begin with \"¡\".'**
+  String get feedbackSpanishExclamationMissingOpeningMark;
+
+  /// No description provided for @feedbackSpanishExclamationMissingClosingMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish exclamations end with \"!\".'**
+  String get feedbackSpanishExclamationMissingClosingMark;
+
+  /// No description provided for @feedbackUseCanonicalForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the canonical form: \"{canonical}\".'**
+  String feedbackUseCanonicalForm(String canonical);
+
+  /// No description provided for @feedbackQuestionExpectedStatementProvided.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.'**
+  String get feedbackQuestionExpectedStatementProvided;
+
+  /// No description provided for @feedbackStatementExpectedQuestionProvided.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for a statement.\nYou wrote a question.\nTry writing the Spanish statement instead.'**
+  String get feedbackStatementExpectedQuestionProvided;
+
+  /// No description provided for @feedbackAnswerExpectedQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for an answer.\nYou wrote another question.'**
+  String get feedbackAnswerExpectedQuestion;
+
+  /// No description provided for @feedbackQuestionExpectedAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Write the question, not the answer.'**
+  String get feedbackQuestionExpectedAnswer;
+
+  /// No description provided for @feedbackTranslationExpectedSourceLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Translate the prompt instead of copying it.'**
+  String get feedbackTranslationExpectedSourceLanguage;
+
+  /// No description provided for @feedbackGreetingExpectedFarewell.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for a greeting.\nYou wrote a farewell.'**
+  String get feedbackGreetingExpectedFarewell;
+
+  /// No description provided for @feedbackFarewellExpectedGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for a farewell.\nYou wrote a greeting.'**
+  String get feedbackFarewellExpectedGreeting;
+
+  /// No description provided for @feedbackNamePatternUseMeLlamo.
+  ///
+  /// In en, this message translates to:
+  /// **'For this introduction pattern, use \"me llamo\".'**
+  String get feedbackNamePatternUseMeLlamo;
+
+  /// No description provided for @feedbackOriginUseSer.
+  ///
+  /// In en, this message translates to:
+  /// **'To state origin, Spanish uses \"soy de\".'**
+  String get feedbackOriginUseSer;
+
+  /// No description provided for @feedbackOriginKeepDe.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep \"de\" in the origin pattern: \"soy de\".'**
+  String get feedbackOriginKeepDe;
+
+  /// No description provided for @feedbackOriginUseSoyDe.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Soy de\" tells where someone is from.'**
+  String get feedbackOriginUseSoyDe;
+
+  /// No description provided for @feedbackOriginQuestionIncludeDe.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿De dónde eres?\" to ask where someone is from.'**
+  String get feedbackOriginQuestionIncludeDe;
+
+  /// No description provided for @feedbackResidenceUseVivoEn.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Vivo en\" tells where someone lives.'**
+  String get feedbackResidenceUseVivoEn;
+
+  /// No description provided for @feedbackResidenceQuestionNoDe.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿Dónde vives?\" to ask where someone lives.'**
+  String get feedbackResidenceQuestionNoDe;
+
+  /// No description provided for @feedbackLanguagesUseHablo.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"hablo\" to say which language you speak.'**
+  String get feedbackLanguagesUseHablo;
+
+  /// No description provided for @feedbackLanguagesUseLanguageNames.
+  ///
+  /// In en, this message translates to:
+  /// **'Use language names such as \"ucraniano\" or \"ruso\".'**
+  String get feedbackLanguagesUseLanguageNames;
+
+  /// No description provided for @feedbackLanguagesKeepDeAfterUnPoco.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep \"de\" in \"un poco de\" before the language.'**
+  String get feedbackLanguagesKeepDeAfterUnPoco;
+
+  /// No description provided for @feedbackLanguagesAskIdiomas.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"idiomas\" when asking which languages someone speaks.'**
+  String get feedbackLanguagesAskIdiomas;
+
+  /// No description provided for @feedbackIdentityAskSpecificQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the question that matches the information you need.'**
+  String get feedbackIdentityAskSpecificQuestions;
+
+  /// No description provided for @feedbackOriginResidenceDoNotSwap.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not swap origin and residence: \"soy de\" is origin, \"vivo en\" is residence.'**
+  String get feedbackOriginResidenceDoNotSwap;
+
+  /// No description provided for @feedbackPeopleUseEsForOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"es\" when speaking about another person.'**
+  String get feedbackPeopleUseEsForOther;
+
+  /// No description provided for @feedbackPeopleUseSeLlama.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"se llama\" to say another person’s name.'**
+  String get feedbackPeopleUseSeLlama;
+
+  /// No description provided for @feedbackPeopleUseFeminineRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the feminine role form for this person.'**
+  String get feedbackPeopleUseFeminineRole;
+
+  /// No description provided for @feedbackPeopleUseMasculineRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the masculine role form for this person.'**
+  String get feedbackPeopleUseMasculineRole;
+
+  /// No description provided for @feedbackPeopleQuestionQuienNotComo.
+  ///
+  /// In en, this message translates to:
+  /// **'\"¿Quién es?\" asks who the person is.'**
+  String get feedbackPeopleQuestionQuienNotComo;
+
+  /// No description provided for @feedbackPeopleQuestionComoNotQuien.
+  ///
+  /// In en, this message translates to:
+  /// **'\"¿Cómo es?\" asks what the person is like.'**
+  String get feedbackPeopleQuestionComoNotQuien;
+
+  /// No description provided for @feedbackPeopleUseFeminineDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the feminine description form for this person.'**
+  String get feedbackPeopleUseFeminineDescription;
+
+  /// No description provided for @feedbackPeopleUseMasculineDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the masculine description form for this person.'**
+  String get feedbackPeopleUseMasculineDescription;
+
+  /// No description provided for @feedbackPeopleUseViveForOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"vive\" for where another person lives.'**
+  String get feedbackPeopleUseViveForOther;
+
+  /// No description provided for @feedbackPeopleUseHablaForOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"habla\" for what another person speaks.'**
+  String get feedbackPeopleUseHablaForOther;
+
+  /// No description provided for @feedbackPeopleOriginResidenceContrast.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Es de\" tells origin; \"vive en\" tells residence.'**
+  String get feedbackPeopleOriginResidenceContrast;
+
+  /// No description provided for @feedbackPeopleLanguageNotNationality.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"habla\" to say which language another person speaks.'**
+  String get feedbackPeopleLanguageNotNationality;
+
+  /// No description provided for @feedbackPeopleThirdPersonSequence.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the whole answer in third person for another person.'**
+  String get feedbackPeopleThirdPersonSequence;
+
+  /// No description provided for @feedbackPeopleQuestionOrderMatters.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the questions in the order requested by the prompt.'**
+  String get feedbackPeopleQuestionOrderMatters;
+
+  /// No description provided for @feedbackPeopleQuestionAndPersonForm.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the requested question and third-person verb form.'**
+  String get feedbackPeopleQuestionAndPersonForm;
+
+  /// No description provided for @feedbackShoppingUseQueForObject.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿Qué es esto?\" to ask what the object is.'**
+  String get feedbackShoppingUseQueForObject;
+
+  /// No description provided for @feedbackShoppingUseCuantoForPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿Cuánto cuesta?\" to ask the price.'**
+  String get feedbackShoppingUseCuantoForPrice;
+
+  /// No description provided for @feedbackShoppingUseCuestaForPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"cuesta\" when stating the price of one item.'**
+  String get feedbackShoppingUseCuestaForPrice;
+
+  /// No description provided for @feedbackShoppingUsePoliteTiene.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the polite shop question \"¿Tiene...?\" in this module.'**
+  String get feedbackShoppingUsePoliteTiene;
+
+  /// No description provided for @feedbackShoppingUseTenemosForShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"tenemos\" when the shop says what it has.'**
+  String get feedbackShoppingUseTenemosForShop;
+
+  /// No description provided for @feedbackShoppingUseQuieroForPurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"quiero\" to say what you want to buy.'**
+  String get feedbackShoppingUseQuieroForPurchase;
+
+  /// No description provided for @feedbackShoppingUseUnaFeminine.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"una\" with a practiced feminine noun such as \"botella\" or \"bolsa\".'**
+  String get feedbackShoppingUseUnaFeminine;
+
+  /// No description provided for @feedbackShoppingUseEsteMasculine.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"este\" before a practiced masculine noun such as \"libro\".'**
+  String get feedbackShoppingUseEsteMasculine;
+
+  /// No description provided for @feedbackShoppingUseEstaFeminine.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"esta\" before a practiced feminine noun such as \"bolsa\".'**
+  String get feedbackShoppingUseEstaFeminine;
+
+  /// No description provided for @feedbackShoppingUseMasculinePriceAdjective.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the masculine adjective form with this masculine object.'**
+  String get feedbackShoppingUseMasculinePriceAdjective;
+
+  /// No description provided for @feedbackShoppingUseFemininePriceAdjective.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the feminine adjective form with this feminine object.'**
+  String get feedbackShoppingUseFemininePriceAdjective;
+
+  /// No description provided for @feedbackTransportUseAPie.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"a pie\" for going on foot.'**
+  String get feedbackTransportUseAPie;
+
+  /// No description provided for @feedbackDirectionsUseDondeForLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿Dónde está...?\" to ask where a place is.'**
+  String get feedbackDirectionsUseDondeForLocation;
+
+  /// No description provided for @feedbackDirectionsUseEstaForLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"está\" to say where a place is.'**
+  String get feedbackDirectionsUseEstaForLocation;
+
+  /// No description provided for @feedbackDirectionsLeftNotRight.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Izquierda\" means left.'**
+  String get feedbackDirectionsLeftNotRight;
+
+  /// No description provided for @feedbackDirectionsRightNotLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Derecha\" means right.'**
+  String get feedbackDirectionsRightNotLeft;
+
+  /// No description provided for @feedbackDirectionsFarNotNear.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Lejos\" means far.'**
+  String get feedbackDirectionsFarNotNear;
+
+  /// No description provided for @feedbackDirectionsUseComoForRoute.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"¿Cómo llego...?\" to ask how to get somewhere.'**
+  String get feedbackDirectionsUseComoForRoute;
+
+  /// No description provided for @feedbackDirectionsRouteOrderMatters.
+  ///
+  /// In en, this message translates to:
+  /// **'Route order matters in this exercise. Follow the requested sequence.'**
+  String get feedbackDirectionsRouteOrderMatters;
+
+  /// No description provided for @feedbackTransportUseTomaForAdvice.
+  ///
+  /// In en, this message translates to:
+  /// **'Use \"toma\" when advising which transport to take.'**
+  String get feedbackTransportUseTomaForAdvice;
+
+  /// No description provided for @feedbackDirectionsDirectionNotLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'This exercise asks for directions, not only the place location.'**
+  String get feedbackDirectionsDirectionNotLocation;
+
+  /// No description provided for @feedbackHelpPoliteOpeningFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with the polite attention word, then ask for the service.'**
+  String get feedbackHelpPoliteOpeningFirst;
+
+  /// No description provided for @feedbackHelpIncludePoliteAttention.
+  ///
+  /// In en, this message translates to:
+  /// **'Include a polite attention word before the urgent request.'**
+  String get feedbackHelpIncludePoliteAttention;
+
+  /// No description provided for @feedbackAnswersUsuallyDoNotBeginQuestionMark.
+  ///
+  /// In en, this message translates to:
+  /// **'Answers and statements usually do not begin with \"¿\".'**
+  String get feedbackAnswersUsuallyDoNotBeginQuestionMark;
+
+  /// No description provided for @feedbackQuestionsBeginWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions begin with: ¿...'**
+  String get feedbackQuestionsBeginWith;
+
+  /// No description provided for @feedbackStartsWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Starts with: {prefix}'**
+  String feedbackStartsWith(String prefix);
 }
 
 class _AppLocalizationsDelegate

@@ -12,264 +12,265 @@ class AppLocalizationsDe extends AppLocalizations {
   String get appTitle => 'Tutor Language';
 
   @override
-  String get settingsTooltip => 'Settings';
+  String get settingsTooltip => 'Einstellungen';
 
   @override
-  String get backTooltip => 'Back';
+  String get backTooltip => 'Zurück';
 
   @override
-  String get backToCourse => 'Back to course';
+  String get backToCourse => 'Zurück zum Kurs';
 
   @override
-  String get openCourse => 'Open course';
+  String get openCourse => 'Kurs öffnen';
 
   @override
-  String get courseTitle => 'Course';
+  String get courseTitle => 'Kurs';
 
   @override
   String courseProgress(int completed, int total) {
-    return '$completed of $total lessons completed';
+    return '$completed von $total Lektionen abgeschlossen';
   }
 
   @override
-  String get courseComplete => 'Course complete';
+  String get courseComplete => 'Kurs abgeschlossen';
 
   @override
-  String get noUnitsAvailable => 'No units available.';
+  String get noUnitsAvailable => 'Keine Einheiten verfügbar.';
 
   @override
-  String get noLessonsAvailable => 'No lessons available.';
+  String get noLessonsAvailable => 'Keine Lektionen verfügbar.';
 
   @override
-  String get lessonStatusCompleted => 'Completed';
+  String get lessonStatusCompleted => 'Abgeschlossen';
 
   @override
-  String get lessonStatusAvailableNext => 'Available next';
+  String get lessonStatusAvailableNext => 'Als Nächstes verfügbar';
 
   @override
-  String get lessonStatusLocked => 'Locked';
+  String get lessonStatusLocked => 'Gesperrt';
 
   @override
   String moduleNumber(String number) {
-    return 'Module $number';
+    return 'Modul $number';
   }
 
   @override
   String lessonNumber(String number) {
-    return 'Lesson $number';
+    return 'Lektion $number';
   }
 
   @override
-  String get competencyCheck => 'Communicative competency check';
+  String get competencyCheck => 'Kommunikative Kompetenzprüfung';
 
   @override
-  String get competencyAchieved => 'Communicative competency achieved';
+  String get competencyAchieved => 'Kommunikative Kompetenz erreicht';
 
   @override
   String get competencyAchievedAfterReview =>
-      'Communicative competency achieved after review';
+      'Kommunikative Kompetenz nach Wiederholung erreicht';
 
   @override
   String get competencyNeedsPractice =>
-      'Communicative competency needs more practice';
+      'Kommunikative Kompetenz braucht mehr Übung';
 
   @override
   String get competencyNotYetAchieved =>
-      'Communicative competency not yet achieved';
+      'Kommunikative Kompetenz noch nicht erreicht';
 
   @override
-  String get competencyCompleteModuleFirst => 'Complete this module first';
+  String get competencyCompleteModuleFirst => 'Dieses Modul zuerst abschließen';
 
   @override
-  String get competencyReadyToStart => 'Ready to start';
+  String get competencyReadyToStart => 'Bereit zum Start';
 
   @override
-  String get competencyContinueCheck => 'Continue your check';
+  String get competencyContinueCheck => 'Prüfung fortsetzen';
 
   @override
-  String get competencyGoalDemonstrated => 'You demonstrated this module goal';
+  String get competencyGoalDemonstrated => 'Modulziel gezeigt';
 
   @override
   String get competencySucceededAfterReview =>
-      'You succeeded after targeted review';
+      'Nach gezielter Wiederholung geschafft';
 
   @override
-  String get competencyRetryWhenReady => 'Retry the check when ready';
+  String get competencyRetryWhenReady =>
+      'Prüfung wiederholen, wenn Sie bereit sind';
 
   @override
   String get start => 'Start';
 
   @override
-  String get continueAction => 'Continue';
+  String get continueAction => 'Weiter';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'Wiederholen';
 
   @override
-  String get lessonTitle => 'Lesson';
+  String get lessonTitle => 'Lektion';
 
   @override
-  String get previousLesson => 'Previous lesson';
+  String get previousLesson => 'Vorherige Lektion';
 
   @override
-  String get nextLesson => 'Next lesson';
+  String get nextLesson => 'Nächste Lektion';
 
   @override
   String lessonLaunchError(String error) {
-    return 'Unable to launch lesson.\n$error';
+    return 'Lektion konnte nicht gestartet werden.\n$error';
   }
 
   @override
-  String get lessonPlayerTitle => 'Lesson Player';
+  String get lessonPlayerTitle => 'Lektion';
 
   @override
-  String get leaveLessonTitle => 'Leave lesson?';
+  String get leaveLessonTitle => 'Lektion verlassen?';
 
   @override
   String get leaveLessonBody =>
-      'This unfinished lesson will restart when you open it again.';
+      'Diese unvollständige Lektion beginnt neu, wenn Sie sie wieder öffnen.';
 
   @override
-  String get stay => 'Stay';
+  String get stay => 'Bleiben';
 
   @override
-  String get leaveLesson => 'Leave lesson';
+  String get leaveLesson => 'Lektion verlassen';
 
   @override
-  String get noActivitiesAvailable => 'No activities available.';
+  String get noActivitiesAvailable => 'Keine Aufgaben verfügbar.';
 
   @override
-  String get previous => '← Previous';
+  String get previous => '← Zurück';
 
   @override
-  String get next => 'Next →';
+  String get next => 'Weiter →';
 
   @override
   String stepCounter(int current, int total) {
-    return 'Step $current / $total';
+    return 'Schritt $current / $total';
   }
 
   @override
-  String get finishLesson => 'Finish Lesson';
+  String get finishLesson => 'Lektion abschließen';
 
   @override
-  String get finishing => 'Finishing...';
+  String get finishing => 'Wird abgeschlossen...';
 
   @override
   String get completionSaveError =>
-      'Could not save lesson completion. Please try again.';
+      'Der Abschluss der Lektion konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.';
 
   @override
-  String get lessonCompleted => 'Lesson completed';
+  String get lessonCompleted => 'Lektion abgeschlossen';
 
   @override
-  String get continueToNextLesson => 'Continue to next lesson';
+  String get continueToNextLesson => 'Zur nächsten Lektion';
 
   @override
-  String get repeatLesson => 'Repeat lesson';
+  String get repeatLesson => 'Lektion wiederholen';
 
   @override
-  String get repeatCheckpoint => 'Repeat checkpoint';
+  String get repeatCheckpoint => 'Checkpoint wiederholen';
 
   @override
-  String get reviewCompletedLessons => 'Review completed lessons';
+  String get reviewCompletedLessons => 'Abgeschlossene Lektionen wiederholen';
 
   @override
   String get someTopicsNeedReinforcement =>
-      'Some topics will need reinforcement.';
+      'Einige Themen brauchen noch Festigung.';
 
   @override
-  String get lessonMasteredOutcome => 'Strong mastery demonstrated.';
+  String get lessonMasteredOutcome => 'Sichere Beherrschung gezeigt.';
 
   @override
-  String get lessonReinforcementOutcome => 'Completed with reinforcement.';
+  String get lessonReinforcementOutcome => 'Mit Festigung abgeschlossen.';
 
   @override
-  String get lessonIncompleteOutcome => 'Lesson outcome incomplete.';
+  String get lessonIncompleteOutcome => 'Lektionsergebnis unvollständig.';
 
   @override
-  String get lessonMastered => 'Lesson mastered';
+  String get lessonMastered => 'Lektion beherrscht';
 
   @override
   String get courseCompletionRecommended =>
-      'Course complete. Keep reviewing completed lessons.';
+      'Kurs abgeschlossen. Wiederholen Sie weiterhin abgeschlossene Lektionen.';
 
   @override
-  String get quickReview => 'Quick Review';
+  String get quickReview => 'Kurze Wiederholung';
 
   @override
-  String get mastered => 'Mastered';
+  String get mastered => 'Beherrscht';
 
   @override
-  String get fragileMastery => 'Good work. This needs a little more practice.';
+  String get fragileMastery => 'Gute Arbeit. Das braucht noch etwas Übung.';
 
   @override
   String unsupportedContent(String type) {
-    return 'Unsupported content: $type';
+    return 'Nicht unterstützter Inhalt: $type';
   }
 
   @override
-  String get buildsOnEarlierMaterial => 'Builds on earlier material.';
+  String get buildsOnEarlierMaterial => 'Baut auf früherem Material auf.';
 
   @override
-  String get stepTypeVocabulary => 'vocabulary';
+  String get stepTypeVocabulary => 'Wortschatz';
 
   @override
-  String get stepTypeGrammar => 'grammar';
+  String get stepTypeGrammar => 'Grammatik';
 
   @override
-  String get stepTypeDialogue => 'dialogue';
+  String get stepTypeDialogue => 'Dialog';
 
   @override
-  String get stepTypeReading => 'reading';
+  String get stepTypeReading => 'Lesen';
 
   @override
-  String get stepTypeExercise => 'exercise';
+  String get stepTypeExercise => 'Übung';
 
   @override
-  String get stepTypeMixed => 'mixed';
+  String get stepTypeMixed => 'gemischt';
 
   @override
-  String get answerLabel => 'Answer';
+  String get answerLabel => 'Antwort';
 
   @override
-  String get checkAnswer => 'Check';
+  String get checkAnswer => 'Prüfen';
 
   @override
   String selectedAnswer(String answer) {
-    return 'Selected answer: $answer';
+    return 'Ausgewählte Antwort: $answer';
   }
 
   @override
-  String get correct => 'Correct';
+  String get correct => 'Richtig';
 
   @override
-  String get acceptedWithCorrection => 'Accepted with correction';
+  String get acceptedWithCorrection => 'Mit Korrektur akzeptiert';
 
   @override
-  String get tryAgain => 'Try again';
+  String get tryAgain => 'Noch einmal versuchen';
 
   @override
-  String get notCorrectYet => 'Not correct yet';
+  String get notCorrectYet => 'Noch nicht richtig';
 
   @override
-  String get incorrect => 'Incorrect';
+  String get incorrect => 'Falsch';
 
   @override
-  String get unsupportedActivityType => 'Unsupported activity type';
+  String get unsupportedActivityType => 'Nicht unterstützter Aufgabentyp';
 
   @override
   String unsupportedActivityTypeValue(String type) {
-    return 'Unsupported activity type: $type';
+    return 'Nicht unterstützter Aufgabentyp: $type';
   }
 
   @override
   String get matchingNotCheckableYet =>
-      'This matching activity is not checkable yet.';
+      'Diese Zuordnungsaufgabe kann noch nicht geprüft werden.';
 
   @override
   String recommendedAnswer(String answer) {
-    return 'Recommended answer: $answer';
+    return 'Empfohlene Antwort: $answer';
   }
 
   @override
@@ -279,17 +280,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String exercisePromptSemantics(String prompt) {
-    return 'Exercise prompt: $prompt';
+    return 'Aufgabenstellung: $prompt';
   }
 
   @override
-  String get settingsTitle => 'About and Settings';
+  String get settingsTitle => 'Info und Einstellungen';
 
   @override
-  String get releaseStatusLabel => 'Early public release';
+  String get releaseStatusLabel => 'Frühe öffentliche Version';
 
   @override
-  String get releaseScopeLabel => 'Offline Spanish A0 course';
+  String get releaseScopeLabel => 'Offline-Spanischkurs A0';
 
   @override
   String versionLabel(String version) {
@@ -297,145 +298,448 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get privacyTitle => 'Privacy';
+  String get privacyTitle => 'Datenschutz';
 
   @override
-  String get privacyOffline => 'Works offline.';
+  String get privacyOffline => 'Funktioniert offline.';
 
   @override
-  String get privacyNoAccount => 'No account is required.';
+  String get privacyNoAccount => 'Es ist kein Konto erforderlich.';
 
   @override
-  String get privacyNoTracking => 'No ads, tracking, or analytics are used.';
+  String get privacyNoTracking =>
+      'Es werden keine Werbung, kein Tracking und keine Analytik verwendet.';
 
   @override
-  String get privacyNoAi => 'No AI service is contacted during lessons.';
+  String get privacyNoAi =>
+      'Während der Lektionen wird kein KI-Dienst kontaktiert.';
 
   @override
-  String get privacyLocalProgress => 'Learner progress stays on this device.';
+  String get privacyLocalProgress =>
+      'Der Lernfortschritt bleibt auf diesem Gerät.';
 
   @override
   String get feedbackTitle => 'Feedback';
 
   @override
   String get feedbackBody =>
-      'For this early release, report issues through the project repository or directly to the project maintainer.';
+      'Für diese frühe Version melden Sie Probleme bitte über das Projekt-Repository oder direkt an die Projektbetreuung.';
 
   @override
-  String get licensesTitle => 'Licenses and Credits';
+  String get licensesTitle => 'Lizenzen und Danksagungen';
 
   @override
   String get licensesBody =>
-      'Tutor Language is built with Flutter and includes authored Spanish A0 educational content. Full license and third-party credit information will be included with the public release package.';
+      'Tutor Language wurde mit Flutter entwickelt und enthält eigens erstellte Spanisch-A0-Lerninhalte. Vollständige Lizenz- und Drittanbieterinformationen werden dem öffentlichen Release-Paket beigefügt.';
 
   @override
-  String get competencyScreenTitle => 'Competency Check';
+  String get competencyScreenTitle => 'Kompetenzprüfung';
 
   @override
-  String get competencyUnavailable => 'Competency check unavailable.';
+  String get competencyUnavailable => 'Kompetenzprüfung nicht verfügbar.';
 
   @override
   String competencyUnavailableWithError(String error) {
-    return 'Competency check unavailable. $error';
+    return 'Kompetenzprüfung nicht verfügbar. $error';
   }
 
   @override
   String get competencyTaskUnavailable =>
-      'This competency task is unavailable.';
+      'Diese Kompetenzaufgabe ist nicht verfügbar.';
 
   @override
-  String get competencyDiagnosticIntro => 'Show what you can do without help.';
+  String get competencyDiagnosticIntro =>
+      'Zeigen Sie, was ohne Hilfe möglich ist.';
 
   @override
-  String get competencyRetryIntro => 'Try the original task again.';
+  String get competencyRetryIntro =>
+      'Versuchen Sie die ursprüngliche Aufgabe noch einmal.';
 
   @override
   String get competencyRecoveryIntro =>
-      'Let\'s briefly review one part and try again.';
+      'Wiederholen wir kurz einen Teil und versuchen es erneut.';
 
   @override
-  String get startReview => 'Start review';
+  String get startReview => 'Wiederholung starten';
 
   @override
-  String get recoveryActivityUnavailable => 'Recovery activity unavailable.';
+  String get recoveryActivityUnavailable =>
+      'Wiederholungsaufgabe nicht verfügbar.';
 
   @override
-  String get competencyCheckComplete => 'Competency check complete.';
+  String get competencyCheckComplete => 'Kompetenzprüfung abgeschlossen.';
 
   @override
-  String get retryCompetencyCheck => 'Retry competency check';
+  String get retryCompetencyCheck => 'Kompetenzprüfung wiederholen';
 
   @override
-  String get competencyAchievedTitle => 'Competency achieved';
+  String get competencyAchievedTitle => 'Kompetenz erreicht';
 
   @override
   String get competencyAchievedAfterReviewTitle =>
-      'Competency achieved after review';
+      'Kompetenz nach Wiederholung erreicht';
 
   @override
-  String get competencyNeedsPracticeTitle => 'Competency needs more practice';
+  String get competencyNeedsPracticeTitle => 'Kompetenz braucht Übung';
 
   @override
-  String get competencyNotYetAchievedTitle => 'Competency not yet achieved';
+  String get competencyNotYetAchievedTitle => 'Kompetenz noch nicht erreicht';
 
   @override
   String get competencyAchievedDescription =>
-      'You completed the communicative task independently.';
+      'Die kommunikative Aufgabe wurde selbstständig abgeschlossen.';
 
   @override
   String get competencyAchievedAfterReviewDescription =>
-      'You used review and then completed the communicative task.';
+      'Nach einer Wiederholung wurde die kommunikative Aufgabe abgeschlossen.';
 
   @override
   String get competencyNeedsPracticeDescription =>
-      'You demonstrated part of the goal. Retry when ready.';
+      'Ein Teil des Ziels wurde gezeigt. Wiederholen Sie die Prüfung, wenn Sie bereit sind.';
 
   @override
   String get competencyNotYetAchievedDescription =>
-      'The core goal is not secure yet. Retry after review.';
+      'Das Kernziel ist noch nicht sicher. Wiederholen Sie es nach der Wiederholung.';
 
   @override
-  String get notViewed => 'Not viewed';
+  String get notViewed => 'Nicht angesehen';
 
   @override
-  String get viewed => 'Viewed';
+  String get viewed => 'Angesehen';
 
   @override
   String activitiesCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count activities',
-      one: '1 activity',
-      zero: 'No activities',
+      other: '$count Aufgaben',
+      one: '1 Aufgabe',
+      zero: 'Keine Aufgaben',
     );
     return '$_temp0';
   }
 
   @override
-  String get noAnswerChoices =>
-      'No answer choices are bundled with this template.';
+  String get noAnswerChoices => 'Diese Vorlage enthält keine Antwortoptionen.';
 
   @override
-  String get unchecked => 'Unchecked';
+  String get unchecked => 'Nicht geprüft';
 
   @override
   String templateType(String type) {
-    return 'Type: $type';
+    return 'Typ: $type';
   }
 
   @override
   String templatePrompt(String prompt) {
-    return 'Prompt: $prompt';
+    return 'Aufgabe: $prompt';
   }
 
   @override
   String requiredObjectTypesCount(int count) {
-    return 'Required object types: $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count erforderliche Objekttypen',
+      one: '1 erforderlicher Objekttyp',
+      zero: 'Keine erforderlichen Objekttypen',
+    );
+    return '$_temp0';
   }
 
   @override
   String supportedGoalsCount(int count) {
-    return 'Supported goals: $count';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count unterstützte Ziele',
+      one: '1 unterstütztes Ziel',
+      zero: 'Keine unterstützten Ziele',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get feedbackPreferredOrderNoCanonical =>
+      'Hier wird eine andere Reihenfolge akzeptiert.';
+
+  @override
+  String feedbackPreferredOrder(String answer) {
+    return 'Natürlicher ist die Reihenfolge: $answer';
+  }
+
+  @override
+  String feedbackSpanishInterrogativeQueRequiresAccent(String canonical) {
+    return 'In dieser Frage braucht „$canonical“ einen Akzent.';
+  }
+
+  @override
+  String feedbackSpanishInterrogativeComoRequiresAccent(String canonical) {
+    return 'In dieser Frage braucht „$canonical“ einen Akzent.';
+  }
+
+  @override
+  String feedbackSpanishMissingDiacritic(String canonical) {
+    return 'Korrekte spanische Schreibweise: „$canonical“.';
+  }
+
+  @override
+  String get feedbackSpanishQuestionMissingOpeningMark =>
+      'Spanische Fragen beginnen mit „¿“.';
+
+  @override
+  String get feedbackSpanishQuestionMissingClosingMark =>
+      'Spanische Fragen enden mit „?“.';
+
+  @override
+  String get feedbackSpanishExclamationMissingOpeningMark =>
+      'Spanische Ausrufe beginnen mit „¡“.';
+
+  @override
+  String get feedbackSpanishExclamationMissingClosingMark =>
+      'Spanische Ausrufe enden mit „!“.';
+
+  @override
+  String feedbackUseCanonicalForm(String canonical) {
+    return 'Verwenden Sie die Standardform: „$canonical“.';
+  }
+
+  @override
+  String get feedbackQuestionExpectedStatementProvided =>
+      'Diese Übung fragt nach einer Frage.\nSie haben eine Antwort geschrieben.\nVersuchen Sie, die spanische Frage zu schreiben.';
+
+  @override
+  String get feedbackStatementExpectedQuestionProvided =>
+      'Diese Übung fragt nach einer Aussage.\nSie haben eine Frage geschrieben.\nVersuchen Sie, die spanische Aussage zu schreiben.';
+
+  @override
+  String get feedbackAnswerExpectedQuestion =>
+      'Diese Übung fragt nach einer Antwort.\nSie haben eine andere Frage geschrieben.';
+
+  @override
+  String get feedbackQuestionExpectedAnswer =>
+      'Schreiben Sie die Frage, nicht die Antwort.';
+
+  @override
+  String get feedbackTranslationExpectedSourceLanguage =>
+      'Übersetzen Sie die Vorgabe, statt sie zu kopieren.';
+
+  @override
+  String get feedbackGreetingExpectedFarewell =>
+      'Diese Übung fragt nach einer Begrüßung.\nSie haben einen Abschied geschrieben.';
+
+  @override
+  String get feedbackFarewellExpectedGreeting =>
+      'Diese Übung fragt nach einem Abschied.\nSie haben eine Begrüßung geschrieben.';
+
+  @override
+  String get feedbackNamePatternUseMeLlamo =>
+      'Für dieses Vorstellungsmuster verwenden Sie „me llamo“.';
+
+  @override
+  String get feedbackOriginUseSer =>
+      'Für Herkunft verwendet Spanisch „soy de“.';
+
+  @override
+  String get feedbackOriginKeepDe =>
+      'Behalten Sie „de“ im Herkunftsmuster: „soy de“.';
+
+  @override
+  String get feedbackOriginUseSoyDe => '„Soy de“ sagt, woher jemand kommt.';
+
+  @override
+  String get feedbackOriginQuestionIncludeDe =>
+      'Verwenden Sie „¿De dónde eres?“, um zu fragen, woher jemand kommt.';
+
+  @override
+  String get feedbackResidenceUseVivoEn => '„Vivo en“ sagt, wo jemand wohnt.';
+
+  @override
+  String get feedbackResidenceQuestionNoDe =>
+      'Verwenden Sie „¿Dónde vives?“, um zu fragen, wo jemand wohnt.';
+
+  @override
+  String get feedbackLanguagesUseHablo =>
+      'Verwenden Sie „hablo“, um zu sagen, welche Sprache Sie sprechen.';
+
+  @override
+  String get feedbackLanguagesUseLanguageNames =>
+      'Verwenden Sie Sprachennamen wie „ucraniano“ oder „ruso“.';
+
+  @override
+  String get feedbackLanguagesKeepDeAfterUnPoco =>
+      'Behalten Sie „de“ in „un poco de“ vor der Sprache.';
+
+  @override
+  String get feedbackLanguagesAskIdiomas =>
+      'Verwenden Sie „idiomas“, wenn Sie fragen, welche Sprachen jemand spricht.';
+
+  @override
+  String get feedbackIdentityAskSpecificQuestions =>
+      'Verwenden Sie die Frage, die zur benötigten Information passt.';
+
+  @override
+  String get feedbackOriginResidenceDoNotSwap =>
+      'Vertauschen Sie Herkunft und Wohnort nicht: „soy de“ ist Herkunft, „vivo en“ ist Wohnort.';
+
+  @override
+  String get feedbackPeopleUseEsForOther =>
+      'Verwenden Sie „es“, wenn Sie über eine andere Person sprechen.';
+
+  @override
+  String get feedbackPeopleUseSeLlama =>
+      'Verwenden Sie „se llama“, um den Namen einer anderen Person zu nennen.';
+
+  @override
+  String get feedbackPeopleUseFeminineRole =>
+      'Verwenden Sie für diese Person die feminine Rollenform.';
+
+  @override
+  String get feedbackPeopleUseMasculineRole =>
+      'Verwenden Sie für diese Person die maskuline Rollenform.';
+
+  @override
+  String get feedbackPeopleQuestionQuienNotComo =>
+      '„¿Quién es?“ fragt, wer die Person ist.';
+
+  @override
+  String get feedbackPeopleQuestionComoNotQuien =>
+      '„¿Cómo es?“ fragt, wie die Person ist.';
+
+  @override
+  String get feedbackPeopleUseFeminineDescription =>
+      'Verwenden Sie für diese Person die feminine Beschreibungsform.';
+
+  @override
+  String get feedbackPeopleUseMasculineDescription =>
+      'Verwenden Sie für diese Person die maskuline Beschreibungsform.';
+
+  @override
+  String get feedbackPeopleUseViveForOther =>
+      'Verwenden Sie „vive“, wenn Sie sagen, wo eine andere Person wohnt.';
+
+  @override
+  String get feedbackPeopleUseHablaForOther =>
+      'Verwenden Sie „habla“, wenn Sie sagen, was eine andere Person spricht.';
+
+  @override
+  String get feedbackPeopleOriginResidenceContrast =>
+      '„Es de“ nennt die Herkunft; „vive en“ nennt den Wohnort.';
+
+  @override
+  String get feedbackPeopleLanguageNotNationality =>
+      'Verwenden Sie „habla“, um zu sagen, welche Sprache eine andere Person spricht.';
+
+  @override
+  String get feedbackPeopleThirdPersonSequence =>
+      'Die ganze Antwort über eine andere Person soll in der dritten Person bleiben.';
+
+  @override
+  String get feedbackPeopleQuestionOrderMatters =>
+      'Verwenden Sie die Fragen in der Reihenfolge der Aufgabenstellung.';
+
+  @override
+  String get feedbackPeopleQuestionAndPersonForm =>
+      'Verwenden Sie die geforderte Frage und die Verbform der dritten Person.';
+
+  @override
+  String get feedbackShoppingUseQueForObject =>
+      'Verwenden Sie „¿Qué es esto?“, um zu fragen, was der Gegenstand ist.';
+
+  @override
+  String get feedbackShoppingUseCuantoForPrice =>
+      'Verwenden Sie „¿Cuánto cuesta?“, um nach dem Preis zu fragen.';
+
+  @override
+  String get feedbackShoppingUseCuestaForPrice =>
+      'Verwenden Sie „cuesta“, wenn Sie den Preis eines einzelnen Gegenstands nennen.';
+
+  @override
+  String get feedbackShoppingUsePoliteTiene =>
+      'Verwenden Sie in diesem Modul die höfliche Ladenfrage „¿Tiene...?“.';
+
+  @override
+  String get feedbackShoppingUseTenemosForShop =>
+      'Verwenden Sie „tenemos“, wenn der Laden sagt, was er hat.';
+
+  @override
+  String get feedbackShoppingUseQuieroForPurchase =>
+      'Verwenden Sie „quiero“, um zu sagen, was Sie kaufen möchten.';
+
+  @override
+  String get feedbackShoppingUseUnaFeminine =>
+      'Verwenden Sie „una“ mit einem geübten femininen Nomen wie „botella“ oder „bolsa“.';
+
+  @override
+  String get feedbackShoppingUseEsteMasculine =>
+      'Verwenden Sie „este“ vor einem geübten maskulinen Nomen wie „libro“.';
+
+  @override
+  String get feedbackShoppingUseEstaFeminine =>
+      'Verwenden Sie „esta“ vor einem geübten femininen Nomen wie „bolsa“.';
+
+  @override
+  String get feedbackShoppingUseMasculinePriceAdjective =>
+      'Verwenden Sie bei diesem maskulinen Gegenstand die maskuline Adjektivform.';
+
+  @override
+  String get feedbackShoppingUseFemininePriceAdjective =>
+      'Verwenden Sie bei diesem femininen Gegenstand die feminine Adjektivform.';
+
+  @override
+  String get feedbackTransportUseAPie =>
+      'Verwenden Sie „a pie“, wenn Sie zu Fuß gehen.';
+
+  @override
+  String get feedbackDirectionsUseDondeForLocation =>
+      'Verwenden Sie „¿Dónde está...?“, um nach dem Ort zu fragen.';
+
+  @override
+  String get feedbackDirectionsUseEstaForLocation =>
+      'Verwenden Sie „está“, um zu sagen, wo ein Ort liegt.';
+
+  @override
+  String get feedbackDirectionsLeftNotRight => '„Izquierda“ bedeutet links.';
+
+  @override
+  String get feedbackDirectionsRightNotLeft => '„Derecha“ bedeutet rechts.';
+
+  @override
+  String get feedbackDirectionsFarNotNear => '„Lejos“ bedeutet weit weg.';
+
+  @override
+  String get feedbackDirectionsUseComoForRoute =>
+      'Verwenden Sie „¿Cómo llego...?“, um nach dem Weg zu fragen.';
+
+  @override
+  String get feedbackDirectionsRouteOrderMatters =>
+      'In dieser Übung ist die Reihenfolge des Weges wichtig. Folgen Sie der vorgegebenen Abfolge.';
+
+  @override
+  String get feedbackTransportUseTomaForAdvice =>
+      'Verwenden Sie „toma“, wenn Sie ein Verkehrsmittel empfehlen.';
+
+  @override
+  String get feedbackDirectionsDirectionNotLocation =>
+      'Diese Übung fragt nach Wegbeschreibung, nicht nur nach dem Standort.';
+
+  @override
+  String get feedbackHelpPoliteOpeningFirst =>
+      'Beginnen Sie mit dem höflichen Aufmerksamkeitswort und bitten Sie dann um die Dienstleistung.';
+
+  @override
+  String get feedbackHelpIncludePoliteAttention =>
+      'Fügen Sie vor der dringenden Bitte ein höfliches Aufmerksamkeitswort ein.';
+
+  @override
+  String get feedbackAnswersUsuallyDoNotBeginQuestionMark =>
+      'Antworten und Aussagen beginnen normalerweise nicht mit „¿“.';
+
+  @override
+  String get feedbackQuestionsBeginWith => 'Fragen beginnen mit: ¿...';
+
+  @override
+  String feedbackStartsWith(String prefix) {
+    return 'Beginnt mit: $prefix';
   }
 }

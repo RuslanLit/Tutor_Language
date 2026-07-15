@@ -1,8 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/answer_evaluation/answer_evaluation.dart';
+import 'package:tutor_language/l10n/generated/app_localizations_en.dart';
 
 void main() {
+  final l10n = AppLocalizationsEn();
+
   group('AnswerNormalizer', () {
     test('trims, collapses whitespace, and compares case-insensitively', () {
       final normalized = const AnswerNormalizer().normalize('  HoLa   Ana  ');
@@ -562,7 +565,7 @@ void main() {
           canonicalAnswer: '¿Qué tal?',
         );
 
-        final presented = const AnswerFeedbackPresenter().present(result);
+        final presented = const AnswerFeedbackPresenter().present(l10n, result);
 
         expect(presented.statusLabel, 'Accepted with correction');
         expect(presented.canonicalAnswer, '¿Qué tal?');
@@ -584,7 +587,7 @@ void main() {
         authoredMisconceptions: [_nameMisconception],
       );
 
-      final presented = const AnswerFeedbackPresenter().present(result);
+      final presented = const AnswerFeedbackPresenter().present(l10n, result);
 
       expect(presented.statusLabel, 'Not correct yet');
       expect(presented.canonicalAnswer, 'Me llamo Ana');
@@ -596,6 +599,7 @@ void main() {
 
     test('renders preferred-order correction', () {
       final presented = const AnswerFeedbackPresenter().present(
+        l10n,
         const AnswerEvaluationResult(
           status: AnswerEvaluationStatus.acceptedWithFeedback,
           feedback: AnswerFeedback(
@@ -623,10 +627,12 @@ void main() {
       );
 
       final first = const AnswerFeedbackPresenter().present(
+        l10n,
         result,
         attemptCount: 1,
       );
       final third = const AnswerFeedbackPresenter().present(
+        l10n,
         result,
         attemptCount: 3,
       );

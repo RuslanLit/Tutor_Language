@@ -420,6 +420,7 @@ class ActivityFeedback extends StatelessWidget {
       }
 
       final feedback = presenter.present(
+        l10n,
         evaluation,
         attemptCount: attemptCount,
       );

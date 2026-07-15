@@ -1,3 +1,371 @@
 {
-  "@@locale": "de"
+  "@@locale": "de",
+  "appTitle": "Tutor Language",
+  "settingsTooltip": "Einstellungen",
+  "backTooltip": "Zurück",
+  "backToCourse": "Zurück zum Kurs",
+  "openCourse": "Kurs öffnen",
+  "courseTitle": "Kurs",
+  "courseProgress": "{completed} von {total} Lektionen abgeschlossen",
+  "@courseProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "courseComplete": "Kurs abgeschlossen",
+  "noUnitsAvailable": "Keine Einheiten verfügbar.",
+  "noLessonsAvailable": "Keine Lektionen verfügbar.",
+  "lessonStatusCompleted": "Abgeschlossen",
+  "lessonStatusAvailableNext": "Als Nächstes verfügbar",
+  "lessonStatusLocked": "Gesperrt",
+  "moduleNumber": "Modul {number}",
+  "@moduleNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonNumber": "Lektion {number}",
+  "@lessonNumber": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "competencyCheck": "Kommunikative Kompetenzprüfung",
+  "competencyAchieved": "Kommunikative Kompetenz erreicht",
+  "competencyAchievedAfterReview": "Kommunikative Kompetenz nach Wiederholung erreicht",
+  "competencyNeedsPractice": "Kommunikative Kompetenz braucht mehr Übung",
+  "competencyNotYetAchieved": "Kommunikative Kompetenz noch nicht erreicht",
+  "competencyCompleteModuleFirst": "Dieses Modul zuerst abschließen",
+  "competencyReadyToStart": "Bereit zum Start",
+  "competencyContinueCheck": "Prüfung fortsetzen",
+  "competencyGoalDemonstrated": "Modulziel gezeigt",
+  "competencySucceededAfterReview": "Nach gezielter Wiederholung geschafft",
+  "competencyRetryWhenReady": "Prüfung wiederholen, wenn Sie bereit sind",
+  "start": "Start",
+  "continueAction": "Weiter",
+  "retry": "Wiederholen",
+  "lessonTitle": "Lektion",
+  "previousLesson": "Vorherige Lektion",
+  "nextLesson": "Nächste Lektion",
+  "lessonLaunchError": "Lektion konnte nicht gestartet werden.\n{error}",
+  "@lessonLaunchError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonPlayerTitle": "Lektion",
+  "leaveLessonTitle": "Lektion verlassen?",
+  "leaveLessonBody": "Diese unvollständige Lektion beginnt neu, wenn Sie sie wieder öffnen.",
+  "stay": "Bleiben",
+  "leaveLesson": "Lektion verlassen",
+  "noActivitiesAvailable": "Keine Aufgaben verfügbar.",
+  "previous": "← Zurück",
+  "next": "Weiter →",
+  "stepCounter": "Schritt {current} / {total}",
+  "@stepCounter": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "finishLesson": "Lektion abschließen",
+  "finishing": "Wird abgeschlossen...",
+  "completionSaveError": "Der Abschluss der Lektion konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+  "lessonCompleted": "Lektion abgeschlossen",
+  "continueToNextLesson": "Zur nächsten Lektion",
+  "repeatLesson": "Lektion wiederholen",
+  "repeatCheckpoint": "Checkpoint wiederholen",
+  "reviewCompletedLessons": "Abgeschlossene Lektionen wiederholen",
+  "someTopicsNeedReinforcement": "Einige Themen brauchen noch Festigung.",
+  "lessonMasteredOutcome": "Sichere Beherrschung gezeigt.",
+  "lessonReinforcementOutcome": "Mit Festigung abgeschlossen.",
+  "lessonIncompleteOutcome": "Lektionsergebnis unvollständig.",
+  "lessonMastered": "Lektion beherrscht",
+  "courseCompletionRecommended": "Kurs abgeschlossen. Wiederholen Sie weiterhin abgeschlossene Lektionen.",
+  "quickReview": "Kurze Wiederholung",
+  "mastered": "Beherrscht",
+  "fragileMastery": "Gute Arbeit. Das braucht noch etwas Übung.",
+  "unsupportedContent": "Nicht unterstützter Inhalt: {type}",
+  "@unsupportedContent": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "buildsOnEarlierMaterial": "Baut auf früherem Material auf.",
+  "stepTypeVocabulary": "Wortschatz",
+  "stepTypeGrammar": "Grammatik",
+  "stepTypeDialogue": "Dialog",
+  "stepTypeReading": "Lesen",
+  "stepTypeExercise": "Übung",
+  "stepTypeMixed": "gemischt",
+  "answerLabel": "Antwort",
+  "checkAnswer": "Prüfen",
+  "selectedAnswer": "Ausgewählte Antwort: {answer}",
+  "@selectedAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "correct": "Richtig",
+  "acceptedWithCorrection": "Mit Korrektur akzeptiert",
+  "tryAgain": "Noch einmal versuchen",
+  "notCorrectYet": "Noch nicht richtig",
+  "incorrect": "Falsch",
+  "unsupportedActivityType": "Nicht unterstützter Aufgabentyp",
+  "unsupportedActivityTypeValue": "Nicht unterstützter Aufgabentyp: {type}",
+  "@unsupportedActivityTypeValue": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "matchingNotCheckableYet": "Diese Zuordnungsaufgabe kann noch nicht geprüft werden.",
+  "recommendedAnswer": "Empfohlene Antwort: {answer}",
+  "@recommendedAnswer": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackBullet": "- {message}",
+  "@feedbackBullet": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "exercisePromptSemantics": "Aufgabenstellung: {prompt}",
+  "@exercisePromptSemantics": {
+    "placeholders": {
+      "prompt": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsTitle": "Info und Einstellungen",
+  "releaseStatusLabel": "Frühe öffentliche Version",
+  "releaseScopeLabel": "Offline-Spanischkurs A0",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "privacyTitle": "Datenschutz",
+  "privacyOffline": "Funktioniert offline.",
+  "privacyNoAccount": "Es ist kein Konto erforderlich.",
+  "privacyNoTracking": "Es werden keine Werbung, kein Tracking und keine Analytik verwendet.",
+  "privacyNoAi": "Während der Lektionen wird kein KI-Dienst kontaktiert.",
+  "privacyLocalProgress": "Der Lernfortschritt bleibt auf diesem Gerät.",
+  "feedbackTitle": "Feedback",
+  "feedbackBody": "Für diese frühe Version melden Sie Probleme bitte über das Projekt-Repository oder direkt an die Projektbetreuung.",
+  "licensesTitle": "Lizenzen und Danksagungen",
+  "licensesBody": "Tutor Language wurde mit Flutter entwickelt und enthält eigens erstellte Spanisch-A0-Lerninhalte. Vollständige Lizenz- und Drittanbieterinformationen werden dem öffentlichen Release-Paket beigefügt.",
+  "competencyScreenTitle": "Kompetenzprüfung",
+  "competencyUnavailable": "Kompetenzprüfung nicht verfügbar.",
+  "competencyUnavailableWithError": "Kompetenzprüfung nicht verfügbar. {error}",
+  "@competencyUnavailableWithError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "competencyTaskUnavailable": "Diese Kompetenzaufgabe ist nicht verfügbar.",
+  "competencyDiagnosticIntro": "Zeigen Sie, was ohne Hilfe möglich ist.",
+  "competencyRetryIntro": "Versuchen Sie die ursprüngliche Aufgabe noch einmal.",
+  "competencyRecoveryIntro": "Wiederholen wir kurz einen Teil und versuchen es erneut.",
+  "startReview": "Wiederholung starten",
+  "recoveryActivityUnavailable": "Wiederholungsaufgabe nicht verfügbar.",
+  "competencyCheckComplete": "Kompetenzprüfung abgeschlossen.",
+  "retryCompetencyCheck": "Kompetenzprüfung wiederholen",
+  "competencyAchievedTitle": "Kompetenz erreicht",
+  "competencyAchievedAfterReviewTitle": "Kompetenz nach Wiederholung erreicht",
+  "competencyNeedsPracticeTitle": "Kompetenz braucht Übung",
+  "competencyNotYetAchievedTitle": "Kompetenz noch nicht erreicht",
+  "competencyAchievedDescription": "Die kommunikative Aufgabe wurde selbstständig abgeschlossen.",
+  "competencyAchievedAfterReviewDescription": "Nach einer Wiederholung wurde die kommunikative Aufgabe abgeschlossen.",
+  "competencyNeedsPracticeDescription": "Ein Teil des Ziels wurde gezeigt. Wiederholen Sie die Prüfung, wenn Sie bereit sind.",
+  "competencyNotYetAchievedDescription": "Das Kernziel ist noch nicht sicher. Wiederholen Sie es nach der Wiederholung.",
+  "notViewed": "Nicht angesehen",
+  "viewed": "Angesehen",
+  "activitiesCount": "{count, plural, =0{Keine Aufgaben} one{1 Aufgabe} other{{count} Aufgaben}}",
+  "@activitiesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noAnswerChoices": "Diese Vorlage enthält keine Antwortoptionen.",
+  "unchecked": "Nicht geprüft",
+  "templateType": "Typ: {type}",
+  "@templateType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "templatePrompt": "Aufgabe: {prompt}",
+  "@templatePrompt": {
+    "placeholders": {
+      "prompt": {
+        "type": "String"
+      }
+    }
+  },
+  "requiredObjectTypesCount": "{count, plural, =0{Keine erforderlichen Objekttypen} one{1 erforderlicher Objekttyp} other{{count} erforderliche Objekttypen}}",
+  "@requiredObjectTypesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "supportedGoalsCount": "{count, plural, =0{Keine unterstützten Ziele} one{1 unterstütztes Ziel} other{{count} unterstützte Ziele}}",
+  "@supportedGoalsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "feedbackPreferredOrderNoCanonical": "Hier wird eine andere Reihenfolge akzeptiert.",
+  "feedbackPreferredOrder": "Natürlicher ist die Reihenfolge: {answer}",
+  "@feedbackPreferredOrder": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeQueRequiresAccent": "In dieser Frage braucht „{canonical}“ einen Akzent.",
+  "@feedbackSpanishInterrogativeQueRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeComoRequiresAccent": "In dieser Frage braucht „{canonical}“ einen Akzent.",
+  "@feedbackSpanishInterrogativeComoRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishMissingDiacritic": "Korrekte spanische Schreibweise: „{canonical}“.",
+  "@feedbackSpanishMissingDiacritic": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishQuestionMissingOpeningMark": "Spanische Fragen beginnen mit „¿“.",
+  "feedbackSpanishQuestionMissingClosingMark": "Spanische Fragen enden mit „?“.",
+  "feedbackSpanishExclamationMissingOpeningMark": "Spanische Ausrufe beginnen mit „¡“.",
+  "feedbackSpanishExclamationMissingClosingMark": "Spanische Ausrufe enden mit „!“.",
+  "feedbackUseCanonicalForm": "Verwenden Sie die Standardform: „{canonical}“.",
+  "@feedbackUseCanonicalForm": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackQuestionExpectedStatementProvided": "Diese Übung fragt nach einer Frage.\nSie haben eine Antwort geschrieben.\nVersuchen Sie, die spanische Frage zu schreiben.",
+  "feedbackStatementExpectedQuestionProvided": "Diese Übung fragt nach einer Aussage.\nSie haben eine Frage geschrieben.\nVersuchen Sie, die spanische Aussage zu schreiben.",
+  "feedbackAnswerExpectedQuestion": "Diese Übung fragt nach einer Antwort.\nSie haben eine andere Frage geschrieben.",
+  "feedbackQuestionExpectedAnswer": "Schreiben Sie die Frage, nicht die Antwort.",
+  "feedbackTranslationExpectedSourceLanguage": "Übersetzen Sie die Vorgabe, statt sie zu kopieren.",
+  "feedbackGreetingExpectedFarewell": "Diese Übung fragt nach einer Begrüßung.\nSie haben einen Abschied geschrieben.",
+  "feedbackFarewellExpectedGreeting": "Diese Übung fragt nach einem Abschied.\nSie haben eine Begrüßung geschrieben.",
+  "feedbackNamePatternUseMeLlamo": "Für dieses Vorstellungsmuster verwenden Sie „me llamo“.",
+  "feedbackOriginUseSer": "Für Herkunft verwendet Spanisch „soy de“.",
+  "feedbackOriginKeepDe": "Behalten Sie „de“ im Herkunftsmuster: „soy de“.",
+  "feedbackOriginUseSoyDe": "„Soy de“ sagt, woher jemand kommt.",
+  "feedbackOriginQuestionIncludeDe": "Verwenden Sie „¿De dónde eres?“, um zu fragen, woher jemand kommt.",
+  "feedbackResidenceUseVivoEn": "„Vivo en“ sagt, wo jemand wohnt.",
+  "feedbackResidenceQuestionNoDe": "Verwenden Sie „¿Dónde vives?“, um zu fragen, wo jemand wohnt.",
+  "feedbackLanguagesUseHablo": "Verwenden Sie „hablo“, um zu sagen, welche Sprache Sie sprechen.",
+  "feedbackLanguagesUseLanguageNames": "Verwenden Sie Sprachennamen wie „ucraniano“ oder „ruso“.",
+  "feedbackLanguagesKeepDeAfterUnPoco": "Behalten Sie „de“ in „un poco de“ vor der Sprache.",
+  "feedbackLanguagesAskIdiomas": "Verwenden Sie „idiomas“, wenn Sie fragen, welche Sprachen jemand spricht.",
+  "feedbackIdentityAskSpecificQuestions": "Verwenden Sie die Frage, die zur benötigten Information passt.",
+  "feedbackOriginResidenceDoNotSwap": "Vertauschen Sie Herkunft und Wohnort nicht: „soy de“ ist Herkunft, „vivo en“ ist Wohnort.",
+  "feedbackPeopleUseEsForOther": "Verwenden Sie „es“, wenn Sie über eine andere Person sprechen.",
+  "feedbackPeopleUseSeLlama": "Verwenden Sie „se llama“, um den Namen einer anderen Person zu nennen.",
+  "feedbackPeopleUseFeminineRole": "Verwenden Sie für diese Person die feminine Rollenform.",
+  "feedbackPeopleUseMasculineRole": "Verwenden Sie für diese Person die maskuline Rollenform.",
+  "feedbackPeopleQuestionQuienNotComo": "„¿Quién es?“ fragt, wer die Person ist.",
+  "feedbackPeopleQuestionComoNotQuien": "„¿Cómo es?“ fragt, wie die Person ist.",
+  "feedbackPeopleUseFeminineDescription": "Verwenden Sie für diese Person die feminine Beschreibungsform.",
+  "feedbackPeopleUseMasculineDescription": "Verwenden Sie für diese Person die maskuline Beschreibungsform.",
+  "feedbackPeopleUseViveForOther": "Verwenden Sie „vive“, wenn Sie sagen, wo eine andere Person wohnt.",
+  "feedbackPeopleUseHablaForOther": "Verwenden Sie „habla“, wenn Sie sagen, was eine andere Person spricht.",
+  "feedbackPeopleOriginResidenceContrast": "„Es de“ nennt die Herkunft; „vive en“ nennt den Wohnort.",
+  "feedbackPeopleLanguageNotNationality": "Verwenden Sie „habla“, um zu sagen, welche Sprache eine andere Person spricht.",
+  "feedbackPeopleThirdPersonSequence": "Die ganze Antwort über eine andere Person soll in der dritten Person bleiben.",
+  "feedbackPeopleQuestionOrderMatters": "Verwenden Sie die Fragen in der Reihenfolge der Aufgabenstellung.",
+  "feedbackPeopleQuestionAndPersonForm": "Verwenden Sie die geforderte Frage und die Verbform der dritten Person.",
+  "feedbackShoppingUseQueForObject": "Verwenden Sie „¿Qué es esto?“, um zu fragen, was der Gegenstand ist.",
+  "feedbackShoppingUseCuantoForPrice": "Verwenden Sie „¿Cuánto cuesta?“, um nach dem Preis zu fragen.",
+  "feedbackShoppingUseCuestaForPrice": "Verwenden Sie „cuesta“, wenn Sie den Preis eines einzelnen Gegenstands nennen.",
+  "feedbackShoppingUsePoliteTiene": "Verwenden Sie in diesem Modul die höfliche Ladenfrage „¿Tiene...?“.",
+  "feedbackShoppingUseTenemosForShop": "Verwenden Sie „tenemos“, wenn der Laden sagt, was er hat.",
+  "feedbackShoppingUseQuieroForPurchase": "Verwenden Sie „quiero“, um zu sagen, was Sie kaufen möchten.",
+  "feedbackShoppingUseUnaFeminine": "Verwenden Sie „una“ mit einem geübten femininen Nomen wie „botella“ oder „bolsa“.",
+  "feedbackShoppingUseEsteMasculine": "Verwenden Sie „este“ vor einem geübten maskulinen Nomen wie „libro“.",
+  "feedbackShoppingUseEstaFeminine": "Verwenden Sie „esta“ vor einem geübten femininen Nomen wie „bolsa“.",
+  "feedbackShoppingUseMasculinePriceAdjective": "Verwenden Sie bei diesem maskulinen Gegenstand die maskuline Adjektivform.",
+  "feedbackShoppingUseFemininePriceAdjective": "Verwenden Sie bei diesem femininen Gegenstand die feminine Adjektivform.",
+  "feedbackTransportUseAPie": "Verwenden Sie „a pie“, wenn Sie zu Fuß gehen.",
+  "feedbackDirectionsUseDondeForLocation": "Verwenden Sie „¿Dónde está...?“, um nach dem Ort zu fragen.",
+  "feedbackDirectionsUseEstaForLocation": "Verwenden Sie „está“, um zu sagen, wo ein Ort liegt.",
+  "feedbackDirectionsLeftNotRight": "„Izquierda“ bedeutet links.",
+  "feedbackDirectionsRightNotLeft": "„Derecha“ bedeutet rechts.",
+  "feedbackDirectionsFarNotNear": "„Lejos“ bedeutet weit weg.",
+  "feedbackDirectionsUseComoForRoute": "Verwenden Sie „¿Cómo llego...?“, um nach dem Weg zu fragen.",
+  "feedbackDirectionsRouteOrderMatters": "In dieser Übung ist die Reihenfolge des Weges wichtig. Folgen Sie der vorgegebenen Abfolge.",
+  "feedbackTransportUseTomaForAdvice": "Verwenden Sie „toma“, wenn Sie ein Verkehrsmittel empfehlen.",
+  "feedbackDirectionsDirectionNotLocation": "Diese Übung fragt nach Wegbeschreibung, nicht nur nach dem Standort.",
+  "feedbackHelpPoliteOpeningFirst": "Beginnen Sie mit dem höflichen Aufmerksamkeitswort und bitten Sie dann um die Dienstleistung.",
+  "feedbackHelpIncludePoliteAttention": "Fügen Sie vor der dringenden Bitte ein höfliches Aufmerksamkeitswort ein.",
+  "feedbackAnswersUsuallyDoNotBeginQuestionMark": "Antworten und Aussagen beginnen normalerweise nicht mit „¿“.",
+  "feedbackQuestionsBeginWith": "Fragen beginnen mit: ¿...",
+  "feedbackStartsWith": "Beginnt mit: {prefix}",
+  "@feedbackStartsWith": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      }
+    }
+  }
 }

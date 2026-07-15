@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2 — Localization Foundation
+R2C — Complete Interface Translations
 
 Overall Readiness:
 IN PROGRESS
@@ -137,19 +137,19 @@ Languages
 ```
 [x] English
 
-[~] Ukrainian
+[x] Ukrainian
 
-[~] Russian
+[x] Russian
 
-[~] Polish
+[x] Polish
 
-[~] German
+[x] German
 ```
 
 Application
 
 ```
-[~] no learner-facing hardcoded strings
+[x] no learner-facing hardcoded strings
 
 [x] Settings localized
 
@@ -159,7 +159,7 @@ Application
 
 [x] competency flow localized
 
-[~] validation messages localized
+[x] validation messages localized
 
 [x] accessibility labels localized
 ```
@@ -172,6 +172,20 @@ Verification
 [x] unsupported locale tested
 
 [x] localization widget tests pass
+
+[x] complete interface translation tests pass
+
+[x] Redmi Note 8T debug APK installed with adb install -r
+
+[x] existing learner progress preserved after install
+
+[x] Russian system locale verified on device
+
+[x] Home screen localized on device
+
+[x] Course screen localized on device
+
+[x] Settings/About localized on device
 ```
 
 ---
@@ -325,7 +339,7 @@ Regression
 ```
 [ ] complete regression testing
 
-[ ] manual device testing
+[~] manual device testing
 
 [ ] clean Git tree
 

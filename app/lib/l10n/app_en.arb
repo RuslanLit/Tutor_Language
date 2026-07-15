@@ -9,8 +9,12 @@
   "courseProgress": "{completed} of {total} lessons completed",
   "@courseProgress": {
     "placeholders": {
-      "completed": { "type": "int" },
-      "total": { "type": "int" }
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "courseComplete": "Course complete",
@@ -22,13 +26,17 @@
   "moduleNumber": "Module {number}",
   "@moduleNumber": {
     "placeholders": {
-      "number": { "type": "String" }
+      "number": {
+        "type": "String"
+      }
     }
   },
   "lessonNumber": "Lesson {number}",
   "@lessonNumber": {
     "placeholders": {
-      "number": { "type": "String" }
+      "number": {
+        "type": "String"
+      }
     }
   },
   "competencyCheck": "Communicative competency check",
@@ -51,7 +59,9 @@
   "lessonLaunchError": "Unable to launch lesson.\n{error}",
   "@lessonLaunchError": {
     "placeholders": {
-      "error": { "type": "String" }
+      "error": {
+        "type": "String"
+      }
     }
   },
   "lessonPlayerTitle": "Lesson Player",
@@ -65,8 +75,12 @@
   "stepCounter": "Step {current} / {total}",
   "@stepCounter": {
     "placeholders": {
-      "current": { "type": "int" },
-      "total": { "type": "int" }
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "finishLesson": "Finish Lesson",
@@ -89,7 +103,9 @@
   "unsupportedContent": "Unsupported content: {type}",
   "@unsupportedContent": {
     "placeholders": {
-      "type": { "type": "String" }
+      "type": {
+        "type": "String"
+      }
     }
   },
   "buildsOnEarlierMaterial": "Builds on earlier material.",
@@ -104,7 +120,9 @@
   "selectedAnswer": "Selected answer: {answer}",
   "@selectedAnswer": {
     "placeholders": {
-      "answer": { "type": "String" }
+      "answer": {
+        "type": "String"
+      }
     }
   },
   "correct": "Correct",
@@ -116,26 +134,34 @@
   "unsupportedActivityTypeValue": "Unsupported activity type: {type}",
   "@unsupportedActivityTypeValue": {
     "placeholders": {
-      "type": { "type": "String" }
+      "type": {
+        "type": "String"
+      }
     }
   },
   "matchingNotCheckableYet": "This matching activity is not checkable yet.",
   "recommendedAnswer": "Recommended answer: {answer}",
   "@recommendedAnswer": {
     "placeholders": {
-      "answer": { "type": "String" }
+      "answer": {
+        "type": "String"
+      }
     }
   },
   "feedbackBullet": "- {message}",
   "@feedbackBullet": {
     "placeholders": {
-      "message": { "type": "String" }
+      "message": {
+        "type": "String"
+      }
     }
   },
   "exercisePromptSemantics": "Exercise prompt: {prompt}",
   "@exercisePromptSemantics": {
     "placeholders": {
-      "prompt": { "type": "String" }
+      "prompt": {
+        "type": "String"
+      }
     }
   },
   "settingsTitle": "About and Settings",
@@ -144,7 +170,9 @@
   "versionLabel": "Version {version}",
   "@versionLabel": {
     "placeholders": {
-      "version": { "type": "String" }
+      "version": {
+        "type": "String"
+      }
     }
   },
   "privacyTitle": "Privacy",
@@ -162,7 +190,9 @@
   "competencyUnavailableWithError": "Competency check unavailable. {error}",
   "@competencyUnavailableWithError": {
     "placeholders": {
-      "error": { "type": "String" }
+      "error": {
+        "type": "String"
+      }
     }
   },
   "competencyTaskUnavailable": "This competency task is unavailable.",
@@ -186,7 +216,9 @@
   "activitiesCount": "{count, plural, =0{No activities} =1{1 activity} other{{count} activities}}",
   "@activitiesCount": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "noAnswerChoices": "No answer choices are bundled with this template.",
@@ -194,25 +226,146 @@
   "templateType": "Type: {type}",
   "@templateType": {
     "placeholders": {
-      "type": { "type": "String" }
+      "type": {
+        "type": "String"
+      }
     }
   },
   "templatePrompt": "Prompt: {prompt}",
   "@templatePrompt": {
     "placeholders": {
-      "prompt": { "type": "String" }
+      "prompt": {
+        "type": "String"
+      }
     }
   },
-  "requiredObjectTypesCount": "Required object types: {count}",
+  "requiredObjectTypesCount": "{count, plural, =0{No required object types} =1{1 required object type} other{{count} required object types}}",
   "@requiredObjectTypesCount": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
-  "supportedGoalsCount": "Supported goals: {count}",
+  "supportedGoalsCount": "{count, plural, =0{No supported goals} =1{1 supported goal} other{{count} supported goals}}",
   "@supportedGoalsCount": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "feedbackPreferredOrderNoCanonical": "A different order is accepted here.",
+  "feedbackPreferredOrder": "A more natural order is: {answer}",
+  "@feedbackPreferredOrder": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeQueRequiresAccent": "\"{canonical}\" requires an accent in this question.",
+  "@feedbackSpanishInterrogativeQueRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishInterrogativeComoRequiresAccent": "\"{canonical}\" requires an accent in this question.",
+  "@feedbackSpanishInterrogativeComoRequiresAccent": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishMissingDiacritic": "Canonical Spanish spelling: \"{canonical}\".",
+  "@feedbackSpanishMissingDiacritic": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackSpanishQuestionMissingOpeningMark": "Spanish questions begin with \"¿\".",
+  "feedbackSpanishQuestionMissingClosingMark": "Spanish questions end with \"?\".",
+  "feedbackSpanishExclamationMissingOpeningMark": "Spanish exclamations begin with \"¡\".",
+  "feedbackSpanishExclamationMissingClosingMark": "Spanish exclamations end with \"!\".",
+  "feedbackUseCanonicalForm": "Use the canonical form: \"{canonical}\".",
+  "@feedbackUseCanonicalForm": {
+    "placeholders": {
+      "canonical": {
+        "type": "String"
+      }
+    }
+  },
+  "feedbackQuestionExpectedStatementProvided": "This exercise asks for a question.\nYou wrote an answer.\nTry writing the Spanish question instead.",
+  "feedbackStatementExpectedQuestionProvided": "This exercise asks for a statement.\nYou wrote a question.\nTry writing the Spanish statement instead.",
+  "feedbackAnswerExpectedQuestion": "This exercise asks for an answer.\nYou wrote another question.",
+  "feedbackQuestionExpectedAnswer": "Write the question, not the answer.",
+  "feedbackTranslationExpectedSourceLanguage": "Translate the prompt instead of copying it.",
+  "feedbackGreetingExpectedFarewell": "This exercise asks for a greeting.\nYou wrote a farewell.",
+  "feedbackFarewellExpectedGreeting": "This exercise asks for a farewell.\nYou wrote a greeting.",
+  "feedbackNamePatternUseMeLlamo": "For this introduction pattern, use \"me llamo\".",
+  "feedbackOriginUseSer": "To state origin, Spanish uses \"soy de\".",
+  "feedbackOriginKeepDe": "Keep \"de\" in the origin pattern: \"soy de\".",
+  "feedbackOriginUseSoyDe": "\"Soy de\" tells where someone is from.",
+  "feedbackOriginQuestionIncludeDe": "Use \"¿De dónde eres?\" to ask where someone is from.",
+  "feedbackResidenceUseVivoEn": "\"Vivo en\" tells where someone lives.",
+  "feedbackResidenceQuestionNoDe": "Use \"¿Dónde vives?\" to ask where someone lives.",
+  "feedbackLanguagesUseHablo": "Use \"hablo\" to say which language you speak.",
+  "feedbackLanguagesUseLanguageNames": "Use language names such as \"ucraniano\" or \"ruso\".",
+  "feedbackLanguagesKeepDeAfterUnPoco": "Keep \"de\" in \"un poco de\" before the language.",
+  "feedbackLanguagesAskIdiomas": "Use \"idiomas\" when asking which languages someone speaks.",
+  "feedbackIdentityAskSpecificQuestions": "Use the question that matches the information you need.",
+  "feedbackOriginResidenceDoNotSwap": "Do not swap origin and residence: \"soy de\" is origin, \"vivo en\" is residence.",
+  "feedbackPeopleUseEsForOther": "Use \"es\" when speaking about another person.",
+  "feedbackPeopleUseSeLlama": "Use \"se llama\" to say another person’s name.",
+  "feedbackPeopleUseFeminineRole": "Use the feminine role form for this person.",
+  "feedbackPeopleUseMasculineRole": "Use the masculine role form for this person.",
+  "feedbackPeopleQuestionQuienNotComo": "\"¿Quién es?\" asks who the person is.",
+  "feedbackPeopleQuestionComoNotQuien": "\"¿Cómo es?\" asks what the person is like.",
+  "feedbackPeopleUseFeminineDescription": "Use the feminine description form for this person.",
+  "feedbackPeopleUseMasculineDescription": "Use the masculine description form for this person.",
+  "feedbackPeopleUseViveForOther": "Use \"vive\" for where another person lives.",
+  "feedbackPeopleUseHablaForOther": "Use \"habla\" for what another person speaks.",
+  "feedbackPeopleOriginResidenceContrast": "\"Es de\" tells origin; \"vive en\" tells residence.",
+  "feedbackPeopleLanguageNotNationality": "Use \"habla\" to say which language another person speaks.",
+  "feedbackPeopleThirdPersonSequence": "Keep the whole answer in third person for another person.",
+  "feedbackPeopleQuestionOrderMatters": "Use the questions in the order requested by the prompt.",
+  "feedbackPeopleQuestionAndPersonForm": "Use the requested question and third-person verb form.",
+  "feedbackShoppingUseQueForObject": "Use \"¿Qué es esto?\" to ask what the object is.",
+  "feedbackShoppingUseCuantoForPrice": "Use \"¿Cuánto cuesta?\" to ask the price.",
+  "feedbackShoppingUseCuestaForPrice": "Use \"cuesta\" when stating the price of one item.",
+  "feedbackShoppingUsePoliteTiene": "Use the polite shop question \"¿Tiene...?\" in this module.",
+  "feedbackShoppingUseTenemosForShop": "Use \"tenemos\" when the shop says what it has.",
+  "feedbackShoppingUseQuieroForPurchase": "Use \"quiero\" to say what you want to buy.",
+  "feedbackShoppingUseUnaFeminine": "Use \"una\" with a practiced feminine noun such as \"botella\" or \"bolsa\".",
+  "feedbackShoppingUseEsteMasculine": "Use \"este\" before a practiced masculine noun such as \"libro\".",
+  "feedbackShoppingUseEstaFeminine": "Use \"esta\" before a practiced feminine noun such as \"bolsa\".",
+  "feedbackShoppingUseMasculinePriceAdjective": "Use the masculine adjective form with this masculine object.",
+  "feedbackShoppingUseFemininePriceAdjective": "Use the feminine adjective form with this feminine object.",
+  "feedbackTransportUseAPie": "Use \"a pie\" for going on foot.",
+  "feedbackDirectionsUseDondeForLocation": "Use \"¿Dónde está...?\" to ask where a place is.",
+  "feedbackDirectionsUseEstaForLocation": "Use \"está\" to say where a place is.",
+  "feedbackDirectionsLeftNotRight": "\"Izquierda\" means left.",
+  "feedbackDirectionsRightNotLeft": "\"Derecha\" means right.",
+  "feedbackDirectionsFarNotNear": "\"Lejos\" means far.",
+  "feedbackDirectionsUseComoForRoute": "Use \"¿Cómo llego...?\" to ask how to get somewhere.",
+  "feedbackDirectionsRouteOrderMatters": "Route order matters in this exercise. Follow the requested sequence.",
+  "feedbackTransportUseTomaForAdvice": "Use \"toma\" when advising which transport to take.",
+  "feedbackDirectionsDirectionNotLocation": "This exercise asks for directions, not only the place location.",
+  "feedbackHelpPoliteOpeningFirst": "Start with the polite attention word, then ask for the service.",
+  "feedbackHelpIncludePoliteAttention": "Include a polite attention word before the urgent request.",
+  "feedbackAnswersUsuallyDoNotBeginQuestionMark": "Answers and statements usually do not begin with \"¿\".",
+  "feedbackQuestionsBeginWith": "Questions begin with: ¿...",
+  "feedbackStartsWith": "Starts with: {prefix}",
+  "@feedbackStartsWith": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      }
     }
   }
 }
