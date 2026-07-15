@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2D — Educational Content Localization Architecture
+R2E2 — Complete Russian Support Localization
 
 Overall Readiness:
 IN PROGRESS
@@ -207,11 +207,13 @@ Educational Content
 
 [x] minimal production reference slice validated
 
-[ ] Spanish A0 English support content normalized
+[x] Spanish A0 English support content normalized
 
 [ ] Spanish A0 Ukrainian support translation complete
 
-[ ] Spanish A0 Russian support translation complete
+[x] Spanish A0 Russian support translation complete
+
+[x] Russian educational-content smoke QA on Redmi Note 8T
 
 [ ] Spanish A0 Polish support translation complete
 

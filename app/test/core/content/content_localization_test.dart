@@ -90,10 +90,71 @@ void main() {
       );
 
       expect(localizedTemplate.id, template.id);
-      expect(localizedTemplate.promptTemplate, 'Выберите значение «hola».');
+      expect(
+        localizedTemplate.promptTemplate,
+        'Выберите значение фразы «hola».',
+      );
       expect(localizedTemplate.correctOptionId, template.correctOptionId);
       expect(localizedTemplate.answerOptions.first.id, 'option.hello');
       expect(localizedTemplate.answerOptions.first.label, 'привет');
+    },
+  );
+
+  test(
+    'Russian support localization covers representative course and content text',
+    () async {
+      final localization = await _loadLocalization();
+      final course = await CurriculumLoader().loadCourse();
+      final content = await ContentLoader().loadLanguagePackContent();
+      final resolver = EducationalContentLocalizationResolver(localization);
+
+      final russianCourse = resolver.resolveCourse(
+        course,
+        SupportLocale.russian,
+      );
+
+      expect(russianCourse.modules.first.title, 'Первые слова и чтение');
+      expect(russianCourse.modules.first.title, isNot('First Words and Reading'));
+
+      final profileReading = content.contents
+          .whereType<ReadingContent>()
+          .expand((content) => content.readings)
+          .firstWhere(
+            (reading) => reading.id == 'reading.es.a0.m02.profile_cards.v1',
+          );
+      final localizedReading = resolver.resolveReading(
+        profileReading,
+        SupportLocale.russian,
+      );
+
+      expect(localizedReading.title, 'Карточки профилей');
+      expect(localizedReading.title, isNot('Profile Cards'));
+      expect(localizedReading.text, profileReading.text);
+
+      final originTemplate = content.contents
+          .whereType<ExerciseTemplateContent>()
+          .expand((content) => content.templates)
+          .firstWhere(
+            (template) =>
+                template.id == 'template.es.a0.m03.l014.type_de_donde_eres.v1',
+          );
+      final localizedOriginTemplate = resolver.resolveExerciseTemplate(
+        originTemplate,
+        SupportLocale.russian,
+      );
+
+      expect(
+        localizedOriginTemplate.promptTemplate,
+        'Введите испанский вопрос: «Откуда ты?».',
+      );
+      expect(
+        localizedOriginTemplate.promptTemplate,
+        isNot('Type the Spanish question: "Where are you from?".'),
+      );
+      expect(
+        localizedOriginTemplate.correctOptionId,
+        originTemplate.correctOptionId,
+      );
     },
   );
 
@@ -265,8 +326,8 @@ void main() {
       expect(english.translatedFields, english.totalFields);
       expect(english.fallbackFields, 0);
       expect(russian.totalFields, english.totalFields);
-      expect(russian.translatedFields, greaterThan(0));
-      expect(russian.fallbackFields, greaterThan(0));
+      expect(russian.translatedFields, russian.totalFields);
+      expect(russian.fallbackFields, 0);
       expect(ukrainian.totalFields, english.totalFields);
       expect(ukrainian.translatedFields, 0);
       expect(ukrainian.fallbackFields, ukrainian.totalFields);

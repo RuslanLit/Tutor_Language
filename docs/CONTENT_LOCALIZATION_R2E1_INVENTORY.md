@@ -179,9 +179,11 @@ Coverage percentage: 100%
 R2E1 intentionally does not complete Russian, Ukrainian, Polish or German
 localization.
 
-Those locales may still fall back to English until their dedicated phases:
+Those locales may still fall back to English until their dedicated phases.
+R2E2 later completed Russian support localization against this inventory; the
+other translated educational-content locales remain future work:
 
-- R2E2 Russian
+- R2E2 Russian: complete
 - R2E3 Ukrainian
 - R2E4 Polish
 - R2E5 German

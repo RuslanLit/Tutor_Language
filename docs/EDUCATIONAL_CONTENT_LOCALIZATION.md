@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.1
 
 Related documents:
 
@@ -175,6 +175,29 @@ Missing English source support text is a validation error.
 
 Fallback keeps the application usable, but it must not make incomplete
 translation packages appear release-complete.
+
+---
+
+# Release Status
+
+R2E1 established the canonical English source inventory for Spanish A0:
+
+- total localizable source fields: 2741;
+- missing English source fields: 0;
+- invalid fields: 0;
+- English coverage: 100%.
+
+R2E2 completed Russian support localization for the same inventory:
+
+- Russian localized fields: 2741;
+- Russian fallback fields: 0;
+- invalid fields: 0;
+- Russian coverage: 100%.
+
+Ukrainian, Polish and German educational-content translations remain separate
+future phases. Until those phases complete, they may fall back to English at
+runtime and must not be treated as release-complete educational-content
+locales.
 
 ---
 
