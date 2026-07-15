@@ -227,27 +227,27 @@ Educational Content
 Identity
 
 ```
-[ ] final application name
+[x] final application name
 
-[ ] launcher icon
+[x] launcher icon
 
-[ ] adaptive icon
+[x] adaptive icon
 
-[ ] monochrome icon
+[x] monochrome icon
 
-[ ] splash screen
+[x] splash screen
 ```
 
 Visual Identity
 
 ```
-[ ] application colors reviewed
+[x] application colors reviewed
 
-[ ] typography reviewed
+[x] typography reviewed
 
-[ ] About screen reviewed
+[x] About screen reviewed
 
-[ ] consistent terminology
+[x] consistent terminology
 ```
 
 Store Assets

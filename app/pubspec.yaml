@@ -1,5 +1,5 @@
 name: tutor_language
-description: "Adaptive offline Spanish tutor."
+description: "Adaptive offline language tutor."
 publish_to: 'none'
 version: 1.0.0+1
 
