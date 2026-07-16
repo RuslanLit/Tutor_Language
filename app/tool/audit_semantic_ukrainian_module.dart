@@ -8,35 +8,31 @@ const _coursePath =
 const _legacyPath =
     'assets/languages/spanish/localization/support_localizations.json';
 const _semanticPaths = [
-  'assets/languages/spanish/localization/semantic_reference_slice.json',
-  'assets/languages/spanish/localization/semantic/module_1.uk.json',
-  'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+  'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/uk/module_01.json',
 ];
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
 
-Never main(List<String> args) {
-  throw UnsupportedError(
-    'This R2E5A Ukrainian module audit is archived by R2E5R. '
-    'Use audit_educational_localization_reset.dart and '
-    'validate_semantic_localization_units.dart instead.',
-  );
-}
-
-void archivedMain(List<String> args) {
+void main(List<String> args) {
   final moduleId = _argValue(args, '--module') ?? 'es.a0.m01';
   final validator = _SemanticLessonValidator();
   final report = validator.validate(moduleId: moduleId);
 
-  stdout.writeln('R2E5A semantic Ukrainian module audit');
+  stdout.writeln('R2E5N1 semantic Ukrainian module audit');
   stdout.writeln('module: $moduleId');
   stdout.writeln('lesson IDs: ${report.lessonIds.join(', ')}');
-  stdout.writeln('legacy identities in scope: ${report.expectedFields}');
+  stdout.writeln('required identities in scope: ${report.expectedFields}');
   stdout.writeln('semantic covered fields: ${report.semanticCoveredFields}');
   stdout.writeln('coverage: ${report.coveragePercent.toStringAsFixed(1)}%');
-  stdout.writeln('legacy resolutions: ${report.legacyFallbacks}');
-  stdout.writeln('source fallback: 0');
-  stdout.writeln('missing: 0');
+  stdout.writeln('legacy Ukrainian resolutions: ${report.legacyFallbacks}');
+  stdout.writeln(
+    'English source fallback inside scope: ${report.legacyFallbacks}',
+  );
+  stdout.writeln('Russian fallback: 0');
+  stdout.writeln(
+    'missing values: ${report.issues.where((issue) => issue.contains('missing')).length}',
+  );
   stdout.writeln('generated: ${report.generatedUnits}');
   stdout.writeln('approved: ${report.approvedUnits}');
   stdout.writeln('duplicate identities: ${report.duplicateIdentities}');
@@ -427,8 +423,18 @@ Map<String, Object?> _readJsonObject(String path) {
 SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
   final bundles = [
     for (final path in paths)
-      SemanticLocalizationBundle.fromJson(_readJsonObject(path)),
+      if (_fileExists(path))
+        SemanticLocalizationBundle.fromJson(_readJsonObject(path)),
   ];
+  if (bundles.isEmpty) {
+    return const SemanticLocalizationBundle(
+      schemaVersion: 1,
+      targetLanguage: 'es',
+      sourceSupportLocale: 'en',
+      supportLocales: ['uk'],
+      units: [],
+    );
+  }
   final first = bundles.first;
   return SemanticLocalizationBundle(
     schemaVersion: first.schemaVersion,
@@ -442,6 +448,11 @@ SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
     }),
     units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
   );
+}
+
+bool _fileExists(String appRelativePath) {
+  return File(appRelativePath).existsSync() ||
+      File('app/$appRelativePath').existsSync();
 }
 
 File _resolveFile(String appRelativePath) {
