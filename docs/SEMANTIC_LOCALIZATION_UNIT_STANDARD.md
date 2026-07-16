@@ -226,6 +226,18 @@ Pilot success is scoped. It proves the semantic architecture on the declared
 lessons and must not be reported as complete semantic localization for the
 unmigrated course.
 
+Full Ukrainian migration is gated by:
+
+```text
+app/tool/audit_semantic_ukrainian_migration.dart
+```
+
+The audit is intentionally stricter than the general coverage reporter. It
+fails until approved Ukrainian semantic units cover every legacy Ukrainian
+educational field and runtime would no longer need legacy or source fallback
+for Ukrainian educational content. A mechanically converted legacy string does
+not become an approved semantic unit merely because it validates structurally.
+
 ## Authoring Examples
 
 Good mixed instruction:
@@ -273,4 +285,6 @@ Production PASS requires:
 - no protected-span mutation;
 - no generated release-ready units;
 - no unsupported fallback counted as complete localization;
+- zero legacy Ukrainian educational resolutions for a completed Ukrainian
+  migration phase;
 - ReadingRule applicability checks passing for migrated scope.

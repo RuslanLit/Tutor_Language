@@ -611,6 +611,132 @@ class SemanticLocalizationValidator {
   }
 }
 
+class SemanticUkrainianMigrationCoverage {
+  const SemanticUkrainianMigrationCoverage({
+    required this.locale,
+    required this.legacyFields,
+    required this.semanticApprovedFields,
+    required this.legacyFieldsCoveredBySemantic,
+    required this.remainingLegacyFields,
+    required this.semanticResolutions,
+    required this.legacyResolutions,
+    required this.sourceFallbackCount,
+    required this.missingCount,
+    required this.generatedUnits,
+    required this.unapprovedUnits,
+  });
+
+  factory SemanticUkrainianMigrationCoverage.build({
+    required Map<String, Object?> legacyLocalizationJson,
+    required SemanticLocalizationBundle semanticBundle,
+    String locale = 'uk',
+  }) {
+    final sourceSupportLocale =
+        legacyLocalizationJson['sourceSupportLocale'] as String? ?? 'en';
+    final legacyFieldValues = <String, Map<String, String>>{};
+    for (final rawEntry
+        in (legacyLocalizationJson['entries'] as List? ?? const [])
+            .whereType<Map>()) {
+      final entry = Map<String, Object?>.from(rawEntry);
+      final id = entry['id'] as String? ?? '';
+      final fields = Map<String, Object?>.from(
+        entry['fields'] as Map? ?? const {},
+      );
+      for (final field in fields.entries) {
+        final values = <String, String>{};
+        for (final value in (field.value as Map? ?? const {}).entries) {
+          if (value.value is String) {
+            values['${value.key}'] = value.value as String;
+          }
+        }
+        legacyFieldValues['$id|${field.key}'] = values;
+      }
+    }
+
+    final semanticApprovedFields = <String>{};
+    var generatedUnits = 0;
+    var unapprovedUnits = 0;
+    for (final unit in semanticBundle.units) {
+      if (!unit.values.containsKey(locale)) {
+        continue;
+      }
+      final status = unit.reviewStatusFor(locale);
+      if (status == SemanticReviewStatus.generated) {
+        generatedUnits += 1;
+      }
+      if (status != SemanticReviewStatus.approved) {
+        unapprovedUnits += 1;
+      }
+      if (status == SemanticReviewStatus.approved) {
+        semanticApprovedFields.add(
+          '${unit.context.contentObjectId}|${unit.context.fieldPath}',
+        );
+      }
+    }
+
+    final legacyFieldKeys = legacyFieldValues.keys.toSet();
+    final legacyFieldsCoveredBySemantic = legacyFieldKeys
+        .intersection(semanticApprovedFields)
+        .length;
+    var legacyResolutions = 0;
+    var sourceFallbackCount = 0;
+    var missingCount = 0;
+    for (final entry in legacyFieldValues.entries) {
+      if (semanticApprovedFields.contains(entry.key)) {
+        continue;
+      }
+      if (entry.value.containsKey(locale)) {
+        legacyResolutions += 1;
+      } else if (entry.value.containsKey(sourceSupportLocale)) {
+        sourceFallbackCount += 1;
+      } else {
+        missingCount += 1;
+      }
+    }
+
+    return SemanticUkrainianMigrationCoverage(
+      locale: locale,
+      legacyFields: legacyFieldKeys.length,
+      semanticApprovedFields: semanticApprovedFields.length,
+      legacyFieldsCoveredBySemantic: legacyFieldsCoveredBySemantic,
+      remainingLegacyFields:
+          legacyFieldKeys.length - legacyFieldsCoveredBySemantic,
+      semanticResolutions: legacyFieldsCoveredBySemantic,
+      legacyResolutions: legacyResolutions,
+      sourceFallbackCount: sourceFallbackCount,
+      missingCount: missingCount,
+      generatedUnits: generatedUnits,
+      unapprovedUnits: unapprovedUnits,
+    );
+  }
+
+  final String locale;
+  final int legacyFields;
+  final int semanticApprovedFields;
+  final int legacyFieldsCoveredBySemantic;
+  final int remainingLegacyFields;
+  final int semanticResolutions;
+  final int legacyResolutions;
+  final int sourceFallbackCount;
+  final int missingCount;
+  final int generatedUnits;
+  final int unapprovedUnits;
+
+  double get legacyFieldSemanticCoverage =>
+      legacyFields == 0 ? 1 : legacyFieldsCoveredBySemantic / legacyFields;
+
+  int get legacyFallbackCount => legacyResolutions + sourceFallbackCount;
+
+  bool get isProductionComplete =>
+      legacyFields > 0 &&
+      remainingLegacyFields == 0 &&
+      legacyResolutions == 0 &&
+      sourceFallbackCount == 0 &&
+      missingCount == 0 &&
+      generatedUnits == 0 &&
+      unapprovedUnits == 0;
+}
+
 String serializeSemanticLocalizationBundle(SemanticLocalizationBundle bundle) {
   return const JsonEncoder.withIndent('  ').convert(bundle.toJson());
 }

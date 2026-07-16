@@ -13,6 +13,10 @@ const _legacyPath =
 void main() {
   final semanticBundle = _readSemanticBundles(_semanticPaths);
   final legacy = _readJsonObject(_legacyPath);
+  final ukrainianMigration = SemanticUkrainianMigrationCoverage.build(
+    legacyLocalizationJson: legacy,
+    semanticBundle: semanticBundle,
+  );
   final validationIssues = const SemanticLocalizationValidator().validate(
     bundle: semanticBundle,
   );
@@ -65,6 +69,38 @@ void main() {
   stdout.writeln('protected-span violations: $protectedSpanViolations');
   stdout.writeln('named-entity ambiguities: $namedEntityAmbiguities');
   stdout.writeln('validation issues: ${validationIssues.length}');
+  stdout.writeln('ukrainian semantic migration:');
+  stdout.writeln(
+    '  verdict: ${ukrainianMigration.isProductionComplete ? 'PASS' : 'FAIL'}',
+  );
+  stdout.writeln(
+    '  legacy Ukrainian fields: ${ukrainianMigration.legacyFields}',
+  );
+  stdout.writeln(
+    '  approved semantic Ukrainian fields: '
+    '${ukrainianMigration.semanticApprovedFields}',
+  );
+  stdout.writeln(
+    '  legacy fields covered by semantic: '
+    '${ukrainianMigration.legacyFieldsCoveredBySemantic}',
+  );
+  stdout.writeln(
+    '  semantic legacy-field coverage: '
+    '${(ukrainianMigration.legacyFieldSemanticCoverage * 100).toStringAsFixed(1)}%',
+  );
+  stdout.writeln(
+    '  remaining legacy fields: ${ukrainianMigration.remainingLegacyFields}',
+  );
+  stdout.writeln(
+    '  semantic resolutions: ${ukrainianMigration.semanticResolutions}',
+  );
+  stdout.writeln(
+    '  legacy resolutions: ${ukrainianMigration.legacyResolutions}',
+  );
+  stdout.writeln(
+    '  source fallback count: ${ukrainianMigration.sourceFallbackCount}',
+  );
+  stdout.writeln('  missing count: ${ukrainianMigration.missingCount}');
   stdout.writeln('by semantic type:');
   for (final entry
       in byType.entries.toList()..sort((a, b) => a.key.compareTo(b.key))) {

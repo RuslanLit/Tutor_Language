@@ -213,6 +213,10 @@ Educational Content
 
 [x] semantic localization coverage reporter implemented
 
+[x] R2E5 semantic Ukrainian migration audit implemented
+
+[ ] R2E5 semantic Ukrainian migration audit passes
+
 [x] support locale separated from UI locale
 
 [x] target language separated from support language

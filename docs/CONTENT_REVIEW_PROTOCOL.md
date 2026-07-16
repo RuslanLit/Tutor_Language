@@ -465,6 +465,12 @@ editorial judgment.
 Naturalness, pedagogical clarity, beginner readability and textbook quality
 remain review responsibilities even when tooling improves.
 
+For full Ukrainian semantic migration, a field may be marked `approved` only
+when the review evidence satisfies this protocol. Existing legacy Ukrainian
+strings and generated semantic drafts are migration inputs, not approval
+evidence. The R2E5 audit must fail whenever Ukrainian still resolves through
+legacy localization, source fallback or unapproved semantic units.
+
 ---
 
 # Reviewer Use

@@ -238,6 +238,29 @@ void main() {
     expect(resolved.nativeTranslation, isNot(adios.nativeTranslation));
   });
 
+  test(
+    'R2E5 Ukrainian migration coverage exposes remaining legacy fields',
+    () async {
+      final localization = await _loadRawLegacyLocalization();
+      final semantic = await _loadRuntimeSemanticBundle();
+
+      final coverage = SemanticUkrainianMigrationCoverage.build(
+        legacyLocalizationJson: localization,
+        semanticBundle: semantic,
+      );
+
+      expect(coverage.legacyFields, 2742);
+      expect(coverage.semanticApprovedFields, 381);
+      expect(coverage.legacyFieldsCoveredBySemantic, 168);
+      expect(coverage.remainingLegacyFields, 2574);
+      expect(coverage.semanticResolutions, 168);
+      expect(coverage.legacyResolutions, 2574);
+      expect(coverage.sourceFallbackCount, 0);
+      expect(coverage.missingCount, 0);
+      expect(coverage.isProductionComplete, isFalse);
+    },
+  );
+
   test('semantic prompt override preserves protected target span', () async {
     final localization = await _loadLegacyLocalization();
     final semantic = await _loadSemanticBundle();
@@ -303,6 +326,17 @@ Future<SemanticLocalizationBundle> _loadSemanticBundle() async {
 
 Future<EducationalContentLocalizationBundle> _loadLegacyLocalization() {
   return EducationalContentLocalizationRepository().loadBundle();
+}
+
+Future<Map<String, Object?>> _loadRawLegacyLocalization() async {
+  final raw = await rootBundle.loadString(
+    'assets/languages/spanish/localization/support_localizations.json',
+  );
+  return Map<String, Object?>.from(jsonDecode(raw) as Map);
+}
+
+Future<SemanticLocalizationBundle> _loadRuntimeSemanticBundle() {
+  return SemanticLocalizationRepository().loadBundle();
 }
 
 SemanticLocalizationUnit _copyUnit(

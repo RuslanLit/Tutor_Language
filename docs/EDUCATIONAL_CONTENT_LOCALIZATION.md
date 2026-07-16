@@ -306,6 +306,20 @@ The pilot gate requires 100% expected learner-visible field coverage and zero
 legacy fallback for the declared lessons. It is not a coverage expansion for
 the unmigrated full course.
 
+R2E5 adds a full-course Ukrainian semantic migration audit:
+
+```text
+app/tool/audit_semantic_ukrainian_migration.dart
+```
+
+This audit compares approved Ukrainian semantic units with the legacy
+educational localization inventory. It is a production gate for Ukrainian:
+release-ready Ukrainian educational content requires zero remaining legacy
+resolutions, zero source fallback, zero missing fields, zero generated units
+and zero unapproved semantic units. As of the R2E5 audit, Ukrainian remains
+incomplete because 2574 legacy Ukrainian fields still resolve outside the
+semantic source of truth.
+
 Ukrainian, Polish and German educational-content translations remain separate
 future phases. Until those phases complete, they may fall back to English at
 runtime and must not be treated as release-complete educational-content
@@ -487,6 +501,17 @@ The long-term direction is:
 
 Legacy English-only support fields should not become a permanent second
 localization system.
+
+For Ukrainian, the semantic migration direction is now stricter:
+
+1. do not mark generated or legacy-derived text as `approved` without
+   review evidence;
+2. migrate the remaining legacy Ukrainian fields into typed semantic units;
+3. preserve protected target-language spans, IPA, entity distinctions and
+   pronunciation-role separation;
+4. pass `dart run tool/audit_semantic_ukrainian_migration.dart`;
+5. complete representative device QA only after the semantic audit reports
+   zero legacy fallback.
 
 ---
 
