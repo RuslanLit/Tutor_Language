@@ -11,6 +11,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - PRONUNCIATION_MODEL.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - CURRICULUM_SPEC.md
@@ -222,6 +224,7 @@ Target architecture:
 
 Pronunciation concepts are modelled separately:
 
+- WritingUnit: reusable writing-system knowledge object with stable ID.
 - PronunciationUnit: reusable pronunciation knowledge object with stable ID.
 - PronunciationData: pronunciation information associated with a target form or
   pronunciation concept.
@@ -237,7 +240,20 @@ Pronunciation concepts are modelled separately:
 - AudioReference: stable reference to future target-language pronunciation
   audio.
 
-These concepts are documented in PRONUNCIATION_MODEL.md and
+WritingUnit represents a written symbol or symbol sequence that the learner
+may need to recognize, name, pronounce, type or distinguish visually. Letters,
+digraphs, ligatures, accented letters, Hangul jamo, Hangul syllable blocks,
+Kana, Hanzi, Arabic letters, Hebrew letters and future symbols are all
+WritingUnits when taught.
+
+WritingUnit data separates symbol, designation, conventional name, name
+pronunciation, reading, reading pronunciation, meaning or function,
+confusables and Unicode representation. A symbol's conventional name must not
+be conflated with its reading inside words. A WritingUnit may have multiple
+readings and may span multiple Unicode code points.
+
+These concepts are documented in WRITING_SYSTEM_STANDARD.md,
+WRITING_UNIT_INTRODUCTION_STANDARD.md, PRONUNCIATION_MODEL.md and
 PRONUNCIATION_AUTHORING_GUIDE.md. Runtime schema migration is deferred; current
 assets should not add more universal pronunciation hints.
 
@@ -251,6 +267,13 @@ pronunciation element is missing.
 PronunciationUnit is reusable Educational Content in the target architecture.
 Vocabulary, Grammar Topics, Dialogues, Reading Texts, Exercise Templates and
 LessonDefinitions should reference it when pronunciation knowledge is needed.
+
+WritingUnit is reusable Educational Content in the target architecture. Target
+orthography, conventional target-language symbol names, readings, confusable
+symbols, Unicode representation and target examples remain locale-independent.
+Localized learner presentations, localized designations, memory hints,
+pronunciation approximations and visual-recognition explanations are
+support-language content.
 
 ReadingRule is also reusable Educational Content in the target architecture.
 It belongs to the target language and pronunciation variety, not to a single

@@ -12,6 +12,8 @@ Related documents:
 - CONTENT_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
 - PRONUNCIATION_MODEL.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - COURSE_AUTHORING_GUIDE.md
@@ -63,6 +65,20 @@ ReadingRule authoring must also define curriculum availability. A rule may be
 introduced, required or reviewed by stable ID in LessonDefinition/activity
 metadata. First active use must follow explicit introduction. See
 READING_RULE_PREREQUISITE_STANDARD.md.
+
+Writing systems are first-class educational knowledge. A new written symbol,
+digraph, character, jamo, kana, Hanzi or future writing unit must be introduced
+as a WritingUnit before the learner is asked to read, type, recall or apply it.
+See WRITING_SYSTEM_STANDARD.md.
+
+If a WritingUnit has a conventional name, pronunciation of that name is
+authored separately from pronunciation of the unit's reading inside words. See
+WRITING_UNIT_INTRODUCTION_STANDARD.md.
+
+For WritingUnit readings, pronunciation completeness is not limited to stress.
+Courses must preserve the contrastive features that matter for the target
+language and level, such as tone, vowel length, pitch accent, gemination,
+consonant strength or phonation where relevant.
 
 When a rule contains visually confusable graphemes, author localized grapheme
 presentation data instead of relying on prose or font choice. See

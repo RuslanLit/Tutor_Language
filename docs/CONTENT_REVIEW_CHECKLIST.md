@@ -14,6 +14,8 @@ Related documents:
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
 - CONTENT_REVIEW_PROTOCOL.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 
@@ -55,6 +57,19 @@ For the mandatory review process, use CONTENT_REVIEW_PROTOCOL.md.
 - [ ] Sections and activities are ordered pedagogically.
 - [ ] All references are stable.
 - [ ] All references resolve correctly.
+- [ ] WritingUnit introductions, requirements and reviews use stable IDs where
+      supported.
+- [ ] No active use of a new written symbol occurs before its WritingUnit
+      introduction.
+- [ ] Symbol, designation, conventional name, reading, pronunciation and
+      meaning/function are not conflated.
+- [ ] Conventional names exist where applicable.
+- [ ] Name pronunciation exists where a conventional spoken name is taught.
+- [ ] All taught readings are represented.
+- [ ] Contrastive stress, tone, length or other required pronunciation features
+      are preserved.
+- [ ] Confusable symbols include learner guidance where required.
+- [ ] Accessibility descriptions distinguish confusable units.
 - [ ] ReadingRule introductions, requirements and reviews use stable IDs.
 - [ ] No active ReadingRule use occurs before explicit introduction.
 - [ ] Visually confusable graphemes include decomposition, localized letter

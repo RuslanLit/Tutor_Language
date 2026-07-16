@@ -640,6 +640,11 @@ Course baseline:
   are separate; current practical text guides remain legacy until migrated.
 - Future Spanish A0 pronunciation content should reference reusable
   PronunciationUnit objects as defined in PRONUNCIATION_MODEL.md.
+- Future Spanish A0 writing-system content should treat letters, digraphs,
+  accented letters and visually confusable symbols as WritingUnits according
+  to WRITING_SYSTEM_STANDARD.md. First learner-facing introductions should
+  follow WRITING_UNIT_INTRODUCTION_STANDARD.md so letter names such as `hache`
+  are not confused with the sound or silence of the letter inside words.
 - ReadingRule active use must follow explicit introduction as defined in
   READING_RULE_PREREQUISITE_STANDARD.md. Visually confusable graphemes use
   GRAPHEME_PRESENTATION_STANDARD.md.

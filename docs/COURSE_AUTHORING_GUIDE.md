@@ -14,6 +14,8 @@ Related documents:
 - LEARNING_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
 - CONTENT_REVIEW_CHECKLIST.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 
 ---
@@ -41,6 +43,12 @@ Courses that teach reading rules must introduce each ReadingRule before the
 first active use that requires it. Lesson and activity metadata should declare
 introduced, required and reviewed ReadingRule IDs. See
 READING_RULE_PREREQUISITE_STANDARD.md.
+
+Courses that introduce a new writing system, script, letter, digraph,
+character, jamo, kana or other symbol must teach the relevant WritingUnit
+before active vocabulary, phrase, dialogue, reading or typing use. Course order
+must follow WRITING_SYSTEM_STANDARD.md. First-introduction lessons must follow
+WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
 

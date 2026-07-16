@@ -16,6 +16,8 @@ Related documents:
 - COURSE_AUTHORING_GUIDE.md
 - CONTENT_REVIEW_PROTOCOL.md
 - CONTENT_REVIEW_CHECKLIST.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 
@@ -44,6 +46,18 @@ explanation of silent `h`, `ñ`, stable vowels, written stress or similar rules
 into every vocabulary item or exercise. Author the ReadingRule once, localize
 its learner support, and reference it by stable ID through PronunciationUnits,
 lessons or exercise metadata.
+
+Writing systems are reusable educational knowledge. Do not ask a learner to
+read, type, recognize, recall or apply a new written symbol before the course
+has introduced the corresponding WritingUnit. Letters, digraphs, accented
+letters, ligatures, Hangul jamo, Kana, Hanzi, Arabic letters, Hebrew letters
+and future symbols are educational entities, not merely characters in a
+string. See WRITING_SYSTEM_STANDARD.md.
+
+When introducing a WritingUnit, distinguish symbol, designation, conventional
+name, name pronunciation, reading, pronunciation and meaning/function. Do not
+write explanations such as "h is pronounced hache". Use
+WRITING_UNIT_INTRODUCTION_STANDARD.md for first-presentation requirements.
 
 Do not author an active exercise that requires a learner to read, type,
 recognize or apply a ReadingRule before the course has introduced that stable

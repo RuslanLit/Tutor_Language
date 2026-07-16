@@ -243,6 +243,38 @@ Educational Content
 
 [x] grapheme presentation standard documented
 
+[x] universal writing-system standard documented
+
+[x] WritingUnit first-introduction standard documented
+
+[ ] standalone WritingUnit runtime model implemented
+
+[ ] WritingUnit prerequisite validation implemented
+
+[ ] every release WritingUnit has stable identity
+
+[ ] every applicable WritingUnit has a conventional name
+
+[ ] every taught conventional name has pronunciation data
+
+[ ] every actively taught reading has complete pronunciation data
+
+[ ] symbol name and reading are not conflated
+
+[ ] every contrastive stress, tone, length or equivalent feature is preserved
+
+[ ] every production WritingUnit introduced before active use
+
+[ ] no vocabulary, phrase or dialogue introduces unseen symbols
+
+[ ] confusable symbols have learner guidance where required
+
+[ ] accessibility descriptions distinguish confusable units
+
+[ ] writing units support multi-code-point graphemes
+
+[ ] target-language notation is not replaced by localized approximation
+
 [x] pronunciation validation and coverage tools implemented with Spanish A0 production inventory gate
 
 [x] target-language pronunciation variety declared for production assets

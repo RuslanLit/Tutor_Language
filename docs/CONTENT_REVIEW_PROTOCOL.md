@@ -13,6 +13,8 @@ Related documents:
 - COURSE_AUTHORING_GUIDE.md
 - EDUCATIONAL_CONTENT_LOCALIZATION.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - CONTENT_REVIEW_CHECKLIST.md
@@ -88,6 +90,9 @@ The author verifies:
 - one primary concept per learning activity;
 - appropriate knowledge density;
 - reuse of existing educational content where possible;
+- every new WritingUnit is introduced before active use;
+- WritingUnit symbol, designation, conventional name, reading and
+  pronunciation are not conflated;
 - no active use of a ReadingRule before its explicit introduction;
 - structured grapheme presentation when a symbol is visually confusable;
 - no placeholders;
@@ -122,6 +127,9 @@ This stage verifies:
 - checkable answers;
 - localization completeness where required;
 - pronunciation completeness where required;
+- WritingUnit references and introduction order where required;
+- WritingUnit name pronunciations, readings, contrastive features and
+  confusable-symbol metadata where required;
 - ReadingRule and PronunciationUnit references;
 - validator tools;
 - lesson assembly compatibility;
@@ -146,6 +154,17 @@ Review questions include:
 - Is the progression correct?
 - Does the lesson introduce too much new knowledge?
 - Does the material support recognition, recall and application?
+- Does the lesson introduce new written symbols before requiring active use?
+- Is the visible unit correctly identified?
+- Does it have a conventional name where applicable?
+- Is the name distinct from its reading?
+- Is pronunciation of the name available where taught?
+- Are all taught readings represented?
+- Are pronunciation and reading contextually correct?
+- Is meaning or function separated from pronunciation?
+- Are stress, tone, length or other contrastive features preserved where
+  relevant?
+- Can a screen reader distinguish the unit from its confusables?
 - Are examples pedagogically useful?
 - Does remediation explain a real learner problem?
 - Does review content combine prior knowledge rather than repeat a lesson

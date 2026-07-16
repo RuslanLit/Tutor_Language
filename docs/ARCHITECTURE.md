@@ -12,6 +12,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - V1_TECHNICAL_SPEC.md
@@ -196,6 +198,14 @@ Target-language orthography, pronunciation variety, IPA, localized learner
 hints, localized pronunciation explanations and future audio references must
 remain separate. English-oriented respelling is not a universal pronunciation
 representation.
+
+Writing systems are first-class educational knowledge. The long-term
+architecture treats letters, digraphs, accented letters, ligatures, Hangul
+jamo, Kana, Hanzi, Arabic letters, Hebrew letters and future symbols as
+WritingUnit objects. A learner must not be asked to read, type, recall or apply
+a WritingUnit before the curriculum introduces it. The source of truth is
+WRITING_SYSTEM_STANDARD.md. First learner-facing presentation requirements are
+defined in WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 Pronunciation is reusable educational knowledge. Long-term architecture treats
 it as PronunciationUnit and ReadingRule objects referenced by vocabulary,

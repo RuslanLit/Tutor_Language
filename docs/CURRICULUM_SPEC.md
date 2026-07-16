@@ -10,6 +10,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - CONTENT_MODEL.md
 - LEARNING_MODEL.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 
 ---
@@ -210,6 +212,22 @@ LessonDefinition activities reference Educational Content.
 LessonDefinitions must not embed vocabulary, grammar explanations, dialogues, readings or exercise definitions.
 
 LessonDefinition activities describe the structure and referenced source material available to lesson planning and assembly.
+
+LessonDefinition and activity metadata may declare WritingUnit dependencies in
+the target architecture:
+
+- introduced WritingUnits;
+- required WritingUnits;
+- reviewed WritingUnits.
+
+These dependencies use stable WritingUnit IDs and are validated in canonical
+course order. A learner must not be asked to actively read, type, recall or
+apply an unseen WritingUnit. This standard is defined in
+WRITING_SYSTEM_STANDARD.md. First-introduction requirements, including symbol,
+designation, conventional name, name pronunciation, reading and confusable
+guidance, are defined in WRITING_UNIT_INTRODUCTION_STANDARD.md. Runtime support
+for standalone WritingUnit metadata is deferred until a future implementation
+phase.
 
 LessonDefinition and activity metadata may also declare ReadingRule
 dependencies:

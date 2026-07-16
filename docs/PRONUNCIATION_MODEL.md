@@ -14,6 +14,8 @@ Related documents:
 - AUTHORING_STYLE_GUIDE.md
 - EDUCATIONAL_CONTENT_LOCALIZATION.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - SPANISH_LLY_PRONUNCIATION_POLICY.md
@@ -32,6 +34,15 @@ lesson, one word or one exercise.
 
 Any educational material that needs pronunciation knowledge should reference a
 PronunciationUnit instead of storing its own copied pronunciation data.
+
+Writing-system knowledge is adjacent but distinct. A written symbol or symbol
+sequence is represented conceptually as a WritingUnit, while its sound is
+represented by PronunciationUnit and its reusable spelling-to-sound behavior by
+ReadingRule. See WRITING_SYSTEM_STANDARD.md.
+
+Pronunciation of a WritingUnit's conventional name is separate from
+pronunciation of the unit's reading inside words. See
+WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 This document defines the long-term conceptual model and records the current
 runtime status. It does not require full-course migration, an editor, IPA

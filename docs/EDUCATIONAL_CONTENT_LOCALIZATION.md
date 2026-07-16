@@ -14,6 +14,8 @@ Related documents:
 - CURRICULUM_SPEC.md
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - PRONUNCIATION_MODEL.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
 - RELEASE_CHECKLIST.md
@@ -79,6 +81,20 @@ Examples:
 - `hola`
 - `adiós`
 - `¿Cómo te llamas?`
+
+Writing-system identity is target-language content. WritingUnit stable IDs,
+orthography, target language, writing system, official target-language names,
+confusable target symbols and target examples are not localized. Learner-facing
+display names, symbol explanations, visual-recognition guidance, memory hints
+and accessibility descriptions are support-language content. See
+WRITING_SYSTEM_STANDARD.md.
+
+When a WritingUnit has a conventional target-language name, the name itself is
+not translated across support locales. Localized name pronunciation hints,
+designations and learner explanations are support-language content. A
+localized learner hint must not replace target-language notation, pinyin, IPA
+or other declared canonical reading notation. See
+WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 Pronunciation is a special case. Target orthography, pronunciation variety and
 IPA are locale-independent pronunciation data. Learner pronunciation hints and

@@ -11,6 +11,8 @@ Related documents:
 - CONTENT_AUTHORING_GUIDE.md
 - EDUCATIONAL_CONTENT_LOCALIZATION.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - CONTENT_REVIEW_PROTOCOL.md
@@ -64,6 +66,39 @@ grapheme, it must be beginner-safe and must not expose authoring terminology
 such as regional policy names unless that terminology is itself the teaching
 objective. See READING_RULE_PREREQUISITE_STANDARD.md and
 GRAPHEME_PRESENTATION_STANDARD.md.
+
+When learner-facing text introduces a new written symbol, the learner must
+know how the symbol looks, what it is called or designated, how that name is
+pronounced where applicable, how the unit is read in meaningful language, and
+how it sounds in the taught context before being asked to read, type, recall or
+apply it. This is a mandatory educational quality requirement. See
+WRITING_SYSTEM_STANDARD.md and WRITING_UNIT_INTRODUCTION_STANDARD.md.
+
+Learner-facing writing-system explanations must:
+
+- state clearly whether a parenthetical form is a name, reading or learner
+  hint;
+- avoid unexplained linguistic terminology;
+- avoid implying that a localized approximation is exact;
+- avoid ambiguous phrasing such as "h reads as hache";
+- use consistent terminology for letter name, sound, reading, pronunciation,
+  character, syllable, component, tone and stress.
+
+Poor:
+
+```text
+Німа h (аче).
+```
+
+Better:
+
+```text
+Німа літера h. Іспанською вона називається «аче».
+```
+
+A compact title such as `Німа h («аче») і сталі голосні` is acceptable only
+when the surrounding lesson immediately explains that `аче` is the letter's
+name, not its sound inside a word.
 
 ---
 

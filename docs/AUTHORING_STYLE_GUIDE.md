@@ -15,6 +15,8 @@ Related documents:
 - AUTHORING_DECISIONS.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 
 ---
 
@@ -55,6 +57,15 @@ English spelling conventions outside English support mode.
 For visually confusable graphemes, use GRAPHEME_PRESENTATION_STANDARD.md.
 Beginner explanations must name the letters and show decomposition instead of
 expecting the learner to distinguish glyphs from the font alone.
+
+For new written symbols in any script, use WRITING_SYSTEM_STANDARD.md. The
+learner-facing explanation must show how the symbol looks, what it is called
+and how it sounds before asking the learner to use it.
+
+Use WRITING_UNIT_INTRODUCTION_STANDARD.md to keep symbol, conventional name,
+name pronunciation, reading and pronunciation distinct. Avoid phrasing such as
+`h is pronounced hache`; write that Spanish `h` is called `hache`, and that
+the letter is silent in most modern Spanish words.
 
 ---
 

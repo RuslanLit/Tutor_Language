@@ -10,6 +10,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - PRONUNCIATION_MODEL.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
 - GRAPHEME_PRESENTATION_STANDARD.md
@@ -25,6 +27,14 @@ ReadingRules.
 The standard prevents a learner from being asked to recognize, read, type,
 recall or apply an unseen grapheme, digraph, orthographic pattern or reading
 rule before that rule has been explicitly introduced.
+
+It specializes WRITING_SYSTEM_STANDARD.md for reusable spelling-to-sound
+behavior. WritingUnit introduction covers the symbol itself; ReadingRule
+introduction covers the rule governing how the symbol or symbol sequence is
+read.
+
+First WritingUnit introductions, including name versus reading distinctions,
+are defined in WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 The rule is target-language neutral. Spanish `ll` before `llamo`, German `sch`
 before `Schule`, French `eau` before `beau`, Polish `sz` before `szkola`, and

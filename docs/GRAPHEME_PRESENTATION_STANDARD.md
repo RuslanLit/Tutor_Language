@@ -6,6 +6,8 @@ Version: 1.0
 
 Related documents:
 
+- WRITING_SYSTEM_STANDARD.md
+- WRITING_UNIT_INTRODUCTION_STANDARD.md
 - PRONUNCIATION_MODEL.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
 - READING_RULE_PREREQUISITE_STANDARD.md
@@ -18,6 +20,12 @@ Related documents:
 
 This document defines how Tutor Language presents visually confusable
 graphemes to beginner learners.
+
+It is a specialized presentation standard under WRITING_SYSTEM_STANDARD.md.
+WritingUnit owns the educational identity of a written symbol; this document
+defines how visually confusable written forms should be presented safely.
+First WritingUnit introductions are defined in
+WRITING_UNIT_INTRODUCTION_STANDARD.md.
 
 Some writing systems contain characters or combinations that are difficult to
 distinguish in ordinary fonts. A learner must not be expected to infer the

@@ -1478,6 +1478,78 @@ full-course pronunciation migration remains incremental.
 
 ---
 
+## ADR: Writing Systems Are First-Class Educational Knowledge
+
+Status
+
+Accepted
+
+Context
+
+Beginner learners cannot reliably read, type or remember unfamiliar written
+symbols by seeing them embedded inside vocabulary. A letter, digraph,
+character, jamo, kana, Hanzi, ligature or accented form can itself be new
+educational knowledge.
+
+Treating writing-system units as plain characters hides prerequisites and
+creates release risk for future courses using Cyrillic, Greek, Arabic, Hebrew,
+Hangul, Japanese kana, Hanzi or other writing systems.
+
+Decision
+
+Writing systems are first-class educational knowledge.
+
+The target architecture represents written symbols and symbol sequences as
+WritingUnit objects. A WritingUnit owns stable target-language identity,
+symbol, canonical orthography, designation, conventional names where
+applicable, name pronunciations, readings, visual recognition data, confusable
+symbols, semantic or grammatical functions where applicable, and references to
+related PronunciationUnits and ReadingRules.
+
+Symbol name and symbol reading are separate knowledge. A conventional name is
+conditional, not universal. Every taught reading must link to pronunciation
+knowledge and may include contrastive stress, tone, length, pitch accent,
+gemination, phonation or other relevant pronunciation features.
+
+A WritingUnit may contain multiple readings. Script-specific models must fit
+without forcing alphabetic assumptions.
+
+A WritingUnit may span multiple Unicode code points. Raw visible text and
+locale-dependent case conversion must not define educational identity.
+
+The curriculum must introduce a WritingUnit before any active vocabulary,
+phrase, dialogue, reading, typing, recall or application task requires it.
+
+Localized learner presentations, memory hints, explanations and accessibility
+text are support-language content. Localized learner hints never replace
+canonical target-language notation. Stable WritingUnit identity is not
+localized.
+
+Rationale
+
+This preserves the existing architecture principle that reusable knowledge is
+authored once and lessons organize references to it.
+
+It also keeps reading order validation language-independent and prevents a
+future redesign when adding languages with non-Latin scripts.
+
+Consequences
+
+Future content schemas and validators should support stable WritingUnit
+references, introduction metadata, name/reading separation, multiple readings,
+confusable-symbol guidance, accessibility descriptions, Unicode grapheme
+cluster handling and order checks.
+
+ReadingRules and PronunciationUnits remain distinct: WritingUnit owns the
+symbol, ReadingRule owns reusable spelling-to-sound behavior and
+PronunciationUnit owns sound knowledge.
+
+Current implementation does not yet include a standalone runtime WritingUnit
+schema. WRITING_SYSTEM_STANDARD.md defines the target model and authoring
+standard until a future implementation phase adds runtime support.
+
+---
+
 # Final Principle
 
 Architectural decisions should be:
