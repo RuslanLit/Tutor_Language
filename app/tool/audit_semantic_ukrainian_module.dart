@@ -3,51 +3,162 @@ import 'dart:io';
 
 import 'package:tutor_language/core/content/semantic_localization.dart';
 
-const _coursePath =
-    'assets/languages/spanish/curriculum/spanish_a0_course.json';
-const _legacyPath =
-    'assets/languages/spanish/localization/support_localizations.json';
+import 'semantic_scope/module_semantic_scope_extractor.dart';
+
 const _semanticPaths = [
   'assets/languages/spanish/localization/semantic/uk/shared.json',
   'assets/languages/spanish/localization/semantic/uk/module_01.json',
 ];
-const _pronunciationPath =
-    'assets/languages/spanish/pronunciation/reference_slice.json';
 
 void main(List<String> args) {
   final moduleId = _argValue(args, '--module') ?? 'es.a0.m01';
-  final validator = _SemanticLessonValidator();
-  final report = validator.validate(moduleId: moduleId);
+  if (args.contains('--scope-only')) {
+    final scaffold = _argValue(args, '--scaffold');
+    if (scaffold == null) {
+      stderr.writeln('--scope-only requires --scaffold <path>');
+      exitCode = 64;
+      return;
+    }
+    _runScopeOnly(moduleId: moduleId, scaffoldPath: scaffold);
+    return;
+  }
+  _runProduction(moduleId: moduleId);
+}
+
+void _runScopeOnly({required String moduleId, required String scaffoldPath}) {
+  final scope = ModuleSemanticScopeExtractor().extract(moduleId);
+  final scaffold = _readJsonObject(scaffoldPath);
+  final rawUnits = scaffold['units'] as List? ?? const [];
+  final scaffoldIdentities = <String>{};
+  final duplicateIds = <String>{};
+  final duplicateIdentityKeys = <String>{};
+  final unitIds = <String>{};
+  var nonEmptyValues = 0;
+  var approved = 0;
+
+  for (final raw in rawUnits) {
+    final unit = Map<String, Object?>.from(raw as Map);
+    final id = unit['id'] as String? ?? '';
+    if (!unitIds.add(id)) {
+      duplicateIds.add(id);
+    }
+    final context = Map<String, Object?>.from(unit['context'] as Map);
+    final identity =
+        '${context['contentObjectId']}|${context['fieldPath']}|${unit['semanticType']}';
+    if (!scaffoldIdentities.add(identity)) {
+      duplicateIdentityKeys.add(identity);
+    }
+    final values = Map<String, Object?>.from(unit['values'] as Map? ?? {});
+    if (values.values.any((value) => '$value'.trim().isNotEmpty)) {
+      nonEmptyValues += 1;
+    }
+    final review = Map<String, Object?>.from(unit['review'] as Map? ?? {});
+    if (review.values.any((value) => value == 'approved')) {
+      approved += 1;
+    }
+  }
+
+  final required = {
+    for (final identity in scope.requiredIdentities) identity.stableIdentity,
+  };
+  final missing = required.difference(scaffoldIdentities).toList()..sort();
+  final extra = scaffoldIdentities.difference(required).toList()..sort();
+
+  stdout.writeln('R2E5N0A semantic module scope audit');
+  stdout.writeln('module: $moduleId');
+  stdout.writeln('lesson IDs: ${scope.lessonIds.join(', ')}');
+  stdout.writeln('required identities: ${required.length}');
+  stdout.writeln('scaffold identities: ${scaffoldIdentities.length}');
+  stdout.writeln(
+    'shared identities: ${scope.requiredIdentities.where((i) => i.lessonIds.isEmpty).length}',
+  );
+  stdout.writeln(
+    'module identities: ${scope.requiredIdentities.where((i) => i.lessonIds.isNotEmpty).length}',
+  );
+  stdout.writeln('missing: ${missing.length}');
+  stdout.writeln('extra: ${extra.length}');
+  stdout.writeln('duplicate unit IDs: ${duplicateIds.length}');
+  stdout.writeln('duplicate identities: ${duplicateIdentityKeys.length}');
+  stdout.writeln('unresolved dependencies: ${scope.unresolvedFields.length}');
+  stdout.writeln(
+    'ambiguous/validation issues: ${scope.validationIssues.length}',
+  );
+  stdout.writeln('non-empty localized values: $nonEmptyValues');
+  stdout.writeln('approved units: $approved');
+  stdout.writeln('semantic type breakdown:');
+  for (final entry in _sorted(scope.semanticTypeCounts)) {
+    stdout.writeln('  ${entry.key}: ${entry.value}');
+  }
+  stdout.writeln('asset category breakdown:');
+  for (final entry in _sorted(scope.contentKindCounts)) {
+    stdout.writeln('  ${entry.key}: ${entry.value}');
+  }
+  for (final item in missing.take(50)) {
+    stdout.writeln('missing: $item');
+  }
+  for (final item in extra.take(50)) {
+    stdout.writeln('extra: $item');
+  }
+
+  if (missing.isNotEmpty ||
+      extra.isNotEmpty ||
+      duplicateIds.isNotEmpty ||
+      duplicateIdentityKeys.isNotEmpty ||
+      scope.unresolvedFields.isNotEmpty ||
+      scope.validationIssues.isNotEmpty ||
+      nonEmptyValues != 0 ||
+      approved != 0) {
+    exitCode = 1;
+  }
+}
+
+void _runProduction({required String moduleId}) {
+  final scope = ModuleSemanticScopeExtractor().extract(moduleId);
+  final semanticBundle = _readSemanticBundles(_semanticPaths);
+  final semanticByIdentity = {
+    for (final unit in semanticBundle.units) unit.identityKey: unit,
+  };
+  final missing = <String>[];
+  final generated = <String>[];
+  final unapproved = <String>[];
+  for (final identity in scope.requiredIdentities) {
+    final unit = semanticByIdentity[identity.stableIdentity];
+    if (unit == null) {
+      missing.add(identity.stableIdentity);
+    } else if (unit.review.values.any(
+      (s) => s == SemanticReviewStatus.generated,
+    )) {
+      generated.add(unit.id);
+    } else if (!unit.isApprovedFor('uk')) {
+      unapproved.add(unit.id);
+    }
+  }
 
   stdout.writeln('R2E5N1 semantic Ukrainian module audit');
   stdout.writeln('module: $moduleId');
-  stdout.writeln('lesson IDs: ${report.lessonIds.join(', ')}');
-  stdout.writeln('required identities in scope: ${report.expectedFields}');
-  stdout.writeln('semantic covered fields: ${report.semanticCoveredFields}');
-  stdout.writeln('coverage: ${report.coveragePercent.toStringAsFixed(1)}%');
-  stdout.writeln('legacy Ukrainian resolutions: ${report.legacyFallbacks}');
+  stdout.writeln('lesson IDs: ${scope.lessonIds.join(', ')}');
   stdout.writeln(
-    'English source fallback inside scope: ${report.legacyFallbacks}',
+    'required identities in scope: ${scope.requiredIdentities.length}',
   );
-  stdout.writeln('Russian fallback: 0');
   stdout.writeln(
-    'missing values: ${report.issues.where((issue) => issue.contains('missing')).length}',
+    'semantic covered fields: ${scope.requiredIdentities.length - missing.length}',
   );
-  stdout.writeln('generated: ${report.generatedUnits}');
-  stdout.writeln('approved: ${report.approvedUnits}');
-  stdout.writeln('duplicate identities: ${report.duplicateIdentities}');
-  stdout.writeln('issues: ${report.issues.length}');
-  for (final entry
-      in report.byCode.entries.toList()
-        ..sort((a, b) => a.key.compareTo(b.key))) {
-    stdout.writeln('  ${entry.key}: ${entry.value}');
+  stdout.writeln('missing: ${missing.length}');
+  stdout.writeln('generated: ${generated.length}');
+  stdout.writeln('unapproved: ${unapproved.length}');
+  stdout.writeln(
+    'duplicate identities: ${const SemanticLocalizationValidator().validate(bundle: semanticBundle, production: false).where((issue) => issue.code == 'semantic.duplicateIdentityConflict').length}',
+  );
+  for (final item in missing.take(100)) {
+    stdout.writeln('missing: $item');
   }
-  for (final issue in report.issues.take(200)) {
-    stdout.writeln(issue);
-  }
-  if (report.issues.isNotEmpty) {
+  if (missing.isNotEmpty || generated.isNotEmpty || unapproved.isNotEmpty) {
     exitCode = 1;
   }
+}
+
+List<MapEntry<String, int>> _sorted(Map<String, int> values) {
+  return values.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
 }
 
 String? _argValue(List<String> args, String name) {
@@ -60,356 +171,6 @@ String? _argValue(List<String> args, String name) {
     }
   }
   return null;
-}
-
-class _SemanticLessonValidator {
-  _SemanticLessonValidator()
-    : course = _readJsonObject(_coursePath),
-      legacy = _readJsonObject(_legacyPath),
-      semanticBundle = _readSemanticBundles(_semanticPaths),
-      pronunciation = _readJsonObject(_pronunciationPath) {
-    for (final rawEntry in legacy['entries'] as List? ?? const []) {
-      final entry = Map<String, Object?>.from(rawEntry as Map);
-      legacyFieldKeys.addAll([
-        for (final field in (entry['fields'] as Map? ?? const {}).keys)
-          '${entry['id']}|$field',
-      ]);
-    }
-    for (final unit in semanticBundle.units) {
-      final key = '${unit.context.contentObjectId}|${unit.context.fieldPath}';
-      semanticByField.putIfAbsent(key, () => []).add(unit);
-    }
-    for (final raw in pronunciation['units'] as List? ?? const []) {
-      final unit = Map<String, Object?>.from(raw as Map);
-      pronunciationUnitsById[unit['id'] as String] = unit;
-      for (final related in unit['relatedContentIds'] as List? ?? const []) {
-        pronunciationByContentId['$related'] = unit;
-      }
-    }
-    for (final raw in pronunciation['localizations'] as List? ?? const []) {
-      final entry = Map<String, Object?>.from(raw as Map);
-      pronunciationLocalizationIds.add(entry['id'] as String);
-    }
-  }
-
-  final Map<String, Object?> course;
-  final Map<String, Object?> legacy;
-  final SemanticLocalizationBundle semanticBundle;
-  final Map<String, Object?> pronunciation;
-  final Set<String> legacyFieldKeys = {};
-  final Map<String, List<SemanticLocalizationUnit>> semanticByField = {};
-  final Map<String, Map<String, Object?>> pronunciationUnitsById = {};
-  final Map<String, Map<String, Object?>> pronunciationByContentId = {};
-  final Set<String> pronunciationLocalizationIds = {};
-
-  _SemanticLessonReport validate({required String moduleId}) {
-    final lessonIds = _lessonIdsForModule(moduleId);
-    final expectedFields = _collectExpectedFields(
-      moduleId: moduleId,
-      lessonIds: lessonIds,
-    );
-    final issues = <String>[];
-    final coveredFields = <String>{};
-    final duplicateIdentities = const SemanticLocalizationValidator()
-        .validate(bundle: semanticBundle, production: false)
-        .where((issue) => issue.code == 'semantic.duplicateIdentityConflict')
-        .length;
-
-    final unitIssues = const SemanticLocalizationValidator()
-        .validate(bundle: semanticBundle)
-        .where((issue) {
-          final unitId = issue.unitId;
-          if (unitId == null) {
-            return true;
-          }
-          final unit = semanticBundle.units
-              .where((candidate) => candidate.id == unitId)
-              .firstOrNull;
-          return unit == null ||
-              unit.context.moduleId == moduleId ||
-              lessonIds.contains(unit.context.lessonId);
-        });
-    for (final issue in unitIssues) {
-      issues.add('${issue.code}: ${issue.message}');
-    }
-
-    for (final field in expectedFields) {
-      final candidates = semanticByField[field.key] ?? const [];
-      final approved = candidates.any((unit) => unit.isApprovedFor('uk'));
-      if (approved) {
-        coveredFields.add(field.key);
-      } else {
-        final fallsBackToLegacy = legacyFieldKeys.contains(field.key);
-        issues.add(
-          'semanticLesson.${fallsBackToLegacy ? 'legacyFallback' : 'missingSemantic'}: '
-          '${field.lessonId ?? moduleId} ${field.key}',
-        );
-      }
-    }
-
-    for (final unit in semanticBundle.units.where(
-      (unit) =>
-          unit.context.moduleId == moduleId ||
-          lessonIds.contains(unit.context.lessonId),
-    )) {
-      if (unit.review.values.any(
-        (status) => status == SemanticReviewStatus.generated,
-      )) {
-        issues.add('semanticLesson.generatedUnit: ${unit.id}');
-      }
-      if (unit.review.values.any(
-        (status) => status != SemanticReviewStatus.approved,
-      )) {
-        issues.add('semanticLesson.invalidReviewState: ${unit.id}');
-      }
-      if (unit.ownership == SemanticTextOwnership.supportLanguageOwned) {
-        final uk = unit.values['uk'];
-        final en = unit.values['en'];
-        if (uk == null || uk.trim().isEmpty) {
-          issues.add('semanticLesson.missingUkrainianValue: ${unit.id}');
-        } else if (en != null &&
-            uk == en &&
-            unit.semanticType != SemanticLocalizationType.properNounMeaning &&
-            RegExp(r'[A-Za-z]{4,}').hasMatch(uk) &&
-            !uk.contains(RegExp(r'[ÁÉÍÓÚÜÑáéíóúüñ¿¡]'))) {
-          issues.add('semanticLesson.englishLeakage: ${unit.id}');
-        }
-        if (uk != null && RegExp('[ыэъёЫЭЪЁ]').hasMatch(uk)) {
-          issues.add('semanticLesson.russianLeakage: ${unit.id}');
-        }
-      }
-    }
-
-    final generatedUnits = semanticBundle.units.where((unit) {
-      return (unit.context.moduleId == moduleId ||
-              lessonIds.contains(unit.context.lessonId)) &&
-          unit.review.values.any(
-            (status) => status == SemanticReviewStatus.generated,
-          );
-    }).length;
-    final approvedUnits = semanticBundle.units.where((unit) {
-      return (unit.context.moduleId == moduleId ||
-              lessonIds.contains(unit.context.lessonId)) &&
-          unit.review.values.every(
-            (status) => status == SemanticReviewStatus.approved,
-          );
-    }).length;
-
-    return _SemanticLessonReport(
-      expectedFields: expectedFields.length,
-      semanticCoveredFields: coveredFields.length,
-      generatedUnits: generatedUnits,
-      approvedUnits: approvedUnits,
-      legacyFallbacks: expectedFields.length - coveredFields.length,
-      duplicateIdentities: duplicateIdentities,
-      lessonIds: lessonIds,
-      issues: issues,
-    );
-  }
-
-  List<String> _lessonIdsForModule(String moduleId) {
-    final module = (course['modules'] as List? ?? const [])
-        .map((raw) => Map<String, Object?>.from(raw as Map))
-        .where((module) => module['id'] == moduleId)
-        .firstOrNull;
-    if (module == null) {
-      throw StateError('Unknown module ID: $moduleId');
-    }
-    return [for (final id in module['lessonIds'] as List? ?? const []) '$id'];
-  }
-
-  Set<_ExpectedField> _collectExpectedFields({
-    required String moduleId,
-    required List<String> lessonIds,
-  }) {
-    final expected = <_ExpectedField>{};
-    expected.add(const _ExpectedField(null, 'es.a0', 'title'));
-    expected.add(_ExpectedField(null, moduleId, 'title'));
-    for (final rawLesson in course['lessons'] as List? ?? const []) {
-      final lesson = Map<String, Object?>.from(rawLesson as Map);
-      final metadata = Map<String, Object?>.from(lesson['metadata'] as Map);
-      final lessonId = metadata['id'] as String;
-      if (!lessonIds.contains(lessonId)) {
-        continue;
-      }
-      void add(String objectId, String fieldPath) {
-        expected.add(_ExpectedField(lessonId, objectId, fieldPath));
-      }
-
-      add(lessonId, 'title');
-      if (metadata['description'] is String) {
-        add(lessonId, 'description');
-      }
-      if (lesson['communicativeOutcome'] is String) {
-        add(lessonId, 'communicativeOutcome');
-      }
-      for (final rawObjective in lesson['objectives'] as List? ?? const []) {
-        final objective = Map<String, Object?>.from(rawObjective as Map);
-        add('$lessonId.${objective['id']}', 'description');
-      }
-      for (final rawSection in lesson['sections'] as List? ?? const []) {
-        final section = Map<String, Object?>.from(rawSection as Map);
-        add(section['id'] as String, 'title');
-        for (final rawActivity in section['activities'] as List? ?? const []) {
-          final activity = Map<String, Object?>.from(rawActivity as Map);
-          add(activity['id'] as String, 'title');
-          for (final rawReference
-              in activity['references'] as List? ?? const []) {
-            _collectReferenceFields(
-              expected,
-              lessonId: lessonId,
-              reference: Map<String, Object?>.from(rawReference as Map),
-            );
-          }
-        }
-      }
-      final summary = lesson['summary'];
-      if (summary is Map) {
-        add('${summary['id']}', 'reviewPrompt');
-      }
-    }
-    return expected;
-  }
-
-  void _collectReferenceFields(
-    Set<_ExpectedField> expected, {
-    required String lessonId,
-    required Map<String, Object?> reference,
-  }) {
-    final type = reference['type'] as String;
-    final referenceId = reference['referenceId'] as String?;
-    final items = _readJsonList(reference['assetPath'] as String).where((item) {
-      return referenceId == null || item['id'] == referenceId;
-    });
-    void add(String objectId, String fieldPath) {
-      expected.add(_ExpectedField(lessonId, objectId, fieldPath));
-    }
-
-    for (final item in items) {
-      final id = item['id'] as String;
-      switch (type) {
-        case 'vocabulary':
-          add(id, 'spanish');
-          add(id, 'native_translation');
-          add(id, 'example');
-          if (item['notes'] is String) {
-            add(id, 'notes');
-          }
-          final directUnit =
-              item['pronunciationUnitId'] ?? item['pronunciation_unit_id'];
-          final pronunciationUnit = directUnit is String
-              ? pronunciationUnitsById[directUnit]
-              : pronunciationByContentId[id];
-          if (pronunciationUnit != null) {
-            final unitId = pronunciationUnit['id'] as String;
-            if (pronunciationUnit['ipa'] is String) {
-              add(unitId, 'ipa');
-            }
-            add(unitId, 'localizedLearnerHints.uk');
-            if (pronunciationLocalizationIds.contains(unitId)) {
-              add(unitId, 'explanations.uk');
-            }
-            for (final ruleId
-                in pronunciationUnit['readingRuleIds'] as List? ?? const []) {
-              final id = '$ruleId';
-              if (pronunciationLocalizationIds.contains(id)) {
-                add(id, 'titles.uk');
-                add(id, 'shortExplanations.uk');
-                add(id, 'detailedExplanations.uk');
-                add(id, 'articulationHints.uk');
-                add(id, 'commonMistakes.uk');
-                add(id, 'graphemePresentations.uk');
-              }
-              add(id, 'orthographicPattern');
-            }
-          }
-        case 'grammar':
-          add(id, 'title');
-          add(id, 'explanation');
-          final examples = item['examples'] as List? ?? const [];
-          for (var index = 0; index < examples.length; index += 1) {
-            add(id, 'examples.$index');
-          }
-        case 'dialogue':
-          add(id, 'title');
-          final lines = item['lines'] as List? ?? const [];
-          for (var index = 0; index < lines.length; index += 1) {
-            add(id, 'lines.$index.spanish');
-            add(id, 'lines.$index.native_translation');
-          }
-        case 'reading':
-          add(id, 'title');
-          add(id, 'text');
-          add(id, 'native_translation');
-        case 'exercise_template':
-          add(id, 'prompt_template');
-          for (final rawOption in item['answer_options'] as List? ?? const []) {
-            final option = Map<String, Object?>.from(rawOption as Map);
-            add(id, 'answer_options.${option['id']}.label');
-          }
-      }
-    }
-  }
-}
-
-class _ExpectedField {
-  const _ExpectedField(this.lessonId, this.objectId, this.fieldPath);
-
-  final String? lessonId;
-  final String objectId;
-  final String fieldPath;
-
-  String get key => '$objectId|$fieldPath';
-
-  @override
-  bool operator ==(Object other) {
-    return other is _ExpectedField && other.key == key;
-  }
-
-  @override
-  int get hashCode => key.hashCode;
-}
-
-class _SemanticLessonReport {
-  const _SemanticLessonReport({
-    required this.expectedFields,
-    required this.semanticCoveredFields,
-    required this.generatedUnits,
-    required this.approvedUnits,
-    required this.legacyFallbacks,
-    required this.duplicateIdentities,
-    required this.lessonIds,
-    required this.issues,
-  });
-
-  final int expectedFields;
-  final int semanticCoveredFields;
-  final int generatedUnits;
-  final int approvedUnits;
-  final int legacyFallbacks;
-  final int duplicateIdentities;
-  final List<String> lessonIds;
-  final List<String> issues;
-
-  double get coveragePercent =>
-      expectedFields == 0 ? 100 : semanticCoveredFields / expectedFields * 100;
-
-  Map<String, int> get byCode {
-    final values = <String, int>{};
-    for (final issue in issues) {
-      final code = issue.split(':').first;
-      values.update(code, (count) => count + 1, ifAbsent: () => 1);
-    }
-    return values;
-  }
-}
-
-List<Map<String, Object?>> _readJsonList(String path) {
-  final raw = jsonDecode(_resolveFile(path).readAsStringSync());
-  if (raw is! List) {
-    throw FormatException('Expected JSON list at $path');
-  }
-  return raw.map((item) => Map<String, Object?>.from(item as Map)).toList();
 }
 
 Map<String, Object?> _readJsonObject(String path) {

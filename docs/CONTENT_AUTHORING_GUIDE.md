@@ -854,3 +854,12 @@ Content quality is measured not by the amount of information it contains, but by
 ---
 
 End of document.
+
+---
+
+# R2E5N0A Semantic Inventory Before Authoring
+
+Run semantic scope extraction before writing support-language prose. The
+inventory phase is not an authoring phase: scaffold values stay empty, review
+state stays generated/draft, and readiness is not advanced. Module scope must
+come from canonical course order, not lesson ID prefixes.

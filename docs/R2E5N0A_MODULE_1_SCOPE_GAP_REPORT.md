@@ -1,0 +1,2371 @@
+# R2E5N0A Module 1 Scope Gap Report
+
+## Summary
+
+- old scaffold identities: `121`
+- final required support-localized identities: `263`
+- final identities missing from old scaffold: `155`
+- old scaffold identities excluded from final support-localized scope: `13`
+
+The final count is not forced to the old `420`. The reconciled inventory removes false positives for target-owned and locale-independent fields while adding pronunciation, ReadingRule and reusable dependency fields missed by the old scaffold.
+
+## Missing Identities By Class
+
+### dialogue
+
+- identity: `dialogue.es.a0.unit1.clarification.v1|lines.0.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.clarification.v1`
+  - field path: `lines.0.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `I don't understand.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.clarification.v1|lines.1.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.clarification.v1`
+  - field path: `lines.1.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Repeat, please.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.clarification.v1|lines.2.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.clarification.v1`
+  - field path: `lines.2.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `More slowly, please.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.clarification.v1|lines.3.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.clarification.v1`
+  - field path: `lines.3.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Yes.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.clarification.v1|title|dialogueTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.clarification.v1`
+  - field path: `title`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Please Repeat`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.hello_goodbye.v1|lines.0.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.hello_goodbye.v1`
+  - field path: `lines.0.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Good morning.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.hello_goodbye.v1|lines.1.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.hello_goodbye.v1`
+  - field path: `lines.1.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Hello.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.hello_goodbye.v1|lines.2.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.hello_goodbye.v1`
+  - field path: `lines.2.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `See you later.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.hello_goodbye.v1|lines.3.native_translation|dialogueTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.hello_goodbye.v1`
+  - field path: `lines.3.native_translation`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Goodbye.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `dialogue.es.a0.unit1.hello_goodbye.v1|title|dialogueTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/dialogues/unit_1_first_contact.json`
+  - source object ID: `dialogue.es.a0.unit1.hello_goodbye.v1`
+  - field path: `title`
+  - content kind: `dialogue`
+  - intended semantic type: `dialogueTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Greeting Exchange`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `dialogue`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### exercise_template
+
+- identity: `template.es.a0.m01.l006.morning_choice.v1|answer_options.buenas_noches.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l006`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.l006.morning_choice.v1`
+  - field path: `answer_options.buenas_noches.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `buenas noches`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m01.l006.morning_choice.v1|answer_options.buenas_tardes.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l006`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.l006.morning_choice.v1`
+  - field path: `answer_options.buenas_tardes.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `buenas tardes`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m01.l006.morning_choice.v1|answer_options.buenos_dias.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l006`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.l006.morning_choice.v1`
+  - field path: `answer_options.buenos_dias.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `buenos días`
+  - Spanish target spans: `días`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m01.review.greeting_recognition.v1|answer_options.hasta_luego.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.review.greeting_recognition.v1`
+  - field path: `answer_options.hasta_luego.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `hasta luego`
+  - Spanish target spans: `hasta, luego`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m01.review.greeting_recognition.v1|answer_options.no_entiendo.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.review.greeting_recognition.v1`
+  - field path: `answer_options.no_entiendo.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `no entiendo`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m01.review.greeting_recognition.v1|answer_options.por_favor.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/templates/module_1_first_words.json`
+  - source object ID: `template.es.a0.m01.review.greeting_recognition.v1`
+  - field path: `answer_options.por_favor.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `por favor`
+  - Spanish target spans: `por, favor`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.fill_espana.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.fill_espana.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Complete with the Spanish word for "Spain": "____".`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.n_choice.v1|answer_options.espana.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.n_choice.v1`
+  - field path: `answer_options.espana.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `España`
+  - Spanish target spans: `España`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.n_choice.v1|answer_options.javier.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.n_choice.v1`
+  - field path: `answer_options.javier.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `Javier`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.n_choice.v1|answer_options.llamo.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.n_choice.v1`
+  - field path: `answer_options.llamo.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `llamo`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.n_choice.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.n_choice.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Choose the name or word that contains ñ.`
+  - Spanish target spans: `ñ`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.type_jose.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.type_jose.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Type the Spanish word/name "José" with its accent.`
+  - Spanish target spans: `José`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.m02.l017.type_llamo.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/templates/module_2_names.json`
+  - source object ID: `template.es.a0.m02.l017.type_llamo.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Type the Spanish word "llamo" from the pattern me llamo.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.fill_por_favor.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.fill_por_favor.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Complete with the Spanish phrase for "please": "Repite, ____ ____."`
+  - Spanish target spans: `Repite`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.fill_repite.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.fill_repite.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Complete with the Spanish command for "repeat": "____, por favor."`
+  - Spanish target spans: `por, favor`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.greeting_choice.v1|answer_options.option.goodbye.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.greeting_choice.v1`
+  - field path: `answer_options.option.goodbye.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `goodbye`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.greeting_choice.v1|answer_options.option.hello.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.greeting_choice.v1`
+  - field path: `answer_options.option.hello.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `hello`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.greeting_choice.v1|answer_options.option.please.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.greeting_choice.v1`
+  - field path: `answer_options.option.please.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `please`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.greeting_choice.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.greeting_choice.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Choose the meaning of "hola".`
+  - Spanish target spans: `hola`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.no_entiendo_choice.v1|answer_options.option.i_do_not_understand.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.no_entiendo_choice.v1`
+  - field path: `answer_options.option.i_do_not_understand.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `I don't understand`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.no_entiendo_choice.v1|answer_options.option.nice_to_meet_you.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.no_entiendo_choice.v1`
+  - field path: `answer_options.option.nice_to_meet_you.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `nice to meet you`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.no_entiendo_choice.v1|answer_options.option.thank_you.label|answerOptionLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.no_entiendo_choice.v1`
+  - field path: `answer_options.option.thank_you.label`
+  - content kind: `exercise_template`
+  - intended semantic type: `answerOptionLabel`
+  - ownership: `mixedStructured`
+  - English source: `thank you`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `template.es.a0.unit1.no_entiendo_choice.v1|prompt_template|exercisePrompt`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/templates/unit_1_first_contact.json`
+  - source object ID: `template.es.a0.unit1.no_entiendo_choice.v1`
+  - field path: `prompt_template`
+  - content kind: `exercise_template`
+  - intended semantic type: `exercisePrompt`
+  - ownership: `supportLanguageOwned`
+  - English source: `Choose the meaning of "no entiendo".`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `exercise_template`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### grammar
+
+- identity: `grammar.es.a0.m02.names_reading.v1|explanation|grammarExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/grammar/module_2_names.json`
+  - source object ID: `grammar.es.a0.m02.names_reading.v1`
+  - field path: `explanation`
+  - content kind: `grammar`
+  - intended semantic type: `grammarExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spanish ñ, j and ll are important in names and first words. In this course, ll uses the same broad yeista pronunciation category as consonantal y. ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters.`
+  - Spanish target spans: `ñ`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `grammar`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `grammar.es.a0.m02.names_reading.v1|title|grammarTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/grammar/module_2_names.json`
+  - source object ID: `grammar.es.a0.m02.names_reading.v1`
+  - field path: `title`
+  - content kind: `grammar`
+  - intended semantic type: `grammarTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `ñ, j and ll in names`
+  - Spanish target spans: `ñ`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `grammar`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### lesson_activity
+
+- identity: `activity.dialogue.clarification|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.dialogue.clarification`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Dialogue`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.dialogue.hello_goodbye|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.dialogue.hello_goodbye`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Dialogue`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.dialogue.politeness|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.dialogue.politeness`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Dialogue`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.dialogue.unit1_review|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.dialogue.unit1_review`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Dialogue Review`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.practice.clarification|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.practice.clarification`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Practice`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.practice.greetings|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.practice.greetings`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Practice`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.practice.politeness|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.practice.politeness`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Practice`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.practice.unit1_review|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.practice.unit1_review`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Practice Review`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.reading.clarification|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.reading.clarification`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Reading`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.reading.greeting_recognition|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.reading.greeting_recognition`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Reading`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.reading.politeness|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.reading.politeness`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Reading`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.reading.unit1_review|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.reading.unit1_review`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Reading Review`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.vocabulary.clarification|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.vocabulary.clarification`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Vocabulary`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.vocabulary.greetings|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.vocabulary.greetings`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Vocabulary`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.vocabulary.politeness|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.vocabulary.politeness`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Vocabulary`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `activity.vocabulary.unit1_review|title|metadataLabel`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/curriculum/spanish_a0_course.json`
+  - source object ID: `activity.vocabulary.unit1_review`
+  - field path: `title`
+  - content kind: `lesson_activity`
+  - intended semantic type: `metadataLabel`
+  - ownership: `supportLanguageOwned`
+  - English source: `Vocabulary Review`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `lesson_activity`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### pronunciation_unit
+
+- identity: `pronunciation.es.phrase.buenas_noches.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.buenas_noches.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `In Chile, ch is read as one sound /tʃ/. This course uses /s/ for c before e/i and z in the general learning norm.`
+  - Spanish target spans: `buenas noches, /bˈuenas nˈotʃes/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.phrase.buenas_noches.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.buenas_noches.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `buenas noches`
+  - Spanish target spans: `buenas noches, /bˈuenas nˈotʃes/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.phrase.buenas_tardes.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.buenas_tardes.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `buenas tardes`
+  - Spanish target spans: `buenas tardes, /bˈuenas tˈaɾdes/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.phrase.hasta_luego.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.hasta_luego.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The h in hasta is silent.`
+  - Spanish target spans: `hasta luego, /ˈasta ˈlweɣo/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.phrase.hasta_luego.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.hasta_luego.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `AHS-tah LWEH-goh`
+  - Spanish target spans: `hasta luego, /ˈasta ˈlweɣo/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.phrase.por_favor.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.phrase.por_favor.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `por fah-VOR`
+  - Spanish target spans: `por favor, /poɾ faˈβoɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.sentence.buenos_dias.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.sentence.buenos_dias.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Buenos días.`
+  - Spanish target spans: `Buenos días., /bˈuenos dias/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.sentence.de_nada.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.sentence.de_nada.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `De nada.`
+  - Spanish target spans: `De nada., /de nˈada/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.sentence.mas_despacio.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.sentence.mas_despacio.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `This course uses /s/ for c before e/i and z in the general learning norm.`
+  - Spanish target spans: `Más despacio., /mas despˈasio/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.sentence.mas_despacio.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.sentence.mas_despacio.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Más despacio.`
+  - Spanish target spans: `Más despacio., /mas despˈasio/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.sentence.no_entiendo.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.sentence.no_entiendo.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `No entiendo.`
+  - Spanish target spans: `No entiendo., /no entˈiendo/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.adios.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.adios.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Adiós.`
+  - Spanish target spans: `Adiós., /adˈios/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.espana.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.espana.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The letter ñ is a separate Spanish letter.`
+  - Spanish target spans: `España, /esˈpaɲa/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.espana.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.espana.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `es-PAH-nyah`
+  - Spanish target spans: `España, /esˈpaɲa/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.gracias.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.gracias.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `This course uses /s/ for c before e/i and z in the general learning norm.`
+  - Spanish target spans: `gracias, /ˈɡɾasjas/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.gracias.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.gracias.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `GRAH-syahs`
+  - Spanish target spans: `gracias, /ˈɡɾasjas/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.hambre.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.hambre.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The h is silent.`
+  - Spanish target spans: `hambre, /ˈambɾe/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.hambre.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.hambre.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `AHM-breh`
+  - Spanish target spans: `hambre, /ˈambɾe/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.hola.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.hola.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The h is silent.`
+  - Spanish target spans: `hola, /ˈola/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.hola.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.hola.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `OH-lah`
+  - Spanish target spans: `hola, /ˈola/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.javier.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.javier.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spanish j, ge and gi are pronounced with /x/ here.`
+  - Spanish target spans: `Javier, /xabˈieɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.javier.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.javier.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Javier`
+  - Spanish target spans: `Javier, /xabˈieɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.jose.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.jose.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The j is not English j.`
+  - Spanish target spans: `José, /xoˈse/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.jose.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.jose.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `hoh-SEH`
+  - Spanish target spans: `José, /xoˈse/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.llave.v1|explanations|pronunciationExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.llave.v1`
+  - field path: `explanations`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `llave uses the same ll/y reading rule as llamo.`
+  - Spanish target spans: `llave, /ˈʝaβe/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.llave.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.llave.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `YAH-veh`
+  - Spanish target spans: `llave, /ˈʝaβe/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.no.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.no.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `No.`
+  - Spanish target spans: `No., /no/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.perdon.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.perdon.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `per-DON`
+  - Spanish target spans: `perdón, /peɾˈdon/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.repite.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.repite.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `reh-PEE-teh`
+  - Spanish target spans: `repite, /reˈpite/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.word.si.v1|localizedLearnerHints|pronunciationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.word.si.v1`
+  - field path: `localizedLearnerHints`
+  - content kind: `pronunciation_unit`
+  - intended semantic type: `pronunciationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Sí.`
+  - Spanish target spans: `Sí., /si/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `pronunciation_unit`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### reading
+
+- identity: `reading.es.a0.m02.name_sounds.v1|native_translation|readingTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/readings/module_2_names.json`
+  - source object ID: `reading.es.a0.m02.name_sounds.v1`
+  - field path: `native_translation`
+  - content kind: `reading`
+  - intended semantic type: `readingTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spain. José. Javier. My name is Laura.`
+  - Spanish target spans: `José`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.m02.name_sounds.v1|title|readingTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/readings/module_2_names.json`
+  - source object ID: `reading.es.a0.m02.name_sounds.v1`
+  - field path: `title`
+  - content kind: `reading`
+  - intended semantic type: `readingTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Name Sounds`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.clarification.v1|native_translation|readingTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.clarification.v1`
+  - field path: `native_translation`
+  - content kind: `reading`
+  - intended semantic type: `readingTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `I don't understand. Repeat, please. More slowly, please. Yes. No. I don't understand.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.clarification.v1|title|readingTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.clarification.v1`
+  - field path: `title`
+  - content kind: `reading`
+  - intended semantic type: `readingTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `More Slowly, Please`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.greeting_recognition.v1|native_translation|readingTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.greeting_recognition.v1`
+  - field path: `native_translation`
+  - content kind: `reading`
+  - intended semantic type: `readingTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.greeting_recognition.v1|title|readingTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l001`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.greeting_recognition.v1`
+  - field path: `title`
+  - content kind: `reading`
+  - intended semantic type: `readingTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Greetings and Goodbyes`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.polite_words.v1|native_translation|readingTranslation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.polite_words.v1`
+  - field path: `native_translation`
+  - content kind: `reading`
+  - intended semantic type: `readingTranslation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Excuse me. Yes. Please. Thank you. You're welcome. Thank you. You're welcome.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `reading.es.a0.unit1.polite_words.v1|title|readingTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/readings/unit_1_first_contact.json`
+  - source object ID: `reading.es.a0.unit1.polite_words.v1`
+  - field path: `title`
+  - content kind: `reading`
+  - intended semantic type: `readingTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Polite Words`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### reading_rule
+
+- identity: `pronunciation.es.rule.b_v.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.b_v.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Treat them as very close sounds for A0 reading; finer pronunciation can come later.`
+  - Spanish target spans: `b/v, /b/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.b_v.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.b_v.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `In this beginner norm, b and v are not contrasted like English b and v.`
+  - Spanish target spans: `b/v, /b/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.b_v.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.b_v.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `b and v`
+  - Spanish target spans: `b/v, /b/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.c_z.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.c_z.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `This course keeps the beginner pattern visible without treating one regional pronunciation as universal.`
+  - Spanish target spans: `c/z`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.c_z.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.c_z.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The c/z sound depends on region and nearby letters.`
+  - Spanish target spans: `c/z`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.c_z.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.c_z.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `c and z`
+  - Spanish target spans: `c/z`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.diphthong_ue.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.diphthong_ue.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `In beginner hints, keep the u and e connected rather than reading them as two separated beats.`
+  - Spanish target spans: `ue, /we/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.diphthong_ue.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.diphthong_ue.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The letters ue are read together as one smooth movement.`
+  - Spanish target spans: `ue, /we/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.diphthong_ue.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.diphthong_ue.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `The ue combination`
+  - Spanish target spans: `ue, /we/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.enye.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.enye.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `It is often approximated as ny for beginners, but it is one Spanish sound.`
+  - Spanish target spans: `ñ, /ɲ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.enye.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.enye.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `The letter ñ is a separate Spanish letter.`
+  - Spanish target spans: `ñ, /ɲ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.enye.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.enye.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `The letter ñ`
+  - Spanish target spans: `ñ, /ɲ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.g_e_i.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.g_e_i.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `This is a reading rule for spelling patterns such as ge and gi.`
+  - Spanish target spans: `g + e/i, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.g_e_i.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.g_e_i.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Before e or i, Spanish g is read like the j sound taught in this course.`
+  - Spanish target spans: `g + e/i, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.g_e_i.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.g_e_i.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `g before e or i`
+  - Spanish target spans: `g + e/i, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.j.v1|commonMistakes|commonMistakeExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.j.v1`
+  - field path: `commonMistakes`
+  - content kind: `reading_rule`
+  - intended semantic type: `commonMistakeExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Do not read José with an English j sound.`
+  - Spanish target spans: `j, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.j.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.j.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `In this course norm, j is taught as a firm h-like sound made farther back in the mouth.`
+  - Spanish target spans: `j, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.j.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.j.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spanish j is not English j.`
+  - Spanish target spans: `j, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.j.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.j.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spanish j`
+  - Spanish target spans: `j, /x/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters. In the course norm, ll and consonantal y share a broad /ʝ/ category. Regional non-yeista pronunciations exist, but they are not the Spanish A0 production norm.`
+  - Spanish target spans: `ll and consonantal y, /ʝ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|graphemePresentations.accessibilityDescription|accessibilityDescription`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `graphemePresentations.accessibilityDescription`
+  - content kind: `reading_rule`
+  - intended semantic type: `accessibilityDescription`
+  - ownership: `supportLanguageOwned`
+  - English source: `Two lowercase Latin ell letters: ell plus ell, form ll. Do not confuse this with two uppercase Latin i letters: I plus I, form II.`
+  - Spanish target spans: `ll and consonantal y`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|graphemePresentations.canonicalDescription|graphemeExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `graphemePresentations.canonicalDescription`
+  - content kind: `reading_rule`
+  - intended semantic type: `graphemeExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Study: ll. These are two lowercase Latin l letters.`
+  - Spanish target spans: `ll and consonantal y`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|graphemePresentations.confusableDescription|graphemeExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `graphemePresentations.confusableDescription`
+  - content kind: `reading_rule`
+  - intended semantic type: `graphemeExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Do not confuse this with II: two uppercase Latin I letters.`
+  - Spanish target spans: `ll and consonantal y`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `ll is two lowercase l letters. In this course, it begins with a y-like sound before a vowel.`
+  - Spanish target spans: `ll and consonantal y, /ʝ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.ll_y.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.ll_y.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `ll and y`
+  - Spanish target spans: `ll and consonantal y, /ʝ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.primary_stress.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.primary_stress.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Learner hints also mark stress so beginners do not have to infer it from spelling.`
+  - Spanish target spans: `á é í ó ú`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.primary_stress.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.primary_stress.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Stress marks show which syllable is stronger.`
+  - Spanish target spans: `á é í ó ú`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.primary_stress.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.primary_stress.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Written stress`
+  - Spanish target spans: `á é í ó ú`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.r.v1|articulationHints|articulationHint`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.r.v1`
+  - field path: `articulationHints`
+  - content kind: `reading_rule`
+  - intended semantic type: `articulationHint`
+  - ownership: `supportLanguageOwned`
+  - English source: `Touch the tongue briefly near the ridge behind the upper teeth.`
+  - Spanish target spans: `r, /ɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.r.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.r.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `It is shorter than rr and should not become a long English-style r.`
+  - Spanish target spans: `r, /ɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.r.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.r.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Single r is a short tap in the beginner examples.`
+  - Spanish target spans: `r, /ɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.r.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.r.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Single r`
+  - Spanish target spans: `r, /ɾ/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.silent_h.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.silent_h.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Read the word as if the h were not there: hola begins with the vowel sound.`
+  - Spanish target spans: `h`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.silent_h.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.silent_h.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `In Spanish, written h is usually silent.`
+  - Spanish target spans: `h`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.silent_h.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.silent_h.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Silent h`
+  - Spanish target spans: `h`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.stable_vowels.v1|detailedExplanations|readingRuleDetailedExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.stable_vowels.v1`
+  - field path: `detailedExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleDetailedExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Do not reshape Spanish vowels as strongly as English spelling might suggest.`
+  - Spanish target spans: `a e i o u, /a e i o u/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.stable_vowels.v1|shortExplanations|readingRuleShortExplanation`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.stable_vowels.v1`
+  - field path: `shortExplanations`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleShortExplanation`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spanish a, e, i, o, u stay relatively stable.`
+  - Spanish target spans: `a e i o u, /a e i o u/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `pronunciation.es.rule.stable_vowels.v1|titles|readingRuleTitle`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/pronunciation/reference_slice.json`
+  - source object ID: `pronunciation.es.rule.stable_vowels.v1`
+  - field path: `titles`
+  - content kind: `reading_rule`
+  - intended semantic type: `readingRuleTitle`
+  - ownership: `supportLanguageOwned`
+  - English source: `Stable vowels`
+  - Spanish target spans: `a e i o u, /a e i o u/`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `reading_rule`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+### vocabulary
+
+- identity: `vocab.es.a0.c2.espana.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/vocabulary/a0_c2_core.json`
+  - source object ID: `vocab.es.a0.c2.espana.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `Spain`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.c2.hambre.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/vocabulary/a0_c2_core.json`
+  - source object ID: `vocab.es.a0.c2.hambre.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `hunger`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.c2.llave.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/vocabulary/a0_c2_core.json`
+  - source object ID: `vocab.es.a0.c2.llave.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `key`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.m02.javier.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/vocabulary/module_2_names.json`
+  - source object ID: `vocab.es.a0.m02.javier.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `Javier`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.m02.jose.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l017`
+  - source asset path: `assets/languages/spanish/vocabulary/module_2_names.json`
+  - source object ID: `vocab.es.a0.m02.jose.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `Jose`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.adios.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.adios.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `goodbye`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.adios.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.adios.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `A common way to say goodbye.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenas_noches.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenas_noches.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `good evening; good night`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenas_noches.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenas_noches.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `Used in the evening, at night, or when saying good night.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenas_tardes.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenas_tardes.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `good afternoon`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenas_tardes.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenas_tardes.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `Used in the afternoon or early evening.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenos_dias.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenos_dias.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `good morning`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.buenos_dias.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.buenos_dias.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `Used in the morning.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.de_nada.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.de_nada.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `you're welcome`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.gracias.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.gracias.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `thank you`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.hasta_luego.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.hasta_luego.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `see you later`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.hasta_luego.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.hasta_luego.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `A friendly farewell.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.hola.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.hola.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `hello`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.hola.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m06.l016`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.hola.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `A simple greeting used at any time of day.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.mas_despacio.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.mas_despacio.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `more slowly`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.no.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.no.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `no`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.no_entiendo.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.no_entiendo.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `I don't understand`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.perdon.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l002`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.perdon.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `sorry; excuse me`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.por_favor.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.por_favor.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `please`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.repite.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.repite.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `repeat`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.repite.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m04.l010`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.repite.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `A simple classroom request.`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.si.v1|native_translation|vocabularyMeaning`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.si.v1`
+  - field path: `native_translation`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyMeaning`
+  - ownership: `supportLanguageOwned`
+  - English source: `yes`
+  - Spanish target spans: `-`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+- identity: `vocab.es.a0.unit1.si.v1|notes|vocabularyUsageNote`
+  - module ID: `es.a0.m01`
+  - lesson ID: `es.a0.m01.l003`
+  - source asset path: `assets/languages/spanish/vocabulary/unit_1_first_contact.json`
+  - source object ID: `vocab.es.a0.unit1.si.v1`
+  - field path: `notes`
+  - content kind: `vocabulary`
+  - intended semantic type: `vocabularyUsageNote`
+  - ownership: `supportLanguageOwned`
+  - English source: `The accent distinguishes sí from si.`
+  - Spanish target spans: `sí`
+  - reason it was missed: old scaffold walked reset legacy entries and substring module scope instead of the canonical content graph
+  - extractor layer responsible: `vocabulary`
+  - proposed extraction rule: include this learner-facing support field when its object is reached through Course → Module → Lesson → Activity references
+
+## Old Scaffold Identities Excluded From Final Scope
+
+- `grammar.es.a0.m01.silent_h.v1|examples.0|grammarExplanation`
+- `grammar.es.a0.m01.silent_h.v1|examples.1|grammarExplanation`
+- `grammar.es.a0.m01.stable_vowels.v1|examples.0|grammarExplanation`
+- `grammar.es.a0.m01.stable_vowels.v1|examples.1|grammarExplanation`
+- `grammar.es.a0.m01.stable_vowels.v1|examples.2|grammarExplanation`
+- `grammar.es.a0.m01.stable_vowels.v1|examples.3|grammarExplanation`
+- `grammar.es.a0.m01.time_greetings.v1|examples.0|grammarExplanation`
+- `grammar.es.a0.m01.time_greetings.v1|examples.1|grammarExplanation`
+- `grammar.es.a0.m01.time_greetings.v1|examples.2|grammarExplanation`
+- `grammar.es.a0.m01.time_greetings.v1|examples.3|grammarExplanation`
+- `template.es.a0.m01.l016.h_silent_choice.v1|answer_options.h.label|answerOptionLabel`
+- `template.es.a0.m01.l016.h_silent_choice.v1|answer_options.l.label|answerOptionLabel`
+- `template.es.a0.m01.l016.h_silent_choice.v1|answer_options.o.label|answerOptionLabel`
+
+These old identities are excluded because the reconciled scope treats them as target-owned, locale-independent, or duplicated under a more precise canonical dependency identity.

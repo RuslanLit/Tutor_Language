@@ -555,3 +555,12 @@ Ukrainian, Polish and German full-course translations are deferred.
 ---
 
 End of document.
+
+---
+
+# R2E5N0A Semantic Scope Inventory
+
+R2E5N0A reconciles Module 1 inventory only. The final scaffold/audit scope for
+canonical Module 1 contains 263 support-localized required identities, with
+missing, extra, duplicate and unresolved counts at zero. No Ukrainian text is
+authored in this phase and runtime fallback/readiness policy remains unchanged.

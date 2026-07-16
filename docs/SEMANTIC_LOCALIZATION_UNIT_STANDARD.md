@@ -294,3 +294,13 @@ Production PASS requires:
 - zero legacy Ukrainian educational resolutions for a completed Ukrainian
   migration phase;
 - ReadingRule applicability checks passing for migrated scope.
+
+## R2E5N0A Scope Extraction
+
+Before authoring a locale, Module 1 scope is extracted from the canonical
+course graph: `Course.modules[0]` -> lesson IDs -> lesson activity references
+-> reusable content objects -> pronunciation and ReadingRule dependencies.
+The scaffold inventory includes only support-language-localized required
+identities. Spanish target text, IPA, canonical answers, accepted answers,
+stable IDs and Flutter UI strings are excluded as localized values and may
+appear only as protected spans or context.
