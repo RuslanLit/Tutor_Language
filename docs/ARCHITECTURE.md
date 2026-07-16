@@ -28,6 +28,12 @@ It describes the major architectural components, their responsibilities and the 
 
 Educational methodology is defined in LEARNING_MODEL.md.
 
+R2E5R note: Ukrainian and Russian educational localization are in reset
+rebuild mode. Runtime readiness is declared in
+`app/assets/languages/spanish/localization/semantic/manifests/educational_locales.json`;
+`uk` and `ru` UI remain available, but educational content falls back only to
+English source until reviewed semantic units are authored.
+
 Curriculum structure is defined in CURRICULUM_SPEC.md.
 
 Implementation details are intentionally excluded.

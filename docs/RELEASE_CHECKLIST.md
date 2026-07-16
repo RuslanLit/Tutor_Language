@@ -217,6 +217,10 @@ Educational Content
 
 [ ] R2E5 semantic Ukrainian migration audit passes
 
+[x] R2E5R Ukrainian/Russian educational localization reset audit passes
+
+[ ] R2E5R Redmi Note 8T narrow reset smoke complete
+
 [x] support locale separated from UI locale
 
 [x] target language separated from support language
@@ -237,9 +241,9 @@ Educational Content
 
 [ ] Spanish A0 Ukrainian semantic localization fully migrated and approved
 
-[x] Spanish A0 Russian support translation complete
+[ ] Spanish A0 Russian support translation complete
 
-[x] Russian support localization quality gate passes
+[ ] Russian support localization quality gate passes
 
 [x] Russian mixed-language findings resolved
 

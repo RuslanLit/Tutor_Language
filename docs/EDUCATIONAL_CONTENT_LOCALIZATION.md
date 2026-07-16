@@ -306,6 +306,25 @@ The pilot gate requires 100% expected learner-visible field coverage and zero
 legacy fallback for the declared lessons. It is not a coverage expansion for
 the unmigrated full course.
 
+R2E5R supersedes the Ukrainian and Russian legacy educational localization
+state. Ukrainian and Russian UI localization remains available, but educational
+content for `uk` and `ru` is explicitly `rebuilding` and temporarily uses
+English source fallback only. No Ukrainian or Russian legacy educational value,
+pronunciation hint or semantic production unit may be treated as release-ready.
+
+The readiness source of truth is:
+
+```text
+app/assets/languages/spanish/localization/semantic/manifests/educational_locales.json
+```
+
+New localized educational content must be authored as draft/generated semantic
+scaffolds, then reviewed before any `approved` status is set:
+
+```text
+dart run tool/create_semantic_localization_scaffold.dart
+```
+
 R2E5 adds a full-course Ukrainian semantic migration audit:
 
 ```text

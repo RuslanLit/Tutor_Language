@@ -29,6 +29,11 @@ It describes educational objects, their relationships and the principles governi
 
 Implementation details, databases and serialization formats are outside the scope of this document.
 
+R2E5R note: localized educational support text for Ukrainian and Russian is not
+part of the canonical content model after reset. It is rebuilt only as reviewed
+SemanticLocalizationUnit data; canonical Spanish/English educational objects,
+answers, IDs and pronunciation IDs remain unchanged.
+
 ---
 
 # Fundamental Principle

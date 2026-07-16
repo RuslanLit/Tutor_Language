@@ -3,18 +3,22 @@
   "targetLanguage": "es",
   "sourceSupportLocale": "en",
   "supportLocales": [
-    "en"
+    "uk"
   ],
-  "pilot": {
-    "phase": "R2E4C",
+  "scope": {
+    "phase": "R2E5A",
+    "moduleId": "es.a0.m01",
     "lessonIds": [
       "es.a0.m06.l016",
       "es.a0.m01.l001",
       "es.a0.m06.l017",
-      "es.a0.m02.l004",
-      "es.a0.m06.l036"
+      "es.a0.m01.l002",
+      "es.a0.m01.l003",
+      "es.a0.m01.l006",
+      "es.a0.m04.l010"
     ],
     "legacyFallbackAllowed": false
   },
+  "requiredSemanticFields": [],
   "units": []
 }

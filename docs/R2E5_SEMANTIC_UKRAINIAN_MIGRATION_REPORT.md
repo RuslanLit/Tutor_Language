@@ -1,6 +1,10 @@
 # R2E5 Semantic Ukrainian Migration Report
 
-Status: FAIL
+Status: SUPERSEDED by R2E5R reset
+
+R2E5R cleared active Ukrainian legacy values and deactivated the R2E5A Module 1
+semantic production bundle. Ukrainian is now rebuilding from empty semantic
+scaffolds with English source fallback.
 
 ## Verdict
 
@@ -8,8 +12,9 @@ FAIL.
 
 The full Ukrainian educational layer has not been migrated from the legacy
 localization bundle into approved SemanticLocalizationUnit data. The current
-runtime still has valid semantic infrastructure and the R2E4C pilot remains
-green, but Ukrainian is not yet a production semantic source of truth.
+runtime still has valid semantic infrastructure, the R2E4C pilot remains green,
+and R2E5A completes shared course title plus Module 1 semantic Ukrainian scope.
+Ukrainian is still not a full-course production semantic source of truth.
 
 This is a hard production blocker, not a PASS with limitations.
 
@@ -21,6 +26,7 @@ legacy Ukrainian educational localization inventory:
 ```text
 app/assets/languages/spanish/localization/support_localizations.json
 app/assets/languages/spanish/localization/semantic_reference_slice.json
+app/assets/languages/spanish/localization/semantic/module_1.uk.json
 app/assets/languages/spanish/localization/semantic_pilot_lessons.json
 ```
 
@@ -47,13 +53,13 @@ Result:
 verdict: FAIL
 locale: uk
 legacy Ukrainian fields: 2742
-approved semantic Ukrainian fields: 381
-legacy fields covered by approved semantic units: 168
-semantic legacy-field coverage: 6.1%
-remaining legacy fields: 2574
-semantic resolutions: 168
-legacy resolutions: 2574
-legacy fallback count: 2574
+approved semantic Ukrainian fields: 589
+legacy fields covered by approved semantic units: 285
+semantic legacy-field coverage: 10.4%
+remaining legacy fields: 2457
+semantic resolutions: 285
+legacy resolutions: 2457
+legacy fallback count: 2457
 source fallback count: 0
 missing count: 0
 generated semantic units: 0
@@ -72,12 +78,12 @@ dart run tool/report_semantic_localization_coverage.dart
 Result:
 
 ```text
-semantic units: 381
-approved units: 381
+semantic units: 589
+approved units: 589
 generated units: 0
-migrated field keys: 381
+migrated field keys: 589
 legacy fields: 2742
-legacy-only fields: 2574
+legacy-only fields: 2457
 validation issues: 0
 ukrainian semantic migration: FAIL
 ```
@@ -88,14 +94,14 @@ cover the full Ukrainian educational layer.
 ## Editorial Corrections
 
 No new full-course Ukrainian editorial corrections were applied in R2E5.
-Marking the remaining 2574 legacy Ukrainian fields as approved semantic units
+Marking the remaining 2457 legacy Ukrainian fields as approved semantic units
 without review evidence would violate CONTENT_REVIEW_PROTOCOL.md and
 SEMANTIC_LOCALIZATION_UNIT_STANDARD.md.
 
 ## Device QA
 
 Device QA was not run for R2E5. The phase fails before APK/device traversal
-because the semantic migration gate reports 2574 remaining legacy resolutions.
+because the semantic migration gate reports 2457 remaining legacy resolutions.
 Running representative Redmi Note 8T QA before the audit passes would not prove
 production semantic Ukrainian readiness.
 
@@ -112,8 +118,10 @@ flutter test test/core/content/semantic_localization_test.dart --reporter compac
 flutter test test/features/lesson_player --reporter compact
 flutter test test/features/course_navigation --reporter compact
 flutter test --reporter compact --concurrency=1
-PASS, 468 tests
+PASS, 470 tests
 flutter build apk --debug
+PASS, built build/app/outputs/flutter-apk/app-debug.apk
+flutter build apk --debug --dart-define=SEMANTIC_QA=true
 PASS, built build/app/outputs/flutter-apk/app-debug.apk
 git diff --check
 PASS
@@ -123,31 +131,38 @@ Expected failing gate:
 
 ```text
 dart run tool/audit_semantic_ukrainian_migration.dart
-FAIL, remaining legacy fields: 2574
+FAIL, remaining legacy fields: 2457
 ```
 
 ## Files Created
 
 ```text
 app/tool/audit_semantic_ukrainian_migration.dart
+app/tool/audit_semantic_ukrainian_module.dart
+app/tool/generate_semantic_module_1_bundle.dart
+app/assets/languages/spanish/localization/semantic/module_1.uk.json
 docs/R2E5_SEMANTIC_UKRAINIAN_MIGRATION_REPORT.md
+docs/R2E5A_MODULE_1_SEMANTIC_UKRAINIAN_REPORT.md
+docs/generated/UKRAINIAN_MODULE_1_SEMANTIC_CORPUS.md
 ```
 
 ## Files Modified
 
 ```text
 app/lib/core/content/semantic_localization.dart
+app/lib/core/content/content_localization.dart
+app/pubspec.yaml
+app/tool/generate_semantic_pilot_bundle.dart
 app/tool/report_semantic_localization_coverage.dart
+app/tool/validate_semantic_lesson.dart
+app/tool/validate_semantic_localization_units.dart
 app/test/core/content/semantic_localization_test.dart
-docs/EDUCATIONAL_CONTENT_LOCALIZATION.md
-docs/SEMANTIC_LOCALIZATION_UNIT_STANDARD.md
-docs/CONTENT_REVIEW_PROTOCOL.md
 docs/RELEASE_CHECKLIST.md
 ```
 
 ## Deferred Work
 
-- Migrate the remaining 2574 legacy Ukrainian fields into typed semantic units.
+- Migrate the remaining 2457 legacy Ukrainian fields into typed semantic units.
 - Review every migrated Ukrainian unit before setting review status to
   `approved`.
 - Ensure full-course Ukrainian semantic audit reports zero legacy fallback.

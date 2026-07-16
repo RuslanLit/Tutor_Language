@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "targetLanguage": "es",
+  "sourceSupportLocale": "en",
+  "locales": [
+    {
+      "locale": "en",
+      "uiAvailable": true,
+      "educationalLocalizationState": "available",
+      "educationalContentSource": "source",
+      "semanticProductionReady": true,
+      "allowedFallbackLocale": null,
+      "crossLocaleFallbackProhibited": true,
+      "completedModules": [],
+      "releaseEligible": true
+    },
+    {
+      "locale": "uk",
+      "uiAvailable": true,
+      "educationalLocalizationState": "rebuilding",
+      "educationalContentSource": "englishSourceFallback",
+      "semanticProductionReady": false,
+      "allowedFallbackLocale": "en",
+      "crossLocaleFallbackProhibited": true,
+      "completedModules": [],
+      "releaseEligible": false
+    },
+    {
+      "locale": "ru",
+      "uiAvailable": true,
+      "educationalLocalizationState": "rebuilding",
+      "educationalContentSource": "englishSourceFallback",
+      "semanticProductionReady": false,
+      "allowedFallbackLocale": "en",
+      "crossLocaleFallbackProhibited": true,
+      "completedModules": [],
+      "releaseEligible": false
+    }
+  ]
+}

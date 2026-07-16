@@ -1,5 +1,8 @@
 # R2E3A Ukrainian Localization Editorial Recovery Report
 
+Superseded by R2E5R: the Ukrainian educational support data described here was
+cleared from production runtime and remains recoverable through Git history.
+
 Status: PASS
 
 Phase: R2E3A - Ukrainian Localization Editorial Recovery

@@ -32,6 +32,18 @@ final educationalContentLocalizationBundleProvider =
           .loadBundle();
     });
 
+final educationalLocaleReadinessRepositoryProvider =
+    Provider<EducationalLocaleReadinessRepository>((ref) {
+      return EducationalLocaleReadinessRepository();
+    });
+
+final educationalLocaleReadinessManifestProvider =
+    FutureProvider<EducationalLocaleReadinessManifest>((ref) {
+      return ref
+          .watch(educationalLocaleReadinessRepositoryProvider)
+          .loadManifest();
+    });
+
 final semanticLocalizationRepositoryProvider =
     Provider<SemanticLocalizationRepository>((ref) {
       return SemanticLocalizationRepository();

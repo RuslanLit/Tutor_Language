@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,158 +9,60 @@ import 'package:tutor_language/core/content/pronunciation_catalog.dart';
 import 'package:tutor_language/core/content/pronunciation_loader.dart';
 import 'package:tutor_language/core/content/semantic_localization.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test(
-    'semantic type and ownership parsing covers the reference slice',
-    () async {
-      final bundle = await _loadSemanticBundle();
-
-      expect(bundle.units, isNotEmpty);
-      expect(
-        bundle.units.map((unit) => unit.semanticType),
-        containsAll([
-          SemanticLocalizationType.vocabularyMeaning,
-          SemanticLocalizationType.pronunciationHint,
-          SemanticLocalizationType.exercisePrompt,
-          SemanticLocalizationType.feedback,
-          SemanticLocalizationType.remediation,
-        ]),
-      );
-      expect(
-        bundle.units.map((unit) => unit.ownership),
-        containsAll([
-          SemanticTextOwnership.supportLanguageOwned,
-          SemanticTextOwnership.localeIndependent,
-          SemanticTextOwnership.mixedStructured,
-        ]),
-      );
-    },
-  );
-
-  test('protected spans and Spanish target text are preserved', () async {
-    final bundle = await _loadSemanticBundle();
-    final instruction = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.instruction.use_soy_de.uk.v1',
+  test('Ukrainian and Russian Flutter UI locales remain supported', () {
+    expect(
+      AppLocalizations.supportedLocales.map((locale) => locale.languageCode),
+      containsAll(['uk', 'ru']),
     );
+  });
 
-    expect(instruction.protectedSpans.single.text, 'Soy de');
-    expect(instruction.values['uk'], contains('Soy de'));
+  test('semantic model still validates approved fixture units', () {
+    final bundle = _fixtureSemanticBundle();
+
+    expect(
+      bundle.units.map((unit) => unit.semanticType),
+      containsAll([
+        SemanticLocalizationType.vocabularyMeaning,
+        SemanticLocalizationType.pronunciationHint,
+        SemanticLocalizationType.exercisePrompt,
+      ]),
+    );
     expect(
       const SemanticLocalizationValidator().validate(bundle: bundle),
       isEmpty,
     );
   });
 
-  test('IPA remains locale independent and unchanged', () async {
-    final bundle = await _loadSemanticBundle();
-    final ipa = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.pron.hola.ipa.v1',
+  test('generated status is rejected for production semantic units', () {
+    final bundle = _fixtureSemanticBundle();
+    final generated = SemanticLocalizationBundle(
+      schemaVersion: bundle.schemaVersion,
+      targetLanguage: bundle.targetLanguage,
+      sourceSupportLocale: bundle.sourceSupportLocale,
+      supportLocales: bundle.supportLocales,
+      units: [
+        _copyUnit(
+          bundle.units.first,
+          review: const {'uk': SemanticReviewStatus.generated},
+        ),
+      ],
     );
 
-    expect(ipa.ownership, SemanticTextOwnership.localeIndependent);
-    expect(ipa.values['en'], '/ˈola/');
-    expect(ipa.values['uk'], '/ˈola/');
+    expect(
+      const SemanticLocalizationValidator()
+          .validate(bundle: generated)
+          .map((issue) => issue.code),
+      contains('semantic.reviewStatusNotReleaseReady'),
+    );
   });
 
-  test('meaning and pronunciation hint roles are separated', () async {
-    final bundle = await _loadSemanticBundle();
-    final mexico = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.entity.mexico.country.meaning.uk.v1',
-    );
-    final mexicoHint = bundle.units.firstWhere(
-      (unit) =>
-          unit.id == 'semantic.es.a0.entity.mexico.country.pronunciation.uk.v1',
-    );
-
-    expect(mexico.semanticType, SemanticLocalizationType.countryName);
-    expect(mexico.values['uk'], 'Мексика');
-    expect(mexicoHint.semanticType, SemanticLocalizationType.pronunciationHint);
-    expect(mexicoHint.values['uk'], 'ме́хіко');
-    expect(mexico.values['uk'], isNot(mexicoHint.values['uk']));
-  });
-
-  test('Mexico country and Ciudad de Mexico city remain distinct', () async {
-    final bundle = await _loadSemanticBundle();
-    final country = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.entity.mexico.country.meaning.uk.v1',
-    );
-    final city = bundle.units.firstWhere(
-      (unit) =>
-          unit.id ==
-          'semantic.es.a0.entity.ciudad_de_mexico.city.meaning.uk.v1',
-    );
-
-    expect(country.context.namedEntityType, NamedEntityType.country);
-    expect(city.context.namedEntityType, NamedEntityType.city);
-    expect(country.values['uk'], 'Мексика');
-    expect(city.values['uk'], 'Мехіко');
-  });
-
-  test('se llama context and Como es context are explicit', () async {
-    final bundle = await _loadSemanticBundle();
-    final seLlama = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.phrase.se_llama.meaning.uk.v1',
-    );
-    final comoEs = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.prompt.como_es.meaning.uk.v1',
-    );
-
-    expect(seLlama.context.grammaticalPerson, GrammaticalPerson.third);
-    expect(seLlama.values['uk'], contains('se llama'));
-    expect(comoEs.context.expectedAnswerContext, contains('gender-neutral'));
-    expect(comoEs.values['uk'], contains('¿Cómo es?'));
-  });
-
-  test('simpatico and simpatica carry gender metadata', () async {
-    final bundle = await _loadSemanticBundle();
-    final feminine = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.word.simpatica.meaning.uk.v1',
-    );
-    final masculine = bundle.units.firstWhere(
-      (unit) => unit.id == 'semantic.es.a0.word.simpatico.meaning.uk.v1',
-    );
-
-    expect(feminine.context.grammaticalGender, GrammaticalGender.feminine);
-    expect(feminine.values['uk'], 'приємна');
-    expect(masculine.context.grammaticalGender, GrammaticalGender.masculine);
-    expect(masculine.values['uk'], 'приємний');
-  });
-
-  test(
-    'generated status is rejected and approved status is accepted',
-    () async {
-      final bundle = await _loadSemanticBundle();
-      final generated = SemanticLocalizationBundle(
-        schemaVersion: bundle.schemaVersion,
-        targetLanguage: bundle.targetLanguage,
-        sourceSupportLocale: bundle.sourceSupportLocale,
-        supportLocales: bundle.supportLocales,
-        units: [
-          _copyUnit(
-            bundle.units.first,
-            review: const {'uk': SemanticReviewStatus.generated},
-          ),
-        ],
-      );
-
-      expect(
-        const SemanticLocalizationValidator()
-            .validate(bundle: generated)
-            .map((issue) => issue.code),
-        contains('semantic.reviewStatusNotReleaseReady'),
-      );
-      expect(
-        const SemanticLocalizationValidator().validate(bundle: bundle),
-        isEmpty,
-      );
-    },
-  );
-
-  test('deterministic serialization is stable', () async {
-    final bundle = await _loadSemanticBundle();
+  test('deterministic serialization is stable', () {
+    final bundle = _fixtureSemanticBundle();
 
     final first = serializeSemanticLocalizationBundle(bundle);
     final second = serializeSemanticLocalizationBundle(
@@ -171,8 +74,8 @@ void main() {
     expect(second, first);
   });
 
-  test('duplicate semantic identity conflict fails', () async {
-    final bundle = await _loadSemanticBundle();
+  test('duplicate semantic identity conflict fails', () {
+    final bundle = _fixtureSemanticBundle();
     final duplicate = SemanticLocalizationBundle(
       schemaVersion: bundle.schemaVersion,
       targetLanguage: bundle.targetLanguage,
@@ -193,139 +96,342 @@ void main() {
   });
 
   test(
-    'semantic units override legacy values for migrated vocabulary',
+    'runtime semantic bundles contain no production Ukrainian or Russian units',
     () async {
-      final localization = await _loadLegacyLocalization();
-      final semantic = await _loadSemanticBundle();
+      final semantic = await SemanticLocalizationRepository().loadBundle();
+
+      expect(semantic.units, isEmpty);
+      expect(semantic.requiredSemanticFields, isEmpty);
+      expect(semantic.supportLocales, containsAll(['uk', 'ru']));
+    },
+  );
+
+  test('English educational content remains available', () async {
+    final localization = await EducationalContentLocalizationRepository()
+        .loadBundle();
+    final content = await ContentLoader().loadLanguagePackContent();
+    final resolver = EducationalContentLocalizationResolver(localization);
+    final hola = content.contents
+        .whereType<VocabularyContent>()
+        .expand((content) => content.entries)
+        .firstWhere((item) => item.id == 'vocab.es.a0.unit1.hola.v1');
+
+    final resolved = resolver.resolveVocabularyItem(
+      hola,
+      SupportLocale.english,
+    );
+
+    expect(resolved.nativeTranslation, hola.nativeTranslation);
+  });
+
+  test(
+    'Ukrainian legacy educational values are inactive and fall back to English source',
+    () async {
+      final localization = await EducationalContentLocalizationRepository()
+          .loadBundle();
+      final content = await ContentLoader().loadLanguagePackContent();
+      final resolver = EducationalContentLocalizationResolver(localization);
+      final hola = content.contents
+          .whereType<VocabularyContent>()
+          .expand((content) => content.entries)
+          .firstWhere((item) => item.id == 'vocab.es.a0.unit1.hola.v1');
+
+      final resolved = resolver.resolveVocabularyItem(
+        hola,
+        SupportLocale.ukrainian,
+      );
+
+      expect(resolved.nativeTranslation, hola.nativeTranslation);
+    },
+  );
+
+  test(
+    'Russian legacy educational values are inactive and fall back to English source',
+    () async {
+      final localization = await EducationalContentLocalizationRepository()
+          .loadBundle();
+      final content = await ContentLoader().loadLanguagePackContent();
+      final resolver = EducationalContentLocalizationResolver(localization);
+      final hola = content.contents
+          .whereType<VocabularyContent>()
+          .expand((content) => content.entries)
+          .firstWhere((item) => item.id == 'vocab.es.a0.unit1.hola.v1');
+
+      final resolved = resolver.resolveVocabularyItem(
+        hola,
+        SupportLocale.russian,
+      );
+
+      expect(resolved.nativeTranslation, hola.nativeTranslation);
+    },
+  );
+
+  test(
+    'Ukrainian and Russian never cross-fallback through legacy data',
+    () async {
+      final raw = await _loadRawLegacyLocalization();
+
+      for (final rawEntry in raw['entries'] as List? ?? const []) {
+        final entry = Map<String, Object?>.from(rawEntry as Map);
+        final fields = Map<String, Object?>.from(entry['fields'] as Map);
+        for (final rawValues in fields.values) {
+          final values = Map<String, Object?>.from(rawValues as Map);
+          expect(values.containsKey('uk'), isFalse);
+          expect(values.containsKey('ru'), isFalse);
+        }
+      }
+    },
+  );
+
+  test(
+    'readiness manifest declares uk and ru rebuilding with empty completed modules',
+    () async {
+      final manifest = await EducationalLocaleReadinessRepository()
+          .loadManifest();
+      final en = manifest.forLocale('en');
+      final uk = manifest.forLocale('uk');
+      final ru = manifest.forLocale('ru');
+
+      expect(en.isEducationalProductionReady, isTrue);
+      for (final locale in [uk, ru]) {
+        expect(locale.uiAvailable, isTrue);
+        expect(
+          locale.educationalLocalizationState,
+          EducationalLocalizationState.rebuilding,
+        );
+        expect(
+          locale.educationalContentSource,
+          EducationalContentSource.englishSourceFallback,
+        );
+        expect(locale.semanticProductionReady, isFalse);
+        expect(locale.allowedFallbackLocale, 'en');
+        expect(locale.crossLocaleFallbackProhibited, isTrue);
+        expect(locale.completedModules, isEmpty);
+        expect(locale.releaseEligible, isFalse);
+      }
+    },
+  );
+
+  test(
+    'partial semantic lesson cannot mix with reset legacy content',
+    () async {
+      final localization = await EducationalContentLocalizationRepository()
+          .loadBundle();
+      final semantic = SemanticLocalizationBundle(
+        schemaVersion: 1,
+        targetLanguage: 'es',
+        sourceSupportLocale: 'en',
+        supportLocales: const ['uk'],
+        units: [_fixtureSemanticBundle().units.first],
+      );
       final content = await ContentLoader().loadLanguagePackContent();
       final resolver = EducationalContentLocalizationResolver(
         localization,
         semanticBundle: semantic,
       );
-      final mexico = content.contents
+      final hola = content.contents
           .whereType<VocabularyContent>()
           .expand((content) => content.entries)
-          .firstWhere((item) => item.id == 'vocab.es.a0.m03.mexico.v1');
+          .firstWhere((item) => item.id == 'vocab.es.a0.unit1.hola.v1');
+      final adios = content.contents
+          .whereType<VocabularyContent>()
+          .expand((content) => content.entries)
+          .firstWhere((item) => item.id == 'vocab.es.a0.unit1.adios.v1');
 
-      final resolved = resolver.resolveVocabularyItem(
-        mexico,
-        SupportLocale.ukrainian,
+      expect(
+        resolver
+            .resolveVocabularyItem(hola, SupportLocale.ukrainian)
+            .nativeTranslation,
+        'fixture meaning',
       );
-
-      expect(resolved.nativeTranslation, 'Мексика');
+      expect(
+        resolver
+            .resolveVocabularyItem(adios, SupportLocale.ukrainian)
+            .nativeTranslation,
+        adios.nativeTranslation,
+      );
     },
   );
 
-  test('legacy fallback still works for unmigrated content', () async {
-    final localization = await _loadLegacyLocalization();
-    final semantic = await _loadSemanticBundle();
-    final content = await ContentLoader().loadLanguagePackContent();
-    final resolver = EducationalContentLocalizationResolver(
-      localization,
+  test('full Ukrainian migration gate reports not ready after reset', () async {
+    final localization = await _loadRawLegacyLocalization();
+    final semantic = await SemanticLocalizationRepository().loadBundle();
+
+    final coverage = SemanticUkrainianMigrationCoverage.build(
+      legacyLocalizationJson: localization,
       semanticBundle: semantic,
     );
-    final adios = content.contents
+
+    expect(coverage.legacyFields, 2742);
+    expect(coverage.semanticApprovedFields, 0);
+    expect(coverage.legacyFieldsCoveredBySemantic, 0);
+    expect(coverage.remainingLegacyFields, 2742);
+    expect(coverage.legacyResolutions, 0);
+    expect(coverage.sourceFallbackCount, 2742);
+    expect(coverage.isProductionComplete, isFalse);
+  });
+
+  test('full Russian migration gate reports not ready after reset', () async {
+    final localization = await _loadRawLegacyLocalization();
+    final semantic = await SemanticLocalizationRepository().loadBundle();
+
+    final coverage = SemanticUkrainianMigrationCoverage.build(
+      legacyLocalizationJson: localization,
+      semanticBundle: semantic,
+      locale: 'ru',
+    );
+
+    expect(coverage.semanticApprovedFields, 0);
+    expect(coverage.legacyResolutions, 0);
+    expect(coverage.sourceFallbackCount, 2742);
+    expect(coverage.isProductionComplete, isFalse);
+  });
+
+  test('canonical Spanish target text is unchanged', () async {
+    final content = await ContentLoader().loadLanguagePackContent();
+    final hola = content.contents
         .whereType<VocabularyContent>()
         .expand((content) => content.entries)
-        .firstWhere((item) => item.id == 'vocab.es.a0.unit1.adios.v1');
+        .firstWhere((item) => item.id == 'vocab.es.a0.unit1.hola.v1');
 
-    final resolved = resolver.resolveVocabularyItem(
-      adios,
-      SupportLocale.ukrainian,
-    );
-
-    expect(resolved.nativeTranslation, isNotEmpty);
-    expect(resolved.nativeTranslation, isNot(adios.nativeTranslation));
+    expect(hola.spanish, 'hola');
   });
 
-  test(
-    'R2E5 Ukrainian migration coverage exposes remaining legacy fields',
-    () async {
-      final localization = await _loadRawLegacyLocalization();
-      final semantic = await _loadRuntimeSemanticBundle();
-
-      final coverage = SemanticUkrainianMigrationCoverage.build(
-        legacyLocalizationJson: localization,
-        semanticBundle: semantic,
-      );
-
-      expect(coverage.legacyFields, 2742);
-      expect(coverage.semanticApprovedFields, 381);
-      expect(coverage.legacyFieldsCoveredBySemantic, 168);
-      expect(coverage.remainingLegacyFields, 2574);
-      expect(coverage.semanticResolutions, 168);
-      expect(coverage.legacyResolutions, 2574);
-      expect(coverage.sourceFallbackCount, 0);
-      expect(coverage.missingCount, 0);
-      expect(coverage.isProductionComplete, isFalse);
-    },
-  );
-
-  test('semantic prompt override preserves protected target span', () async {
-    final localization = await _loadLegacyLocalization();
-    final semantic = await _loadSemanticBundle();
-    final content = await ContentLoader().loadLanguagePackContent();
-    final resolver = EducationalContentLocalizationResolver(
-      localization,
-      semanticBundle: semantic,
-    );
-    final template = content.contents
-        .whereType<ExerciseTemplateContent>()
-        .expand((content) => content.templates)
-        .firstWhere(
-          (template) =>
-              template.id == 'template.es.a0.m03.l013.type_soy_de_mexico.v1',
-        );
-
-    final resolved = resolver.resolveExerciseTemplate(
-      template,
-      SupportLocale.ukrainian,
-    );
-
-    expect(
-      resolved.promptTemplate,
-      'Використайте конструкцію «Soy de» з назвою місця.',
-    );
-  });
-
-  test('reading rule applicability is grapheme aware', () async {
+  test('IPA and pronunciation identifiers remain available', () async {
     final bundle = await PronunciationLoader().loadBundle();
     final catalog = PronunciationCatalog(bundle: bundle);
+    final hola = catalog.unitById('pronunciation.es.word.hola.v1');
 
+    expect(hola, isNotNull);
+    expect(hola!.ipa?.value, '/ˈola/');
     expect(
       catalog
           .applicableRulesForPronunciationUnit('pronunciation.es.word.hola.v1')
           .map((rule) => rule.id),
       contains('pronunciation.es.rule.silent_h.v1'),
     );
+  });
+
+  test('Ukrainian and Russian pronunciation hints are inactive', () async {
+    final bundle = await PronunciationLoader().loadBundle();
+
+    for (final unit in bundle.units) {
+      expect(unit.localizedLearnerHints.containsKey('uk'), isFalse);
+      expect(unit.localizedLearnerHints.containsKey('ru'), isFalse);
+    }
+    for (final entry in bundle.localizations) {
+      expect(entry.learnerHints.containsKey('uk'), isFalse);
+      expect(entry.learnerHints.containsKey('ru'), isFalse);
+      expect(entry.explanations.containsKey('uk'), isFalse);
+      expect(entry.explanations.containsKey('ru'), isFalse);
+    }
+  });
+
+  test(
+    'scaffold generator is deterministic and derives canonical module lessons',
+    () {
+      final first = File('/tmp/r2e5r_scaffold_1.json');
+      final second = File('/tmp/r2e5r_scaffold_2.json');
+      for (final file in [first, second]) {
+        if (file.existsSync()) {
+          file.deleteSync();
+        }
+      }
+
+      _runTool([
+        'run',
+        'tool/create_semantic_localization_scaffold.dart',
+        '--locale',
+        'uk',
+        '--module',
+        'es.a0.m01',
+        '--output',
+        first.path,
+      ]);
+      _runTool([
+        'run',
+        'tool/create_semantic_localization_scaffold.dart',
+        '--locale',
+        'uk',
+        '--module',
+        'es.a0.m01',
+        '--output',
+        second.path,
+      ]);
+
+      expect(second.readAsStringSync(), first.readAsStringSync());
+      final scaffold = Map<String, Object?>.from(
+        jsonDecode(first.readAsStringSync()) as Map,
+      );
+      final metadata = Map<String, Object?>.from(scaffold['scaffold'] as Map);
+      expect(metadata['lessonIds'], [
+        'es.a0.m06.l016',
+        'es.a0.m01.l001',
+        'es.a0.m06.l017',
+        'es.a0.m01.l002',
+        'es.a0.m01.l003',
+        'es.a0.m01.l006',
+        'es.a0.m04.l010',
+      ]);
+      final units = scaffold['units'] as List;
+      expect(units, isNotEmpty);
+      final firstUnit = Map<String, Object?>.from(units.first as Map);
+      expect(Map<String, Object?>.from(firstUnit['values'] as Map)['uk'], '');
+      expect(
+        Map<String, Object?>.from(firstUnit['review'] as Map)['uk'],
+        'generated',
+      );
+    },
+  );
+
+  test('scaffold generator preserves protected Spanish spans', () {
+    final output = File('/tmp/r2e5r_scaffold_spans.json');
+    if (output.existsSync()) {
+      output.deleteSync();
+    }
+    _runTool([
+      'run',
+      'tool/create_semantic_localization_scaffold.dart',
+      '--locale',
+      'uk',
+      '--module',
+      'es.a0.m01',
+      '--output',
+      output.path,
+    ]);
+    final scaffold = Map<String, Object?>.from(
+      jsonDecode(output.readAsStringSync()) as Map,
+    );
+    final units = (scaffold['units'] as List).whereType<Map>();
+
     expect(
-      catalog
-          .applicableRulesForPronunciationUnit('pronunciation.es.word.chile.v1')
-          .map((rule) => rule.id),
-      isNot(contains('pronunciation.es.rule.silent_h.v1')),
+      units.any((unit) {
+        final spans = unit['protectedSpans'] as List? ?? const [];
+        return spans.any((span) => (span as Map)['type'] == 'targetText');
+      }),
+      isTrue,
     );
   });
 
-  test('digraph precedence covers ll, rr, qu, and ch', () {
-    final graphemes = segmentSpanishGraphemes('ll rr que Chile');
+  test('archived generators cannot be used as production authoring tools', () {
+    final uk = Process.runSync('dart', [
+      'run',
+      'tool/translate_content_localization_uk.dart',
+    ]);
+    final ru = Process.runSync('dart', [
+      'run',
+      'tool/translate_content_localization_ru.dart',
+    ]);
 
-    expect(graphemes, containsAll(['ll', 'rr', 'qu', 'ch']));
-    expect(graphemes.where((grapheme) => grapheme == 'q'), isEmpty);
-    expect(graphemes.where((grapheme) => grapheme == 'h'), isEmpty);
+    expect(uk.exitCode, isNot(0));
+    expect('${uk.stderr}${uk.stdout}', contains('archived by R2E5R'));
+    expect(ru.exitCode, isNot(0));
+    expect('${ru.stderr}${ru.stdout}', contains('archived by R2E5R'));
   });
-}
 
-Future<SemanticLocalizationBundle> _loadSemanticBundle() async {
-  final raw = await rootBundle.loadString(
-    'assets/languages/spanish/localization/semantic_reference_slice.json',
-  );
-  return SemanticLocalizationBundle.fromJson(
-    Map<String, Object?>.from(jsonDecode(raw) as Map),
-  );
-}
-
-Future<EducationalContentLocalizationBundle> _loadLegacyLocalization() {
-  return EducationalContentLocalizationRepository().loadBundle();
+  test('reset audit passes', () {
+    _runTool(['run', 'tool/audit_educational_localization_reset.dart']);
+  });
 }
 
 Future<Map<String, Object?>> _loadRawLegacyLocalization() async {
@@ -335,8 +441,81 @@ Future<Map<String, Object?>> _loadRawLegacyLocalization() async {
   return Map<String, Object?>.from(jsonDecode(raw) as Map);
 }
 
-Future<SemanticLocalizationBundle> _loadRuntimeSemanticBundle() {
-  return SemanticLocalizationRepository().loadBundle();
+SemanticLocalizationBundle _fixtureSemanticBundle() {
+  final context = SemanticLocalizationContext(
+    courseId: 'es.a0',
+    moduleId: 'es.a0.m01',
+    lessonId: 'es.a0.m01.l001',
+    contentObjectId: 'vocab.es.a0.unit1.hola.v1',
+    fieldPath: 'native_translation',
+    contentKind: 'vocabulary',
+    pedagogicalRole: 'lexical support',
+    targetLanguage: 'es',
+    supportLocale: 'uk',
+  );
+  return SemanticLocalizationBundle(
+    schemaVersion: 1,
+    targetLanguage: 'es',
+    sourceSupportLocale: 'en',
+    supportLocales: const ['uk'],
+    units: [
+      SemanticLocalizationUnit(
+        id: 'fixture.meaning',
+        semanticType: SemanticLocalizationType.vocabularyMeaning,
+        ownership: SemanticTextOwnership.supportLanguageOwned,
+        sourceText: 'hello',
+        values: const {'uk': 'fixture meaning'},
+        review: const {'uk': SemanticReviewStatus.approved},
+        context: context,
+      ),
+      SemanticLocalizationUnit(
+        id: 'fixture.hint',
+        semanticType: SemanticLocalizationType.pronunciationHint,
+        ownership: SemanticTextOwnership.supportLanguageOwned,
+        sourceText: 'hola',
+        values: const {'uk': 'o-la'},
+        review: const {'uk': SemanticReviewStatus.approved},
+        context: const SemanticLocalizationContext(
+          courseId: 'es.a0',
+          moduleId: 'es.a0.m01',
+          lessonId: 'es.a0.m01.l001',
+          contentObjectId: 'pronunciation.es.word.hola.v1',
+          fieldPath: 'localizedLearnerHints.uk',
+          contentKind: 'pronunciation',
+          pedagogicalRole: 'pronunciation support',
+          targetLanguage: 'es',
+          supportLocale: 'uk',
+          sourceMeaning: 'hello',
+        ),
+      ),
+      SemanticLocalizationUnit(
+        id: 'fixture.prompt',
+        semanticType: SemanticLocalizationType.exercisePrompt,
+        ownership: SemanticTextOwnership.mixedStructured,
+        sourceText: 'Use Soy de with a place.',
+        values: const {'uk': 'Use Soy de with a place.'},
+        review: const {'uk': SemanticReviewStatus.approved},
+        protectedSpans: const [
+          ProtectedLocalizationSpan(
+            id: 'span_1',
+            type: ProtectedSpanType.targetText,
+            text: 'Soy de',
+          ),
+        ],
+        context: const SemanticLocalizationContext(
+          courseId: 'es.a0',
+          moduleId: 'es.a0.m01',
+          lessonId: 'es.a0.m01.l001',
+          contentObjectId: 'template.fixture',
+          fieldPath: 'prompt_template',
+          contentKind: 'exercise_template',
+          pedagogicalRole: 'exercise',
+          targetLanguage: 'es',
+          supportLocale: 'uk',
+        ),
+      ),
+    ],
+  );
 }
 
 SemanticLocalizationUnit _copyUnit(
@@ -355,4 +534,11 @@ SemanticLocalizationUnit _copyUnit(
     protectedSpans: unit.protectedSpans,
     notes: unit.notes,
   );
+}
+
+void _runTool(List<String> args) {
+  final result = Process.runSync('dart', args);
+  if (result.exitCode != 0) {
+    fail('dart ${args.join(' ')} failed\n${result.stdout}\n${result.stderr}');
+  }
 }

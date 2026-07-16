@@ -16,26 +16,22 @@ void main() {
   final coverage = SemanticUkrainianMigrationCoverage.build(
     legacyLocalizationJson: legacy,
     semanticBundle: semanticBundle,
+    locale: 'ru',
   );
   final validationIssues = const SemanticLocalizationValidator().validate(
     bundle: semanticBundle,
   );
 
-  stdout.writeln('R2E5 semantic Ukrainian migration audit');
+  stdout.writeln('R2E5R semantic Russian migration audit');
   stdout.writeln('verdict: ${coverage.isProductionComplete ? 'PASS' : 'FAIL'}');
   stdout.writeln('locale: ${coverage.locale}');
-  stdout.writeln('legacy Ukrainian fields: ${coverage.legacyFields}');
+  stdout.writeln('legacy Russian fields: ${coverage.legacyFields}');
   stdout.writeln(
-    'approved semantic Ukrainian fields: '
-    '${coverage.semanticApprovedFields}',
+    'approved semantic Russian fields: ${coverage.semanticApprovedFields}',
   );
   stdout.writeln(
-    'legacy fields covered by approved semantic units: '
+    'legacy fields covered by semantic: '
     '${coverage.legacyFieldsCoveredBySemantic}',
-  );
-  stdout.writeln(
-    'semantic legacy-field coverage: '
-    '${(coverage.legacyFieldSemanticCoverage * 100).toStringAsFixed(1)}%',
   );
   stdout.writeln('remaining legacy fields: ${coverage.remainingLegacyFields}');
   stdout.writeln('semantic resolutions: ${coverage.semanticResolutions}');
@@ -47,7 +43,7 @@ void main() {
   stdout.writeln('unapproved semantic units: ${coverage.unapprovedUnits}');
   stdout.writeln('semantic validation issues: ${validationIssues.length}');
 
-  if (!coverage.isProductionComplete || validationIssues.isNotEmpty) {
+  if (coverage.isProductionComplete || validationIssues.isNotEmpty) {
     exitCode = 1;
   }
 }

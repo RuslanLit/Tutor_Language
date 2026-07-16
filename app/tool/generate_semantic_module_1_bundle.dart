@@ -3,48 +3,38 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:tutor_language/core/content/semantic_pilot_scope.dart';
-
 const _coursePath =
     'assets/languages/spanish/curriculum/spanish_a0_course.json';
 const _legacyPath =
     'assets/languages/spanish/localization/support_localizations.json';
 const _referenceSemanticPath =
     'assets/languages/spanish/localization/semantic_reference_slice.json';
-const _module1SemanticPath =
-    'assets/languages/spanish/localization/semantic/module_1.uk.json';
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
 const _outputPath =
-    'assets/languages/spanish/localization/semantic_pilot_lessons.json';
+    'assets/languages/spanish/localization/semantic/module_1.uk.json';
+
+const _moduleId = 'es.a0.m01';
 
 Never main() {
   throw UnsupportedError(
-    'This semantic pilot generator is archived by R2E5R for production '
-    'authoring. Use create_semantic_localization_scaffold.dart and reviewed '
-    'semantic units instead.',
+    'This R2E5A production Ukrainian generator is archived by R2E5R. '
+    'Use create_semantic_localization_scaffold.dart and reviewed semantic '
+    'units instead.',
   );
 }
 
-class _PilotBundleGenerator {
-  _PilotBundleGenerator()
+class _ModuleBundleGenerator {
+  _ModuleBundleGenerator()
     : course = _readJsonObject(_coursePath),
       legacy = _readJsonObject(_legacyPath),
       referenceSemantic = _readJsonObject(_referenceSemanticPath),
-      module1Semantic = _readJsonObject(_module1SemanticPath),
       pronunciation = _readJsonObject(_pronunciationPath) {
     for (final raw in legacy['entries'] as List? ?? const []) {
       final entry = Map<String, Object?>.from(raw as Map);
       legacyByKey['${entry['type']}|${entry['id']}'] = entry;
     }
     for (final raw in referenceSemantic['units'] as List? ?? const []) {
-      final unit = Map<String, Object?>.from(raw as Map);
-      final context = Map<String, Object?>.from(unit['context'] as Map);
-      knownIdentities.add(
-        '${context['contentObjectId']}|${context['fieldPath']}|${unit['semanticType']}',
-      );
-    }
-    for (final raw in module1Semantic['units'] as List? ?? const []) {
       final unit = Map<String, Object?>.from(raw as Map);
       final context = Map<String, Object?>.from(unit['context'] as Map);
       knownIdentities.add(
@@ -71,7 +61,6 @@ class _PilotBundleGenerator {
   final Map<String, Object?> course;
   final Map<String, Object?> legacy;
   final Map<String, Object?> referenceSemantic;
-  final Map<String, Object?> module1Semantic;
   final Map<String, Object?> pronunciation;
   final Map<String, Map<String, Object?>> legacyByKey = {};
   final Map<String, Map<String, Object?>> pronunciationUnitsById = {};
@@ -82,11 +71,20 @@ class _PilotBundleGenerator {
   final List<Map<String, Object?>> units = [];
 
   Map<String, Object?> generate() {
+    final module = (course['modules'] as List)
+        .map((raw) => Map<String, Object?>.from(raw as Map))
+        .firstWhere((module) => module['id'] == _moduleId);
+    final lessonIds = [
+      for (final id in module['lessonIds'] as List? ?? const []) '$id',
+    ];
+
+    _addSharedCourseMetadata(module);
+
     final lessons = (course['lessons'] as List)
         .map((raw) => Map<String, Object?>.from(raw as Map))
         .where((lesson) {
           final metadata = Map<String, Object?>.from(lesson['metadata'] as Map);
-          return semanticPilotLessonIds.contains(metadata['id']);
+          return lessonIds.contains(metadata['id']);
         })
         .toList(growable: false);
 
@@ -100,13 +98,47 @@ class _PilotBundleGenerator {
       'targetLanguage': 'es',
       'sourceSupportLocale': 'en',
       'supportLocales': ['en', 'uk'],
-      'pilot': {
-        'phase': 'R2E4C',
-        'lessonIds': semanticPilotLessonIds,
+      'scope': {
+        'phase': 'R2E5A',
+        'moduleId': _moduleId,
+        'lessonIds': lessonIds,
         'legacyFallbackAllowed': false,
       },
+      'requiredSemanticFields': _requiredSemanticFields().toList(
+        growable: false,
+      )..sort(),
       'units': units,
     };
+  }
+
+  Set<String> _requiredSemanticFields() {
+    return {
+      for (final unit in units)
+        '${(unit['context'] as Map)['contentObjectId']}|${(unit['context'] as Map)['fieldPath']}',
+    };
+  }
+
+  void _addSharedCourseMetadata(Map<String, Object?> module) {
+    _supportUnit(
+      id: course['id'] as String,
+      fieldPath: 'title',
+      contentKind: 'course',
+      semanticType: 'courseTitle',
+      role: 'courseTitle',
+      sourceText: course['title'] as String,
+      legacyType: 'course',
+      moduleId: _moduleId,
+    );
+    _supportUnit(
+      id: module['id'] as String,
+      fieldPath: 'title',
+      contentKind: 'module',
+      semanticType: 'moduleTitle',
+      role: 'moduleTitle',
+      sourceText: module['title'] as String,
+      legacyType: 'module',
+      moduleId: _moduleId,
+    );
   }
 
   void _addLesson(Map<String, Object?> lesson) {
@@ -633,7 +665,7 @@ class _PilotBundleGenerator {
     required String role,
     required String sourceText,
     required String legacyType,
-    required String lessonId,
+    String? lessonId,
     required String moduleId,
     String? activityId,
     String? namedEntityType,
@@ -665,7 +697,7 @@ class _PilotBundleGenerator {
     required String semanticType,
     required String role,
     required String sourceText,
-    required String lessonId,
+    String? lessonId,
     required String moduleId,
     String? activityId,
     String protectedType = 'targetText',
@@ -701,7 +733,7 @@ class _PilotBundleGenerator {
     required String role,
     required String sourceText,
     required Map<String, String> values,
-    required String lessonId,
+    String? lessonId,
     required String moduleId,
     String? activityId,
     String? namedEntityType,
@@ -713,7 +745,7 @@ class _PilotBundleGenerator {
     }
     units.add({
       'id':
-          'semantic.pilot.${_slug(objectId)}.${_slug(fieldPath)}.$semanticType.v1',
+          'semantic.module_1.${_slug(objectId)}.${_slug(fieldPath)}.$semanticType.v1',
       'semanticType': semanticType,
       'ownership': ownership,
       'sourceText': sourceText,
@@ -723,8 +755,8 @@ class _PilotBundleGenerator {
       'context': {
         'courseId': 'es.a0',
         'moduleId': moduleId,
-        'lessonId': lessonId,
-        if (activityId != null) ...{'activityId': activityId},
+        ...lessonId == null ? const {} : {'lessonId': lessonId},
+        ...activityId == null ? const {} : {'activityId': activityId},
         'contentObjectId': objectId,
         'fieldPath': fieldPath,
         'contentKind': contentKind,
@@ -754,6 +786,7 @@ class _PilotBundleGenerator {
 
   String? _ukOverride(String id, String fieldPath) {
     return const {
+      'es.a0.m01|title': 'Перші слова й читання',
       'es.a0.m02.l004|communicativeOutcome':
           'Назвати своє імʼя за допомогою me llamo.',
       'es.a0.m02.l004|description':

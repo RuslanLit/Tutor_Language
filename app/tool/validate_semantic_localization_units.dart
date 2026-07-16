@@ -6,8 +6,8 @@ import 'package:tutor_language/core/content/pronunciation_models.dart';
 import 'package:tutor_language/core/content/semantic_localization.dart';
 
 const _semanticPaths = [
-  'assets/languages/spanish/localization/semantic_reference_slice.json',
-  'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+  'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/ru/shared.json',
 ];
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
@@ -21,7 +21,7 @@ void main() {
 
   final issues = <SemanticLocalizationValidationIssue>[
     ...const SemanticLocalizationValidator().validate(bundle: semanticBundle),
-    ..._validateReferenceSliceSemantics(semanticBundle),
+    ..._validateResetProductionState(semanticBundle),
     ..._validateReadingRuleApplicability(catalog),
   ];
 
@@ -44,92 +44,36 @@ void main() {
   }
 }
 
-List<SemanticLocalizationValidationIssue> _validateReferenceSliceSemantics(
+List<SemanticLocalizationValidationIssue> _validateResetProductionState(
   SemanticLocalizationBundle bundle,
 ) {
   final issues = <SemanticLocalizationValidationIssue>[];
-  final unitsById = {for (final unit in bundle.units) unit.id: unit};
-
-  void expectUnit(String id) {
-    if (!unitsById.containsKey(id)) {
-      issues.add(
-        SemanticLocalizationValidationIssue(
-          code: 'semantic.requiredReferenceUnitMissing',
-          unitId: id,
-          message: 'Required R2E4B reference unit is missing.',
-        ),
-      );
+  for (final unit in bundle.units) {
+    for (final entry in unit.review.entries) {
+      if ((entry.key == 'uk' || entry.key == 'ru') &&
+          entry.value == SemanticReviewStatus.approved) {
+        issues.add(
+          SemanticLocalizationValidationIssue(
+            code: 'semantic.resetApprovedProductionUnit',
+            unitId: unit.id,
+            message:
+                'Reset state must not contain approved ${entry.key} production units.',
+          ),
+        );
+      }
+    }
+    for (final entry in unit.values.entries) {
+      if (entry.value.trim().isEmpty) {
+        issues.add(
+          SemanticLocalizationValidationIssue(
+            code: 'semantic.emptyValue',
+            unitId: unit.id,
+            message: 'Empty localized value must not be treated as valid.',
+          ),
+        );
+      }
     }
   }
-
-  for (final id in const [
-    'semantic.es.a0.vocab.hola.meaning.uk.v1',
-    'semantic.es.a0.pron.hola.hint.uk.v1',
-    'semantic.es.a0.vocab.hambre.meaning.uk.v1',
-    'semantic.es.a0.pron.hambre.hint.uk.v1',
-    'semantic.es.a0.entity.mexico.country.meaning.uk.v1',
-    'semantic.es.a0.entity.mexico.country.pronunciation.uk.v1',
-    'semantic.es.a0.entity.ciudad_de_mexico.city.meaning.uk.v1',
-    'semantic.es.a0.entity.chile.country.meaning.uk.v1',
-    'semantic.es.a0.phrase.me_llamo.meaning.uk.v1',
-    'semantic.es.a0.phrase.se_llama.meaning.uk.v1',
-    'semantic.es.a0.prompt.como_es.meaning.uk.v1',
-    'semantic.es.a0.word.simpatica.meaning.uk.v1',
-    'semantic.es.a0.word.simpatico.meaning.uk.v1',
-    'semantic.es.a0.grapheme.ll.designation.uk.v1',
-    'semantic.es.a0.instruction.use_soy_de.uk.v1',
-    'semantic.es.a0.feedback.silent_h.hola.uk.v1',
-    'semantic.es.a0.remediation.me_llamo.uk.v1',
-  ]) {
-    expectUnit(id);
-  }
-
-  final mexico =
-      unitsById['semantic.es.a0.entity.mexico.country.meaning.uk.v1'];
-  final mexicoHint =
-      unitsById['semantic.es.a0.entity.mexico.country.pronunciation.uk.v1'];
-  final city =
-      unitsById['semantic.es.a0.entity.ciudad_de_mexico.city.meaning.uk.v1'];
-  if (mexico?.context.namedEntityType != NamedEntityType.country ||
-      mexico?.values['uk'] != 'Мексика') {
-    issues.add(
-      const SemanticLocalizationValidationIssue(
-        code: 'semantic.countryMeaningInvalid',
-        unitId: 'semantic.es.a0.entity.mexico.country.meaning.uk.v1',
-        message: 'México country must resolve to Ukrainian meaning Мексика.',
-      ),
-    );
-  }
-  if (mexicoHint?.semanticType != SemanticLocalizationType.pronunciationHint ||
-      mexicoHint?.values['uk'] != 'ме́хіко') {
-    issues.add(
-      const SemanticLocalizationValidationIssue(
-        code: 'semantic.pronunciationHintInvalid',
-        unitId: 'semantic.es.a0.entity.mexico.country.pronunciation.uk.v1',
-        message: 'México pronunciation hint must remain ме́хіко.',
-      ),
-    );
-  }
-  if (city?.context.namedEntityType != NamedEntityType.city ||
-      city?.values['uk'] != 'Мехіко') {
-    issues.add(
-      const SemanticLocalizationValidationIssue(
-        code: 'semantic.cityMeaningInvalid',
-        unitId: 'semantic.es.a0.entity.ciudad_de_mexico.city.meaning.uk.v1',
-        message:
-            'Ciudad de México city must resolve to Ukrainian meaning Мехіко.',
-      ),
-    );
-  }
-  if (mexico?.values['uk'] == city?.values['uk']) {
-    issues.add(
-      const SemanticLocalizationValidationIssue(
-        code: 'semantic.countryCityCollapsed',
-        message: 'Country and city meanings must not collapse.',
-      ),
-    );
-  }
-
   return issues;
 }
 
@@ -231,6 +175,9 @@ SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
     supportLocales: List.unmodifiable(
       {for (final bundle in bundles) ...bundle.supportLocales}.toList()..sort(),
     ),
+    requiredSemanticFields: Set.unmodifiable({
+      for (final bundle in bundles) ...bundle.requiredSemanticFields,
+    }),
     units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
   );
 }

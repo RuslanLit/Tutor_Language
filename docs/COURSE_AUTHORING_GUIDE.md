@@ -28,6 +28,10 @@ It specifies how educational content is organized into complete learning program
 
 It does not define implementation details, lesson planning or lesson assembly.
 
+R2E5R note: course/module/lesson order remains canonical and must not be changed
+for localization reset work. Locale readiness and completed localized modules
+are declared separately in the educational locale manifest.
+
 Course, module and lesson titles are authored educational metadata. Their
 support-language localization is defined in
 EDUCATIONAL_CONTENT_LOCALIZATION.md and must not be moved into application UI

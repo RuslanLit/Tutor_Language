@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:tutor_language/core/content/semantic_localization.dart';
 
 const _semanticPaths = [
-  'assets/languages/spanish/localization/semantic_reference_slice.json',
-  'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+  'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/ru/shared.json',
 ];
 const _legacyPath =
     'assets/languages/spanish/localization/support_localizations.json';
@@ -58,7 +58,7 @@ void main() {
       .length;
 
   stdout.writeln('Semantic localization coverage');
-  stdout.writeln('scope: reference slice + R2E4C pilot lessons');
+  stdout.writeln('scope: R2E5R clean semantic reset bundles');
   stdout.writeln('semantic units: ${semanticBundle.units.length}');
   stdout.writeln('approved units: $approvedUnits');
   stdout.writeln('generated units: $generatedUnits');
@@ -145,6 +145,9 @@ SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
     supportLocales: List.unmodifiable(
       {for (final bundle in bundles) ...bundle.supportLocales}.toList()..sort(),
     ),
+    requiredSemanticFields: Set.unmodifiable({
+      for (final bundle in bundles) ...bundle.requiredSemanticFields,
+    }),
     units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
   );
 }

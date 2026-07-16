@@ -471,6 +471,11 @@ strings and generated semantic drafts are migration inputs, not approval
 evidence. The R2E5 audit must fail whenever Ukrainian still resolves through
 legacy localization, source fallback or unapproved semantic units.
 
+R2E5R extends this rule to Ukrainian and Russian reset recovery: pre-reset
+Ukrainian/Russian legacy strings, pronunciation hints and semantic approvals are
+historical evidence only. They must not be copied into new production semantic
+units without fresh review.
+
 ---
 
 # Reviewer Use

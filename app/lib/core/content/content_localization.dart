@@ -59,6 +59,140 @@ class SupportLocaleResolver {
   }
 }
 
+enum EducationalLocalizationState { available, rebuilding, unavailable }
+
+enum EducationalContentSource { source, englishSourceFallback, none }
+
+class EducationalLocaleReadinessManifest {
+  const EducationalLocaleReadinessManifest({
+    required this.schemaVersion,
+    required this.targetLanguage,
+    required this.sourceSupportLocale,
+    required this.locales,
+  });
+
+  factory EducationalLocaleReadinessManifest.fromJson(
+    Map<String, Object?> json,
+  ) {
+    final localesJson = json['locales'];
+    if (localesJson is! List) {
+      throw const FormatException('Readiness manifest locales must be a list');
+    }
+
+    return EducationalLocaleReadinessManifest(
+      schemaVersion: _requiredInt(json, 'schemaVersion'),
+      targetLanguage: _requiredString(json, 'targetLanguage'),
+      sourceSupportLocale: _requiredString(json, 'sourceSupportLocale'),
+      locales: Map.unmodifiable({
+        for (final locale in localesJson.map((entry) {
+          if (entry is Map<String, Object?>) {
+            return EducationalLocaleReadiness.fromJson(entry);
+          }
+          if (entry is Map) {
+            return EducationalLocaleReadiness.fromJson(
+              Map<String, Object?>.from(entry),
+            );
+          }
+          throw const FormatException('Readiness locale must be an object');
+        }))
+          locale.locale: locale,
+      }),
+    );
+  }
+
+  final int schemaVersion;
+  final String targetLanguage;
+  final String sourceSupportLocale;
+  final Map<String, EducationalLocaleReadiness> locales;
+
+  EducationalLocaleReadiness forLocale(String locale) {
+    return locales[locale] ?? locales[sourceSupportLocale]!;
+  }
+}
+
+class EducationalLocaleReadiness {
+  const EducationalLocaleReadiness({
+    required this.locale,
+    required this.uiAvailable,
+    required this.educationalLocalizationState,
+    required this.educationalContentSource,
+    required this.semanticProductionReady,
+    required this.allowedFallbackLocale,
+    required this.crossLocaleFallbackProhibited,
+    required this.completedModules,
+    required this.releaseEligible,
+  });
+
+  factory EducationalLocaleReadiness.fromJson(Map<String, Object?> json) {
+    return EducationalLocaleReadiness(
+      locale: _requiredString(json, 'locale'),
+      uiAvailable: _requiredBool(json, 'uiAvailable'),
+      educationalLocalizationState: _enumByName(
+        EducationalLocalizationState.values,
+        _requiredString(json, 'educationalLocalizationState'),
+        'educationalLocalizationState',
+      ),
+      educationalContentSource: _enumByName(
+        EducationalContentSource.values,
+        _requiredString(json, 'educationalContentSource'),
+        'educationalContentSource',
+      ),
+      semanticProductionReady: _requiredBool(json, 'semanticProductionReady'),
+      allowedFallbackLocale: _optionalString(json, 'allowedFallbackLocale'),
+      crossLocaleFallbackProhibited: _requiredBool(
+        json,
+        'crossLocaleFallbackProhibited',
+      ),
+      completedModules: _requiredStringList(json, 'completedModules'),
+      releaseEligible: _requiredBool(json, 'releaseEligible'),
+    );
+  }
+
+  final String locale;
+  final bool uiAvailable;
+  final EducationalLocalizationState educationalLocalizationState;
+  final EducationalContentSource educationalContentSource;
+  final bool semanticProductionReady;
+  final String? allowedFallbackLocale;
+  final bool crossLocaleFallbackProhibited;
+  final List<String> completedModules;
+  final bool releaseEligible;
+
+  bool get isEducationalProductionReady =>
+      educationalLocalizationState == EducationalLocalizationState.available &&
+      semanticProductionReady &&
+      releaseEligible;
+}
+
+class EducationalLocaleReadinessRepository {
+  EducationalLocaleReadinessRepository({
+    AssetBundle? assetBundle,
+    this.assetPath =
+        'assets/languages/spanish/localization/semantic/manifests/educational_locales.json',
+  }) : _assetBundle = assetBundle ?? rootBundle;
+
+  final AssetBundle _assetBundle;
+  final String assetPath;
+  EducationalLocaleReadinessManifest? _cachedManifest;
+
+  Future<EducationalLocaleReadinessManifest> loadManifest() async {
+    final cached = _cachedManifest;
+    if (cached != null) {
+      return cached;
+    }
+
+    final rawJson = await _assetBundle.loadString(assetPath);
+    final decoded = jsonDecode(rawJson);
+    if (decoded is! Map) {
+      throw const FormatException('Readiness manifest must be an object');
+    }
+
+    return _cachedManifest = EducationalLocaleReadinessManifest.fromJson(
+      Map<String, Object?>.from(decoded),
+    );
+  }
+}
+
 class EducationalContentLocalizationBundle {
   const EducationalContentLocalizationBundle({
     required this.schemaVersion,
@@ -190,8 +324,8 @@ class SemanticLocalizationRepository {
        assetPaths =
            assetPaths ??
            const [
-             'assets/languages/spanish/localization/semantic_reference_slice.json',
-             'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+             'assets/languages/spanish/localization/semantic/uk/shared.json',
+             'assets/languages/spanish/localization/semantic/ru/shared.json',
            ];
 
   final AssetBundle _assetBundle;
@@ -230,6 +364,9 @@ class SemanticLocalizationRepository {
         {for (final bundle in bundles) ...bundle.supportLocales}.toList()
           ..sort(),
       ),
+      requiredSemanticFields: Set.unmodifiable({
+        for (final bundle in bundles) ...bundle.requiredSemanticFields,
+      }),
       units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
     );
   }
@@ -1346,6 +1483,25 @@ int _requiredInt(Map<String, Object?> json, String key) {
   throw FormatException('Missing required int field: $key');
 }
 
+bool _requiredBool(Map<String, Object?> json, String key) {
+  final value = json[key];
+  if (value is bool) {
+    return value;
+  }
+  throw FormatException('Missing required bool field: $key');
+}
+
+String? _optionalString(Map<String, Object?> json, String key) {
+  final value = json[key];
+  if (value == null) {
+    return null;
+  }
+  if (value is String) {
+    return value;
+  }
+  throw FormatException('Invalid optional string field: $key');
+}
+
 List<String> _requiredStringList(Map<String, Object?> json, String key) {
   final value = json[key];
   if (value is! List) {
@@ -1359,4 +1515,13 @@ List<String> _requiredStringList(Map<String, Object?> json, String key) {
       throw FormatException('Expected string item in list field: $key');
     }),
   );
+}
+
+T _enumByName<T extends Enum>(List<T> values, String name, String fieldName) {
+  for (final value in values) {
+    if (value.name == name) {
+      return value;
+    }
+  }
+  throw FormatException('Invalid $fieldName: $name');
 }

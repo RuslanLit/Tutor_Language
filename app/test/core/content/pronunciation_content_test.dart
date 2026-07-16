@@ -18,7 +18,16 @@ void main() {
     final catalog = await _loadCatalog();
     final issues = catalog.validate();
 
-    expect(issues, isEmpty);
+    expect(
+      issues.where(
+        (issue) => issue.severity == PronunciationIssueSeverity.error,
+      ),
+      isEmpty,
+    );
+    expect(
+      issues.map((issue) => issue.severity),
+      contains(PronunciationIssueSeverity.deferred),
+    );
     expect(catalog.unitById('pronunciation.es.word.hola.v1'), isNotNull);
     expect(catalog.unitById('pronunciation.es.word.adios.v1'), isNotNull);
     expect(
@@ -48,7 +57,7 @@ void main() {
             supportLocaleCode: 'ru',
           )
           ?.localizedLearnerHint,
-      'гра́сьяс',
+      isNull,
     );
     expect(catalog.unitById('pronunciation.es.phrase.me_llamo.v1'), isNotNull);
     expect(
@@ -78,7 +87,7 @@ void main() {
   });
 
   test(
-    'Russian support locale never falls back to English learner hint',
+    'Russian support locale has no reset learner hints and never falls back',
     () async {
       final catalog = await _loadCatalog();
 
@@ -95,18 +104,16 @@ void main() {
         supportLocaleCode: 'ru',
       );
 
-      expect(hola?.localizedLearnerHint, 'о́ла');
-      expect(adios?.localizedLearnerHint, 'адьо́с');
-      expect(hastaLuego?.localizedLearnerHint, 'а́ста луэ́го');
-      expect(hola?.localizedLearnerHint, isNot('OH-lah'));
-      expect(adios?.localizedLearnerHint, isNot('ah-DYOHS'));
-      expect(hastaLuego?.localizedLearnerHint, isNot('AHS-tah LWEH-goh'));
-      expect(catalog.crossLocaleFallbackAttempts, 0);
+      expect(hola?.localizedLearnerHint, isNull);
+      expect(adios?.localizedLearnerHint, isNull);
+      expect(hastaLuego?.localizedLearnerHint, isNull);
+      expect(hola?.ipa, '/ˈola/');
+      expect(catalog.crossLocaleFallbackAttempts, greaterThan(0));
     },
   );
 
   test(
-    'Ukrainian support locale has localized pronunciation hints and rules',
+    'Ukrainian support locale has no reset learner hints or rule prose',
     () async {
       final catalog = await _loadCatalog();
 
@@ -127,17 +134,17 @@ void main() {
         supportLocaleCode: 'uk-UA',
       );
 
-      expect(hola?.localizedLearnerHint, 'о́ла');
-      expect(adios?.localizedLearnerHint, 'адьо́с');
-      expect(hastaLuego?.localizedLearnerHint, 'а́ста луе́го');
-      expect(hola?.localizedLearnerHint, isNot('OH-lah'));
-      expect(adios?.localizedLearnerHint, isNot('ah-DYOHS'));
-      expect(silentH?.title, 'Німа літера h («аче»)');
-      expect(silentH?.shortExplanation, contains('не вимовляється'));
-      expect(silentH?.shortExplanation, isNot(contains('произносится')));
-      expect(silentH?.detailedExplanation, contains('немає'));
-      expect(catalog.crossLocaleFallbackAttempts, 0);
-      expect(catalog.crossLocaleReadingRuleFallbackAttempts, 0);
+      expect(hola?.localizedLearnerHint, isNull);
+      expect(adios?.localizedLearnerHint, isNull);
+      expect(hastaLuego?.localizedLearnerHint, isNull);
+      expect(silentH?.title, isNull);
+      expect(silentH?.shortExplanation, isNull);
+      expect(
+        silentH?.diagnosticCode,
+        'readingRule.missingLocalizedExplanation',
+      );
+      expect(catalog.crossLocaleFallbackAttempts, greaterThan(0));
+      expect(catalog.crossLocaleReadingRuleFallbackAttempts, greaterThan(0));
     },
   );
 
@@ -172,7 +179,7 @@ void main() {
     expect(catalog.crossLocaleFallbackAttempts, 1);
   });
 
-  test('reading rules resolve with localized support text', () async {
+  test('reading rules preserve English text and reset Russian prose', () async {
     final catalog = await _loadCatalog();
 
     final english = catalog.resolveReadingRule(
@@ -186,14 +193,14 @@ void main() {
 
     expect(english?.title, 'Silent h');
     expect(english?.shortExplanation, contains('silent'));
-    expect(russian?.title, 'Немая h');
-    expect(russian?.shortExplanation, contains('не произносится'));
+    expect(russian?.title, isNull);
+    expect(russian?.shortExplanation, isNull);
     expect(russian?.orthographicPattern, 'h');
     expect(
       russian?.examplePronunciationUnitIds,
       contains('pronunciation.es.word.hola.v1'),
     );
-    expect(catalog.crossLocaleReadingRuleFallbackAttempts, 0);
+    expect(catalog.crossLocaleReadingRuleFallbackAttempts, 1);
   });
 
   test(
@@ -304,25 +311,12 @@ void main() {
 
     expect(rule?.metadata['llYPolicy'], 'yeismo');
     expect(rule?.ipa?.value, '/ʝ/');
-    expect(
-      rulePresentation?.detailedExplanation,
-      contains('две строчные буквы l'),
-    );
-    expect(
-      rulePresentation?.detailedExplanation,
-      contains('заглавными буквами I'),
-    );
-    expect(rulePresentation?.detailedExplanation, isNot(contains('лья')));
-    expect(
-      rulePresentation?.detailedExplanation,
-      isNot(contains('читается как ль')),
-    );
+    expect(rulePresentation?.detailedExplanation, isNull);
 
     expect(llamo?.ipa, '/ˈʝamo/');
-    expect(llamo?.localizedLearnerHint, 'я́мо');
-    expect(llamo?.localizedLearnerHint, isNot('лья́мо'));
-    expect(llave?.localizedLearnerHint, 'я́ве');
-    expect(yo?.localizedLearnerHint, 'йо');
+    expect(llamo?.localizedLearnerHint, isNull);
+    expect(llave?.localizedLearnerHint, isNull);
+    expect(yo?.localizedLearnerHint, isNull);
 
     final llamoRules = catalog.rulesForPronunciationUnit(
       'pronunciation.es.word.llamo.v1',
@@ -425,7 +419,7 @@ void main() {
     );
 
     expect(presentation?.ipa, '/ˈola/');
-    expect(presentation?.localizedLearnerHint, 'о́ла');
+    expect(presentation?.localizedLearnerHint, isNull);
     expect(presentation?.isLegacyEnglishHint, isFalse);
   });
 
@@ -517,11 +511,8 @@ void main() {
       expect(report.legacyPronunciationFieldsDiscovered, greaterThan(0));
       expect(report.uniqueTargetForms, greaterThan(0));
       expect(report.pronunciationUnits, greaterThanOrEqualTo(17));
-      expect(report.unitsWithRussianLearnerHint, report.pronunciationUnits);
-      expect(
-        report.multisyllabicRussianHintsWithStress,
-        greaterThanOrEqualTo(18),
-      );
+      expect(report.unitsWithRussianLearnerHint, 0);
+      expect(report.multisyllabicRussianHintsWithStress, 0);
       expect(report.unitsWithExample, greaterThanOrEqualTo(18));
       expect(report.crossLocaleFallbackAttempts, 0);
       expect(report.invalidUnits, 0);
@@ -531,7 +522,7 @@ void main() {
       expect(report.readingRulesWithVariety, 12);
       expect(report.readingRulesWithPhoneticDefinition, 12);
       expect(report.readingRulesWithEnglishLocalization, 12);
-      expect(report.readingRulesWithRussianLocalization, 12);
+      expect(report.readingRulesWithRussianLocalization, 0);
       expect(report.readingRulesWithExamples, 12);
       expect(report.readingRulesReferencedByPronunciationUnits, 12);
       expect(report.unusedReadingRules, 0);
@@ -543,12 +534,9 @@ void main() {
         report.llYPronunciationUnits,
       );
       expect(report.llYUnitsWithMatchingIpa, report.llYPronunciationUnits);
-      expect(report.llYUnitsWithRussianHint, report.llYPronunciationUnits);
+      expect(report.llYUnitsWithRussianHint, 0);
       expect(report.llYUnitsWithEnglishHint, 6);
-      expect(
-        report.llYUnitsWithGraphemeExplanation,
-        report.llYPronunciationUnits,
-      );
+      expect(report.llYUnitsWithGraphemeExplanation, 0);
       expect(report.llYVarietyMismatches, 0);
       expect(report.nonYeistaHintsInYeistaProfile, 0);
     },

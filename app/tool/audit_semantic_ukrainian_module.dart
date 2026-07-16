@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:tutor_language/core/content/semantic_localization.dart';
-import 'package:tutor_language/core/content/semantic_pilot_scope.dart';
 
 const _coursePath =
     'assets/languages/spanish/curriculum/spanish_a0_course.json';
@@ -16,18 +15,31 @@ const _semanticPaths = [
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
 
-void main() {
-  final validator = _SemanticLessonValidator();
-  final report = validator.validate();
+Never main(List<String> args) {
+  throw UnsupportedError(
+    'This R2E5A Ukrainian module audit is archived by R2E5R. '
+    'Use audit_educational_localization_reset.dart and '
+    'validate_semantic_localization_units.dart instead.',
+  );
+}
 
-  stdout.writeln('R2E4C semantic lesson validation');
-  stdout.writeln('lessons migrated: ${semanticPilotLessonIds.length}');
-  stdout.writeln('expected learner-visible fields: ${report.expectedFields}');
+void archivedMain(List<String> args) {
+  final moduleId = _argValue(args, '--module') ?? 'es.a0.m01';
+  final validator = _SemanticLessonValidator();
+  final report = validator.validate(moduleId: moduleId);
+
+  stdout.writeln('R2E5A semantic Ukrainian module audit');
+  stdout.writeln('module: $moduleId');
+  stdout.writeln('lesson IDs: ${report.lessonIds.join(', ')}');
+  stdout.writeln('legacy identities in scope: ${report.expectedFields}');
   stdout.writeln('semantic covered fields: ${report.semanticCoveredFields}');
   stdout.writeln('coverage: ${report.coveragePercent.toStringAsFixed(1)}%');
-  stdout.writeln('legacy fallback: ${report.legacyFallbacks}');
+  stdout.writeln('legacy resolutions: ${report.legacyFallbacks}');
+  stdout.writeln('source fallback: 0');
+  stdout.writeln('missing: 0');
   stdout.writeln('generated: ${report.generatedUnits}');
   stdout.writeln('approved: ${report.approvedUnits}');
+  stdout.writeln('duplicate identities: ${report.duplicateIdentities}');
   stdout.writeln('issues: ${report.issues.length}');
   for (final entry
       in report.byCode.entries.toList()
@@ -40,6 +52,18 @@ void main() {
   if (report.issues.isNotEmpty) {
     exitCode = 1;
   }
+}
+
+String? _argValue(List<String> args, String name) {
+  for (var index = 0; index < args.length; index += 1) {
+    if (args[index] == name && index + 1 < args.length) {
+      return args[index + 1];
+    }
+    if (args[index].startsWith('$name=')) {
+      return args[index].substring(name.length + 1);
+    }
+  }
+  return null;
 }
 
 class _SemanticLessonValidator {
@@ -82,10 +106,18 @@ class _SemanticLessonValidator {
   final Map<String, Map<String, Object?>> pronunciationByContentId = {};
   final Set<String> pronunciationLocalizationIds = {};
 
-  _SemanticLessonReport validate() {
-    final expectedFields = _collectExpectedFields();
+  _SemanticLessonReport validate({required String moduleId}) {
+    final lessonIds = _lessonIdsForModule(moduleId);
+    final expectedFields = _collectExpectedFields(
+      moduleId: moduleId,
+      lessonIds: lessonIds,
+    );
     final issues = <String>[];
     final coveredFields = <String>{};
+    final duplicateIdentities = const SemanticLocalizationValidator()
+        .validate(bundle: semanticBundle, production: false)
+        .where((issue) => issue.code == 'semantic.duplicateIdentityConflict')
+        .length;
 
     final unitIssues = const SemanticLocalizationValidator()
         .validate(bundle: semanticBundle)
@@ -98,8 +130,8 @@ class _SemanticLessonValidator {
               .where((candidate) => candidate.id == unitId)
               .firstOrNull;
           return unit == null ||
-              semanticPilotLessonIds.contains(unit.context.lessonId) ||
-              unit.id.startsWith('semantic.pilot.');
+              unit.context.moduleId == moduleId ||
+              lessonIds.contains(unit.context.lessonId);
         });
     for (final issue in unitIssues) {
       issues.add('${issue.code}: ${issue.message}');
@@ -114,15 +146,15 @@ class _SemanticLessonValidator {
         final fallsBackToLegacy = legacyFieldKeys.contains(field.key);
         issues.add(
           'semanticLesson.${fallsBackToLegacy ? 'legacyFallback' : 'missingSemantic'}: '
-          '${field.lessonId} ${field.key}',
+          '${field.lessonId ?? moduleId} ${field.key}',
         );
       }
     }
 
     for (final unit in semanticBundle.units.where(
       (unit) =>
-          semanticPilotLessonIds.contains(unit.context.lessonId) ||
-          unit.id.startsWith('semantic.pilot.'),
+          unit.context.moduleId == moduleId ||
+          lessonIds.contains(unit.context.lessonId),
     )) {
       if (unit.review.values.any(
         (status) => status == SemanticReviewStatus.generated,
@@ -153,13 +185,15 @@ class _SemanticLessonValidator {
     }
 
     final generatedUnits = semanticBundle.units.where((unit) {
-      return semanticPilotLessonIds.contains(unit.context.lessonId) &&
+      return (unit.context.moduleId == moduleId ||
+              lessonIds.contains(unit.context.lessonId)) &&
           unit.review.values.any(
             (status) => status == SemanticReviewStatus.generated,
           );
     }).length;
     final approvedUnits = semanticBundle.units.where((unit) {
-      return semanticPilotLessonIds.contains(unit.context.lessonId) &&
+      return (unit.context.moduleId == moduleId ||
+              lessonIds.contains(unit.context.lessonId)) &&
           unit.review.values.every(
             (status) => status == SemanticReviewStatus.approved,
           );
@@ -171,17 +205,35 @@ class _SemanticLessonValidator {
       generatedUnits: generatedUnits,
       approvedUnits: approvedUnits,
       legacyFallbacks: expectedFields.length - coveredFields.length,
+      duplicateIdentities: duplicateIdentities,
+      lessonIds: lessonIds,
       issues: issues,
     );
   }
 
-  Set<_ExpectedField> _collectExpectedFields() {
+  List<String> _lessonIdsForModule(String moduleId) {
+    final module = (course['modules'] as List? ?? const [])
+        .map((raw) => Map<String, Object?>.from(raw as Map))
+        .where((module) => module['id'] == moduleId)
+        .firstOrNull;
+    if (module == null) {
+      throw StateError('Unknown module ID: $moduleId');
+    }
+    return [for (final id in module['lessonIds'] as List? ?? const []) '$id'];
+  }
+
+  Set<_ExpectedField> _collectExpectedFields({
+    required String moduleId,
+    required List<String> lessonIds,
+  }) {
     final expected = <_ExpectedField>{};
+    expected.add(const _ExpectedField(null, 'es.a0', 'title'));
+    expected.add(_ExpectedField(null, moduleId, 'title'));
     for (final rawLesson in course['lessons'] as List? ?? const []) {
       final lesson = Map<String, Object?>.from(rawLesson as Map);
       final metadata = Map<String, Object?>.from(lesson['metadata'] as Map);
       final lessonId = metadata['id'] as String;
-      if (!semanticPilotLessonIds.contains(lessonId)) {
+      if (!lessonIds.contains(lessonId)) {
         continue;
       }
       void add(String objectId, String fieldPath) {
@@ -307,7 +359,7 @@ class _SemanticLessonValidator {
 class _ExpectedField {
   const _ExpectedField(this.lessonId, this.objectId, this.fieldPath);
 
-  final String lessonId;
+  final String? lessonId;
   final String objectId;
   final String fieldPath;
 
@@ -329,6 +381,8 @@ class _SemanticLessonReport {
     required this.generatedUnits,
     required this.approvedUnits,
     required this.legacyFallbacks,
+    required this.duplicateIdentities,
+    required this.lessonIds,
     required this.issues,
   });
 
@@ -337,6 +391,8 @@ class _SemanticLessonReport {
   final int generatedUnits;
   final int approvedUnits;
   final int legacyFallbacks;
+  final int duplicateIdentities;
+  final List<String> lessonIds;
   final List<String> issues;
 
   double get coveragePercent =>

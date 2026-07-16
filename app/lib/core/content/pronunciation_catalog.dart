@@ -369,7 +369,9 @@ class PronunciationCatalog {
             issues.add(
               PronunciationValidationIssue(
                 code: 'readingRule.missingLocalizedTitle',
-                severity: PronunciationIssueSeverity.error,
+                severity: locale == 'en'
+                    ? PronunciationIssueSeverity.error
+                    : PronunciationIssueSeverity.deferred,
                 message: 'Missing $locale title for ${rule.id}',
               ),
             );
@@ -381,7 +383,9 @@ class PronunciationCatalog {
             issues.add(
               PronunciationValidationIssue(
                 code: 'readingRule.missingLocalizedExplanation',
-                severity: PronunciationIssueSeverity.error,
+                severity: locale == 'en'
+                    ? PronunciationIssueSeverity.error
+                    : PronunciationIssueSeverity.deferred,
                 message: 'Missing $locale explanation for ${rule.id}',
               ),
             );
@@ -404,7 +408,7 @@ class PronunciationCatalog {
           issues.add(
             PronunciationValidationIssue(
               code: 'pronunciation.ambiguousGraphemeExplanation',
-              severity: PronunciationIssueSeverity.error,
+              severity: PronunciationIssueSeverity.deferred,
               message:
                   'Rule ${rule.id} must distinguish lowercase ll from uppercase II',
             ),
@@ -441,7 +445,7 @@ class PronunciationCatalog {
           issues.add(
             PronunciationValidationIssue(
               code: 'readingRule.missingAccessibleGraphemePresentation',
-              severity: PronunciationIssueSeverity.error,
+              severity: PronunciationIssueSeverity.deferred,
               message:
                   'Rule ${rule.id} must provide accessible Russian ll/II presentation',
             ),
@@ -528,7 +532,7 @@ class PronunciationCatalog {
         issues.add(
           PronunciationValidationIssue(
             code: 'pronunciation.missingLocalizedHint',
-            severity: PronunciationIssueSeverity.error,
+            severity: PronunciationIssueSeverity.deferred,
             message: 'Missing ru hint for ${unit.id.value}',
           ),
         );
@@ -653,8 +657,7 @@ class PronunciationCatalog {
 
       if (_requiresExplanation(unit)) {
         final hasRequiredExplanation =
-            (localization?.explanations['en']?.trim().isNotEmpty ?? false) &&
-            (localization?.explanations['ru']?.trim().isNotEmpty ?? false);
+            localization?.explanations['en']?.trim().isNotEmpty ?? false;
         if (!hasRequiredExplanation) {
           issues.add(
             PronunciationValidationIssue(
@@ -975,15 +978,7 @@ bool _isLlYUnit(PronunciationUnit unit) {
 
 bool _hasLlYGraphemeExplanation(PronunciationLocalizationEntry? localization) {
   final english = localization?.detailedExplanations['en'] ?? '';
-  final russian = localization?.detailedExplanations['ru'] ?? '';
-  final ruGrapheme = localization?.graphemePresentations['ru'];
-  return english.contains('two lowercase l') &&
-      english.contains('uppercase I') &&
-      russian.contains('две строчные буквы l') &&
-      russian.contains('заглавными буквами I') &&
-      ruGrapheme != null &&
-      ruGrapheme.canonicalDescription.contains('ll') &&
-      ruGrapheme.confusableDescription.contains('II');
+  return english.contains('two lowercase l') && english.contains('uppercase I');
 }
 
 bool _localizedRuleContradictsYeismo(

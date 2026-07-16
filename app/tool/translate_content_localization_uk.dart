@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -6,41 +8,12 @@ const _localizationPath =
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
 
-void main() {
-  final root = Directory.current;
-  final localizationFile = File('${root.path}/$_localizationPath');
-  final localization = Map<String, Object?>.from(
-    jsonDecode(localizationFile.readAsStringSync()) as Map,
-  );
-  final localizationStats = _localizeEducationalContent(localization);
-  _writePrettyJson(localizationFile, localization);
-
-  final pronunciationFile = File('${root.path}/$_pronunciationPath');
-  final pronunciation = Map<String, Object?>.from(
-    jsonDecode(pronunciationFile.readAsStringSync()) as Map,
-  );
-  final pronunciationStats = _localizePronunciation(pronunciation);
-  _writePrettyJson(pronunciationFile, pronunciation);
-
-  stdout.writeln(
-    'R2E3 Ukrainian educational fields written: '
-    '${localizationStats.written}',
-  );
-  stdout.writeln(
-    'R2E3 Ukrainian invariant fields: '
-    '${localizationStats.invariant}',
-  );
-  stdout.writeln(
-    'R2E3 Ukrainian pronunciation hints written: '
-    '${pronunciationStats.hints}',
-  );
-  stdout.writeln(
-    'R2E3 Ukrainian pronunciation explanations written: '
-    '${pronunciationStats.explanations}',
-  );
-  stdout.writeln(
-    'R2E3 Ukrainian ReadingRule fields written: '
-    '${pronunciationStats.readingRuleFields}',
+Never main() {
+  throw UnsupportedError(
+    'This tool is archived by R2E5R and must not generate production '
+    'Ukrainian educational localization. Use '
+    'create_semantic_localization_scaffold.dart and authored '
+    'SemanticLocalizationUnit data instead.',
   );
 }
 

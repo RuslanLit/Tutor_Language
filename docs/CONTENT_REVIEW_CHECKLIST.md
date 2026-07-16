@@ -1,5 +1,10 @@
 # Content Review Checklist
 
+R2E5R reset requirement: for Ukrainian and Russian educational localization,
+review starts from clean semantic scaffolds. Do not approve copied legacy
+Ukrainian/Russian prose, old pronunciation hints or old semantic bundle values
+without fresh review evidence.
+
 Status: Active
 
 Version: 1.0

@@ -3,7 +3,8 @@
   "targetLanguage": "es",
   "sourceSupportLocale": "en",
   "supportLocales": [
-    "en"
+    "uk"
   ],
+  "requiredSemanticFields": [],
   "units": []
 }

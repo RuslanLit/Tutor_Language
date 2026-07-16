@@ -25,6 +25,11 @@ The purpose of ADRs is to preserve architectural intent and prevent important de
 
 Implementation details do not belong in ADRs.
 
+R2E5R decision: Ukrainian and Russian legacy educational localization was reset.
+No Ukrainian/Russian legacy prose, pronunciation hint or pre-reset semantic
+approval is production-authoritative. Rebuild work must use clean semantic
+scaffolds and the locale readiness manifest as the single source of truth.
+
 ---
 
 # ADR Policy

@@ -29,6 +29,11 @@ This document defines how Educational Content should be authored for Tutor Langu
 
 It owns Educational Content object responsibilities, supported content types, required fields, references, validation expectations and compatibility with deterministic lesson planning and assembly.
 
+R2E5R note: do not author Ukrainian or Russian educational prose in legacy
+support overlays or old generators. Use
+`dart run tool/create_semantic_localization_scaffold.dart`, then fill and review
+typed semantic units.
+
 It does not define learner-facing writing style, Course sequencing, Module structure or publication approval.
 
 Educational-content localization is defined in

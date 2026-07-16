@@ -16,7 +16,7 @@ import 'package:tutor_language/l10n/generated/app_localizations.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('Russian support locale renders localized pronunciation hints', (
+  testWidgets('Russian support locale hides reset pronunciation hints', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -44,11 +44,11 @@ void main() {
       ),
     );
 
-    await _pumpUntilFound(tester, find.text('о́ла'));
+    await _pumpUntilFound(tester, find.text('/ˈola/'));
 
     expect(find.text('hola'), findsOneWidget);
     expect(find.text('/ˈola/'), findsOneWidget);
-    expect(find.text('о́ла'), findsOneWidget);
+    expect(find.text('о́ла'), findsNothing);
     expect(find.text('hello'), findsOneWidget);
     expect(find.text('OH-lah'), findsNothing);
 
@@ -58,10 +58,6 @@ void main() {
     );
     expect(
       tester.getTopLeft(find.text('/ˈola/')).dy,
-      lessThan(tester.getTopLeft(find.text('о́ла')).dy),
-    );
-    expect(
-      tester.getTopLeft(find.text('о́ла')).dy,
       lessThan(tester.getTopLeft(find.text('hello')).dy),
     );
   });

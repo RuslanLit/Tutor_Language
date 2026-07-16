@@ -92,6 +92,7 @@ class SemanticLocalizationBundle {
     required this.sourceSupportLocale,
     required this.supportLocales,
     required this.units,
+    this.requiredSemanticFields = const {},
   });
 
   factory SemanticLocalizationBundle.fromJson(Map<String, Object?> json) {
@@ -101,6 +102,10 @@ class SemanticLocalizationBundle {
       sourceSupportLocale: requiredString(json, 'sourceSupportLocale'),
       supportLocales: requiredStringList(json, 'supportLocales'),
       units: requiredList(json, 'units', SemanticLocalizationUnit.fromJson),
+      requiredSemanticFields: _optionalStringSet(
+        json,
+        'requiredSemanticFields',
+      ),
     );
   }
 
@@ -109,6 +114,7 @@ class SemanticLocalizationBundle {
   final String sourceSupportLocale;
   final List<String> supportLocales;
   final List<SemanticLocalizationUnit> units;
+  final Set<String> requiredSemanticFields;
 
   Map<String, Object?> toJson() {
     return {
@@ -116,6 +122,8 @@ class SemanticLocalizationBundle {
       'targetLanguage': targetLanguage,
       'sourceSupportLocale': sourceSupportLocale,
       'supportLocales': supportLocales,
+      if (requiredSemanticFields.isNotEmpty)
+        'requiredSemanticFields': requiredSemanticFields.toList()..sort(),
       'units': units.map((unit) => unit.toJson()).toList(growable: false),
     };
   }
@@ -342,9 +350,11 @@ class SemanticLocalizationResolver {
     : _unitsByField = {
         for (final unit in bundle.units)
           '${unit.context.contentObjectId}|${unit.context.fieldPath}': unit,
-      };
+      },
+      _requiredSemanticFields = bundle.requiredSemanticFields;
 
   final Map<String, SemanticLocalizationUnit> _unitsByField;
+  final Set<String> _requiredSemanticFields;
 
   SemanticLocalizationUnit? unitForField(
     String contentObjectId,
@@ -358,8 +368,14 @@ class SemanticLocalizationResolver {
     required String fieldPath,
     required String supportLocale,
   }) {
+    final key = '$contentObjectId|$fieldPath';
     final unit = unitForField(contentObjectId, fieldPath);
     if (unit == null || !unit.isApprovedFor(supportLocale)) {
+      if (supportLocale == 'uk' && _requiredSemanticFields.contains(key)) {
+        throw StateError(
+          'Missing approved semantic localization for $supportLocale $key.',
+        );
+      }
       return null;
     }
     return unit.valueFor(supportLocale);
@@ -772,6 +788,24 @@ Map<String, String> _stringMap(Map<String, Object?> json, String key) {
         throw FormatException('Invalid string map value for $key');
       }
       return MapEntry('$key', value);
+    }),
+  );
+}
+
+Set<String> _optionalStringSet(Map<String, Object?> json, String key) {
+  final value = json[key];
+  if (value == null) {
+    return const {};
+  }
+  if (value is! List) {
+    throw FormatException('Expected string list: $key');
+  }
+  return Set.unmodifiable(
+    value.map((item) {
+      if (item is String) {
+        return item;
+      }
+      throw FormatException('Invalid string list item for $key');
     }),
   );
 }

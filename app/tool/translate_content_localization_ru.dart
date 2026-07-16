@@ -1,61 +1,18 @@
+// ignore_for_file: unused_element
+
 import 'dart:convert';
 import 'dart:io';
 
 const _localizationPath =
     'assets/languages/spanish/localization/support_localizations.json';
 
-void main() {
-  final root = Directory.current;
-  final file = File('${root.path}/$_localizationPath');
-  final bundle = Map<String, Object?>.from(
-    jsonDecode(file.readAsStringSync()) as Map,
+Never main() {
+  throw UnsupportedError(
+    'This tool is archived by R2E5R and must not generate production '
+    'Russian educational localization. Use '
+    'create_semantic_localization_scaffold.dart and authored '
+    'SemanticLocalizationUnit data instead.',
   );
-
-  var translated = 0;
-  var invariant = 0;
-  final suspicious = <String>[];
-
-  for (final entry in bundle['entries'] as List) {
-    final entryMap = Map<String, Object?>.from(entry as Map);
-    final type = entryMap['type'] as String;
-    final id = entryMap['id'] as String;
-    final fields = Map<String, Object?>.from(entryMap['fields'] as Map);
-    for (final field in fields.entries) {
-      final values = Map<String, Object?>.from(field.value as Map);
-      final english = values['en'];
-      if (english is! String) {
-        continue;
-      }
-
-      final russian = translateRussian(
-        english,
-        type: type,
-        id: id,
-        fieldName: field.key,
-      );
-      values['ru'] = _finalizeRussian(russian);
-      fields[field.key] = values;
-      translated += 1;
-      if (russian.trim() == english.trim()) {
-        invariant += 1;
-        if (!_isAllowedInvariant(english)) {
-          suspicious.add('$type|$id|${field.key}|$english');
-        }
-      }
-    }
-    entryMap['fields'] = fields;
-    final index = (bundle['entries'] as List).indexOf(entry);
-    (bundle['entries'] as List)[index] = entryMap;
-  }
-
-  _writePrettyJson(file, bundle);
-
-  stdout.writeln('R2E2 Russian fields written: $translated');
-  stdout.writeln('Intentional identical/invariant fields: $invariant');
-  stdout.writeln('Suspicious identical fields: ${suspicious.length}');
-  for (final item in suspicious.take(40)) {
-    stdout.writeln(item);
-  }
 }
 
 String translateRussian(

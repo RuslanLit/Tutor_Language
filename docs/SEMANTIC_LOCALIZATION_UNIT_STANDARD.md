@@ -238,6 +238,12 @@ educational field and runtime would no longer need legacy or source fallback
 for Ukrainian educational content. A mechanically converted legacy string does
 not become an approved semantic unit merely because it validates structurally.
 
+R2E5R reset Ukrainian and Russian educational localization. After the reset,
+production semantic bundles for `uk` and `ru` must start empty or draft-only;
+old R2E4/R2E5 approved statuses are historical and do not confer production
+approval. New `uk` and `ru` content must be scaffolded with generated review
+status and empty localized values until independently authored and reviewed.
+
 ## Authoring Examples
 
 Good mixed instruction:

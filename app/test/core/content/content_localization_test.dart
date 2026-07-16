@@ -41,7 +41,7 @@ void main() {
   );
 
   test(
-    'localized reference slice preserves stable ids and Spanish target text',
+    'reset educational locales preserve stable ids and Spanish target text',
     () async {
       final localization = await _loadLocalization();
       final course = await CurriculumLoader().loadCourse();
@@ -53,14 +53,14 @@ void main() {
         SupportLocale.russian,
       );
       expect(russianCourse.id, course.id);
-      expect(russianCourse.title, 'Испанский A0');
+      expect(russianCourse.title, 'Spanish A0');
       expect(russianCourse.modules.first.id, course.modules.first.id);
-      expect(russianCourse.modules.first.title, 'Первые слова и чтение');
+      expect(russianCourse.modules.first.title, 'First Words and Reading');
       expect(russianCourse.lessons.first.id, course.lessons.first.id);
-      expect(russianCourse.lessons.first.title, 'Приветствие и прощание');
+      expect(russianCourse.lessons.first.title, 'Hello and Goodbye');
       expect(
         russianCourse.lessons.first.description,
-        'Поздоровайтесь и попрощайтесь короткими испанскими фразами.',
+        course.lessons.first.description,
       );
 
       final vocab = content.contents
@@ -74,7 +74,7 @@ void main() {
 
       expect(localizedVocab.id, vocab.id);
       expect(localizedVocab.spanish, 'hola');
-      expect(localizedVocab.nativeTranslation, 'привет');
+      expect(localizedVocab.nativeTranslation, 'hello');
       expect(localizedVocab.example, 'Hola, Ana.');
 
       final template = content.contents
@@ -90,18 +90,15 @@ void main() {
       );
 
       expect(localizedTemplate.id, template.id);
-      expect(
-        localizedTemplate.promptTemplate,
-        'Выберите значение фразы «hola».',
-      );
+      expect(localizedTemplate.promptTemplate, 'Choose the meaning of "hola".');
       expect(localizedTemplate.correctOptionId, template.correctOptionId);
       expect(localizedTemplate.answerOptions.first.id, 'option.hello');
-      expect(localizedTemplate.answerOptions.first.label, 'привет');
+      expect(localizedTemplate.answerOptions.first.label, 'hello');
     },
   );
 
   test(
-    'Russian support localization covers representative course and content text',
+    'Russian support localization is reset to explicit English fallback',
     () async {
       final localization = await _loadLocalization();
       final course = await CurriculumLoader().loadCourse();
@@ -113,11 +110,7 @@ void main() {
         SupportLocale.russian,
       );
 
-      expect(russianCourse.modules.first.title, 'Первые слова и чтение');
-      expect(
-        russianCourse.modules.first.title,
-        isNot('First Words and Reading'),
-      );
+      expect(russianCourse.modules.first.title, 'First Words and Reading');
 
       final profileReading = content.contents
           .whereType<ReadingContent>()
@@ -130,8 +123,7 @@ void main() {
         SupportLocale.russian,
       );
 
-      expect(localizedReading.title, 'Карточки профилей');
-      expect(localizedReading.title, isNot('Profile Cards'));
+      expect(localizedReading.title, 'Profile Cards');
       expect(localizedReading.text, profileReading.text);
 
       final originTemplate = content.contents
@@ -148,11 +140,7 @@ void main() {
 
       expect(
         localizedOriginTemplate.promptTemplate,
-        'Введите испанский вопрос: «Откуда ты?».',
-      );
-      expect(
-        localizedOriginTemplate.promptTemplate,
-        isNot('Type the Spanish question: "Where are you from?".'),
+        'Type the Spanish question: "Where are you from?"',
       );
       expect(
         localizedOriginTemplate.correctOptionId,
@@ -329,47 +317,23 @@ void main() {
       expect(english.translatedFields, english.totalFields);
       expect(english.fallbackFields, 0);
       expect(russian.totalFields, english.totalFields);
-      expect(russian.translatedFields, russian.totalFields);
-      expect(russian.fallbackFields, 0);
+      expect(russian.translatedFields, 0);
+      expect(russian.fallbackFields, russian.totalFields);
       expect(ukrainian.totalFields, english.totalFields);
-      expect(ukrainian.translatedFields, ukrainian.totalFields);
-      expect(ukrainian.fallbackFields, 0);
+      expect(ukrainian.translatedFields, 0);
+      expect(ukrainian.fallbackFields, ukrainian.totalFields);
     },
   );
 
-  test(
-    'Russian support localization has no English instructional fragments',
-    () async {
-      final localization = await _loadLocalization();
-      final findings = _findRussianEnglishFragments(localization);
+  test('Russian legacy educational fields are inactive', () async {
+    final localization = await _loadLocalization();
+    expect(_activeLocaleFields(localization, 'ru'), 0);
+  });
 
-      expect(
-        findings,
-        isEmpty,
-        reason:
-            'Russian learner-support text must not contain English '
-            'instructional fragments. First findings:\n'
-            '${findings.take(40).join('\n')}',
-      );
-    },
-  );
-
-  test(
-    'Ukrainian support localization has no English or Russian fragments',
-    () async {
-      final localization = await _loadLocalization();
-      final findings = _findUkrainianForeignFragments(localization);
-
-      expect(
-        findings,
-        isEmpty,
-        reason:
-            'Ukrainian learner-support text must not contain English '
-            'instructional fragments or Russian-only wording. First findings:\n'
-            '${findings.take(40).join('\n')}',
-      );
-    },
-  );
+  test('Ukrainian legacy educational fields are inactive', () async {
+    final localization = await _loadLocalization();
+    expect(_activeLocaleFields(localization, 'uk'), 0);
+  });
 }
 
 Future<EducationalContentLocalizationBundle> _loadLocalization() {
@@ -378,415 +342,17 @@ Future<EducationalContentLocalizationBundle> _loadLocalization() {
   ).loadBundle();
 }
 
-List<String> _findRussianEnglishFragments(
+int _activeLocaleFields(
   EducationalContentLocalizationBundle bundle,
+  String locale,
 ) {
-  final findings = <String>[];
+  var count = 0;
   for (final entry in bundle.entries) {
-    for (final field in entry.fields.entries) {
-      final russian = field.value['ru'];
-      if (russian == null) {
-        continue;
-      }
-      if (entry.type == 'grammar' && field.key.startsWith('examples.')) {
-        continue;
-      }
-      final tokens = RegExp(
-        r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*[A-Za-zÀ-ÖØ-öø-ÿ]",
-      ).allMatches(russian).map((match) => match.group(0)!);
-      final badTokens = tokens.where((token) {
-        final normalized = token.toLowerCase().replaceAll('’', "'");
-        if (normalized.length < 3) {
-          return false;
-        }
-        if (_allowedRussianLatinTokens.contains(normalized)) {
-          return false;
-        }
-        if (_knownSpanishOrInvariantTokens.contains(normalized)) {
-          return false;
-        }
-        return _forbiddenEnglishTokens.contains(normalized);
-      }).toSet();
-      if (badTokens.isNotEmpty) {
-        findings.add(
-          '${entry.type}|${entry.id}|${field.key}|'
-          '${badTokens.join(', ')}|$russian',
-        );
+    for (final field in entry.fields.values) {
+      if (field[locale]?.trim().isNotEmpty ?? false) {
+        count += 1;
       }
     }
   }
-  return findings;
+  return count;
 }
-
-List<String> _findUkrainianForeignFragments(
-  EducationalContentLocalizationBundle bundle,
-) {
-  final findings = <String>[];
-  for (final entry in bundle.entries) {
-    for (final field in entry.fields.entries) {
-      final ukrainian = field.value['uk'];
-      if (ukrainian == null) {
-        findings.add('${entry.type}|${entry.id}|${field.key}|missing uk');
-        continue;
-      }
-      if (entry.type == 'grammar' && field.key.startsWith('examples.')) {
-        continue;
-      }
-      final russianOnly = RegExp(r'[ыэёъЫЭЁЪ]').hasMatch(ukrainian);
-      final russianWords = _forbiddenRussianTokens
-          .where(
-            (token) => RegExp(
-              '(^|[^А-Яа-яІіЇїЄєҐґ])${RegExp.escape(token)}'
-              r'([^А-Яа-яІіЇїЄєҐґ]|$)',
-              caseSensitive: false,
-            ).hasMatch(ukrainian),
-          )
-          .toSet();
-      final tokens = RegExp(
-        r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*[A-Za-zÀ-ÖØ-öø-ÿ]",
-      ).allMatches(ukrainian).map((match) => match.group(0)!);
-      final englishTokens = tokens.where((token) {
-        final normalized = token.toLowerCase().replaceAll('’', "'");
-        if (normalized.length < 3) {
-          return false;
-        }
-        if (_allowedRussianLatinTokens.contains(normalized)) {
-          return false;
-        }
-        if (_knownSpanishOrInvariantTokens.contains(normalized)) {
-          return false;
-        }
-        return _forbiddenEnglishTokens.contains(normalized);
-      }).toSet();
-      if (russianOnly || russianWords.isNotEmpty || englishTokens.isNotEmpty) {
-        findings.add(
-          '${entry.type}|${entry.id}|${field.key}|'
-          'ruOnly=$russianOnly|ru=${russianWords.join(', ')}|'
-          'en=${englishTokens.join(', ')}|$ukrainian',
-        );
-      }
-    }
-  }
-  return findings;
-}
-
-const _forbiddenEnglishTokens = {
-  'about',
-  'active',
-  'activities',
-  'activity',
-  'action',
-  'and',
-  'answer',
-  'answers',
-  'are',
-  'ask',
-  'asks',
-  'asking',
-  'assess',
-  'basic',
-  'best',
-  'broad',
-  'cards',
-  'checkpoint',
-  'choose',
-  'class',
-  'complete',
-  'conversation',
-  'copy',
-  'contrast',
-  'contrasts',
-  'covering',
-  'dialogue',
-  'does',
-  'direct',
-  'english',
-  'exchange',
-  'for',
-  'full',
-  'from',
-  'greeting',
-  'has',
-  'have',
-  'identity',
-  'in',
-  'integrated',
-  'introduction',
-  'introductions',
-  'is',
-  'language',
-  'lesson',
-  'lessons',
-  'live',
-  'lives',
-  'material',
-  'mean',
-  'meaning',
-  'means',
-  'meeting',
-  'module',
-  'name',
-  'names',
-  'naturally',
-  'need',
-  'needs',
-  'new',
-  'note',
-  'practiced',
-  'object',
-  'on',
-  'phrase',
-  'phrases',
-  'question',
-  'questions',
-  'read',
-  'reading',
-  'recall',
-  'recognize',
-  'request',
-  'requests',
-  'review',
-  'sentence',
-  'sentences',
-  'speak',
-  'speaks',
-  'spanish',
-  'statement',
-  'teach',
-  'support',
-  'task',
-  'the',
-  'to',
-  'translation',
-  'type',
-  'unit',
-  'use',
-  'used',
-  'using',
-  'what',
-  'where',
-  'which',
-  'who',
-  'with',
-  'word',
-  'words',
-  'write',
-  'you',
-  'your',
-};
-
-const _allowedRussianLatinTokens = {'a0', 'ai', 'cefr', 'id', 'tutor'};
-
-const _forbiddenRussianTokens = {
-  'выберите',
-  'введите',
-  'напишите',
-  'дополните',
-  'ответьте',
-  'пожалуйста',
-  'привет',
-  'спасибо',
-  'извините',
-  'вопрос',
-  'ответ',
-  'предложение',
-  'значение',
-  'испанский',
-  'испанская',
-  'испанское',
-  'испанские',
-  'урок',
-  'урока',
-  'повторение',
-  'проверка',
-  'неправильно',
-  'буква',
-  'читается',
-  'произносится',
-  'ударение',
-  'именах',
-  'первых',
-  'первих',
-  'утренние',
-  'вечерние',
-  'приветствия',
-  'распознавайте',
-  'представления',
-  'произношения',
-  'путайте',
-  'простое',
-  'можно',
-  'использовать',
-  'любое',
-  'начинаем',
-  'русская',
-  'русский',
-  'английский',
-};
-
-const _knownSpanishOrInvariantTokens = {
-  'adios',
-  'adiós',
-  'agua',
-  'algo',
-  'al',
-  'amigo',
-  'ana',
-  'años',
-  'ayuda',
-  'ayudarme',
-  'barato',
-  'barata',
-  'bien',
-  'bogotá',
-  'bolsa',
-  'buenas',
-  'buenos',
-  'botella',
-  'café',
-  'carlos',
-  'carmen',
-  'chile',
-  'cinco',
-  'centro',
-  'cocina',
-  'cómo',
-  'colombia',
-  'cuánto',
-  'cuesta',
-  'cuántos',
-  'cabeza',
-  'cerca',
-  'de',
-  'derecha',
-  'días',
-  'diego',
-  'diez',
-  'dieciocho',
-  'dieciséis',
-  'dónde',
-  'dos',
-  'duele',
-  'el',
-  'él',
-  'elena',
-  'ella',
-  'encantada',
-  'encantado',
-  'entiendo',
-  'eres',
-  'es',
-  'español',
-  'españa',
-  'está',
-  'esto',
-  'estación',
-  'estás',
-  'este',
-  'esta',
-  'estoy',
-  'familia',
-  'farmacia',
-  'favor',
-  'gracias',
-  'gusto',
-  'gira',
-  'garganta',
-  'habla',
-  'hablas',
-  'hablo',
-  'hambre',
-  'hasta',
-  'hermana',
-  'hola',
-  'igualmente',
-  'izquierda',
-  'javier',
-  'josé',
-  'la',
-  'lima',
-  'libro',
-  'libros',
-  'llave',
-  'lápiz',
-  'llama',
-  'llamas',
-  'llamo',
-  'luego',
-  'luis',
-  'lucía',
-  'llego',
-  'madrid',
-  'maría',
-  'marta',
-  'me',
-  'mesa',
-  'médico',
-  'mi',
-  'miguel',
-  'muchas',
-  'mucho',
-  'más',
-  'méxico',
-  'necesito',
-  'necesita',
-  'fiebre',
-  'no',
-  'noche',
-  'noches',
-  'ocho',
-  'pablo',
-  'padre',
-  'parada',
-  'pedro',
-  'perdón',
-  'poco',
-  'por',
-  'puede',
-  'queso',
-  'quiero',
-  'qué',
-  'razón',
-  'recto',
-  'repita',
-  'repite',
-  'se',
-  'sara',
-  'sevilla',
-  'si',
-  'sí',
-  'silla',
-  'sigue',
-  'sofía',
-  'soy',
-  'tal',
-  'tardes',
-  'te',
-  'teléfono',
-  'tener',
-  'tengo',
-  'tiene',
-  'tienes',
-  'toma',
-  'tomo',
-  'tren',
-  'transporte',
-  'tres',
-  'ucrania',
-  'un',
-  'una',
-  'valencia',
-  'vas',
-  'veinte',
-  'vivo',
-  'vive',
-  'voy',
-  'h',
-  'j',
-  'll',
-  'ñ',
-  'qu',
-  'gue',
-  'gui',
-  'rr',
-};
