@@ -185,6 +185,8 @@ For the mandatory review process, use CONTENT_REVIEW_PROTOCOL.md.
 - [ ] Curriculum validation passes.
 - [ ] LessonAssemblyService resolves references.
 - [ ] Content integrity checks pass.
+- [ ] Migrated SemanticLocalizationUnit content has protected spans, context,
+      named entity metadata and approved review status where required.
 - [ ] Relevant tests pass.
 - [ ] Any skipped tests are documented.
 

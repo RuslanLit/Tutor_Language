@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import '../../features/curriculum/curriculum_models.dart';
 import '../content/content_document.dart';
+import 'semantic_localization.dart';
 import 'topic_content.dart';
 
 enum LocalizedFieldRole {
@@ -181,20 +182,59 @@ class EducationalContentLocalizationRepository {
   }
 }
 
+class SemanticLocalizationRepository {
+  SemanticLocalizationRepository({
+    AssetBundle? assetBundle,
+    this.assetPath =
+        'assets/languages/spanish/localization/semantic_reference_slice.json',
+  }) : _assetBundle = assetBundle ?? rootBundle;
+
+  final AssetBundle _assetBundle;
+  final String assetPath;
+  SemanticLocalizationBundle? _cachedBundle;
+
+  Future<SemanticLocalizationBundle> loadBundle() async {
+    final cached = _cachedBundle;
+    if (cached != null) {
+      return cached;
+    }
+
+    final rawJson = await _assetBundle.loadString(assetPath);
+    final decoded = jsonDecode(rawJson);
+    if (decoded is! Map) {
+      throw const FormatException(
+        'Semantic localization bundle must be an object',
+      );
+    }
+
+    return _cachedBundle = SemanticLocalizationBundle.fromJson(
+      Map<String, Object?>.from(decoded),
+    );
+  }
+}
+
 class EducationalContentLocalizationResolver {
-  EducationalContentLocalizationResolver(this.bundle)
+  EducationalContentLocalizationResolver(this.bundle, {this.semanticBundle})
     : _entriesByKey = {
         for (final entry in bundle.entries) '${entry.type}|${entry.id}': entry,
-      };
+      },
+      _semanticResolver = semanticBundle == null
+          ? null
+          : SemanticLocalizationResolver(semanticBundle);
 
   final EducationalContentLocalizationBundle bundle;
+  final SemanticLocalizationBundle? semanticBundle;
   final Map<String, LocalizedEducationalEntry> _entriesByKey;
+  final SemanticLocalizationResolver? _semanticResolver;
 
   Course resolveCourse(Course course, SupportLocale locale) {
     return Course(
       id: course.id,
       languageId: course.languageId,
-      title: _field('course', course.id, 'title', locale) ?? course.title,
+      title:
+          _localizedField(course.id, 'title', locale) ??
+          _field('course', course.id, 'title', locale) ??
+          course.title,
       level: course.level,
       version: course.version,
       modules: List.unmodifiable(
@@ -209,7 +249,10 @@ class EducationalContentLocalizationResolver {
   Module resolveModule(Module module, SupportLocale locale) {
     return Module(
       id: module.id,
-      title: _field('module', module.id, 'title', locale) ?? module.title,
+      title:
+          _localizedField(module.id, 'title', locale) ??
+          _field('module', module.id, 'title', locale) ??
+          module.title,
       lessonIds: module.lessonIds,
     );
   }
@@ -223,8 +266,12 @@ class EducationalContentLocalizationResolver {
     return Lesson(
       metadata: LessonMetadata(
         id: metadata.id,
-        title: _field('lesson', lessonId, 'title', locale) ?? metadata.title,
+        title:
+            _localizedField(lessonId, 'title', locale) ??
+            _field('lesson', lessonId, 'title', locale) ??
+            metadata.title,
         description:
+            _localizedField(lessonId, 'description', locale) ??
             _field('lesson', lessonId, 'description', locale) ??
             metadata.description,
         moduleId: metadata.moduleId,
@@ -243,6 +290,11 @@ class EducationalContentLocalizationResolver {
           return LessonObjective(
             id: objective.id,
             description:
+                _localizedField(
+                  lessonId == null ? null : '$lessonId.${objective.id}',
+                  'description',
+                  locale,
+                ) ??
                 _field(
                   'lesson_objective',
                   lessonId == null ? null : '$lessonId.${objective.id}',
@@ -254,6 +306,7 @@ class EducationalContentLocalizationResolver {
         }),
       ),
       communicativeOutcome:
+          _localizedField(lessonId, 'communicativeOutcome', locale) ??
           _field('lesson', lessonId, 'communicativeOutcome', locale) ??
           lesson.communicativeOutcome,
       sections: List.unmodifiable(
@@ -261,6 +314,7 @@ class EducationalContentLocalizationResolver {
           return LessonSection(
             id: section.id,
             title:
+                _localizedField(section.id, 'title', locale) ??
                 _field('lesson_section', section.id, 'title', locale) ??
                 section.title,
             order: section.order,
@@ -269,6 +323,7 @@ class EducationalContentLocalizationResolver {
                 return LessonActivity(
                   id: activity.id,
                   title:
+                      _localizedField(activity.id, 'title', locale) ??
                       _field('lesson_activity', activity.id, 'title', locale) ??
                       activity.title,
                   type: activity.type,
@@ -288,6 +343,7 @@ class EducationalContentLocalizationResolver {
           : LessonSummary(
               id: lesson.summary!.id,
               reviewPrompt:
+                  _localizedField(lesson.summary!.id, 'reviewPrompt', locale) ??
                   _field(
                     'lesson_summary',
                     lesson.summary!.id,
@@ -321,21 +377,29 @@ class EducationalContentLocalizationResolver {
       id: item.id,
       spanish: item.spanish,
       nativeTranslation:
+          _localizedField(item.id, 'native_translation', locale) ??
           _field('vocabulary', item.id, 'native_translation', locale) ??
           item.nativeTranslation,
       cefr: item.cefr,
       example: item.example,
       pronunciationUnitId: item.pronunciationUnitId,
       pronunciation: item.pronunciation,
-      notes: _field('vocabulary', item.id, 'notes', locale) ?? item.notes,
+      notes:
+          _localizedField(item.id, 'notes', locale) ??
+          _field('vocabulary', item.id, 'notes', locale) ??
+          item.notes,
     );
   }
 
   GrammarTopic resolveGrammarTopic(GrammarTopic topic, SupportLocale locale) {
     return GrammarTopic(
       id: topic.id,
-      title: _field('grammar', topic.id, 'title', locale) ?? topic.title,
+      title:
+          _localizedField(topic.id, 'title', locale) ??
+          _field('grammar', topic.id, 'title', locale) ??
+          topic.title,
       explanation:
+          _localizedField(topic.id, 'explanation', locale) ??
           _field('grammar', topic.id, 'explanation', locale) ??
           topic.explanation,
       examples: _listFields(
@@ -352,7 +416,10 @@ class EducationalContentLocalizationResolver {
   Dialogue resolveDialogue(Dialogue dialogue, SupportLocale locale) {
     return Dialogue(
       id: dialogue.id,
-      title: _field('dialogue', dialogue.id, 'title', locale) ?? dialogue.title,
+      title:
+          _localizedField(dialogue.id, 'title', locale) ??
+          _field('dialogue', dialogue.id, 'title', locale) ??
+          dialogue.title,
       vocabularyIds: dialogue.vocabularyIds,
       grammarIds: dialogue.grammarIds,
       lines: List.unmodifiable([
@@ -361,6 +428,11 @@ class EducationalContentLocalizationResolver {
             speaker: dialogue.lines[index].speaker,
             spanish: dialogue.lines[index].spanish,
             nativeTranslation:
+                _localizedField(
+                  dialogue.id,
+                  'lines.$index.native_translation',
+                  locale,
+                ) ??
                 _field(
                   'dialogue',
                   dialogue.id,
@@ -376,11 +448,15 @@ class EducationalContentLocalizationResolver {
   ReadingText resolveReading(ReadingText reading, SupportLocale locale) {
     return ReadingText(
       id: reading.id,
-      title: _field('reading', reading.id, 'title', locale) ?? reading.title,
+      title:
+          _localizedField(reading.id, 'title', locale) ??
+          _field('reading', reading.id, 'title', locale) ??
+          reading.title,
       vocabularyIds: reading.vocabularyIds,
       grammarIds: reading.grammarIds,
       text: reading.text,
       nativeTranslation:
+          _localizedField(reading.id, 'native_translation', locale) ??
           _field('reading', reading.id, 'native_translation', locale) ??
           reading.nativeTranslation,
     );
@@ -396,6 +472,7 @@ class EducationalContentLocalizationResolver {
       supportedGoalTypes: template.supportedGoalTypes,
       requiredObjectTypes: template.requiredObjectTypes,
       promptTemplate:
+          _localizedField(template.id, 'prompt_template', locale) ??
           _field('exercise_template', template.id, 'prompt_template', locale) ??
           template.promptTemplate,
       answerOptions: List.unmodifiable(
@@ -407,7 +484,12 @@ class EducationalContentLocalizationResolver {
           return ExerciseTemplateOption(
             id: option.id,
             label: shouldLocalize
-                ? _field(
+                ? _localizedField(
+                        template.id,
+                        'answer_options.${option.id}.label',
+                        locale,
+                      ) ??
+                      _field(
                         'exercise_template',
                         template.id,
                         'answer_options.${option.id}.label',
@@ -425,6 +507,17 @@ class EducationalContentLocalizationResolver {
       requiresExactAnswer: template.requiresExactAnswer,
       authoredMisconceptions: template.authoredMisconceptions,
       reviewTemplateIds: template.reviewTemplateIds,
+    );
+  }
+
+  String? _localizedField(String? id, String fieldName, SupportLocale locale) {
+    if (id == null) {
+      return null;
+    }
+    return _semanticResolver?.approvedValueForField(
+      contentObjectId: id,
+      fieldPath: fieldName,
+      supportLocale: locale.code,
     );
   }
 
@@ -455,7 +548,9 @@ class EducationalContentLocalizationResolver {
     final values = <String>[];
     for (var index = 0; index < fallback.length; index += 1) {
       values.add(
-        _field(type, id, '$fieldPrefix.$index', locale) ?? fallback[index],
+        _localizedField(id, '$fieldPrefix.$index', locale) ??
+            _field(type, id, '$fieldPrefix.$index', locale) ??
+            fallback[index],
       );
     }
     return List.unmodifiable(values);

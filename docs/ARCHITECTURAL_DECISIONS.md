@@ -1478,6 +1478,54 @@ full-course pronunciation migration remains incremental.
 
 ---
 
+## ADR: Semantic Localization Units Are Typed Educational Knowledge
+
+Status
+
+Accepted
+
+Context
+
+R2E4A showed that raw localization strings, generator override maps,
+word-by-word replacement and blacklist audits can produce false PASS results
+for learner-facing educational content.
+
+Decision
+
+Learner-facing educational localization is educational content. It is
+represented by typed SemanticLocalizationUnit data for migrated production
+scope.
+
+Semantic units declare semantic type, text ownership, protected spans, context
+metadata, named entity semantics, pronunciation/meaning separation and review
+status.
+
+Target-language spans must be protected structurally. Pronunciation hints and
+meanings are distinct. Named entities such as countries and cities are explicit.
+Sentence-level authored localization replaces token assembly for migrated
+production slices.
+
+Generator and validator responsibilities are separated. Validators must check
+semantic invariants independently of generator translation tables, replacement
+maps or allowlists.
+
+Release PASS for learner-facing semantic units requires `approved` review
+status. Generated or structurally validated text is not release-ready.
+
+Legacy string bundles remain loadable only as a transitional compatibility
+path.
+
+Consequences
+
+The resolver may prefer approved semantic units over legacy fields. Unmigrated
+content continues to use the legacy path, but fallback coverage must not be
+reported as semantic localization completion.
+
+Future support locales, including Polish, should begin from semantic units and
+review gates rather than copying the Ukrainian generator pattern.
+
+---
+
 ## ADR: Writing Systems Are First-Class Educational Knowledge
 
 Status

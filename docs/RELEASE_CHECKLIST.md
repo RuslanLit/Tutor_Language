@@ -193,6 +193,12 @@ Educational Content
 ```
 [x] educational-content localization architecture defined
 
+[x] SemanticLocalizationUnit foundation implemented for migrated reference slice
+
+[x] semantic localization validator implemented
+
+[x] semantic localization coverage reporter implemented
+
 [x] support locale separated from UI locale
 
 [x] target language separated from support language
@@ -210,6 +216,8 @@ Educational Content
 [x] Spanish A0 English support content normalized
 
 [ ] Spanish A0 Ukrainian support translation complete
+
+[ ] Spanish A0 Ukrainian semantic localization fully migrated and approved
 
 [x] Spanish A0 Russian support translation complete
 

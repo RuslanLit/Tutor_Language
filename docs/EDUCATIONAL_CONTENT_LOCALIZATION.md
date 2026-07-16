@@ -34,6 +34,11 @@ Flutter ARB files localize product UI.
 
 Educational-content localization belongs to the content system.
 
+For migrated production scope, localized educational content must use typed
+SemanticLocalizationUnit data as defined in
+SEMANTIC_LOCALIZATION_UNIT_STANDARD.md. Legacy locale overlays remain readable
+during migration but are transitional.
+
 ---
 
 # Terminology
@@ -270,6 +275,11 @@ R2E2A added the Russian quality gate:
 Structural coverage alone is not sufficient for release-complete support
 localization. A support locale must also pass the quality gate for untranslated
 or mixed-language learner-facing text.
+
+R2E4B adds a stricter semantic gate for migrated reference slices: learner-facing
+semantic units must be approved, protected target spans must be preserved, named
+entities must be typed and pronunciation hints must remain separate from
+meanings.
 
 Ukrainian, Polish and German educational-content translations remain separate
 future phases. Until those phases complete, they may fall back to English at

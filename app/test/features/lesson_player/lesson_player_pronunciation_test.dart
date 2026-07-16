@@ -66,6 +66,56 @@ void main() {
     );
   });
 
+  testWidgets(
+    'Lesson Player vocabulary cards render semantic migrated meanings',
+    (tester) async {
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            supportLocaleControllerProvider.overrideWith(
+              (ref) => SupportLocale.ukrainian,
+            ),
+          ],
+          child: const MaterialApp(
+            home: Scaffold(
+              body: Column(
+                children: [
+                  VocabularyItemView(
+                    item: VocabularyItem(
+                      id: 'vocab.es.a0.m03.mexico.v1',
+                      spanish: 'México',
+                      nativeTranslation: 'Мексика',
+                      cefr: 'A0',
+                      example: 'Soy de México.',
+                      pronunciationUnitId: 'pronunciation.es.word.mexico.v1',
+                    ),
+                  ),
+                  VocabularyItemView(
+                    item: VocabularyItem(
+                      id: 'vocab.es.a0.m03.chile.v1',
+                      spanish: 'Chile',
+                      nativeTranslation: 'Чилі',
+                      cefr: 'A0',
+                      example: 'Soy de Chile.',
+                      pronunciationUnitId: 'pronunciation.es.word.chile.v1',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await _pumpUntilFound(tester, find.text('Мексика'));
+
+      expect(find.text('México'), findsOneWidget);
+      expect(find.text('Мексика'), findsOneWidget);
+      expect(find.text('Chile'), findsOneWidget);
+      expect(find.text('Чилі'), findsOneWidget);
+    },
+  );
+
   testWidgets('reading rule presentation renders localized rule support', (
     tester,
   ) async {

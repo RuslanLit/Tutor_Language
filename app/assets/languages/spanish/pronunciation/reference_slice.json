@@ -2043,7 +2043,6 @@
       "readingRuleIds": [
         "pronunciation.es.rule.c_z.v1",
         "pronunciation.es.rule.primary_stress.v1",
-        "pronunciation.es.rule.silent_h.v1",
         "pronunciation.es.rule.stable_vowels.v1"
       ],
       "localizedLearnerHints": {
@@ -21545,9 +21544,9 @@
         "uk": "бу́енас но́чес"
       },
       "explanations": {
-        "ru": "Буква h в этих испанских формах не произносится. В этом курсе c перед e/i и z читаются как /s/ в общей учебной норме.",
-        "en": "Spanish h is silent in these forms. This course uses /s/ for c before e/i and z in the general learning norm.",
-        "uk": "Літера h у цих іспанських формах не вимовляється. У цьому курсі c перед e/i та z читаються як /s/ у загальній навчальній нормі."
+        "ru": "В Chile сочетание ch читается как один звук /tʃ/. В этом курсе c перед e/i и z читаются как /s/ в общей учебной норме.",
+        "en": "In Chile, ch is read as one sound /tʃ/. This course uses /s/ for c before e/i and z in the general learning norm.",
+        "uk": "У Chile буквосполучення ch читається як один звук /tʃ/. У цьому курсі c перед e/i та z читаються як /s/ у загальній навчальній нормі."
       }
     },
     {

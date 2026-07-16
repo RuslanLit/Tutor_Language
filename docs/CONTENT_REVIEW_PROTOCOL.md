@@ -39,6 +39,10 @@ Content must not be released merely because it loads, validates structurally or
 passes automated tests. Educational content must also pass human-level
 educational, linguistic, editorial, pronunciation and localization review.
 
+For SemanticLocalizationUnit content, `generated`, `structurallyValidated` and
+`semanticallyValidated` are not release approval. Production learner-facing
+semantic units require `approved` review status.
+
 ---
 
 # Relationship To Educational Language Standard

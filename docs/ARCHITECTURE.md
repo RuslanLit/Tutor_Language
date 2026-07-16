@@ -193,6 +193,12 @@ the educational-content localization layer while preserving stable educational
 IDs and target-language material. The detailed source of truth is
 EDUCATIONAL_CONTENT_LOCALIZATION.md.
 
+R2E4B adds SemanticLocalizationUnit as the production direction for
+learner-facing educational localization. Approved semantic units may override
+legacy string-overlay fields for migrated reference scope. Legacy string
+bundles remain a transitional compatibility path and must not be counted as
+production-complete semantic localization.
+
 Pronunciation data has stricter ownership than ordinary support text.
 Target-language orthography, pronunciation variety, IPA, localized learner
 hints, localized pronunciation explanations and future audio references must

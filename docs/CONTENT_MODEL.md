@@ -124,6 +124,12 @@ presentation text. Support-language presentation text is localized through the
 educational-content localization system, not through application UI ARB files.
 Stable identifiers and target-language forms remain locale-independent.
 
+For migrated production localization, learner-facing support text is represented
+as typed SemanticLocalizationUnit data. A semantic unit records text ownership,
+protected target-language spans, context metadata, named entity semantics,
+pronunciation/meaning separation and review status. The normative standard is
+SEMANTIC_LOCALIZATION_UNIT_STANDARD.md.
+
 ---
 
 # Course

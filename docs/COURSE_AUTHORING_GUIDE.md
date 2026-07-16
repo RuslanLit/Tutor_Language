@@ -33,6 +33,10 @@ support-language localization is defined in
 EDUCATIONAL_CONTENT_LOCALIZATION.md and must not be moved into application UI
 ARB files.
 
+For migrated production localization, course, module, lesson and activity
+learner-facing text should be represented by typed SemanticLocalizationUnit
+records with review status. Legacy localization fields remain transitional.
+
 Pronunciation is reusable educational knowledge. The conceptual model is
 PRONUNCIATION_MODEL.md. Pronunciation variety, IPA policy, learner-hint policy,
 regional variant policy and audio policy are defined in

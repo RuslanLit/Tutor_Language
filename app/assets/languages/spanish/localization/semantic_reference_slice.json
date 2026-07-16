@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "targetLanguage": "es",
+  "sourceSupportLocale": "en",
+  "supportLocales": [
+    "en",
+    "uk"
+  ],
+  "units": [
+    {
+      "id": "semantic.es.a0.vocab.hola.meaning.uk.v1",
+      "semanticType": "vocabularyMeaning",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "hello",
+      "values": {
+        "en": "hello",
+        "uk": "привіт"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "vocab.es.a0.unit1.hola.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "meaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "sourceMeaning": "hello"
+      }
+    },
+    {
+      "id": "semantic.es.a0.pron.hola.hint.uk.v1",
+      "semanticType": "pronunciationHint",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "о́ла",
+      "values": {
+        "uk": "о́ла"
+      },
+      "review": {
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_01",
+        "lessonId": "es.a0.m01.l016",
+        "contentObjectId": "pronunciation.es.word.hola.v1",
+        "fieldPath": "localizedLearnerHints.uk",
+        "contentKind": "pronunciationUnit",
+        "pedagogicalRole": "pronunciation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "sourceMeaning": "привіт"
+      }
+    },
+    {
+      "id": "semantic.es.a0.pron.hola.ipa.v1",
+      "semanticType": "metadataLabel",
+      "ownership": "localeIndependent",
+      "sourceText": "/ˈola/",
+      "values": {
+        "en": "/ˈola/",
+        "uk": "/ˈola/"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "ipa.hola",
+          "type": "ipa",
+          "text": "/ˈola/"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "contentObjectId": "pronunciation.es.word.hola.v1",
+        "fieldPath": "ipa",
+        "contentKind": "pronunciationUnit",
+        "pedagogicalRole": "canonicalPronunciation",
+        "targetLanguage": "es",
+        "supportLocale": "uk"
+      }
+    },
+    {
+      "id": "semantic.es.a0.vocab.hambre.meaning.uk.v1",
+      "semanticType": "vocabularyMeaning",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "hunger",
+      "values": {
+        "en": "hunger",
+        "uk": "голод"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_01",
+        "lessonId": "es.a0.m01.l016",
+        "contentObjectId": "vocab.es.a0.c2.hambre.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "meaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "sourceMeaning": "hunger"
+      }
+    },
+    {
+      "id": "semantic.es.a0.pron.hambre.hint.uk.v1",
+      "semanticType": "pronunciationHint",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "а́мбре",
+      "values": {
+        "uk": "а́мбре"
+      },
+      "review": {
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_01",
+        "lessonId": "es.a0.m01.l016",
+        "contentObjectId": "pronunciation.es.word.hambre.v1",
+        "fieldPath": "localizedLearnerHints.uk",
+        "contentKind": "pronunciationUnit",
+        "pedagogicalRole": "pronunciation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "sourceMeaning": "голод"
+      }
+    },
+    {
+      "id": "semantic.es.a0.entity.mexico.country.meaning.uk.v1",
+      "semanticType": "countryName",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "Mexico",
+      "values": {
+        "en": "Mexico",
+        "uk": "Мексика"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_03",
+        "lessonId": "es.a0.m03.l013",
+        "contentObjectId": "vocab.es.a0.m03.mexico.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "countryMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "namedEntityType": "country",
+        "sourceMeaning": "Mexico"
+      }
+    },
+    {
+      "id": "semantic.es.a0.entity.mexico.country.pronunciation.uk.v1",
+      "semanticType": "pronunciationHint",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "ме́хіко",
+      "values": {
+        "uk": "ме́хіко"
+      },
+      "review": {
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_03",
+        "lessonId": "es.a0.m03.l013",
+        "contentObjectId": "pronunciation.es.word.mexico.v1",
+        "fieldPath": "localizedLearnerHints.uk",
+        "contentKind": "pronunciationUnit",
+        "pedagogicalRole": "pronunciation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "namedEntityType": "country",
+        "sourceMeaning": "Мексика"
+      }
+    },
+    {
+      "id": "semantic.es.a0.entity.ciudad_de_mexico.city.meaning.uk.v1",
+      "semanticType": "cityName",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "Mexico City",
+      "values": {
+        "en": "Mexico City",
+        "uk": "Мехіко"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "contentObjectId": "semantic.entity.es.city.ciudad_de_mexico.v1",
+        "fieldPath": "meaning",
+        "contentKind": "semanticEntity",
+        "pedagogicalRole": "cityMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "namedEntityType": "city",
+        "sourceMeaning": "Mexico City"
+      },
+      "notes": "Reference-only semantic unit; no current curriculum object is migrated for this city."
+    },
+    {
+      "id": "semantic.es.a0.entity.chile.country.meaning.uk.v1",
+      "semanticType": "countryName",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "Chile",
+      "values": {
+        "en": "Chile",
+        "uk": "Чилі"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_03",
+        "lessonId": "es.a0.m03.l013",
+        "contentObjectId": "vocab.es.a0.m03.chile.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "countryMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "namedEntityType": "country",
+        "sourceMeaning": "Chile"
+      }
+    },
+    {
+      "id": "semantic.es.a0.phrase.me_llamo.meaning.uk.v1",
+      "semanticType": "vocabularyMeaning",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "my name is",
+      "values": {
+        "en": "my name is",
+        "uk": "мене звати"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_02",
+        "lessonId": "es.a0.m02.l004",
+        "contentObjectId": "vocab.es.a0.unit1.me_llamo.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "phraseMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "grammaticalPerson": "first",
+        "sourceMeaning": "my name is"
+      }
+    },
+    {
+      "id": "semantic.es.a0.phrase.se_llama.meaning.uk.v1",
+      "semanticType": "exampleTranslation",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "se llama = his/her name is",
+      "values": {
+        "en": "se llama = his/her name is",
+        "uk": "se llama = його/її звати"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.se_llama",
+          "type": "targetTerm",
+          "text": "se llama"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_08",
+        "lessonId": "es.a0.m08.l052",
+        "contentObjectId": "semantic.phrase.es.se_llama.v1",
+        "fieldPath": "meaning",
+        "contentKind": "semanticPhrase",
+        "pedagogicalRole": "thirdPersonNamePattern",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "grammaticalPerson": "third",
+        "sourceMeaning": "his/her name is"
+      }
+    },
+    {
+      "id": "semantic.es.a0.prompt.como_es.meaning.uk.v1",
+      "semanticType": "exercisePrompt",
+      "ownership": "mixedStructured",
+      "sourceText": "Use the question \"¿Cómo es?\" to ask what someone is like.",
+      "values": {
+        "en": "Use the question \"¿Cómo es?\" to ask what someone is like.",
+        "uk": "Використайте запитання «¿Cómo es?», щоб спитати, якою є людина."
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.como_es",
+          "type": "targetExample",
+          "text": "¿Cómo es?"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_04",
+        "lessonId": "es.a0.m04.l022",
+        "activityId": "activity.es.a0.m04.l022.practice_description",
+        "contentObjectId": "template.es.a0.m04.l022.type_como_es.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exerciseTemplate",
+        "pedagogicalRole": "learnerInstruction",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "gender-neutral question form"
+      }
+    },
+    {
+      "id": "semantic.es.a0.word.simpatica.meaning.uk.v1",
+      "semanticType": "vocabularyMeaning",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "nice / friendly",
+      "values": {
+        "en": "nice / friendly",
+        "uk": "приємна"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_04",
+        "lessonId": "es.a0.m04.l022",
+        "contentObjectId": "vocab.es.a0.m04.simpatica.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "adjectiveMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "grammaticalGender": "feminine",
+        "grammaticalNumber": "singular",
+        "sourceMeaning": "nice / friendly"
+      }
+    },
+    {
+      "id": "semantic.es.a0.word.simpatico.meaning.uk.v1",
+      "semanticType": "vocabularyMeaning",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "nice / friendly",
+      "values": {
+        "en": "nice / friendly",
+        "uk": "приємний"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_04",
+        "lessonId": "es.a0.m04.l022",
+        "contentObjectId": "vocab.es.a0.m04.simpatico.v1",
+        "fieldPath": "native_translation",
+        "contentKind": "vocabulary",
+        "pedagogicalRole": "adjectiveMeaning",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "grammaticalGender": "masculine",
+        "grammaticalNumber": "singular",
+        "sourceMeaning": "nice / friendly"
+      }
+    },
+    {
+      "id": "semantic.es.a0.grapheme.ll.designation.uk.v1",
+      "semanticType": "graphemeDesignation",
+      "ownership": "supportLanguageOwned",
+      "sourceText": "the letter combination ll",
+      "values": {
+        "en": "the letter combination ll",
+        "uk": "буквосполучення ll"
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.ll",
+          "type": "targetTerm",
+          "text": "ll"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_02",
+        "contentObjectId": "pronunciation.es.rule.ll_y.v1",
+        "fieldPath": "graphemeDesignation.uk",
+        "contentKind": "readingRule",
+        "pedagogicalRole": "graphemePresentation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "sourceMeaning": "lowercase l plus lowercase l, not uppercase II"
+      }
+    },
+    {
+      "id": "semantic.es.a0.instruction.use_soy_de.uk.v1",
+      "semanticType": "learnerInstruction",
+      "ownership": "mixedStructured",
+      "sourceText": "Use \"Soy de\" with a place.",
+      "values": {
+        "en": "Use \"Soy de\" with a place.",
+        "uk": "Використайте конструкцію «Soy de» з назвою місця."
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.soy_de",
+          "type": "targetText",
+          "text": "Soy de"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_03",
+        "lessonId": "es.a0.m03.l013",
+        "activityId": "activity.es.a0.m03.l013.origin_pattern",
+        "contentObjectId": "template.es.a0.m03.l013.type_soy_de_mexico.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exerciseTemplate",
+        "pedagogicalRole": "learnerInstruction",
+        "targetLanguage": "es",
+        "supportLocale": "uk"
+      }
+    },
+    {
+      "id": "semantic.es.a0.feedback.silent_h.hola.uk.v1",
+      "semanticType": "feedback",
+      "ownership": "mixedStructured",
+      "sourceText": "Remember: the h in \"hola\" is silent.",
+      "values": {
+        "en": "Remember: the h in \"hola\" is silent.",
+        "uk": "Памʼятайте: літера h у слові «hola» не вимовляється."
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.hola",
+          "type": "targetExample",
+          "text": "hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_01",
+        "lessonId": "es.a0.m01.l016",
+        "activityId": "activity.es.a0.m01.l016.hola_reading",
+        "contentObjectId": "misconception.es.a0.m01.hola_ola_reading.v1",
+        "fieldPath": "feedback",
+        "contentKind": "authoredMisconception",
+        "pedagogicalRole": "feedback",
+        "targetLanguage": "es",
+        "supportLocale": "uk"
+      }
+    },
+    {
+      "id": "semantic.es.a0.remediation.me_llamo.uk.v1",
+      "semanticType": "remediation",
+      "ownership": "mixedStructured",
+      "sourceText": "Use \"me llamo\" plus your name.",
+      "values": {
+        "en": "Use \"me llamo\" plus your name.",
+        "uk": "Використайте «me llamo» і своє імʼя."
+      },
+      "review": {
+        "en": "approved",
+        "uk": "approved"
+      },
+      "protectedSpans": [
+        {
+          "id": "target.me_llamo",
+          "type": "targetText",
+          "text": "me llamo"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.module_02",
+        "lessonId": "es.a0.m02.l004",
+        "activityId": "activity.es.a0.m02.l004.name_pattern",
+        "contentObjectId": "template.es.a0.m02.l004.fill_me_llamo_elena.v1",
+        "fieldPath": "remediation",
+        "contentKind": "exerciseTemplate",
+        "pedagogicalRole": "remediation",
+        "targetLanguage": "es",
+        "supportLocale": "uk"
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import '../content/content_document.dart';
 import 'content_loader.dart';
 import 'content_localization.dart';
 import 'content_providers.dart';
+import 'semantic_localization.dart';
 
 final supportLocaleControllerProvider = StateProvider<SupportLocale>((ref) {
   return SupportLocale.english;
@@ -31,6 +32,16 @@ final educationalContentLocalizationBundleProvider =
           .loadBundle();
     });
 
+final semanticLocalizationRepositoryProvider =
+    Provider<SemanticLocalizationRepository>((ref) {
+      return SemanticLocalizationRepository();
+    });
+
+final semanticLocalizationBundleProvider =
+    FutureProvider<SemanticLocalizationBundle>((ref) {
+      return ref.watch(semanticLocalizationRepositoryProvider).loadBundle();
+    });
+
 final educationalContentBundleProvider =
     FutureProvider<EducationalContentBundle>((ref) {
       return ContentLoader().loadLanguagePackContent();
@@ -41,10 +52,14 @@ final localizedCurrentCourseProvider = FutureProvider((ref) async {
   final localization = await ref.watch(
     educationalContentLocalizationBundleProvider.future,
   );
+  final semanticLocalization = await ref.watch(
+    semanticLocalizationBundleProvider.future,
+  );
   final supportLocale = ref.watch(supportLocaleProvider);
 
   return EducationalContentLocalizationResolver(
     localization,
+    semanticBundle: semanticLocalization,
   ).resolveCourse(course, supportLocale);
 });
 
@@ -56,8 +71,14 @@ final localizedLessonContentProvider =
       final localization = await ref.watch(
         educationalContentLocalizationBundleProvider.future,
       );
+      final semanticLocalization = await ref.watch(
+        semanticLocalizationBundleProvider.future,
+      );
       final supportLocale = ref.watch(supportLocaleProvider);
-      final resolver = EducationalContentLocalizationResolver(localization);
+      final resolver = EducationalContentLocalizationResolver(
+        localization,
+        semanticBundle: semanticLocalization,
+      );
 
       return resolveLocalizedLessonContent(
         lessonContent: lessonContent,

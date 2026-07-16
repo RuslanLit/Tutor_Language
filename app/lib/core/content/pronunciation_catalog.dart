@@ -50,6 +50,24 @@ class PronunciationCatalog {
     ]);
   }
 
+  List<PronunciationReadingRule> applicableRulesForPronunciationUnit(
+    String unitId,
+  ) {
+    final unit = _unitsById[unitId];
+    if (unit == null) {
+      return const [];
+    }
+    return List.unmodifiable([
+      for (final ruleId in unit.readingRuleIds)
+        if (_rulesById[ruleId] != null &&
+            isReadingRuleApplicableToTarget(
+              rule: _rulesById[ruleId]!,
+              targetOrthography: unit.targetOrthography,
+            ))
+          _rulesById[ruleId]!,
+    ]);
+  }
+
   List<PronunciationUnit> exampleUnitsForReadingRule(String ruleId) {
     final rule = _rulesById[ruleId];
     if (rule == null) {
@@ -879,6 +897,57 @@ class PronunciationCatalog {
     }
     return Map.unmodifiable(index);
   }
+}
+
+bool isReadingRuleApplicableToTarget({
+  required PronunciationReadingRule rule,
+  required String targetOrthography,
+}) {
+  final pattern = rule.orthographicPattern.trim().toLowerCase();
+  if (pattern.isEmpty) {
+    return false;
+  }
+  if (pattern.contains('/') ||
+      pattern.contains(' ') ||
+      pattern.contains('+') ||
+      pattern.contains(' and ')) {
+    return true;
+  }
+  final graphemes = segmentSpanishGraphemes(targetOrthography);
+  if (pattern.length == 1) {
+    return graphemes.contains(pattern);
+  }
+  return graphemes.contains(pattern) ||
+      targetOrthography.toLowerCase().contains(pattern);
+}
+
+List<String> segmentSpanishGraphemes(String value) {
+  const multiGraphemes = ['ch', 'll', 'rr', 'qu', 'gu'];
+  final lower = value.toLowerCase();
+  final graphemes = <String>[];
+  var index = 0;
+  while (index < lower.length) {
+    final char = lower[index];
+    if (!RegExp(r'[a-záéíóúüñ]').hasMatch(char)) {
+      index += 1;
+      continue;
+    }
+    String? match;
+    for (final candidate in multiGraphemes) {
+      if (lower.startsWith(candidate, index)) {
+        match = candidate;
+        break;
+      }
+    }
+    if (match != null) {
+      graphemes.add(match);
+      index += match.length;
+    } else {
+      graphemes.add(char);
+      index += 1;
+    }
+  }
+  return List.unmodifiable(graphemes);
 }
 
 bool _isReleaseReferenceUnit(PronunciationUnit unit) {

@@ -36,6 +36,11 @@ EDUCATIONAL_CONTENT_LOCALIZATION.md. Do not place vocabulary meanings, grammar
 explanations, authored prompts, dialogue translations or remediation text in
 Flutter ARB files.
 
+When authoring or migrating production localized educational text, use
+SemanticLocalizationUnit data for ambiguous learner-facing fields. Mixed
+support/target sentences must protect target-language spans structurally rather
+than relying on accidental Latin substrings.
+
 Pronunciation is reusable educational knowledge, not a localized text field.
 The conceptual model is PRONUNCIATION_MODEL.md. Pronunciation authoring is
 defined in PRONUNCIATION_AUTHORING_GUIDE.md. Do not author one universal
