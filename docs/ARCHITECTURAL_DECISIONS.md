@@ -1521,6 +1521,12 @@ The resolver may prefer approved semantic units over legacy fields. Unmigrated
 content continues to use the legacy path, but fallback coverage must not be
 reported as semantic localization completion.
 
+Complete-lesson pilots may be used to validate the architecture before broad
+migration. A pilot passes the semantic gate only when every expected
+learner-visible field in the declared lesson scope has an approved semantic
+unit and the pilot reports zero legacy fallback for that scope. Passing a pilot
+does not imply full-course semantic localization coverage.
+
 Future support locales, including Polish, should begin from semantic units and
 review gates rather than copying the Ukrainian generator pattern.
 

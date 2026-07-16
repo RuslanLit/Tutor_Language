@@ -28,11 +28,15 @@ class LessonPlayerScreen extends ConsumerWidget {
   const LessonPlayerScreen({
     required this.lessonId,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.persistCompletion = true,
+    this.qaBannerLabel,
     super.key,
   });
 
   final String lessonId;
   final LessonAttemptPurpose attemptPurpose;
+  final bool persistCompletion;
+  final String? qaBannerLabel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -61,6 +65,8 @@ class LessonPlayerScreen extends ConsumerWidget {
           data: (lessonContent) => LessonPlayerView(
             lessonContent: lessonContent,
             attemptPurpose: attemptPurpose,
+            persistCompletion: persistCompletion,
+            qaBannerLabel: qaBannerLabel,
           ),
           error: (error, stackTrace) => CourseBrowserError(message: '$error'),
           loading: () => const Center(child: CircularProgressIndicator()),
@@ -172,11 +178,15 @@ class LessonPlayerView extends ConsumerWidget {
   const LessonPlayerView({
     required this.lessonContent,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.persistCompletion = true,
+    this.qaBannerLabel,
     super.key,
   });
 
   final LessonContent lessonContent;
   final LessonAttemptPurpose attemptPurpose;
+  final bool persistCompletion;
+  final String? qaBannerLabel;
   static const _stepBuilder = LessonPlayerStepBuilder();
   static const _sessionEngine = LessonSessionEngine();
 
@@ -279,6 +289,10 @@ class LessonPlayerView extends ConsumerWidget {
               ),
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
               children: [
+                if (qaBannerLabel != null) ...[
+                  _QaLessonBanner(label: qaBannerLabel!),
+                  const SizedBox(height: 12),
+                ],
                 if (currentStep?.isCheckable == true)
                   _CompactLessonHeader(title: lesson.title)
                 else
@@ -298,11 +312,29 @@ class LessonPlayerView extends ConsumerWidget {
                 stepCount: activeStepIds.length,
                 currentStepIndex: currentStepIndex,
                 session: activeSession,
+                persistCompletion: persistCompletion,
               ),
             ),
           ],
         ],
       ),
+    );
+  }
+}
+
+class _QaLessonBanner extends StatelessWidget {
+  const _QaLessonBanner({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.red, width: 2),
+        color: Colors.yellow.shade100,
+      ),
+      child: Padding(padding: const EdgeInsets.all(12), child: Text(label)),
     );
   }
 }
@@ -391,6 +423,7 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
     required this.stepCount,
     required this.currentStepIndex,
     required this.session,
+    this.persistCompletion = true,
     super.key,
   });
 
@@ -399,6 +432,7 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
   final int stepCount;
   final int currentStepIndex;
   final LessonPlayerSessionState session;
+  final bool persistCompletion;
 
   @override
   ConsumerState<LessonNavigationControls> createState() =>
@@ -435,9 +469,10 @@ class _LessonNavigationControlsState
         LessonCompletionPersistenceStatus.persisting;
     final canFinish =
         finishDecision.type == LessonSessionDecisionType.finishLesson;
+    final keyboardVisible = MediaQuery.viewInsetsOf(context).bottom > 0;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 8, bottom: 24),
+      padding: EdgeInsets.only(top: 8, bottom: keyboardVisible ? 0 : 24),
       child: progress.when(
         data: (progress) {
           final isCompleted =
@@ -567,16 +602,6 @@ class _LessonNavigationControlsState
         widget.session.attemptId ??
         widget.session.completionAttemptId ??
         '${completedAt.microsecondsSinceEpoch}.${widget.lessonId}.attempt';
-    final command = _snapshotFactory.create(
-      attemptId: attemptId,
-      lessonId: widget.lessonId,
-      courseId: widget.courseId,
-      purpose: widget.session.attemptPurpose,
-      finalState: decision.updatedState,
-      finishDecision: decision,
-      completedAt: completedAt,
-      startedAt: widget.session.attemptStartedAt,
-    );
     final pendingSession = widget.session.copyWith(
       completionAttemptId: attemptId,
       completionCompletedAt: completedAt,
@@ -592,7 +617,37 @@ class _LessonNavigationControlsState
       _completionError = null;
     });
 
+    if (!widget.persistCompletion) {
+      ref
+          .read(lessonPlayerSessionProvider(widget.lessonId).notifier)
+          .state = pendingSession.copyWith(
+        sessionState: decision.updatedState,
+        lessonOutcome: decision.lessonOutcome,
+        completionAttemptId: attemptId,
+        completionCompletedAt: completedAt,
+        completionPersistenceStatus:
+            LessonCompletionPersistenceStatus.notRequested,
+        completionError: null,
+      );
+      if (mounted) {
+        setState(() {
+          _isCompleting = false;
+        });
+      }
+      return;
+    }
+
     try {
+      final command = _snapshotFactory.create(
+        attemptId: attemptId,
+        lessonId: widget.lessonId,
+        courseId: widget.courseId,
+        purpose: widget.session.attemptPurpose,
+        finalState: decision.updatedState,
+        finishDecision: decision,
+        completedAt: completedAt,
+        startedAt: widget.session.attemptStartedAt,
+      );
       final result = await ref
           .read(learnerProgressRepositoryProvider)
           .recordCompletedLessonAttempt(command);

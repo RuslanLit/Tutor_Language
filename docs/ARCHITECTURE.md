@@ -199,6 +199,13 @@ legacy string-overlay fields for migrated reference scope. Legacy string
 bundles remain a transitional compatibility path and must not be counted as
 production-complete semantic localization.
 
+R2E4C validates that architecture on complete production lessons. The runtime
+loads the R2E4B reference slice and the R2E4C pilot bundle as one semantic
+localization source, then resolves approved semantic units before legacy
+overlays for migrated learner-visible fields. The pilot is intentionally not a
+coverage expansion for the full course; it proves that complete lessons can
+reach 100% semantic coverage with zero legacy fallback inside a declared scope.
+
 Pronunciation data has stricter ownership than ordinary support text.
 Target-language orthography, pronunciation variety, IPA, localized learner
 hints, localized pronunciation explanations and future audio references must

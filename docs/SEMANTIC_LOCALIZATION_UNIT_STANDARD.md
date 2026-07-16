@@ -209,6 +209,23 @@ Polish, German or future locales until:
 4. pronunciation/meaning separation is represented;
 5. named entities are explicit.
 
+After the reference slice, migrate complete production lessons as pilots before
+full-course migration. A complete-lesson pilot must declare its lesson IDs,
+collect every expected learner-visible field deterministically from production
+content assets, require approved semantic units for all collected fields and
+report zero legacy fallback inside the declared pilot scope.
+
+The R2E4C pilot uses:
+
+```text
+app/assets/languages/spanish/localization/semantic_pilot_lessons.json
+app/tool/validate_semantic_lesson.dart
+```
+
+Pilot success is scoped. It proves the semantic architecture on the declared
+lessons and must not be reported as complete semantic localization for the
+unmigrated course.
+
 ## Authoring Examples
 
 Good mixed instruction:

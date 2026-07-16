@@ -9,6 +9,7 @@ import 'package:tutor_language/core/content/content_localization.dart';
 import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
+import 'package:tutor_language/core/content/semantic_localization.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
@@ -198,6 +199,7 @@ ProviderScope _app(
   return ProviderScope(
     overrides: [
       _emptyLocalizationOverride,
+      _emptySemanticLocalizationOverride,
       appRouterProvider.overrideWith((ref) {
         return GoRouter(
           initialLocation: CourseRoute.path,
@@ -245,12 +247,23 @@ ProviderScope _app(
 final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
     .overrideWith((ref) async => _emptyLocalizationBundle);
 
+final _emptySemanticLocalizationOverride = semanticLocalizationBundleProvider
+    .overrideWith((ref) async => _emptySemanticLocalizationBundle);
+
 const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
   schemaVersion: 1,
   targetLanguage: 'es',
   sourceSupportLocale: 'en',
   supportLocales: ['en'],
   entries: [],
+);
+
+const _emptySemanticLocalizationBundle = SemanticLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['uk'],
+  units: [],
 );
 
 class _FakeContentRepository extends ContentRepository {

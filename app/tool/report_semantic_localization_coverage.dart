@@ -3,15 +3,15 @@ import 'dart:io';
 
 import 'package:tutor_language/core/content/semantic_localization.dart';
 
-const _semanticPath =
-    'assets/languages/spanish/localization/semantic_reference_slice.json';
+const _semanticPaths = [
+  'assets/languages/spanish/localization/semantic_reference_slice.json',
+  'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+];
 const _legacyPath =
     'assets/languages/spanish/localization/support_localizations.json';
 
 void main() {
-  final semanticBundle = SemanticLocalizationBundle.fromJson(
-    _readJsonObject(_semanticPath),
-  );
+  final semanticBundle = _readSemanticBundles(_semanticPaths);
   final legacy = _readJsonObject(_legacyPath);
   final validationIssues = const SemanticLocalizationValidator().validate(
     bundle: semanticBundle,
@@ -54,7 +54,7 @@ void main() {
       .length;
 
   stdout.writeln('Semantic localization coverage');
-  stdout.writeln('scope: reference slice only');
+  stdout.writeln('scope: reference slice + R2E4C pilot lessons');
   stdout.writeln('semantic units: ${semanticBundle.units.length}');
   stdout.writeln('approved units: $approvedUnits');
   stdout.writeln('generated units: $generatedUnits');
@@ -94,6 +94,23 @@ Map<String, Object?> _readJsonObject(String path) {
     throw FormatException('Expected JSON object at $path');
   }
   return Map<String, Object?>.from(raw);
+}
+
+SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
+  final bundles = [
+    for (final path in paths)
+      SemanticLocalizationBundle.fromJson(_readJsonObject(path)),
+  ];
+  final first = bundles.first;
+  return SemanticLocalizationBundle(
+    schemaVersion: first.schemaVersion,
+    targetLanguage: first.targetLanguage,
+    sourceSupportLocale: first.sourceSupportLocale,
+    supportLocales: List.unmodifiable(
+      {for (final bundle in bundles) ...bundle.supportLocales}.toList()..sort(),
+    ),
+    units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
+  );
 }
 
 File _resolveFile(String appRelativePath) {

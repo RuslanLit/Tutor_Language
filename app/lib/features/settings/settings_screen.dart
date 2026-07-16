@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/app/app_release_info.dart';
+import '../../debug/semantic_pilot_qa.dart';
 import '../../l10n/l10n.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -53,6 +54,22 @@ class SettingsScreen extends StatelessWidget {
               title: l10n.licensesTitle,
               children: [Text(l10n.licensesBody)],
             ),
+            if (semanticPilotQaPolicy.isEnabled)
+              _SettingsSection(
+                title: 'QA ONLY',
+                children: [
+                  const Text(
+                    'Semantic pilot launcher. Debug build with '
+                    'SEMANTIC_QA=true only.',
+                  ),
+                  const SizedBox(height: 8),
+                  FilledButton(
+                    onPressed: () =>
+                        context.goNamed(DebugSemanticPilotRoute.name),
+                    child: const Text('Open semantic pilot QA'),
+                  ),
+                ],
+              ),
           ],
         ),
       ),

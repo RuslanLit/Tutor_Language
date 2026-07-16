@@ -281,6 +281,31 @@ semantic units must be approved, protected target spans must be preserved, named
 entities must be typed and pronunciation hints must remain separate from
 meanings.
 
+R2E4C validates the semantic architecture on five complete Spanish A0
+production lessons:
+
+- `es.a0.m06.l016`;
+- `es.a0.m01.l001`;
+- `es.a0.m06.l017`;
+- `es.a0.m02.l004`;
+- `es.a0.m06.l036`.
+
+The pilot bundle lives in:
+
+```text
+app/assets/languages/spanish/localization/semantic_pilot_lessons.json
+```
+
+It is validated by:
+
+```text
+app/tool/validate_semantic_lesson.dart
+```
+
+The pilot gate requires 100% expected learner-visible field coverage and zero
+legacy fallback for the declared lessons. It is not a coverage expansion for
+the unmigrated full course.
+
 Ukrainian, Polish and German educational-content translations remain separate
 future phases. Until those phases complete, they may fall back to English at
 runtime and must not be treated as release-complete educational-content
@@ -453,10 +478,12 @@ The long-term direction is:
 
 1. keep stable IDs and Spanish target-language content in base assets;
 2. normalize English support fields into overlay coverage;
-3. translate complete support overlays for Ukrainian, Russian, Polish and
+3. migrate complete lesson slices into reviewed SemanticLocalizationUnit
+   bundles before broad support-locale expansion;
+4. translate complete support overlays for Ukrainian, Russian, Polish and
    German;
-4. keep runtime fallback for safety;
-5. use validation to prevent incomplete release packages.
+5. keep runtime fallback for safety;
+6. use validation to prevent incomplete release packages.
 
 Legacy English-only support fields should not become a permanent second
 localization system.

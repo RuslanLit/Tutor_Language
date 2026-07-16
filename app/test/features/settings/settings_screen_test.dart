@@ -22,6 +22,7 @@ void main() {
     expect(find.text('Works offline.'), findsOneWidget);
     expect(find.text('No account is required.'), findsOneWidget);
     expect(find.text('Feedback'), findsOneWidget);
+    expect(find.text('Open semantic pilot QA'), findsNothing);
   });
 
   testWidgets('settings content scrolls on a small screen', (tester) async {

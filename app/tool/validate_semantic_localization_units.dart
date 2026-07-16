@@ -5,15 +5,15 @@ import 'package:tutor_language/core/content/pronunciation_catalog.dart';
 import 'package:tutor_language/core/content/pronunciation_models.dart';
 import 'package:tutor_language/core/content/semantic_localization.dart';
 
-const _semanticPath =
-    'assets/languages/spanish/localization/semantic_reference_slice.json';
+const _semanticPaths = [
+  'assets/languages/spanish/localization/semantic_reference_slice.json',
+  'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+];
 const _pronunciationPath =
     'assets/languages/spanish/pronunciation/reference_slice.json';
 
 void main() {
-  final semanticBundle = SemanticLocalizationBundle.fromJson(
-    _readJsonObject(_semanticPath),
-  );
+  final semanticBundle = _readSemanticBundles(_semanticPaths);
   final pronunciationBundle = PronunciationBundle.fromJson(
     _readJsonObject(_pronunciationPath),
   );
@@ -216,6 +216,23 @@ Map<String, Object?> _readJsonObject(String path) {
     throw FormatException('Expected JSON object at $path');
   }
   return Map<String, Object?>.from(raw);
+}
+
+SemanticLocalizationBundle _readSemanticBundles(List<String> paths) {
+  final bundles = [
+    for (final path in paths)
+      SemanticLocalizationBundle.fromJson(_readJsonObject(path)),
+  ];
+  final first = bundles.first;
+  return SemanticLocalizationBundle(
+    schemaVersion: first.schemaVersion,
+    targetLanguage: first.targetLanguage,
+    sourceSupportLocale: first.sourceSupportLocale,
+    supportLocales: List.unmodifiable(
+      {for (final bundle in bundles) ...bundle.supportLocales}.toList()..sort(),
+    ),
+    units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
+  );
 }
 
 File _resolveFile(String appRelativePath) {

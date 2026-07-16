@@ -25,7 +25,13 @@ final assembledLessonProvider = FutureProvider.family<LessonContent, String>((
   final localization = await ref.watch(
     educationalContentLocalizationBundleProvider.future,
   );
-  final resolver = EducationalContentLocalizationResolver(localization);
+  final semanticLocalization = await ref.watch(
+    semanticLocalizationBundleProvider.future,
+  );
+  final resolver = EducationalContentLocalizationResolver(
+    localization,
+    semanticBundle: semanticLocalization,
+  );
 
   return resolveLocalizedLessonContent(
     lessonContent: lessonContent,

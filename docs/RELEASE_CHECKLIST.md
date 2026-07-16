@@ -195,6 +195,20 @@ Educational Content
 
 [x] SemanticLocalizationUnit foundation implemented for migrated reference slice
 
+[x] R2E4C complete-lesson semantic pilot implemented
+
+[x] R2E4C pilot semantic coverage is 100% for declared lessons
+
+[x] R2E4C pilot legacy fallback is 0 for declared lessons
+
+[x] R2E4C pilot validator implemented
+
+[x] R2E4C debug APK installed on Redmi Note 8T
+
+[x] R2E4C portrait and landscape device smoke QA
+
+[x] R2E4C pilot Redmi Note 8T manual QA complete
+
 [x] semantic localization validator implemented
 
 [x] semantic localization coverage reporter implemented

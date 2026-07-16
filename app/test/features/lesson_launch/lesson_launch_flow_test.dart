@@ -12,6 +12,7 @@ import 'package:tutor_language/core/content/content_providers.dart';
 import 'package:tutor_language/core/content/content_repository.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
+import 'package:tutor_language/core/content/semantic_localization.dart';
 import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/curriculum/curriculum_repository.dart';
@@ -133,6 +134,7 @@ void main() {
       ProviderScope(
         overrides: [
           _emptyLocalizationOverride,
+          _emptySemanticLocalizationOverride,
           contentRepositoryProvider.overrideWith(
             (ref) => _FakeContentRepository(),
           ),
@@ -235,6 +237,7 @@ Widget _app({
   return ProviderScope(
     overrides: [
       _emptyLocalizationOverride,
+      _emptySemanticLocalizationOverride,
       appDatabaseProvider.overrideWith((ref) {
         final database = AppDatabase(NativeDatabase.memory());
         ref.onDispose(database.close);
@@ -256,12 +259,23 @@ Widget _app({
 final _emptyLocalizationOverride = educationalContentLocalizationBundleProvider
     .overrideWith((ref) async => _emptyLocalizationBundle);
 
+final _emptySemanticLocalizationOverride = semanticLocalizationBundleProvider
+    .overrideWith((ref) async => _emptySemanticLocalizationBundle);
+
 const _emptyLocalizationBundle = EducationalContentLocalizationBundle(
   schemaVersion: 1,
   targetLanguage: 'es',
   sourceSupportLocale: 'en',
   supportLocales: ['en'],
   entries: [],
+);
+
+const _emptySemanticLocalizationBundle = SemanticLocalizationBundle(
+  schemaVersion: 1,
+  targetLanguage: 'es',
+  sourceSupportLocale: 'en',
+  supportLocales: ['en'],
+  units: [],
 );
 
 class _RecordingPlanner extends RuleBasedLessonPlanner {

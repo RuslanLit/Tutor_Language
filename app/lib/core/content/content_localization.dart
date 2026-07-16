@@ -185,12 +185,17 @@ class EducationalContentLocalizationRepository {
 class SemanticLocalizationRepository {
   SemanticLocalizationRepository({
     AssetBundle? assetBundle,
-    this.assetPath =
-        'assets/languages/spanish/localization/semantic_reference_slice.json',
-  }) : _assetBundle = assetBundle ?? rootBundle;
+    List<String>? assetPaths,
+  }) : _assetBundle = assetBundle ?? rootBundle,
+       assetPaths =
+           assetPaths ??
+           const [
+             'assets/languages/spanish/localization/semantic_reference_slice.json',
+             'assets/languages/spanish/localization/semantic_pilot_lessons.json',
+           ];
 
   final AssetBundle _assetBundle;
-  final String assetPath;
+  final List<String> assetPaths;
   SemanticLocalizationBundle? _cachedBundle;
 
   Future<SemanticLocalizationBundle> loadBundle() async {
@@ -199,16 +204,33 @@ class SemanticLocalizationRepository {
       return cached;
     }
 
-    final rawJson = await _assetBundle.loadString(assetPath);
-    final decoded = jsonDecode(rawJson);
-    if (decoded is! Map) {
-      throw const FormatException(
-        'Semantic localization bundle must be an object',
+    final bundles = <SemanticLocalizationBundle>[];
+    for (final assetPath in assetPaths) {
+      final rawJson = await _assetBundle.loadString(assetPath);
+      final decoded = jsonDecode(rawJson);
+      if (decoded is! Map) {
+        throw const FormatException(
+          'Semantic localization bundle must be an object',
+        );
+      }
+      bundles.add(
+        SemanticLocalizationBundle.fromJson(Map<String, Object?>.from(decoded)),
       );
     }
 
-    return _cachedBundle = SemanticLocalizationBundle.fromJson(
-      Map<String, Object?>.from(decoded),
+    if (bundles.isEmpty) {
+      throw const FormatException('At least one semantic bundle is required');
+    }
+    final first = bundles.first;
+    return _cachedBundle = SemanticLocalizationBundle(
+      schemaVersion: first.schemaVersion,
+      targetLanguage: first.targetLanguage,
+      sourceSupportLocale: first.sourceSupportLocale,
+      supportLocales: List.unmodifiable(
+        {for (final bundle in bundles) ...bundle.supportLocales}.toList()
+          ..sort(),
+      ),
+      units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
     );
   }
 }
@@ -375,13 +397,13 @@ class EducationalContentLocalizationResolver {
   ) {
     return VocabularyItem(
       id: item.id,
-      spanish: item.spanish,
+      spanish: _localizedField(item.id, 'spanish', locale) ?? item.spanish,
       nativeTranslation:
           _localizedField(item.id, 'native_translation', locale) ??
           _field('vocabulary', item.id, 'native_translation', locale) ??
           item.nativeTranslation,
       cefr: item.cefr,
-      example: item.example,
+      example: _localizedField(item.id, 'example', locale) ?? item.example,
       pronunciationUnitId: item.pronunciationUnitId,
       pronunciation: item.pronunciation,
       notes:
@@ -426,7 +448,9 @@ class EducationalContentLocalizationResolver {
         for (var index = 0; index < dialogue.lines.length; index += 1)
           DialogueLine(
             speaker: dialogue.lines[index].speaker,
-            spanish: dialogue.lines[index].spanish,
+            spanish:
+                _localizedField(dialogue.id, 'lines.$index.spanish', locale) ??
+                dialogue.lines[index].spanish,
             nativeTranslation:
                 _localizedField(
                   dialogue.id,
@@ -454,7 +478,7 @@ class EducationalContentLocalizationResolver {
           reading.title,
       vocabularyIds: reading.vocabularyIds,
       grammarIds: reading.grammarIds,
-      text: reading.text,
+      text: _localizedField(reading.id, 'text', locale) ?? reading.text,
       nativeTranslation:
           _localizedField(reading.id, 'native_translation', locale) ??
           _field('reading', reading.id, 'native_translation', locale) ??
@@ -481,22 +505,29 @@ class EducationalContentLocalizationResolver {
             promptTemplate: template.promptTemplate,
             optionLabel: option.label,
           );
+          final semanticLabel = _localizedField(
+            template.id,
+            'answer_options.${option.id}.label',
+            locale,
+          );
           return ExerciseTemplateOption(
             id: option.id,
-            label: shouldLocalize
-                ? _localizedField(
-                        template.id,
-                        'answer_options.${option.id}.label',
-                        locale,
-                      ) ??
-                      _field(
-                        'exercise_template',
-                        template.id,
-                        'answer_options.${option.id}.label',
-                        locale,
-                      ) ??
-                      option.label
-                : option.label,
+            label:
+                semanticLabel ??
+                (shouldLocalize
+                    ? _localizedField(
+                            template.id,
+                            'answer_options.${option.id}.label',
+                            locale,
+                          ) ??
+                          _field(
+                            'exercise_template',
+                            template.id,
+                            'answer_options.${option.id}.label',
+                            locale,
+                          ) ??
+                          option.label
+                    : option.label),
           );
         }),
       ),

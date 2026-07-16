@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../debug/semantic_pilot_qa.dart';
+import '../../debug/semantic_pilot_qa_screen.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../features/communicative_competency/competency_session_screen.dart';
 import '../../features/course_navigation/course_navigation_screen.dart';
@@ -68,6 +70,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           );
         },
       ),
+      if (semanticPilotQaPolicy.isEnabled) ...[
+        GoRoute(
+          path: DebugSemanticPilotRoute.path,
+          name: DebugSemanticPilotRoute.name,
+          builder: (context, state) => const SemanticPilotQaScreen(),
+        ),
+        GoRoute(
+          path: DebugSemanticPilotLessonRoute.path,
+          name: DebugSemanticPilotLessonRoute.name,
+          builder: (context, state) {
+            return SemanticPilotQaLessonScreen(
+              lessonId: state.pathParameters['lessonId'] ?? '',
+            );
+          },
+        ),
+      ],
     ],
   );
 });
@@ -106,4 +124,14 @@ abstract final class CompetencyRoute {
   static const name = 'competency';
   static const path =
       '/course/:courseId/module/:moduleId/competency/:competencyId';
+}
+
+abstract final class DebugSemanticPilotRoute {
+  static const name = 'debugSemanticPilot';
+  static const path = '/debug/semantic-pilot';
+}
+
+abstract final class DebugSemanticPilotLessonRoute {
+  static const name = 'debugSemanticPilotLesson';
+  static const path = '/debug/semantic-pilot/lesson/:lessonId';
 }
