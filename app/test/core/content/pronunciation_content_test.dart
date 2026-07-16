@@ -105,6 +105,42 @@ void main() {
     },
   );
 
+  test(
+    'Ukrainian support locale has localized pronunciation hints and rules',
+    () async {
+      final catalog = await _loadCatalog();
+
+      final hola = catalog.resolveUnit(
+        'pronunciation.es.word.hola.v1',
+        supportLocaleCode: 'uk-UA',
+      );
+      final adios = catalog.resolveUnit(
+        'pronunciation.es.word.adios.v1',
+        supportLocaleCode: 'uk',
+      );
+      final hastaLuego = catalog.resolveUnit(
+        'pronunciation.es.phrase.hasta_luego.v1',
+        supportLocaleCode: 'uk',
+      );
+      final silentH = catalog.resolveReadingRule(
+        'pronunciation.es.rule.silent_h.v1',
+        supportLocaleCode: 'uk-UA',
+      );
+
+      expect(hola?.localizedLearnerHint, 'о́ла');
+      expect(adios?.localizedLearnerHint, 'адьо́с');
+      expect(hastaLuego?.localizedLearnerHint, 'а́ста луе́го');
+      expect(hola?.localizedLearnerHint, isNot('OH-lah'));
+      expect(adios?.localizedLearnerHint, isNot('ah-DYOHS'));
+      expect(silentH?.title, 'Німа літера h («аче»)');
+      expect(silentH?.shortExplanation, contains('не вимовляється'));
+      expect(silentH?.shortExplanation, isNot(contains('произносится')));
+      expect(silentH?.detailedExplanation, contains('немає'));
+      expect(catalog.crossLocaleFallbackAttempts, 0);
+      expect(catalog.crossLocaleReadingRuleFallbackAttempts, 0);
+    },
+  );
+
   test('missing Russian hint does not return English hint', () {
     final unit = PronunciationUnit(
       id: PronunciationUnitId('pronunciation.es.word.test.v1'),

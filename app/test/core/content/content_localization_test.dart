@@ -332,8 +332,8 @@ void main() {
       expect(russian.translatedFields, russian.totalFields);
       expect(russian.fallbackFields, 0);
       expect(ukrainian.totalFields, english.totalFields);
-      expect(ukrainian.translatedFields, 0);
-      expect(ukrainian.fallbackFields, ukrainian.totalFields);
+      expect(ukrainian.translatedFields, ukrainian.totalFields);
+      expect(ukrainian.fallbackFields, 0);
     },
   );
 
@@ -349,6 +349,23 @@ void main() {
         reason:
             'Russian learner-support text must not contain English '
             'instructional fragments. First findings:\n'
+            '${findings.take(40).join('\n')}',
+      );
+    },
+  );
+
+  test(
+    'Ukrainian support localization has no English or Russian fragments',
+    () async {
+      final localization = await _loadLocalization();
+      final findings = _findUkrainianForeignFragments(localization);
+
+      expect(
+        findings,
+        isEmpty,
+        reason:
+            'Ukrainian learner-support text must not contain English '
+            'instructional fragments or Russian-only wording. First findings:\n'
             '${findings.take(40).join('\n')}',
       );
     },
@@ -394,6 +411,58 @@ List<String> _findRussianEnglishFragments(
         findings.add(
           '${entry.type}|${entry.id}|${field.key}|'
           '${badTokens.join(', ')}|$russian',
+        );
+      }
+    }
+  }
+  return findings;
+}
+
+List<String> _findUkrainianForeignFragments(
+  EducationalContentLocalizationBundle bundle,
+) {
+  final findings = <String>[];
+  for (final entry in bundle.entries) {
+    for (final field in entry.fields.entries) {
+      final ukrainian = field.value['uk'];
+      if (ukrainian == null) {
+        findings.add('${entry.type}|${entry.id}|${field.key}|missing uk');
+        continue;
+      }
+      if (entry.type == 'grammar' && field.key.startsWith('examples.')) {
+        continue;
+      }
+      final russianOnly = RegExp(r'[ыэёъЫЭЁЪ]').hasMatch(ukrainian);
+      final russianWords = _forbiddenRussianTokens
+          .where(
+            (token) => RegExp(
+              '(^|[^А-Яа-яІіЇїЄєҐґ])${RegExp.escape(token)}'
+              r'([^А-Яа-яІіЇїЄєҐґ]|$)',
+              caseSensitive: false,
+            ).hasMatch(ukrainian),
+          )
+          .toSet();
+      final tokens = RegExp(
+        r"[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.-]*[A-Za-zÀ-ÖØ-öø-ÿ]",
+      ).allMatches(ukrainian).map((match) => match.group(0)!);
+      final englishTokens = tokens.where((token) {
+        final normalized = token.toLowerCase().replaceAll('’', "'");
+        if (normalized.length < 3) {
+          return false;
+        }
+        if (_allowedRussianLatinTokens.contains(normalized)) {
+          return false;
+        }
+        if (_knownSpanishOrInvariantTokens.contains(normalized)) {
+          return false;
+        }
+        return _forbiddenEnglishTokens.contains(normalized);
+      }).toSet();
+      if (russianOnly || russianWords.isNotEmpty || englishTokens.isNotEmpty) {
+        findings.add(
+          '${entry.type}|${entry.id}|${field.key}|'
+          'ruOnly=$russianOnly|ru=${russianWords.join(', ')}|'
+          'en=${englishTokens.join(', ')}|$ukrainian',
         );
       }
     }
@@ -507,6 +576,53 @@ const _forbiddenEnglishTokens = {
 };
 
 const _allowedRussianLatinTokens = {'a0', 'ai', 'cefr', 'id', 'tutor'};
+
+const _forbiddenRussianTokens = {
+  'выберите',
+  'введите',
+  'напишите',
+  'дополните',
+  'ответьте',
+  'пожалуйста',
+  'привет',
+  'спасибо',
+  'извините',
+  'вопрос',
+  'ответ',
+  'предложение',
+  'значение',
+  'испанский',
+  'испанская',
+  'испанское',
+  'испанские',
+  'урок',
+  'урока',
+  'повторение',
+  'проверка',
+  'неправильно',
+  'буква',
+  'читается',
+  'произносится',
+  'ударение',
+  'именах',
+  'первых',
+  'первих',
+  'утренние',
+  'вечерние',
+  'приветствия',
+  'распознавайте',
+  'представления',
+  'произношения',
+  'путайте',
+  'простое',
+  'можно',
+  'использовать',
+  'любое',
+  'начинаем',
+  'русская',
+  'русский',
+  'английский',
+};
 
 const _knownSpanishOrInvariantTokens = {
   'adios',
