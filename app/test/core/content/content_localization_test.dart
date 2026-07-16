@@ -248,7 +248,7 @@ void main() {
       final summaries = const EducationalContentLocalizationInventory()
           .summarize(inventory: inventory, localization: localization);
 
-      expect(inventory.length, 2741);
+      expect(inventory.length, 2742);
       expect(
         summaries.map(
           (summary) => (
@@ -265,7 +265,7 @@ void main() {
           ('lesson metadata', 210, 210, 0, 0),
           ('lesson objectives', 70, 70, 0, 0),
           ('lesson sections', 70, 70, 0, 0),
-          ('lesson activities', 311, 311, 0, 0),
+          ('lesson activities', 312, 312, 0, 0),
           ('lesson summaries', 70, 70, 0, 0),
           ('vocabulary', 515, 515, 0, 0),
           ('grammar', 374, 374, 0, 0),
@@ -325,7 +325,7 @@ void main() {
         (entry) => entry.locale == SupportLocale.ukrainian,
       );
 
-      expect(english.totalFields, 2741);
+      expect(english.totalFields, 2742);
       expect(english.translatedFields, english.totalFields);
       expect(english.fallbackFields, 0);
       expect(russian.totalFields, english.totalFields);

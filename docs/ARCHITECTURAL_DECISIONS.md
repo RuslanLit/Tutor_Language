@@ -229,6 +229,54 @@ Accepted
 
 Title
 
+ReadingRule First Required Use Follows Explicit Introduction
+
+Context
+
+Beginner learners cannot reliably decode unseen graphemes, digraphs or
+orthographic patterns before the course teaches the corresponding reading
+rule. If a lesson asks for active use before introduction, the learner must
+guess or memorize an unexplained shape.
+
+Decision
+
+The canonical curriculum must preserve this invariant:
+
+```text
+FIRST_REQUIRED_USE(readingRule) > INTRODUCTION(readingRule)
+```
+
+LessonDefinitions and activities may declare introduced, required and reviewed
+ReadingRule IDs. Validation uses stable ReadingRule IDs and canonical course
+order, not localized titles, lesson-number arithmetic or string guesses from
+visible prose.
+
+Rationale
+
+ReadingRules are reusable educational knowledge. Their order of introduction
+is a curriculum property, not a learner-state property and not a Lesson Player
+policy.
+
+Consequences
+
+Course authors must declare ReadingRule dependencies when a lesson introduces,
+requires or reviews a reading rule. Validators must reject active required use
+before introduction for migrated release scope. Activity-level metadata is
+required when a lesson introduces and then applies a rule in the same session.
+
+See READING_RULE_PREREQUISITE_STANDARD.md and
+GRAPHEME_PRESENTATION_STANDARD.md.
+
+---
+
+# ADR-0015
+
+Status
+
+Accepted
+
+Title
+
 Pronunciation Is Reusable Educational Knowledge
 
 Context
@@ -301,8 +349,11 @@ than expanding one-off `pronunciation` strings.
 Renderers must not fall back from a missing Russian, Ukrainian, Polish or
 German learner hint to an English learner hint in production.
 
-Current single-field `pronunciation` values are legacy learner hints until
-migrated under PRONUNCIATION_AUTHORING_GUIDE.md.
+R2E2C partially implements this decision through a PronunciationUnit reference
+slice, optional vocabulary PronunciationUnit references, support-locale-safe
+runtime resolution and deterministic validation tools. Current single-field
+`pronunciation` values remain legacy learner hints until each item is migrated
+under PRONUNCIATION_AUTHORING_GUIDE.md.
 
 ---
 
@@ -1375,6 +1426,55 @@ Preferred-order alternatives remain inspectable in content assets.
 
 Strict dialogue and question-answer sequences remain strict unless an
 alternative is explicitly authored.
+
+---
+
+## ADR: Reading Rules as Reusable Pronunciation Knowledge
+
+Status
+
+Accepted
+
+Context
+
+Beginner pronunciation support needs rules such as silent `h`, `ñ`, stable
+vowels and written stress. These rules are not properties of one lesson or one
+word. The same rule may support vocabulary, grammar, readings, dialogues,
+review, competency checks and future pronunciation activities.
+
+Localized rule explanations are useful for learners, but localized text is not
+a stable educational identity.
+
+Decision
+
+ReadingRule is a first-class pronunciation knowledge object.
+
+A ReadingRule owns target-language rule identity, pronunciation variety,
+orthographic pattern, phonetic outcome, IPA representation when applicable,
+example PronunciationUnit references and related educational content
+references.
+
+Localized ReadingRule support owns learner-facing titles, short explanations,
+detailed explanations, articulation hints, common mistakes and contrast notes.
+
+PronunciationUnits, lessons and exercises reference ReadingRules by stable ID.
+Correctness and validation must not depend on localized ReadingRule text.
+
+Consequences
+
+Reading rules can be reused without duplicating explanations under every word.
+
+Support-language localization can improve learner explanations without changing
+rule identity or correctness.
+
+Validation must check rule identity, examples, pronunciation variety,
+localization coverage and invalid cross-locale fallback.
+
+Future language packages can ship their own ReadingRules while keeping the core
+application language-independent.
+
+Runtime support currently covers the migrated Spanish A0 pronunciation slice;
+full-course pronunciation migration remains incremental.
 
 ---
 

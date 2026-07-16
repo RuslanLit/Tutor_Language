@@ -166,6 +166,12 @@ class Lesson {
   String get difficulty => metadata?.difficulty ?? '';
   List<LessonPrerequisite> get prerequisites =>
       metadata?.prerequisites ?? _prerequisites ?? const [];
+  List<String> get introducedReadingRuleIds =>
+      metadata?.introducedReadingRuleIds ?? const [];
+  List<String> get requiredReadingRuleIds =>
+      metadata?.requiredReadingRuleIds ?? const [];
+  List<String> get reviewedReadingRuleIds =>
+      metadata?.reviewedReadingRuleIds ?? const [];
   LessonObjective? get primaryObjective =>
       objectives.isEmpty ? _primaryObjective : objectives.first;
   List<LessonObjective> get secondaryObjectives =>
@@ -189,6 +195,9 @@ class LessonMetadata {
     required this.tags,
     required this.version,
     required this.prerequisites,
+    this.introducedReadingRuleIds = const [],
+    this.requiredReadingRuleIds = const [],
+    this.reviewedReadingRuleIds = const [],
   });
 
   factory LessonMetadata.fromJson(Map<String, Object?> json) {
@@ -207,6 +216,18 @@ class LessonMetadata {
         'prerequisites',
         LessonPrerequisite.fromJson,
       ),
+      introducedReadingRuleIds: optionalStringList(
+        json,
+        'introducedReadingRuleIds',
+      ),
+      requiredReadingRuleIds: optionalStringList(
+        json,
+        'requiredReadingRuleIds',
+      ),
+      reviewedReadingRuleIds: optionalStringList(
+        json,
+        'reviewedReadingRuleIds',
+      ),
     );
   }
 
@@ -220,6 +241,9 @@ class LessonMetadata {
   final List<String> tags;
   final String version;
   final List<LessonPrerequisite> prerequisites;
+  final List<String> introducedReadingRuleIds;
+  final List<String> requiredReadingRuleIds;
+  final List<String> reviewedReadingRuleIds;
 }
 
 class LessonObjective {
@@ -267,6 +291,9 @@ class LessonActivity {
     this.order = 1,
     this.references = const [],
     List<LessonContentReference> contentReferences = const [],
+    this.introducedReadingRuleIds = const [],
+    this.requiredReadingRuleIds = const [],
+    this.reviewedReadingRuleIds = const [],
   }) : _legacyContentReferences = contentReferences;
 
   factory LessonActivity.fromJson(Map<String, Object?> json) {
@@ -276,6 +303,18 @@ class LessonActivity {
       type: requiredString(json, 'type'),
       order: _requiredInt(json, 'order'),
       references: _optionalActivityReferenceList(json, 'references'),
+      introducedReadingRuleIds: optionalStringList(
+        json,
+        'introducedReadingRuleIds',
+      ),
+      requiredReadingRuleIds: optionalStringList(
+        json,
+        'requiredReadingRuleIds',
+      ),
+      reviewedReadingRuleIds: optionalStringList(
+        json,
+        'reviewedReadingRuleIds',
+      ),
     );
   }
 
@@ -284,6 +323,9 @@ class LessonActivity {
   final String type;
   final int order;
   final List<LessonActivityReference> references;
+  final List<String> introducedReadingRuleIds;
+  final List<String> requiredReadingRuleIds;
+  final List<String> reviewedReadingRuleIds;
   final List<LessonContentReference> _legacyContentReferences;
 
   List<LessonContentReference> get contentReferences =>

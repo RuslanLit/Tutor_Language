@@ -4,7 +4,8 @@
     "spanish": "María",
     "native_translation": "Maria",
     "cefr": "A0",
-    "example": "Me llamo María."
+    "example": "Me llamo María.",
+    "pronunciationUnitId": "pronunciation.es.word.maria.v1"
   },
   {
     "id": "vocab.es.a0.m02.pablo.v1",
@@ -18,90 +19,103 @@
     "spanish": "Javier",
     "native_translation": "Javier",
     "cefr": "A0",
-    "example": "Me llamo Javier."
+    "example": "Me llamo Javier.",
+    "pronunciationUnitId": "pronunciation.es.word.javier.v1"
   },
   {
     "id": "vocab.es.a0.m02.laura.v1",
     "spanish": "Laura",
     "native_translation": "Laura",
     "cefr": "A0",
-    "example": "Me llamo Laura."
+    "example": "Me llamo Laura.",
+    "pronunciationUnitId": "pronunciation.es.word.laura.v1"
   },
   {
     "id": "vocab.es.a0.m02.diego.v1",
     "spanish": "Diego",
     "native_translation": "Diego",
     "cefr": "A0",
-    "example": "Me llamo Diego."
+    "example": "Me llamo Diego.",
+    "pronunciationUnitId": "pronunciation.es.word.diego.v1"
   },
   {
     "id": "vocab.es.a0.m02.marta.v1",
     "spanish": "Marta",
     "native_translation": "Marta",
     "cefr": "A0",
-    "example": "Me llamo Marta."
+    "example": "Me llamo Marta.",
+    "pronunciationUnitId": "pronunciation.es.word.marta.v1"
   },
   {
     "id": "vocab.es.a0.m02.carmen.v1",
     "spanish": "Carmen",
     "native_translation": "Carmen",
     "cefr": "A0",
-    "example": "Me llamo Carmen."
+    "example": "Me llamo Carmen.",
+    "pronunciationUnitId": "pronunciation.es.word.carmen.v1"
   },
   {
     "id": "vocab.es.a0.m02.jose.v1",
     "spanish": "José",
     "native_translation": "Jose",
     "cefr": "A0",
-    "example": "Me llamo José."
+    "example": "Me llamo José.",
+    "pronunciationUnitId": "pronunciation.es.word.jose.v1"
   },
   {
     "id": "vocab.es.a0.m02.encantado.v1",
     "spanish": "encantado",
     "native_translation": "nice to meet you",
     "cefr": "A0",
-    "example": "Encantado."
+    "example": "Encantado.",
+    "pronunciationUnitId": "pronunciation.es.word.encantado.v1"
   },
   {
     "id": "vocab.es.a0.m02.encantada.v1",
     "spanish": "encantada",
     "native_translation": "nice to meet you",
     "cefr": "A0",
-    "example": "Encantada."
+    "example": "Encantada.",
+    "pronunciationUnitId": "pronunciation.es.word.encantada.v1"
   },
   {
     "id": "vocab.es.a0.m02.valencia.v1",
     "spanish": "Valencia",
     "native_translation": "Valencia",
     "cefr": "A0",
-    "example": "Soy de Valencia."
+    "example": "Soy de Valencia.",
+    "pronunciationUnitId": "pronunciation.es.word.valencia.v1"
   },
   {
     "id": "vocab.es.a0.m02.barcelona.v1",
     "spanish": "Barcelona",
     "native_translation": "Barcelona",
     "cefr": "A0",
-    "example": "Soy de Barcelona."
+    "example": "Soy de Barcelona.",
+    "pronunciationUnitId": "pronunciation.es.word.barcelona.v1"
   },
   {
     "id": "vocab.es.a0.m02.mexico.v1",
     "spanish": "México",
     "native_translation": "Mexico",
     "cefr": "A0",
-    "example": "Soy de México."
+    "example": "Soy de México.",
+    "pronunciationUnitId": "pronunciation.es.word.mexico.v1"
   },
   {
     "id": "vocab.es.a0.m02.chile.v1",
     "spanish": "Chile",
     "native_translation": "Chile",
     "cefr": "A0",
-    "example": "Soy de Chile."
+    "example": "Soy de Chile.",
+    "pronunciationUnitId": "pronunciation.es.word.chile.v1"
   },
   {
     "id": "vocab.es.a0.m02.colombia.v1",
     "spanish": "Colombia",
     "native_translation": "Colombia",
     "cefr": "A0",
-    "example": "Soy de Colombia."
+    "example": "Soy de Colombia.",
+    "pronunciationUnitId": "pronunciation.es.word.colombia.v1"
   }
 ]

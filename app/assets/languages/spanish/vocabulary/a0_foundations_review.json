@@ -40,6 +40,7 @@
     "cefr": "A0",
     "example": "Tengo hambre.",
     "pronunciation": "AHM-breh",
+    "pronunciationUnitId": "pronunciation.es.word.hambre.v1",
     "notes": "Spanish says tengo hambre for I am hungry."
   },
   {

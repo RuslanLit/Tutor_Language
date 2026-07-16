@@ -113,7 +113,18 @@ void main() {
         final templates = <ExerciseTemplate>[];
         for (final activity in lesson.activities) {
           expect(activity.title.trim(), isNotEmpty, reason: activity.id);
-          expect(activity.contentReferences, isNotEmpty, reason: activity.id);
+          if (activity.type == 'reading_rule') {
+            expect(
+              [
+                ...activity.introducedReadingRuleIds,
+                ...activity.reviewedReadingRuleIds,
+              ],
+              isNotEmpty,
+              reason: activity.id,
+            );
+          } else {
+            expect(activity.contentReferences, isNotEmpty, reason: activity.id);
+          }
 
           for (final reference in activity.contentReferences) {
             expect(catalog.canResolve(reference), isTrue, reason: lesson.id);
@@ -647,8 +658,9 @@ const _moduleIds = [
 ];
 
 const _module1Lessons = [
-  'es.a0.m01.l001',
   'es.a0.m06.l016',
+  'es.a0.m01.l001',
+  'es.a0.m06.l017',
   'es.a0.m01.l002',
   'es.a0.m01.l003',
   'es.a0.m01.l006',
@@ -658,7 +670,6 @@ const _module1Lessons = [
 const _module2Lessons = [
   'es.a0.m02.l004',
   'es.a0.m02.l007',
-  'es.a0.m06.l017',
   'es.a0.m02.l008',
   'es.a0.m02.l009',
   'es.a0.m05.l013',

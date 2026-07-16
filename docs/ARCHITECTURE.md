@@ -12,6 +12,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
+- READING_RULE_PREREQUISITE_STANDARD.md
+- GRAPHEME_PRESENTATION_STANDARD.md
 - V1_TECHNICAL_SPEC.md
 
 ---
@@ -196,15 +198,30 @@ remain separate. English-oriented respelling is not a universal pronunciation
 representation.
 
 Pronunciation is reusable educational knowledge. Long-term architecture treats
-it as PronunciationUnit objects referenced by vocabulary, grammar, readings,
-dialogues, lessons and exercises rather than copied into each asset. The
-conceptual model is PRONUNCIATION_MODEL.md. Authoring rules are defined in
+it as PronunciationUnit and ReadingRule objects referenced by vocabulary,
+grammar, readings, dialogues, lessons and exercises rather than copied into
+each asset. ReadingRules own reusable spelling-to-sound knowledge such as
+silent `h`, `ñ`, stable vowels and written stress. The conceptual model is
+PRONUNCIATION_MODEL.md. Authoring rules are defined in
 PRONUNCIATION_AUTHORING_GUIDE.md.
 
-The first runtime foundation is a partial reference implementation. It loads a
-Spanish A0 pronunciation reference slice and resolves support-locale-safe
-learner hints without changing lesson planning, answer evaluation or learner
-progress.
+ReadingRule prerequisites are curriculum metadata. The curriculum declares
+which ReadingRules a lesson or activity introduces, requires or reviews by
+stable ID. Validation uses canonical course order and activity order; Lesson
+Player renders the resolved rule support but does not decide whether the rule
+was available. The source of truth is READING_RULE_PREREQUISITE_STANDARD.md.
+
+Visually confusable graphemes require structured presentation with localized
+letter names and accessibility semantics. Lesson UI may render that resolved
+presentation, but it must not hard-code Spanish-specific grapheme policy. See
+GRAPHEME_PRESENTATION_STANDARD.md.
+
+The R2E2C/R2E2D runtime foundation is a partial reference implementation. It
+loads a Spanish A0 pronunciation reference slice, resolves optional vocabulary
+PronunciationUnit references, resolves localized ReadingRule learner support,
+applies support-locale-safe fallback policy and provides deterministic
+validation/coverage tooling without changing lesson planning, answer
+evaluation or learner progress.
 
 Educational Content
 

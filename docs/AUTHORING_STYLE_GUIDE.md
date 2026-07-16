@@ -7,8 +7,10 @@ Version: 2.1
 Related documents:
 
 - EDUCATIONAL_PRINCIPLES.md
+- EDUCATIONAL_LANGUAGE_STANDARD.md
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_PROTOCOL.md
 - CONTENT_REVIEW_CHECKLIST.md
 - AUTHORING_DECISIONS.md
 - CONTENT_MODEL.md
@@ -39,11 +41,20 @@ For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.m
 
 For publication readiness checks, use CONTENT_REVIEW_CHECKLIST.md.
 
+For the mandatory educational-language quality bar, use
+EDUCATIONAL_LANGUAGE_STANDARD.md.
+
+For the mandatory editorial review workflow, use CONTENT_REVIEW_PROTOCOL.md.
+
 For pronunciation respelling, IPA, localized learner hints and reading-rule
 explanations, use PRONUNCIATION_AUTHORING_GUIDE.md. The reusable pronunciation
 knowledge model is PRONUNCIATION_MODEL.md. Learner-facing pronunciation hints
 must sound natural for the learner's support language and must not assume
 English spelling conventions outside English support mode.
+
+For visually confusable graphemes, use GRAPHEME_PRESENTATION_STANDARD.md.
+Beginner explanations must name the letters and show decomposition instead of
+expecting the learner to distinguish glyphs from the font alone.
 
 ---
 

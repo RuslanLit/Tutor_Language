@@ -6,7 +6,8 @@
     "cefr": "A0",
     "example": "Disculpe, ¿puede ayudarme?",
     "pronunciation": "dees-KOOL-peh",
-    "notes": "Polite way to attract attention."
+    "notes": "Polite way to attract attention.",
+    "pronunciationUnitId": "pronunciation.es.word.disculpe.v1"
   },
   {
     "id": "vocab.es.a0.m07.oiga.v1",
@@ -15,7 +16,8 @@
     "cefr": "A0",
     "example": "Oiga, necesito ayuda.",
     "pronunciation": "OY-gah",
-    "notes": "Useful for attracting attention; use politely and sparingly."
+    "notes": "Useful for attracting attention; use politely and sparingly.",
+    "pronunciationUnitId": "pronunciation.es.word.oiga.v1"
   },
   {
     "id": "vocab.es.a0.m07.puede.v1",
@@ -24,7 +26,8 @@
     "cefr": "A0",
     "example": "¿Puede ayudarme?",
     "pronunciation": "PWEH-deh",
-    "notes": "Used here as a fixed polite help question."
+    "notes": "Used here as a fixed polite help question.",
+    "pronunciationUnitId": "pronunciation.es.word.puede.v1"
   },
   {
     "id": "vocab.es.a0.m07.ayudarme.v1",
@@ -33,7 +36,8 @@
     "cefr": "A0",
     "example": "¿Puede ayudarme?",
     "pronunciation": "ah-yoo-DAR-meh",
-    "notes": "A fixed form for asking someone to help you."
+    "notes": "A fixed form for asking someone to help you.",
+    "pronunciationUnitId": "pronunciation.es.word.ayudarme.v1"
   },
   {
     "id": "vocab.es.a0.m07.puede_ayudarme.v1",
@@ -42,7 +46,8 @@
     "cefr": "A0",
     "example": "Disculpe, ¿puede ayudarme?",
     "pronunciation": "PWEH-deh ah-yoo-DAR-meh",
-    "notes": "Polite fixed question for help."
+    "notes": "Polite fixed question for help.",
+    "pronunciationUnitId": "pronunciation.es.sentence.puede_ayudarme.v1"
   },
   {
     "id": "vocab.es.a0.m07.necesito.v1",
@@ -51,7 +56,8 @@
     "cefr": "A0",
     "example": "Necesito ayuda.",
     "pronunciation": "neh-seh-SEE-toh",
-    "notes": "Used with one needed thing or service."
+    "notes": "Used with one needed thing or service.",
+    "pronunciationUnitId": "pronunciation.es.word.necesito.v1"
   },
   {
     "id": "vocab.es.a0.m07.necesito_ayuda.v1",
@@ -60,7 +66,8 @@
     "cefr": "A0",
     "example": "Necesito ayuda, por favor.",
     "pronunciation": "neh-seh-SEE-toh ah-YOO-dah",
-    "notes": "Simple help request."
+    "notes": "Simple help request.",
+    "pronunciationUnitId": "pronunciation.es.sentence.necesito_ayuda.v1"
   },
   {
     "id": "vocab.es.a0.m07.repita.v1",
@@ -69,7 +76,8 @@
     "cefr": "A0",
     "example": "Repita, por favor.",
     "pronunciation": "reh-PEE-tah",
-    "notes": "Polite form used here as a fixed classroom/help phrase."
+    "notes": "Polite form used here as a fixed classroom/help phrase.",
+    "pronunciationUnitId": "pronunciation.es.word.repita.v1"
   },
   {
     "id": "vocab.es.a0.m07.hable.v1",
@@ -78,7 +86,8 @@
     "cefr": "A0",
     "example": "Hable más despacio, por favor.",
     "pronunciation": "AH-bleh",
-    "notes": "Used in the fixed request hable más despacio."
+    "notes": "Used in the fixed request hable más despacio.",
+    "pronunciationUnitId": "pronunciation.es.word.hable.v1"
   },
   {
     "id": "vocab.es.a0.m07.hable_mas_despacio.v1",
@@ -87,7 +96,8 @@
     "cefr": "A0",
     "example": "Hable más despacio, por favor.",
     "pronunciation": "AH-bleh mahs dehs-PAH-syoh",
-    "notes": "Polite fixed request when speech is too fast."
+    "notes": "Polite fixed request when speech is too fast.",
+    "pronunciationUnitId": "pronunciation.es.phrase.hable_mas_despacio.v1"
   },
   {
     "id": "vocab.es.a0.m07.bano.v1",
@@ -96,7 +106,8 @@
     "cefr": "A0",
     "example": "¿Dónde está el baño?",
     "pronunciation": "BAH-nyoh",
-    "notes": "Useful service word for asking where something is."
+    "notes": "Useful service word for asking where something is.",
+    "pronunciationUnitId": "pronunciation.es.word.bano.v1"
   },
   {
     "id": "vocab.es.a0.m07.medico.v1",
@@ -105,7 +116,8 @@
     "cefr": "A0",
     "example": "Necesito un médico.",
     "pronunciation": "MEH-dee-koh",
-    "notes": "Useful in basic help and emergency contexts."
+    "notes": "Useful in basic help and emergency contexts.",
+    "pronunciationUnitId": "pronunciation.es.word.medico.v1"
   },
   {
     "id": "vocab.es.a0.m07.policia.v1",
@@ -114,7 +126,8 @@
     "cefr": "A0",
     "example": "Necesito la policía.",
     "pronunciation": "poh-lee-SEE-ah",
-    "notes": "Useful in basic emergency contexts."
+    "notes": "Useful in basic emergency contexts.",
+    "pronunciationUnitId": "pronunciation.es.word.policia.v1"
   },
   {
     "id": "vocab.es.a0.m07.emergencia.v1",
@@ -123,7 +136,8 @@
     "cefr": "A0",
     "example": "Es una emergencia.",
     "pronunciation": "eh-mehr-HEN-syah",
-    "notes": "Use only for serious situations."
+    "notes": "Use only for serious situations.",
+    "pronunciationUnitId": "pronunciation.es.word.emergencia.v1"
   },
   {
     "id": "vocab.es.a0.m07.una_emergencia.v1",
@@ -132,7 +146,8 @@
     "cefr": "A0",
     "example": "Es una emergencia.",
     "pronunciation": "OO-nah eh-mehr-HEN-syah",
-    "notes": "Fixed phrase for a serious urgent situation."
+    "notes": "Fixed phrase for a serious urgent situation.",
+    "pronunciationUnitId": "pronunciation.es.phrase.una_emergencia.v1"
   },
   {
     "id": "vocab.es.a0.m07.llame.v1",
@@ -141,7 +156,8 @@
     "cefr": "A0",
     "example": "Llame a la policía, por favor.",
     "pronunciation": "YAH-meh",
-    "notes": "Polite fixed form used in emergency requests."
+    "notes": "Polite fixed form used in emergency requests.",
+    "pronunciationUnitId": "pronunciation.es.word.llame.v1"
   },
   {
     "id": "vocab.es.a0.m07.claro.v1",
@@ -150,7 +166,8 @@
     "cefr": "A0",
     "example": "Claro. ¿Qué necesita?",
     "pronunciation": "KLAH-roh",
-    "notes": "Common positive response to a request for help."
+    "notes": "Common positive response to a request for help.",
+    "pronunciationUnitId": "pronunciation.es.word.claro.v1"
   },
   {
     "id": "vocab.es.a0.m07.espere.v1",
@@ -159,7 +176,8 @@
     "cefr": "A0",
     "example": "Espere aquí, por favor.",
     "pronunciation": "ehs-PEH-reh",
-    "notes": "Simple response someone may give while helping."
+    "notes": "Simple response someone may give while helping.",
+    "pronunciationUnitId": "pronunciation.es.word.espere.v1"
   },
   {
     "id": "vocab.es.a0.m07.no_se.v1",

@@ -6,6 +6,7 @@
     "cefr": "A0",
     "example": "Hola, Ana.",
     "pronunciation": "OH-lah",
+    "pronunciationUnitId": "pronunciation.es.word.hola.v1",
     "notes": "A simple greeting used at any time of day."
   },
   {
@@ -15,7 +16,8 @@
     "cefr": "A0",
     "example": "Buenos días, señor.",
     "pronunciation": "BWEH-nos DEE-as",
-    "notes": "Used in the morning."
+    "notes": "Used in the morning.",
+    "pronunciationUnitId": "pronunciation.es.sentence.buenos_dias.v1"
   },
   {
     "id": "vocab.es.a0.unit1.buenas_tardes.v1",
@@ -24,7 +26,8 @@
     "cefr": "A0",
     "example": "Buenas tardes, señora.",
     "pronunciation": "BWEH-nas TAR-des",
-    "notes": "Used in the afternoon or early evening."
+    "notes": "Used in the afternoon or early evening.",
+    "pronunciationUnitId": "pronunciation.es.phrase.buenas_tardes.v1"
   },
   {
     "id": "vocab.es.a0.unit1.buenas_noches.v1",
@@ -33,7 +36,8 @@
     "cefr": "A0",
     "example": "Buenas noches.",
     "pronunciation": "BWEH-nas NOH-ches",
-    "notes": "Used in the evening, at night, or when saying good night."
+    "notes": "Used in the evening, at night, or when saying good night.",
+    "pronunciationUnitId": "pronunciation.es.phrase.buenas_noches.v1"
   },
   {
     "id": "vocab.es.a0.unit1.adios.v1",
@@ -42,6 +46,7 @@
     "cefr": "A0",
     "example": "Adiós, Luis.",
     "pronunciation": "ah-DYOHS",
+    "pronunciationUnitId": "pronunciation.es.word.adios.v1",
     "notes": "A common way to say goodbye."
   },
   {
@@ -51,6 +56,7 @@
     "cefr": "A0",
     "example": "Hasta luego, Ana.",
     "pronunciation": "AHS-tah LWEH-goh",
+    "pronunciationUnitId": "pronunciation.es.phrase.hasta_luego.v1",
     "notes": "A friendly farewell."
   },
   {
@@ -59,7 +65,8 @@
     "native_translation": "thank you",
     "cefr": "A0",
     "example": "Gracias, señor.",
-    "pronunciation": "GRAH-syahs"
+    "pronunciation": "GRAH-syahs",
+    "pronunciationUnitId": "pronunciation.es.word.gracias.v1"
   },
   {
     "id": "vocab.es.a0.unit1.por_favor.v1",
@@ -67,7 +74,8 @@
     "native_translation": "please",
     "cefr": "A0",
     "example": "Por favor, repite.",
-    "pronunciation": "por fah-VOR"
+    "pronunciation": "por fah-VOR",
+    "pronunciationUnitId": "pronunciation.es.phrase.por_favor.v1"
   },
   {
     "id": "vocab.es.a0.unit1.si.v1",
@@ -76,7 +84,8 @@
     "cefr": "A0",
     "example": "Sí, soy Ana.",
     "pronunciation": "see",
-    "notes": "The accent distinguishes sí from si."
+    "notes": "The accent distinguishes sí from si.",
+    "pronunciationUnitId": "pronunciation.es.word.si.v1"
   },
   {
     "id": "vocab.es.a0.unit1.no.v1",
@@ -84,7 +93,8 @@
     "native_translation": "no",
     "cefr": "A0",
     "example": "No, soy Luis.",
-    "pronunciation": "noh"
+    "pronunciation": "noh",
+    "pronunciationUnitId": "pronunciation.es.word.no.v1"
   },
   {
     "id": "vocab.es.a0.unit1.perdon.v1",
@@ -92,7 +102,8 @@
     "native_translation": "sorry; excuse me",
     "cefr": "A0",
     "example": "Perdón, no entiendo.",
-    "pronunciation": "per-DON"
+    "pronunciation": "per-DON",
+    "pronunciationUnitId": "pronunciation.es.word.perdon.v1"
   },
   {
     "id": "vocab.es.a0.unit1.de_nada.v1",
@@ -100,7 +111,8 @@
     "native_translation": "you're welcome",
     "cefr": "A0",
     "example": "Gracias. De nada.",
-    "pronunciation": "deh NAH-dah"
+    "pronunciation": "deh NAH-dah",
+    "pronunciationUnitId": "pronunciation.es.sentence.de_nada.v1"
   },
   {
     "id": "vocab.es.a0.unit1.no_entiendo.v1",
@@ -108,7 +120,8 @@
     "native_translation": "I don't understand",
     "cefr": "A0",
     "example": "No entiendo.",
-    "pronunciation": "noh en-TYEN-doh"
+    "pronunciation": "noh en-TYEN-doh",
+    "pronunciationUnitId": "pronunciation.es.sentence.no_entiendo.v1"
   },
   {
     "id": "vocab.es.a0.unit1.repite.v1",
@@ -117,6 +130,7 @@
     "cefr": "A0",
     "example": "Repite, por favor.",
     "pronunciation": "reh-PEE-teh",
+    "pronunciationUnitId": "pronunciation.es.word.repite.v1",
     "notes": "A simple classroom request."
   },
   {
@@ -125,7 +139,8 @@
     "native_translation": "more slowly",
     "cefr": "A0",
     "example": "Más despacio, por favor.",
-    "pronunciation": "mahs des-PAH-syoh"
+    "pronunciation": "mahs des-PAH-syoh",
+    "pronunciationUnitId": "pronunciation.es.sentence.mas_despacio.v1"
   },
   {
     "id": "vocab.es.a0.unit1.mucho_gusto.v1",
@@ -133,7 +148,8 @@
     "native_translation": "nice to meet you",
     "cefr": "A0",
     "example": "Mucho gusto, Ana.",
-    "pronunciation": "MOO-choh GOOS-toh"
+    "pronunciation": "MOO-choh GOOS-toh",
+    "pronunciationUnitId": "pronunciation.es.phrase.mucho_gusto.v1"
   },
   {
     "id": "vocab.es.a0.unit1.igualmente.v1",
@@ -141,7 +157,8 @@
     "native_translation": "likewise",
     "cefr": "A0",
     "example": "Igualmente, Luis.",
-    "pronunciation": "ee-gwahl-MEN-teh"
+    "pronunciation": "ee-gwahl-MEN-teh",
+    "pronunciationUnitId": "pronunciation.es.word.igualmente.v1"
   },
   {
     "id": "vocab.es.a0.unit1.senor.v1",
@@ -149,7 +166,8 @@
     "native_translation": "Mr.; sir",
     "cefr": "A0",
     "example": "Buenos días, señor.",
-    "pronunciation": "seh-NYOR"
+    "pronunciation": "seh-NYOR",
+    "pronunciationUnitId": "pronunciation.es.word.senor.v1"
   },
   {
     "id": "vocab.es.a0.unit1.senora.v1",
@@ -165,7 +183,8 @@
     "native_translation": "I",
     "cefr": "A0",
     "example": "Yo soy Ana.",
-    "pronunciation": "yoh"
+    "pronunciation": "yoh",
+    "pronunciationUnitId": "pronunciation.es.word.yo.v1"
   },
   {
     "id": "vocab.es.a0.unit1.tu.v1",
@@ -199,6 +218,7 @@
     "cefr": "A0",
     "example": "Me llamo Ana.",
     "pronunciation": "meh YAH-moh",
+    "pronunciationUnitId": "pronunciation.es.phrase.me_llamo.v1",
     "notes": "A fixed beginner phrase for saying your name."
   },
   {
@@ -208,7 +228,8 @@
     "cefr": "A0",
     "example": "Hola, ¿cómo te llamas?",
     "pronunciation": "KOH-moh teh YAH-mahs",
-    "notes": "Informal question for one person."
+    "notes": "Informal question for one person.",
+    "pronunciationUnitId": "pronunciation.es.sentence.como_te_llamas.v1"
   },
   {
     "id": "vocab.es.a0.unit1.soy_de.v1",
@@ -216,7 +237,8 @@
     "native_translation": "I am from",
     "cefr": "A0",
     "example": "Soy de Madrid.",
-    "pronunciation": "soy deh"
+    "pronunciation": "soy deh",
+    "pronunciationUnitId": "pronunciation.es.phrase.soy_de.v1"
   },
   {
     "id": "vocab.es.a0.unit1.de_donde_eres.v1",
@@ -241,7 +263,8 @@
     "native_translation": "and",
     "cefr": "A0",
     "example": "Ana y Luis.",
-    "pronunciation": "ee"
+    "pronunciation": "ee",
+    "pronunciationUnitId": "pronunciation.es.sound.y.v1"
   },
   {
     "id": "vocab.es.a0.unit1.espana.v1",
@@ -249,7 +272,8 @@
     "native_translation": "Spain",
     "cefr": "A0",
     "example": "Soy de España.",
-    "pronunciation": "es-PAH-nyah"
+    "pronunciation": "es-PAH-nyah",
+    "pronunciationUnitId": "pronunciation.es.word.espana.v1"
   },
   {
     "id": "vocab.es.a0.unit1.mexico.v1",

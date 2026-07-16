@@ -49,7 +49,6 @@ void main() {
 
     expect(find.text('Hello and Goodbye'), findsOneWidget);
     expect(find.text('Module 1'), findsOneWidget);
-    expect(find.text('Lesson 1'), findsOneWidget);
     expect(find.text('A0'), findsOneWidget);
     expect(find.text('es.a0.m01.l001'), findsNothing);
     expect(find.text('es.a0.m01'), findsNothing);
@@ -58,6 +57,28 @@ void main() {
     expect(find.text('hola'), findsWidgets);
     expect(find.text('grammar'), findsNothing);
     expect(find.text('Greeting Exchange'), findsNothing);
+  });
+
+  testWidgets('displays canonical course position for moved legacy lesson id', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(lessonId: 'es.a0.m06.l016'),
+        service: _FakeLessonAssemblyService(_legacyMovedLessonContent),
+        orderedLessons: [_legacyMovedOrderedLesson],
+      ),
+    );
+    await _pumpUntilFound(
+      tester,
+      find.text('Spanish Vowels, h, and First Sounds'),
+    );
+    await _pumpUntilFound(tester, find.text('Lesson 1'));
+
+    expect(find.text('Spanish Vowels, h, and First Sounds'), findsOneWidget);
+    expect(find.text('Module 1'), findsOneWidget);
+    expect(find.text('Lesson 1'), findsOneWidget);
+    expect(find.text('Lesson 16'), findsNothing);
   });
 
   testWidgets(
@@ -1055,6 +1076,7 @@ Widget _app(
   LessonAssemblyService? service,
   AppDatabase? database,
   SupportLocale? supportLocale,
+  List<OrderedLesson>? orderedLessons,
 }) {
   return ProviderScope(
     overrides: [
@@ -1073,6 +1095,10 @@ Widget _app(
       }),
       if (service != null)
         lessonAssemblyServiceProvider.overrideWith((ref) => service),
+      if (orderedLessons != null)
+        orderedCourseLessonsProvider.overrideWith(
+          (ref) async => orderedLessons,
+        ),
     ],
     child: MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -1888,6 +1914,50 @@ const _reviewInsertionLessonContent = LessonContent(
 
 const _navigationLessonId = 'es.a0.m01.l001';
 
+const _legacyMovedLesson = Lesson(
+  metadata: LessonMetadata(
+    id: 'es.a0.m06.l016',
+    title: 'Spanish Vowels, h, and First Sounds',
+    description: 'Reading foundation.',
+    moduleId: 'es.a0.m01',
+    courseId: 'es.a0',
+    estimatedDurationMinutes: 5,
+    difficulty: 'A0',
+    tags: [],
+    version: '1.0.0',
+    prerequisites: [],
+  ),
+  objectives: [
+    LessonObjective(
+      id: 'objective.legacy.position',
+      description: 'Show canonical position.',
+    ),
+  ],
+  sections: [],
+  completionCriteria: LessonCompletionCriteria(minimumCompletedActivities: 0),
+  references: [],
+);
+
+const _legacyMovedLessonContent = LessonContent(
+  lesson: _legacyMovedLesson,
+  sections: [],
+);
+
+const _legacyMovedOrderedLesson = OrderedLesson(
+  lesson: _legacyMovedLesson,
+  unit: Module(
+    id: 'es.a0.m01',
+    title: 'Navigation Module',
+    lessonIds: ['es.a0.m06.l016'],
+  ),
+  position: LessonPosition(
+    indexInCourse: 1,
+    totalLessons: 70,
+    indexInModule: 1,
+    totalInModule: 7,
+  ),
+);
+
 const _nextOrderedLesson = OrderedLesson(
   lesson: Lesson(
     metadata: LessonMetadata(
@@ -1916,6 +1986,12 @@ const _nextOrderedLesson = OrderedLesson(
     id: 'es.a0.m01',
     title: 'Navigation Module',
     lessonIds: [_navigationLessonId, 'es.a0.m01.l002'],
+  ),
+  position: LessonPosition(
+    indexInCourse: 2,
+    totalLessons: 2,
+    indexInModule: 2,
+    totalInModule: 2,
   ),
 );
 

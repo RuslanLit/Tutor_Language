@@ -6,6 +6,7 @@
     "cefr": "A0",
     "example": "Hola.",
     "pronunciation": "OH-lah",
+    "pronunciationUnitId": "pronunciation.es.word.hola.v1",
     "notes": "A simple greeting used at any time of day."
   },
   {
@@ -42,6 +43,7 @@
     "cefr": "A0",
     "example": "Adiós.",
     "pronunciation": "ah-DYOHS",
+    "pronunciationUnitId": "pronunciation.es.word.adios.v1",
     "notes": "A common way to say goodbye."
   }
 ]

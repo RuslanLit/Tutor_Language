@@ -389,8 +389,9 @@ void main() {
     );
     expect(module.title, 'First Words and Reading');
     expect(module.lessonIds, [
-      'es.a0.m01.l001',
       'es.a0.m06.l016',
+      'es.a0.m01.l001',
+      'es.a0.m06.l017',
       'es.a0.m01.l002',
       'es.a0.m01.l003',
       'es.a0.m01.l006',
@@ -474,7 +475,7 @@ void main() {
     final fillShare = (typeCounts['fill_gap'] ?? 0) / total;
     final recognitionShare = (typeCounts['multiple_choice'] ?? 0) / total;
 
-    expect(total, 26);
+    expect(total, 30);
     expect(typedShare, inInclusiveRange(0.40, 0.50));
     expect(fillShare, inInclusiveRange(0.20, 0.30));
     expect(recognitionShare, inInclusiveRange(0.20, 0.30));
@@ -516,7 +517,6 @@ void main() {
     expect(module.lessonIds, [
       'es.a0.m02.l004',
       'es.a0.m02.l007',
-      'es.a0.m06.l017',
       'es.a0.m02.l008',
       'es.a0.m02.l009',
       'es.a0.m05.l013',
@@ -588,7 +588,7 @@ void main() {
       );
     }
     final total = templates.length;
-    expect(total, 26);
+    expect(total, 22);
     expect(
       (typeCounts['text_entry'] ?? 0) / total,
       inInclusiveRange(0.40, 0.50),

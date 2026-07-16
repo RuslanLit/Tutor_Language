@@ -160,9 +160,9 @@ Locale: `en`
 | exercise prompts | 495 | 495 | 0 | 0 | 100% |
 | support-language answer options | 111 | 111 | 0 | 0 | 100% |
 
-Total localizable fields: 2741
+Total localizable fields: 2742
 
-Translated fields: 2741 English source fields
+Translated fields: 2742 English source fields
 
 Missing fields: 0
 

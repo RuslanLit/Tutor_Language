@@ -18,21 +18,24 @@
     "spanish": "Sofía",
     "native_translation": "Sofia",
     "cefr": "A0",
-    "example": "Sofía tiene agua."
+    "example": "Sofía tiene agua.",
+    "pronunciationUnitId": "pronunciation.es.word.sofia.v1"
   },
   {
     "id": "vocab.es.a0.c2.carlos.v1",
     "spanish": "Carlos",
     "native_translation": "Carlos",
     "cefr": "A0",
-    "example": "Carlos habla español."
+    "example": "Carlos habla español.",
+    "pronunciationUnitId": "pronunciation.es.word.carlos.v1"
   },
   {
     "id": "vocab.es.a0.c2.elena.v1",
     "spanish": "Elena",
     "native_translation": "Elena",
     "cefr": "A0",
-    "example": "Elena es de Valencia."
+    "example": "Elena es de Valencia.",
+    "pronunciationUnitId": "pronunciation.es.word.elena.v1"
   },
   {
     "id": "vocab.es.a0.c2.pedro.v1",
@@ -172,7 +175,8 @@
     "spanish": "España",
     "native_translation": "Spain",
     "cefr": "A0",
-    "example": "Ana es de España."
+    "example": "Ana es de España.",
+    "pronunciationUnitId": "pronunciation.es.word.espana.v1"
   },
   {
     "id": "vocab.es.a0.c2.ucraniano.v1",
@@ -263,14 +267,16 @@
     "spanish": "amigo",
     "native_translation": "friend",
     "cefr": "A0",
-    "example": "Luis es mi amigo."
+    "example": "Luis es mi amigo.",
+    "pronunciationUnitId": "pronunciation.es.word.amigo.v1"
   },
   {
     "id": "vocab.es.a0.c2.amiga.v1",
     "spanish": "amiga",
     "native_translation": "friend",
     "cefr": "A0",
-    "example": "Sofía es mi amiga."
+    "example": "Sofía es mi amiga.",
+    "pronunciationUnitId": "pronunciation.es.word.amiga.v1"
   },
   {
     "id": "vocab.es.a0.c2.mesa.v1",
@@ -298,7 +304,8 @@
     "spanish": "llave",
     "native_translation": "key",
     "cefr": "A0",
-    "example": "Tengo una llave."
+    "example": "Tengo una llave.",
+    "pronunciationUnitId": "pronunciation.es.word.llave.v1"
   },
   {
     "id": "vocab.es.a0.c2.comida.v1",
@@ -326,7 +333,8 @@
     "spanish": "hambre",
     "native_translation": "hunger",
     "cefr": "A0",
-    "example": "Tengo hambre."
+    "example": "Tengo hambre.",
+    "pronunciationUnitId": "pronunciation.es.word.hambre.v1"
   },
   {
     "id": "vocab.es.a0.c2.sed.v1",

@@ -7,13 +7,17 @@ Version: 1.0
 Related documents:
 
 - EDUCATIONAL_PRINCIPLES.md
+- EDUCATIONAL_LANGUAGE_STANDARD.md
 - AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - PROJECT_VISION.md
 - COURSE_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_PROTOCOL.md
 - CONTENT_REVIEW_CHECKLIST.md
+- READING_RULE_PREREQUISITE_STANDARD.md
+- GRAPHEME_PRESENTATION_STANDARD.md
 
 ---
 
@@ -35,9 +39,30 @@ The conceptual model is PRONUNCIATION_MODEL.md. Pronunciation authoring is
 defined in PRONUNCIATION_AUTHORING_GUIDE.md. Do not author one universal
 pronunciation hint for all support languages.
 
+Reading rules are reusable pronunciation knowledge. Do not copy the full
+explanation of silent `h`, `ñ`, stable vowels, written stress or similar rules
+into every vocabulary item or exercise. Author the ReadingRule once, localize
+its learner support, and reference it by stable ID through PronunciationUnits,
+lessons or exercise metadata.
+
+Do not author an active exercise that requires a learner to read, type,
+recognize or apply a ReadingRule before the course has introduced that stable
+ReadingRule ID. Use activity-level `introducedReadingRuleIds` and
+`requiredReadingRuleIds` when a lesson introduces and then practises the rule
+in the same session.
+
+Visually confusable graphemes must be presented with decomposition, localized
+letter names and accessibility semantics. Do not rely on default typography
+alone. See GRAPHEME_PRESENTATION_STANDARD.md.
+
 For learner-facing tone, explanation style and example naturalness, use AUTHORING_STYLE_GUIDE.md.
 
+For mandatory learner-facing educational-language quality, use
+EDUCATIONAL_LANGUAGE_STANDARD.md.
+
 For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.
+
+For the mandatory editorial review workflow, use CONTENT_REVIEW_PROTOCOL.md.
 
 For release readiness checks, use CONTENT_REVIEW_CHECKLIST.md.
 
@@ -292,6 +317,10 @@ locales.
 When pronunciation is needed by several assets, author it once as a
 PronunciationUnit in the target architecture and reference it from vocabulary,
 grammar, readings, dialogues, lessons or exercises.
+
+When a spelling-to-sound rule is needed by several pronunciation units, author
+it once as a ReadingRule and reference it by stable ID. Correctness must use
+stable IDs or authored answers, never localized rule titles.
 
 Example sentences should use previously introduced grammar whenever practical.
 

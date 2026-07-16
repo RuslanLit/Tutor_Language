@@ -14,6 +14,9 @@ Related documents:
 - AUTHORING_STYLE_GUIDE.md
 - EDUCATIONAL_CONTENT_LOCALIZATION.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- READING_RULE_PREREQUISITE_STANDARD.md
+- GRAPHEME_PRESENTATION_STANDARD.md
+- SPANISH_LLY_PRONUNCIATION_POLICY.md
 - SPANISH_A0_CURRICULUM_BLUEPRINT.md
 - RELEASE_CHECKLIST.md
 
@@ -30,16 +33,17 @@ lesson, one word or one exercise.
 Any educational material that needs pronunciation knowledge should reference a
 PronunciationUnit instead of storing its own copied pronunciation data.
 
-This document is conceptual. It does not introduce a runtime model, JSON schema,
-migration, editor, IPA database, audio system, generator or validator in the
-current phase.
+This document defines the long-term conceptual model and records the current
+runtime status. It does not require full-course migration, an editor, IPA
+database or audio system in the current phase.
 
 Implementation status:
 
-R2E2B introduced a typed runtime foundation and a Spanish A0 pronunciation
-reference slice. Full-course migration, complete IPA review, audio and durable
-schema expansion remain deferred. See
-PRONUNCIATION_R2E2B_IMPLEMENTATION_REPORT.md.
+R2E2C introduced typed PronunciationUnit runtime integration, direct vocabulary
+references for the migrated Spanish A0 release slice, deterministic validation
+tools and coverage reporting. Full-course migration, complete IPA review, audio
+and durable editor tooling remain deferred. See
+PRONUNCIATION_R2E2C_RUNTIME_REPORT.md.
 
 ---
 
@@ -150,6 +154,11 @@ A vocabulary card is incomplete for release if any mandatory production
 element is missing. Authors must not publish a new lexical item without its
 complete pronunciation description when pronunciation guidance is applicable.
 
+Language-specific pronunciation policies belong to target-course policy
+documents. For example, Spanish A0 defines its `ll` and consonantal `y`
+production norm in SPANISH_LLY_PRONUNCIATION_POLICY.md. That policy is not a
+universal pronunciation rule for every Spanish course or every target language.
+
 ---
 
 # Field Responsibility
@@ -218,6 +227,51 @@ Examples:
 - `c + e` -> `/θ/` for a distinction norm.
 
 One reading rule may support thousands of words.
+
+Runtime ReadingRule objects are first-class pronunciation knowledge. A
+production rule contains:
+
+- stable ID;
+- schema version;
+- knowledge domain `language`;
+- rule kind `reading`;
+- target language;
+- pronunciation variety ID;
+- orthographic pattern;
+- phonetic outcome and/or IPA representation when the rule describes a sound;
+- applicability;
+- exceptions when needed;
+- example PronunciationUnit IDs;
+- grapheme components and confusable graphemes when visual ambiguity is
+  pedagogically relevant;
+- related educational content IDs;
+- difficulty;
+- technical metadata.
+
+Localized learner support for a ReadingRule is separate from the base rule and
+may include:
+
+- localized title;
+- short explanation;
+- detailed explanation;
+- articulation hint;
+- common mistakes;
+- contrast note;
+- localized grapheme presentation;
+- localization metadata.
+
+PronunciationUnits reference ReadingRules by stable ID. ReadingRules may list
+example PronunciationUnits. Lessons and exercises may depend on ReadingRules
+through stable references; correctness must never depend on localized rule
+titles or explanation text.
+
+When a ReadingRule is needed before active learner use, curriculum metadata
+declares the introduction and requirements. See
+READING_RULE_PREREQUISITE_STANDARD.md.
+
+When a ReadingRule contains visually confusable graphemes, the resolved
+presentation should provide decomposition, localized letter names and
+accessibility semantics. See GRAPHEME_PRESENTATION_STANDARD.md.
 
 ## articulationHints
 
@@ -416,7 +470,7 @@ It is not support-locale-safe.
 
 It must not be expanded as the long-term model.
 
-R2E2B adds a separate PronunciationUnit runtime foundation and a migrated
+R2E2C uses a separate PronunciationUnit runtime foundation and a migrated
 reference slice in:
 
 ```text
@@ -438,12 +492,11 @@ This phase does not implement:
 - authoring editor support;
 - IPA database;
 - audio;
-- generators;
-- validation checks;
-- asset rewrites.
+- complete generator integration beyond the pronunciation CLI tools;
+- full-course asset rewrites.
 
-Future implementation should migrate from copied `pronunciation` strings to
-stable PronunciationUnit references.
+Future implementation should continue migrating copied `pronunciation` strings
+to stable PronunciationUnit references.
 
 ---
 

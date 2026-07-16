@@ -3000,7 +3000,7 @@
         },
         "prompt_template": {
           "en": "In the Spanish word \"hola\", which letter is silent?",
-          "ru": "В испанский слово «hola», какой буква — немая?"
+          "ru": "В испанском слове «hola» какая буква не произносится?"
         }
       }
     },
@@ -3292,7 +3292,7 @@
       "fields": {
         "prompt_template": {
           "en": "Type the Spanish word \"llamo\" from the pattern me llamo.",
-          "ru": "Введите испанский слово «llamo» из конструкция me llamo."
+          "ru": "Введите испанское слово «llamo» из выражения me llamo."
         }
       }
     },
@@ -7334,7 +7334,7 @@
         },
         "explanation": {
           "en": "Use me llamo plus a name to say your name. Do not change the pattern when only the name changes.",
-          "ru": "Используйте me llamo плюс имя чтобы сказать твой / твоя имя. не меняйте конструкция когда только имя меняется."
+          "ru": "Чтобы назвать своё имя, используйте me llamo и имя. Не меняйте конструкцию, если меняется только имя."
         },
         "title": {
           "en": "Name Pattern: Me llamo...",
@@ -7580,7 +7580,7 @@
         },
         "explanation": {
           "en": "In Spanish, the letter h is usually written but not pronounced. Read hola as ola and hambre as ambre. The spelling still keeps h.",
-          "ru": "В испанский, буква h — обычно пишутся но не произносится. прочитайте hola как ola и hambre как ambre. написание всё ещё сохраняет h."
+          "ru": "В испанском буква h обычно пишется, но не произносится. Читайте hola как ola и hambre как ambre. В написании h всё равно сохраняется."
         },
         "title": {
           "en": "Silent h",
@@ -7610,11 +7610,11 @@
         },
         "explanation": {
           "en": "Spanish vowels are stable in simple words. The vowel sound in hola, adiós, gracias, and por favor stays clear and short.",
-          "ru": "испанский гласные являются устойчивые в простой слова. гласная звук в hola, adiós, gracias, и por favor остаётся ясный и короткий."
+          "ru": "Испанские гласные устойчивы в простых словах. Гласные в hola, adiós, gracias и por favor звучат ясно и кратко."
         },
         "title": {
           "en": "Stable Spanish vowels",
-          "ru": "Устойчивые испанский гласные"
+          "ru": "Устойчивые испанские гласные"
         }
       }
     },
@@ -7666,7 +7666,7 @@
         },
         "explanation": {
           "en": "Use me llamo plus a name to introduce yourself. Keep the pattern stable when the name changes.",
-          "ru": "Используйте me llamo плюс имя чтобы представиться. сохраняйте конструкция устойчивые когда имя меняется."
+          "ru": "Чтобы представиться, используйте me llamo и имя. Сохраняйте эту конструкцию, когда меняется только имя."
         },
         "title": {
           "en": "Me llamo + name",
@@ -7713,12 +7713,12 @@
           "ru": "llamo"
         },
         "explanation": {
-          "en": "Spanish ñ, j and ll are important in names and first words. Notice España, José and llamo.",
-          "ru": "испанский ñ, j и ll являются важный в имена и первый слова. обратите внимание на España, Хосе и llamo."
+          "en": "Spanish ñ, j and ll are important in names and first words. In this course, ll uses the same broad yeista pronunciation category as consonantal y. ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters.",
+          "ru": "Испанские ñ, j и ll важны в именах и первых словах. В этом курсе ll относится к той же общей yeísta-категории произношения, что и согласная y. ll — это две строчные буквы l: l + l. Не путайте их с двумя заглавными буквами I."
         },
         "title": {
           "en": "ñ, j and ll in names",
-          "ru": "Ñ, j и ll в имена"
+          "ru": "ñ, j и ll в именах"
         }
       }
     },
@@ -9208,7 +9208,7 @@
         },
         "description": {
           "en": "Use basic polite words in short classroom exchanges.",
-          "ru": "Используйте базовый вежливый слова в короткий classroom exchanges."
+          "ru": "Используйте простые вежливые слова в коротких учебных диалогах."
         },
         "title": {
           "en": "Please, Thank You, Sorry",
@@ -9262,7 +9262,7 @@
         },
         "description": {
           "en": "Use me llamo plus varied names to introduce yourself.",
-          "ru": "Используйте me llamo плюс разные имена чтобы представиться."
+          "ru": "Используйте me llamo с разными именами, чтобы представиться."
         },
         "title": {
           "en": "My Name Is",
@@ -9779,15 +9779,15 @@
       "id": "es.a0.m06.l016",
       "fields": {
         "communicativeOutcome": {
-          "en": "Read hola and hambre without pronouncing h.",
-          "ru": "Прочитайте hola и hambre без pronouncing h."
+          "en": "Read the first Spanish words with basic pronunciation support.",
+          "ru": "Читайте первые испанские слова с опорой на базовые правила произношения."
         },
         "description": {
-          "en": "Read familiar words with silent h and stable Spanish vowels.",
-          "ru": "Прочитайте знакомый слова с немая h и устойчивые испанский гласные."
+          "en": "Read the first Spanish words with stable vowels, silent h, stress, and the high-frequency patterns needed for early greetings.",
+          "ru": "Читайте первые испанские слова: устойчивые гласные, немая h, ударение и частотные сочетания из ранних приветствий."
         },
         "title": {
-          "en": "Silent h and Stable Vowels",
+          "en": "Spanish Vowels, h, and First Sounds",
           "ru": "Немая h и устойчивые гласные"
         }
       }
@@ -9798,11 +9798,11 @@
       "fields": {
         "communicativeOutcome": {
           "en": "Recognize ñ, j and ll in names.",
-          "ru": "узнайте ñ, j и ll в имена."
+          "ru": "Распознавайте ñ, j и ll в именах."
         },
         "description": {
           "en": "Recognize ñ, j, and ll in names and introduction words.",
-          "ru": "узнайте ñ, j, и ll в имена и представление слова."
+          "ru": "Распознавайте ñ, j и ll в именах и словах для представления."
         },
         "title": {
           "en": "ñ, j and ll in Names",
@@ -10497,6 +10497,16 @@
         "title": {
           "en": "Pattern",
           "ru": "Конструкция"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.reading_rule.ll_y_intro",
+      "fields": {
+        "title": {
+          "en": "Reading Rule Review",
+          "ru": "Повторение правила чтения"
         }
       }
     },
@@ -13885,8 +13895,8 @@
       "id": "es.a0.m06.l016.objective.es.a0.m06.l016.primary",
       "fields": {
         "description": {
-          "en": "Read hola and hambre without pronouncing h.",
-          "ru": "Прочитайте hola и hambre без pronouncing h."
+          "en": "Read the first Spanish words using stable vowels, silent h and visible stress.",
+          "ru": "Читайте первые испанские слова с устойчивыми гласными, немой h и видимым ударением."
         }
       }
     },
@@ -13896,7 +13906,7 @@
       "fields": {
         "description": {
           "en": "Recognize ñ, j, and ll in familiar names and words.",
-          "ru": "узнайте ñ, j, и ll в знакомый имена и слова."
+          "ru": "Распознавайте ñ, j и ll в знакомых именах и словах."
         }
       }
     },
@@ -15286,7 +15296,7 @@
       "fields": {
         "reviewPrompt": {
           "en": "Review silent h and stable vowels in familiar words.",
-          "ru": "Повторите немая h и устойчивые гласные в знакомый слова."
+          "ru": "Повторите немую h и устойчивые гласные в знакомых словах."
         }
       }
     },
@@ -15296,7 +15306,7 @@
       "fields": {
         "reviewPrompt": {
           "en": "Review name spelling with ñ, j and ll.",
-          "ru": "повторите имя написание с ñ, j и ll."
+          "ru": "Повторите написание имён с ñ, j и ll."
         }
       }
     },
@@ -16012,11 +16022,11 @@
       "fields": {
         "native_translation": {
           "en": "Spain. José. Javier. My name is Laura.",
-          "ru": "Испания. Хосе. Хавьер. меня зовут Лаура."
+          "ru": "Испания. Хосе. Хавьер. Меня зовут Лаура."
         },
         "title": {
           "en": "Name Sounds",
-          "ru": "Имя звуки"
+          "ru": "Звуки в именах"
         }
       }
     },
@@ -16026,11 +16036,11 @@
       "fields": {
         "native_translation": {
           "en": "My name is Elena. My name is Diego. My name is Sofía.",
-          "ru": "меня зовут Элена. меня зовут Диего. меня зовут София."
+          "ru": "Меня зовут Элена. Меня зовут Диего. Меня зовут София."
         },
         "title": {
           "en": "Name Tags",
-          "ru": "Имя Tags"
+          "ru": "Именные карточки"
         }
       }
     },
@@ -20982,7 +20992,7 @@
       "fields": {
         "native_translation": {
           "en": "sorry; excuse me",
-          "ru": "sorry; извините"
+          "ru": "извините; простите"
         }
       }
     },

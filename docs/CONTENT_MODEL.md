@@ -11,6 +11,8 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - PRONUNCIATION_MODEL.md
 - PRONUNCIATION_AUTHORING_GUIDE.md
+- READING_RULE_PREREQUISITE_STANDARD.md
+- GRAPHEME_PRESENTATION_STANDARD.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - V1_TECHNICAL_SPEC.md
@@ -184,6 +186,10 @@ LessonDefinitions must not embed educational knowledge directly.
 
 LessonDefinitions provide source references and structural requirements for deterministic lesson planning and assembly.
 
+When a LessonDefinition introduces, requires or reviews ReadingRules, it must
+use stable ReadingRule IDs through explicit curriculum metadata. See
+READING_RULE_PREREQUISITE_STANDARD.md.
+
 Generated Exercises and learner interaction state exist only at runtime and are never stored inside LessonDefinitions.
 
 LessonPlan is not Educational Content.
@@ -221,9 +227,13 @@ Pronunciation concepts are modelled separately:
   pronunciation concept.
 - PronunciationVariety: the declared course or content pronunciation norm.
 - IpaTranscription: locale-independent IPA for the declared variety.
+- ReadingRule: reusable target-language reading rule such as silent `h`,
+  stable vowels, `ñ`, `ll/y` or written stress.
 - LocalizedPronunciationHint: support-locale-specific learner approximation.
 - LocalizedPronunciationExplanation: support-locale-specific sound or reading
   explanation.
+- LocalizedReadingRuleSupport: support-locale-specific title, explanation,
+  articulation hint, common mistake or contrast note for a ReadingRule.
 - AudioReference: stable reference to future target-language pronunciation
   audio.
 
@@ -242,8 +252,20 @@ PronunciationUnit is reusable Educational Content in the target architecture.
 Vocabulary, Grammar Topics, Dialogues, Reading Texts, Exercise Templates and
 LessonDefinitions should reference it when pronunciation knowledge is needed.
 
-R2E2B implements a runtime reference slice for PronunciationUnit without
-removing legacy vocabulary `pronunciation` fields.
+ReadingRule is also reusable Educational Content in the target architecture.
+It belongs to the target language and pronunciation variety, not to a single
+word or lesson. PronunciationUnits reference ReadingRules by stable ID, and
+ReadingRules may list example PronunciationUnits. Localized rule explanations
+support learners but never define rule identity or correctness.
+
+R2E2C implements runtime PronunciationUnit resolution for a migrated Spanish A0
+reference slice. Vocabulary may carry an optional PronunciationUnit reference
+while legacy `pronunciation` fields remain as English-oriented hints until each
+entry is migrated.
+
+R2E2D implements runtime ReadingRule resolution and validation for the same
+migrated Spanish A0 pronunciation slice. Full-course pronunciation and reading
+rule migration remains incremental.
 
 Vocabulary Items may be referenced by multiple LessonDefinitions.
 

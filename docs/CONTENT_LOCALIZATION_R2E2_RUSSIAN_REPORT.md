@@ -25,8 +25,8 @@ Quality recovery follow-up: `docs/CONTENT_LOCALIZATION_R2E2A_QUALITY_REPORT.md`
 
 | Metric | Result |
 | --- | ---: |
-| Total localizable English source fields | 2741 |
-| Russian localized fields | 2741 |
+| Total localizable English source fields | 2742 |
+| Russian localized fields | 2742 |
 | Missing Russian fields | 0 |
 | Runtime fallback fields for Russian | 0 |
 | Invalid fields | 0 |
@@ -70,8 +70,8 @@ objects, not untranslated support text.
 
 Focused localization tests verify:
 
-- English source inventory remains 2741 fields;
-- Russian coverage is 2741/2741;
+- English source inventory remains 2742 fields;
+- Russian coverage is 2742/2742;
 - Russian fallback fields are 0;
 - English fallback remains available for untranslated future locales;
 - representative course, reading and exercise strings resolve in Russian;

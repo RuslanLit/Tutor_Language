@@ -97,13 +97,36 @@ Localized pronunciation explanations are support-language teaching text. They
 explain issues such as silent letters or stress placement, but they do not
 replace IPA or pronunciation variety.
 
+Language-specific pronunciation policies remain target-course knowledge. For
+Spanish A0, `ll` and consonantal `y` follow
+SPANISH_LLY_PRONUNCIATION_POLICY.md. Localized hints must match that policy and
+must not introduce a conflicting support-locale approximation.
+
 PronunciationUnit IDs, related vocabulary/grammar references, reading-rule
 references, audio reference IDs, difficulty and technical metadata remain
 locale-independent. Localized learner hints and localized pronunciation
 explanations are localized support content.
 
-R2E2B prohibits cross-locale learner-hint fallback in the pronunciation
-reference implementation. English pronunciation hints must not be shown as a
+ReadingRules are reusable target-language educational knowledge. Their stable
+IDs, target language, pronunciation variety, orthographic pattern, phonetic
+outcome, IPA representation, examples and related content references are not
+localized. ReadingRule learner support is localized separately through titles,
+short explanations, detailed explanations, articulation hints, common mistakes
+and contrast notes.
+
+Localized grapheme presentations are support-language content. Letter names,
+learner-facing contrast explanations and accessibility descriptions must be
+authored per support locale. The canonical grapheme and confusable target
+forms remain locale-independent ReadingRule data.
+
+Russian, Ukrainian, Polish, German or other support modes must never display an
+English ReadingRule title or explanation as a production fallback. If localized
+rule support is missing, the renderer should omit the learner-facing text or
+surface a development diagnostic rather than showing another locale's
+explanation.
+
+R2E2C prohibits cross-locale learner-hint fallback in the pronunciation
+runtime reference implementation. English pronunciation hints must not be shown as a
 fallback in Russian mode.
 
 ## Locale-Independent Data
@@ -210,14 +233,14 @@ translation packages appear release-complete.
 
 R2E1 established the canonical English source inventory for Spanish A0:
 
-- total localizable source fields: 2741;
+- total localizable source fields: 2742;
 - missing English source fields: 0;
 - invalid fields: 0;
 - English coverage: 100%.
 
 R2E2 completed Russian support localization for the same inventory:
 
-- Russian localized fields: 2741;
+- Russian localized fields: 2742;
 - Russian fallback fields: 0;
 - invalid fields: 0;
 - Russian coverage: 100%.

@@ -1,9 +1,13 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/features/course_navigation/course_navigation_models.dart';
 import 'package:tutor_language/features/course_navigation/course_navigation_service.dart';
+import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   const service = CourseNavigationService();
 
   test('empty course returns stable navigation state', () {
@@ -96,6 +100,46 @@ void main() {
   });
 
   test(
+    'bundled Spanish A0 visible order starts with reading foundation',
+    () async {
+      final course = await CurriculumLoader(
+        assetBundle: rootBundle,
+      ).loadCourse();
+      final state = service.buildNavigationState(
+        course: course,
+        completedLessonIds: {},
+      );
+      final module1 = state.units.singleWhere(
+        (unit) => unit.unitId == 'es.a0.m01',
+      );
+      final module2 = state.units.singleWhere(
+        (unit) => unit.unitId == 'es.a0.m02',
+      );
+
+      expect(module1.lessons.map((lesson) => lesson.lessonId).take(4), [
+        'es.a0.m06.l016',
+        'es.a0.m01.l001',
+        'es.a0.m06.l017',
+        'es.a0.m01.l002',
+      ]);
+      expect(module1.lessons[0].position.indexInCourse, 1);
+      expect(module1.lessons[1].position.indexInCourse, 2);
+      expect(module1.lessons[2].position.indexInCourse, 3);
+      expect(module1.lessons[0].position.totalLessons, state.totalLessonCount);
+      expect(module1.lessons[0].lessonId, 'es.a0.m06.l016');
+      expect(module1.lessons[2].lessonId, 'es.a0.m06.l017');
+      expect(module2.lessons.first.lessonId, 'es.a0.m02.l004');
+      expect(module2.lessons.first.position.indexInCourse, 8);
+      expect(state.nextLessonId, 'es.a0.m06.l016');
+      expect(module1.lessons.first.status, LessonNavigationStatus.available);
+      expect(
+        module2.lessons.map((lesson) => lesson.lessonId),
+        isNot(contains('es.a0.m06.l017')),
+      );
+    },
+  );
+
+  test(
     'non-contiguous completion does not unlock past first incomplete lesson',
     () {
       final state = service.buildNavigationState(
@@ -131,6 +175,7 @@ void main() {
     final ordered = service.orderedCourseLessons(_unorderedIdCourse);
 
     expect(ordered.map((entry) => entry.lesson.id), ['lesson.z', 'lesson.a']);
+    expect(ordered.map((entry) => entry.position.indexInCourse), [1, 2]);
 
     final state = service.buildNavigationState(
       course: _unorderedIdCourse,

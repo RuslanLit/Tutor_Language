@@ -79,6 +79,7 @@ class VocabularyItem {
     required this.nativeTranslation,
     required this.cefr,
     required this.example,
+    this.pronunciationUnitId,
     this.pronunciation,
     this.notes,
   });
@@ -92,6 +93,9 @@ class VocabularyItem {
       nativeTranslation: requiredString(json, 'native_translation'),
       cefr: requiredString(json, 'cefr'),
       example: requiredString(json, 'example'),
+      pronunciationUnitId:
+          optionalString(json, 'pronunciationUnitId') ??
+          optionalString(json, 'pronunciation_unit_id'),
       pronunciation: optionalString(json, 'pronunciation'),
       notes: optionalString(json, 'notes'),
     );
@@ -102,6 +106,7 @@ class VocabularyItem {
   final String nativeTranslation;
   final String cefr;
   final String example;
+  final String? pronunciationUnitId;
   final String? pronunciation;
   final String? notes;
 
@@ -112,6 +117,8 @@ class VocabularyItem {
       'native_translation': nativeTranslation,
       'cefr': cefr,
       'example': example,
+      if (pronunciationUnitId != null)
+        'pronunciationUnitId': pronunciationUnitId,
       if (pronunciation != null) 'pronunciation': pronunciation,
       if (notes != null) 'notes': notes,
     };
@@ -126,6 +133,7 @@ class VocabularyItem {
             other.nativeTranslation == nativeTranslation &&
             other.cefr == cefr &&
             other.example == example &&
+            other.pronunciationUnitId == pronunciationUnitId &&
             other.pronunciation == pronunciation &&
             other.notes == notes;
   }
@@ -137,6 +145,7 @@ class VocabularyItem {
     nativeTranslation,
     cefr,
     example,
+    pronunciationUnitId,
     pronunciation,
     notes,
   );

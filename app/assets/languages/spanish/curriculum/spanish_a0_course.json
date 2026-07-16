@@ -9,8 +9,9 @@
       "id": "es.a0.m01",
       "title": "First Words and Reading",
       "lessonIds": [
-        "es.a0.m01.l001",
         "es.a0.m06.l016",
+        "es.a0.m01.l001",
+        "es.a0.m06.l017",
         "es.a0.m01.l002",
         "es.a0.m01.l003",
         "es.a0.m01.l006",
@@ -23,7 +24,6 @@
       "lessonIds": [
         "es.a0.m02.l004",
         "es.a0.m02.l007",
-        "es.a0.m06.l017",
         "es.a0.m02.l008",
         "es.a0.m02.l009",
         "es.a0.m05.l013"
@@ -271,7 +271,7 @@
         "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m06.l016"
+            "lessonId": "es.a0.m06.l017"
           }
         ]
       },
@@ -703,7 +703,7 @@
         "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m04.l010"
+            "lessonId": "es.a0.m06.l017"
           }
         ]
       },
@@ -721,10 +721,23 @@
           "order": 1,
           "activities": [
             {
+              "id": "activity.reading_rule.ll_y_intro",
+              "title": "Reading Rule Review",
+              "type": "reading_rule",
+              "order": 1,
+              "reviewedReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
+              "references": []
+            },
+            {
               "id": "activity.vocabulary.names",
               "title": "Vocabulary",
               "type": "vocabulary",
-              "order": 1,
+              "order": 2,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "vocabulary",
@@ -757,7 +770,10 @@
               "id": "activity.grammar.name_pattern",
               "title": "Pattern",
               "type": "grammar",
-              "order": 2,
+              "order": 3,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "grammar",
@@ -770,7 +786,10 @@
               "id": "activity.dialogue.name_intro",
               "title": "Dialogue",
               "type": "dialogue",
-              "order": 3,
+              "order": 4,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "dialogue",
@@ -783,7 +802,10 @@
               "id": "activity.reading.name_tags",
               "title": "Reading",
               "type": "reading",
-              "order": 4,
+              "order": 5,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "reading",
@@ -796,7 +818,10 @@
               "id": "activity.practice.name_intro",
               "title": "Practice",
               "type": "exercise_template",
-              "order": 5,
+              "order": 6,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "exercise_template",
@@ -832,6 +857,7 @@
       },
       "completionCriteria": {
         "requiredActivities": [
+          "activity.reading_rule.ll_y_intro",
           "activity.vocabulary.names",
           "activity.grammar.name_pattern",
           "activity.dialogue.name_intro",
@@ -860,6 +886,11 @@
           {
             "lessonId": "es.a0.m02.l004"
           }
+        ],
+        "reviewedReadingRuleIds": [
+          "pronunciation.es.rule.enye.v1",
+          "pronunciation.es.rule.j.v1",
+          "pronunciation.es.rule.ll_y.v1"
         ]
       },
       "objectives": [
@@ -7316,27 +7347,33 @@
     {
       "metadata": {
         "id": "es.a0.m06.l016",
-        "title": "Silent h and Stable Vowels",
-        "description": "Read familiar words with silent h and stable Spanish vowels.",
+        "title": "Spanish Vowels, h, and First Sounds",
+        "description": "Read the first Spanish words with stable vowels, silent h, stress, and the high-frequency patterns needed for early greetings.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
         "tags": [],
         "version": "1.1.0",
-        "prerequisites": [
-          {
-            "lessonId": "es.a0.m01.l001"
-          }
+        "prerequisites": [],
+        "introducedReadingRuleIds": [
+          "pronunciation.es.rule.silent_h.v1",
+          "pronunciation.es.rule.stable_vowels.v1",
+          "pronunciation.es.rule.primary_stress.v1",
+          "pronunciation.es.rule.r.v1",
+          "pronunciation.es.rule.c_z.v1",
+          "pronunciation.es.rule.b_v.v1",
+          "pronunciation.es.rule.diphthong_ue.v1",
+          "pronunciation.es.rule.g_e_i.v1"
         ]
       },
       "objectives": [
         {
           "id": "objective.es.a0.m06.l016.primary",
-          "description": "Read hola and hambre without pronouncing h."
+          "description": "Read the first Spanish words using stable vowels, silent h and visible stress."
         }
       ],
-      "communicativeOutcome": "Read hola and hambre without pronouncing h.",
+      "communicativeOutcome": "Read the first Spanish words with basic pronunciation support.",
       "sections": [
         {
           "id": "es.a0.m06.l016.section.main",
@@ -7347,7 +7384,7 @@
               "id": "es.a0.m06.l016.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
-              "order": 1,
+              "order": 2,
               "references": [
                 {
                   "type": "vocabulary",
@@ -7358,16 +7395,6 @@
                   "type": "vocabulary",
                   "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
                   "referenceId": "vocab.es.a0.c2.hambre.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.hache.v1"
-                },
-                {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.vocal.v1"
                 }
               ]
             },
@@ -7375,7 +7402,17 @@
               "id": "es.a0.m06.l016.activity.grammar",
               "title": "Reading Rule",
               "type": "grammar",
-              "order": 2,
+              "order": 1,
+              "introducedReadingRuleIds": [
+                "pronunciation.es.rule.silent_h.v1",
+                "pronunciation.es.rule.stable_vowels.v1",
+                "pronunciation.es.rule.primary_stress.v1",
+                "pronunciation.es.rule.r.v1",
+                "pronunciation.es.rule.c_z.v1",
+                "pronunciation.es.rule.b_v.v1",
+                "pronunciation.es.rule.diphthong_ue.v1",
+                "pronunciation.es.rule.g_e_i.v1"
+              ],
               "references": [
                 {
                   "type": "grammar",
@@ -7394,6 +7431,10 @@
               "title": "Reading",
               "type": "reading",
               "order": 3,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.silent_h.v1",
+                "pronunciation.es.rule.stable_vowels.v1"
+              ],
               "references": [
                 {
                   "type": "reading",
@@ -7407,6 +7448,10 @@
               "title": "Practice",
               "type": "exercise_template",
               "order": 4,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.silent_h.v1",
+                "pronunciation.es.rule.stable_vowels.v1"
+              ],
               "references": [
                 {
                   "type": "exercise_template",
@@ -7459,7 +7504,7 @@
         "id": "es.a0.m06.l017",
         "title": "ñ, j and ll in Names",
         "description": "Recognize ñ, j, and ll in names and introduction words.",
-        "moduleId": "es.a0.m02",
+        "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
         "difficulty": "A0",
@@ -7467,8 +7512,13 @@
         "version": "1.1.0",
         "prerequisites": [
           {
-            "lessonId": "es.a0.m02.l004"
+            "lessonId": "es.a0.m06.l016"
           }
+        ],
+        "introducedReadingRuleIds": [
+          "pronunciation.es.rule.enye.v1",
+          "pronunciation.es.rule.j.v1",
+          "pronunciation.es.rule.ll_y.v1"
         ]
       },
       "objectives": [
@@ -7485,10 +7535,33 @@
           "order": 1,
           "activities": [
             {
+              "id": "es.a0.m06.l017.activity.grammar",
+              "title": "Reading Rule",
+              "type": "grammar",
+              "order": 1,
+              "introducedReadingRuleIds": [
+                "pronunciation.es.rule.enye.v1",
+                "pronunciation.es.rule.j.v1",
+                "pronunciation.es.rule.ll_y.v1"
+              ],
+              "references": [
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_2_names.json",
+                  "referenceId": "grammar.es.a0.m02.names_reading.v1"
+                }
+              ]
+            },
+            {
               "id": "es.a0.m06.l017.activity.vocabulary",
               "title": "Vocabulary",
               "type": "vocabulary",
-              "order": 1,
+              "order": 2,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.enye.v1",
+                "pronunciation.es.rule.j.v1",
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "vocabulary",
@@ -7513,23 +7586,15 @@
               ]
             },
             {
-              "id": "es.a0.m06.l017.activity.grammar",
-              "title": "Reading Rule",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/module_2_names.json",
-                  "referenceId": "grammar.es.a0.m02.names_reading.v1"
-                }
-              ]
-            },
-            {
               "id": "es.a0.m06.l017.activity.reading",
               "title": "Reading",
               "type": "reading",
               "order": 3,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.enye.v1",
+                "pronunciation.es.rule.j.v1",
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "reading",
@@ -7543,6 +7608,11 @@
               "title": "Practice",
               "type": "exercise_template",
               "order": 4,
+              "requiredReadingRuleIds": [
+                "pronunciation.es.rule.enye.v1",
+                "pronunciation.es.rule.j.v1",
+                "pronunciation.es.rule.ll_y.v1"
+              ],
               "references": [
                 {
                   "type": "exercise_template",

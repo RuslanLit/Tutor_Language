@@ -6,7 +6,8 @@
     "cefr": "A0",
     "example": "Voy en autobús.",
     "pronunciation": "ow-toh-BOOS",
-    "notes": "Common city transport."
+    "notes": "Common city transport.",
+    "pronunciationUnitId": "pronunciation.es.word.autobus.v1"
   },
   {
     "id": "vocab.es.a0.m06.tren.v1",
@@ -15,7 +16,8 @@
     "cefr": "A0",
     "example": "Voy en tren.",
     "pronunciation": "tren",
-    "notes": "Common intercity transport."
+    "notes": "Common intercity transport.",
+    "pronunciationUnitId": "pronunciation.es.word.tren.v1"
   },
   {
     "id": "vocab.es.a0.m06.metro.v1",
@@ -24,7 +26,8 @@
     "cefr": "A0",
     "example": "Voy en metro.",
     "pronunciation": "MEH-troh",
-    "notes": "Common city transport."
+    "notes": "Common city transport.",
+    "pronunciationUnitId": "pronunciation.es.word.metro.v1"
   },
   {
     "id": "vocab.es.a0.m06.taxi.v1",
@@ -33,7 +36,8 @@
     "cefr": "A0",
     "example": "Voy en taxi.",
     "pronunciation": "TAK-see",
-    "notes": "Common city transport."
+    "notes": "Common city transport.",
+    "pronunciationUnitId": "pronunciation.es.word.taxi.v1"
   },
   {
     "id": "vocab.es.a0.m06.coche.v1",
@@ -42,7 +46,8 @@
     "cefr": "A0",
     "example": "Voy en coche.",
     "pronunciation": "KOH-cheh",
-    "notes": "A car."
+    "notes": "A car.",
+    "pronunciationUnitId": "pronunciation.es.word.coche.v1"
   },
   {
     "id": "vocab.es.a0.m06.bicicleta.v1",
@@ -51,7 +56,8 @@
     "cefr": "A0",
     "example": "Voy en bicicleta.",
     "pronunciation": "bee-see-KLEH-tah",
-    "notes": "A bicycle."
+    "notes": "A bicycle.",
+    "pronunciationUnitId": "pronunciation.es.word.bicicleta.v1"
   },
   {
     "id": "vocab.es.a0.m06.a_pie.v1",
@@ -60,7 +66,8 @@
     "cefr": "A0",
     "example": "Voy a pie.",
     "pronunciation": "ah PYEH",
-    "notes": "Use a pie, not en pie, for going on foot."
+    "notes": "Use a pie, not en pie, for going on foot.",
+    "pronunciationUnitId": "pronunciation.es.phrase.a_pie.v1"
   },
   {
     "id": "vocab.es.a0.m06.estacion.v1",
@@ -69,7 +76,8 @@
     "cefr": "A0",
     "example": "¿Dónde está la estación?",
     "pronunciation": "es-tah-SYON",
-    "notes": "A train, metro, or bus station in this module."
+    "notes": "A train, metro, or bus station in this module.",
+    "pronunciationUnitId": "pronunciation.es.word.estacion.v1"
   },
   {
     "id": "vocab.es.a0.m06.parada.v1",
@@ -78,7 +86,8 @@
     "cefr": "A0",
     "example": "La parada está cerca.",
     "pronunciation": "pah-RAH-dah",
-    "notes": "A bus or transport stop."
+    "notes": "A bus or transport stop.",
+    "pronunciationUnitId": "pronunciation.es.word.parada.v1"
   },
   {
     "id": "vocab.es.a0.m06.centro.v1",
@@ -87,7 +96,8 @@
     "cefr": "A0",
     "example": "Voy al centro.",
     "pronunciation": "SEN-troh",
-    "notes": "The town or city center."
+    "notes": "The town or city center.",
+    "pronunciationUnitId": "pronunciation.es.word.centro.v1"
   },
   {
     "id": "vocab.es.a0.m06.hotel.v1",
@@ -96,7 +106,8 @@
     "cefr": "A0",
     "example": "¿Cómo llego al hotel?",
     "pronunciation": "oh-TEL",
-    "notes": "A hotel."
+    "notes": "A hotel.",
+    "pronunciationUnitId": "pronunciation.es.word.hotel.v1"
   },
   {
     "id": "vocab.es.a0.m06.hospital.v1",
@@ -105,7 +116,8 @@
     "cefr": "A0",
     "example": "El hospital está lejos.",
     "pronunciation": "ohs-pee-TAL",
-    "notes": "A hospital."
+    "notes": "A hospital.",
+    "pronunciationUnitId": "pronunciation.es.word.hospital.v1"
   },
   {
     "id": "vocab.es.a0.m06.farmacia.v1",
@@ -114,7 +126,8 @@
     "cefr": "A0",
     "example": "La farmacia está cerca.",
     "pronunciation": "far-MAH-syah",
-    "notes": "A pharmacy."
+    "notes": "A pharmacy.",
+    "pronunciationUnitId": "pronunciation.es.word.farmacia.v1"
   },
   {
     "id": "vocab.es.a0.m06.supermercado.v1",
@@ -132,7 +145,8 @@
     "cefr": "A0",
     "example": "La calle está aquí.",
     "pronunciation": "KAH-yeh",
-    "notes": "A street."
+    "notes": "A street.",
+    "pronunciationUnitId": "pronunciation.es.word.calle.v1"
   },
   {
     "id": "vocab.es.a0.m06.donde_esta.v1",
@@ -141,7 +155,8 @@
     "cefr": "A0",
     "example": "¿Dónde está la estación?",
     "pronunciation": "DON-deh es-TAH",
-    "notes": "Use dónde for location questions."
+    "notes": "Use dónde for location questions.",
+    "pronunciationUnitId": "pronunciation.es.sentence.donde_esta.v1"
   },
   {
     "id": "vocab.es.a0.m06.como_llego.v1",
@@ -150,7 +165,8 @@
     "cefr": "A0",
     "example": "¿Cómo llego al hotel?",
     "pronunciation": "KOH-moh YEH-goh",
-    "notes": "Use cómo llego for route questions."
+    "notes": "Use cómo llego for route questions.",
+    "pronunciationUnitId": "pronunciation.es.phrase.como_llego.v1"
   },
   {
     "id": "vocab.es.a0.m06.como_voy.v1",
@@ -159,7 +175,8 @@
     "cefr": "A0",
     "example": "¿Cómo voy al centro?",
     "pronunciation": "KOH-moh voy",
-    "notes": "Use cómo voy to ask how to travel somewhere."
+    "notes": "Use cómo voy to ask how to travel somewhere.",
+    "pronunciationUnitId": "pronunciation.es.phrase.como_voy.v1"
   },
   {
     "id": "vocab.es.a0.m06.voy.v1",
@@ -168,7 +185,8 @@
     "cefr": "A0",
     "example": "Voy en metro.",
     "pronunciation": "boy",
-    "notes": "First-person movement form."
+    "notes": "First-person movement form.",
+    "pronunciationUnitId": "pronunciation.es.word.voy.v1"
   },
   {
     "id": "vocab.es.a0.m06.ve.v1",
@@ -177,7 +195,8 @@
     "cefr": "A0",
     "example": "Ve en autobús.",
     "pronunciation": "beh",
-    "notes": "Controlled informal instruction."
+    "notes": "Controlled informal instruction.",
+    "pronunciationUnitId": "pronunciation.es.word.ve.v1"
   },
   {
     "id": "vocab.es.a0.m06.toma.v1",
@@ -186,7 +205,8 @@
     "cefr": "A0",
     "example": "Toma el metro.",
     "pronunciation": "TOH-mah",
-    "notes": "Controlled informal instruction."
+    "notes": "Controlled informal instruction.",
+    "pronunciationUnitId": "pronunciation.es.word.toma.v1"
   },
   {
     "id": "vocab.es.a0.m06.sigue.v1",
@@ -195,7 +215,8 @@
     "cefr": "A0",
     "example": "Sigue recto.",
     "pronunciation": "SEE-geh",
-    "notes": "Controlled informal direction."
+    "notes": "Controlled informal direction.",
+    "pronunciationUnitId": "pronunciation.es.word.sigue.v1"
   },
   {
     "id": "vocab.es.a0.m06.gira.v1",
@@ -204,7 +225,8 @@
     "cefr": "A0",
     "example": "Gira a la derecha.",
     "pronunciation": "HEE-rah",
-    "notes": "Controlled informal direction."
+    "notes": "Controlled informal direction.",
+    "pronunciationUnitId": "pronunciation.es.word.gira.v1"
   },
   {
     "id": "vocab.es.a0.m06.recto.v1",
@@ -213,7 +235,8 @@
     "cefr": "A0",
     "example": "Sigue recto.",
     "pronunciation": "REK-toh",
-    "notes": "Direction word."
+    "notes": "Direction word.",
+    "pronunciationUnitId": "pronunciation.es.word.recto.v1"
   },
   {
     "id": "vocab.es.a0.m06.izquierda.v1",
@@ -222,7 +245,8 @@
     "cefr": "A0",
     "example": "Gira a la izquierda.",
     "pronunciation": "ees-KYER-dah",
-    "notes": "Direction word."
+    "notes": "Direction word.",
+    "pronunciationUnitId": "pronunciation.es.word.izquierda.v1"
   },
   {
     "id": "vocab.es.a0.m06.derecha.v1",
@@ -231,7 +255,8 @@
     "cefr": "A0",
     "example": "Gira a la derecha.",
     "pronunciation": "deh-REH-chah",
-    "notes": "Direction word."
+    "notes": "Direction word.",
+    "pronunciationUnitId": "pronunciation.es.word.derecha.v1"
   },
   {
     "id": "vocab.es.a0.m06.aqui.v1",
@@ -240,7 +265,8 @@
     "cefr": "A0",
     "example": "Está aquí.",
     "pronunciation": "ah-KEE",
-    "notes": "Location word."
+    "notes": "Location word.",
+    "pronunciationUnitId": "pronunciation.es.word.aqui.v1"
   },
   {
     "id": "vocab.es.a0.m06.alli.v1",
@@ -249,7 +275,8 @@
     "cefr": "A0",
     "example": "Está allí.",
     "pronunciation": "ah-YEE",
-    "notes": "Location word."
+    "notes": "Location word.",
+    "pronunciationUnitId": "pronunciation.es.word.alli.v1"
   },
   {
     "id": "vocab.es.a0.m06.cerca.v1",
@@ -258,7 +285,8 @@
     "cefr": "A0",
     "example": "Está cerca.",
     "pronunciation": "SER-kah",
-    "notes": "Location word."
+    "notes": "Location word.",
+    "pronunciationUnitId": "pronunciation.es.word.cerca.v1"
   },
   {
     "id": "vocab.es.a0.m06.lejos.v1",
@@ -267,7 +295,8 @@
     "cefr": "A0",
     "example": "Está lejos.",
     "pronunciation": "LEH-hohs",
-    "notes": "Location word."
+    "notes": "Location word.",
+    "pronunciationUnitId": "pronunciation.es.word.lejos.v1"
   },
   {
     "id": "vocab.es.a0.m06.transporte.v1",
@@ -276,6 +305,7 @@
     "cefr": "A0",
     "example": "¿Qué transporte tomo?",
     "pronunciation": "trans-POR-teh",
-    "notes": "Use in simple transport-choice questions."
+    "notes": "Use in simple transport-choice questions.",
+    "pronunciationUnitId": "pronunciation.es.word.transporte.v1"
   }
 ]

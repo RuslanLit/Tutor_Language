@@ -61,7 +61,6 @@ void main() {
     expect(module2.lessonIds, [
       'es.a0.m02.l004',
       'es.a0.m02.l007',
-      'es.a0.m06.l017',
       'es.a0.m02.l008',
       'es.a0.m02.l009',
       'es.a0.m05.l013',

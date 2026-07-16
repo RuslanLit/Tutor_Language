@@ -12,6 +12,8 @@ Related documents:
 - CONTENT_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
 - PRONUNCIATION_MODEL.md
+- READING_RULE_PREREQUISITE_STANDARD.md
+- GRAPHEME_PRESENTATION_STANDARD.md
 - COURSE_AUTHORING_GUIDE.md
 - EDUCATIONAL_CONTENT_LOCALIZATION.md
 - AUTHORING_STYLE_GUIDE.md
@@ -56,6 +58,15 @@ pronunciation variety.
 Educational-content localization is defined in
 EDUCATIONAL_CONTENT_LOCALIZATION.md. This guide extends that model for
 pronunciation-specific fields.
+
+ReadingRule authoring must also define curriculum availability. A rule may be
+introduced, required or reviewed by stable ID in LessonDefinition/activity
+metadata. First active use must follow explicit introduction. See
+READING_RULE_PREREQUISITE_STANDARD.md.
+
+When a rule contains visually confusable graphemes, author localized grapheme
+presentation data instead of relying on prose or font choice. See
+GRAPHEME_PRESENTATION_STANDARD.md.
 
 ---
 
@@ -307,8 +318,10 @@ Deferred implementation:
 - support-locale learner-hint authoring;
 - audio references and playback.
 
-R2E2B implemented the first runtime foundation and a Spanish A0 reference
-slice. Treat it as partial implementation, not full-course migration.
+R2E2C implements runtime PronunciationUnit resolution, direct vocabulary
+PronunciationUnit references for the migrated Spanish A0 reference slice,
+deterministic validation and coverage tools. Treat it as partial
+implementation, not full-course migration.
 
 ---
 
@@ -610,13 +623,19 @@ Target language: Spanish.
 Course pronunciation variety: general beginner Spanish, with regional choices
 declared before production IPA is authored.
 
+Spanish A0 currently uses `llYPolicy: yeismo` for `ll` and consonantal `y`.
+The course-level policy, required IPA forms, localized hint expectations and
+grapheme clarification rules are defined in
+SPANISH_LLY_PRONUNCIATION_POLICY.md.
+
 Phonemic inventory assumptions: keep beginner explanations practical; avoid
 claiming one regional realization is universal.
 
 Regional choices:
 
 - choose whether `c/z` follows a seseo norm or a distinction norm;
-- choose how `ll` and `y` are represented;
+- for Spanish A0, represent `ll` and consonantal `y` according to
+  SPANISH_LLY_PRONUNCIATION_POLICY.md;
 - avoid overclaiming b/v, j, r and rr realizations across regions.
 
 Letter-to-sound rules:
@@ -695,6 +714,40 @@ Examples:
 - silent `h`;
 - `qu` before `e/i`;
 - stress-marking accents.
+
+## ReadingRule
+
+A ReadingRule is authored once for a reusable spelling-to-sound pattern.
+
+Production ReadingRules should include:
+
+- stable ID;
+- schema version;
+- knowledge domain `language`;
+- rule kind `reading`;
+- target language;
+- pronunciation variety ID;
+- orthographic pattern;
+- phonetic outcome and/or IPA representation when the rule describes a sound;
+- applicability;
+- exceptions when needed;
+- example PronunciationUnit IDs;
+- related content IDs;
+- difficulty;
+- metadata.
+
+Localized ReadingRule support is authored separately for each released support
+locale. It may include:
+
+- title;
+- short explanation;
+- detailed explanation;
+- articulation hint;
+- common mistakes;
+- contrast note.
+
+Do not use localized ReadingRule titles as answer IDs. Exercises must use
+stable IDs or authored answer values for correctness.
 
 ## Reading
 
@@ -811,19 +864,47 @@ Required issue categories:
 
 - `pronunciation.missingIpa`
 - `pronunciation.missingVariety`
-- `pronunciation.missingLearnerHint`
+- `pronunciation.missingLocalizedHint`
+- `pronunciation.missingStressMark`
 - `pronunciation.crossLocaleHintReuse`
 - `pronunciation.invalidIpa`
-- `pronunciation.invalidStressNotation`
-- `pronunciation.targetMismatch`
-- `pronunciation.unsupportedLocale`
+- `pronunciation.duplicateUnitId`
+- `pronunciation.duplicateRuleId`
+- `pronunciation.unknownUnitReference`
+- `pronunciation.unknownRuleReference`
+- `pronunciation.targetOrthographyMismatch`
+- `pronunciation.targetLanguageMismatch`
+- `pronunciation.localizedEntryWithoutUnit`
+- `pronunciation.legacyHintInNonEnglishLocale`
+- `pronunciation.missingExample`
+- `pronunciation.explanationRequired`
 - `pronunciation.unexpectedFallback`
-- `pronunciation.emptyHint`
-- `pronunciation.hintWithoutLocale`
-- `pronunciation.ipaLooksLikeRespelling`
-- `pronunciation.explanationWrongLocale`
-- `pronunciation.duplicateMetadata`
-- `pronunciation.missingTargetReference`
+- `readingRule.duplicateId`
+- `readingRule.missingTargetLanguage`
+- `readingRule.missingVariety`
+- `readingRule.missingOrthographicPattern`
+- `readingRule.missingPhoneticDefinition`
+- `readingRule.unknownPronunciationUnitReference`
+- `readingRule.targetLanguageMismatch`
+- `readingRule.varietyMismatch`
+- `readingRule.localizedEntryWithoutBaseRule`
+- `readingRule.missingLocalizedTitle`
+- `readingRule.missingLocalizedExplanation`
+- `readingRule.crossLocaleExplanationFallback`
+- `readingRule.duplicateExampleReference`
+- `readingRule.noExamples`
+- `readingRule.unusedRule`
+- `readingRule.exerciseUsesLocalizedTextIdentity`
+- `pronunciation.varietyIpaMismatch`
+- `pronunciation.varietyLearnerHintMismatch`
+- `pronunciation.llYPolicyMismatch`
+- `pronunciation.nonYeistaHintInYeistaProfile`
+- `pronunciation.ambiguousGraphemeExplanation`
+- `readingRule.varietyOutcomeMismatch`
+- `readingRule.localizedExplanationContradictsBaseRule`
+
+Future validators may add more specific codes for unsupported locale,
+invalid stress notation, empty hints or wrong-locale explanations.
 
 Validators should detect:
 
@@ -842,6 +923,21 @@ Validators should detect:
 - inconsistent stress notation;
 - missing target word reference;
 - mismatch between pronunciation item and stable content ID.
+
+ReadingRule validation should additionally detect:
+
+- missing stable rule identity;
+- missing target language;
+- missing pronunciation variety;
+- missing orthographic pattern;
+- missing phonetic or IPA definition for sound rules;
+- unknown example PronunciationUnit references;
+- target-language or variety mismatch between a rule and its examples;
+- localized rule support without a base rule;
+- missing localized rule title or explanation for released support locales;
+- duplicate example references;
+- unused rules;
+- exercises that use localized rule text as correctness identity.
 
 A pronunciation asset is release-complete only if:
 

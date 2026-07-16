@@ -21,8 +21,8 @@ quality gate for English instructional remnants.
 
 Reviewed inventory:
 
-- total localizable English source fields: 2741;
-- Russian localized fields: 2741;
+- total localizable English source fields: 2742;
+- Russian localized fields: 2742;
 - runtime fallback fields for Russian: 0.
 
 Reviewed content areas:
@@ -81,8 +81,8 @@ Current R2E2A results:
 
 | Metric | Result |
 | --- | ---: |
-| Total reviewed fields | 2741 |
-| Russian localized fields | 2741 |
+| Total reviewed fields | 2742 |
+| Russian localized fields | 2742 |
 | Runtime Russian fallbacks | 0 |
 | Generator suspicious identical fields | 0 |
 | Mixed-language quality findings | 0 |

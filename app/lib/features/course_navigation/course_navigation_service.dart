@@ -8,19 +8,10 @@ class CourseNavigationService {
     required Course course,
     required Set<String> completedLessonIds,
   }) {
+    final orderedLessons = orderedCourseLessons(course);
     final lessonsById = {
-      for (final lesson in course.lessons) lesson.id: lesson,
+      for (final entry in orderedLessons) entry.lesson.id: entry,
     };
-    final orderedLessons = <OrderedLesson>[];
-
-    for (final unit in course.modules) {
-      for (final lessonId in unit.lessonIds) {
-        final lesson = lessonsById[lessonId];
-        if (lesson != null) {
-          orderedLessons.add(OrderedLesson(lesson: lesson, unit: unit));
-        }
-      }
-    }
 
     final orderedLessonIds = orderedLessons
         .map((orderedLesson) => orderedLesson.lesson.id)
@@ -47,13 +38,14 @@ class CourseNavigationService {
             lessons: List.unmodifiable(
               unit.lessonIds
                   .map((lessonId) => lessonsById[lessonId])
-                  .whereType<Lesson>()
-                  .map((lesson) {
+                  .whereType<OrderedLesson>()
+                  .map((orderedLesson) {
                     return LessonNavigationState(
-                      lessonId: lesson.id,
-                      title: lesson.title,
+                      lessonId: orderedLesson.lesson.id,
+                      title: orderedLesson.lesson.title,
+                      position: orderedLesson.position,
                       status: _lessonStatus(
-                        lesson.id,
+                        orderedLesson.lesson.id,
                         knownCompletedLessonIds,
                         firstIncompleteLessonId,
                       ),
@@ -84,12 +76,40 @@ class CourseNavigationService {
       for (final lesson in course.lessons) lesson.id: lesson,
     };
 
-    return List.unmodifiable([
-      for (final unit in course.modules)
-        for (final lessonId in unit.lessonIds)
-          if (lessonsById[lessonId] != null)
-            OrderedLesson(lesson: lessonsById[lessonId]!, unit: unit),
-    ]);
+    final totalLessons = course.modules.fold<int>(
+      0,
+      (total, unit) =>
+          total + unit.lessonIds.where(lessonsById.containsKey).length,
+    );
+    final orderedLessons = <OrderedLesson>[];
+
+    for (final unit in course.modules) {
+      final moduleLessonIds = unit.lessonIds
+          .where(lessonsById.containsKey)
+          .toList(growable: false);
+
+      for (
+        var indexInModule = 0;
+        indexInModule < moduleLessonIds.length;
+        indexInModule++
+      ) {
+        final lessonId = moduleLessonIds[indexInModule];
+        orderedLessons.add(
+          OrderedLesson(
+            lesson: lessonsById[lessonId]!,
+            unit: unit,
+            position: LessonPosition(
+              indexInCourse: orderedLessons.length + 1,
+              totalLessons: totalLessons,
+              indexInModule: indexInModule + 1,
+              totalInModule: moduleLessonIds.length,
+            ),
+          ),
+        );
+      }
+    }
+
+    return List.unmodifiable(orderedLessons);
   }
 
   String? _firstIncompleteLessonId(

@@ -30,7 +30,7 @@ Version:
 1.0
 
 Current Phase:
-R2E2B — Pronunciation Model Foundation and Russian Pronunciation Recovery
+R2E2C — PronunciationUnit Runtime Integration
 
 Overall Readiness:
 IN PROGRESS
@@ -225,21 +225,53 @@ Educational Content
 
 [x] pronunciation data model implemented
 
+[x] PronunciationUnit runtime resolution implemented for Spanish A0 production course
+
+[x] ReadingRule runtime resolution implemented for Spanish A0 production course
+
+[x] ReadingRule validation and coverage metrics implemented
+
+[x] ReadingRule prerequisite standard documented
+
+[x] ReadingRule prerequisite audit tool implemented for migrated Spanish A0 scope
+
+[x] migrated Spanish A0 active ReadingRule uses occur after introduction
+
+[x] Spanish A0 foundational reading sequence audit implemented and passing for Modules 1-2
+
+[x] Spanish A0 visible order introduces `ll/y` before `me llamo` recall
+
+[x] grapheme presentation standard documented
+
+[x] pronunciation validation and coverage tools implemented with Spanish A0 production inventory gate
+
 [x] target-language pronunciation variety declared for production assets
 
-[~] IPA coverage validated
+[x] Spanish A0 `ll/y` yeismo policy documented
 
-[ ] IPA complete for every release vocabulary item requiring pronunciation
+[x] migrated Spanish A0 `ll/y` IPA and Russian hints match yeismo policy
 
-[ ] stress marked in every multi-syllable localized pronunciation hint
+[x] migrated Spanish A0 `ll/y` grapheme explanation distinguishes lowercase `ll` from uppercase `II`
 
-[ ] release vocabulary cards have complete pronunciation descriptions
+[x] migrated Spanish A0 `ll/y` presentation names lowercase `l` as `эль` and uppercase `I` as `и`
+
+[x] migrated Spanish A0 `ll/y` presentation includes accessibility semantics
+
+[x] IPA coverage validated for all inventoried Spanish A0 learner-facing forms
+
+[x] IPA complete for every inventoried Spanish A0 learner-facing form
+
+[x] stress marked in every multi-syllable Russian pronunciation hint in inventoried Spanish A0 forms
+
+[x] release vocabulary cards have complete pronunciation descriptions
 
 [x] English pronunciation hints validated for migrated slice
 
-[x] Russian pronunciation hints complete for migrated slice
+[x] Russian pronunciation hints complete for full Spanish A0 production inventory
 
-[ ] Russian pronunciation hints complete for full Spanish A0 course
+[x] stress marked in full Spanish A0 multi-syllable Russian pronunciation hints
+
+[x] Russian pronunciation hints complete for full Spanish A0 course
 
 [ ] Ukrainian pronunciation hints complete
 
@@ -249,9 +281,11 @@ Educational Content
 
 [x] no cross-locale pronunciation fallback
 
+[x] no cross-locale ReadingRule explanation fallback for migrated slice
+
 [~] pronunciation device QA complete
 
-[ ] pronunciation explanations present where spelling, stress or sound may mislead A0 learners
+[x] pronunciation explanations present where spelling, stress or sound may mislead A0 learners in inventoried Spanish A0 forms
 
 [ ] Spanish A0 Polish support translation complete
 

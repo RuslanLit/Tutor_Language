@@ -7,11 +7,13 @@ Version: 1.0
 Related documents:
 
 - EDUCATIONAL_PRINCIPLES.md
+- EDUCATIONAL_LANGUAGE_STANDARD.md
 - AUTHORING_STYLE_GUIDE.md
 - CONTENT_MODEL.md
 - AUTHORING_DECISIONS.md
 - CONTENT_AUTHORING_GUIDE.md
 - COURSE_AUTHORING_GUIDE.md
+- CONTENT_REVIEW_PROTOCOL.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 
@@ -25,9 +27,14 @@ It is a practical Definition of Done for educational content review.
 
 For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
 
+For the mandatory educational-language quality standard, use
+EDUCATIONAL_LANGUAGE_STANDARD.md.
+
 For Educational Content authoring rules, use CONTENT_AUTHORING_GUIDE.md.
 
 For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.md.
+
+For the mandatory review process, use CONTENT_REVIEW_PROTOCOL.md.
 
 ---
 
@@ -48,6 +55,10 @@ For Course, Module and LessonDefinition sequencing, use COURSE_AUTHORING_GUIDE.m
 - [ ] Sections and activities are ordered pedagogically.
 - [ ] All references are stable.
 - [ ] All references resolve correctly.
+- [ ] ReadingRule introductions, requirements and reviews use stable IDs.
+- [ ] No active ReadingRule use occurs before explicit introduction.
+- [ ] Visually confusable graphemes include decomposition, localized letter
+      names and accessibility text.
 - [ ] No Learner State is stored in LessonDefinition.
 - [ ] Generated Exercises are not stored in LessonDefinition.
 

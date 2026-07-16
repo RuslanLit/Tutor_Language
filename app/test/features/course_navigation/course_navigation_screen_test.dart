@@ -39,8 +39,8 @@ void main() {
     expect(find.text('Beta'), findsOneWidget);
     expect(find.text('Unit 2'), findsOneWidget);
     expect(find.text('Gamma'), findsOneWidget);
-    expect(find.text('Available next'), findsOneWidget);
-    expect(find.text('Locked'), findsNWidgets(2));
+    expect(find.textContaining('Available next'), findsOneWidget);
+    expect(find.textContaining('Locked'), findsNWidgets(2));
   });
 
   testWidgets('completed lesson displays completed state and unlocks next', (
@@ -59,9 +59,9 @@ void main() {
     await tester.pumpWidget(_app(database));
     await tester.pumpAndSettle();
 
-    expect(find.text('Completed'), findsOneWidget);
-    expect(find.text('Available next'), findsOneWidget);
-    expect(find.text('Locked'), findsOneWidget);
+    expect(find.textContaining('Completed'), findsOneWidget);
+    expect(find.textContaining('Available next'), findsOneWidget);
+    expect(find.textContaining('Locked'), findsOneWidget);
   });
 
   testWidgets('available lesson opens through existing lesson route', (

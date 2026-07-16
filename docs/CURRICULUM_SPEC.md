@@ -10,6 +10,7 @@ Related documents:
 - ARCHITECTURAL_DECISIONS.md
 - CONTENT_MODEL.md
 - LEARNING_MODEL.md
+- READING_RULE_PREREQUISITE_STANDARD.md
 
 ---
 
@@ -209,6 +210,18 @@ LessonDefinition activities reference Educational Content.
 LessonDefinitions must not embed vocabulary, grammar explanations, dialogues, readings or exercise definitions.
 
 LessonDefinition activities describe the structure and referenced source material available to lesson planning and assembly.
+
+LessonDefinition and activity metadata may also declare ReadingRule
+dependencies:
+
+- introduced ReadingRules;
+- required ReadingRules;
+- reviewed ReadingRules.
+
+These dependencies use stable ReadingRule IDs and are validated in canonical
+course order. A review does not count as introduction. A lesson may introduce
+and then require the same ReadingRule only when activity-level order makes that
+sequence explicit.
 
 The Rule-Based Lesson Planner may select a LessonDefinition.
 

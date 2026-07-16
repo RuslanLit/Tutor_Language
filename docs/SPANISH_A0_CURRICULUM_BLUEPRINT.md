@@ -400,15 +400,15 @@ ID policy:
 
 | Seq | Proposed ID | Module | Title | Type | Outcome | Prerequisites | New scope | Reused scope | Reading focus | Required practice | Sprint |
 |---:|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | es.a0.m01.l001 | M01 | Hello and Goodbye | teaching | Greet and say goodbye. | none | hola, adiós, hasta luego | none | stable vowels, silent h note | 1 typed recall | C2B |
-| 2 | es.a0.m06.l016 | M01 | Silent h and Stable Vowels | reading foundation | Read `hola` and `hambre` without pronouncing h. | 1 | h, vowels, hambre | hola | h, vowels | 2 typed recall | C2B |
-| 3 | es.a0.m01.l002 | M01 | Please, Thank You, Sorry | teaching | Use basic courtesy words. | 1 | gracias, por favor, perdón, de nada | hola | accent in perdón as recognition | 1 typed recall | C2B |
-| 4 | es.a0.m01.l003 | M01 | I Do Not Understand | teaching | Ask for repetition or slower speech. | 1-3 | no entiendo, repite, más despacio | por favor | none | 1 typed recall | C2B |
-| 5 | new: es.a0.m01.l006 | M01 | Morning and Evening Greetings | guided practice | Choose an appropriate greeting by context. | 1 | buenos días, buenas tardes, buenas noches | hola | vowels in días/noches | 2 typed recall | C2B |
-| 6 | es.a0.m04.l010 | M01 | First Words Review | review | Recall greetings, courtesy and clarification. | 1-5 | none | M01 | h/vowel review | 3 typed recall | C2B |
-| 7 | es.a0.m02.l004 | M02 | My Name Is | teaching | Say a name with `me llamo`. | 6 | me llamo, name pool | greetings | ll in llamo | 2 typed recall, misconception `soy Name` | C2C |
-| 8 | new: es.a0.m02.l007 | M02 | What Is Your Name? | teaching | Ask and answer a name question. | 7 | cómo te llamas | me llamo | question punctuation | 2 typed recall | C2C |
-| 9 | es.a0.m06.l017 | M02 | ñ, j and ll in Names | reading foundation | Recognize ñ, j and ll in familiar names/words. | 7 | España, José, llave | name pool | ñ, j, ll | 2 typed recall | C2C |
+| 1 | es.a0.m06.l016 | M01 | Spanish Vowels, h, and First Sounds | reading foundation | Read the first Spanish words with basic pronunciation support. | none | h, vowels, stress, r, c/z, b/v, ue, ge/gi | hola, hambre, early greetings | h, vowels, stress, early greeting patterns | 2 typed recall | R2E2D3 |
+| 2 | es.a0.m01.l001 | M01 | Hello and Goodbye | teaching | Greet and say goodbye. | 1 | hola, adiós, hasta luego | reading foundation | stable vowels, silent h, stress, ue, ge/gi | 1 typed recall | C2B/R2E2D3 |
+| 3 | es.a0.m06.l017 | M01 | ñ, j and ll in Names | reading foundation | Recognize ñ, j and ll in familiar names/words. | 1 | España, José, llave | names and first contact | ñ, j, ll | 2 typed recall | R2E2D3 |
+| 4 | es.a0.m01.l002 | M01 | Please, Thank You, Sorry | teaching | Use basic courtesy words. | 3 | gracias, por favor, perdón, de nada | hola | r, c/z, b/v, stress | 1 typed recall | C2B/R2E2D3 |
+| 5 | es.a0.m01.l003 | M01 | I Do Not Understand | teaching | Ask for repetition or slower speech. | 1-4 | no entiendo, repite, más despacio | por favor | none | 1 typed recall | C2B |
+| 6 | new: es.a0.m01.l006 | M01 | Morning and Evening Greetings | guided practice | Choose an appropriate greeting by context. | 1-5 | buenos días, buenas tardes, buenas noches | hola | vowels in días/noches | 2 typed recall | C2B |
+| 7 | es.a0.m04.l010 | M01 | First Words Review | review | Recall greetings, courtesy, clarification and early reading. | 1-6 | none | M01 | h/vowel/stress review | 3 typed recall | C2B/R2E2D3 |
+| 8 | es.a0.m02.l004 | M02 | My Name Is | teaching | Say a name with `me llamo`. | 3,7 | me llamo, name pool | greetings, ll/y foundation | ll in llamo review | 2 typed recall, misconception `soy Name` | C2C/R2E2D3 |
+| 9 | new: es.a0.m02.l007 | M02 | What Is Your Name? | teaching | Ask and answer a name question. | 8 | cómo te llamas | me llamo | question punctuation | 2 typed recall | C2C |
 | 10 | new: es.a0.m02.l008 | M02 | Nice to Meet You | teaching | Complete a short introduction exchange. | 7-9 | mucho gusto, igualmente | names, greetings | none | 2 typed recall | C2C |
 | 11 | new: es.a0.m02.l009 | M02 | Introduction Dialogue Practice | dialogue/application | Choose and produce replies in a first meeting. | 7-10 | none | M01-M02 | question punctuation | 2 typed recall | C2C |
 | 12 | es.a0.m05.l013 | M02 | Names and Introductions Review | review | Recall varied introductions without relying on Ana. | 7-11 | none | M01-M02 | ll/ñ review | 3 typed recall | C2C |
@@ -633,11 +633,16 @@ Course baseline:
 
 - Use a neutral classroom pronunciation baseline.
 - Do not claim one regional pronunciation is universal.
+- Use `llYPolicy: yeismo` for `ll` and consonantal `y`; the course policy is
+  defined in SPANISH_LLY_PRONUNCIATION_POLICY.md.
 - Pronunciation notes should follow PRONUNCIATION_AUTHORING_GUIDE.md:
   target orthography, pronunciation variety, IPA and localized learner hints
   are separate; current practical text guides remain legacy until migrated.
 - Future Spanish A0 pronunciation content should reference reusable
   PronunciationUnit objects as defined in PRONUNCIATION_MODEL.md.
+- ReadingRule active use must follow explicit introduction as defined in
+  READING_RULE_PREREQUISITE_STANDARD.md. Visually confusable graphemes use
+  GRAPHEME_PRESENTATION_STANDARD.md.
 
 | Rule | First exposure | Explicit lesson | Practice | Review | Checkpoint |
 |---|---|---|---|---|---|
@@ -645,7 +650,7 @@ Course baseline:
 | silent h | 1 | 2 | 4, 40 | 6, 43 | 18, 52 |
 | ñ | 9 | 9 | 15, 29 | 20, 30 | 31, 52 |
 | j | 9 | 9 | names/reading tasks | 20 | 52 |
-| ll | 7 | 9 | `llamo`, `llave` | 20, 38 | 52 |
+| ll/y yeismo | 7 | 7 | `llamo`, `llave`, `yo` | 9, 20, 38 | 52 |
 | r/rr recognition | new M06 reading note | new object/reading lesson | later readings | 51 | 52 |
 | qu | 18 or 39 | 18 | queso, qué | 20, 43 | 52 |
 | gue/gui | 18 | 18 | Miguel, guided reading | 20 | 52 |

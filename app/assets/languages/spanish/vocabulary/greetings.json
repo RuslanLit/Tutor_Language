@@ -5,7 +5,8 @@
     "native_translation": "hello",
     "cefr": "A0",
     "example": "Hola, me llamo Ana.",
-    "pronunciation": "OH-lah"
+    "pronunciation": "OH-lah",
+    "pronunciationUnitId": "pronunciation.es.word.hola.v1"
   },
   {
     "id": "vocab.buenos_dias.v1",

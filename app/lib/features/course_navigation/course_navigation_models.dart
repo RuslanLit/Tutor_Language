@@ -45,19 +45,40 @@ class LessonNavigationState {
   const LessonNavigationState({
     required this.lessonId,
     required this.title,
+    required this.position,
     required this.status,
   });
 
   final String lessonId;
   final String title;
+  final LessonPosition position;
   final LessonNavigationStatus status;
 
   bool get isTappable => status != LessonNavigationStatus.locked;
 }
 
+class LessonPosition {
+  const LessonPosition({
+    required this.indexInCourse,
+    required this.totalLessons,
+    required this.indexInModule,
+    required this.totalInModule,
+  });
+
+  final int indexInCourse;
+  final int totalLessons;
+  final int indexInModule;
+  final int totalInModule;
+}
+
 class OrderedLesson {
-  const OrderedLesson({required this.lesson, required this.unit});
+  const OrderedLesson({
+    required this.lesson,
+    required this.unit,
+    required this.position,
+  });
 
   final Lesson lesson;
   final Module unit;
+  final LessonPosition position;
 }

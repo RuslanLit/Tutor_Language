@@ -248,7 +248,10 @@ class LessonNavigationTile extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       leading: Icon(_statusIcon(lesson.status)),
       title: Text(lesson.title),
-      subtitle: Text(_statusLabel(lesson.status, l10n)),
+      subtitle: Text(
+        '${l10n.lessonNumber('${lesson.position.indexInCourse}')} · '
+        '${_statusLabel(lesson.status, l10n)}',
+      ),
       enabled: lesson.isTappable,
       onTap: lesson.isTappable
           ? () {

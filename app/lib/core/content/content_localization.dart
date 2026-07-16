@@ -234,6 +234,9 @@ class EducationalContentLocalizationResolver {
         tags: metadata.tags,
         version: metadata.version,
         prerequisites: metadata.prerequisites,
+        introducedReadingRuleIds: metadata.introducedReadingRuleIds,
+        requiredReadingRuleIds: metadata.requiredReadingRuleIds,
+        reviewedReadingRuleIds: metadata.reviewedReadingRuleIds,
       ),
       objectives: List.unmodifiable(
         lesson.objectives.map((objective) {
@@ -271,6 +274,9 @@ class EducationalContentLocalizationResolver {
                   type: activity.type,
                   order: activity.order,
                   references: activity.references,
+                  introducedReadingRuleIds: activity.introducedReadingRuleIds,
+                  requiredReadingRuleIds: activity.requiredReadingRuleIds,
+                  reviewedReadingRuleIds: activity.reviewedReadingRuleIds,
                 );
               }),
             ),
@@ -319,6 +325,7 @@ class EducationalContentLocalizationResolver {
           item.nativeTranslation,
       cefr: item.cefr,
       example: item.example,
+      pronunciationUnitId: item.pronunciationUnitId,
       pronunciation: item.pronunciation,
       notes: _field('vocabulary', item.id, 'notes', locale) ?? item.notes,
     );

@@ -1,6 +1,7 @@
 import '../../core/content/content_loader.dart';
 import '../../core/content/educational_content_catalog.dart';
 import '../../core/content/educational_content_validator.dart';
+import '../../core/content/pronunciation_models.dart';
 import '../../core/content/topic_content.dart';
 import '../curriculum/curriculum_loader.dart';
 import '../curriculum/curriculum_models.dart';
@@ -97,11 +98,14 @@ class LessonAssemblyService {
   ) {
     return LessonContentActivity(
       activity: activity,
-      resolvedContent: List.unmodifiable(
-        activity.contentReferences.expand((reference) {
-          return _resolveReference(reference, catalog);
-        }),
-      ),
+      resolvedContent: List.unmodifiable([
+        for (final ruleId in activity.introducedReadingRuleIds)
+          ReadingRulePresentationReference(ruleId),
+        for (final ruleId in activity.reviewedReadingRuleIds)
+          ReadingRulePresentationReference(ruleId),
+        for (final reference in activity.contentReferences)
+          ..._resolveReference(reference, catalog),
+      ]),
     );
   }
 

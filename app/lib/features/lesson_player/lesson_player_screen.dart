@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
-import '../../core/content/topic_content.dart';
+import '../../core/content/content_localization_providers.dart';
+import '../../core/content/pronunciation_models.dart';
 import '../../core/content/pronunciation_providers.dart';
+import '../../core/content/topic_content.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -12,6 +14,7 @@ import '../../l10n/l10n.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../activity_engine/activity_widgets.dart';
+import '../course_navigation/course_navigation_models.dart';
 import '../curriculum/curriculum_models.dart';
 import '../course_navigation/course_navigation_providers.dart';
 import '../lesson_assembly/lesson_content.dart';
@@ -181,6 +184,19 @@ class LessonPlayerView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final lesson = lessonContent.lesson;
+    final lessonPosition = ref
+        .watch(orderedCourseLessonsProvider)
+        .maybeWhen(
+          data: (orderedLessons) {
+            for (final orderedLesson in orderedLessons) {
+              if (orderedLesson.lesson.id == lesson.id) {
+                return orderedLesson.position;
+              }
+            }
+            return null;
+          },
+          orElse: () => null,
+        );
     final steps = _stepBuilder.buildSteps(lessonContent);
     final sessionProvider = lessonPlayerSessionProvider(lesson.id);
     final session = ref.watch(sessionProvider);
@@ -266,7 +282,7 @@ class LessonPlayerView extends ConsumerWidget {
                 if (currentStep?.isCheckable == true)
                   _CompactLessonHeader(title: lesson.title)
                 else
-                  _LessonHeader(lesson: lesson),
+                  _LessonHeader(lesson: lesson, position: lessonPosition),
                 const SizedBox(height: 12),
                 stepView ?? Text(l10n.noActivitiesAvailable),
               ],
@@ -292,9 +308,10 @@ class LessonPlayerView extends ConsumerWidget {
 }
 
 class _LessonHeader extends StatelessWidget {
-  const _LessonHeader({required this.lesson});
+  const _LessonHeader({required this.lesson, this.position});
 
   final LessonDefinition lesson;
+  final LessonPosition? position;
 
   @override
   Widget build(BuildContext context) {
@@ -311,8 +328,10 @@ class _LessonHeader extends StatelessWidget {
           children: [
             if (_moduleLabel(lesson.moduleId, l10n) != null)
               _MetadataChip(label: _moduleLabel(lesson.moduleId, l10n)!),
-            if (_lessonNumberLabel(lesson.id, l10n) != null)
-              _MetadataChip(label: _lessonNumberLabel(lesson.id, l10n)!),
+            if (position != null)
+              _MetadataChip(
+                label: l10n.lessonNumber('${position!.indexInCourse}'),
+              ),
             if (lesson.difficulty.isNotEmpty)
               _MetadataChip(label: lesson.difficulty),
           ],
@@ -792,10 +811,11 @@ class LessonPlayerStepView extends StatelessWidget {
               ),
               const SizedBox(height: 4),
             ],
-            Text(
-              _stepTypeLabel(step.stepType, l10n),
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
+            if (!_hasReadingRulePresentation(step))
+              Text(
+                _stepTypeLabel(step.stepType, l10n),
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
             const SizedBox(height: 12),
             for (final content in step.content)
               Padding(
@@ -823,6 +843,12 @@ bool _shouldShowMasteryLabel(StepMasteryAssessment? assessment) {
       assessment?.status == StepMasteryStatus.fragile;
 }
 
+bool _hasReadingRulePresentation(LessonPlayerStep step) {
+  return step.content.any(
+    (content) => content is ReadingRulePresentationReference,
+  );
+}
+
 String _masteryLabel(StepMasteryStatus status, AppLocalizations l10n) {
   return switch (status) {
     StepMasteryStatus.mastered => l10n.mastered,
@@ -837,14 +863,6 @@ String? _moduleLabel(String moduleId, AppLocalizations l10n) {
     return null;
   }
   return l10n.moduleNumber(match.group(1)!);
-}
-
-String? _lessonNumberLabel(String lessonId, AppLocalizations l10n) {
-  final match = RegExp(r'\.l0*([0-9]+)$').firstMatch(lessonId);
-  if (match == null) {
-    return null;
-  }
-  return l10n.lessonNumber(match.group(1)!);
 }
 
 class LessonContentObjectView extends StatelessWidget {
@@ -870,6 +888,9 @@ class LessonContentObjectView extends StatelessWidget {
       GrammarTopic topic => GrammarTopicView(topic: topic),
       Dialogue dialogue => DialogueView(dialogue: dialogue),
       ReadingText reading => ReadingTextView(reading: reading),
+      ReadingRulePresentationReference reference => ReadingRuleReferenceView(
+        reference: reference,
+      ),
       ExerciseTemplate template => ExerciseTemplateView(
         template: template,
         state: state,
@@ -878,6 +899,33 @@ class LessonContentObjectView extends StatelessWidget {
       ),
       _ => Text(l10n.unsupportedContent('${content.runtimeType}')),
     };
+  }
+}
+
+class ReadingRuleReferenceView extends ConsumerWidget {
+  const ReadingRuleReferenceView({required this.reference, super.key});
+
+  final ReadingRulePresentationReference reference;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final supportLocale = ref.watch(supportLocaleControllerProvider);
+    final catalog = ref.watch(pronunciationCatalogProvider);
+
+    return catalog.when(
+      data: (catalog) {
+        final presentation = catalog.resolveReadingRule(
+          reference.ruleId,
+          supportLocaleCode: supportLocale.code,
+        );
+        if (presentation == null) {
+          return Text(context.l10n.unsupportedContent(reference.ruleId));
+        }
+        return ReadingRuleView(presentation: presentation);
+      },
+      error: (error, stackTrace) => Text('$error'),
+      loading: () => const LinearProgressIndicator(),
+    );
   }
 }
 
@@ -895,13 +943,134 @@ class VocabularyItemView extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(item.spanish, style: Theme.of(context).textTheme.titleSmall),
-        Text(item.nativeTranslation),
+        if (presentation?.ipa != null) Text(presentation!.ipa!),
         if (presentation?.localizedLearnerHint != null)
           Text(presentation!.localizedLearnerHint!),
+        Text(item.nativeTranslation),
+        if (item.example.isNotEmpty) Text(item.example),
         if (presentation?.localizedExplanation != null)
           Text(presentation!.localizedExplanation!),
-        if (item.example.isNotEmpty) Text(item.example),
         if (item.notes != null && item.notes!.isNotEmpty) Text(item.notes!),
+      ],
+    );
+  }
+}
+
+class ReadingRuleView extends StatelessWidget {
+  const ReadingRuleView({required this.presentation, super.key});
+
+  final ResolvedReadingRulePresentation presentation;
+
+  @override
+  Widget build(BuildContext context) {
+    final title = presentation.title ?? presentation.orthographicPattern;
+    final theme = Theme.of(context);
+    final grapheme = presentation.graphemePresentation;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: theme.textTheme.titleSmall),
+        const SizedBox(height: 4),
+        if (grapheme != null) ...[
+          GraphemeComparisonView(
+            orthographicPattern: presentation.orthographicPattern,
+            presentation: grapheme,
+          ),
+        ] else
+          Text(presentation.orthographicPattern),
+        if (presentation.ipa != null) ...[
+          const SizedBox(height: 4),
+          Text(presentation.ipa!),
+        ],
+        if (presentation.shortExplanation != null) ...[
+          const SizedBox(height: 8),
+          Text(presentation.shortExplanation!),
+        ],
+        if (presentation.detailedExplanation != null) ...[
+          const SizedBox(height: 8),
+          Text(presentation.detailedExplanation!),
+        ],
+      ],
+    );
+  }
+}
+
+class GraphemeComparisonView extends StatelessWidget {
+  const GraphemeComparisonView({
+    required this.orthographicPattern,
+    required this.presentation,
+    super.key,
+  });
+
+  final String orthographicPattern;
+  final LocalizedGraphemePresentation presentation;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final monoStyle = theme.textTheme.headlineSmall?.copyWith(
+      fontFamily: 'monospace',
+      letterSpacing: 1.2,
+      fontWeight: FontWeight.w600,
+    );
+    final labelStyle = theme.textTheme.bodyMedium;
+
+    return Semantics(
+      label: presentation.accessibilityDescription,
+      child: ExcludeSemantics(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(presentation.canonicalDescription, style: labelStyle),
+            const SizedBox(height: 6),
+            _GraphemeRow(
+              components: const ['l', 'l'],
+              combined: 'll',
+              componentLabels: presentation.componentLetterNames,
+              textStyle: monoStyle,
+            ),
+            const SizedBox(height: 12),
+            Text(presentation.confusableDescription, style: labelStyle),
+            const SizedBox(height: 6),
+            _GraphemeRow(
+              components: const ['I', 'I'],
+              combined: 'II',
+              componentLabels: presentation.confusableComponentLetterNames,
+              textStyle: monoStyle,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _GraphemeRow extends StatelessWidget {
+  const _GraphemeRow({
+    required this.components,
+    required this.combined,
+    required this.componentLabels,
+    required this.textStyle,
+  });
+
+  final List<String> components;
+  final String combined;
+  final List<String> componentLabels;
+  final TextStyle? textStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    final labels = componentLabels.map((label) => '«$label»').join(' + ');
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 10,
+      runSpacing: 6,
+      children: [
+        Text(components.join('  +  '), style: textStyle),
+        Text('→', style: textStyle),
+        Text(combined, style: textStyle),
+        Text(labels),
       ],
     );
   }

@@ -14,6 +14,7 @@ Related documents:
 - LEARNING_MODEL.md
 - CONTENT_AUTHORING_GUIDE.md
 - CONTENT_REVIEW_CHECKLIST.md
+- READING_RULE_PREREQUISITE_STANDARD.md
 
 ---
 
@@ -35,6 +36,11 @@ PRONUNCIATION_MODEL.md. Pronunciation variety, IPA policy, learner-hint policy,
 regional variant policy and audio policy are defined in
 PRONUNCIATION_AUTHORING_GUIDE.md. Every future target-language course that
 teaches pronunciation must declare these policies.
+
+Courses that teach reading rules must introduce each ReadingRule before the
+first active use that requires it. Lesson and activity metadata should declare
+introduced, required and reviewed ReadingRule IDs. See
+READING_RULE_PREREQUISITE_STANDARD.md.
 
 For learner-facing writing style, use AUTHORING_STYLE_GUIDE.md.
 
