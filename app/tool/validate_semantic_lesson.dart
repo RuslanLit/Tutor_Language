@@ -130,7 +130,7 @@ class _SemanticLessonValidator {
         issues.add('semanticLesson.generatedUnit: ${unit.id}');
       }
       if (unit.review.values.any(
-        (status) => status != SemanticReviewStatus.approved,
+        (status) => status != SemanticReviewStatus.productionApproved,
       )) {
         issues.add('semanticLesson.invalidReviewState: ${unit.id}');
       }
@@ -161,7 +161,7 @@ class _SemanticLessonValidator {
     final approvedUnits = semanticBundle.units.where((unit) {
       return semanticPilotLessonIds.contains(unit.context.lessonId) &&
           unit.review.values.every(
-            (status) => status == SemanticReviewStatus.approved,
+            (status) => status == SemanticReviewStatus.productionApproved,
           );
     }).length;
 

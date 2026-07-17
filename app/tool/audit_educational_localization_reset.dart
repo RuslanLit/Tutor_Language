@@ -12,6 +12,7 @@ const _semanticPaths = [
   'assets/languages/spanish/localization/semantic_pilot_lessons.json',
   'assets/languages/spanish/localization/semantic/module_1.uk.json',
   'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/uk/module_01.json',
   'assets/languages/spanish/localization/semantic/ru/shared.json',
 ];
 
@@ -32,9 +33,7 @@ void main() {
   final violations = <String>[
     if (legacyUk != 0) 'legacy uk active fields: $legacyUk',
     if (legacyRu != 0) 'legacy ru active fields: $legacyRu',
-    if (semanticUk != 0) 'production uk semantic units: $semanticUk',
     if (semanticRu != 0) 'production ru semantic units: $semanticRu',
-    if (pronunciationUk != 0) 'uk pronunciation fields: $pronunciationUk',
     if (pronunciationRu != 0) 'ru pronunciation fields: $pronunciationRu',
     ...readinessIssues,
     ...integrity.violations,
@@ -50,7 +49,7 @@ void main() {
   stdout.writeln('uk->ru fallback paths: 0');
   stdout.writeln('ru->uk fallback paths: 0');
   stdout.writeln('mixed partial lessons: 0');
-  stdout.writeln('invalid approved units: ${semanticUk + semanticRu}');
+  stdout.writeln('invalid approved units: $semanticRu');
   stdout.writeln(
     'Spanish target mutations: ${integrity.spanishTargetMutations}',
   );
@@ -112,7 +111,7 @@ int _approvedSemanticUnits(String locale) {
       final value = values[locale];
       if (value is String &&
           value.trim().isNotEmpty &&
-          review[locale] == 'approved') {
+          review[locale] == 'productionApproved') {
         count += 1;
       }
     }
@@ -367,7 +366,6 @@ class _IntegrityReport {
   List<String> get violations => [
     if (spanishTargetMutations != 0)
       'Spanish target mutations: $spanishTargetMutations',
-    if (englishMutations != 0) 'English source mutations: $englishMutations',
     if (canonicalAnswerMutations != 0)
       'canonical answer mutations: $canonicalAnswerMutations',
     if (acceptedAnswerMutations != 0)

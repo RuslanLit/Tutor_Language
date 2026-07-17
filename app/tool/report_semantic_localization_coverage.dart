@@ -5,6 +5,7 @@ import 'package:tutor_language/core/content/semantic_localization.dart';
 
 const _semanticPaths = [
   'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/uk/module_01.json',
   'assets/languages/spanish/localization/semantic/ru/shared.json',
 ];
 const _legacyPath =
@@ -28,7 +29,7 @@ void main() {
   }).length;
   final approvedUnits = semanticBundle.units.where((unit) {
     return unit.review.values.every(
-      (status) => status == SemanticReviewStatus.approved,
+      (status) => status == SemanticReviewStatus.productionApproved,
     );
   }).length;
   final migratedFieldKeys = {

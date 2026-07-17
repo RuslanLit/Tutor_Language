@@ -34,6 +34,9 @@ class PronunciationCatalog {
 
   PronunciationUnit? unitById(String id) => _unitsById[id];
   PronunciationReadingRule? readingRuleById(String id) => _rulesById[id];
+  PronunciationLocalizationEntry? localizationById(String id) {
+    return _localizationsById[id];
+  }
 
   PronunciationUnit? unitForContentId(String contentId) {
     return _unitsByRelatedContentId[contentId];

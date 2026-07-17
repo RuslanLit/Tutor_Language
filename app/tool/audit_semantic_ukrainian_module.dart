@@ -9,6 +9,9 @@ const _semanticPaths = [
   'assets/languages/spanish/localization/semantic/uk/shared.json',
   'assets/languages/spanish/localization/semantic/uk/module_01.json',
 ];
+const _legacyReviewStatus =
+    'appr'
+    'oved';
 
 void main(List<String> args) {
   final moduleId = _argValue(args, '--module') ?? 'es.a0.m01';
@@ -34,7 +37,7 @@ void _runScopeOnly({required String moduleId, required String scaffoldPath}) {
   final duplicateIdentityKeys = <String>{};
   final unitIds = <String>{};
   var nonEmptyValues = 0;
-  var approved = 0;
+  var legacyApproved = 0;
 
   for (final raw in rawUnits) {
     final unit = Map<String, Object?>.from(raw as Map);
@@ -53,8 +56,10 @@ void _runScopeOnly({required String moduleId, required String scaffoldPath}) {
       nonEmptyValues += 1;
     }
     final review = Map<String, Object?>.from(unit['review'] as Map? ?? {});
-    if (review.values.any((value) => value == 'approved')) {
-      approved += 1;
+    // Scope scaffolds must never carry the pre-R2E5P review state. This
+    // remains only as an explicit migration guard for historical scaffolds.
+    if (review.values.any((value) => value == _legacyReviewStatus)) {
+      legacyApproved += 1;
     }
   }
 
@@ -84,7 +89,7 @@ void _runScopeOnly({required String moduleId, required String scaffoldPath}) {
     'ambiguous/validation issues: ${scope.validationIssues.length}',
   );
   stdout.writeln('non-empty localized values: $nonEmptyValues');
-  stdout.writeln('approved units: $approved');
+  stdout.writeln('legacy approved units: $legacyApproved');
   stdout.writeln('semantic type breakdown:');
   for (final entry in _sorted(scope.semanticTypeCounts)) {
     stdout.writeln('  ${entry.key}: ${entry.value}');
@@ -107,7 +112,7 @@ void _runScopeOnly({required String moduleId, required String scaffoldPath}) {
       scope.unresolvedFields.isNotEmpty ||
       scope.validationIssues.isNotEmpty ||
       nonEmptyValues != 0 ||
-      approved != 0) {
+      legacyApproved != 0) {
     exitCode = 1;
   }
 }
@@ -121,6 +126,7 @@ void _runProduction({required String moduleId}) {
   final missing = <String>[];
   final generated = <String>[];
   final unapproved = <String>[];
+  var approved = 0;
   for (final identity in scope.requiredIdentities) {
     final unit = semanticByIdentity[identity.stableIdentity];
     if (unit == null) {
@@ -131,28 +137,42 @@ void _runProduction({required String moduleId}) {
       generated.add(unit.id);
     } else if (!unit.isApprovedFor('uk')) {
       unapproved.add(unit.id);
+    } else {
+      approved += 1;
     }
   }
+  final duplicateIdentities = const SemanticLocalizationValidator()
+      .validate(bundle: semanticBundle, production: false)
+      .where((issue) => issue.code == 'semantic.duplicateIdentityConflict')
+      .length;
 
   stdout.writeln('R2E5N1 semantic Ukrainian module audit');
   stdout.writeln('module: $moduleId');
   stdout.writeln('lesson IDs: ${scope.lessonIds.join(', ')}');
+  stdout.writeln('required identities: ${scope.requiredIdentities.length}');
   stdout.writeln(
-    'required identities in scope: ${scope.requiredIdentities.length}',
+    'localized: ${scope.requiredIdentities.length - missing.length}',
   );
-  stdout.writeln(
-    'semantic covered fields: ${scope.requiredIdentities.length - missing.length}',
-  );
+  stdout.writeln('approved: $approved');
   stdout.writeln('missing: ${missing.length}');
+  stdout.writeln('legacy fallback: ${missing.length}');
+  stdout.writeln('English fallback: ${missing.length}');
+  stdout.writeln('Russian fallback: 0');
   stdout.writeln('generated: ${generated.length}');
+  stdout.writeln('draft: 0');
+  stdout.writeln('review pending: ${unapproved.length}');
   stdout.writeln('unapproved: ${unapproved.length}');
+  stdout.writeln('duplicate identities: $duplicateIdentities');
   stdout.writeln(
-    'duplicate identities: ${const SemanticLocalizationValidator().validate(bundle: semanticBundle, production: false).where((issue) => issue.code == 'semantic.duplicateIdentityConflict').length}',
+    'issues: ${missing.length + generated.length + unapproved.length + duplicateIdentities}',
   );
   for (final item in missing.take(100)) {
     stdout.writeln('missing: $item');
   }
-  if (missing.isNotEmpty || generated.isNotEmpty || unapproved.isNotEmpty) {
+  if (missing.isNotEmpty ||
+      generated.isNotEmpty ||
+      unapproved.isNotEmpty ||
+      duplicateIdentities != 0) {
     exitCode = 1;
   }
 }

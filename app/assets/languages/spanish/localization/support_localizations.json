@@ -2529,7 +2529,7 @@
       "id": "template.es.a0.m01.l016.type_hola.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish word \"hola\" with the silent h."
+          "en": "Type the Spanish word for \"hello\". Remember that it begins with silent h."
         }
       }
     },
@@ -2763,7 +2763,7 @@
       "id": "template.es.a0.m02.l017.type_jose.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish word/name \"José\" with its accent."
+          "en": "Type the Spanish name with the written accent from the reading."
         }
       }
     },
@@ -2772,7 +2772,7 @@
       "id": "template.es.a0.m02.l017.type_llamo.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish word \"llamo\" from the pattern me llamo."
+          "en": "Type the Spanish verb form from the pattern me ____."
         }
       }
     },

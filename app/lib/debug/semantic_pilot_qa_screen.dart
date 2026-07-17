@@ -191,7 +191,8 @@ _LessonSemanticDiagnostics _diagnosticsForLesson(
   )) {
     final ukStatus = unit.review['uk'];
     final hasApprovedValue =
-        unit.values['uk'] != null && ukStatus == SemanticReviewStatus.approved;
+        unit.values['uk'] != null &&
+        ukStatus == SemanticReviewStatus.productionApproved;
     fields.add(
       _SemanticFieldDiagnostic(
         lessonId: lessonId,

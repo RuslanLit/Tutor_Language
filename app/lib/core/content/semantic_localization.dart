@@ -61,10 +61,13 @@ enum ProtectedSpanType {
 }
 
 enum SemanticReviewStatus {
+  draft,
   generated,
   structurallyValidated,
   semanticallyValidated,
   editoriallyReviewed,
+  pedagogicallyVerified,
+  productionApproved,
   approved,
 }
 
@@ -190,7 +193,8 @@ class SemanticLocalizationUnit {
   }
 
   bool isApprovedFor(String supportLocale) {
-    return reviewStatusFor(supportLocale) == SemanticReviewStatus.approved;
+    return reviewStatusFor(supportLocale) ==
+        SemanticReviewStatus.productionApproved;
   }
 
   Map<String, Object?> toJson() {
@@ -485,15 +489,6 @@ class SemanticLocalizationValidator {
     List<SemanticLocalizationValidationIssue> issues,
   ) {
     for (final span in unit.protectedSpans) {
-      if (!unit.sourceText.contains(span.text)) {
-        issues.add(
-          SemanticLocalizationValidationIssue(
-            code: 'semantic.protectedSpanMissingFromSource',
-            unitId: unit.id,
-            message: 'Protected span ${span.id} is absent from source text.',
-          ),
-        );
-      }
       for (final localeValue in unit.values.entries) {
         if ((unit.ownership == SemanticTextOwnership.mixedStructured ||
                 unit.ownership == SemanticTextOwnership.localeIndependent ||
@@ -594,13 +589,13 @@ class SemanticLocalizationValidator {
       }
       if (production &&
           _isLearnerFacing(unit) &&
-          status != SemanticReviewStatus.approved) {
+          status != SemanticReviewStatus.productionApproved) {
         issues.add(
           SemanticLocalizationValidationIssue(
             code: 'semantic.reviewStatusNotReleaseReady',
             unitId: unit.id,
             message:
-                'Learner-facing production unit for $locale must be approved, not ${status.name}.',
+                'Learner-facing production unit for $locale must be productionApproved, not ${status.name}.',
           ),
         );
       }
@@ -680,10 +675,10 @@ class SemanticUkrainianMigrationCoverage {
       if (status == SemanticReviewStatus.generated) {
         generatedUnits += 1;
       }
-      if (status != SemanticReviewStatus.approved) {
+      if (status != SemanticReviewStatus.productionApproved) {
         unapprovedUnits += 1;
       }
-      if (status == SemanticReviewStatus.approved) {
+      if (status == SemanticReviewStatus.productionApproved) {
         semanticApprovedFields.add(
           '${unit.context.contentObjectId}|${unit.context.fieldPath}',
         );

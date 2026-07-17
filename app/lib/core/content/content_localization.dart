@@ -325,6 +325,7 @@ class SemanticLocalizationRepository {
            assetPaths ??
            const [
              'assets/languages/spanish/localization/semantic/uk/shared.json',
+             'assets/languages/spanish/localization/semantic/uk/module_01.json',
              'assets/languages/spanish/localization/semantic/ru/shared.json',
            ];
 

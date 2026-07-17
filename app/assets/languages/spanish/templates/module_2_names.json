@@ -229,7 +229,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish word/name \"José\" with its accent.",
+    "prompt_template": "Type the Spanish name with the written accent from the reading.",
     "expected_answer": "José",
     "review_template_ids": [
       "template.es.a0.m02.l017.n_choice.v1"
@@ -245,7 +245,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish word \"llamo\" from the pattern me llamo.",
+    "prompt_template": "Type the Spanish verb form from the pattern me ____.",
     "expected_answer": "llamo",
     "review_template_ids": [
       "template.es.a0.m02.l004.name_pattern_choice.v1"

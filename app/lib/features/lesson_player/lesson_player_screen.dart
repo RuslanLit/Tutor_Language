@@ -1046,6 +1046,14 @@ class ReadingRuleView extends StatelessWidget {
           const SizedBox(height: 8),
           Text(presentation.detailedExplanation!),
         ],
+        if (presentation.articulationHint != null) ...[
+          const SizedBox(height: 8),
+          Text(presentation.articulationHint!),
+        ],
+        if (presentation.commonMistakes != null) ...[
+          const SizedBox(height: 8),
+          Text(presentation.commonMistakes!),
+        ],
       ],
     );
   }

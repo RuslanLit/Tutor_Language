@@ -41,7 +41,8 @@ educational, linguistic, editorial, pronunciation and localization review.
 
 For SemanticLocalizationUnit content, `generated`, `structurallyValidated` and
 `semanticallyValidated` are not release approval. Production learner-facing
-semantic units require `approved` review status.
+semantic units require `productionApproved` review status. Legacy `approved`
+status is compatibility metadata and is not a production release gate.
 
 ---
 
@@ -465,11 +466,12 @@ editorial judgment.
 Naturalness, pedagogical clarity, beginner readability and textbook quality
 remain review responsibilities even when tooling improves.
 
-For full Ukrainian semantic migration, a field may be marked `approved` only
-when the review evidence satisfies this protocol. Existing legacy Ukrainian
-strings and generated semantic drafts are migration inputs, not approval
-evidence. The R2E5 audit must fail whenever Ukrainian still resolves through
-legacy localization, source fallback or unapproved semantic units.
+For full Ukrainian semantic migration, a field may be marked
+`productionApproved` only when the review evidence satisfies this protocol.
+Existing legacy Ukrainian strings and generated semantic drafts are migration
+inputs, not approval evidence. The R2E5 audit must fail whenever Ukrainian still
+resolves through legacy localization, source fallback or non-production semantic
+units.
 
 R2E5R extends this rule to Ukrainian and Russian reset recovery: pre-reset
 Ukrainian/Russian legacy strings, pronunciation hints and semantic approvals are
@@ -491,3 +493,23 @@ facing educational text.
 ---
 
 End of document.
+
+---
+
+# R2E5N0A Review Boundary
+
+Scope extraction reports are review inputs, not editorial approval. Generated
+scaffold units with empty locale values cannot be marked `productionApproved`
+and must not be considered production localization.
+
+---
+
+# R2E5P Pedagogical Contract
+
+Production lesson recovery requires an executable pedagogical contract. Each
+learning step must have educational intent, knowledge presented, knowledge
+hidden, expected recall, assessment target, allowed visible information and
+success criteria. Presentation may reveal the answer; recognition may show
+options; guided recall may show hints; independent recall must not reveal the
+target response; review must satisfy recall. Answer leakage is a release
+blocker.

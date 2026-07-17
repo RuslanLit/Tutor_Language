@@ -4,9 +4,13 @@ import 'dart:io';
 import 'package:tutor_language/core/content/pronunciation_catalog.dart';
 import 'package:tutor_language/core/content/pronunciation_models.dart';
 import 'package:tutor_language/core/content/semantic_localization.dart';
+import 'package:tutor_language/features/lesson_assembly/pedagogical_contract_validator.dart';
+
+import 'semantic_scope/module_semantic_scope_extractor.dart';
 
 const _semanticPaths = [
   'assets/languages/spanish/localization/semantic/uk/shared.json',
+  'assets/languages/spanish/localization/semantic/uk/module_01.json',
   'assets/languages/spanish/localization/semantic/ru/shared.json',
 ];
 const _pronunciationPath =
@@ -14,6 +18,7 @@ const _pronunciationPath =
 
 void main() {
   final semanticBundle = _readSemanticBundles(_semanticPaths);
+  final module1Scope = ModuleSemanticScopeExtractor().extract('es.a0.m01');
   final pronunciationBundle = PronunciationBundle.fromJson(
     _readJsonObject(_pronunciationPath),
   );
@@ -21,7 +26,22 @@ void main() {
 
   final issues = <SemanticLocalizationValidationIssue>[
     ...const SemanticLocalizationValidator().validate(bundle: semanticBundle),
-    ..._validateResetProductionState(semanticBundle),
+    ...const PedagogicalContractValidator()
+        .validateSemanticApproval(semanticBundle)
+        .map(
+          (issue) => SemanticLocalizationValidationIssue(
+            code: issue.code,
+            unitId: issue.objectId,
+            message: issue.message,
+          ),
+        ),
+    ..._validateProductionState(
+      semanticBundle,
+      allowedUkrainianIdentities: {
+        for (final identity in module1Scope.requiredIdentities)
+          identity.stableIdentity,
+      },
+    ),
     ..._validateReadingRuleApplicability(catalog),
   ];
 
@@ -44,22 +64,38 @@ void main() {
   }
 }
 
-List<SemanticLocalizationValidationIssue> _validateResetProductionState(
-  SemanticLocalizationBundle bundle,
-) {
+List<SemanticLocalizationValidationIssue> _validateProductionState(
+  SemanticLocalizationBundle bundle, {
+  required Set<String> allowedUkrainianIdentities,
+}) {
   final issues = <SemanticLocalizationValidationIssue>[];
+  final approvedUkrainianIdentities = <String>{};
   for (final unit in bundle.units) {
     for (final entry in unit.review.entries) {
-      if ((entry.key == 'uk' || entry.key == 'ru') &&
-          entry.value == SemanticReviewStatus.approved) {
+      if (entry.key == 'ru' &&
+          entry.value == SemanticReviewStatus.productionApproved) {
         issues.add(
           SemanticLocalizationValidationIssue(
-            code: 'semantic.resetApprovedProductionUnit',
+            code: 'semantic.russianApprovedProductionUnit',
             unitId: unit.id,
-            message:
-                'Reset state must not contain approved ${entry.key} production units.',
+            message: 'Russian production semantic units are outside R2E5N1.',
           ),
         );
+      }
+      if (entry.key == 'uk') {
+        if (!allowedUkrainianIdentities.contains(unit.identityKey)) {
+          issues.add(
+            SemanticLocalizationValidationIssue(
+              code: 'semantic.ukrainianUnitOutsideModule1Scope',
+              unitId: unit.id,
+              message:
+                  'Ukrainian production unit is outside the R2E5N1 Module 1 scope.',
+            ),
+          );
+        }
+        if (entry.value == SemanticReviewStatus.productionApproved) {
+          approvedUkrainianIdentities.add(unit.identityKey);
+        }
       }
     }
     for (final entry in unit.values.entries) {
@@ -73,6 +109,19 @@ List<SemanticLocalizationValidationIssue> _validateResetProductionState(
         );
       }
     }
+  }
+  final missing =
+      allowedUkrainianIdentities
+          .difference(approvedUkrainianIdentities)
+          .toList()
+        ..sort();
+  for (final identity in missing) {
+    issues.add(
+      SemanticLocalizationValidationIssue(
+        code: 'semantic.ukrainianModule1ApprovedUnitMissing',
+        message: 'Missing approved Ukrainian semantic unit for $identity.',
+      ),
+    );
   }
   return issues;
 }

@@ -221,6 +221,10 @@ Educational Content
 
 [ ] R2E5R Redmi Note 8T narrow reset smoke complete
 
+[x] R2E5N0A Module 1 semantic scope scaffold/audit reconciled
+
+[ ] R2E5N1 Ukrainian Module 1 authored, reviewed and device-tested
+
 [x] support locale separated from UI locale
 
 [x] target language separated from support language

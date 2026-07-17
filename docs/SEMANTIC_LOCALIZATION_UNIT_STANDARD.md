@@ -162,6 +162,8 @@ Review states:
 - `structurallyValidated`
 - `semanticallyValidated`
 - `editoriallyReviewed`
+- `pedagogicallyVerified`
+- `productionApproved`
 - `approved`
 
 Rules:
@@ -169,14 +171,21 @@ Rules:
 - `generated` is not release-ready.
 - `structurallyValidated` is not editor-approved.
 - `semanticallyValidated` does not prove natural-language quality.
-- Production learner-facing educational text requires `approved`.
-- Generators must not set `editoriallyReviewed` or `approved`.
+- `editoriallyReviewed` does not prove the lesson hides and reveals knowledge
+  correctly.
+- `pedagogicallyVerified` records that the semantic text has passed educational
+  review, but it is still not a production gate by itself.
+- Production learner-facing educational text requires `productionApproved`.
+- Legacy `approved` is historical compatibility only and must not release new
+  learner-facing semantic units.
+- Generators must not set `editoriallyReviewed`, `pedagogicallyVerified`,
+  `productionApproved` or legacy `approved`.
 
 ## Fallback
 
-Semantic units override legacy fields only when an approved value exists for the
-requested support locale. If no semantic unit exists, the legacy localization
-bundle remains the transitional fallback path.
+Semantic units override legacy fields only when a `productionApproved` value
+exists for the requested support locale. If no semantic unit exists, the legacy
+localization bundle remains the transitional fallback path.
 
 Fallback keeps the app usable. It must not be counted as completed production
 localization.
@@ -212,8 +221,8 @@ Polish, German or future locales until:
 After the reference slice, migrate complete production lessons as pilots before
 full-course migration. A complete-lesson pilot must declare its lesson IDs,
 collect every expected learner-visible field deterministically from production
-content assets, require approved semantic units for all collected fields and
-report zero legacy fallback inside the declared pilot scope.
+content assets, require `productionApproved` semantic units for all collected
+fields and report zero legacy fallback inside the declared pilot scope.
 
 The R2E4C pilot uses:
 
@@ -233,16 +242,26 @@ app/tool/audit_semantic_ukrainian_migration.dart
 ```
 
 The audit is intentionally stricter than the general coverage reporter. It
-fails until approved Ukrainian semantic units cover every legacy Ukrainian
+fails until `productionApproved` Ukrainian semantic units cover every legacy Ukrainian
 educational field and runtime would no longer need legacy or source fallback
 for Ukrainian educational content. A mechanically converted legacy string does
-not become an approved semantic unit merely because it validates structurally.
+not become a `productionApproved` semantic unit merely because it validates
+structurally.
 
 R2E5R reset Ukrainian and Russian educational localization. After the reset,
 production semantic bundles for `uk` and `ru` must start empty or draft-only;
-old R2E4/R2E5 approved statuses are historical and do not confer production
+old R2E4/R2E5 approval statuses are historical and do not confer production
 approval. New `uk` and `ru` content must be scaffolded with generated review
 status and empty localized values until independently authored and reviewed.
+
+R2E5P adds an executable pedagogical contract for production lesson assembly.
+Each learner-facing lesson step must declare or derive educational intent,
+presented/hidden knowledge, expected recall, assessment target, allowed visible
+information and success criteria. ReadingRule and PronunciationUnit support is
+production-complete only when localized learner explanation, localized
+pronunciation hint, IPA, Spanish orthography, examples and misconception
+guidance are present. Independent recall steps must not reveal the target
+response in prompts or answer options.
 
 ## Authoring Examples
 
@@ -278,7 +297,7 @@ Do not:
 - generate Ukrainian through Russian word replacement;
 - assemble support-language sentences word by word;
 - store `Soy de` as an accidental Latin substring;
-- mark generated text as approved;
+- mark generated text as `productionApproved`;
 - use pronunciation hints as meanings;
 - apply `silent_h` to the `h` inside `ch`.
 
@@ -286,7 +305,7 @@ Do not:
 
 Production PASS requires:
 
-- approved learner-facing semantic units for migrated release scope;
+- `productionApproved` learner-facing semantic units for migrated release scope;
 - zero semantic validator issues;
 - no protected-span mutation;
 - no generated release-ready units;

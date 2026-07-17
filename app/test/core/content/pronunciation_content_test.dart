@@ -113,7 +113,7 @@ void main() {
   );
 
   test(
-    'Ukrainian support locale has no reset learner hints or rule prose',
+    'Ukrainian Module 1 pronunciation support resolves without Russian fallback',
     () async {
       final catalog = await _loadCatalog();
 
@@ -121,30 +121,22 @@ void main() {
         'pronunciation.es.word.hola.v1',
         supportLocaleCode: 'uk-UA',
       );
-      final adios = catalog.resolveUnit(
-        'pronunciation.es.word.adios.v1',
-        supportLocaleCode: 'uk',
-      );
-      final hastaLuego = catalog.resolveUnit(
-        'pronunciation.es.phrase.hasta_luego.v1',
-        supportLocaleCode: 'uk',
-      );
       final silentH = catalog.resolveReadingRule(
         'pronunciation.es.rule.silent_h.v1',
         supportLocaleCode: 'uk-UA',
       );
-
-      expect(hola?.localizedLearnerHint, isNull);
-      expect(adios?.localizedLearnerHint, isNull);
-      expect(hastaLuego?.localizedLearnerHint, isNull);
-      expect(silentH?.title, isNull);
-      expect(silentH?.shortExplanation, isNull);
-      expect(
-        silentH?.diagnosticCode,
-        'readingRule.missingLocalizedExplanation',
+      final russianHola = catalog.resolveUnit(
+        'pronunciation.es.word.hola.v1',
+        supportLocaleCode: 'ru',
       );
+
+      expect(hola?.localizedLearnerHint, isNotEmpty);
+      expect(hola?.localizedExplanation, isNotEmpty);
+      expect(silentH?.title, isNotEmpty);
+      expect(silentH?.shortExplanation, isNotEmpty);
+      expect(silentH?.diagnosticCode, isNull);
+      expect(russianHola?.localizedLearnerHint, isNull);
       expect(catalog.crossLocaleFallbackAttempts, greaterThan(0));
-      expect(catalog.crossLocaleReadingRuleFallbackAttempts, greaterThan(0));
     },
   );
 

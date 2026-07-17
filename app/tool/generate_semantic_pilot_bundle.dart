@@ -718,7 +718,9 @@ class _PilotBundleGenerator {
       'ownership': ownership,
       'sourceText': sourceText,
       'values': values,
-      'review': {for (final locale in values.keys) locale: 'approved'},
+      'review': {
+        for (final locale in values.keys) locale: 'productionApproved',
+      },
       'protectedSpans': protectedSpans,
       'context': {
         'courseId': 'es.a0',

@@ -964,6 +964,8 @@ bool _hasExplicitPromptConstraint(String prompt) {
   const constraintMarkers = [
     'Spanish word',
     'Spanish word/name',
+    'Spanish name',
+    'Spanish verb form',
     'Spanish phrase',
     'Spanish pattern',
     'Spanish command',

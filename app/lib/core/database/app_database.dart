@@ -150,7 +150,8 @@ class CompetencyRecoveryExecutions extends Table {
   DateTimeColumn get startedAt => dateTime().nullable()();
   DateTimeColumn get completedAt => dateTime().nullable()();
   BoolColumn get succeeded => boolean().nullable()();
-  BoolColumn get retryOccurred => boolean().withDefault(const Constant(false))();
+  BoolColumn get retryOccurred =>
+      boolean().withDefault(const Constant(false))();
 
   @override
   Set<Column<Object>> get primaryKey => {recoveryExecutionId};

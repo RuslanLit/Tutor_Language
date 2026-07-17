@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "purpose": "R2E5P adversarial pedagogical contract fixtures",
+  "note": "The executable fixture bodies are constructed by pedagogical_contract_adversarial_cases.dart so Flutter tests and the CLI audit exercise the same real validators.",
+  "categories": [
+    "Answer leakage",
+    "Copy-as-recall",
+    "ReadingRule completeness",
+    "Pronunciation integrity",
+    "Locale purity",
+    "Semantic correctness",
+    "Exercise contract",
+    "Runtime assembly",
+    "Approval integrity"
+  ],
+  "fixtureSource": "lib/features/lesson_assembly/pedagogical_contract_adversarial_cases.dart"
+}
