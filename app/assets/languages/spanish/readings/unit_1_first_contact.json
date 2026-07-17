@@ -44,8 +44,8 @@
       "vocab.es.a0.unit1.hasta_luego.v1"
     ],
     "grammar_ids": [],
-    "text": "Hola. Buenos días. Hola. Buenas tardes. Hasta luego. Buenas noches. Adiós.",
-    "native_translation": "Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye."
+    "text": "Hola.\nHola.\nHasta luego.\nAdiós.",
+    "native_translation": "OH-lah.\nOH-lah.\nAHS-tah LWEH-goh.\nah-DYOHS.\nHello.\nHello.\nSee you later.\nGoodbye."
   },
   {
     "id": "reading.es.a0.unit1.polite_words.v1",
@@ -58,12 +58,12 @@
       "vocab.es.a0.unit1.si.v1"
     ],
     "grammar_ids": [],
-    "text": "Perdón. Sí. Por favor. Gracias. De nada. Gracias. De nada.",
-    "native_translation": "Excuse me. Yes. Please. Thank you. You're welcome. Thank you. You're welcome."
+    "text": "Perdón.\nPor favor.\nGracias.\nDe nada.",
+    "native_translation": "per-DON.\npor fah-VOR.\nGRAH-syahs.\ndeh NAH-dah.\nExcuse me.\nPlease.\nThank you.\nYou're welcome."
   },
   {
     "id": "reading.es.a0.unit1.clarification.v1",
-    "title": "More Slowly, Please",
+    "title": "No Entiendo",
     "vocabulary_ids": [
       "vocab.es.a0.unit1.no_entiendo.v1",
       "vocab.es.a0.unit1.repite.v1",
@@ -73,8 +73,8 @@
       "vocab.es.a0.unit1.no.v1"
     ],
     "grammar_ids": [],
-    "text": "No entiendo. Repite, por favor. Más despacio, por favor. Sí. No. No entiendo.",
-    "native_translation": "I don't understand. Repeat, please. More slowly, please. Yes. No. I don't understand."
+    "text": "No entiendo.\nRepite, por favor.\nSí.\nNo entiendo.",
+    "native_translation": "noh en-TYEN-doh.\nreh-PEE-teh, por fah-VOR.\nsee.\nnoh en-TYEN-doh.\nI don't understand.\nRepeat, please.\nYes.\nI don't understand."
   },
   {
     "id": "reading.es.a0.unit1.names.v1",

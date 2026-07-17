@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.2
 
 Related documents:
 
@@ -66,6 +66,25 @@ grapheme, it must be beginner-safe and must not expose authoring terminology
 such as regional policy names unless that terminology is itself the teaching
 objective. See READING_RULE_PREREQUISITE_STANDARD.md and
 GRAPHEME_PRESENTATION_STANDARD.md.
+
+ReadingRule cards must be immediate pronunciation aids. A learner must be able
+to use the card to read the next course word or phrase. The card must teach the
+Spanish symbol, its name, an approximate support-language pronunciation, real
+examples and optional IPA in that order. Authoring, validator, localization,
+implementation and writing-system safety explanations must not appear in the
+card unless the current lesson explicitly teaches that contrast. See
+PRONUNCIATION_AUTHORING_GUIDE.md.
+
+Educational information priority is mandatory. When learner comprehension
+conflicts with linguistic precision, learner comprehension always has priority.
+The first explanation shown to a beginner must be the simplest explanation that
+enables the nearest correct action; scientific terminology may follow only as
+supplementary information.
+
+Zero linguistic prerequisites are mandatory. Learner-facing text must not rely
+on IPA, phonetics, articulation terminology, linguistic jargon, orthographic
+theory or writing-system terminology unless those concepts are themselves the
+lesson objective.
 
 When learner-facing text introduces a new written symbol, the learner must
 know how the symbol looks, what it is called or designated, how that name is

@@ -670,7 +670,9 @@ class EducationalContentLocalizationResolver {
         }),
       ),
       correctOptionId: template.correctOptionId,
-      expectedAnswer: template.expectedAnswer,
+      expectedAnswer:
+          _localizedField(template.id, 'expected_answer', locale) ??
+          template.expectedAnswer,
       acceptedAnswers: template.acceptedAnswers,
       acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
       requiresExactAnswer: template.requiresExactAnswer,

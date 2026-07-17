@@ -58,23 +58,23 @@
     "lines": [
       {
         "speaker": "Ana",
-        "spanish": "Buenos días.",
-        "native_translation": "Good morning."
+        "spanish": "Hola.",
+        "native_translation": "OH-lah.\nHello."
       },
       {
         "speaker": "Luis",
         "spanish": "Hola.",
-        "native_translation": "Hello."
+        "native_translation": "OH-lah.\nHello."
       },
       {
         "speaker": "Ana",
         "spanish": "Hasta luego.",
-        "native_translation": "See you later."
+        "native_translation": "AHS-tah LWEH-goh.\nSee you later."
       },
       {
         "speaker": "Luis",
         "spanish": "Adiós.",
-        "native_translation": "Goodbye."
+        "native_translation": "ah-DYOHS.\nGoodbye."
       }
     ]
   },
@@ -127,22 +127,22 @@
       {
         "speaker": "Ana",
         "spanish": "No entiendo.",
-        "native_translation": "I don't understand."
+        "native_translation": "noh en-TYEN-doh.\nI don't understand."
       },
       {
         "speaker": "Luis",
         "spanish": "Repite, por favor.",
-        "native_translation": "Repeat, please."
+        "native_translation": "reh-PEE-teh, por fah-VOR.\nRepeat, please."
       },
       {
         "speaker": "Ana",
-        "spanish": "Más despacio, por favor.",
-        "native_translation": "More slowly, please."
+        "spanish": "Sí.",
+        "native_translation": "see.\nYes."
       },
       {
         "speaker": "Luis",
-        "spanish": "Sí.",
-        "native_translation": "Yes."
+        "spanish": "No entiendo.",
+        "native_translation": "noh en-TYEN-doh.\nI don't understand."
       }
     ]
   },

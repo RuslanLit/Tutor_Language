@@ -499,6 +499,10 @@ class PedagogicalContractValidator {
         'learnerHint': resolved!.shortExplanation!,
       if (resolved?.detailedExplanation != null)
         'explanation': resolved!.detailedExplanation!,
+      if (resolved?.articulationHint != null)
+        'articulationHint': resolved!.articulationHint!,
+      if (resolved?.commonMistakes != null)
+        'commonMistakes': resolved!.commonMistakes!,
       if (resolved?.phoneticOutcome != null)
         'reading': resolved!.phoneticOutcome!,
     };
@@ -524,6 +528,73 @@ class PedagogicalContractValidator {
           objectId: rule.id,
           message:
               'ReadingRule repeats the symbol as multiple semantic fields.',
+        ),
+      );
+    }
+    if (_hasDuplicateExplanationFields(semanticFields)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_DUPLICATE_EXPLANATION',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule repeats the same learner explanation in multiple fields.',
+        ),
+      );
+    }
+    final learnerText = semanticFields.values.join('\n');
+    if (_containsGenericReadingRuleFallback(learnerText)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_GENERIC_FALLBACK_EXPLANATION',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule uses generic fallback text instead of authored learner explanation.',
+        ),
+      );
+    }
+    if (_containsForbiddenReadingRulePresentationLanguage(learnerText)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_AUTHORING_LANGUAGE_EXPOSED',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule exposes authoring, validator, implementation or writing-system safety language to the learner.',
+        ),
+      );
+    }
+    if (_hasScriptMisidentification(learnerText)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_SCRIPT_MISIDENTIFIED',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule misidentifies a Latin grapheme as Ukrainian/Cyrillic.',
+        ),
+      );
+    }
+    if (_hasCyrillicSubstitutionForLatinGrapheme(rule, learnerText)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_CYRILLIC_SUBSTITUTES_LATIN_GRAPHEME',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule substitutes Cyrillic lookalikes for Spanish Latin graphemes.',
+        ),
+      );
+    }
+    if (_hasMixedScriptGraphemeSequence(learnerText)) {
+      issues.add(
+        PedagogicalContractIssue(
+          code: 'READING_RULE_MIXED_SCRIPT_GRAPHEME',
+          severity: PedagogicalIssueSeverity.blocker,
+          objectId: rule.id,
+          message:
+              'ReadingRule mixes Latin and Cyrillic lookalikes in a grapheme sequence.',
         ),
       );
     }
@@ -624,6 +695,22 @@ class PedagogicalContractValidator {
             objectId: unitId,
             field: 'explanations.$supportLocale',
             message: 'Pronunciation unit must include localized explanation.',
+          ),
+        );
+      }
+      final learnerText = [
+        resolved?.localizedLearnerHint,
+        resolved?.localizedExplanation,
+      ].whereType<String>().join('\n');
+      if (_containsGenericReadingRuleFallback(learnerText) ||
+          _containsForbiddenReadingRulePresentationLanguage(learnerText)) {
+        issues.add(
+          PedagogicalContractIssue(
+            code: 'PRONUNCIATION_AUTHORING_LANGUAGE_EXPOSED',
+            severity: PedagogicalIssueSeverity.blocker,
+            objectId: unitId,
+            message:
+                'Pronunciation unit exposes authoring, validator, implementation or writing-system safety language to the learner.',
           ),
         );
       }
@@ -1075,6 +1162,80 @@ class PedagogicalContractValidator {
       }
     }
     return duplicateCount >= 3;
+  }
+
+  bool _hasDuplicateExplanationFields(Map<String, String> fields) {
+    final seen = <String>{};
+    for (final entry in fields.entries) {
+      if (!{
+        'learnerHint',
+        'explanation',
+        'articulationHint',
+        'commonMistakes',
+      }.contains(entry.key)) {
+        continue;
+      }
+      final normalized = _normalizeComparableField(entry.value);
+      if (normalized.length < 20) {
+        continue;
+      }
+      if (!seen.add(normalized)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  bool _containsGenericReadingRuleFallback(String value) {
+    return value.contains('Пояснення для початківця: зверніть увагу') ||
+        value.contains('Ключова іспанська форма:');
+  }
+
+  bool _containsForbiddenReadingRulePresentationLanguage(String value) {
+    final lower = value.toLowerCase();
+    return [
+      'латинськ',
+      'латиниц',
+      'кирилиц',
+      'кириличн',
+      'українська літера',
+      'українською літерою',
+      'не підміняйте',
+      'не замінюйте',
+      'не плутайте',
+      'ключова форма',
+      'ключова іспанська форма',
+      'канонічна форма',
+      'локалізація',
+      'валідатор',
+      'стандарт',
+      'metadata',
+      'engine',
+    ].any(lower.contains);
+  }
+
+  bool _hasScriptMisidentification(String value) {
+    return RegExp(
+      r'(українськ[а-яіїєґ]*\s+букв[а-яіїєґ]*\s+r|кириличн[а-яіїєґ]*\s+r)',
+      caseSensitive: false,
+    ).hasMatch(value);
+  }
+
+  bool _hasCyrillicSubstitutionForLatinGrapheme(
+    PronunciationReadingRule rule,
+    String value,
+  ) {
+    if (rule.orthographicPattern == 'a e i o u') {
+      return RegExp(
+        r'голосн[а-яіїєґ]*\s+а\s+е\s+і\s+о\s+у',
+        caseSensitive: false,
+      ).hasMatch(value);
+    }
+    return false;
+  }
+
+  bool _hasMixedScriptGraphemeSequence(String value) {
+    return RegExp(r'\ba\s+е\s+i\s+о\s+u\b').hasMatch(value);
   }
 
   bool _looksLikeSpanishOrthography(String value) {

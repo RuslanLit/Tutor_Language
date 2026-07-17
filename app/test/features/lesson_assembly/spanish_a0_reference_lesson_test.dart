@@ -31,7 +31,7 @@ void main() {
       curriculumLoader: curriculumLoader,
       contentLoader: contentLoader,
     );
-    final assembled = await service.assembleLesson('es.a0.m01.l001');
+    final assembled = await service.assembleLesson('es.a0.m06.l016');
     final resolvedContent = assembled.activities
         .expand((activity) => activity.resolvedContent)
         .toList();
@@ -41,36 +41,43 @@ void main() {
     final readings = resolvedContent.whereType<ReadingText>().toList();
     final templates = resolvedContent.whereType<ExerciseTemplate>().toList();
 
-    expect(assembled.lesson.id, 'es.a0.m01.l001');
+    expect(assembled.lesson.id, 'es.a0.m06.l016');
     expect(assembled.activities.map((activity) => activity.activity.type), [
-      'vocabulary',
-      'dialogue',
-      'reading',
+      'grammar',
+      'grammar',
+      'exercise_template',
       'exercise_template',
     ]);
-    expect(vocabulary, hasLength(3));
-    expect(
-      vocabulary.map((item) => item.id),
-      everyElement(contains('.unit1.')),
-    );
-    expect(
-      vocabulary.map((item) => item.spanish),
-      containsAll(['hola', 'adiós']),
-    );
-    expect(grammar, isEmpty);
-    expect(dialogues, hasLength(1));
-    expect(
-      dialogues.single.vocabularyIds,
-      contains('vocab.es.a0.unit1.hola.v1'),
-    );
-    expect(dialogues.single.grammarIds, isEmpty);
-    expect(readings, hasLength(1));
-    expect(readings.single.text.split(' '), hasLength(greaterThanOrEqualTo(8)));
+    expect(vocabulary, isEmpty);
+    expect(grammar.map((topic) => topic.id), [
+      'grammar.es.a0.m01.l001.first_encounter.v1',
+      'grammar.es.a0.m01.l001.read_hola.v1',
+    ]);
+    expect(dialogues, isEmpty);
+    expect(readings, isEmpty);
+    expect(templates.map((template) => template.id), [
+      'template.es.a0.m01.l001.focus_hola.v1',
+      'template.es.a0.m01.l001.meaning_hola.v1',
+      'template.es.a0.m01.l001.decode_hola.v1',
+      'template.es.a0.m01.l001.context_arrival_hola.v1',
+      'template.es.a0.m01.l001.guided_type_hola.v1',
+      'template.es.a0.m01.l001.interference_greeting_or_farewell.v1',
+      'template.es.a0.m01.l001.independent_type_hola.v1',
+    ]);
     expect(templates.map((template) => template.exerciseType).toSet(), {
       'multiple_choice',
-      'fill_gap',
       'text_entry',
     });
+    expect(
+      templates
+          .singleWhere(
+            (template) =>
+                template.id ==
+                'template.es.a0.m01.l001.independent_type_hola.v1',
+          )
+          .promptTemplate,
+      isNot(contains('Hola')),
+    );
   });
 
   test(

@@ -13,22 +13,22 @@
       {
         "speaker": "Ana",
         "spanish": "Hola.",
-        "native_translation": "Hello."
+        "native_translation": "OH-lah.\nHello."
       },
       {
         "speaker": "Luis",
         "spanish": "Por favor.",
-        "native_translation": "Please."
+        "native_translation": "por fah-VOR.\nPlease."
       },
       {
         "speaker": "Ana",
         "spanish": "Gracias.",
-        "native_translation": "Thank you."
+        "native_translation": "GRAH-syahs.\nThank you."
       },
       {
         "speaker": "Luis",
         "spanish": "De nada.",
-        "native_translation": "You're welcome."
+        "native_translation": "deh NAH-dah.\nYou're welcome."
       }
     ]
   },

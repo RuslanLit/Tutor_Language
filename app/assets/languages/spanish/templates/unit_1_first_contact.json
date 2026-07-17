@@ -114,7 +114,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____.\"",
+    "prompt_template": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____\" (reh-PEE-teh, ____ ____).",
     "expected_answer": "por favor"
   },
   {
@@ -153,7 +153,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete with the Spanish command for \"repeat\": \"____, por favor.\"",
+    "prompt_template": "Complete with the Spanish command for \"repeat\": \"____, por favor\" (____, por fah-VOR).",
     "expected_answer": "Repite"
   },
   {

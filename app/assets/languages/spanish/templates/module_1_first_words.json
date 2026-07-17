@@ -1,5 +1,198 @@
 [
   {
+    "id": "template.es.a0.m01.l001.focus_hola.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "attention"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Someone is meeting you. Which one is the Spanish word you are learning now?",
+    "answer_options": [
+      {
+        "id": "option.hola",
+        "label": "Hola."
+      },
+      {
+        "id": "option.meaning",
+        "label": "hello"
+      },
+      {
+        "id": "option.pronunciation",
+        "label": "ola"
+      }
+    ],
+    "correct_option_id": "option.hola"
+  },
+  {
+    "id": "template.es.a0.m01.l001.meaning_hola.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "meaning_recognition"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "What does Hola mean?",
+    "answer_options": [
+      {
+        "id": "option.hello",
+        "label": "hello"
+      },
+      {
+        "id": "option.thank_you",
+        "label": "thank you"
+      },
+      {
+        "id": "option.goodbye",
+        "label": "goodbye"
+      }
+    ],
+    "correct_option_id": "option.hello"
+  },
+  {
+    "id": "template.es.a0.m01.l001.decode_hola.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "supported_decoding"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Read Hola as ola. Which reading matches Hola?",
+    "answer_options": [
+      {
+        "id": "option.ola",
+        "label": "ola"
+      },
+      {
+        "id": "option.hola",
+        "label": "hola"
+      },
+      {
+        "id": "option.gola",
+        "label": "gola"
+      }
+    ],
+    "correct_option_id": "option.ola"
+  },
+  {
+    "id": "template.es.a0.m01.l001.context_arrival_hola.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "changed_context_recognition"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Someone arrives. Which Spanish word fits this moment?",
+    "answer_options": [
+      {
+        "id": "option.hola",
+        "label": "Hola."
+      },
+      {
+        "id": "option.no_word_yet",
+        "label": "I do not know a Spanish farewell yet."
+      }
+    ],
+    "correct_option_id": "option.hola"
+  },
+  {
+    "id": "template.es.a0.m01.l001.guided_type_hola.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "guided_recall"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Write the Spanish word for hello. It is the word from the arrival situation.",
+    "expected_answer": "Hola",
+    "accepted_answers": [
+      "Hola."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m01.hola_ola.guided.v1",
+        "matching_answers": [
+          "ola"
+        ],
+        "feedback_key": "spanish.silent_h.hola",
+        "canonical_answer": "Hola",
+        "explanation_reference_id": "grammar.es.a0.m01.l001.read_hola.v1"
+      },
+      {
+        "id": "misconception.es.a0.m01.hola.source_copied.guided.v1",
+        "matching_answers": [
+          "hello"
+        ],
+        "feedback_key": "response.translation_expected_source_language",
+        "canonical_answer": "Hola"
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "brief_interference"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Is hello a greeting or a farewell?",
+    "answer_options": [
+      {
+        "id": "option.greeting",
+        "label": "greeting"
+      },
+      {
+        "id": "option.farewell",
+        "label": "farewell"
+      }
+    ],
+    "correct_option_id": "option.greeting"
+  },
+  {
+    "id": "template.es.a0.m01.l001.independent_type_hola.v1",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "independent_recall"
+    ],
+    "required_object_types": [
+      "vocabulary"
+    ],
+    "prompt_template": "Write the Spanish word for hello.",
+    "expected_answer": "Hola",
+    "accepted_answers": [
+      "Hola."
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m01.hola_ola.independent.v1",
+        "matching_answers": [
+          "ola"
+        ],
+        "feedback_key": "spanish.silent_h.hola",
+        "canonical_answer": "Hola",
+        "explanation_reference_id": "grammar.es.a0.m01.l001.read_hola.v1"
+      },
+      {
+        "id": "misconception.es.a0.m01.hola.source_copied.independent.v1",
+        "matching_answers": [
+          "hello"
+        ],
+        "feedback_key": "response.translation_expected_source_language",
+        "canonical_answer": "Hola"
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m01.l001.context_arrival_hola.v1"
+    ]
+  },
+  {
     "id": "template.es.a0.m01.l001.fill_hasta_luego.v1",
     "exercise_type": "fill_gap",
     "supported_goal_types": [
@@ -8,7 +201,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete with the Spanish phrase for \"see you later\": \"Hasta ____.\"",
+    "prompt_template": "Complete with the Spanish phrase for \"see you later\": \"Hasta ____\" (AHS-tah ____).",
     "expected_answer": "luego"
   },
   {
@@ -89,7 +282,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "In the Spanish word \"hola\", which letter is silent?",
+    "prompt_template": "In hola (OH-lah), which letter is silent?",
     "answer_options": [
       {
         "id": "h",
@@ -118,7 +311,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Complete with the Spanish word for \"hello\": \"____\".",
+    "prompt_template": "Complete with the Spanish word for \"hello\" (OH-lah): \"____\".",
     "expected_answer": "hola"
   },
   {
@@ -130,7 +323,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Type the Spanish word for \"hello\". Remember that it begins with silent h.",
+    "prompt_template": "Type the Spanish word for \"hello\".",
     "expected_answer": "hola",
     "authored_misconceptions": [
       {
@@ -156,7 +349,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Type the Spanish word for hunger. It begins with silent h.",
+    "prompt_template": "Type the Spanish word for \"hunger\".",
     "expected_answer": "hambre",
     "authored_misconceptions": [
       {
@@ -182,21 +375,21 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Choose the Spanish word for \"thank you\".",
+    "prompt_template": "Choose the Spanish word for \"thank you\" (GRAH-syahs).",
     "answer_options": [
       {
         "id": "gracias",
-        "label": "gracias",
+        "label": "gracias (GRAH-syahs)",
         "is_correct": true
       },
       {
         "id": "hola",
-        "label": "hola",
+        "label": "hola (OH-lah)",
         "is_correct": false
       },
       {
         "id": "adios",
-        "label": "adiós",
+        "label": "adiós (ah-DYOHS)",
         "is_correct": false
       }
     ],

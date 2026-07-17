@@ -28,12 +28,12 @@ void main() {
         .map((identity) => identity.stableIdentity)
         .toList();
 
-    expect(scope.requiredIdentities, hasLength(263));
+    expect(scope.requiredIdentities, hasLength(280));
     expect(scope.unresolvedFields, isEmpty);
     expect(scope.validationIssues, isEmpty);
     expect(identities.toSet(), hasLength(identities.length));
     expect(scope.semanticTypeCounts['vocabularyMeaning'], 20);
-    expect(scope.semanticTypeCounts['exercisePrompt'], 30);
+    expect(scope.semanticTypeCounts['exercisePrompt'], 33);
     expect(scope.semanticTypeCounts['pronunciationHint'], 20);
     expect(scope.semanticTypeCounts['readingRuleTitle'], 11);
     expect(scope.semanticTypeCounts['accessibilityDescription'], 1);
@@ -67,7 +67,7 @@ void main() {
     final option = scope.requiredIdentities.firstWhere(
       (identity) =>
           identity.sourceObjectId ==
-              'template.es.a0.unit1.greeting_choice.v1' &&
+              'template.es.a0.m01.l001.meaning_hola.v1' &&
           identity.fieldPath == 'answer_options.option.hello.label',
     );
     final vocabulary = scope.requiredIdentities.firstWhere(
@@ -84,7 +84,7 @@ void main() {
     final scaffold = _readScaffold('build/reports/uk_module_1_scaffold_a.json');
     final units = scaffold['units'] as List;
 
-    expect(units, hasLength(263));
+    expect(units, hasLength(280));
     for (final rawUnit in units) {
       final unit = Map<String, Object?>.from(rawUnit as Map);
       final values = Map<String, Object?>.from(unit['values'] as Map);

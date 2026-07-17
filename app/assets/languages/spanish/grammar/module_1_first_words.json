@@ -1,18 +1,35 @@
 [
   {
-    "id": "grammar.es.a0.m01.silent_h.v1",
-    "title": "Silent h",
-    "explanation": "In Spanish, the letter h is usually written but not pronounced. Read hola as ola and hambre as ambre. The spelling still keeps h.",
+    "id": "grammar.es.a0.m01.l001.first_encounter.v1",
+    "title": "Your first Spanish word",
+    "explanation": "Someone is meeting you. The Spanish word is Hola. Read it as ola. It means hello.",
     "examples": [
-      "hola",
-      "hambre"
+      "Hola."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.l001.read_hola.v1",
+    "title": "Read Hola",
+    "explanation": "Read Hola as ola. In this word, the written h is quiet.",
+    "examples": [
+      "Hola."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.silent_h.v1",
+    "title": "Read hola",
+    "explanation": "You see hola. You say OH-lah. The first letter is quiet.",
+    "examples": [
+      "hola"
     ],
     "prerequisite_ids": []
   },
   {
     "id": "grammar.es.a0.m01.stable_vowels.v1",
     "title": "Stable Spanish vowels",
-    "explanation": "Spanish vowels are stable in simple words. The vowel sound in hola, adiós, gracias, and por favor stays clear and short.",
+    "explanation": "Read the vowel sounds clearly in the words you learn: hola, adiós, gracias, and por favor.",
     "examples": [
       "hola",
       "adiós",

@@ -18,9 +18,9 @@ void main() {
       contentLoader: ContentLoader(assetBundle: rootBundle),
     );
 
-    final lessonContent = await service.assembleLesson('es.a0.m01.l001');
+    final lessonContent = await service.assembleLesson('es.a0.m06.l016');
 
-    expect(lessonContent.lesson.id, 'es.a0.m01.l001');
+    expect(lessonContent.lesson.id, 'es.a0.m06.l016');
     expect(lessonContent.sections, hasLength(1));
     expect(lessonContent.activities, hasLength(4));
   });
@@ -34,7 +34,7 @@ void main() {
       );
 
       for (final lessonId in [
-        'es.a0.m01.l001',
+        'es.a0.m06.l016',
         'es.a0.m01.l002',
         'es.a0.m01.l003',
         'es.a0.m02.l004',
@@ -60,43 +60,36 @@ void main() {
     },
   );
 
-  test(
-    'resolves vocabulary, grammar, dialogue, reading, and practice content',
-    () async {
-      final service = LessonAssemblyService(
-        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
-        contentLoader: ContentLoader(assetBundle: rootBundle),
-      );
+  test('resolves the Lesson 1 scenario content', () async {
+    final service = LessonAssemblyService(
+      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+      contentLoader: ContentLoader(assetBundle: rootBundle),
+    );
 
-      final lessonContent = await service.assembleLesson('es.a0.m01.l001');
+    final lessonContent = await service.assembleLesson('es.a0.m06.l016');
 
-      expect(
-        _activity(
-          lessonContent,
-          'activity.vocabulary.greetings',
-        ).resolvedContent,
-        everyElement(isA<VocabularyItem>()),
-      );
-      expect(
-        _activity(
-          lessonContent,
-          'activity.dialogue.hello_goodbye',
-        ).resolvedContent.single,
-        isA<Dialogue>(),
-      );
-      expect(
-        _activity(
-          lessonContent,
-          'activity.reading.greeting_recognition',
-        ).resolvedContent.single,
-        isA<ReadingText>(),
-      );
-      expect(
-        _activity(lessonContent, 'activity.practice.greetings').resolvedContent,
-        everyElement(isA<ExerciseTemplate>()),
-      );
-    },
-  );
+    expect(
+      _activity(
+        lessonContent,
+        'es.a0.m06.l016.activity.vocabulary',
+      ).resolvedContent,
+      [isA<GrammarTopic>(), isA<ExerciseTemplate>(), isA<ExerciseTemplate>()],
+    );
+    expect(
+      _activity(
+        lessonContent,
+        'es.a0.m06.l016.activity.grammar',
+      ).resolvedContent,
+      [isA<GrammarTopic>(), isA<ExerciseTemplate>()],
+    );
+    expect(
+      _activity(
+        lessonContent,
+        'es.a0.m06.l016.activity.practice',
+      ).resolvedContent,
+      everyElement(isA<ExerciseTemplate>()),
+    );
+  });
 
   test('preserves declared lesson and content order', () async {
     final service = LessonAssemblyService(
@@ -104,24 +97,36 @@ void main() {
       contentLoader: ContentLoader(assetBundle: rootBundle),
     );
 
-    final lessonContent = await service.assembleLesson('es.a0.m01.l001');
+    final lessonContent = await service.assembleLesson('es.a0.m06.l016');
 
     expect(lessonContent.activities.map((activity) => activity.activity.id), [
-      'activity.vocabulary.greetings',
-      'activity.dialogue.hello_goodbye',
-      'activity.reading.greeting_recognition',
-      'activity.practice.greetings',
+      'es.a0.m06.l016.activity.vocabulary',
+      'es.a0.m06.l016.activity.grammar',
+      'es.a0.m06.l016.activity.reading',
+      'es.a0.m06.l016.activity.practice',
     ]);
 
-    final vocabulary = _activity(
-      lessonContent,
-      'activity.vocabulary.greetings',
-    ).resolvedContent.cast<VocabularyItem>();
+    final templates = lessonContent.activities
+        .expand((activity) => activity.resolvedContent)
+        .whereType<ExerciseTemplate>();
 
-    expect(vocabulary.map((item) => item.id), [
-      'vocab.es.a0.unit1.hola.v1',
-      'vocab.es.a0.unit1.adios.v1',
-      'vocab.es.a0.unit1.hasta_luego.v1',
+    expect(templates.map((template) => template.id), [
+      'template.es.a0.m01.l001.focus_hola.v1',
+      'template.es.a0.m01.l001.meaning_hola.v1',
+      'template.es.a0.m01.l001.decode_hola.v1',
+      'template.es.a0.m01.l001.context_arrival_hola.v1',
+      'template.es.a0.m01.l001.guided_type_hola.v1',
+      'template.es.a0.m01.l001.interference_greeting_or_farewell.v1',
+      'template.es.a0.m01.l001.independent_type_hola.v1',
+    ]);
+
+    final grammar = _activity(
+      lessonContent,
+      'es.a0.m06.l016.activity.vocabulary',
+    ).resolvedContent.whereType<GrammarTopic>();
+
+    expect(grammar.map((item) => item.id), [
+      'grammar.es.a0.m01.l001.first_encounter.v1',
     ]);
   });
 

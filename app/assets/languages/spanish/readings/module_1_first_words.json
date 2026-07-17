@@ -1,17 +1,15 @@
 [
   {
     "id": "reading.es.a0.m01.silent_h_words.v1",
-    "title": "Silent h Words",
+    "title": "Hola",
     "vocabulary_ids": [
-      "vocab.es.a0.unit1.hola.v1",
-      "vocab.es.a0.c2.hambre.v1"
+      "vocab.es.a0.unit1.hola.v1"
     ],
     "grammar_ids": [
-      "grammar.es.a0.m01.silent_h.v1",
-      "grammar.es.a0.m01.stable_vowels.v1"
+      "grammar.es.a0.m01.silent_h.v1"
     ],
-    "text": "hola. hambre. hola. adiós. hola.",
-    "native_translation": "hello. hunger. hello. goodbye. hello."
+    "text": "Hola.\nHola.",
+    "native_translation": "OH-lah.\nOH-lah.\nHello.\nHello."
   },
   {
     "id": "reading.es.a0.m01.time_greetings_sign.v1",

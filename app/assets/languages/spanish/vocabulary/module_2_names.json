@@ -19,7 +19,8 @@
     "spanish": "Javier",
     "native_translation": "Javier",
     "cefr": "A0",
-    "example": "Me llamo Javier.",
+    "example": "Javier.",
+    "pronunciation": "hah-VYEHR",
     "pronunciationUnitId": "pronunciation.es.word.javier.v1"
   },
   {
@@ -59,7 +60,8 @@
     "spanish": "José",
     "native_translation": "Jose",
     "cefr": "A0",
-    "example": "Me llamo José.",
+    "example": "José.",
+    "pronunciation": "hoh-SEH",
     "pronunciationUnitId": "pronunciation.es.word.jose.v1"
   },
   {

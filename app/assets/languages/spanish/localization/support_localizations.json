@@ -375,16 +375,16 @@
       "id": "dialogue.es.a0.m01.thanks_and_reply.v1",
       "fields": {
         "lines.0.native_translation": {
-          "en": "Hello."
+          "en": "OH-lah.\nHello."
         },
         "lines.1.native_translation": {
-          "en": "Please."
+          "en": "por fah-VOR.\nPlease."
         },
         "lines.2.native_translation": {
-          "en": "Thank you."
+          "en": "GRAH-syahs.\nThank you."
         },
         "lines.3.native_translation": {
-          "en": "You're welcome."
+          "en": "deh NAH-dah.\nYou're welcome."
         },
         "title": {
           "en": "Thanks and Reply"
@@ -1236,16 +1236,16 @@
       "id": "dialogue.es.a0.unit1.clarification.v1",
       "fields": {
         "lines.0.native_translation": {
-          "en": "I don't understand."
+          "en": "noh en-TYEN-doh.\nI don't understand."
         },
         "lines.1.native_translation": {
-          "en": "Repeat, please."
+          "en": "reh-PEE-teh, por fah-VOR.\nRepeat, please."
         },
         "lines.2.native_translation": {
-          "en": "More slowly, please."
+          "en": "see.\nYes."
         },
         "lines.3.native_translation": {
-          "en": "Yes."
+          "en": "noh en-TYEN-doh.\nI don't understand."
         },
         "title": {
           "en": "Please Repeat"
@@ -1302,16 +1302,16 @@
       "id": "dialogue.es.a0.unit1.hello_goodbye.v1",
       "fields": {
         "lines.0.native_translation": {
-          "en": "Good morning."
+          "en": "OH-lah.\nHello."
         },
         "lines.1.native_translation": {
-          "en": "Hello."
+          "en": "OH-lah.\nHello."
         },
         "lines.2.native_translation": {
-          "en": "See you later."
+          "en": "AHS-tah LWEH-goh.\nSee you later."
         },
         "lines.3.native_translation": {
-          "en": "Goodbye."
+          "en": "ah-DYOHS.\nGoodbye."
         },
         "title": {
           "en": "Greeting Exchange"
@@ -2385,7 +2385,7 @@
       "id": "template.es.a0.m01.l001.fill_hasta_luego.v1",
       "fields": {
         "prompt_template": {
-          "en": "Complete with the Spanish phrase for \"see you later\": \"Hasta ____.\""
+          "en": "Complete with the Spanish phrase for \"see you later\": \"Hasta ____\" (AHS-tah ____)."
         }
       }
     },
@@ -2408,11 +2408,83 @@
       }
     },
     {
+      "type": "grammar",
+      "id": "grammar.es.a0.m01.l001.first_encounter.v1",
+      "fields": {
+        "title": {
+          "en": "Your first Spanish word"
+        },
+        "explanation": {
+          "en": "Someone is meeting you. The Spanish word is Hola. Read it as ola. It means hello."
+        },
+        "examples.0": {
+          "en": "Hola."
+        }
+      }
+    },
+    {
+      "type": "grammar",
+      "id": "grammar.es.a0.m01.l001.read_hola.v1",
+      "fields": {
+        "title": {
+          "en": "Read Hola"
+        },
+        "explanation": {
+          "en": "Read Hola as ola. In this word, the written h is quiet."
+        },
+        "examples.0": {
+          "en": "Hola."
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.focus_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Someone is meeting you. Which one is the Spanish word you are learning now?"
+        },
+        "answer_options.option.meaning.label": {
+          "en": "hello"
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.decode_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Read Hola as ola. Which reading matches Hola?"
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.context_arrival_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Someone arrives. Which Spanish word fits this moment?"
+        },
+        "answer_options.option.no_word_yet.label": {
+          "en": "I do not know a Spanish farewell yet."
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Is hello a greeting or a farewell?"
+        }
+      }
+    },
+    {
       "type": "exercise_template",
       "id": "template.es.a0.m01.l002.thanks_choice.v1",
       "fields": {
         "prompt_template": {
-          "en": "Choose the Spanish word for \"thank you\"."
+          "en": "Choose the Spanish word for \"thank you\" (GRAH-syahs)."
         }
       }
     },
@@ -2493,7 +2565,7 @@
       "id": "template.es.a0.m01.l016.fill_hola.v1",
       "fields": {
         "prompt_template": {
-          "en": "Complete with the Spanish word for \"hello\": \"____\"."
+          "en": "Complete with the Spanish word for \"hello\" (OH-lah): \"____\"."
         }
       }
     },
@@ -2511,7 +2583,7 @@
           "en": "o"
         },
         "prompt_template": {
-          "en": "In the Spanish word \"hola\", which letter is silent?"
+          "en": "In hola (OH-lah), which letter is silent?"
         }
       }
     },
@@ -2520,7 +2592,7 @@
       "id": "template.es.a0.m01.l016.type_hambre.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish word for hunger. It begins with silent h."
+          "en": "Type the Spanish word for \"hunger\"."
         }
       }
     },
@@ -2529,7 +2601,7 @@
       "id": "template.es.a0.m01.l016.type_hola.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish word for \"hello\". Remember that it begins with silent h."
+          "en": "Type the Spanish word for \"hello\"."
         }
       }
     },
@@ -2763,7 +2835,7 @@
       "id": "template.es.a0.m02.l017.type_jose.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish name with the written accent from the reading."
+          "en": "Type the Spanish name with the written accent from the reading (hoh-SEH)."
         }
       }
     },
@@ -2772,7 +2844,7 @@
       "id": "template.es.a0.m02.l017.type_llamo.v1",
       "fields": {
         "prompt_template": {
-          "en": "Type the Spanish verb form from the pattern me ____."
+          "en": "Type the missing Spanish word: me ____ (meh ____)."
         }
       }
     },
@@ -5976,7 +6048,7 @@
       "id": "template.es.a0.unit1.fill_por_favor.v1",
       "fields": {
         "prompt_template": {
-          "en": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____.\""
+          "en": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____\" (reh-PEE-teh, ____ ____)."
         }
       }
     },
@@ -5994,7 +6066,7 @@
       "id": "template.es.a0.unit1.fill_repite.v1",
       "fields": {
         "prompt_template": {
-          "en": "Complete with the Spanish command for \"repeat\": \"____, por favor.\""
+          "en": "Complete with the Spanish command for \"repeat\": \"____, por favor\" (____, por fah-VOR)."
         }
       }
     },
@@ -6548,14 +6620,11 @@
         "examples.0": {
           "en": "hola"
         },
-        "examples.1": {
-          "en": "hambre"
-        },
         "explanation": {
-          "en": "In Spanish, the letter h is usually written but not pronounced. Read hola as ola and hambre as ambre. The spelling still keeps h."
+          "en": "You see hola. You say OH-lah. The first letter is quiet."
         },
         "title": {
-          "en": "Silent h"
+          "en": "Read hola"
         }
       }
     },
@@ -6576,7 +6645,7 @@
           "en": "por favor"
         },
         "explanation": {
-          "en": "Spanish vowels are stable in simple words. The vowel sound in hola, adiós, gracias, and por favor stays clear and short."
+          "en": "Read the vowel sounds clearly in the words you learn: hola, adiós, gracias, and por favor."
         },
         "title": {
           "en": "Stable Spanish vowels"
@@ -6660,10 +6729,10 @@
           "en": "llamo"
         },
         "explanation": {
-          "en": "Spanish ñ, j and ll are important in names and first words. In this course, ll uses the same broad yeista pronunciation category as consonantal y. ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters."
+          "en": "Use three simple readings: España has a soft ny sound, José and Javier begin with h, and llamo begins with a y-like sound."
         },
         "title": {
-          "en": "ñ, j and ll in names"
+          "en": "Read names"
         }
       }
     },
@@ -7866,13 +7935,13 @@
       "id": "es.a0.m01.l002",
       "fields": {
         "communicativeOutcome": {
-          "en": "Use basic courtesy words."
+          "en": "Complete a short courtesy exchange."
         },
         "description": {
-          "en": "Use basic polite words in short classroom exchanges."
+          "en": "Complete a short polite exchange with gracias, de nada, perdón, and por favor."
         },
         "title": {
-          "en": "Please, Thank You, Sorry"
+          "en": "Gracias and Please"
         }
       }
     },
@@ -7881,13 +7950,13 @@
       "id": "es.a0.m01.l003",
       "fields": {
         "communicativeOutcome": {
-          "en": "Ask for repetition or slower speech."
+          "en": "Ask someone to repeat."
         },
         "description": {
-          "en": "Ask for repetition or slower speech when you do not understand."
+          "en": "Ask for repetition when you do not understand."
         },
         "title": {
-          "en": "I Do Not Understand"
+          "en": "No Entiendo"
         }
       }
     },
@@ -8346,13 +8415,13 @@
       "id": "es.a0.m06.l016",
       "fields": {
         "communicativeOutcome": {
-          "en": "Read the first Spanish words with basic pronunciation support."
+          "en": "Read and write your first Spanish greeting."
         },
         "description": {
-          "en": "Read the first Spanish words with stable vowels, silent h, stress, and the high-frequency patterns needed for early greetings."
+          "en": "Read, understand, and type hola with its quiet h."
         },
         "title": {
-          "en": "Spanish Vowels, h, and First Sounds"
+          "en": "Read Hola"
         }
       }
     },
@@ -8361,13 +8430,13 @@
       "id": "es.a0.m06.l017",
       "fields": {
         "communicativeOutcome": {
-          "en": "Recognize ñ, j and ll in names."
+          "en": "Read names and me llamo."
         },
         "description": {
-          "en": "Recognize ñ, j, and ll in names and introduction words."
+          "en": "Read early names and introduction words with ñ, j, and ll."
         },
         "title": {
-          "en": "ñ, j and ll in Names"
+          "en": "Read Names"
         }
       }
     },
@@ -8907,15 +8976,6 @@
     },
     {
       "type": "lesson_activity",
-      "id": "activity.dialogue.hello_goodbye",
-      "fields": {
-        "title": {
-          "en": "Dialogue"
-        }
-      }
-    },
-    {
-      "type": "lesson_activity",
       "id": "activity.dialogue.name_intro",
       "fields": {
         "title": {
@@ -8961,15 +9021,6 @@
     },
     {
       "type": "lesson_activity",
-      "id": "activity.practice.greetings",
-      "fields": {
-        "title": {
-          "en": "Practice"
-        }
-      }
-    },
-    {
-      "type": "lesson_activity",
       "id": "activity.practice.name_intro",
       "fields": {
         "title": {
@@ -8998,15 +9049,6 @@
     {
       "type": "lesson_activity",
       "id": "activity.reading.clarification",
-      "fields": {
-        "title": {
-          "en": "Reading"
-        }
-      }
-    },
-    {
-      "type": "lesson_activity",
-      "id": "activity.reading.greeting_recognition",
       "fields": {
         "title": {
           "en": "Reading"
@@ -9052,15 +9094,6 @@
     {
       "type": "lesson_activity",
       "id": "activity.vocabulary.clarification",
-      "fields": {
-        "title": {
-          "en": "Vocabulary"
-        }
-      }
-    },
-    {
-      "type": "lesson_activity",
-      "id": "activity.vocabulary.greetings",
       "fields": {
         "title": {
           "en": "Vocabulary"
@@ -10080,7 +10113,7 @@
       "id": "es.a0.m06.l016.activity.grammar",
       "fields": {
         "title": {
-          "en": "Reading Rule"
+          "en": "Read Hola"
         }
       }
     },
@@ -10089,7 +10122,7 @@
       "id": "es.a0.m06.l016.activity.practice",
       "fields": {
         "title": {
-          "en": "Practice"
+          "en": "Write from memory"
         }
       }
     },
@@ -10098,7 +10131,7 @@
       "id": "es.a0.m06.l016.activity.reading",
       "fields": {
         "title": {
-          "en": "Reading"
+          "en": "Arrival or farewell"
         }
       }
     },
@@ -10107,7 +10140,7 @@
       "id": "es.a0.m06.l016.activity.vocabulary",
       "fields": {
         "title": {
-          "en": "Vocabulary"
+          "en": "First encounter"
         }
       }
     },
@@ -11705,11 +11738,56 @@
       }
     },
     {
-      "type": "lesson_objective",
-      "id": "es.a0.m01.l001.objective.greetings.basic",
+      "type": "lesson_section",
+      "id": "es.a0.m01.l001.section.main",
       "fields": {
-        "description": {
-          "en": "Greet and say goodbye with hola, adiós, and hasta luego."
+        "title": {
+          "en": "Main Activities"
+        }
+      }
+    },
+    {
+      "type": "lesson_summary",
+      "id": "es.a0.m01.l001.summary",
+      "fields": {
+        "reviewPrompt": {
+          "en": "Review hello and goodbye phrases."
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.meaning_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "What does Hola mean?"
+        },
+        "answer_options.option.hello.label": {
+          "en": "hello"
+        },
+        "answer_options.option.thank_you.label": {
+          "en": "thank you"
+        },
+        "answer_options.option.goodbye.label": {
+          "en": "goodbye"
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.guided_type_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Write the Spanish word for hello. It is the word from the arrival situation."
+        }
+      }
+    },
+    {
+      "type": "exercise_template",
+      "id": "template.es.a0.m01.l001.independent_type_hola.v1",
+      "fields": {
+        "prompt_template": {
+          "en": "Write the Spanish word for hello."
         }
       }
     },
@@ -11718,7 +11796,7 @@
       "id": "es.a0.m01.l002.objective.politeness.basic",
       "fields": {
         "description": {
-          "en": "Use gracias, por favor, perdón, and de nada."
+          "en": "Recognize and type the basic courtesy words gracias and por favor, and understand de nada and perdón in context."
         }
       }
     },
@@ -11727,7 +11805,7 @@
       "id": "es.a0.m01.l003.objective.classroom_survival.basic",
       "fields": {
         "description": {
-          "en": "Ask for repetition or slower speech with no entiendo, repite, and más despacio."
+          "en": "Recognize and type no entiendo and repite, por favor."
         }
       }
     },
@@ -12006,7 +12084,7 @@
       "id": "es.a0.m06.l016.objective.es.a0.m06.l016.primary",
       "fields": {
         "description": {
-          "en": "Read the first Spanish words using stable vowels, silent h and visible stress."
+          "en": "Independently read, understand, and type Hola."
         }
       }
     },
@@ -12015,7 +12093,7 @@
       "id": "es.a0.m06.l017.objective.es.a0.m06.l017.primary",
       "fields": {
         "description": {
-          "en": "Recognize ñ, j, and ll in familiar names and words."
+          "en": "Recognize, read, and type España, José, and me llamo."
         }
       }
     },
@@ -12336,15 +12414,6 @@
     },
     {
       "type": "lesson_section",
-      "id": "es.a0.m01.l001.section.main",
-      "fields": {
-        "title": {
-          "en": "Main Activities"
-        }
-      }
-    },
-    {
-      "type": "lesson_section",
       "id": "es.a0.m01.l002.section.main",
       "fields": {
         "title": {
@@ -12636,7 +12705,7 @@
       "id": "es.a0.m06.l016.section.main",
       "fields": {
         "title": {
-          "en": "Main Activities"
+          "en": "First Spanish hello"
         }
       }
     },
@@ -12966,19 +13035,10 @@
     },
     {
       "type": "lesson_summary",
-      "id": "es.a0.m01.l001.summary",
-      "fields": {
-        "reviewPrompt": {
-          "en": "Review hello and goodbye phrases."
-        }
-      }
-    },
-    {
-      "type": "lesson_summary",
       "id": "es.a0.m01.l002.summary",
       "fields": {
         "reviewPrompt": {
-          "en": "Review basic polite expressions."
+          "en": "You can use gracias, de nada, perdón, and por favor."
         }
       }
     },
@@ -12987,7 +13047,7 @@
       "id": "es.a0.m01.l003.summary",
       "fields": {
         "reviewPrompt": {
-          "en": "Review short clarification phrases."
+          "en": "You can say no entiendo and ask repite, por favor."
         }
       }
     },
@@ -13266,7 +13326,7 @@
       "id": "es.a0.m06.l016.summary",
       "fields": {
         "reviewPrompt": {
-          "en": "Review silent h and stable vowels in familiar words."
+          "en": "You can read and write Hola."
         }
       }
     },
@@ -13275,7 +13335,7 @@
       "id": "es.a0.m06.l017.summary",
       "fields": {
         "reviewPrompt": {
-          "en": "Review name spelling with ñ, j and ll."
+          "en": "You can read España, José, Javier, and me llamo."
         }
       }
     },
@@ -13884,10 +13944,10 @@
       "id": "reading.es.a0.m01.silent_h_words.v1",
       "fields": {
         "native_translation": {
-          "en": "hello. hunger. hello. goodbye. hello."
+          "en": "OH-lah.\nOH-lah.\nHello.\nHello."
         },
         "title": {
-          "en": "Silent h Words"
+          "en": "Hola"
         }
       }
     },
@@ -13908,10 +13968,10 @@
       "id": "reading.es.a0.m02.name_sounds.v1",
       "fields": {
         "native_translation": {
-          "en": "Spain. José. Javier. My name is Laura."
+          "en": "es-PAH-nyah.\nhoh-SEH.\nhah-VYEHR.\nmeh YAH-moh.\nSpain.\nJosé.\nJavier.\nMy name is."
         },
         "title": {
-          "en": "Name Sounds"
+          "en": "Names"
         }
       }
     },
@@ -14460,10 +14520,10 @@
       "id": "reading.es.a0.unit1.clarification.v1",
       "fields": {
         "native_translation": {
-          "en": "I don't understand. Repeat, please. More slowly, please. Yes. No. I don't understand."
+          "en": "noh en-TYEN-doh.\nreh-PEE-teh, por fah-VOR.\nsee.\nnoh en-TYEN-doh.\nI don't understand.\nRepeat, please.\nYes.\nI don't understand."
         },
         "title": {
-          "en": "More Slowly, Please"
+          "en": "No Entiendo"
         }
       }
     },
@@ -14484,7 +14544,7 @@
       "id": "reading.es.a0.unit1.greeting_recognition.v1",
       "fields": {
         "native_translation": {
-          "en": "Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye."
+          "en": "OH-lah.\nOH-lah.\nAHS-tah LWEH-goh.\nah-DYOHS.\nHello.\nHello.\nSee you later.\nGoodbye."
         },
         "title": {
           "en": "Greetings and Goodbyes"
@@ -14544,7 +14604,7 @@
       "id": "reading.es.a0.unit1.polite_words.v1",
       "fields": {
         "native_translation": {
-          "en": "Excuse me. Yes. Please. Thank you. You're welcome. Thank you. You're welcome."
+          "en": "per-DON.\npor fah-VOR.\nGRAH-syahs.\ndeh NAH-dah.\nExcuse me.\nPlease.\nThank you.\nYou're welcome."
         },
         "title": {
           "en": "Polite Words"
@@ -18345,7 +18405,7 @@
           "en": "yes"
         },
         "notes": {
-          "en": "The accent distinguishes sí from si."
+          "en": "Use sí to answer yes."
         }
       }
     },
@@ -18457,6 +18517,51 @@
       "fields": {
         "native_translation": {
           "en": "I am"
+        }
+      }
+    },
+    {
+      "type": "lesson_objective",
+      "id": "es.a0.m01.l001.objective.greetings.basic",
+      "fields": {
+        "description": {
+          "en": "Greet and say goodbye with hola, adiós, and hasta luego."
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.vocabulary.greetings",
+      "fields": {
+        "title": {
+          "en": "Vocabulary"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.dialogue.hello_goodbye",
+      "fields": {
+        "title": {
+          "en": "Dialogue"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.reading.greeting_recognition",
+      "fields": {
+        "title": {
+          "en": "Reading"
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "activity.practice.greetings",
+      "fields": {
+        "title": {
+          "en": "Practice"
         }
       }
     }

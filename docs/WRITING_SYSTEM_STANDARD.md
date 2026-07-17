@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.1
 
 Related documents:
 
@@ -257,6 +257,12 @@ The learner-facing support explanation is localized. The stable educational
 identity remains target-language content.
 
 Do not conflate the conventional name with the reading inside words.
+
+For ReadingRule cards, do not turn writing-system safety into learner-facing
+prose unless the lesson explicitly teaches that writing-system contrast.
+Ordinary pronunciation cards must follow the Learner Presentation Standard in
+PRONUNCIATION_AUTHORING_GUIDE.md and answer how to read the next course word,
+not how validators distinguish scripts.
 
 Incorrect:
 

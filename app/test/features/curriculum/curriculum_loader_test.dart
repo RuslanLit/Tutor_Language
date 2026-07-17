@@ -266,7 +266,7 @@ void main() {
         curriculum.Lesson(
           id: 'es.a0.m01.l001',
           moduleId: 'es.a0.m01',
-          title: 'Hello and Goodbye',
+          title: 'Hola and Goodbye',
           primaryObjective: curriculum.LessonObjective(
             id: 'objective.greetings.basic',
             description: 'Recognize and use basic greetings and farewells.',
@@ -334,7 +334,7 @@ void main() {
         curriculum.Lesson(
           id: 'es.a0.m01.l001',
           moduleId: 'es.a0.m01',
-          title: 'Hello and Goodbye',
+          title: 'Hola and Goodbye',
           primaryObjective: curriculum.LessonObjective(
             id: 'objective.greetings.basic',
             description: 'Recognize and use basic greetings and farewells.',

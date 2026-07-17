@@ -34,6 +34,34 @@ void main() {
     expect(session.items.single.expectedAnswerId, 'option.hello');
   });
 
+  test('exercise runtime model carries typed accepted answers', () {
+    const template = ExerciseTemplate(
+      id: 'template.typed.accepted.v1',
+      exerciseType: 'fill_gap',
+      supportedGoalTypes: ['review_vocabulary'],
+      requiredObjectTypes: ['vocabulary'],
+      promptTemplate: 'Type the greeting.',
+      expectedAnswer: 'hola',
+      acceptedAnswers: ['Hola'],
+      acceptedWithFeedbackAnswers: [
+        AcceptedWithFeedbackAnswer(
+          answer: 'ola',
+          feedbackKey: 'answer.keep_silent_h',
+          canonicalAnswer: 'hola',
+        ),
+      ],
+    );
+
+    final item = ExerciseSession.fromTemplate(template).items.single;
+
+    expect(item.interactionType, 'fill_gap');
+    expect(item.acceptedTextAnswers, ['Hola']);
+    expect(
+      item.acceptedWithFeedbackAnswers.single.feedbackKey,
+      'answer.keep_silent_h',
+    );
+  });
+
   test('multiple-choice correct answer', () {
     final result = const AnswerChecker().check(
       AnswerCheckInput(
@@ -107,6 +135,31 @@ void main() {
 
     expect(result.status, AnswerCheckStatus.acceptedWithFeedback);
     expect(result.feedbackKey, 'answer.accepted_with_feedback');
+  });
+
+  test('fill-gap accepted-with-feedback answer is supported', () {
+    final result = const AnswerChecker().check(
+      AnswerCheckInput(
+        item: _fillGapItem,
+        response: _responseFor(
+          _fillGapItem,
+          const ExerciseAnswer(id: 'typed', label: 'ola'),
+        ),
+        expectedAnswer: const ExpectedAnswer(
+          text: 'hola',
+          acceptedWithFeedbackAnswers: [
+            AcceptedWithFeedbackAnswer(
+              answer: 'ola',
+              feedbackKey: 'answer.keep_silent_h',
+              canonicalAnswer: 'hola',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(result.status, AnswerCheckStatus.acceptedWithFeedback);
+    expect(result.feedbackKey, 'answer.keep_silent_h');
   });
 
   test('text-entry authored misconception remains incorrect with feedback', () {
@@ -341,6 +394,14 @@ const _textEntryItem = ExerciseItem(
   interactionType: 'text_entry',
   prompt: 'Type the phrase.',
   expectedTextAnswer: 'hello there',
+);
+
+const _fillGapItem = ExerciseItem(
+  id: 'item.fill',
+  templateId: 'template.fill',
+  interactionType: 'fill_gap',
+  prompt: 'Complete the word.',
+  expectedTextAnswer: 'hola',
 );
 
 const _unsupportedItem = ExerciseItem(

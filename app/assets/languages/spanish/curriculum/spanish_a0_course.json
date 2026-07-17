@@ -261,8 +261,8 @@
     {
       "metadata": {
         "id": "es.a0.m01.l002",
-        "title": "Please, Thank You, Sorry",
-        "description": "Use basic polite words in short classroom exchanges.",
+        "title": "Gracias and Please",
+        "description": "Complete a short polite exchange with gracias, de nada, perdón, and por favor.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
@@ -278,10 +278,10 @@
       "objectives": [
         {
           "id": "objective.politeness.basic",
-          "description": "Use gracias, por favor, perdón, and de nada."
+          "description": "Recognize and type the basic courtesy words gracias and por favor, and understand de nada and perdón in context."
         }
       ],
-      "communicativeOutcome": "Use basic courtesy words.",
+      "communicativeOutcome": "Complete a short courtesy exchange.",
       "sections": [
         {
           "id": "es.a0.m01.l002.section.main",
@@ -375,7 +375,7 @@
       ],
       "summary": {
         "id": "es.a0.m01.l002.summary",
-        "reviewPrompt": "Review basic polite expressions.",
+        "reviewPrompt": "You can use gracias, de nada, perdón, and por favor.",
         "referenceIds": [
           "objective.politeness.basic"
         ]
@@ -397,8 +397,8 @@
     {
       "metadata": {
         "id": "es.a0.m01.l003",
-        "title": "I Do Not Understand",
-        "description": "Ask for repetition or slower speech when you do not understand.",
+        "title": "No Entiendo",
+        "description": "Ask for repetition when you do not understand.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 10,
@@ -414,10 +414,10 @@
       "objectives": [
         {
           "id": "objective.classroom_survival.basic",
-          "description": "Ask for repetition or slower speech with no entiendo, repite, and más despacio."
+          "description": "Recognize and type no entiendo and repite, por favor."
         }
       ],
-      "communicativeOutcome": "Ask for repetition or slower speech.",
+      "communicativeOutcome": "Ask someone to repeat.",
       "sections": [
         {
           "id": "es.a0.m01.l003.section.main",
@@ -521,7 +521,7 @@
       ],
       "summary": {
         "id": "es.a0.m01.l003.summary",
-        "reviewPrompt": "Review short clarification phrases.",
+        "reviewPrompt": "You can say no entiendo and ask repite, por favor.",
         "referenceIds": [
           "objective.classroom_survival.basic"
         ]
@@ -7347,131 +7347,106 @@
     {
       "metadata": {
         "id": "es.a0.m06.l016",
-        "title": "Spanish Vowels, h, and First Sounds",
-        "description": "Read the first Spanish words with stable vowels, silent h, stress, and the high-frequency patterns needed for early greetings.",
+        "title": "Read Hola",
+        "description": "Read, understand, and type hola with its quiet h.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
-        "estimatedDurationMinutes": 12,
+        "estimatedDurationMinutes": 5,
         "difficulty": "A0",
         "tags": [],
-        "version": "1.1.0",
+        "version": "2.0.0",
         "prerequisites": [],
         "introducedReadingRuleIds": [
-          "pronunciation.es.rule.silent_h.v1",
-          "pronunciation.es.rule.stable_vowels.v1",
-          "pronunciation.es.rule.primary_stress.v1",
-          "pronunciation.es.rule.r.v1",
-          "pronunciation.es.rule.c_z.v1",
-          "pronunciation.es.rule.b_v.v1",
-          "pronunciation.es.rule.diphthong_ue.v1",
-          "pronunciation.es.rule.g_e_i.v1"
+          "pronunciation.es.rule.silent_h.v1"
         ]
       },
       "objectives": [
         {
           "id": "objective.es.a0.m06.l016.primary",
-          "description": "Read the first Spanish words using stable vowels, silent h and visible stress."
+          "description": "Independently read, understand, and type Hola."
         }
       ],
-      "communicativeOutcome": "Read the first Spanish words with basic pronunciation support.",
+      "communicativeOutcome": "Read and write your first Spanish greeting.",
       "sections": [
         {
           "id": "es.a0.m06.l016.section.main",
-          "title": "Main Activities",
+          "title": "First Spanish hello",
           "order": 1,
           "activities": [
             {
               "id": "es.a0.m06.l016.activity.vocabulary",
-              "title": "Vocabulary",
-              "type": "vocabulary",
-              "order": 2,
+              "title": "First encounter",
+              "type": "grammar",
+              "order": 1,
               "references": [
                 {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
-                  "referenceId": "vocab.es.a0.unit1.hola.v1"
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+                  "referenceId": "grammar.es.a0.m01.l001.first_encounter.v1"
                 },
                 {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.hambre.v1"
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.focus_hola.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.meaning_hola.v1"
                 }
               ]
             },
             {
               "id": "es.a0.m06.l016.activity.grammar",
-              "title": "Reading Rule",
+              "title": "Read Hola",
               "type": "grammar",
-              "order": 1,
-              "introducedReadingRuleIds": [
-                "pronunciation.es.rule.silent_h.v1",
-                "pronunciation.es.rule.stable_vowels.v1",
-                "pronunciation.es.rule.primary_stress.v1",
-                "pronunciation.es.rule.r.v1",
-                "pronunciation.es.rule.c_z.v1",
-                "pronunciation.es.rule.b_v.v1",
-                "pronunciation.es.rule.diphthong_ue.v1",
-                "pronunciation.es.rule.g_e_i.v1"
-              ],
+              "order": 2,
               "references": [
                 {
                   "type": "grammar",
                   "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
-                  "referenceId": "grammar.es.a0.m01.silent_h.v1"
+                  "referenceId": "grammar.es.a0.m01.l001.read_hola.v1"
                 },
                 {
-                  "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
-                  "referenceId": "grammar.es.a0.m01.stable_vowels.v1"
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.decode_hola.v1"
                 }
               ]
             },
             {
               "id": "es.a0.m06.l016.activity.reading",
-              "title": "Reading",
-              "type": "reading",
+              "title": "Arrival or farewell",
+              "type": "exercise_template",
               "order": 3,
-              "requiredReadingRuleIds": [
-                "pronunciation.es.rule.silent_h.v1",
-                "pronunciation.es.rule.stable_vowels.v1"
-              ],
               "references": [
                 {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/module_1_first_words.json",
-                  "referenceId": "reading.es.a0.m01.silent_h_words.v1"
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.context_arrival_hola.v1"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+                  "referenceId": "template.es.a0.m01.l001.guided_type_hola.v1"
                 }
               ]
             },
             {
               "id": "es.a0.m06.l016.activity.practice",
-              "title": "Practice",
+              "title": "Write from memory",
               "type": "exercise_template",
               "order": 4,
-              "requiredReadingRuleIds": [
-                "pronunciation.es.rule.silent_h.v1",
-                "pronunciation.es.rule.stable_vowels.v1"
-              ],
               "references": [
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-                  "referenceId": "template.es.a0.m01.l016.h_silent_choice.v1"
+                  "referenceId": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1"
                 },
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-                  "referenceId": "template.es.a0.m01.l016.fill_hola.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-                  "referenceId": "template.es.a0.m01.l016.type_hola.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-                  "referenceId": "template.es.a0.m01.l016.type_hambre.v1"
+                  "referenceId": "template.es.a0.m01.l001.independent_type_hola.v1"
                 }
               ]
             }
@@ -7480,7 +7455,7 @@
       ],
       "summary": {
         "id": "es.a0.m06.l016.summary",
-        "reviewPrompt": "Review silent h and stable vowels in familiar words.",
+        "reviewPrompt": "You can read and write Hola.",
         "referenceIds": [
           "objective.es.a0.m06.l016.primary"
         ]
@@ -7502,8 +7477,8 @@
     {
       "metadata": {
         "id": "es.a0.m06.l017",
-        "title": "ñ, j and ll in Names",
-        "description": "Recognize ñ, j, and ll in names and introduction words.",
+        "title": "Read Names",
+        "description": "Read early names and introduction words with ñ, j, and ll.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 12,
@@ -7524,10 +7499,10 @@
       "objectives": [
         {
           "id": "objective.es.a0.m06.l017.primary",
-          "description": "Recognize ñ, j, and ll in familiar names and words."
+          "description": "Recognize, read, and type España, José, and me llamo."
         }
       ],
-      "communicativeOutcome": "Recognize ñ, j and ll in names.",
+      "communicativeOutcome": "Read names and me llamo.",
       "sections": [
         {
           "id": "es.a0.m06.l017.section.main",
@@ -7580,8 +7555,8 @@
                 },
                 {
                   "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/a0_c2_core.json",
-                  "referenceId": "vocab.es.a0.c2.llave.v1"
+                  "assetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
+                  "referenceId": "vocab.es.a0.unit1.me_llamo.v1"
                 }
               ]
             },
@@ -7641,7 +7616,7 @@
       ],
       "summary": {
         "id": "es.a0.m06.l017.summary",
-        "reviewPrompt": "Review name spelling with ñ, j and ll.",
+        "reviewPrompt": "You can read España, José, Javier, and me llamo.",
         "referenceIds": [
           "objective.es.a0.m06.l017.primary"
         ]

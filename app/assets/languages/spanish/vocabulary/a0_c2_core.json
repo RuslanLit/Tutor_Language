@@ -175,7 +175,8 @@
     "spanish": "España",
     "native_translation": "Spain",
     "cefr": "A0",
-    "example": "Ana es de España.",
+    "example": "España.",
+    "pronunciation": "es-PAH-nyah",
     "pronunciationUnitId": "pronunciation.es.word.espana.v1"
   },
   {
@@ -304,7 +305,8 @@
     "spanish": "llave",
     "native_translation": "key",
     "cefr": "A0",
-    "example": "Tengo una llave.",
+    "example": "llave.",
+    "pronunciation": "YAH-veh",
     "pronunciationUnitId": "pronunciation.es.word.llave.v1"
   },
   {
@@ -333,7 +335,8 @@
     "spanish": "hambre",
     "native_translation": "hunger",
     "cefr": "A0",
-    "example": "Tengo hambre.",
+    "example": "hambre.",
+    "pronunciation": "AHM-breh",
     "pronunciationUnitId": "pronunciation.es.word.hambre.v1"
   },
   {

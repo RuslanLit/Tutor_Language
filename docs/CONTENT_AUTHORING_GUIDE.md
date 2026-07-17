@@ -6,6 +6,9 @@ Version: 1.0
 
 Related documents:
 
+- LESSON_AUTHORING_ENTRYPOINT.md
+- LEARNING_STATE_MACHINE.md
+- PEDAGOGICAL_SCENARIO_MODEL.md
 - EDUCATIONAL_PRINCIPLES.md
 - EDUCATIONAL_LANGUAGE_STANDARD.md
 - AUTHORING_STYLE_GUIDE.md
@@ -56,6 +59,19 @@ explanation of silent `h`, `ñ`, stable vowels, written stress or similar rules
 into every vocabulary item or exercise. Author the ReadingRule once, localize
 its learner support, and reference it by stable ID through PronunciationUnits,
 lessons or exercise metadata.
+
+ReadingRule learner support must follow the Learner Presentation Standard in
+PRONUNCIATION_AUTHORING_GUIDE.md. The card must help the learner read the next
+course word immediately. Keep target orthography, protected spans and
+script-safety metadata structurally correct, but do not surface authoring or
+validator explanations as ordinary learner prose.
+
+Authors must apply Educational Information Priority and Zero Linguistic
+Prerequisites when writing learner-facing pronunciation content. IPA,
+phonetics, articulation terms and writing-system terminology may guide author
+review, but they must not replace a simple learner explanation. If a new term
+does not help the learner complete the nearest learning action, do not display
+it.
 
 Writing systems are reusable educational knowledge. Do not ask a learner to
 read, type, recognize, recall or apply a new written symbol before the course
@@ -661,7 +677,13 @@ New exercise-template types require validator and ActivityEngine support before 
 
 # Lesson Composition
 
-A typical beginner lesson should include:
+Lesson composition is governed by PEDAGOGICAL_SCENARIO_MODEL.md.
+
+Do not start from content categories. First define the learner-state scenario, support
+plan and assessment plan. Only after that may the author map the scenario to supported
+content assets and exercise templates.
+
+Common resources available to a beginner lesson include:
 
 1. introduction;
 2. new vocabulary;
@@ -674,6 +696,9 @@ A typical beginner lesson should include:
 Not every lesson requires every activity type.
 
 The lesson should remain coherent.
+
+This list is not a required sequence and must not be used as a default pedagogical
+architecture.
 
 ---
 

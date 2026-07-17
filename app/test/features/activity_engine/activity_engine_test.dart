@@ -99,6 +99,39 @@ void main() {
     expect(result.matchedPairs, {'hola': 'hello', 'adiós': 'goodbye'});
   });
 
+  test('evaluates localized Ukrainian matching meanings correctly', () {
+    final result = const ActivityEngine().evaluate(
+      template: _ukrainianMatchingTemplate,
+      submission: const ActivitySubmission(
+        matchedPairs: {
+          'hola': 'привіт',
+          'gracias': 'дякую',
+          'no entiendo': 'я не розумію',
+        },
+      ),
+    );
+
+    expect(result.isCorrect, isTrue);
+    expect(result.expectedAnswer, contains('hola = привіт'));
+    expect(result.expectedAnswer, isNot(contains('/ɾ/')));
+  });
+
+  test('rejects swapped localized matching meanings', () {
+    final result = const ActivityEngine().evaluate(
+      template: _ukrainianMatchingTemplate,
+      submission: const ActivitySubmission(
+        matchedPairs: {
+          'hola': 'дякую',
+          'gracias': 'привіт',
+          'no entiendo': 'я не розумію',
+        },
+      ),
+    );
+
+    expect(result.isCorrect, isFalse);
+    expect(result.status, ActivityResultStatus.incorrect);
+  });
+
   test('uses authored accepted answers for typed activities', () {
     final result = const ActivityEngine().evaluate(
       template: _acceptedAnswerTemplate,
@@ -241,6 +274,15 @@ const _matchingMeaningTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Match meanings.',
   expectedAnswer: 'no entiendo=I do not understand',
+);
+
+const _ukrainianMatchingTemplate = ExerciseTemplate(
+  id: 'template.matching.ukrainian.meaning',
+  exerciseType: 'matching',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Введіть українське значення для кожної іспанської форми.',
+  expectedAnswer: 'hola=привіт;gracias=дякую;no entiendo=я не розумію',
 );
 
 const _acceptedAnswerTemplate = ExerciseTemplate(

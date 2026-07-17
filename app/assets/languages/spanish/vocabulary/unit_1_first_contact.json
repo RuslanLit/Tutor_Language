@@ -4,7 +4,7 @@
     "spanish": "hola",
     "native_translation": "hello",
     "cefr": "A0",
-    "example": "Hola, Ana.",
+    "example": "Hola.",
     "pronunciation": "OH-lah",
     "pronunciationUnitId": "pronunciation.es.word.hola.v1",
     "notes": "A simple greeting used at any time of day."
@@ -44,7 +44,7 @@
     "spanish": "adiós",
     "native_translation": "goodbye",
     "cefr": "A0",
-    "example": "Adiós, Luis.",
+    "example": "Adiós.",
     "pronunciation": "ah-DYOHS",
     "pronunciationUnitId": "pronunciation.es.word.adios.v1",
     "notes": "A common way to say goodbye."
@@ -54,7 +54,7 @@
     "spanish": "hasta luego",
     "native_translation": "see you later",
     "cefr": "A0",
-    "example": "Hasta luego, Ana.",
+    "example": "Hasta luego.",
     "pronunciation": "AHS-tah LWEH-goh",
     "pronunciationUnitId": "pronunciation.es.phrase.hasta_luego.v1",
     "notes": "A friendly farewell."
@@ -64,7 +64,7 @@
     "spanish": "gracias",
     "native_translation": "thank you",
     "cefr": "A0",
-    "example": "Gracias, señor.",
+    "example": "Gracias.",
     "pronunciation": "GRAH-syahs",
     "pronunciationUnitId": "pronunciation.es.word.gracias.v1"
   },
@@ -73,7 +73,7 @@
     "spanish": "por favor",
     "native_translation": "please",
     "cefr": "A0",
-    "example": "Por favor, repite.",
+    "example": "Por favor.",
     "pronunciation": "por fah-VOR",
     "pronunciationUnitId": "pronunciation.es.phrase.por_favor.v1"
   },
@@ -82,9 +82,9 @@
     "spanish": "sí",
     "native_translation": "yes",
     "cefr": "A0",
-    "example": "Sí, soy Ana.",
+    "example": "Sí.",
     "pronunciation": "see",
-    "notes": "The accent distinguishes sí from si.",
+    "notes": "Use sí to answer yes.",
     "pronunciationUnitId": "pronunciation.es.word.si.v1"
   },
   {
@@ -92,7 +92,7 @@
     "spanish": "no",
     "native_translation": "no",
     "cefr": "A0",
-    "example": "No, soy Luis.",
+    "example": "No.",
     "pronunciation": "noh",
     "pronunciationUnitId": "pronunciation.es.word.no.v1"
   },
@@ -101,7 +101,7 @@
     "spanish": "perdón",
     "native_translation": "sorry; excuse me",
     "cefr": "A0",
-    "example": "Perdón, no entiendo.",
+    "example": "Perdón.",
     "pronunciation": "per-DON",
     "pronunciationUnitId": "pronunciation.es.word.perdon.v1"
   },
@@ -110,7 +110,7 @@
     "spanish": "de nada",
     "native_translation": "you're welcome",
     "cefr": "A0",
-    "example": "Gracias. De nada.",
+    "example": "De nada.",
     "pronunciation": "deh NAH-dah",
     "pronunciationUnitId": "pronunciation.es.sentence.de_nada.v1"
   },
@@ -128,7 +128,7 @@
     "spanish": "repite",
     "native_translation": "repeat",
     "cefr": "A0",
-    "example": "Repite, por favor.",
+    "example": "Repite.",
     "pronunciation": "reh-PEE-teh",
     "pronunciationUnitId": "pronunciation.es.word.repite.v1",
     "notes": "A simple classroom request."
@@ -138,7 +138,7 @@
     "spanish": "más despacio",
     "native_translation": "more slowly",
     "cefr": "A0",
-    "example": "Más despacio, por favor.",
+    "example": "Más despacio.",
     "pronunciation": "mahs des-PAH-syoh",
     "pronunciationUnitId": "pronunciation.es.sentence.mas_despacio.v1"
   },
@@ -216,7 +216,7 @@
     "spanish": "me llamo",
     "native_translation": "my name is",
     "cefr": "A0",
-    "example": "Me llamo Ana.",
+    "example": "Me llamo.",
     "pronunciation": "meh YAH-moh",
     "pronunciationUnitId": "pronunciation.es.phrase.me_llamo.v1",
     "notes": "A fixed beginner phrase for saying your name."

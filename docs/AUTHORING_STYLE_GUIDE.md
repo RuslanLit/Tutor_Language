@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 2.1
+Version: 2.3
 
 Related documents:
 
@@ -53,6 +53,22 @@ explanations, use PRONUNCIATION_AUTHORING_GUIDE.md. The reusable pronunciation
 knowledge model is PRONUNCIATION_MODEL.md. Learner-facing pronunciation hints
 must sound natural for the learner's support language and must not assume
 English spelling conventions outside English support mode.
+
+ReadingRule cards must follow the Learner Presentation Standard in
+PRONUNCIATION_AUTHORING_GUIDE.md: symbol, name, support-language pronunciation,
+real examples, then optional IPA. Do not place authoring, validator,
+localization or writing-system discussion in a pronunciation card unless that
+discussion is the explicit lesson objective.
+
+Educational information priority is mandatory: the first explanation must help
+the learner perform the nearest learning action immediately. Scientific or
+technical precision may follow only after the learner-facing explanation is
+clear.
+
+Zero linguistic prerequisites are mandatory for pronunciation content. Do not
+assume the learner knows IPA, phonetics, articulation terminology or
+writing-system terminology. Every new term shown to the learner increases
+cognitive load and must have immediate educational value.
 
 For visually confusable graphemes, use GRAPHEME_PRESENTATION_STANDARD.md.
 Beginner explanations must name the letters and show decomposition instead of

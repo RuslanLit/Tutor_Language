@@ -193,15 +193,15 @@
     "answer_options": [
       {
         "id": "espana",
-        "label": "España"
+        "label": "España (es-PAH-nyah)"
       },
       {
         "id": "javier",
-        "label": "Javier"
+        "label": "Javier (hah-VYEHR)"
       },
       {
         "id": "llamo",
-        "label": "llamo"
+        "label": "llamo (YAH-moh)"
       }
     ],
     "correct_option_id": "espana"
@@ -229,7 +229,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish name with the written accent from the reading.",
+    "prompt_template": "Type the Spanish name with the written accent from the reading (hoh-SEH).",
     "expected_answer": "José",
     "review_template_ids": [
       "template.es.a0.m02.l017.n_choice.v1"
@@ -245,7 +245,7 @@
       "vocabulary",
       "grammar"
     ],
-    "prompt_template": "Type the Spanish verb form from the pattern me ____.",
+    "prompt_template": "Type the missing Spanish word: me ____ (meh ____).",
     "expected_answer": "llamo",
     "review_template_ids": [
       "template.es.a0.m02.l004.name_pattern_choice.v1"

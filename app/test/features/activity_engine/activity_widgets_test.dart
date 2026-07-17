@@ -269,6 +269,23 @@ void main() {
 
     expect(find.text('Correct'), findsOneWidget);
   });
+
+  testWidgets('matching widget does not prefill localized answers', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(template: _ukrainianMatchingTemplate),
+        ),
+      ),
+    );
+
+    expect(find.widgetWithText(TextField, 'hola'), findsOneWidget);
+    expect(find.text('привіт'), findsNothing);
+    expect(find.text('дякую'), findsNothing);
+    expect(find.text('я не розумію'), findsNothing);
+  });
 }
 
 Widget _localizedApp(Widget child) {
@@ -360,4 +377,13 @@ const _matchingTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Match greetings.',
   expectedAnswer: 'hola=hello; adiós=goodbye',
+);
+
+const _ukrainianMatchingTemplate = ExerciseTemplate(
+  id: 'template.widget.matching.ukrainian',
+  exerciseType: 'matching',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['vocabulary'],
+  promptTemplate: 'Введіть українське значення для кожної іспанської форми.',
+  expectedAnswer: 'hola=привіт; gracias=дякую; no entiendo=я не розумію',
 );

@@ -75,14 +75,14 @@ void main() {
       expect(localizedVocab.id, vocab.id);
       expect(localizedVocab.spanish, 'hola');
       expect(localizedVocab.nativeTranslation, 'hello');
-      expect(localizedVocab.example, 'Hola, Ana.');
+      expect(localizedVocab.example, 'Hola.');
 
       final template = content.contents
           .whereType<ExerciseTemplateContent>()
           .expand((content) => content.templates)
           .firstWhere(
             (template) =>
-                template.id == 'template.es.a0.unit1.greeting_choice.v1',
+                template.id == 'template.es.a0.m01.l001.meaning_hola.v1',
           );
       final localizedTemplate = resolver.resolveExerciseTemplate(
         template,
@@ -90,7 +90,7 @@ void main() {
       );
 
       expect(localizedTemplate.id, template.id);
-      expect(localizedTemplate.promptTemplate, 'Choose the meaning of "hola".');
+      expect(localizedTemplate.promptTemplate, 'What does Hola mean?');
       expect(localizedTemplate.correctOptionId, template.correctOptionId);
       expect(localizedTemplate.answerOptions.first.id, 'option.hello');
       expect(localizedTemplate.answerOptions.first.label, 'hello');
@@ -236,7 +236,7 @@ void main() {
       final summaries = const EducationalContentLocalizationInventory()
           .summarize(inventory: inventory, localization: localization);
 
-      expect(inventory.length, 2742);
+      expect(inventory.length, 2759);
       expect(
         summaries.map(
           (summary) => (
@@ -256,11 +256,11 @@ void main() {
           ('lesson activities', 312, 312, 0, 0),
           ('lesson summaries', 70, 70, 0, 0),
           ('vocabulary', 515, 515, 0, 0),
-          ('grammar', 374, 374, 0, 0),
+          ('grammar', 379, 379, 0, 0),
           ('dialogues', 353, 353, 0, 0),
           ('readings', 152, 152, 0, 0),
-          ('exercise prompts', 495, 495, 0, 0),
-          ('support-language answer options', 111, 111, 0, 0),
+          ('exercise prompts', 502, 502, 0, 0),
+          ('support-language answer options', 116, 116, 0, 0),
         ]),
       );
       expect(issues, isEmpty);
@@ -281,7 +281,7 @@ void main() {
       expect(
         fieldKeys,
         contains(
-          'exercise_template|template.es.a0.unit1.greeting_choice.v1|'
+          'exercise_template|template.es.a0.m01.l001.meaning_hola.v1|'
           'answer_options.option.hello.label',
         ),
       );
@@ -313,7 +313,7 @@ void main() {
         (entry) => entry.locale == SupportLocale.ukrainian,
       );
 
-      expect(english.totalFields, 2742);
+      expect(english.totalFields, 2759);
       expect(english.translatedFields, english.totalFields);
       expect(english.fallbackFields, 0);
       expect(russian.totalFields, english.totalFields);

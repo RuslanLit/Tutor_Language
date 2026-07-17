@@ -6,6 +6,7 @@ Version: 3.2
 
 Related documents:
 
+- LESSON_AUTHORING_ENTRYPOINT.md
 - PROJECT_VISION.md
 - PROJECT_CONTRACT.md
 - ARCHITECTURE.md

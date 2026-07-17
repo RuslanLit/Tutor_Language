@@ -31,7 +31,7 @@
   },
   {
     "id": "reading.es.a0.m02.name_sounds.v1",
-    "title": "Name Sounds",
+    "title": "Names",
     "vocabulary_ids": [
       "vocab.es.a0.unit1.hola.v1",
       "vocab.es.a0.unit1.me_llamo.v1",
@@ -41,8 +41,8 @@
     "grammar_ids": [
       "grammar.es.a0.m02.me_llamo_transfer.v1"
     ],
-    "text": "España. José. Javier. Me llamo Laura.",
-    "native_translation": "Spain. José. Javier. My name is Laura."
+    "text": "España.\nJosé.\nJavier.\nMe llamo.",
+    "native_translation": "es-PAH-nyah.\nhoh-SEH.\nhah-VYEHR.\nmeh YAH-moh.\nSpain.\nJosé.\nJavier.\nMy name is."
   },
   {
     "id": "reading.es.a0.m02.polite_replies.v1",

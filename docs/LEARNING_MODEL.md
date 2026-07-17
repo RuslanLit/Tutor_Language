@@ -6,6 +6,9 @@ Version: 3.3
 
 Related documents:
 
+- LESSON_AUTHORING_ENTRYPOINT.md
+- LEARNING_STATE_MACHINE.md
+- PEDAGOGICAL_SCENARIO_MODEL.md
 - EDUCATIONAL_PRINCIPLES.md
 - PROJECT_VISION.md
 - ARCHITECTURE.md
@@ -470,14 +473,19 @@ Current LessonPlan information includes:
 
 Every lesson has exactly one primary educational objective.
 
-Examples:
+For authored lessons, the primary objective must be a measurable learner-state outcome
+as defined in PEDAGOGICAL_SCENARIO_MODEL.md and LEARNING_STATE_MACHINE.md.
+
+Implementation planning reasons may include:
 
 - introduce vocabulary;
 - reinforce grammar;
 - consolidate knowledge;
 - reduce review backlog.
 
-Secondary goals may exist.
+These are not acceptable primary lesson objectives for authored educational content.
+
+Secondary instructional functions may exist.
 
 The primary goal always has priority.
 

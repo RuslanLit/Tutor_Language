@@ -866,7 +866,7 @@ class LessonPlayerStepView extends StatelessWidget {
               ),
               const SizedBox(height: 4),
             ],
-            if (!_hasReadingRulePresentation(step))
+            if (step.isInsertedReview && !_hasReadingRulePresentation(step))
               Text(
                 _stepTypeLabel(step.stepType, l10n),
                 style: Theme.of(context).textTheme.labelMedium,
@@ -1021,6 +1021,12 @@ class ReadingRuleView extends StatelessWidget {
     final title = presentation.title ?? presentation.orthographicPattern;
     final theme = Theme.of(context);
     final grapheme = presentation.graphemePresentation;
+    final explanationBlocks = _uniqueReadingRuleTextBlocks([
+      presentation.shortExplanation,
+      presentation.detailedExplanation,
+      presentation.articulationHint,
+      presentation.commonMistakes,
+    ]);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1034,29 +1040,33 @@ class ReadingRuleView extends StatelessWidget {
           ),
         ] else
           Text(presentation.orthographicPattern),
+        for (final block in explanationBlocks) ...[
+          const SizedBox(height: 8),
+          Text(block),
+        ],
         if (presentation.ipa != null) ...[
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Text(presentation.ipa!),
-        ],
-        if (presentation.shortExplanation != null) ...[
-          const SizedBox(height: 8),
-          Text(presentation.shortExplanation!),
-        ],
-        if (presentation.detailedExplanation != null) ...[
-          const SizedBox(height: 8),
-          Text(presentation.detailedExplanation!),
-        ],
-        if (presentation.articulationHint != null) ...[
-          const SizedBox(height: 8),
-          Text(presentation.articulationHint!),
-        ],
-        if (presentation.commonMistakes != null) ...[
-          const SizedBox(height: 8),
-          Text(presentation.commonMistakes!),
         ],
       ],
     );
   }
+}
+
+List<String> _uniqueReadingRuleTextBlocks(Iterable<String?> values) {
+  final seen = <String>{};
+  final blocks = <String>[];
+  for (final value in values) {
+    final trimmed = value?.trim();
+    if (trimmed == null || trimmed.isEmpty) {
+      continue;
+    }
+    final normalized = trimmed.toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+    if (seen.add(normalized)) {
+      blocks.add(trimmed);
+    }
+  }
+  return blocks;
 }
 
 class GraphemeComparisonView extends StatelessWidget {

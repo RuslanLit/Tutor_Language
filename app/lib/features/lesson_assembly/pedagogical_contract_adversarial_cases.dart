@@ -284,6 +284,113 @@ List<PedagogicalAdversarialCase> _readingRuleCases() {
         detailedExplanation: 'h',
       ),
     ),
+    readingCase(
+      id: 'C9.latin-r-misidentified-as-ukrainian',
+      expectedCodes: const {'READING_RULE_SCRIPT_MISIDENTIFIED'},
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.r.v1',
+        orthographicPattern: 'r',
+        ipa: '/ɾ/',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.r.v1',
+        title: 'Одинарна r',
+        learnerHint: 'Назва r — «е́ре».',
+        shortExplanation: 'Українська буква r передає звук /ɾ/.',
+        detailedExplanation: 'У слові pero одинарна r звучить коротко.',
+      ),
+    ),
+    readingCase(
+      id: 'C10.latin-r-misidentified-as-cyrillic',
+      expectedCodes: const {
+        'READING_RULE_SCRIPT_MISIDENTIFIED',
+        'READING_RULE_AUTHORING_LANGUAGE_EXPOSED',
+      },
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.r.v1',
+        orthographicPattern: 'r',
+        ipa: '/ɾ/',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.r.v1',
+        title: 'Одинарна r',
+        learnerHint: 'Назва r — «е́ре».',
+        shortExplanation: 'Кирилична r читається як /ɾ/.',
+        detailedExplanation: 'У слові pero одинарна r звучить коротко.',
+      ),
+    ),
+    readingCase(
+      id: 'C11.cyrillic-vowels-substitute-latin-vowels',
+      expectedCodes: const {'READING_RULE_CYRILLIC_SUBSTITUTES_LATIN_GRAPHEME'},
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.stable_vowels.v1',
+        orthographicPattern: 'a e i o u',
+        ipa: '/a e i o u/',
+        phoneticOutcome: 'stable Spanish vowel sounds',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.stable_vowels.v1',
+        title: 'Іспанські голосні',
+        learnerHint: 'Голосні a, e, i, o, u звучать стабільно.',
+        shortExplanation: 'Іспанські голосні а е і о у звучать стабільно.',
+        detailedExplanation: 'У слові hola голосна o звучить коротко й рівно.',
+      ),
+    ),
+    readingCase(
+      id: 'C12.mixed-script-vowel-sequence',
+      expectedCodes: const {'READING_RULE_MIXED_SCRIPT_GRAPHEME'},
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.stable_vowels.v1',
+        orthographicPattern: 'a e i o u',
+        ipa: '/a e i o u/',
+        phoneticOutcome: 'stable Spanish vowel sounds',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.stable_vowels.v1',
+        title: 'Іспанські голосні',
+        learnerHint: 'Голосні a, e, i, o, u звучать стабільно.',
+        shortExplanation: 'Форма a е i о u змішує системи письма.',
+        detailedExplanation: 'У слові hola голосна o звучить коротко й рівно.',
+      ),
+    ),
+    readingCase(
+      id: 'C13.authoring-language-exposed',
+      expectedCodes: const {'READING_RULE_AUTHORING_LANGUAGE_EXPOSED'},
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.r.v1',
+        orthographicPattern: 'r',
+        ipa: '/ɾ/',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.r.v1',
+        title: 'Одинарна латинська літера r',
+        learnerHint: 'Назва r — «е́ре».',
+        shortExplanation: 'Латинська форма r належить до латиниці.',
+        detailedExplanation: 'У слові pero r звучить коротко.',
+      ),
+    ),
+    readingCase(
+      id: 'C14.generic-duplicate-reading-rule-explanation',
+      expectedCodes: const {
+        'READING_RULE_GENERIC_FALLBACK_EXPLANATION',
+        'READING_RULE_DUPLICATE_EXPLANATION',
+        'READING_RULE_AUTHORING_LANGUAGE_EXPOSED',
+      },
+      rule: _readingRule(
+        id: 'pronunciation.es.rule.r.v1',
+        orthographicPattern: 'r',
+        ipa: '/ɾ/',
+      ),
+      localization: _validRuleLocalization(
+        'pronunciation.es.rule.r.v1',
+        title: 'Одинарна r',
+        learnerHint: 'Назва r — «е́ре».',
+        shortExplanation:
+            'Пояснення для початківця: зверніть увагу на іспанське написання. Ключова іспанська форма: r, /ɾ/.',
+        detailedExplanation:
+            'Пояснення для початківця: зверніть увагу на іспанське написання. Ключова іспанська форма: r, /ɾ/.',
+      ),
+    ),
   ];
 }
 
@@ -366,6 +473,16 @@ List<PedagogicalAdversarialCase> _pronunciationCases() {
       expectedCodes: const {'TARGET_ORTHOGRAPHY_LOCALIZED'},
       unit: _pronunciationUnit(id: 'pron.d5', orthography: 'привіт'),
       localization: _validUnitLocalization('pron.d5'),
+    ),
+    pronunciationCase(
+      id: 'D6.authoring-language-exposed',
+      expectedCodes: const {'PRONUNCIATION_AUTHORING_LANGUAGE_EXPOSED'},
+      unit: _pronunciationUnit(id: 'pron.d6'),
+      localization: _validUnitLocalization(
+        'pron.d6',
+        explanation:
+            'Пояснення для початківця: зверніть увагу на іспанське написання. Ключова іспанська форма: hola, /ˈola/.',
+      ),
     ),
   ];
 }
@@ -691,6 +808,8 @@ ExerciseTemplate _recall({
 ReadingRule _readingRule({
   required String id,
   String? ipa = '/∅/',
+  String orthographicPattern = 'h',
+  String? phoneticOutcome,
   List<String> examples = const ['pronunciation.valid.hola'],
 }) {
   return ReadingRule(
@@ -699,10 +818,10 @@ ReadingRule _readingRule({
     knowledgeDomain: 'language',
     ruleKind: 'reading',
     targetLanguage: 'es',
-    orthographicPattern: 'h',
+    orthographicPattern: orthographicPattern,
     pronunciationVariety: PronunciationVariety('es-general'),
     ipa: ipa == null ? null : IpaTranscription(ipa),
-    phoneticOutcome: ipa,
+    phoneticOutcome: phoneticOutcome ?? ipa,
     examplePronunciationUnitIds: examples,
   );
 }

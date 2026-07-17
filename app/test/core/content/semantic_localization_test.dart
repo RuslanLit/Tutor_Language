@@ -123,10 +123,10 @@ void main() {
     () async {
       final semantic = await SemanticLocalizationRepository().loadBundle();
 
-      expect(semantic.units, hasLength(263));
+      expect(semantic.units, hasLength(284));
       expect(
         semantic.units.where((unit) => unit.isApprovedFor('uk')),
-        hasLength(263),
+        hasLength(284),
       );
       expect(semantic.supportLocales, containsAll(['uk', 'ru']));
     },
@@ -334,6 +334,36 @@ void main() {
     expect(resolved.nativeTranslation, 'привіт');
   });
 
+  test('Ukrainian Module 1 exercise options resolve at runtime', () async {
+    final localization = await EducationalContentLocalizationRepository()
+        .loadBundle();
+    final semantic = await SemanticLocalizationRepository().loadBundle();
+    final content = await ContentLoader().loadLanguagePackContent();
+    final resolver = EducationalContentLocalizationResolver(
+      localization,
+      semanticBundle: semantic,
+    );
+    final template = content.contents
+        .whereType<ExerciseTemplateContent>()
+        .expand((content) => content.templates)
+        .firstWhere(
+          (template) =>
+              template.id == 'template.es.a0.m01.l001.meaning_hola.v1',
+        );
+
+    final resolved = resolver.resolveExerciseTemplate(
+      template,
+      SupportLocale.ukrainian,
+    );
+
+    expect(resolved.promptTemplate, contains('Hola'));
+    expect(
+      resolved.answerOptions.map((option) => option.label),
+      containsAll(['привіт', 'дякую', 'до побачення']),
+    );
+    expect(resolved.correctOptionId, 'option.hello');
+  });
+
   test(
     'full Ukrainian migration gate reports Module 1 progress only',
     () async {
@@ -345,12 +375,12 @@ void main() {
         semanticBundle: semantic,
       );
 
-      expect(coverage.legacyFields, 2742);
-      expect(coverage.semanticApprovedFields, 263);
-      expect(coverage.legacyFieldsCoveredBySemantic, 186);
-      expect(coverage.remainingLegacyFields, 2556);
+      expect(coverage.legacyFields, 2759);
+      expect(coverage.semanticApprovedFields, 284);
+      expect(coverage.legacyFieldsCoveredBySemantic, 194);
+      expect(coverage.remainingLegacyFields, 2565);
       expect(coverage.legacyResolutions, 0);
-      expect(coverage.sourceFallbackCount, 2556);
+      expect(coverage.sourceFallbackCount, 2565);
       expect(coverage.isProductionComplete, isFalse);
     },
   );
@@ -367,7 +397,7 @@ void main() {
 
     expect(coverage.semanticApprovedFields, 0);
     expect(coverage.legacyResolutions, 0);
-    expect(coverage.sourceFallbackCount, 2742);
+    expect(coverage.sourceFallbackCount, 2759);
     expect(coverage.isProductionComplete, isFalse);
   });
 

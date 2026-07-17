@@ -11,6 +11,7 @@ enum SemanticLocalizationType {
   communicativeOutcome,
   learnerInstruction,
   exercisePrompt,
+  exerciseAnswer,
   answerOptionLabel,
   feedback,
   remediation,

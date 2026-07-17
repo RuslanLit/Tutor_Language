@@ -140,6 +140,64 @@ void main() {
     },
   );
 
+  test(
+    'Ukrainian reading rules follow learner presentation standard',
+    () async {
+      final catalog = await _loadCatalog();
+
+      final singleR = catalog.resolveReadingRule(
+        'pronunciation.es.rule.r.v1',
+        supportLocaleCode: 'uk-UA',
+      )!;
+      final vowels = catalog.resolveReadingRule(
+        'pronunciation.es.rule.stable_vowels.v1',
+        supportLocaleCode: 'uk-UA',
+      )!;
+
+      expect(singleR.title, 'Одинарна r');
+      expect(singleR.orthographicPattern, 'r');
+      expect(singleR.ipa, '/ɾ/');
+      expect(singleR.shortExplanation, contains('Назва літери: е́ре'));
+      expect(singleR.shortExplanation, contains('коротке р'));
+      expect(singleR.detailedExplanation, contains('pero'));
+      expect(singleR.commonMistakes, contains('rr'));
+      expect(
+        _uniqueBlocks([
+          singleR.shortExplanation,
+          singleR.detailedExplanation,
+          singleR.articulationHint,
+          singleR.commonMistakes,
+        ]),
+        hasLength(4),
+      );
+      expect(
+        [
+          singleR.title,
+          singleR.shortExplanation,
+          singleR.detailedExplanation,
+          singleR.articulationHint,
+          singleR.commonMistakes,
+        ].join('\n'),
+        allOf(
+          isNot(contains('англійськ')),
+          isNot(contains('латинськ')),
+          isNot(contains('кирилиц')),
+          isNot(contains('не плутайте')),
+        ),
+      );
+
+      expect(vowels.title, 'Іспанські голосні');
+      expect(vowels.orthographicPattern, 'a e i o u');
+      expect(vowels.ipa, '/a e i o u/');
+      expect(vowels.shortExplanation, contains('a, e, i, o, u'));
+      expect(vowels.shortExplanation, contains('коротко й рівно'));
+      expect(vowels.shortExplanation, isNot(contains('голосні а е і о у')));
+      expect(vowels.shortExplanation, isNot(contains('a е i о u')));
+      expect(vowels.shortExplanation, isNot(contains('латинськ')));
+      expect(vowels.shortExplanation, isNot(contains('кирилиц')));
+    },
+  );
+
   test('missing Russian hint does not return English hint', () {
     final unit = PronunciationUnit(
       id: PronunciationUnitId('pronunciation.es.word.test.v1'),
@@ -605,4 +663,12 @@ Future<PronunciationCatalog> _loadCatalog() async {
   return PronunciationLoader(
     assetBundle: rootBundle,
   ).loadCatalog(vocabularyContents: vocabulary);
+}
+
+Set<String> _uniqueBlocks(Iterable<String?> values) {
+  return values
+      .whereType<String>()
+      .map((value) => value.trim().toLowerCase())
+      .where((value) => value.isNotEmpty)
+      .toSet();
 }

@@ -29,6 +29,7 @@ class AnswerChecker {
     return switch (input.item.interactionType) {
       'multiple_choice' => _checkMultipleChoice(input, response),
       'text_entry' => _checkTextEntry(input, response),
+      'fill_gap' => _checkTextEntry(input, response),
       _ => const AnswerCheckResult(
         status: AnswerCheckStatus.unsupported,
         feedbackKey: 'answer.unsupported',
@@ -66,6 +67,8 @@ class AnswerChecker {
       learnerAnswer: response.answer.label,
       canonicalAnswer: expectedText,
       acceptedAnswers: input.expectedAnswer.acceptedTextAnswers,
+      acceptedWithFeedbackAnswers:
+          input.expectedAnswer.acceptedWithFeedbackAnswers,
       authoredMisconceptions: input.expectedAnswer.authoredMisconceptions,
     );
 

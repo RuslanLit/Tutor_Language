@@ -2,6 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
 import 'package:tutor_language/core/content/educational_content_catalog.dart';
+import 'package:tutor_language/core/content/pronunciation_models.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/activity_engine/activity_engine.dart';
 import 'package:tutor_language/features/activity_engine/activity_result.dart';
@@ -203,6 +204,34 @@ void main() {
           }
         }
       }
+    },
+  );
+
+  test(
+    'Module 1 first reading lesson introduces only authored current rules',
+    () async {
+      final service = LessonAssemblyService(
+        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+        contentLoader: ContentLoader(assetBundle: rootBundle),
+      );
+      const stepBuilder = LessonPlayerStepBuilder();
+
+      final assembled = await service.assembleLesson('es.a0.m06.l016');
+      final steps = stepBuilder.buildSteps(assembled);
+      final readingRuleIds = steps
+          .expand((step) => step.content)
+          .whereType<ReadingRulePresentationReference>()
+          .map((reference) => reference.ruleId)
+          .toList(growable: false);
+
+      expect(assembled.lesson.introducedReadingRuleIds, [
+        'pronunciation.es.rule.silent_h.v1',
+      ]);
+      expect(readingRuleIds, isEmpty);
+      expect(readingRuleIds, isNot(contains('pronunciation.es.rule.r.v1')));
+      expect(readingRuleIds, isNot(contains('pronunciation.es.rule.c_z.v1')));
+      expect(readingRuleIds, isNot(contains('pronunciation.es.rule.b_v.v1')));
+      expect(readingRuleIds, isNot(contains('pronunciation.es.rule.g_e_i.v1')));
     },
   );
 

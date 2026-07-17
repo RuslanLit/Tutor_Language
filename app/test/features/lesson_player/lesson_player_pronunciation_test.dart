@@ -143,6 +143,58 @@ void main() {
     expect(find.textContaining('Silent h'), findsNothing);
   });
 
+  testWidgets('reading rule presentation deduplicates repeated explanations', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: ReadingRuleView(
+            presentation: ResolvedReadingRulePresentation(
+              id: 'pronunciation.es.rule.r.v1',
+              targetLanguage: 'es',
+              pronunciationVariety: 'es-general',
+              orthographicPattern: 'r',
+              examplePronunciationUnitIds: ['pronunciation.es.word.pero.v1'],
+              title: 'Одинарна r',
+              ipa: '/ɾ/',
+              shortExplanation:
+                  'Назва літери: е́ре. Приблизна вимова: коротке р.',
+              detailedExplanation:
+                  'Назва літери: е́ре. Приблизна вимова: коротке р.',
+              articulationHint:
+                  'Назва літери: е́ре. Приблизна вимова: коротке р.',
+              commonMistakes:
+                  'У слові pero звук коротший, ніж rr у словах з подвійною rr.',
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(
+      find.text('Назва літери: е́ре. Приблизна вимова: коротке р.'),
+      findsOneWidget,
+    );
+    expect(find.text('/ɾ/'), findsOneWidget);
+    expect(find.textContaining('rr'), findsOneWidget);
+  });
+
+  testWidgets('activity title does not duplicate content type label', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Scaffold(body: LessonPlayerStepView(step: _vocabularyStep)),
+      ),
+    );
+
+    expect(find.text('Grammar'), findsOneWidget);
+    expect(find.text('grammar'), findsNothing);
+  });
+
   testWidgets('reading rule step hides generic mixed label', (tester) async {
     final catalog = await _loadReadingRuleCatalog();
 
@@ -388,4 +440,42 @@ const _readingRuleStep = LessonPlayerStep(
     ),
   ],
   stepType: LessonPlayerStepType.mixed,
+);
+
+const _vocabularyStep = LessonPlayerStep(
+  id: 'lesson.step.vocabulary',
+  sourceActivity: LessonContentActivity(
+    activity: LessonActivity(
+      id: 'activity.grammar',
+      title: 'Grammar',
+      type: 'grammar',
+      order: 1,
+      contentReferences: [
+        LessonContentReference(
+          type: 'grammar',
+          assetPath: 'assets/languages/spanish/grammar/test.json',
+          referenceId: 'grammar.test.hola',
+        ),
+      ],
+    ),
+    resolvedContent: [
+      GrammarTopic(
+        id: 'grammar.test.hola',
+        title: 'Greeting',
+        explanation: 'Use hola to greet someone.',
+        examples: ['hola'],
+        prerequisiteIds: [],
+      ),
+    ],
+  ),
+  content: [
+    GrammarTopic(
+      id: 'grammar.test.hola',
+      title: 'Greeting',
+      explanation: 'Use hola to greet someone.',
+      examples: ['hola'],
+      prerequisiteIds: [],
+    ),
+  ],
+  stepType: LessonPlayerStepType.grammar,
 );

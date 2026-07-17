@@ -19356,7 +19356,7 @@
       },
       "explanations": {
         "en": "In Chile, ch is read as one sound /tʃ/. This course uses /s/ for c before e/i and z in the general learning norm.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: buenas noches, /bˈuenas nˈotʃes/."
+        "uk": "У buenas noches наголос падає на буе́нас і но́чес; ch у noches звучить як ч."
       },
       "titles": {},
       "shortExplanations": {},
@@ -20138,7 +20138,7 @@
       },
       "explanations": {
         "en": "The h in hasta is silent.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: hasta luego, /ˈasta ˈlweɣo/."
+        "uk": "У hasta h не дає окремого звука: вимовляйте а́ста луе́го."
       },
       "titles": {},
       "shortExplanations": {},
@@ -21450,21 +21450,21 @@
       },
       "shortExplanations": {
         "en": "In this beginner norm, b and v are not contrasted like English b and v.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: b/v, /b/."
+        "uk": "b і v на рівні A0 звучать дуже близько: приблизно як б."
       },
       "detailedExplanations": {
         "en": "Treat them as very close sounds for A0 reading; finer pronunciation can come later.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: b/v, /b/."
+        "uk": "У словах bueno і vivo читайте b і v близько до б; точні відтінки вимови прийдуть пізніше."
       },
       "learnerHints": {
-        "uk": "Назви b і v: «бе» та «уве»; на рівні A0 звучання близьке."
+        "uk": "Назви літер: b — «бе», v — «уве». Приблизна вимова: б."
       },
       "explanations": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: b/v, /b/."
+        "uk": "b і v на рівні A0 звучать дуже близько: приблизно як б."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не протиставляйте b і v як в англійській: на рівні A0 вони дуже близькі."
+        "uk": "У слові vivo обидві v читаються близько до б."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21477,21 +21477,21 @@
       },
       "shortExplanations": {
         "en": "The c/z sound depends on region and nearby letters.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: c/z."
+        "uk": "c перед e або i та z у цій навчальній нормі звучать близько до с."
       },
       "detailedExplanations": {
         "en": "This course keeps the beginner pattern visible without treating one regional pronunciation as universal.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: c/z."
+        "uk": "У словах gracias і zona читайте цей звук коротко й рівно, приблизно як с."
       },
       "learnerHints": {
-        "uk": "Назви c і z: «се» та «сета»; у цій нормі звук близький до /s/."
+        "uk": "Назви літер: c — «се», z — «сета». Приблизна вимова: с."
       },
       "explanations": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: c/z."
+        "uk": "c перед e або i та z у цій навчальній нормі звучать близько до с."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не очікуйте англійського звучання c або z: у цьому курсі читаємо їх за навчальною нормою /s/."
+        "uk": "У слові gracias звук c короткий, без додаткового голосного."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21508,7 +21508,7 @@
       },
       "detailedExplanations": {
         "en": "In beginner hints, keep the u and e connected rather than reading them as two separated beats.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ue, /we/."
+        "uk": "У словах bueno і luego сполука ue звучить як плавний рух /we/."
       },
       "learnerHints": {
         "uk": "Сполука ue читається як плавний рух /we/."
@@ -21527,27 +21527,27 @@
       "id": "pronunciation.es.rule.enye.v1",
       "titles": {
         "en": "The letter ñ",
-        "uk": "Літера ñ"
+        "uk": "е́ньє"
       },
       "shortExplanations": {
         "en": "The letter ñ is a separate Spanish letter.",
-        "uk": "Літера ñ («е́ньє») — окрема іспанська літера."
+        "uk": "Назва літери: е́ньє. Приблизна вимова українською: нь."
       },
       "detailedExplanations": {
         "en": "It is often approximated as ny for beginners, but it is one Spanish sound.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ñ, /ɲ/."
+        "uk": "У словах España і niño ñ звучить як м'яке нь."
       },
       "learnerHints": {
         "en": "ny",
-        "uk": "Назва ñ — «е́ньє»; це окрема іспанська літера."
+        "uk": "Назва літери: е́ньє. Приблизна вимова українською: нь."
       },
       "explanations": {
         "en": "The letter ñ is a separate Spanish letter.",
-        "uk": "Літера ñ («е́ньє») — окрема іспанська літера."
+        "uk": "Назва літери: е́ньє. Приблизна вимова українською: нь."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не замінюйте ñ двома літерами n+y у письмі: це окрема літера."
+        "uk": "У слові España вимовляйте ñ одним м'яким звуком нь."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21560,21 +21560,21 @@
       },
       "shortExplanations": {
         "en": "Before e or i, Spanish g is read like the j sound taught in this course.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: g + e/i, /x/."
+        "uk": "g перед e або i звучить приблизно як х."
       },
       "detailedExplanations": {
         "en": "This is a reading rule for spelling patterns such as ge and gi.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: g + e/i, /x/."
+        "uk": "У сполуках ge та gi читайте g як х: gente, gimnasio."
       },
       "learnerHints": {
-        "uk": "g перед e або i читається як звук j, не як тверде g."
+        "uk": "Назва літери: хе. Приблизна вимова українською перед e або i: х."
       },
       "explanations": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: g + e/i, /x/."
+        "uk": "g перед e або i звучить приблизно як х."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не читайте ge або gi як тверде g: перед e/i це звук типу j."
+        "uk": "У слові gente починайте з х-подібного звука."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21583,27 +21583,27 @@
       "id": "pronunciation.es.rule.j.v1",
       "titles": {
         "en": "Spanish j",
-        "uk": "Іспанська j"
+        "uk": "хо́та"
       },
       "shortExplanations": {
         "en": "Spanish j is not English j.",
-        "uk": "Іспанська j — це не англійська j."
+        "uk": "Назва літери: хо́та. Приблизна вимова українською: х."
       },
       "detailedExplanations": {
         "en": "In this course norm, j is taught as a firm h-like sound made farther back in the mouth.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: j, /x/."
+        "uk": "У словах José і joven j звучить приблизно як х."
       },
       "commonMistakes": {
         "en": "Do not read José with an English j sound.",
-        "uk": "Не читайте José з англійським j."
+        "uk": "У слові José починайте з х-подібного звука."
       },
       "learnerHints": {
         "en": "h-like",
-        "uk": "Назва j — «хо́та»; звук не такий, як англійська j."
+        "uk": "Назва літери: хо́та. Приблизна вимова українською: х."
       },
       "explanations": {
         "en": "Spanish j is not English j.",
-        "uk": "Іспанська j — це не англійська j."
+        "uk": "Назва літери: хо́та. Приблизна вимова українською: х."
       },
       "articulationHints": {},
       "contrastNotes": {},
@@ -21617,11 +21617,11 @@
       },
       "shortExplanations": {
         "en": "ll is two lowercase l letters. In this course, it begins with a y-like sound before a vowel.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y, /ʝ/."
+        "uk": "ll читається приблизно як й перед голосною."
       },
       "detailedExplanations": {
         "en": "ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters. In the course norm, ll and consonantal y share a broad /ʝ/ category. Regional non-yeista pronunciations exist, but they are not the Spanish A0 production norm.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y, /ʝ/."
+        "uk": "У словах llave і me llamo починайте ll м'яко, близько до й."
       },
       "graphemePresentations": {
         "en": {
@@ -21638,30 +21638,30 @@
           "accessibilityDescription": "Two lowercase Latin ell letters: ell plus ell, form ll. Do not confuse this with two uppercase Latin i letters: I plus I, form II."
         },
         "uk": {
-          "canonicalDescription": "ll — це дві малі латинські літери l.",
+          "canonicalDescription": "ll — це l + l.",
           "componentLetterNames": [
             "ель",
             "ель"
           ],
-          "confusableDescription": "Не плутайте з II: це дві великі латинські літери I.",
+          "confusableDescription": "II має інші назви компонентів: і + і.",
           "confusableComponentLetterNames": [
             "і",
             "і"
           ],
-          "accessibilityDescription": "Дві малі латинські літери ель утворюють ll; дві великі латинські літери і утворюють II."
+          "accessibilityDescription": "ель плюс ель утворює ll; і плюс і утворює II."
         }
       },
       "learnerHints": {
         "en": "y-like",
-        "uk": "ll називають «е́льє»; це дві малі l, які в курсі читаються як /ʝ/."
+        "uk": "Назва сполуки: е́ль + е́ль. Приблизна вимова українською: й."
       },
       "explanations": {
         "en": "In this course, ll before a vowel starts with a y-like sound.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y, /ʝ/."
+        "uk": "ll читається приблизно як й перед голосною."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не плутайте ll з двома великими I; це дві малі l і окреме правило читання."
+        "uk": "У слові llave починайте з м'якого й-подібного звука."
       },
       "contrastNotes": {}
     },
@@ -21677,7 +21677,7 @@
       },
       "detailedExplanations": {
         "en": "Learner hints also mark stress so beginners do not have to infer it from spelling.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: á é í ó ú."
+        "uk": "У слові adiós знак наголосу показує, що сильніше звучить останній склад."
       },
       "learnerHints": {
         "en": "marked stress",
@@ -21702,24 +21702,24 @@
       },
       "shortExplanations": {
         "en": "Single r is a short tap in the beginner examples.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "Назва літери: е́ре. Приблизна вимова українською: коротке р."
       },
       "detailedExplanations": {
         "en": "It is shorter than rr and should not become a long English-style r.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "У слові pero r звучить коротко, одним швидким дотиком язика."
       },
       "articulationHints": {
         "en": "Touch the tongue briefly near the ridge behind the upper teeth.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "Кінчик язика коротко торкається ділянки за верхніми зубами."
       },
       "learnerHints": {
-        "uk": "Назва r — «е́ре»; одинарна r звучить коротко."
+        "uk": "Назва літери: е́ре. Приблизна вимова українською: коротке р."
       },
       "explanations": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "Назва літери: е́ре. Приблизна вимова українською: коротке р."
       },
       "commonMistakes": {
-        "uk": "Не перетворюйте одинарну r на довгий англійський r."
+        "uk": "У слові pero звук коротший, ніж rr у словах з подвійною rr."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21761,23 +21761,23 @@
       },
       "shortExplanations": {
         "en": "In Spanish, written h is usually silent.",
-        "uk": "В іспанській мові літера h («а́че») зазвичай не вимовляється."
+        "uk": "Назва літери: а́че. У слові hola h не вимовляється."
       },
       "detailedExplanations": {
         "en": "Read the word as if the h were not there: hola begins with the vowel sound.",
-        "uk": "Читайте слово так, ніби h немає: hola починається з голосного звука."
+        "uk": "Читайте hola так, ніби слово починається одразу з голосного звука."
       },
       "learnerHints": {
         "en": "h is silent",
-        "uk": "Назва h — «а́че»; сама літера зазвичай німа."
+        "uk": "Назва літери: а́че. Приблизна вимова українською в hola: немає окремого звука."
       },
       "explanations": {
         "en": "In Spanish, written h is usually silent.",
-        "uk": "В іспанській мові літера h («а́че») зазвичай не вимовляється."
+        "uk": "Назва літери: а́че. У слові hola h не вимовляється."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не вимовляйте h як окремий звук: у hola починайте з голосного."
+        "uk": "У слові hola починайте одразу з о-подібного голосного."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -21786,27 +21786,27 @@
       "id": "pronunciation.es.rule.stable_vowels.v1",
       "titles": {
         "en": "Stable vowels",
-        "uk": "Сталі голосні"
+        "uk": "Іспанські голосні"
       },
       "shortExplanations": {
         "en": "Spanish a, e, i, o, u stay relatively stable.",
-        "uk": "Іспанські a, e, i, o, u вимовляються відносно стабільно."
+        "uk": "a, e, i, o, u вимовляються коротко й рівно."
       },
       "detailedExplanations": {
         "en": "Do not reshape Spanish vowels as strongly as English spelling might suggest.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: a e i o u, /a e i o u/."
+        "uk": "У словах hola і gracias голосні не змінюються різко від слова до слова."
       },
       "learnerHints": {
         "en": "stable vowels",
-        "uk": "Назви голосних: a, e, i, o, u; вимовляйте їх коротко й рівно."
+        "uk": "Приблизна вимова українською: a — а, e — е, i — і, o — о, u — у."
       },
       "explanations": {
         "en": "Spanish vowel letters are comparatively stable.",
-        "uk": "Іспанські a, e, i, o, u вимовляються відносно стабільно."
+        "uk": "a, e, i, o, u вимовляються коротко й рівно."
       },
       "articulationHints": {},
       "commonMistakes": {
-        "uk": "Не розтягуйте голосні за англійською звичкою: тримайте звук коротким і чітким."
+        "uk": "У слові gracias вимовляйте кожну голосну коротко й чітко."
       },
       "contrastNotes": {},
       "graphemePresentations": {}
@@ -25858,7 +25858,7 @@
       },
       "explanations": {
         "en": "This course uses /s/ for c before e/i and z in the general learning norm.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: Más despacio., /mas despˈasio/."
+        "uk": "У despacio c звучить близько до с: мас деспа́сіо."
       },
       "titles": {},
       "shortExplanations": {},
@@ -30378,7 +30378,7 @@
       },
       "explanations": {
         "en": "This course uses /s/ for c before e/i and z in the general learning norm.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: gracias, /ˈɡɾasjas/."
+        "uk": "У gracias c звучить близько до с: гра́сіас."
       },
       "titles": {},
       "shortExplanations": {},
@@ -30685,7 +30685,7 @@
       },
       "explanations": {
         "en": "Spanish j, ge and gi are pronounced with /x/ here.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: Javier, /xabˈieɾ/."
+        "uk": "У Javier j звучить близько до х: хав’є́р."
       },
       "titles": {},
       "shortExplanations": {},
@@ -30872,7 +30872,7 @@
       },
       "explanations": {
         "en": "llave uses the same ll/y reading rule as llamo.",
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: llave, /ˈʝaβe/."
+        "uk": "У llave сполука ll звучить близько до й: я́ве."
       },
       "titles": {},
       "shortExplanations": {},

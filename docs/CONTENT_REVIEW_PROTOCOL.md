@@ -6,6 +6,9 @@ Version: 1.0
 
 Related documents:
 
+- LESSON_AUTHORING_ENTRYPOINT.md
+- LEARNING_STATE_MACHINE.md
+- PEDAGOGICAL_SCENARIO_MODEL.md
 - EDUCATIONAL_LANGUAGE_STANDARD.md
 - EDUCATIONAL_PRINCIPLES.md
 - AUTHORING_STYLE_GUIDE.md
@@ -26,6 +29,10 @@ Related documents:
 
 This document defines the mandatory editorial review process for Tutor Language
 educational content.
+
+For lesson-level review, LEARNING_STATE_MACHINE.md is authoritative for learner states,
+state transitions, support fading and remediation. PEDAGOGICAL_SCENARIO_MODEL.md is
+authoritative for scenario construction before content mapping.
 
 Content creation and content review are different activities.
 
@@ -224,6 +231,9 @@ This stage verifies:
 - localized pronunciation explanations;
 - ReadingRule references;
 - ReadingRule learner support;
+- ReadingRule compliance with the Learner Presentation Standard;
+- Educational Information Priority;
+- Zero Linguistic Prerequisites;
 - articulation hints where present;
 - example pronunciation;
 - no cross-locale pronunciation fallback;
@@ -234,6 +244,29 @@ PRONUNCIATION_MODEL.md.
 
 Pronunciation content that is structurally complete but pedagogically
 misleading fails this stage.
+
+Reviewers must reject ReadingRule cards that explain authoring mechanics,
+validator concerns, localization, implementation details or writing-system
+architecture when the learner only needs to read the next course word. Such
+information may belong in review notes or structured metadata, not in the
+learner card.
+
+Mandatory review questions:
+
+- Educational Information Priority: Does the first explanation help the
+  learner pronounce or read the word immediately? If no, reject.
+- Zero Linguistic Prerequisites: Can a person with no linguistic background
+  understand this card? If no, reject.
+
+Reviewers must reject learner-facing pronunciation content that presents IPA
+without an understandable learner explanation. They must also reject content
+that relies primarily on linguistic terminology instead of learner-oriented
+pronunciation guidance.
+
+Future pedagogical validators should enforce these review outcomes by blocking
+cards whose first explanation is IPA-only or whose learner explanation depends
+on linguistic jargon rather than familiar sounds, familiar words, examples or
+simple comparisons.
 
 ---
 

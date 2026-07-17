@@ -7,19 +7,21 @@
   ],
   "requiredSemanticFields": [
     "activity.dialogue.clarification|title",
-    "activity.dialogue.hello_goodbye|title",
     "activity.dialogue.politeness|title",
     "activity.dialogue.unit1_review|title",
+    "activity.l001.context|title",
+    "activity.l001.first_encounter|title",
+    "activity.l001.guided_recall|title",
+    "activity.l001.independent_recall|title",
+    "activity.l001.meaning|title",
+    "activity.l001.reading|title",
     "activity.practice.clarification|title",
-    "activity.practice.greetings|title",
     "activity.practice.politeness|title",
     "activity.practice.unit1_review|title",
     "activity.reading.clarification|title",
-    "activity.reading.greeting_recognition|title",
     "activity.reading.politeness|title",
     "activity.reading.unit1_review|title",
     "activity.vocabulary.clarification|title",
-    "activity.vocabulary.greetings|title",
     "activity.vocabulary.politeness|title",
     "activity.vocabulary.unit1_review|title",
     "dialogue.es.a0.m01.morning_evening.v1|lines.0.native_translation",
@@ -49,7 +51,7 @@
     "dialogue.es.a0.unit1.hello_goodbye.v1|lines.2.native_translation",
     "dialogue.es.a0.unit1.hello_goodbye.v1|lines.3.native_translation",
     "dialogue.es.a0.unit1.hello_goodbye.v1|title",
-    "es.a0.m01.l001.objective.greetings.basic|description",
+    "es.a0.m01.l001.objective.hola.first_success|description",
     "es.a0.m01.l001.section.main|title",
     "es.a0.m01.l001.summary|reviewPrompt",
     "es.a0.m01.l001|communicativeOutcome",
@@ -104,6 +106,10 @@
     "es.a0.m06.l017|communicativeOutcome",
     "es.a0.m06.l017|description",
     "es.a0.m06.l017|title",
+    "grammar.es.a0.m01.l001.first_encounter.v1|explanation",
+    "grammar.es.a0.m01.l001.first_encounter.v1|title",
+    "grammar.es.a0.m01.l001.read_hola.v1|explanation",
+    "grammar.es.a0.m01.l001.read_hola.v1|title",
     "grammar.es.a0.m01.silent_h.v1|explanation",
     "grammar.es.a0.m01.silent_h.v1|title",
     "grammar.es.a0.m01.stable_vowels.v1|explanation",
@@ -194,9 +200,24 @@
     "reading.es.a0.unit1.greeting_recognition.v1|title",
     "reading.es.a0.unit1.polite_words.v1|native_translation",
     "reading.es.a0.unit1.polite_words.v1|title",
-    "template.es.a0.m01.l001.fill_hasta_luego.v1|prompt_template",
-    "template.es.a0.m01.l001.type_adios.v1|prompt_template",
-    "template.es.a0.m01.l001.type_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.context_arrival_hola.v1|answer_options.option.no_word_yet.label",
+    "template.es.a0.m01.l001.context_arrival_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.decode_hola.v1|answer_options.option.gola.label",
+    "template.es.a0.m01.l001.decode_hola.v1|answer_options.option.hola.label",
+    "template.es.a0.m01.l001.decode_hola.v1|answer_options.option.ola.label",
+    "template.es.a0.m01.l001.decode_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.focus_hola.v1|answer_options.option.meaning.label",
+    "template.es.a0.m01.l001.focus_hola.v1|answer_options.option.pronunciation.label",
+    "template.es.a0.m01.l001.focus_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.guided_type_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.independent_type_hola.v1|prompt_template",
+    "template.es.a0.m01.l001.interference_greeting_or_farewell.v1|answer_options.option.farewell.label",
+    "template.es.a0.m01.l001.interference_greeting_or_farewell.v1|answer_options.option.greeting.label",
+    "template.es.a0.m01.l001.interference_greeting_or_farewell.v1|prompt_template",
+    "template.es.a0.m01.l001.meaning_hola.v1|answer_options.option.goodbye.label",
+    "template.es.a0.m01.l001.meaning_hola.v1|answer_options.option.hello.label",
+    "template.es.a0.m01.l001.meaning_hola.v1|answer_options.option.thank_you.label",
+    "template.es.a0.m01.l001.meaning_hola.v1|prompt_template",
     "template.es.a0.m01.l002.thanks_choice.v1|prompt_template",
     "template.es.a0.m01.l002.type_gracias.v1|prompt_template",
     "template.es.a0.m01.l002.type_por_favor.v1|prompt_template",
@@ -298,34 +319,6 @@
       "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
     },
     {
-      "id": "semantic.uk.es_a0_m01.activity_dialogue_hello_goodbye_title_metadatalabel",
-      "semanticType": "metadataLabel",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Dialogue",
-      "values": {
-        "uk": "Діалог"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "activity.dialogue.hello_goodbye",
-        "fieldPath": "title",
-        "contentKind": "lesson_activity",
-        "pedagogicalRole": "activity title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
       "id": "semantic.uk.es_a0_m01.activity_dialogue_politeness_title_metadatalabel",
       "semanticType": "metadataLabel",
       "ownership": "supportLanguageOwned",
@@ -400,34 +393,6 @@
         "moduleId": "es.a0.m01",
         "lessonId": "es.a0.m01.l003",
         "contentObjectId": "activity.practice.clarification",
-        "fieldPath": "title",
-        "contentKind": "lesson_activity",
-        "pedagogicalRole": "activity title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.activity_practice_greetings_title_metadatalabel",
-      "semanticType": "metadataLabel",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Practice",
-      "values": {
-        "uk": "Практика"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "activity.practice.greetings",
         "fieldPath": "title",
         "contentKind": "lesson_activity",
         "pedagogicalRole": "activity title",
@@ -522,34 +487,6 @@
       "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
     },
     {
-      "id": "semantic.uk.es_a0_m01.activity_reading_greeting_recognition_title_metadatalabel",
-      "semanticType": "metadataLabel",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Reading",
-      "values": {
-        "uk": "Читання"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "activity.reading.greeting_recognition",
-        "fieldPath": "title",
-        "contentKind": "lesson_activity",
-        "pedagogicalRole": "activity title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
       "id": "semantic.uk.es_a0_m01.activity_reading_politeness_title_metadatalabel",
       "semanticType": "metadataLabel",
       "ownership": "supportLanguageOwned",
@@ -624,34 +561,6 @@
         "moduleId": "es.a0.m01",
         "lessonId": "es.a0.m01.l003",
         "contentObjectId": "activity.vocabulary.clarification",
-        "fieldPath": "title",
-        "contentKind": "lesson_activity",
-        "pedagogicalRole": "activity title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.activity_vocabulary_greetings_title_metadatalabel",
-      "semanticType": "metadataLabel",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Vocabulary",
-      "values": {
-        "uk": "Лексика"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "activity.vocabulary.greetings",
         "fieldPath": "title",
         "contentKind": "lesson_activity",
         "pedagogicalRole": "activity title",
@@ -891,9 +800,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Hello.",
+      "sourceText": "OH-lah.\nHello.",
       "values": {
-        "uk": "Привіт."
+        "uk": "О́ла.\nПривіт."
       },
       "review": {
         "uk": "productionApproved"
@@ -1087,9 +996,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Please.",
+      "sourceText": "por fah-VOR.\nPlease.",
       "values": {
-        "uk": "Будь ласка."
+        "uk": "Пор фаво́р.\nБудь ласка."
       },
       "review": {
         "uk": "productionApproved"
@@ -1115,9 +1024,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Thank you.",
+      "sourceText": "GRAH-syahs.\nThank you.",
       "values": {
-        "uk": "Дякую."
+        "uk": "Гра́сіас.\nДякую."
       },
       "review": {
         "uk": "productionApproved"
@@ -1143,9 +1052,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "You're welcome.",
+      "sourceText": "deh NAH-dah.\nYou're welcome.",
       "values": {
-        "uk": "Прошу."
+        "uk": "Де на́да.\nНема за що."
       },
       "review": {
         "uk": "productionApproved"
@@ -1199,9 +1108,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "I don't understand.",
+      "sourceText": "noh en-TYEN-doh.\nI don't understand.",
       "values": {
-        "uk": "Я не розумію."
+        "uk": "Но ентьє́ндо.\nЯ не розумію."
       },
       "review": {
         "uk": "productionApproved"
@@ -1227,9 +1136,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Repeat, please.",
+      "sourceText": "reh-PEE-teh, por fah-VOR.\nRepeat, please.",
       "values": {
-        "uk": "Повторіть, будь ласка."
+        "uk": "Репі́те, пор фаво́р.\nПовторіть, будь ласка."
       },
       "review": {
         "uk": "productionApproved"
@@ -1255,9 +1164,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "More slowly, please.",
+      "sourceText": "see.\nYes.",
       "values": {
-        "uk": "Повільніше, будь ласка."
+        "uk": "Сі́.\nТак."
       },
       "review": {
         "uk": "productionApproved"
@@ -1283,9 +1192,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Yes.",
+      "sourceText": "noh en-TYEN-doh.\nI don't understand.",
       "values": {
-        "uk": "Так."
+        "uk": "Но ентьє́ндо.\nЯ не розумію."
       },
       "review": {
         "uk": "productionApproved"
@@ -1339,9 +1248,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Good morning.",
+      "sourceText": "OH-lah.\nHello.",
       "values": {
-        "uk": "Доброго ранку."
+        "uk": "О́ла.\nПривіт."
       },
       "review": {
         "uk": "productionApproved"
@@ -1367,9 +1276,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Hello.",
+      "sourceText": "OH-lah.\nHello.",
       "values": {
-        "uk": "Привіт."
+        "uk": "О́ла.\nПривіт."
       },
       "review": {
         "uk": "productionApproved"
@@ -1395,9 +1304,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "See you later.",
+      "sourceText": "AHS-tah LWEH-goh.\nSee you later.",
       "values": {
-        "uk": "До зустрічі пізніше."
+        "uk": "А́ста луе́го.\nДо зустрічі пізніше."
       },
       "review": {
         "uk": "productionApproved"
@@ -1423,9 +1332,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/dialogues/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Goodbye.",
+      "sourceText": "ah-DYOHS.\nGoodbye.",
       "values": {
-        "uk": "До побачення."
+        "uk": "Адьйо́с.\nДо побачення."
       },
       "review": {
         "uk": "productionApproved"
@@ -1474,203 +1383,14 @@
       "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
     },
     {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_objective_greetings_basic_description_lessonobjective",
-      "semanticType": "lessonObjective",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Greet and say goodbye with hola, adiós, and hasta luego.",
-      "values": {
-        "uk": "Вітатися й прощатися за допомогою hola, adiós і hasta luego."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [
-        {
-          "id": "span_1",
-          "type": "targetText",
-          "text": "hola"
-        },
-        {
-          "id": "span_2",
-          "type": "targetText",
-          "text": "adiós"
-        },
-        {
-          "id": "span_3",
-          "type": "targetText",
-          "text": "hasta"
-        },
-        {
-          "id": "span_4",
-          "type": "targetText",
-          "text": "luego"
-        }
-      ],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001.objective.greetings.basic",
-        "fieldPath": "description",
-        "contentKind": "lesson_objective",
-        "pedagogicalRole": "lesson objective",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_section_main_title_metadatalabel",
-      "semanticType": "metadataLabel",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Main Activities",
-      "values": {
-        "uk": "Основні вправи"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001.section.main",
-        "fieldPath": "title",
-        "contentKind": "lesson_section",
-        "pedagogicalRole": "lesson section title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_summary_reviewprompt_learnerinstruction",
-      "semanticType": "learnerInstruction",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Review hello and goodbye phrases.",
-      "values": {
-        "uk": "Опрацюйте перші іспанські слова, привітання та правила читання цього уроку."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001.summary",
-        "fieldPath": "reviewPrompt",
-        "contentKind": "lesson_summary",
-        "pedagogicalRole": "review prompt",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_communicativeoutcome_communicativeoutcome",
-      "semanticType": "communicativeOutcome",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Greet and say goodbye.",
-      "values": {
-        "uk": "Вітатися й прощатися."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001",
-        "fieldPath": "communicativeOutcome",
-        "contentKind": "lesson",
-        "pedagogicalRole": "communicative outcome",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_description_lessondescription",
-      "semanticType": "lessonDescription",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Greet someone and say goodbye with short Spanish phrases.",
-      "values": {
-        "uk": "Привітайтеся й попрощайтеся короткими іспанськими фразами."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001",
-        "fieldPath": "description",
-        "contentKind": "lesson",
-        "pedagogicalRole": "lesson description",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.es_a0_m01_l001_title_lessontitle",
-      "semanticType": "lessonTitle",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Hello and Goodbye",
-      "values": {
-        "uk": "Привітання й прощання"
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "es.a0.m01.l001",
-        "fieldPath": "title",
-        "contentKind": "lesson",
-        "pedagogicalRole": "lesson title",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
       "id": "semantic.uk.es_a0_m01.es_a0_m01_l002_objective_politeness_basic_description_lessonobjective",
       "semanticType": "lessonObjective",
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Use gracias, por favor, perdón, and de nada.",
+      "sourceText": "Recognize and type the basic courtesy words gracias and por favor, and understand de nada and perdón in context.",
       "values": {
-        "uk": "Уживати gracias, por favor, perdón і de nada."
+        "uk": "Розпізнайте й надрукуйте gracias і por favor, а також зрозумійте de nada і perdón у контексті."
       },
       "review": {
         "uk": "productionApproved"
@@ -1745,9 +1465,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Review basic polite expressions.",
+      "sourceText": "You can use gracias, de nada, perdón, and por favor.",
       "values": {
-        "uk": "Опрацюйте перші іспанські слова, привітання та правила читання цього уроку."
+        "uk": "Ви можете використовувати gracias, de nada, perdón і por favor."
       },
       "review": {
         "uk": "productionApproved"
@@ -1773,9 +1493,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Use basic courtesy words.",
+      "sourceText": "Complete a short courtesy exchange.",
       "values": {
-        "uk": "Уживати базові ввічливі слова."
+        "uk": "Завершіть короткий ввічливий обмін."
       },
       "review": {
         "uk": "productionApproved"
@@ -1801,9 +1521,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Use basic polite words in short classroom exchanges.",
+      "sourceText": "Complete a short polite exchange with gracias, de nada, perdón, and por favor.",
       "values": {
-        "uk": "Уживайте базові ввічливі слова в коротких навчальних репліках."
+        "uk": "Доповніть короткий ввічливий обмін з gracias, de nada, perdón і por favor."
       },
       "review": {
         "uk": "productionApproved"
@@ -1829,9 +1549,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Please, Thank You, Sorry",
+      "sourceText": "Gracias and Please",
       "values": {
-        "uk": "Будь ласка, дякую, перепрошую"
+        "uk": "Gracias і будь ласка"
       },
       "review": {
         "uk": "productionApproved"
@@ -1857,9 +1577,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Ask for repetition or slower speech with no entiendo, repite, and más despacio.",
+      "sourceText": "Recognize and type no entiendo and repite, por favor.",
       "values": {
-        "uk": "Попросіть повторити або говорити повільніше за допомогою no entiendo, repite і más despacio."
+        "uk": "Розпізнайте й надрукуйте no entiendo і repite, por favor."
       },
       "review": {
         "uk": "productionApproved"
@@ -1924,9 +1644,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Review short clarification phrases.",
+      "sourceText": "You can say no entiendo and ask repite, por favor.",
       "values": {
-        "uk": "Опрацюйте перші іспанські слова, привітання та правила читання цього уроку."
+        "uk": "Ви можете сказати no entiendo і попросити repite, por favor."
       },
       "review": {
         "uk": "productionApproved"
@@ -1952,9 +1672,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Ask for repetition or slower speech.",
+      "sourceText": "Ask someone to repeat.",
       "values": {
-        "uk": "Попросити повторити або говорити повільніше."
+        "uk": "Попросіть повторити."
       },
       "review": {
         "uk": "productionApproved"
@@ -1980,9 +1700,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Ask for repetition or slower speech when you do not understand.",
+      "sourceText": "Ask for repetition when you do not understand.",
       "values": {
-        "uk": "Попросіть повторити або говорити повільніше, коли ви не розумієте."
+        "uk": "Попросіть повторити, коли не розумієте."
       },
       "review": {
         "uk": "productionApproved"
@@ -2008,9 +1728,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "I Do Not Understand",
+      "sourceText": "No Entiendo",
       "values": {
-        "uk": "Я не розумію"
+        "uk": "No entiendo"
       },
       "review": {
         "uk": "productionApproved"
@@ -2624,9 +2344,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read the first Spanish words using stable vowels, silent h and visible stress.",
+      "sourceText": "Read, understand, and type hola without saying the h.",
       "values": {
-        "uk": "Читайте перші іспанські слова зі сталими голосними, німою h і позначеним наголосом."
+        "uk": "Прочитайте, зрозумійте й надрукуйте hola, не вимовляючи h."
       },
       "review": {
         "uk": "productionApproved"
@@ -2680,9 +2400,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Review silent h and stable vowels in familiar words.",
+      "sourceText": "You can read and type hola.",
       "values": {
-        "uk": "Опрацюйте перші іспанські слова, привітання та правила читання цього уроку."
+        "uk": "Ви можете читати й друкувати hola."
       },
       "review": {
         "uk": "productionApproved"
@@ -2708,9 +2428,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read the first Spanish words with basic pronunciation support.",
+      "sourceText": "Read and type hola.",
       "values": {
-        "uk": "Читати перші іспанські слова з базовими підказками вимови."
+        "uk": "Прочитайте й надрукуйте hola."
       },
       "review": {
         "uk": "productionApproved"
@@ -2736,9 +2456,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read the first Spanish words with stable vowels, silent h, stress, and the high-frequency patterns needed for early greetings.",
+      "sourceText": "Read, understand, and type hola with its quiet h.",
       "values": {
-        "uk": "Читайте перші іспанські слова зі сталими голосними, німою h і позначеним наголосом."
+        "uk": "Прочитайте, зрозумійте й надрукуйте hola з тихою h."
       },
       "review": {
         "uk": "productionApproved"
@@ -2764,9 +2484,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Spanish Vowels, h, and First Sounds",
+      "sourceText": "Read Hola",
       "values": {
-        "uk": "Іспанські голосні, h і перші звуки"
+        "uk": "Читаємо Hola"
       },
       "review": {
         "uk": "productionApproved"
@@ -2904,9 +2624,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Recognize ñ, j, and ll in familiar names and words.",
+      "sourceText": "Recognize, read, and type España, José, and me llamo.",
       "values": {
-        "uk": "Розпізнавайте ñ, j і ll в іменах та перших словах."
+        "uk": "Розпізнайте, прочитайте й надрукуйте España, José і me llamo."
       },
       "review": {
         "uk": "productionApproved"
@@ -2966,9 +2686,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Review name spelling with ñ, j and ll.",
+      "sourceText": "You can read España, José, Javier, and me llamo.",
       "values": {
-        "uk": "Розпізнавайте ñ, j і ll в іменах та перших словах."
+        "uk": "Ви можете читати España, José, Javier і me llamo."
       },
       "review": {
         "uk": "productionApproved"
@@ -3000,9 +2720,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Recognize ñ, j and ll in names.",
+      "sourceText": "Read names and me llamo.",
       "values": {
-        "uk": "Розпізнавати ñ, j і ll в іменах."
+        "uk": "Прочитайте імена й me llamo."
       },
       "review": {
         "uk": "productionApproved"
@@ -3034,9 +2754,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Recognize ñ, j, and ll in names and introduction words.",
+      "sourceText": "Read early names and introduction words with ñ, j, and ll.",
       "values": {
-        "uk": "Розпізнавайте ñ, j і ll в іменах та перших словах."
+        "uk": "Прочитайте перші імена й слова для знайомства з ñ, j і ll."
       },
       "review": {
         "uk": "productionApproved"
@@ -3068,9 +2788,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "ñ, j and ll in Names",
+      "sourceText": "Read Names",
       "values": {
-        "uk": "ñ, j і ll в іменах"
+        "uk": "Читаємо імена"
       },
       "review": {
         "uk": "productionApproved"
@@ -3102,9 +2822,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "In Spanish, the letter h is usually written but not pronounced. Read hola as ola and hambre as ambre. The spelling still keeps h.",
+      "sourceText": "You see hola. You say OH-lah. The first letter is quiet.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: hola."
+        "uk": "Ви бачите hola. Читайте о́ла. Перша літера тиха."
       },
       "review": {
         "uk": "productionApproved"
@@ -3136,9 +2856,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Silent h",
+      "sourceText": "Read hola",
       "values": {
-        "uk": "Німа h"
+        "uk": "Читаємо hola"
       },
       "review": {
         "uk": "productionApproved"
@@ -3164,9 +2884,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Spanish vowels are stable in simple words. The vowel sound in hola, adiós, gracias, and por favor stays clear and short.",
+      "sourceText": "Read the vowel sounds clearly in the words you learn: hola, adiós, gracias, and por favor.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: hola, adiós, gracias, por, favor."
+        "uk": "Читайте голосні звуки чітко в словах, які вивчаєте: hola, adiós, gracias і por favor."
       },
       "review": {
         "uk": "productionApproved"
@@ -3313,9 +3033,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/grammar/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Spanish ñ, j and ll are important in names and first words. In this course, ll uses the same broad yeista pronunciation category as consonantal y. ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters.",
+      "sourceText": "Use three simple readings: España has a soft ny sound, José and Javier begin with h, and llamo begins with a y-like sound.",
       "values": {
-        "uk": "Розпізнавайте ñ, j і ll в іменах та перших словах."
+        "uk": "Використайте три прості читання: España має м'який звук нь, José і Javier починаються зі звука х, а llamo починається близько до й."
       },
       "review": {
         "uk": "productionApproved"
@@ -3347,9 +3067,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/grammar/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "ñ, j and ll in names",
+      "sourceText": "Read names",
       "values": {
-        "uk": "ñ, j і ll в іменах"
+        "uk": "Читаємо імена"
       },
       "review": {
         "uk": "productionApproved"
@@ -3621,7 +3341,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Treat them as very close sounds for A0 reading; finer pronunciation can come later.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: b/v, /b/."
+        "uk": "У словах bueno і vivo читайте b і v близько до б; точні відтінки вимови прийдуть пізніше."
       },
       "review": {
         "uk": "productionApproved"
@@ -3660,7 +3380,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "In this beginner norm, b and v are not contrasted like English b and v.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: b/v, /b/."
+        "uk": "b і v на рівні A0 звучать дуже близько: приблизно як б."
       },
       "review": {
         "uk": "productionApproved"
@@ -3957,7 +3677,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "It is often approximated as ny for beginners, but it is one Spanish sound.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ñ, /ɲ/."
+        "uk": "У словах España і niño ñ звучить як м’яке нь."
       },
       "review": {
         "uk": "productionApproved"
@@ -3996,7 +3716,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "The letter ñ is a separate Spanish letter.",
       "values": {
-        "uk": "Літера ñ («е́ньє») — окрема іспанська літера."
+        "uk": "Назва літери: е́ньє. Приблизна вимова українською: нь."
       },
       "review": {
         "uk": "productionApproved"
@@ -4035,7 +3755,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "The letter ñ",
       "values": {
-        "uk": "Літера ñ"
+        "uk": "е́ньє"
       },
       "review": {
         "uk": "productionApproved"
@@ -4191,7 +3911,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Do not read José with an English j sound.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: j, /x/."
+        "uk": "У слові José починайте з х-подібного звука."
       },
       "review": {
         "uk": "productionApproved"
@@ -4230,7 +3950,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "In this course norm, j is taught as a firm h-like sound made farther back in the mouth.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: j, /x/."
+        "uk": "У словах José і Javier j звучить приблизно як х."
       },
       "review": {
         "uk": "productionApproved"
@@ -4269,7 +3989,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Spanish j is not English j.",
       "values": {
-        "uk": "Іспанська j — це не англійська j."
+        "uk": "Назва літери: хо́та. Приблизна вимова українською: х."
       },
       "review": {
         "uk": "productionApproved"
@@ -4308,7 +4028,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Spanish j",
       "values": {
-        "uk": "Іспанська j"
+        "uk": "хо́та"
       },
       "review": {
         "uk": "productionApproved"
@@ -4347,7 +4067,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "ll is two lowercase l letters: l + l. Do not confuse it with two uppercase I letters. In the course norm, ll and consonantal y share a broad /ʝ/ category. Regional non-yeista pronunciations exist, but they are not the Spanish A0 production norm.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y, /ʝ/."
+        "uk": "У словах llave і me llamo починайте ll м’яко, близько до й."
       },
       "review": {
         "uk": "productionApproved"
@@ -4386,7 +4106,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Two lowercase Latin ell letters: ell plus ell, form ll. Do not confuse this with two uppercase Latin i letters: I plus I, form II.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y."
+        "uk": "ель плюс ель утворює ll; і плюс і утворює II."
       },
       "review": {
         "uk": "productionApproved"
@@ -4420,7 +4140,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Study: ll. These are two lowercase Latin l letters.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y."
+        "uk": "ll — це l + l."
       },
       "review": {
         "uk": "productionApproved"
@@ -4454,7 +4174,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Do not confuse this with II: two uppercase Latin I letters.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y."
+        "uk": "II має інші назви компонентів: і + і."
       },
       "review": {
         "uk": "productionApproved"
@@ -4488,7 +4208,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "ll is two lowercase l letters. In this course, it begins with a y-like sound before a vowel.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: ll і приголосна y, /ʝ/."
+        "uk": "ll читається приблизно як й перед голосною."
       },
       "review": {
         "uk": "productionApproved"
@@ -4566,7 +4286,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Learner hints also mark stress so beginners do not have to infer it from spelling.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: á é í ó ú."
+        "uk": "У слові adiós знак наголосу показує, що сильніше звучить останній склад."
       },
       "review": {
         "uk": "productionApproved"
@@ -4668,7 +4388,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Touch the tongue briefly near the ridge behind the upper teeth.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "Кінчик язика коротко торкається ділянки за верхніми зубами."
       },
       "review": {
         "uk": "productionApproved"
@@ -4707,7 +4427,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "It is shorter than rr and should not become a long English-style r.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "У слові pero r звучить коротко, одним швидким дотиком язика."
       },
       "review": {
         "uk": "productionApproved"
@@ -4746,7 +4466,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Single r is a short tap in the beginner examples.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: r, /ɾ/."
+        "uk": "Назва літери: е́ре. Приблизна вимова українською: коротке р."
       },
       "review": {
         "uk": "productionApproved"
@@ -4824,7 +4544,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Read the word as if the h were not there: hola begins with the vowel sound.",
       "values": {
-        "uk": "Читайте слово так, ніби h немає: hola починається з голосного звука."
+        "uk": "Читайте hola так, ніби слово починається одразу з голосного звука."
       },
       "review": {
         "uk": "productionApproved"
@@ -4858,7 +4578,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "In Spanish, written h is usually silent.",
       "values": {
-        "uk": "В іспанській мові літера h («а́че») зазвичай не вимовляється."
+        "uk": "Назва літери: а́че. У слові hola h не вимовляється."
       },
       "review": {
         "uk": "productionApproved"
@@ -4926,7 +4646,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Do not reshape Spanish vowels as strongly as English spelling might suggest.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: a e i o u, /a e i o u/."
+        "uk": "У словах hola і gracias голосні не змінюються різко від слова до слова."
       },
       "review": {
         "uk": "productionApproved"
@@ -4965,7 +4685,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Spanish a, e, i, o, u stay relatively stable.",
       "values": {
-        "uk": "Іспанські a, e, i, o, u вимовляються відносно стабільно."
+        "uk": "a, e, i, o, u вимовляються коротко й рівно."
       },
       "review": {
         "uk": "productionApproved"
@@ -5123,7 +4843,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "This course uses /s/ for c before e/i and z in the general learning norm.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: Más despacio., /mas despˈasio/."
+        "uk": "У despacio c звучить близько до с: мас деспа́сіо."
       },
       "review": {
         "uk": "productionApproved"
@@ -5282,7 +5002,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "The letter ñ is a separate Spanish letter.",
       "values": {
-        "uk": "Літера ñ («е́ньє») — окрема іспанська літера."
+        "uk": "У España ñ звучить як м’яке нь."
       },
       "review": {
         "uk": "productionApproved"
@@ -5598,7 +5318,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "Spanish j, ge and gi are pronounced with /x/ here.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: Javier, /xabˈieɾ/."
+        "uk": "У Javier j звучить близько до х: хав’є́р."
       },
       "review": {
         "uk": "productionApproved"
@@ -5677,7 +5397,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "The j is not English j.",
       "values": {
-        "uk": "Літера j не читається як англійська j."
+        "uk": "У José j звучить близько до х: хосе́."
       },
       "review": {
         "uk": "productionApproved"
@@ -5756,7 +5476,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "llave uses the same ll/y reading rule as llamo.",
       "values": {
-        "uk": "Пояснення для початківця: зверніть увагу на іспанське написання, назву літери або сполуки та її вимову в цьому правилі. Ключова іспанська форма: llave, /ˈʝaβe/."
+        "uk": "У llave сполука ll звучить близько до й: я́ве."
       },
       "review": {
         "uk": "productionApproved"
@@ -6049,9 +5769,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "hello. hunger. hello. goodbye. hello.",
+      "sourceText": "OH-lah.\nOH-lah.\nHello.\nHello.",
       "values": {
-        "uk": "привіт. голод. привіт. до побачення. привіт."
+        "uk": "о́ла.\nо́ла.\nпривіт.\nпривіт."
       },
       "review": {
         "uk": "productionApproved"
@@ -6077,9 +5797,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Silent h Words",
+      "sourceText": "Hola",
       "values": {
-        "uk": "Слова з німою h"
+        "uk": "Hola"
       },
       "review": {
         "uk": "productionApproved"
@@ -6161,9 +5881,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Spain. José. Javier. My name is Laura.",
+      "sourceText": "es-PAH-nyah.\nhoh-SEH.\nhah-VYEHR.\nmeh YAH-moh.\nSpain.\nJosé.\nJavier.\nMy name is.",
       "values": {
-        "uk": "Іспанія. José. Javier. Мене звати Laura."
+        "uk": "еспа́нья.\nхосе́.\nхав'є́р.\nме я́мо.\nІспанія.\nХосе.\nХав'єр.\nмене звати."
       },
       "review": {
         "uk": "productionApproved"
@@ -6195,9 +5915,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Name Sounds",
+      "sourceText": "Names",
       "values": {
-        "uk": "Звуки в іменах"
+        "uk": "Імена"
       },
       "review": {
         "uk": "productionApproved"
@@ -6223,9 +5943,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "I don't understand. Repeat, please. More slowly, please. Yes. No. I don't understand.",
+      "sourceText": "noh en-TYEN-doh.\nreh-PEE-teh, por fah-VOR.\nsee.\nnoh en-TYEN-doh.\nI don't understand.\nRepeat, please.\nYes.\nI don't understand.",
       "values": {
-        "uk": "Я не розумію. Повторіть, будь ласка. Повільніше, будь ласка. Так. Ні. Я не розумію."
+        "uk": "но ентьє́ндо.\nрепі́те, пор фаво́р.\nсі́.\nно ентьє́ндо.\nя не розумію.\nповторіть, будь ласка.\nтак.\nя не розумію."
       },
       "review": {
         "uk": "productionApproved"
@@ -6251,9 +5971,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "More Slowly, Please",
+      "sourceText": "No Entiendo",
       "values": {
-        "uk": "Повільніше, будь ласка"
+        "uk": "No entiendo"
       },
       "review": {
         "uk": "productionApproved"
@@ -6279,9 +5999,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Hello. Good morning. Hello. Good afternoon. See you later. Good evening. Goodbye.",
+      "sourceText": "OH-lah.\nOH-lah.\nAHS-tah LWEH-goh.\nah-DYOHS.\nHello.\nHello.\nSee you later.\nGoodbye.",
       "values": {
-        "uk": "Привіт. Доброго ранку. Привіт. Добрий день. До зустрічі пізніше. Добрий вечір. До побачення."
+        "uk": "о́ла.\nо́ла.\nа́ста луе́го.\nадьйо́с.\nпривіт.\nпривіт.\nдо зустрічі.\nдо побачення."
       },
       "review": {
         "uk": "productionApproved"
@@ -6335,9 +6055,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/readings/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Excuse me. Yes. Please. Thank you. You're welcome. Thank you. You're welcome.",
+      "sourceText": "per-DON.\npor fah-VOR.\nGRAH-syahs.\ndeh NAH-dah.\nExcuse me.\nPlease.\nThank you.\nYou're welcome.",
       "values": {
-        "uk": "Перепрошую. Так. Будь ласка. Дякую. Прошу. Дякую. Прошу."
+        "uk": "пердо́н.\nпор фаво́р.\nгра́сіас.\nде на́да.\nперепрошую.\nбудь ласка.\nдякую.\nнема за що."
       },
       "review": {
         "uk": "productionApproved"
@@ -6386,104 +6106,14 @@
       "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
     },
     {
-      "id": "semantic.uk.es_a0_m01.template_es_a0_m01_l001_fill_hasta_luego_v1_prompt_template_exerciseprompt",
-      "semanticType": "exercisePrompt",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Complete with the Spanish phrase for \"see you later\": \"Hasta ____.\"",
-      "values": {
-        "uk": "Доповніть іспанську фразу зі значенням «до зустрічі пізніше»: «Hasta ____.»."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [
-        {
-          "id": "span_1",
-          "type": "targetText",
-          "text": "Hasta"
-        }
-      ],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "template.es.a0.m01.l001.fill_hasta_luego.v1",
-        "fieldPath": "prompt_template",
-        "contentKind": "exercise_template",
-        "pedagogicalRole": "exercise prompt",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.template_es_a0_m01_l001_type_adios_v1_prompt_template_exerciseprompt",
-      "semanticType": "exercisePrompt",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish word for \"goodbye\".",
-      "values": {
-        "uk": "Надрукуйте іспанське слово зі значенням «до побачення»."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "template.es.a0.m01.l001.type_adios.v1",
-        "fieldPath": "prompt_template",
-        "contentKind": "exercise_template",
-        "pedagogicalRole": "exercise prompt",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
-      "id": "semantic.uk.es_a0_m01.template_es_a0_m01_l001_type_hola_v1_prompt_template_exerciseprompt",
-      "semanticType": "exercisePrompt",
-      "ownership": "supportLanguageOwned",
-      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-      "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish word for \"hello\".",
-      "values": {
-        "uk": "Надрукуйте іспанське слово зі значенням «привіт»."
-      },
-      "review": {
-        "uk": "productionApproved"
-      },
-      "protectedSpans": [],
-      "context": {
-        "courseId": "es.a0",
-        "moduleId": "es.a0.m01",
-        "lessonId": "es.a0.m01.l001",
-        "contentObjectId": "template.es.a0.m01.l001.type_hola.v1",
-        "fieldPath": "prompt_template",
-        "contentKind": "exercise_template",
-        "pedagogicalRole": "exercise prompt",
-        "targetLanguage": "es",
-        "supportLocale": "uk",
-        "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
-      },
-      "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
-    },
-    {
       "id": "semantic.uk.es_a0_m01.template_es_a0_m01_l002_thanks_choice_v1_prompt_template_exerciseprompt",
       "semanticType": "exercisePrompt",
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Choose the Spanish word for \"thank you\".",
+      "sourceText": "Choose the Spanish word for \"thank you\" (GRAH-syahs).",
       "values": {
-        "uk": "Оберіть іспанське слово зі значенням «дякую»."
+        "uk": "Оберіть іспанське слово зі значенням «дякую» (гра́сіас)."
       },
       "review": {
         "uk": "productionApproved"
@@ -6835,9 +6465,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Complete with the Spanish word for \"hello\": \"____\".",
+      "sourceText": "Complete with the Spanish word for \"hello\" (OH-lah): \"____\".",
       "values": {
-        "uk": "Доповніть іспанським словом зі значенням «привіт»: «____»."
+        "uk": "Доповніть іспанським словом зі значенням «привіт» (о́ла): «____»."
       },
       "review": {
         "uk": "productionApproved"
@@ -6863,9 +6493,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "In the Spanish word \"hola\", which letter is silent?",
+      "sourceText": "In hola (OH-lah), which letter is silent?",
       "values": {
-        "uk": "Яка літера не вимовляється в іспанському слові hola?"
+        "uk": "Яка літера не вимовляється в hola (о́ла)?"
       },
       "review": {
         "uk": "productionApproved"
@@ -6897,9 +6527,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish word for hunger. It begins with silent h.",
+      "sourceText": "Type the Spanish word for \"hunger\".",
       "values": {
-        "uk": "Надрукуйте іспанське слово зі значенням «голод». Воно починається з німої h."
+        "uk": "Надрукуйте іспанське слово зі значенням «голод»."
       },
       "review": {
         "uk": "productionApproved"
@@ -6925,9 +6555,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish word for \"hello\". Remember that it begins with silent h.",
+      "sourceText": "Type the Spanish word for \"hello\".",
       "values": {
-        "uk": "Надрукуйте іспанське слово зі значенням «привіт». Пам’ятайте, що воно починається з німої h."
+        "uk": "Надрукуйте іспанське слово зі значенням «привіт»."
       },
       "review": {
         "uk": "productionApproved"
@@ -7278,9 +6908,9 @@
       "ownership": "mixedStructured",
       "sourceAssetPath": "assets/languages/spanish/templates/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "España",
+      "sourceText": "España (es-PAH-nyah)",
       "values": {
-        "uk": "España"
+        "uk": "España (еспа́нья)"
       },
       "review": {
         "uk": "productionApproved"
@@ -7312,9 +6942,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Javier",
+      "sourceText": "Javier (hah-VYEHR)",
       "values": {
-        "uk": "Хав’єр"
+        "uk": "Javier (хав’є́р)"
       },
       "review": {
         "uk": "productionApproved"
@@ -7340,9 +6970,9 @@
       "ownership": "mixedStructured",
       "sourceAssetPath": "assets/languages/spanish/templates/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "llamo",
+      "sourceText": "llamo (YAH-moh)",
       "values": {
-        "uk": "llamo"
+        "uk": "llamo (я́мо)"
       },
       "review": {
         "uk": "productionApproved"
@@ -7408,9 +7038,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish name with the written accent from the reading.",
+      "sourceText": "Type the Spanish name with the written accent from the reading (hoh-SEH).",
       "values": {
-        "uk": "Надрукуйте іспанське ім’я зі знаком наголосу з читання."
+        "uk": "Надрукуйте іспанське ім’я зі знаком наголосу з читання (хосе́)."
       },
       "review": {
         "uk": "productionApproved"
@@ -7442,9 +7072,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_2_names.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Type the Spanish verb form from the pattern me ____.",
+      "sourceText": "Type the missing Spanish word: me ____ (meh ____).",
       "values": {
-        "uk": "Надрукуйте іспанську дієслівну форму з конструкції me ____."
+        "uk": "Надрукуйте пропущене іспанське слово: me ____ (ме ____)."
       },
       "review": {
         "uk": "productionApproved"
@@ -7470,9 +7100,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____.\"",
+      "sourceText": "Complete with the Spanish phrase for \"please\": \"Repite, ____ ____\" (reh-PEE-teh, ____ ____).",
       "values": {
-        "uk": "Доповніть іспанську фразу зі значенням «будь ласка»: «Repite, ____ ____.»."
+        "uk": "Доповніть іспанську фразу зі значенням «будь ласка»: «Repite, ____ ____» (репі́те, ____ ____)."
       },
       "review": {
         "uk": "productionApproved"
@@ -7504,9 +7134,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Complete with the Spanish command for \"repeat\": \"____, por favor.\"",
+      "sourceText": "Complete with the Spanish command for \"repeat\": \"____, por favor\" (____, por fah-VOR).",
       "values": {
-        "uk": "Доповніть іспанською командою зі значенням «повторіть»: «____, por favor»."
+        "uk": "Доповніть іспанською командою зі значенням «повторіть»: «____, por favor» (____, пор фаво́р)."
       },
       "review": {
         "uk": "productionApproved"
@@ -8139,7 +7769,7 @@
       "requiredness": "requiredWhenReferenced",
       "sourceText": "you're welcome",
       "values": {
-        "uk": "прошу"
+        "uk": "нема за що"
       },
       "review": {
         "uk": "productionApproved"
@@ -8529,9 +8159,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/vocabulary/unit_1_first_contact.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "The accent distinguishes sí from si.",
+      "sourceText": "Use sí to answer yes.",
       "values": {
-        "uk": "Наголос відрізняє sí від si."
+        "uk": "Уживайте sí, коли відповідаєте «так»."
       },
       "review": {
         "uk": "productionApproved"
@@ -8556,6 +8186,1017 @@
         "expectedAnswerContext": "R2E5N0A scaffold inventory only; author localized value manually."
       },
       "notes": "R2E5N1 editorial Ukrainian authoring; approved after semantic and terminology review."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_title_lessontitle",
+      "semanticType": "lessonTitle",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Your First Spanish Hello",
+      "values": {
+        "uk": "Перше іспанське привітання"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001",
+        "fieldPath": "title",
+        "contentKind": "lesson",
+        "pedagogicalRole": "lesson title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_description_lessondescription",
+      "semanticType": "lessonDescription",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read, understand, and type Hola.",
+      "values": {
+        "uk": "Прочитайте, зрозумійте й напишіть Hola."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001",
+        "fieldPath": "description",
+        "contentKind": "lesson",
+        "pedagogicalRole": "lesson description",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_objective_hola_first_success_description_lessonobjective",
+      "semanticType": "lessonObjective",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Independently read, understand, and type Hola.",
+      "values": {
+        "uk": "Самостійно прочитати, зрозуміти й написати Hola."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001.objective.hola.first_success",
+        "fieldPath": "description",
+        "contentKind": "lesson_objective",
+        "pedagogicalRole": "lesson objective",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_communicativeoutcome_communicativeoutcome",
+      "semanticType": "communicativeOutcome",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read and write your first Spanish greeting.",
+      "values": {
+        "uk": "Прочитайте й напишіть своє перше іспанське привітання."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001",
+        "fieldPath": "communicativeOutcome",
+        "contentKind": "lesson",
+        "pedagogicalRole": "communicative outcome",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_section_main_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "First Spanish hello",
+      "values": {
+        "uk": "Перше іспанське привітання"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001.section.main",
+        "fieldPath": "title",
+        "contentKind": "lesson_section",
+        "pedagogicalRole": "section title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.es_a0_m01_l001_summary_reviewprompt_learnerinstruction",
+      "semanticType": "learnerInstruction",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "You can read and write Hola.",
+      "values": {
+        "uk": "Тепер ви можете прочитати й написати Hola."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "es.a0.m01.l001.summary",
+        "fieldPath": "reviewPrompt",
+        "contentKind": "lesson_summary",
+        "pedagogicalRole": "lesson closure",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_first_encounter_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "First encounter",
+      "values": {
+        "uk": "Перша зустріч"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.first_encounter",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_meaning_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Meaning",
+      "values": {
+        "uk": "Значення"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.meaning",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_reading_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read Hola",
+      "values": {
+        "uk": "Читаємо Hola"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.reading",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_context_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Arrival or farewell",
+      "values": {
+        "uk": "Зустріч чи прощання"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.context",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_guided_recall_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Write with support",
+      "values": {
+        "uk": "Пишемо з підказкою"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.guided_recall",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.activity_l001_independent_recall_title_metadatalabel",
+      "semanticType": "metadataLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Write from memory",
+      "values": {
+        "uk": "Пишемо з памʼяті"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "activity.l001.independent_recall",
+        "fieldPath": "title",
+        "contentKind": "lesson_activity",
+        "pedagogicalRole": "activity title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.grammar_es_a0_m01_l001_first_encounter_v1_title_grammartitle",
+      "semanticType": "grammarTitle",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Your first Spanish word",
+      "values": {
+        "uk": "Ваше перше іспанське слово"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "grammar.es.a0.m01.l001.first_encounter.v1",
+        "fieldPath": "title",
+        "contentKind": "grammar",
+        "pedagogicalRole": "title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.grammar_es_a0_m01_l001_first_encounter_v1_explanation_grammarexplanation",
+      "semanticType": "grammarExplanation",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Someone is meeting you. The Spanish word is Hola. Read it as ola. It means hello.",
+      "values": {
+        "uk": "Хтось зустрічає вас. Іспанське слово: Hola. Читайте: ола. Значення: привіт."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "grammar.es.a0.m01.l001.first_encounter.v1",
+        "fieldPath": "explanation",
+        "contentKind": "grammar",
+        "pedagogicalRole": "explanation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.grammar_es_a0_m01_l001_read_hola_v1_title_grammartitle",
+      "semanticType": "grammarTitle",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read Hola",
+      "values": {
+        "uk": "Читаємо Hola"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "grammar.es.a0.m01.l001.read_hola.v1",
+        "fieldPath": "title",
+        "contentKind": "grammar",
+        "pedagogicalRole": "title",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.grammar_es_a0_m01_l001_read_hola_v1_explanation_grammarexplanation",
+      "semanticType": "grammarExplanation",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/grammar/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read Hola as ola. In this word, the written h is quiet.",
+      "values": {
+        "uk": "Читайте Hola як ола. У цьому слові h не звучить."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        },
+        {
+          "id": "span_2",
+          "type": "targetText",
+          "text": "h"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "grammar.es.a0.m01.l001.read_hola.v1",
+        "fieldPath": "explanation",
+        "contentKind": "grammar",
+        "pedagogicalRole": "explanation",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_focus_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Someone is meeting you. Which one is the Spanish word you are learning now?",
+      "values": {
+        "uk": "Хтось зустрічає вас. Яке з цих слів є іспанським словом, яке ви зараз вивчаєте?"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.focus_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_focus_hola_v1_answer_options_option_meaning_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "hello",
+      "values": {
+        "uk": "привіт"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.focus_hola.v1",
+        "fieldPath": "answer_options.option.meaning.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_focus_hola_v1_answer_options_option_pronunciation_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "ola",
+      "values": {
+        "uk": "ола"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.focus_hola.v1",
+        "fieldPath": "answer_options.option.pronunciation.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_meaning_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "What does Hola mean?",
+      "values": {
+        "uk": "Що означає Hola?"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.meaning_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_meaning_hola_v1_answer_options_option_hello_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "hello",
+      "values": {
+        "uk": "привіт"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.meaning_hola.v1",
+        "fieldPath": "answer_options.option.hello.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_meaning_hola_v1_answer_options_option_thank_you_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "thank you",
+      "values": {
+        "uk": "дякую"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.meaning_hola.v1",
+        "fieldPath": "answer_options.option.thank_you.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_meaning_hola_v1_answer_options_option_goodbye_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "goodbye",
+      "values": {
+        "uk": "до побачення"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.meaning_hola.v1",
+        "fieldPath": "answer_options.option.goodbye.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_decode_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Read Hola as ola. Which reading matches Hola?",
+      "values": {
+        "uk": "Читайте Hola як ола. Яке читання відповідає Hola?"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [
+        {
+          "id": "span_1",
+          "type": "targetText",
+          "text": "Hola"
+        }
+      ],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.decode_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_decode_hola_v1_answer_options_option_ola_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "ola",
+      "values": {
+        "uk": "ола"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.decode_hola.v1",
+        "fieldPath": "answer_options.option.ola.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_decode_hola_v1_answer_options_option_hola_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "hola",
+      "values": {
+        "uk": "хола"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.decode_hola.v1",
+        "fieldPath": "answer_options.option.hola.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_decode_hola_v1_answer_options_option_gola_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "gola",
+      "values": {
+        "uk": "гола"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.decode_hola.v1",
+        "fieldPath": "answer_options.option.gola.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_context_arrival_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Someone arrives. Which Spanish word fits this moment?",
+      "values": {
+        "uk": "Хтось приходить. Яке іспанське слово підходить до цієї ситуації?"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.context_arrival_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_context_arrival_hola_v1_answer_options_option_no_word_yet_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "I do not know a Spanish farewell yet.",
+      "values": {
+        "uk": "Я ще не знаю іспанського слова для прощання."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.context_arrival_hola.v1",
+        "fieldPath": "answer_options.option.no_word_yet.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_guided_type_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Write the Spanish word for hello. It is the word from the arrival situation.",
+      "values": {
+        "uk": "Напишіть іспанське слово для «привіт». Це слово з ситуації, коли хтось приходить."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.guided_type_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_interference_greeting_or_farewell_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Is hello a greeting or a farewell?",
+      "values": {
+        "uk": "«Привіт» — це вітання чи прощання?"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_interference_greeting_or_farewell_v1_answer_options_option_greeting_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "greeting",
+      "values": {
+        "uk": "вітання"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1",
+        "fieldPath": "answer_options.option.greeting.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_interference_greeting_or_farewell_v1_answer_options_option_farewell_label_answeroptionlabel",
+      "semanticType": "answerOptionLabel",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "farewell",
+      "values": {
+        "uk": "прощання"
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1",
+        "fieldPath": "answer_options.option.farewell.label",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
+    },
+    {
+      "id": "semantic.uk.r2e10.template_es_a0_m01_l001_independent_type_hola_v1_prompt_template_exerciseprompt",
+      "semanticType": "exercisePrompt",
+      "ownership": "supportLanguageOwned",
+      "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
+      "requiredness": "requiredWhenReferenced",
+      "sourceText": "Write the Spanish word for hello.",
+      "values": {
+        "uk": "Напишіть іспанське слово для «привіт»."
+      },
+      "review": {
+        "uk": "productionApproved"
+      },
+      "protectedSpans": [],
+      "context": {
+        "courseId": "es.a0",
+        "moduleId": "es.a0.m01",
+        "lessonId": "es.a0.m01.l001",
+        "contentObjectId": "template.es.a0.m01.l001.independent_type_hola.v1",
+        "fieldPath": "prompt_template",
+        "contentKind": "exercise_template",
+        "pedagogicalRole": "lesson 1 exercise",
+        "targetLanguage": "es",
+        "supportLocale": "uk",
+        "expectedAnswerContext": "R2E10 Lesson 1 implementation; scenario-controlled support visibility."
+      },
+      "notes": "R2E10 controlled Lesson 1 implementation; production-approved Ukrainian learner text."
     }
   ]
 }

@@ -20,6 +20,8 @@ class ExerciseSession {
               .toList(growable: false),
           expectedAnswerId: template.correctOptionId,
           expectedTextAnswer: template.expectedAnswer,
+          acceptedTextAnswers: template.acceptedAnswers,
+          acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
           authoredMisconceptions: template.authoredMisconceptions,
         ),
       ],
@@ -39,6 +41,8 @@ class ExerciseItem {
     this.answerOptions = const [],
     this.expectedAnswerId,
     this.expectedTextAnswer,
+    this.acceptedTextAnswers = const [],
+    this.acceptedWithFeedbackAnswers = const [],
     this.authoredMisconceptions = const [],
   });
 
@@ -49,6 +53,8 @@ class ExerciseItem {
   final List<ExerciseAnswer> answerOptions;
   final String? expectedAnswerId;
   final String? expectedTextAnswer;
+  final List<String> acceptedTextAnswers;
+  final List<AcceptedWithFeedbackAnswer> acceptedWithFeedbackAnswers;
   final List<AuthoredMisconception> authoredMisconceptions;
 }
 

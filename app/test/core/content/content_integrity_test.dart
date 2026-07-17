@@ -58,7 +58,7 @@ void main() {
 
     final course = await curriculumLoader.loadCourse();
     final lesson = course.lessons.firstWhere(
-      (lesson) => lesson.id == 'es.a0.m01.l001',
+      (lesson) => lesson.id == 'es.a0.m06.l016',
     );
 
     final references = lesson.activities.expand(
@@ -69,14 +69,23 @@ void main() {
         .whereType<String>()
         .toSet();
 
-    expect(referenceIds, contains('vocab.es.a0.unit1.hola.v1'));
-    expect(referenceIds, contains('vocab.es.a0.unit1.hasta_luego.v1'));
-    expect(referenceIds, contains('dialogue.es.a0.unit1.hello_goodbye.v1'));
+    expect(referenceIds, contains('grammar.es.a0.m01.l001.first_encounter.v1'));
+    expect(referenceIds, contains('grammar.es.a0.m01.l001.read_hola.v1'));
+    expect(referenceIds, contains('template.es.a0.m01.l001.focus_hola.v1'));
+    expect(referenceIds, contains('template.es.a0.m01.l001.meaning_hola.v1'));
+    expect(referenceIds, contains('template.es.a0.m01.l001.decode_hola.v1'));
     expect(
       referenceIds,
-      contains('reading.es.a0.unit1.greeting_recognition.v1'),
+      contains('template.es.a0.m01.l001.context_arrival_hola.v1'),
     );
-    expect(referenceIds, contains('template.es.a0.unit1.greeting_choice.v1'));
+    expect(
+      referenceIds,
+      contains('template.es.a0.m01.l001.guided_type_hola.v1'),
+    );
+    expect(
+      referenceIds,
+      contains('template.es.a0.m01.l001.independent_type_hola.v1'),
+    );
     expect(references.every(catalog.canResolve), isTrue);
   });
 
@@ -475,10 +484,10 @@ void main() {
     final fillShare = (typeCounts['fill_gap'] ?? 0) / total;
     final recognitionShare = (typeCounts['multiple_choice'] ?? 0) / total;
 
-    expect(total, 30);
+    expect(total, 33);
     expect(typedShare, inInclusiveRange(0.40, 0.50));
-    expect(fillShare, inInclusiveRange(0.20, 0.30));
-    expect(recognitionShare, inInclusiveRange(0.20, 0.30));
+    expect(fillShare, inInclusiveRange(0.18, 0.30));
+    expect(recognitionShare, inInclusiveRange(0.30, 0.36));
     expect(misconceptionTemplates, hasLength(greaterThanOrEqualTo(4)));
     expect(reviewReferenceTemplates, hasLength(greaterThanOrEqualTo(8)));
 
@@ -736,11 +745,11 @@ void main() {
       final matchingTemplate = catalog.lookupAs<ExerciseTemplate>(
         'template.es.a0.m01.review.match_first_words.v1',
       )!;
-      final helloTemplate = catalog.lookupAs<ExerciseTemplate>(
-        'template.es.a0.m01.l001.type_hola.v1',
+      final guidedHelloTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.l001.guided_type_hola.v1',
       )!;
-      final goodbyeTemplate = catalog.lookupAs<ExerciseTemplate>(
-        'template.es.a0.m01.l001.type_adios.v1',
+      final independentHelloTemplate = catalog.lookupAs<ExerciseTemplate>(
+        'template.es.a0.m01.l001.independent_type_hola.v1',
       )!;
 
       final repeatResult = const ActivityEngine().evaluate(
@@ -760,15 +769,15 @@ void main() {
         ),
       );
       final copiedSourceResult = const ActivityEngine().evaluate(
-        template: helloTemplate,
+        template: guidedHelloTemplate,
         submission: const ActivitySubmission(submittedAnswer: 'hello'),
       );
-      final farewellForGreetingResult = const ActivityEngine().evaluate(
-        template: helloTemplate,
-        submission: const ActivitySubmission(submittedAnswer: 'adiós'),
+      final missingSilentHResult = const ActivityEngine().evaluate(
+        template: guidedHelloTemplate,
+        submission: const ActivitySubmission(submittedAnswer: 'ola'),
       );
-      final greetingForFarewellResult = const ActivityEngine().evaluate(
-        template: goodbyeTemplate,
+      final independentResult = const ActivityEngine().evaluate(
+        template: independentHelloTemplate,
         submission: const ActivitySubmission(submittedAnswer: 'hola'),
       );
 
@@ -778,14 +787,8 @@ void main() {
         copiedSourceResult.feedbackKey,
         'response.translation_expected_source_language',
       );
-      expect(
-        farewellForGreetingResult.feedbackKey,
-        'response.greeting_expected_farewell',
-      );
-      expect(
-        greetingForFarewellResult.feedbackKey,
-        'response.farewell_expected_greeting',
-      );
+      expect(missingSilentHResult.feedbackKey, 'spanish.silent_h.hola');
+      expect(independentResult.isCorrect, isTrue);
     },
   );
 

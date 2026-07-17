@@ -2,7 +2,7 @@
 
 Status: Active
 
-Version: 1.0
+Version: 1.2
 
 Related documents:
 
@@ -83,6 +83,195 @@ consonant strength or phonation where relevant.
 When a rule contains visually confusable graphemes, author localized grapheme
 presentation data instead of relying on prose or font choice. See
 GRAPHEME_PRESENTATION_STANDARD.md.
+
+---
+
+# Learner Presentation Standard
+
+ReadingRule cards are pronunciation aids, not linguistic encyclopedia entries
+and not validator reports.
+
+Every learner-facing ReadingRule card must answer one question:
+
+```text
+How do I read this Spanish letter or letter combination in the next course
+word I am about to meet?
+```
+
+If a sentence does not help the learner read the nearest taught word or phrase,
+it must not appear on the card.
+
+## Educational Information Priority
+
+When learner comprehension conflicts with linguistic precision, learner
+comprehension always has priority.
+
+The first explanation shown to an A0 learner must be the simplest explanation
+that enables correct reading. Scientific linguistic terminology is secondary
+and may follow only as supplementary information.
+
+Preferred:
+
+```text
+Приблизна вимова українською:
+нь
+```
+
+Optional afterwards:
+
+```text
+IPA
+/ɲ/
+```
+
+Not acceptable:
+
+```text
+/ɲ/
+```
+
+without an understandable learner explanation.
+
+Use learner-oriented approximations such as `х`, `нь` or `коротке р` before
+scientific terms such as "voiceless velar fricative" or "alveolar tap". The
+learner must first understand how to read the next word.
+
+## Zero Linguistic Prerequisites
+
+Learner-facing pronunciation content must assume that the learner has no
+previous linguistic education.
+
+The learner is not expected to know IPA, phonetics, articulation terminology,
+linguistic jargon, orthographic theory or writing-system terminology.
+
+Do not rely on learner-facing terms such as `фрикатив`, `палатальний`,
+`альвеолярний`, `велярний`, `латиниця`, `кирилиця`, `графема` or `фонема`
+unless that concept is itself the lesson objective.
+
+Every card must be understandable through familiar words, familiar sounds,
+examples and simple comparisons.
+
+Every new term shown to the learner increases cognitive load and must have
+immediate educational value. If a term does not help the learner perform the
+nearest learning action, it must not be displayed.
+
+Future pedagogical validators should reject learner-facing pronunciation
+content that presents IPA without an understandable learner explanation or
+relies primarily on linguistic terminology instead of learner-oriented
+pronunciation guidance.
+
+## Required Order
+
+Learner-facing ReadingRule content must be authored and rendered in this
+logical order:
+
+1. Spanish symbol or letter combination.
+2. Letter name or component names.
+3. Approximate pronunciation in the learner's support language.
+4. Real course examples.
+5. IPA, when useful.
+
+IPA is educational metadata. It may support the explanation, but it must never
+replace an approximate learner pronunciation.
+
+## Required Content
+
+Each production ReadingRule entry must provide:
+
+- the exact Spanish symbol, unchanged;
+- the conventional name used in the course, when applicable;
+- a support-language pronunciation approximation;
+- at least one real example from the course or immediate prerequisite pool;
+- IPA only after the learner can already approximate the sound.
+
+The support-language approximation is the primary learner explanation.
+
+## Forbidden Learner Content
+
+Do not put authoring, validator or implementation language into ReadingRule
+cards.
+
+Forbidden learner-facing categories include:
+
+- writing-system discussion that is not the current lesson objective;
+- validator wording such as "do not substitute", "do not replace",
+  "do not confuse", "key form", "canonical form", "localization" or
+  "standard";
+- explanations of Latin/Cyrillic architecture when the learner only needs to
+  read a Spanish word;
+- instructions written for content creators, editors, validators or the
+  educational engine.
+
+Script-safety and protected target spans remain mandatory authoring and
+validation concerns. They belong in structured data, review notes and
+validators, not in ordinary learner prose unless the lesson is explicitly
+teaching a writing-system contrast.
+
+## Compliant Examples
+
+```text
+ñ
+
+Назва літери:
+еньє
+
+Приблизна вимова українською:
+нь
+
+España, niño
+
+IPA
+/ɲ/
+```
+
+```text
+j
+
+Назва літери:
+хота
+
+Приблизна вимова українською:
+х
+
+José, joven
+
+IPA
+/x/
+```
+
+```text
+r
+
+Назва літери:
+ере
+
+Приблизна вимова українською:
+коротке р
+
+pero, profesora
+
+IPA
+/ɾ/
+```
+
+## Rejected Examples
+
+Reject cards such as:
+
+```text
+Латинська літера r належить до латиниці, а не кирилиці.
+```
+
+```text
+Не підміняйте іспанське написання b/v кирилицею.
+```
+
+```text
+Ключова іспанська форма: r, /ɾ/.
+```
+
+These sentences may be useful to an author or validator, but they do not help a
+beginner immediately read the next Spanish word.
 
 ---
 
