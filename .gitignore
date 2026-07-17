@@ -18,3 +18,9 @@ build/
 
 # Local env
 .env
+
+# Local copyrighted pedagogical references
+Books/**/*.pdf
+Books/**/*.djvu
+Books/**/*.txt
+Books/**/extracted/
