@@ -116,7 +116,6 @@ void main() {
       'template.es.a0.m01.l001.decode_hola.v1',
       'template.es.a0.m01.l001.context_arrival_hola.v1',
       'template.es.a0.m01.l001.guided_type_hola.v1',
-      'template.es.a0.m01.l001.interference_greeting_or_farewell.v1',
       'template.es.a0.m01.l001.independent_type_hola.v1',
     ]);
 

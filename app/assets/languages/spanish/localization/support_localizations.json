@@ -2463,10 +2463,10 @@
       "id": "template.es.a0.m01.l001.context_arrival_hola.v1",
       "fields": {
         "prompt_template": {
-          "en": "Someone arrives. Which Spanish word fits this moment?"
+          "en": "Someone meets you. Which Spanish word fits this moment?"
         },
         "answer_options.option.no_word_yet.label": {
-          "en": "I do not know a Spanish farewell yet."
+          "en": "I do not know another Spanish word yet."
         }
       }
     },
@@ -8415,13 +8415,13 @@
       "id": "es.a0.m06.l016",
       "fields": {
         "communicativeOutcome": {
-          "en": "Read and write your first Spanish greeting."
+          "en": "Produce a first Spanish hello."
         },
         "description": {
-          "en": "Read, understand, and type hola with its quiet h."
+          "en": "Read, understand, and type Hola."
         },
         "title": {
-          "en": "Read Hola"
+          "en": "First Spanish Hello"
         }
       }
     },
@@ -10131,7 +10131,7 @@
       "id": "es.a0.m06.l016.activity.reading",
       "fields": {
         "title": {
-          "en": "Arrival or farewell"
+          "en": "Greeting moment"
         }
       }
     },
@@ -11778,7 +11778,7 @@
       "id": "template.es.a0.m01.l001.guided_type_hola.v1",
       "fields": {
         "prompt_template": {
-          "en": "Write the Spanish word for hello. It is the word from the arrival situation."
+          "en": "Write the Spanish word for hello. It is the word from the meeting situation."
         }
       }
     },
@@ -12084,7 +12084,7 @@
       "id": "es.a0.m06.l016.objective.es.a0.m06.l016.primary",
       "fields": {
         "description": {
-          "en": "Independently read, understand, and type Hola."
+          "en": "Read, understand, and type Hola."
         }
       }
     },
@@ -13326,7 +13326,7 @@
       "id": "es.a0.m06.l016.summary",
       "fields": {
         "reviewPrompt": {
-          "en": "You can read and write Hola."
+          "en": "You can read, understand, and type Hola."
         }
       }
     },

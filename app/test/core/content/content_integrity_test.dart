@@ -484,7 +484,7 @@ void main() {
     final fillShare = (typeCounts['fill_gap'] ?? 0) / total;
     final recognitionShare = (typeCounts['multiple_choice'] ?? 0) / total;
 
-    expect(total, 33);
+    expect(total, 32);
     expect(typedShare, inInclusiveRange(0.40, 0.50));
     expect(fillShare, inInclusiveRange(0.18, 0.30));
     expect(recognitionShare, inInclusiveRange(0.30, 0.36));

@@ -86,7 +86,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Someone arrives. Which Spanish word fits this moment?",
+    "prompt_template": "Someone meets you. Which Spanish word fits this moment?",
     "answer_options": [
       {
         "id": "option.hola",
@@ -94,7 +94,7 @@
       },
       {
         "id": "option.no_word_yet",
-        "label": "I do not know a Spanish farewell yet."
+        "label": "I do not know another Spanish word yet."
       }
     ],
     "correct_option_id": "option.hola"
@@ -108,7 +108,7 @@
     "required_object_types": [
       "vocabulary"
     ],
-    "prompt_template": "Write the Spanish word for hello. It is the word from the arrival situation.",
+    "prompt_template": "Write the Spanish word for hello. It is the word from the meeting situation.",
     "expected_answer": "Hola",
     "accepted_answers": [
       "Hola."

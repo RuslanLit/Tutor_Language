@@ -57,9 +57,9 @@ void main() {
     await tester.pumpWidget(
       _app(const LessonPlayerScreen(lessonId: _lessonId)),
     );
-    await _pumpUntilFound(tester, find.text('Read Hola'));
+    await _pumpUntilFound(tester, find.text('First Spanish Hello'));
 
-    expect(find.text('Read Hola'), findsOneWidget);
+    expect(find.text('First Spanish Hello'), findsOneWidget);
     expect(find.text('Module 1'), findsOneWidget);
     expect(find.text('A0'), findsOneWidget);
     expect(find.text('es.a0.m06.l016'), findsNothing);

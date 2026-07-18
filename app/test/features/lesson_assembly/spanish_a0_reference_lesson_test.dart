@@ -42,6 +42,12 @@ void main() {
     final templates = resolvedContent.whereType<ExerciseTemplate>().toList();
 
     expect(assembled.lesson.id, 'es.a0.m06.l016');
+    expect(assembled.lesson.title, 'First Spanish Hello');
+    expect(assembled.lesson.description, 'Read, understand, and type Hola.');
+    expect(
+      assembled.lesson.communicativeOutcome,
+      'Produce a first Spanish hello.',
+    );
     expect(assembled.activities.map((activity) => activity.activity.type), [
       'grammar',
       'grammar',
@@ -61,9 +67,16 @@ void main() {
       'template.es.a0.m01.l001.decode_hola.v1',
       'template.es.a0.m01.l001.context_arrival_hola.v1',
       'template.es.a0.m01.l001.guided_type_hola.v1',
-      'template.es.a0.m01.l001.interference_greeting_or_farewell.v1',
       'template.es.a0.m01.l001.independent_type_hola.v1',
     ]);
+    expect(
+      templates.map((template) => template.id),
+      isNot(
+        contains(
+          'template.es.a0.m01.l001.interference_greeting_or_farewell.v1',
+        ),
+      ),
+    );
     expect(templates.map((template) => template.exerciseType).toSet(), {
       'multiple_choice',
       'text_entry',
@@ -77,6 +90,33 @@ void main() {
           )
           .promptTemplate,
       isNot(contains('Hola')),
+    );
+    expect(
+      resolvedContent
+          .map(
+            (content) => switch (content) {
+              GrammarTopic() => [
+                content.title,
+                content.explanation,
+                ...content.examples,
+              ],
+              ExerciseTemplate() => [
+                content.promptTemplate,
+                ...content.answerOptions.map((option) => option.label),
+              ],
+              _ => const <String>[],
+            },
+          )
+          .expand((text) => text)
+          .join('\n'),
+      allOf(
+        isNot(contains('Adiós')),
+        isNot(contains('Hasta luego')),
+        isNot(contains('Gracias')),
+        isNot(contains('Por favor')),
+        isNot(contains('Ana')),
+        isNot(contains('farewell')),
+      ),
     );
   });
 

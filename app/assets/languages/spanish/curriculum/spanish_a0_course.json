@@ -7347,8 +7347,8 @@
     {
       "metadata": {
         "id": "es.a0.m06.l016",
-        "title": "Read Hola",
-        "description": "Read, understand, and type hola with its quiet h.",
+        "title": "First Spanish Hello",
+        "description": "Read, understand, and type Hola.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 5,
@@ -7363,10 +7363,10 @@
       "objectives": [
         {
           "id": "objective.es.a0.m06.l016.primary",
-          "description": "Independently read, understand, and type Hola."
+          "description": "Read, understand, and type Hola."
         }
       ],
-      "communicativeOutcome": "Read and write your first Spanish greeting.",
+      "communicativeOutcome": "Produce a first Spanish hello.",
       "sections": [
         {
           "id": "es.a0.m06.l016.section.main",
@@ -7416,7 +7416,7 @@
             },
             {
               "id": "es.a0.m06.l016.activity.reading",
-              "title": "Arrival or farewell",
+              "title": "Greeting moment",
               "type": "exercise_template",
               "order": 3,
               "references": [
@@ -7441,11 +7441,6 @@
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
-                  "referenceId": "template.es.a0.m01.l001.interference_greeting_or_farewell.v1"
-                },
-                {
-                  "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/module_1_first_words.json",
                   "referenceId": "template.es.a0.m01.l001.independent_type_hola.v1"
                 }
               ]
@@ -7455,7 +7450,7 @@
       ],
       "summary": {
         "id": "es.a0.m06.l016.summary",
-        "reviewPrompt": "You can read and write Hola.",
+        "reviewPrompt": "You can read, understand, and type Hola.",
         "referenceIds": [
           "objective.es.a0.m06.l016.primary"
         ]

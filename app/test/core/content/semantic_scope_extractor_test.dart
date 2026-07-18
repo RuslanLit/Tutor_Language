@@ -28,12 +28,12 @@ void main() {
         .map((identity) => identity.stableIdentity)
         .toList();
 
-    expect(scope.requiredIdentities, hasLength(280));
+    expect(scope.requiredIdentities, hasLength(277));
     expect(scope.unresolvedFields, isEmpty);
     expect(scope.validationIssues, isEmpty);
     expect(identities.toSet(), hasLength(identities.length));
     expect(scope.semanticTypeCounts['vocabularyMeaning'], 20);
-    expect(scope.semanticTypeCounts['exercisePrompt'], 33);
+    expect(scope.semanticTypeCounts['exercisePrompt'], 32);
     expect(scope.semanticTypeCounts['pronunciationHint'], 20);
     expect(scope.semanticTypeCounts['readingRuleTitle'], 11);
     expect(scope.semanticTypeCounts['accessibilityDescription'], 1);

@@ -464,9 +464,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Reading",
+      "sourceText": "Greeting moment",
       "values": {
-        "uk": "Читання"
+        "uk": "Момент привітання"
       },
       "review": {
         "uk": "productionApproved"
@@ -2344,9 +2344,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read, understand, and type hola without saying the h.",
+      "sourceText": "Read, understand, and type Hola.",
       "values": {
-        "uk": "Прочитайте, зрозумійте й надрукуйте hola, не вимовляючи h."
+        "uk": "Прочитайте, зрозумійте й напишіть Hola."
       },
       "review": {
         "uk": "productionApproved"
@@ -2400,9 +2400,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "You can read and type hola.",
+      "sourceText": "You can read, understand, and type Hola.",
       "values": {
-        "uk": "Ви можете читати й друкувати hola."
+        "uk": "Тепер ви можете прочитати, зрозуміти й написати Hola."
       },
       "review": {
         "uk": "productionApproved"
@@ -2428,9 +2428,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read and type hola.",
+      "sourceText": "Produce a first Spanish hello.",
       "values": {
-        "uk": "Прочитайте й надрукуйте hola."
+        "uk": "Написати перший іспанський привіт."
       },
       "review": {
         "uk": "productionApproved"
@@ -2456,9 +2456,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read, understand, and type hola with its quiet h.",
+      "sourceText": "Read, understand, and type Hola.",
       "values": {
-        "uk": "Прочитайте, зрозумійте й надрукуйте hola з тихою h."
+        "uk": "Прочитайте, зрозумійте й напишіть Hola."
       },
       "review": {
         "uk": "productionApproved"
@@ -2484,9 +2484,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/curriculum/spanish_a0_course.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Read Hola",
+      "sourceText": "First Spanish Hello",
       "values": {
-        "uk": "Читаємо Hola"
+        "uk": "Перший іспанський привіт"
       },
       "review": {
         "uk": "productionApproved"
@@ -9008,9 +9008,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Someone arrives. Which Spanish word fits this moment?",
+      "sourceText": "Someone meets you. Which Spanish word fits this moment?",
       "values": {
-        "uk": "Хтось приходить. Яке іспанське слово підходить до цієї ситуації?"
+        "uk": "Хтось зустрічає вас. Яке іспанське слово підходить у цей момент?"
       },
       "review": {
         "uk": "productionApproved"
@@ -9036,9 +9036,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "I do not know a Spanish farewell yet.",
+      "sourceText": "I do not know another Spanish word yet.",
       "values": {
-        "uk": "Я ще не знаю іспанського слова для прощання."
+        "uk": "Я ще не знаю іншого іспанського слова."
       },
       "review": {
         "uk": "productionApproved"
@@ -9064,9 +9064,9 @@
       "ownership": "supportLanguageOwned",
       "sourceAssetPath": "assets/languages/spanish/templates/module_1_first_words.json",
       "requiredness": "requiredWhenReferenced",
-      "sourceText": "Write the Spanish word for hello. It is the word from the arrival situation.",
+      "sourceText": "Write the Spanish word for hello. It is the word from the meeting situation.",
       "values": {
-        "uk": "Напишіть іспанське слово для «привіт». Це слово з ситуації, коли хтось приходить."
+        "uk": "Напишіть іспанське слово для «привіт». Це слово із ситуації зустрічі."
       },
       "review": {
         "uk": "productionApproved"
