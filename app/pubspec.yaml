@@ -46,3 +46,9 @@ flutter:
     - assets/languages/spanish/localization/semantic/uk/
     - assets/languages/spanish/localization/semantic/ru/
     - assets/languages/spanish/pronunciation/
+
+  fonts:
+    - family: Kurale
+      fonts:
+        - asset: assets/fonts/kurale/Kurale-Regular.ttf
+          weight: 400
