@@ -15,7 +15,11 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.settingsTitle),
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: AlignmentDirectional.centerStart,
+          child: Text(l10n.settingsTitle),
+        ),
         leading: IconButton(
           tooltip: l10n.backTooltip,
           icon: const Icon(Icons.arrow_back),

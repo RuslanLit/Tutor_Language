@@ -493,6 +493,7 @@ class _LessonNavigationControlsState
                   children: [
                     OutlinedButton(
                       onPressed: canGoPrevious ? _goToPreviousStep : null,
+                      style: _navigationButtonStyle(),
                       child: Text(l10n.previous),
                     ),
                     const Spacer(),
@@ -508,6 +509,7 @@ class _LessonNavigationControlsState
                         onPressed: _isCompleting || isPersisting || !canFinish
                             ? null
                             : _completeLesson,
+                        style: _navigationButtonStyle(),
                         child: Text(
                           _isCompleting || isPersisting
                               ? l10n.finishing
@@ -517,6 +519,7 @@ class _LessonNavigationControlsState
                     else
                       FilledButton(
                         onPressed: canGoNext ? _goToNextStep : null,
+                        style: _navigationButtonStyle(),
                         child: Text(l10n.next),
                       ),
                   ],
@@ -578,6 +581,12 @@ class _LessonNavigationControlsState
         error: (error, stackTrace) => CourseBrowserError(message: '$error'),
         loading: () => const CircularProgressIndicator(),
       ),
+    );
+  }
+
+  ButtonStyle _navigationButtonStyle() {
+    return TextButton.styleFrom(
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
     );
   }
 
@@ -1083,8 +1092,8 @@ class GraphemeComparisonView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final monoStyle = theme.textTheme.headlineSmall?.copyWith(
-      fontFamily: 'monospace',
-      letterSpacing: 1.2,
+      fontFamily: theme.textTheme.bodyMedium?.fontFamily,
+      letterSpacing: 0,
       fontWeight: FontWeight.w600,
     );
     final labelStyle = theme.textTheme.bodyMedium;
