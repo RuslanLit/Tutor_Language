@@ -468,28 +468,10 @@ Detailed authoring rules live in PRONUNCIATION_AUTHORING_GUIDE.md.
 
 # Current Implementation
 
-The current Spanish assets still store a single optional `pronunciation` string
-on VocabularyItem for many legacy entries.
-
-That field is legacy plain text.
-
-It is not a PronunciationUnit.
-
-It is not IPA.
-
-It is not support-locale-safe.
-
-It must not be expanded as the long-term model.
-
-R2E2C uses a separate PronunciationUnit runtime foundation and a migrated
-reference slice in:
-
-```text
-app/assets/languages/spanish/pronunciation/reference_slice.json
-```
-
-Unmigrated legacy hints remain visible only where support-locale policy allows
-them.
+Historical Spanish pronunciation assets were removed during the course reset.
+Future Spanish pronunciation content must use the PronunciationUnit runtime
+foundation and must not reintroduce legacy plain-text pronunciation hints as
+the long-term model.
 
 ---
 

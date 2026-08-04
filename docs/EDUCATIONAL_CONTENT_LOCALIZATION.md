@@ -281,30 +281,17 @@ semantic units must be approved, protected target spans must be preserved, named
 entities must be typed and pronunciation hints must remain separate from
 meanings.
 
-R2E4C validates the semantic architecture on five complete Spanish A0
-production lessons:
-
-- `es.a0.m06.l016`;
-- `es.a0.m01.l001`;
-- `es.a0.m06.l017`;
-- `es.a0.m02.l004`;
-- `es.a0.m06.l036`.
-
-The pilot bundle lives in:
-
-```text
-app/assets/languages/spanish/localization/semantic_pilot_lessons.json
-```
-
-It is validated by:
+Historical Spanish A0 semantic pilot bundles were removed during the course
+reset. Future semantic pilots must declare their lesson scope from the new
+course content and remain validated by:
 
 ```text
 app/tool/validate_semantic_lesson.dart
 ```
 
 The pilot gate requires 100% expected learner-visible field coverage and zero
-legacy fallback for the declared lessons. It is not a coverage expansion for
-the unmigrated full course.
+legacy fallback for the declared lessons. It is not a coverage expansion for an
+unmigrated full course.
 
 R2E5R supersedes the Ukrainian and Russian legacy educational localization
 state. Ukrainian and Russian UI localization remains available, but educational
