@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import '../../features/curriculum/curriculum_models.dart';
@@ -341,7 +342,18 @@ class SemanticLocalizationRepository {
 
     final bundles = <SemanticLocalizationBundle>[];
     for (final assetPath in assetPaths) {
-      final rawJson = await _assetBundle.loadString(assetPath);
+      final String rawJson;
+      try {
+        rawJson = await _assetBundle.loadString(assetPath);
+      } on FlutterError catch (error) {
+        if (_isMissingAsset(error)) {
+          continue;
+        }
+        rethrow;
+      }
+      if (rawJson.trim().isEmpty) {
+        continue;
+      }
       final decoded = jsonDecode(rawJson);
       if (decoded is! Map) {
         throw const FormatException(
@@ -354,7 +366,13 @@ class SemanticLocalizationRepository {
     }
 
     if (bundles.isEmpty) {
-      throw const FormatException('At least one semantic bundle is required');
+      return _cachedBundle = const SemanticLocalizationBundle(
+        schemaVersion: 1,
+        targetLanguage: 'es',
+        sourceSupportLocale: 'uk',
+        supportLocales: ['uk'],
+        units: [],
+      );
     }
     final first = bundles.first;
     return _cachedBundle = SemanticLocalizationBundle(
@@ -370,6 +388,12 @@ class SemanticLocalizationRepository {
       }),
       units: List.unmodifiable([for (final bundle in bundles) ...bundle.units]),
     );
+  }
+
+  bool _isMissingAsset(FlutterError error) {
+    final message = error.toString();
+    return message.contains('Unable to load asset') ||
+        message.contains('does not exist or has empty data');
   }
 }
 
