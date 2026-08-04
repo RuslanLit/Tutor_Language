@@ -171,6 +171,19 @@ For the mandatory review process, use CONTENT_REVIEW_PROTOCOL.md.
 - [ ] The lesson avoids unnecessary cognitive load.
 - [ ] The recap reflects what was actually taught.
 - [ ] Learner-facing wording follows AUTHORING_STYLE_GUIDE.md.
+- [ ] The lesson is teacher-independent for its claimed outcome: no step relies
+      on an unstated teacher translation, reformulation, prerequisite repair,
+      answer interpretation or activity reordering.
+- [ ] Any open-ended response that cannot be evaluated deterministically is
+      explicitly marked diagnostic or motivational and is not the sole evidence
+      of mastery.
+- [ ] Required context, support, accepted answers, feedback and remediation are
+      authored wherever the learner needs them to complete the intended path.
+- [ ] Prerequisites have been taught, new material receives sufficient support
+      before productive use, and incidental language is not silently required
+      for completion.
+- [ ] The final performance can be completed using taught material and the
+      authored/runtime mechanisms available to the lesson.
 
 ---
 

@@ -159,6 +159,24 @@ Do not use multiple choice simply because it is easier to implement.
 
 ---
 
+# Principle 2a — Communicative Expansion
+
+When previously learned language is reused, authors should prefer opportunities
+for it to perform an additional communicative function, appear in a new context
+or combination, or support a new role or interaction. This is communicative
+expansion; it is more than displaying or repeating the same phrase.
+
+Retrieval recalls previously learned knowledge. Communicative expansion lets
+that knowledge perform additional work. Each later lesson should identify a
+meaningful reuse opportunity when the objective permits it. The opportunity may
+be retrieval, recombination, transfer, reduced support, or controlled
+application. This is a qualitative principle, not a numerical quota. Do not
+force an artificial link when it would overload the lesson or distract from its
+primary objective; learner-specific review scheduling remains the
+Learning Engine's responsibility.
+
+---
+
 # Principle 3 — Productive Language
 
 ## Statement

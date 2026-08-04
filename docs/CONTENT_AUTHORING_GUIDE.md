@@ -377,6 +377,23 @@ Review vocabulary does not count toward this limit.
 
 Large vocabulary bursts should be avoided.
 
+The beginner vocabulary limit applies to new productive target lexicon: forms
+the lesson expects the learner to retrieve, type, say, construct or use as
+evidence of the primary outcome. Receptive or recognition lexicon consists of
+language the learner is expected to recognize or understand with support, but
+not necessarily produce independently yet. Contextual or incidental language
+is present to make an example, scenario or input natural and is not part of the
+assessed learning target.
+
+Visible words are not automatically productive targets. Productive lexical load
+must remain controlled, and only explicitly designated productive items should
+be required in productive exercises or the final performance. Receptive items
+must have sufficient meaning support. Contextual or incidental language must be
+intentional, limited, level-appropriate and comprehensible; it must not silently
+become a prerequisite. Promote receptive items to productive targets explicitly
+before assessing them as productive. A large visible list does not justify
+increasing the productive beginner budget.
+
 ---
 
 # Vocabulary Selection
