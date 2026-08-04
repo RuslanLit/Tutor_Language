@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/features/activity_engine/activity_template_state.dart';
 import 'package:tutor_language/features/activity_engine/activity_widgets.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
@@ -40,6 +41,45 @@ void main() {
     await tester.pump();
 
     expect(find.text('Correct'), findsOneWidget);
+  });
+
+  testWidgets('parent rebuild does not erase active typed input', (
+    tester,
+  ) async {
+    var state = const ActivityTemplateState();
+
+    await tester.pumpWidget(
+      _localizedApp(
+        StatefulBuilder(
+          builder: (context, setState) {
+            return Scaffold(
+              body: ActivityTemplateWidget(
+                template: _textEntryTemplate,
+                state: state,
+                onStateChanged: (nextState) {
+                  setState(() {
+                    state = nextState;
+                  });
+                },
+              ),
+            );
+          },
+        ),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'hola');
+    await tester.pump();
+
+    // Model the stale parent snapshot that can occur during rapid input.
+    state = const ActivityTemplateState();
+    await tester.pump();
+
+    expect(find.byType(TextField), findsOneWidget);
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      'hola',
+    );
   });
 
   testWidgets('activity prompt is exposed to accessibility semantics', (

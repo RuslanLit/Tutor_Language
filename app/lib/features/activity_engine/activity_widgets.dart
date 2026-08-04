@@ -175,6 +175,7 @@ class FillGapActivityWidget extends StatefulWidget {
 
 class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
   final TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
   ActivityTemplateState _state = const ActivityTemplateState();
 
   ActivityTemplateState get _currentState => widget.state ?? _state;
@@ -188,9 +189,12 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
   @override
   void didUpdateWidget(FillGapActivityWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    final submittedAnswer = _currentState.submittedAnswer;
-    if (_controller.text != submittedAnswer) {
-      _controller.text = submittedAnswer;
+    // A parent rebuild can arrive while the parent-held state still trails
+    // the controller's latest onChanged event. Do not overwrite active input
+    // in that case; only reset the controller when this element is reused for
+    // another exercise template.
+    if (oldWidget.template.id != widget.template.id || !_focusNode.hasFocus) {
+      _controller.text = _currentState.submittedAnswer;
     }
   }
 
@@ -209,6 +213,7 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
   @override
   void dispose() {
     _controller.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -224,6 +229,7 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
         const SizedBox(height: 8),
         TextField(
           controller: _controller,
+          focusNode: _focusNode,
           decoration: InputDecoration(labelText: l10n.answerLabel),
           keyboardType: _usesLongAnswerInput(widget.template)
               ? TextInputType.multiline
