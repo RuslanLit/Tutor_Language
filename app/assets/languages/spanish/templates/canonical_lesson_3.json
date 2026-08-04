@@ -1,0 +1,326 @@
+[
+  {
+    "id": "template.es.a0.m01.l003.choose_how_are_you_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти вже привітався і назвав ім'я. Тепер треба запитати, як справи.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "como_estas",
+        "label": "¿Cómo estás?"
+      },
+      {
+        "id": "como_te_llamas",
+        "label": "¿Cómo te llamas?"
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      }
+    ],
+    "correct_option_id": "como_estas"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_good_status_reply",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿Cómo estás?\n\nТи хочеш відповісти, що все добре, і подякувати.\n\nВибери 1 репліку.",
+    "answer_options": [
+      {
+        "id": "estoy_bien_gracias",
+        "label": "Estoy bien, gracias."
+      },
+      {
+        "id": "soy_de_ucrania",
+        "label": "Soy de Ucrania."
+      },
+      {
+        "id": "hasta_pronto",
+        "label": "Hasta pronto."
+      }
+    ],
+    "correct_option_id": "estoy_bien_gracias"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_return_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти відповів: Estoy bien, gracias.\n\nТепер хочеш коротко запитати те саме у співрозмовника.\n\nВибери 1 репліку.",
+    "answer_options": [
+      {
+        "id": "y_tu",
+        "label": "¿Y tú?"
+      },
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      },
+      {
+        "id": "lo_siento",
+        "label": "Lo siento."
+      }
+    ],
+    "correct_option_id": "y_tu"
+  },
+  {
+    "id": "template.es.a0.m01.l003.restore_status_exchange",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_dialogue_segment"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи 3 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\n¿Cómo estás?\nEstoy ____, gracias.\n¿Y ___?",
+    "expected_answer": "¿Cómo estás?\nEstoy bien, gracias.\n¿Y tú?"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_mas_o_menos_context",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти не хочеш сказати, що все чудово. Хочеш відповісти: більш-менш.\n\nВибери 1 природну репліку.",
+    "answer_options": [
+      {
+        "id": "mas_o_menos",
+        "label": "Más o menos, gracias."
+      },
+      {
+        "id": "muy_bien",
+        "label": "Muy bien, gracias."
+      },
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      }
+    ],
+    "correct_option_id": "mas_o_menos"
+  },
+  {
+    "id": "template.es.a0.m01.l003.identify_de_nada",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ana каже: Gracias.\n\nВибери 1 відповідь на подяку.",
+    "answer_options": [
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      },
+      {
+        "id": "perdon",
+        "label": "Perdón."
+      },
+      {
+        "id": "como_estas",
+        "label": "¿Cómo estás?"
+      }
+    ],
+    "correct_option_id": "de_nada"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_stronger_thanks",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти хочеш подякувати сильніше, ніж просто Gracias.\n\nВибери 1 репліку.",
+    "answer_options": [
+      {
+        "id": "muchas_gracias",
+        "label": "Muchas gracias."
+      },
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      },
+      {
+        "id": "nos_vemos",
+        "label": "Nos vemos."
+      }
+    ],
+    "correct_option_id": "muchas_gracias"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_polite_attention",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_phrase"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти хочеш ввічливо привернути увагу перед питанням.\n\nВибери 1 коротку репліку.",
+    "answer_options": [
+      {
+        "id": "perdon",
+        "label": "Perdón."
+      },
+      {
+        "id": "muy_bien",
+        "label": "Muy bien."
+      },
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      }
+    ],
+    "correct_option_id": "perdon"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_apology_function",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти хочеш сказати, що тобі шкода.\n\nВибери 1 репліку.",
+    "answer_options": [
+      {
+        "id": "lo_siento",
+        "label": "Lo siento."
+      },
+      {
+        "id": "hasta_luego",
+        "label": "Hasta luego."
+      },
+      {
+        "id": "muchas_gracias",
+        "label": "Muchas gracias."
+      }
+    ],
+    "correct_option_id": "lo_siento"
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_farewell_variant",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Розмова завершується. Ти хочеш сказати: до скорого.\n\nВибери 1 репліку.",
+    "answer_options": [
+      {
+        "id": "hasta_pronto",
+        "label": "Hasta pronto."
+      },
+      {
+        "id": "como_estas",
+        "label": "¿Cómo estás?"
+      },
+      {
+        "id": "estoy_bien",
+        "label": "Estoy bien."
+      }
+    ],
+    "correct_option_id": "hasta_pronto"
+  },
+  {
+    "id": "template.es.a0.m01.l003.order_polite_middle",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "order_dialogue_logic"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Запиши репліки в природному порядку.\n\nВведи 4 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\nEstoy bien, gracias.\n¿Cómo estás?\n¿Y tú?\nMuy bien, gracias.",
+    "expected_answer": "¿Cómo estás?\nEstoy bien, gracias.\n¿Y tú?\nMuy bien, gracias."
+  },
+  {
+    "id": "template.es.a0.m01.l003.restore_thanks_pair",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_polite_pair"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи 2 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\nMuchas _______.\nDe ____.",
+    "expected_answer": "Muchas gracias.\nDe nada."
+  },
+  {
+    "id": "template.es.a0.m01.l003.choose_next_after_origin",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_next_dialogue_line"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana відповіла: Soy de España. Vivo en Madrid.\n\nТи хочеш ввічливо завершити розмову.\n\nВибери 1 наступну репліку.",
+    "answer_options": [
+      {
+        "id": "gracias_hasta_luego",
+        "label": "Gracias. Hasta luego."
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      },
+      {
+        "id": "me_llamo_marta",
+        "label": "Me llamo Marta."
+      }
+    ],
+    "correct_option_id": "gracias_hasta_luego"
+  },
+  {
+    "id": "template.es.a0.m01.l003.complete_polite_conversation",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_full_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи весь діалог іспанською. Напиши кожну відповідь з нового рядка.\n\nHola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy ____, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta ____.\nDe nada. Nos vemos.",
+    "expected_answer": "Hola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy bien, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta luego.\nDe nada. Nos vemos."
+  },
+  {
+    "id": "template.es.a0.m01.l003.independent_polite_conversation",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "independent_communicative_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Напиши коротку ввічливу розмову іспанською.\n\nВведи 8-10 реплік. Напиши кожну відповідь з нового рядка.\n\nРозмова має: привітатися, назвати себе Marta, запитати ім'я Ana, сказати Mucho gusto, запитати як справи, відповісти й запитати те саме, подякувати, завершити контакт.",
+    "expected_answer": "Hola. Me llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿Cómo estás?\nEstoy bien, gracias. ¿Y tú?\nMuy bien, gracias.\nGracias. Hasta luego.\nDe nada. Nos vemos.",
+    "accepted_answers": [
+      "Hola. Me llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿Cómo estás?\nEstoy bien, gracias. ¿Y tú?\nMuy bien, gracias.\nMuchas gracias. Hasta pronto.",
+      "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿Cómo estás?\nMás o menos, gracias. ¿Y tú?\nMuy bien, gracias.\nGracias. Adiós."
+    ]
+  }
+]

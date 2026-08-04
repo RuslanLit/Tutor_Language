@@ -1,0 +1,254 @@
+[
+  {
+    "id": "vocab.es.a0.m01.l001.hola",
+    "spanish": "Hola.",
+    "native_translation": "Привіт.",
+    "cefr": "A0",
+    "example": "Hola, Ana.",
+    "pronunciation": "ола",
+    "notes": "Почати контакт."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.buenos_dias",
+    "spanish": "Buenos días.",
+    "native_translation": "Доброго ранку.",
+    "cefr": "A0",
+    "example": "Buenos días. Me llamo Marta.",
+    "pronunciation": "буенос діас",
+    "notes": "Привітатися вранці або вдень."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.buenas_tardes",
+    "spanish": "Buenas tardes.",
+    "native_translation": "Добрий день.",
+    "cefr": "A0",
+    "example": "Buenas tardes. Me llamo Marta.",
+    "pronunciation": "буенас тардес",
+    "notes": "Привітатися вдень або ввечері."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.buenas_noches",
+    "spanish": "Buenas noches.",
+    "native_translation": "Добрий вечір.",
+    "cefr": "A0",
+    "example": "Buenas noches. Me llamo Marta.",
+    "pronunciation": "буенас ночес",
+    "notes": "Привітатися ввечері."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.me_llamo",
+    "spanish": "Me llamo...",
+    "native_translation": "Мене звати...",
+    "cefr": "A0",
+    "example": "Me llamo Marta.",
+    "pronunciation": "ме ямо",
+    "notes": "Назвати себе."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.soy",
+    "spanish": "Soy...",
+    "native_translation": "Я є... / Я...",
+    "cefr": "A0",
+    "example": "Soy de Ucrania.",
+    "pronunciation": "сой",
+    "notes": "Сказати коротку інформацію про себе."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.como_te_llamas",
+    "spanish": "¿Cómo te llamas?",
+    "native_translation": "Як тебе звати?",
+    "cefr": "A0",
+    "example": "Hola. ¿Cómo te llamas?",
+    "pronunciation": "комо те ямас",
+    "notes": "Запитати ім'я співрозмовника."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.mucho_gusto",
+    "spanish": "Mucho gusto.",
+    "native_translation": "Дуже приємно.",
+    "cefr": "A0",
+    "example": "Me llamo Ana. Mucho gusto.",
+    "pronunciation": "мучо густо",
+    "notes": "Ввічливо відповісти після знайомства."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.encantado",
+    "spanish": "Encantado.",
+    "native_translation": "Приємно познайомитися.",
+    "cefr": "A0",
+    "example": "Me llamo Marta. Encantado.",
+    "pronunciation": "енкантадо",
+    "notes": "Чоловік може так сказати після знайомства."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.encantada",
+    "spanish": "Encantada.",
+    "native_translation": "Приємно познайомитися.",
+    "cefr": "A0",
+    "example": "Me llamo Ana. Encantada.",
+    "pronunciation": "енкантада",
+    "notes": "Жінка може так сказати після знайомства."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.soy_de",
+    "spanish": "Soy de...",
+    "native_translation": "Я з...",
+    "cefr": "A0",
+    "example": "Soy de Ucrania.",
+    "pronunciation": "сой де",
+    "notes": "Сказати, звідки ти."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.de_donde_eres",
+    "spanish": "¿De dónde eres?",
+    "native_translation": "Звідки ти?",
+    "cefr": "A0",
+    "example": "Soy de Ucrania. ¿De dónde eres?",
+    "pronunciation": "де донде ерес",
+    "notes": "Запитати, звідки співрозмовник."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.vivo_en",
+    "spanish": "Vivo en...",
+    "native_translation": "Я живу в...",
+    "cefr": "A0",
+    "example": "Vivo en Kyiv.",
+    "pronunciation": "біво ен",
+    "notes": "Сказати, де живеш."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.hablo_espanol",
+    "spanish": "Hablo español.",
+    "native_translation": "Я говорю іспанською.",
+    "cefr": "A0",
+    "example": "Sí. Hablo español.",
+    "pronunciation": "абло еспаньйол",
+    "notes": "Сказати про мову."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.hablas_espanol",
+    "spanish": "¿Hablas español?",
+    "native_translation": "Ти говориш іспанською?",
+    "cefr": "A0",
+    "example": "¿Hablas español? Sí.",
+    "pronunciation": "аблас еспаньйол",
+    "notes": "Запитати про мову співрозмовника."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.hablo_ingles",
+    "spanish": "Hablo inglés.",
+    "native_translation": "Я говорю англійською.",
+    "cefr": "A0",
+    "example": "Sí. Hablo inglés.",
+    "pronunciation": "абло інглес",
+    "notes": "Сказати про мову."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.si",
+    "spanish": "Sí.",
+    "native_translation": "Так.",
+    "cefr": "A0",
+    "example": "Sí. Hablo inglés.",
+    "pronunciation": "сі",
+    "notes": "Коротко підтвердити."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.no",
+    "spanish": "No.",
+    "native_translation": "Ні.",
+    "cefr": "A0",
+    "example": "No. Hablo español.",
+    "pronunciation": "но",
+    "notes": "Коротко заперечити."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.gracias",
+    "spanish": "Gracias.",
+    "native_translation": "Дякую.",
+    "cefr": "A0",
+    "example": "Mucho gusto. Gracias.",
+    "pronunciation": "грасіас",
+    "notes": "Подякувати."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.por_favor",
+    "spanish": "Por favor.",
+    "native_translation": "Будь ласка.",
+    "cefr": "A0",
+    "example": "Por favor. ¿Cómo te llamas?",
+    "pronunciation": "пор фавор",
+    "notes": "Зробити прохання ввічливим."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.hasta_luego",
+    "spanish": "Hasta luego.",
+    "native_translation": "До зустрічі.",
+    "cefr": "A0",
+    "example": "Gracias. Hasta luego.",
+    "pronunciation": "аста луего",
+    "notes": "Завершити контакт м'яко."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.adios",
+    "spanish": "Adiós.",
+    "native_translation": "До побачення.",
+    "cefr": "A0",
+    "example": "Adiós, Ana.",
+    "pronunciation": "адьйос",
+    "notes": "Завершити контакт."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.marta",
+    "spanish": "Marta",
+    "native_translation": "Marta",
+    "cefr": "A0",
+    "example": "Me llamo Marta.",
+    "pronunciation": "Марта",
+    "notes": "Ім'я для ролі учня в уроці."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.ana",
+    "spanish": "Ana",
+    "native_translation": "Ana",
+    "cefr": "A0",
+    "example": "Me llamo Ana.",
+    "pronunciation": "Ана",
+    "notes": "Ім'я співрозмовниці в уроці."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.ucrania",
+    "spanish": "Ucrania",
+    "native_translation": "Україна",
+    "cefr": "A0",
+    "example": "Soy de Ucrania.",
+    "pronunciation": "укранія",
+    "notes": "Країна для представлення."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.espana",
+    "spanish": "España",
+    "native_translation": "Іспанія",
+    "cefr": "A0",
+    "example": "Soy de España.",
+    "pronunciation": "еспанья",
+    "notes": "Країна співрозмовника."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.kyiv",
+    "spanish": "Kyiv",
+    "native_translation": "Київ",
+    "cefr": "A0",
+    "example": "Vivo en Kyiv.",
+    "pronunciation": "Київ",
+    "notes": "Місто для представлення."
+  },
+  {
+    "id": "vocab.es.a0.m01.l001.madrid",
+    "spanish": "Madrid",
+    "native_translation": "Мадрид",
+    "cefr": "A0",
+    "example": "Vivo en Madrid.",
+    "pronunciation": "мадрід",
+    "notes": "Місто співрозмовника."
+  }
+]

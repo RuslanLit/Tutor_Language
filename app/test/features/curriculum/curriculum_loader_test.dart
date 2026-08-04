@@ -28,42 +28,123 @@ void main() {
 
     expect(course.id, 'es.a0');
     expect(course.languageId, 'spanish');
-    expect(course.title, 'Spanish A0');
+    expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
-    expect(course.modules, hasLength(9));
-    expect(course.lessons, hasLength(70));
-    expect(course.modules.first.title, 'First Words and Reading');
-    expect(course.lessons.first.title, 'Hello and Goodbye');
+    expect(course.modules, hasLength(1));
+    expect(course.lessons, hasLength(5));
+    expect(course.modules.first.title, 'Модуль 1');
+    expect(course.modules.first.lessonIds, [
+      'es.a0.m01.l001',
+      'es.a0.m01.l002',
+      'es.a0.m01.l003',
+      'es.a0.m01.l004',
+      'es.a0.m01.l005',
+    ]);
+    expect(course.lessons.first.title, 'Урок 1');
+    expect(course.lessons.last.title, 'Проста розмова про людину');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
-    expect(course.lessons.first.sections.first.activities, hasLength(4));
+    expect(course.lessons.first.sections.first.activities, hasLength(1));
     expect(course.lessons.first.summary, isNotNull);
     expect(course.lessons.first.completionCriteria.requiredActivities, [
-      'activity.vocabulary.greetings',
-      'activity.dialogue.hello_goodbye',
-      'activity.reading.greeting_recognition',
-      'activity.practice.greetings',
+      'es.a0.m01.l001.activity.first_contact_exchange',
     ]);
   });
 
-  test('parses canonical lesson schema example', () async {
+  test('legacy course.json mirror stays synchronized with runtime course', () async {
+    final runtimeCourse = jsonDecode(
+      await rootBundle.loadString(
+        'assets/languages/spanish/curriculum/spanish_a0_course.json',
+      ),
+    );
+    final mirrorCourse = jsonDecode(
+      await rootBundle.loadString(
+        'assets/languages/spanish/curriculum/course.json',
+      ),
+    );
+
+    expect(mirrorCourse, runtimeCourse);
+  });
+
+  test('parses standalone canonical lessons 3 to 5', () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+    final expected = <String, ({String prerequisite, int references})>{
+      'es.a0.m01.l003': (prerequisite: 'es.a0.m01.l002', references: 20),
+      'es.a0.m01.l004': (prerequisite: 'es.a0.m01.l003', references: 21),
+      'es.a0.m01.l005': (prerequisite: 'es.a0.m01.l004', references: 21),
+    };
+
+    for (final entry in expected.entries) {
+      final lesson = await loader.loadLesson(
+        path: 'assets/languages/spanish/curriculum/lessons/${entry.key}.json',
+      );
+
+      expect(lesson.id, entry.key);
+      expect(lesson.courseId, 'es.a0');
+      expect(lesson.prerequisites.single.lessonId, entry.value.prerequisite);
+      expect(lesson.sections.single.activities, hasLength(1));
+      expect(
+        lesson.activities.first.references,
+        hasLength(entry.value.references),
+      );
+      expect(lesson.activities.first.references.last.type, 'exercise_template');
+      expect(lesson.summary!.referenceIds.single, startsWith('objective.'));
+    }
+  });
+
+  test('parses standalone canonical lesson 2', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
 
     final lesson = await loader.loadLesson(
-      path: 'assets/languages/spanish/curriculum/lesson_schema_example.json',
+      path: 'assets/languages/spanish/curriculum/lessons/es.a0.m01.l002.json',
     );
 
-    expect(lesson.id, 'lesson.placeholder.v1');
-    expect(lesson.courseId, 'course.placeholder.v1');
-    expect(lesson.sections.single.activities, hasLength(2));
+    expect(lesson.id, 'es.a0.m01.l002');
+    expect(lesson.courseId, 'es.a0');
+    expect(lesson.prerequisites.single.lessonId, 'es.a0.m01.l001');
+    expect(lesson.sections.single.activities, hasLength(1));
+    expect(lesson.activities.first.references, hasLength(21));
     expect(
-      lesson.activities.first.references.single.referenceId,
-      'vocabulary.placeholder.v1',
+      lesson.activities.first.references.first.referenceId,
+      'template.es.a0.m01.l001.independent_full_contact',
     );
-    expect(lesson.summary!.referenceIds, ['objective.placeholder.v1']);
+    expect(
+      lesson.activities.first.references.last.referenceId,
+      'template.es.a0.m01.l002.independent_complete_intro_dialogue',
+    );
+    expect(lesson.summary!.referenceIds, [
+      'objective.es.a0.m01.l002.complete_about_myself_intro',
+    ]);
     expect(lesson.completionCriteria.requiredActivities, [
-      'activity.placeholder.vocabulary.v1',
+      'es.a0.m01.l002.activity.about_myself_exchange',
+    ]);
+  });
+
+  test('parses standalone canonical lesson', () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+
+    final lesson = await loader.loadLesson(
+      path: 'assets/languages/spanish/curriculum/lessons/es.a0.m01.l001.json',
+    );
+
+    expect(lesson.id, 'es.a0.m01.l001');
+    expect(lesson.courseId, 'es.a0');
+    expect(lesson.sections.single.activities, hasLength(1));
+    expect(lesson.activities.first.references, hasLength(13));
+    expect(
+      lesson.activities.first.references.first.referenceId,
+      'grammar.es.a0.m01.l001.first_meeting_goal',
+    );
+    expect(
+      lesson.activities.first.references.last.referenceId,
+      'template.es.a0.m01.l001.independent_full_contact',
+    );
+    expect(lesson.summary!.referenceIds, [
+      'objective.es.a0.m01.l001.complete_first_contact',
+    ]);
+    expect(lesson.completionCriteria.requiredActivities, [
+      'es.a0.m01.l001.activity.first_contact_exchange',
     ]);
   });
 
@@ -76,10 +157,9 @@ void main() {
     final rawIndex = await rootBundle.loadString(
       'assets/languages/spanish/curriculum/lessons/index.json',
     );
-    final index = jsonDecode(rawIndex) as Map<String, dynamic>;
-    final paths = (index['lessonDefinitionPaths'] as List).cast<String>();
+    final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(32));
+    expect(paths, hasLength(5));
 
     final lessonIds = <String>{};
 
@@ -104,8 +184,52 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(32));
+    expect(lessonIds, hasLength(5));
   });
+
+  test(
+    'canonical lessons 3 to 5 avoid free Ukrainian translation tasks',
+    () async {
+      for (final path in _canonicalTemplatePaths.skip(2)) {
+        final raw = await rootBundle.loadString(path);
+        final templates = (jsonDecode(raw) as List)
+            .cast<Map<String, Object?>>();
+
+        for (final template in templates) {
+          expect(template['exercise_type'], isNot('translation'), reason: path);
+          final prompt = template['prompt_template'] as String;
+          expect(
+            prompt.toLowerCase(),
+            isNot(contains('переклади українською')),
+            reason: '${template['id']}',
+          );
+
+          final expectedAnswer = template['expected_answer'] as String?;
+          if (expectedAnswer != null && expectedAnswer.contains('\n')) {
+            expect(
+              prompt,
+              contains('Напиши кожну відповідь з нового рядка.'),
+              reason:
+                  'Multiline task must explain line separation: ${template['id']}',
+            );
+          }
+        }
+      }
+    },
+  );
+
+  test(
+    'canonical Ukrainian learner-facing content has no forbidden Russian letters',
+    () async {
+      final forbiddenRussianLetters = RegExp('[эёыъ]');
+
+      for (final path in _canonicalUkrainianAuditPaths) {
+        final raw = await rootBundle.loadString(path);
+
+        expect(forbiddenRussianLetters.hasMatch(raw), isFalse, reason: path);
+      }
+    },
+  );
 
   test('lesson ids are stable strings', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
@@ -116,7 +240,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(70));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(5));
   });
 
   test('prerequisites reference existing lessons', () async {
@@ -498,3 +622,30 @@ void main() {
     expect(issueMessages, contains(contains('Summary references unknown')));
   });
 }
+
+const _canonicalTemplatePaths = [
+  'assets/languages/spanish/templates/canonical_lesson_1.json',
+  'assets/languages/spanish/templates/canonical_lesson_2.json',
+  'assets/languages/spanish/templates/canonical_lesson_3.json',
+  'assets/languages/spanish/templates/canonical_lesson_4.json',
+  'assets/languages/spanish/templates/canonical_lesson_5.json',
+];
+
+const _canonicalUkrainianAuditPaths = [
+  'assets/languages/spanish/curriculum/course.json',
+  'assets/languages/spanish/curriculum/lessons/es.a0.m01.l003.json',
+  'assets/languages/spanish/curriculum/lessons/es.a0.m01.l004.json',
+  'assets/languages/spanish/curriculum/lessons/es.a0.m01.l005.json',
+  'assets/languages/spanish/dialogues/canonical_lesson_3.json',
+  'assets/languages/spanish/dialogues/canonical_lesson_4.json',
+  'assets/languages/spanish/dialogues/canonical_lesson_5.json',
+  'assets/languages/spanish/grammar/canonical_lesson_3.json',
+  'assets/languages/spanish/grammar/canonical_lesson_4.json',
+  'assets/languages/spanish/grammar/canonical_lesson_5.json',
+  'assets/languages/spanish/templates/canonical_lesson_3.json',
+  'assets/languages/spanish/templates/canonical_lesson_4.json',
+  'assets/languages/spanish/templates/canonical_lesson_5.json',
+  'assets/languages/spanish/vocabulary/canonical_lesson_3.json',
+  'assets/languages/spanish/vocabulary/canonical_lesson_4.json',
+  'assets/languages/spanish/vocabulary/canonical_lesson_5.json',
+];

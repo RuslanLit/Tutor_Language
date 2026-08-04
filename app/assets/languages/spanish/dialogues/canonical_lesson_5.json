@@ -1,0 +1,126 @@
+[
+  {
+    "id": "dialogue.es.a0.m01.l005.model_about_person",
+    "title": "Запитати про іншу людину",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.gracias",
+      "vocab.es.a0.m01.l001.hasta_luego",
+      "vocab.es.a0.m01.l003.como_estas",
+      "vocab.es.a0.m01.l003.estoy_bien",
+      "vocab.es.a0.m01.l004.ella_es",
+      "vocab.es.a0.m01.l004.mi_amiga",
+      "vocab.es.a0.m01.l004.se_llama",
+      "vocab.es.a0.m01.l004.es_de",
+      "vocab.es.a0.m01.l004.vive_en",
+      "vocab.es.a0.m01.l004.habla",
+      "vocab.es.a0.m01.l005.como_se_llama",
+      "vocab.es.a0.m01.l005.de_donde_es",
+      "vocab.es.a0.m01.l005.donde_vive",
+      "vocab.es.a0.m01.l005.que_idiomas_habla",
+      "vocab.es.a0.m01.l005.es_tu_amiga",
+      "vocab.es.a0.m01.l005.si_es",
+      "vocab.es.a0.m01.l005.pero",
+      "vocab.es.a0.m01.l005.y"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l005.lesson_goal",
+      "grammar.es.a0.m01.l005.me_vs_se",
+      "grammar.es.a0.m01.l005.i_you_he_she",
+      "grammar.es.a0.m01.l005.y_pero"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Hola, Ana. ¿Cómo estás?",
+        "native_translation": "ола Ана. комо естас — привіт, Ana. як ти?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Estoy bien, gracias.",
+        "native_translation": "естой б'єн грасіас — у мене все добре, дякую."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Es tu amiga?",
+        "native_translation": "ес ту аміга — це твоя подруга?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Sí, es mi amiga. Se llama Sofía.",
+        "native_translation": "сі ес мі аміга. се яма Софія — так, це моя подруга. її звати Sofía."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿De dónde es?",
+        "native_translation": "де донде ес — звідки вона?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Es de España.",
+        "native_translation": "ес де еспанья — вона з Іспанії."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Dónde vive?",
+        "native_translation": "донде біве — де вона живе?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Vive en Madrid.",
+        "native_translation": "біве ен мадрід — вона живе в Мадриді."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Qué idiomas habla?",
+        "native_translation": "ке ідіомас абла — якими мовами вона говорить?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Habla español e inglés, pero no habla francés.",
+        "native_translation": "абла еспаньйол е інглес, перо но абла франсес — вона говорить іспанською та англійською, але не говорить французькою."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Gracias. Hasta luego.",
+        "native_translation": "грасіас. аста луего — дякую. до зустрічі."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m01.l005.short_profile",
+    "title": "Короткий профіль",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l004.el_es",
+      "vocab.es.a0.m01.l004.mi_amigo",
+      "vocab.es.a0.m01.l004.se_llama",
+      "vocab.es.a0.m01.l004.es_de",
+      "vocab.es.a0.m01.l004.vive_en",
+      "vocab.es.a0.m01.l004.habla",
+      "vocab.es.a0.m01.l005.es_tu_amigo",
+      "vocab.es.a0.m01.l005.no_no_es",
+      "vocab.es.a0.m01.l005.pero",
+      "vocab.es.a0.m01.l005.y"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l005.y_pero"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Él es Luis. Se llama Luis.",
+        "native_translation": "ель ес Луїс. се яма Луїс — це Luis. його звати Luis."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Es de Ucrania y vive en Kyiv.",
+        "native_translation": "ес де укранія і біве ен Київ — він з України і живе в Києві."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Habla español un poco, pero no habla francés.",
+        "native_translation": "абла еспаньйол ун поко, перо но абла франсес — він трохи говорить іспанською, але не говорить французькою."
+      }
+    ]
+  }
+]

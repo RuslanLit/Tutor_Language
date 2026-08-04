@@ -1,100 +1,123 @@
 {
-  "id": "spanish_a1",
+  "id": "es.a0",
   "languageId": "spanish",
-  "title": "Beginner Spanish",
-  "level": "A1",
-  "version": "1.0.0",
+  "title": "Іспанська A0",
+  "level": "A0",
+  "version": "1.0.0-r2e23",
   "modules": [
     {
-      "id": "module_001",
-      "title": "First Contacts",
+      "id": "es.a0.m01",
+      "title": "Модуль 1",
       "lessonIds": [
-        "lesson_001"
+        "es.a0.m01.l001",
+        "es.a0.m01.l002",
+        "es.a0.m01.l003",
+        "es.a0.m01.l004",
+        "es.a0.m01.l005"
       ]
     }
   ],
   "lessons": [
     {
       "metadata": {
-        "id": "lesson_001",
-        "title": "Greetings",
-        "moduleId": "module_001",
-        "courseId": "spanish_a1",
-        "estimatedDurationMinutes": 10,
-        "difficulty": "A1",
-        "tags": [],
-        "version": "1.0.0",
+        "id": "es.a0.m01.l001",
+        "title": "Урок 1",
+      "description": "Почни короткий перший контакт: привітайся, назви себе, запитай ім'я й попрощайся.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+      "tags": [
+        "canonical",
+        "lesson-1",
+        "first-contact"
+        ],
+        "version": "1.0.0-r2e21",
         "prerequisites": []
       },
       "objectives": [
         {
-          "id": "objective.greetings",
-          "description": "Recognize basic greeting language."
+          "id": "objective.es.a0.m01.l001.complete_first_contact",
+        "description": "Після уроку учень може самостійно почати короткий контакт: привітатися, назвати себе, запитати ім'я, відреагувати на відповідь і попрощатися."
         }
       ],
+      "communicativeOutcome": "Учень самостійно пише короткий перший контакт іспанською: привітання, ім'я, питання про ім'я, ввічлива реакція та прощання.",
       "sections": [
         {
-          "id": "lesson_001.section.main",
-          "title": "Main Activities",
+          "id": "es.a0.m01.l001.section.first_contact",
+          "title": "Перший контакт",
           "order": 1,
           "activities": [
             {
-              "id": "activity_001",
-              "title": "Greeting Words",
-              "type": "vocabulary",
+              "id": "es.a0.m01.l001.activity.first_contact_exchange",
+              "title": "Завершити перший контакт",
+              "type": "dialogue",
               "order": 1,
               "references": [
                 {
-                  "type": "vocabulary",
-                  "assetPath": "assets/languages/spanish/vocabulary/greetings.json"
-                }
-              ]
-            },
-            {
-              "id": "activity_002",
-              "title": "Introducing Yourself",
-              "type": "grammar",
-              "order": 2,
-              "references": [
-                {
                   "type": "grammar",
-                  "assetPath": "assets/languages/spanish/grammar/llamarse_basic.json"
-                }
-              ]
-            },
-            {
-              "id": "activity_003",
-              "title": "Greeting Dialogue",
-              "type": "dialogue",
-              "order": 3,
-              "references": [
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_1.json",
+                  "referenceId": "grammar.es.a0.m01.l001.first_meeting_goal"
+                },
                 {
                   "type": "dialogue",
-                  "assetPath": "assets/languages/spanish/dialogues/greetings.json"
-                }
-              ]
-            },
-            {
-              "id": "activity_004",
-              "title": "Short Greeting Reading",
-              "type": "reading",
-              "order": 4,
-              "references": [
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_1.json",
+                  "referenceId": "dialogue.es.a0.m01.l001.model_first_meeting"
+                },
                 {
-                  "type": "reading",
-                  "assetPath": "assets/languages/spanish/readings/basic_greeting.json"
-                }
-              ]
-            },
-            {
-              "id": "activity_005",
-              "title": "Greeting Template",
-              "type": "exercise_template",
-              "order": 5,
-              "references": [
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_1.json",
+                  "referenceId": "grammar.es.a0.m01.l001.reading_support"
+                },
                 {
                   "type": "exercise_template",
-                  "assetPath": "assets/languages/spanish/templates/multiple_choice_basic.json"
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.identify_morning_greeting"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.identify_opening_function"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.choose_identity_next_line"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.restore_identity_lines"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.choose_name_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.understand_answer"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.choose_next_message"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.choose_closing_line"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.guided_full_contact"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.independent_full_contact"
                 }
               ]
             }
@@ -102,21 +125,686 @@
         }
       ],
       "summary": {
-        "id": "lesson_001.summary",
-        "reviewPrompt": "Review the lesson objectives.",
-        "referenceIds": []
+        "id": "es.a0.m01.l001.summary.complete_first_contact",
+        "reviewPrompt": "Ти провів повне перше іспанське знайомство від привітання до прощання.",
+        "referenceIds": [
+          "objective.es.a0.m01.l001.complete_first_contact"
+        ]
       },
       "completionCriteria": {
         "requiredActivities": [
-          "activity_001",
-          "activity_002",
-          "activity_003",
-          "activity_004",
-          "activity_005"
+          "es.a0.m01.l001.activity.first_contact_exchange"
         ],
         "minimumCompletedActivities": 1,
         "mandatorySections": [
-          "lesson_001.section.main"
+          "es.a0.m01.l001.section.first_contact"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l002",
+        "title": "Урок 2",
+      "description": "Повтори перший контакт і розшир його: розкажи про країну, місто та мови й запитай те саме.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-2",
+          "about-myself"
+        ],
+        "version": "1.0.0-r2e22",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l001"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l002.complete_about_myself_intro",
+        "description": "Після уроку учень може відновити перший контакт і розширити його: сказати, звідки він, де живе, якими мовами говорить, запитати те саме в іншої людини й завершити знайомство."
+        }
+      ],
+      "communicativeOutcome": "Учень самостійно проводить розширене знайомство іспанською, використовуючи ядро Lesson 1 для початку та завершення контакту.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l002.section.more_about_myself",
+          "title": "Більше про себе",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l002.activity.about_myself_exchange",
+              "title": "Провести знайомство про себе",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+                  "referenceId": "template.es.a0.m01.l001.independent_full_contact"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_2.json",
+                  "referenceId": "dialogue.es.a0.m01.l002.model_more_about_myself"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_2.json",
+                  "referenceId": "grammar.es.a0.m01.l002.about_self_questions"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_2.json",
+                  "referenceId": "dialogue.es.a0.m01.l002.variant_more_about_myself"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_2.json",
+                  "referenceId": "grammar.es.a0.m01.l002.language_answers"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_origin_answer"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_live_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.restore_live_answer"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_language_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.identify_tambien_function"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_short_language_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.restore_two_language_lines"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_un_poco_context"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_no_hablo_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.order_about_self_pair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.complete_question_set"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.complete_answer_set"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.choose_next_after_city"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.complete_middle_dialogue"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.guided_complete_intro_dialogue"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.independent_complete_intro_dialogue"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l002.summary.complete_about_myself_intro",
+        "reviewPrompt": "Ти провів знайомство іспанською: назвав себе, сказав звідки ти, де живеш, якими мовами говориш, поставив ті самі питання й завершив контакт.",
+        "referenceIds": [
+          "objective.es.a0.m01.l002.complete_about_myself_intro"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l002.activity.about_myself_exchange"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l002.section.more_about_myself"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l003",
+        "title": "Ввічлива розмова",
+      "description": "Повернися до знайомства, додай обмін про стан, подяку, коротке вибачення та природне завершення.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-3",
+          "polite-conversation"
+        ],
+        "version": "1.0.0-r2e23",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l002"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l003.polite_conversation",
+        "description": "Після уроку учень може вставити ввічливий обмін у вже знайоме знайомство: запитати як справи, відповісти, подякувати, вибачитися за потреби й попрощатися."
+        }
+      ],
+      "communicativeOutcome": "Учень самостійно веде коротке знайомство з новим ввічливим середнім епізодом, не втрачаючи раніше вивченого початку та завершення.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l003.section.polite_conversation",
+          "title": "Ввічлива розмова",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l003.activity.polite_conversation",
+              "title": "Провести ввічливу розмову",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+                  "referenceId": "template.es.a0.m01.l002.independent_complete_intro_dialogue"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_3.json",
+                  "referenceId": "dialogue.es.a0.m01.l003.model_polite_conversation"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_3.json",
+                  "referenceId": "grammar.es.a0.m01.l003.thanks_and_reply"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_3.json",
+                  "referenceId": "dialogue.es.a0.m01.l003.repair_and_farewell"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_3.json",
+                  "referenceId": "grammar.es.a0.m01.l003.polite_repairs"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_how_are_you_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_good_status_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_return_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.restore_status_exchange"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_mas_o_menos_context"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.identify_de_nada"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_stronger_thanks"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_polite_attention"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_apology_function"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_farewell_variant"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.order_polite_middle"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.restore_thanks_pair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.choose_next_after_origin"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.complete_polite_conversation"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.independent_polite_conversation"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l003.summary.polite_conversation",
+        "reviewPrompt": "Ти можеш підтримати ввічливу коротку розмову: запитати як справи, відповісти, подякувати, вибачитися й попрощатися.",
+        "referenceIds": [
+          "objective.es.a0.m01.l003.polite_conversation"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l003.activity.polite_conversation"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l003.section.polite_conversation"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l004",
+        "title": "Люди навколо нас",
+      "description": "Перенеси знайоме знайомство на іншу людину: запитай, хто це, і представ її кількома простими реченнями.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-4",
+          "introduce-other-person"
+        ],
+        "version": "1.0.0-r2e23",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l003"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l004.introduce_other_person",
+        "description": "Після уроку учень може перенести відомі моделі імені, країни, міста та мов на іншу людину, запитати, хто це, і представити її."
+        }
+      ],
+      "communicativeOutcome": "Учень самостійно представляє себе й одну іншу людину, використовуючи знайомі рамки контакту в новому соціальному контексті.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l004.section.people_around_us",
+          "title": "Люди навколо нас",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l004.activity.introduce_other_person",
+              "title": "Представити іншу людину",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+                  "referenceId": "template.es.a0.m01.l003.independent_polite_conversation"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_4.json",
+                  "referenceId": "dialogue.es.a0.m01.l004.model_introduce_person"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+                  "referenceId": "grammar.es.a0.m01.l004.el_ella"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+                  "referenceId": "grammar.es.a0.m01.l004.gender_pairs"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_4.json",
+                  "referenceId": "dialogue.es.a0.m01.l004.model_man_profile"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+                  "referenceId": "grammar.es.a0.m01.l004.third_person_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_who_question_woman"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_who_question_man"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_ella_description"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_el_description"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_friend_pair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_teacher_pair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.restore_name_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_third_person_origin"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_third_person_city"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_third_person_language"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.order_person_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.restore_full_woman_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.restore_full_man_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.choose_next_after_who"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.independent_introduce_person"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l004.summary.introduce_other_person",
+        "reviewPrompt": "Ти можеш представити іншу людину: хто це, як її звати, звідки вона, де живе і якими мовами говорить.",
+        "referenceIds": [
+          "objective.es.a0.m01.l004.introduce_other_person"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l004.activity.introduce_other_person"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l004.section.people_around_us"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l005",
+        "title": "Проста розмова про людину",
+      "description": "Повтори профіль іншої людини, постав пов'язані питання й коротко опиши її з меншими підказками.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-5",
+          "talk-about-person"
+        ],
+        "version": "1.0.0-r2e23",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l004"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l005.talk_about_person",
+        "description": "Після уроку учень може самостійно поставити й підтримати серію пов'язаних питань про іншу людину, відрізняючи інформацію про себе, співрозмовника, чоловіка й жінку."
+        }
+      ],
+      "communicativeOutcome": "Учень самостійно інтегрує привітання, ввічливий обмін, питання про іншу людину та зв'язний опис із поступово меншими підказками.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l005.section.simple_talk_about_person",
+          "title": "Проста розмова про людину",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l005.activity.talk_about_person",
+              "title": "Поговорити про іншу людину",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+                  "referenceId": "template.es.a0.m01.l004.independent_introduce_person"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_5.json",
+                  "referenceId": "dialogue.es.a0.m01.l005.model_about_person"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+                  "referenceId": "grammar.es.a0.m01.l005.me_vs_se"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+                  "referenceId": "grammar.es.a0.m01.l005.i_you_he_she"
+                },
+                {
+                  "type": "dialogue",
+                  "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_5.json",
+                  "referenceId": "dialogue.es.a0.m01.l005.short_profile"
+                },
+                {
+                  "type": "grammar",
+                  "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+                  "referenceId": "grammar.es.a0.m01.l005.y_pero"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_name_question_other"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_origin_question_other"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_city_question_other"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_language_question_other"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.restore_other_question_set"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_se_llama_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_es_de_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_y_function"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_pero_function"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.choose_friend_yes_no"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.restore_question_answer_pair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.order_about_person_dialogue"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.restore_connected_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.complete_about_person_dialogue"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+                  "referenceId": "template.es.a0.m01.l005.independent_about_person_dialogue"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l005.summary.talk_about_person",
+        "reviewPrompt": "Ти можеш запитати про іншу людину, зрозуміти відповіді й коротко описати її іспанською.",
+        "referenceIds": [
+          "objective.es.a0.m01.l005.talk_about_person"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l005.activity.talk_about_person"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l005.section.simple_talk_about_person"
         ]
       },
       "references": []

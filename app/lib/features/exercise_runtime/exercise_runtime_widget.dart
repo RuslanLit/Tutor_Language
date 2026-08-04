@@ -239,5 +239,17 @@ class _TextInteractionState extends State<_TextInteraction> {
 
 bool _usesLongAnswerInput(ExerciseItem item) {
   final expectedAnswer = item.expectedTextAnswer ?? '';
-  return expectedAnswer.length > 48 || item.prompt.length > 140;
+  return _expectsMultiSentenceAnswer(expectedAnswer);
+}
+
+bool _expectsMultiSentenceAnswer(String expectedAnswer) {
+  // Input size follows the learner's required answer, not prompt length:
+  // long instructions can still ask for a short answer such as "Hola, Adiós".
+  final answer = expectedAnswer.trim();
+  if (answer.contains('\n')) {
+    return true;
+  }
+
+  final sentenceCount = RegExp(r'[.!?¿¡]').allMatches(answer).length;
+  return answer.length > 48 || sentenceCount > 1;
 }

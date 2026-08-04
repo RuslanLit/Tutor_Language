@@ -9,8 +9,7 @@ import 'topic_content.dart';
 class PronunciationLoader {
   PronunciationLoader({
     AssetBundle? assetBundle,
-    this.assetPath =
-        'assets/languages/spanish/pronunciation/reference_slice.json',
+    this.assetPath = 'assets/languages/spanish/pronunciation/empty.json',
   }) : _assetBundle = assetBundle ?? rootBundle;
 
   final AssetBundle _assetBundle;

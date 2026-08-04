@@ -1,0 +1,352 @@
+[
+  {
+    "id": "template.es.a0.m01.l001.identify_morning_greeting",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_contextual_greeting"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти починаєш чат зранку. Яка перша репліка доречна?",
+    "answer_options": [
+      {
+        "id": "buenos_dias",
+        "label": "Buenos días."
+      },
+      {
+        "id": "adios",
+        "label": "Adiós."
+      },
+      {
+        "id": "gracias",
+        "label": "Gracias."
+      }
+    ],
+    "correct_option_id": "buenos_dias"
+  },
+  {
+    "id": "template.es.a0.m01.l001.identify_opening_function",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "identify_communicative_function"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "У діалозі з'являється: Hola. Buenos días. Що ця репліка робить?",
+    "answer_options": [
+      {
+        "id": "starts_contact",
+        "label": "Починає контакт."
+      },
+      {
+        "id": "asks_name",
+        "label": "Запитує ім'я."
+      },
+      {
+        "id": "ends_contact",
+        "label": "Завершує контакт."
+      }
+    ],
+    "correct_option_id": "starts_contact"
+  },
+  {
+    "id": "template.es.a0.m01.l001.choose_identity_next_line",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_next_identity_line"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти вже привітався. Яка репліка природно представляє тебе?",
+    "answer_options": [
+      {
+        "id": "me_llamo",
+        "label": "Me llamo Marta."
+      },
+      {
+        "id": "hasta_luego",
+        "label": "Hasta luego."
+      },
+      {
+        "id": "si",
+        "label": "Sí."
+      }
+    ],
+    "correct_option_id": "me_llamo"
+  },
+  {
+    "id": "template.es.a0.m01.l001.restore_identity_lines",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_identity_production"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуск.\n\nВведи 1 повне речення іспанською.\n\nMe ___ Marta.",
+    "expected_answer": "Me llamo Marta.",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Me llamo Marta. Soy de Ucrania. Vivo en Kyiv.",
+        "feedback_key": "answer.accepted_with_feedback",
+        "canonical_answer": "Me llamo Marta.\nSoy de Ucrania.\nVivo en Kyiv."
+      }
+    ],
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m01.l001.identity_translation",
+        "matching_answers": [
+          "мене звати Marta я з України я живу в Києві"
+        ],
+        "feedback_key": "response.translation_expected_source_language",
+        "canonical_answer": "Me llamo Marta.\nSoy de Ucrania.\nVivo en Kyiv."
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m01.l001.choose_name_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_name_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти вже назвав своє ім'я.\nЯк запитати ім'я співрозмовниці?",
+    "answer_options": [
+      {
+        "id": "como_te_llamas",
+        "label": "¿Cómo te llamas?"
+      },
+      {
+        "id": "soy_de",
+        "label": "Soy de Ucrania."
+      },
+      {
+        "id": "gracias",
+        "label": "Gracias."
+      }
+    ],
+    "correct_option_id": "como_te_llamas"
+  },
+  {
+    "id": "template.es.a0.m01.l001.understand_answer",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "understand_interlocutor_answer"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana пише: Me llamo Ana. Що ти тепер знаєш?",
+    "answer_options": [
+      {
+        "id": "ana_name",
+        "label": "Її звати Ana."
+      },
+      {
+        "id": "ana_goodbye",
+        "label": "Вона завершує розмову."
+      },
+      {
+        "id": "ana_asks",
+        "label": "Вона питає твоє ім'я."
+      }
+    ],
+    "correct_option_id": "ana_name"
+  },
+  {
+    "id": "template.es.a0.m01.l001.choose_next_message",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_polite_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти зрозумів, що співрозмовницю звати Ana. Яка наступна репліка ввічлива?",
+    "answer_options": [
+      {
+        "id": "mucho_gusto",
+        "label": "Mucho gusto."
+      },
+      {
+        "id": "ask_again",
+        "label": "¿Cómo te llamas?"
+      },
+      {
+        "id": "repeat_self",
+        "label": "Me llamo Marta."
+      }
+    ],
+    "correct_option_id": "mucho_gusto"
+  },
+  {
+    "id": "template.es.a0.m01.l001.order_first_meeting",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "sequence_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Запиши репліки в природному порядку.\n\nВведи 5 повних речень іспанською. Кожне речення пиши з нового рядка.\n\nMucho gusto.\nHola.\n¿Cómo te llamas?\nMe llamo Ana.\nMe llamo Marta.",
+    "expected_answer": "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Hola. Me llamo Marta. ¿Cómo te llamas? Me llamo Ana. Mucho gusto.",
+        "feedback_key": "answer.accepted_with_feedback",
+        "canonical_answer": "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto."
+      },
+      {
+        "answer": "Hola.\nMe llamo Marta.\nComo te llamas?\nMe llamo Ana.\nMucho gusto.",
+        "feedback_key": "answer.accepted_with_feedback",
+        "canonical_answer": "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto."
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m01.l001.complete_short_dialogue",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "complete_supported_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни один пропуск.\n\nВведи весь короткий діалог іспанською. Кожне речення пиши з нового рядка.\n\nHola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta ____.",
+    "expected_answer": "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta luego.",
+    "accepted_with_feedback_answers": [
+      {
+        "answer": "Hola. Me llamo Marta. ¿Cómo te llamas? Me llamo Ana. Mucho gusto. Hasta luego.",
+        "feedback_key": "answer.accepted_with_feedback",
+        "canonical_answer": "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta luego."
+      }
+    ]
+  },
+  {
+    "id": "template.es.a0.m01.l001.choose_polite_variant",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_polite_variant"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти говориш як Marta. Після знайомства хочеш сказати \"приємно познайомитися\" від жіночого імені. Яка форма підходить?",
+    "answer_options": [
+      {
+        "id": "encantada",
+        "label": "Encantada."
+      },
+      {
+        "id": "encantado",
+        "label": "Encantado."
+      },
+      {
+        "id": "adios",
+        "label": "Adiós."
+      }
+    ],
+    "correct_option_id": "encantada"
+  },
+  {
+    "id": "template.es.a0.m01.l001.choose_closing_line",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_closing_line"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Розмова майже завершена. Яка репліка природно закриває контакт?",
+    "answer_options": [
+      {
+        "id": "hasta_luego",
+        "label": "Gracias. Hasta luego."
+      },
+      {
+        "id": "me_llamo",
+        "label": "Me llamo Marta."
+      },
+      {
+        "id": "hablas",
+        "label": "¿Hablas español?"
+      }
+    ],
+    "correct_option_id": "hasta_luego"
+  },
+  {
+    "id": "template.es.a0.m01.l001.guided_full_contact",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_full_exchange"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи короткий контакт іспанською. Кожен рядок пиши з нового рядка.\n\nH__a. Buenos d__s.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta l____.",
+    "expected_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta luego.",
+    "production_contract": {
+      "mode": "ordered_functions",
+      "functions": [
+        {"id": "greeting", "accepted": ["Hola. Buenos días."]},
+        {"id": "self_introduction", "accepted": ["Me llamo Marta."]},
+        {"id": "ask_name", "accepted": ["¿Cómo te llamas?"]},
+        {"id": "name_response", "accepted": ["Me llamo Ana."]},
+        {"id": "polite_reaction", "accepted": ["Mucho gusto."]},
+        {"id": "farewell", "accepted": ["Hasta luego."]}
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l001.independent_full_contact",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "independent_complete_exchange"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Напиши короткий перший контакт іспанською.\n\nВведи 6-7 коротких реплік. Кожну репліку пиши з нового рядка.\n\nРозмова має: початися привітанням, назвати тебе Marta, запитати ім'я, прийняти відповідь Ana, сказати Mucho gusto і завершити контакт.",
+    "expected_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta luego.",
+    "production_contract": {
+      "mode": "ordered_functions",
+      "functions": [
+        {"id": "greeting", "accepted": ["Hola", "Buenos días", "Hola. Buenos días."]},
+        {"id": "self_introduction", "accepted": ["Me llamo Marta."]},
+        {"id": "ask_name", "accepted": ["¿Cómo te llamas?"]},
+        {"id": "name_response", "accepted": ["Me llamo Ana."]},
+        {"id": "polite_reaction", "accepted": ["Mucho gusto."]},
+        {"id": "farewell", "accepted": ["Hasta luego."]}
+      ]
+    },
+    "authored_misconceptions": [
+      {
+        "id": "misconception.es.a0.m01.l001.only_greeting",
+        "matching_answers": [
+          "Hola.",
+          "Hola"
+        ],
+        "feedback_key": "answer.incomplete_exchange",
+        "canonical_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de España.\n¿Hablas español?\nSí.\nGracias. Hasta luego."
+      },
+      {
+        "id": "misconception.es.a0.m01.l001.missing_farewell",
+        "matching_answers": [
+          "Hola. Buenos días. Me llamo Marta. ¿Cómo te llamas? Me llamo Ana. Mucho gusto.",
+          "Hola. Buenos dias. Me llamo Marta. Como te llamas? Me llamo Ana. Mucho gusto."
+        ],
+        "feedback_key": "answer.incomplete_exchange",
+        "canonical_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de España.\n¿Hablas español?\nSí.\nGracias. Hasta luego."
+      }
+    ],
+    "review_template_ids": [
+      "template.es.a0.m01.l001.guided_full_contact",
+      "template.es.a0.m01.l001.complete_short_dialogue"
+    ]
+  }
+]

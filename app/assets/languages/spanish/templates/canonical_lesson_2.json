@@ -1,0 +1,311 @@
+[
+  {
+    "id": "template.es.a0.m01.l002.choose_origin_answer",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿De dónde eres?\n\nВибери 1 репліку, яка відповідає саме на це питання.",
+    "answer_options": [
+      {
+        "id": "soy_de_ucrania",
+        "label": "Soy de Ucrania."
+      },
+      {
+        "id": "vivo_en_kyiv",
+        "label": "Vivo en Kyiv."
+      },
+      {
+        "id": "hasta_luego",
+        "label": "Hasta luego."
+      }
+    ],
+    "correct_option_id": "soy_de_ucrania"
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_live_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти вже знаєш, звідки Ana. Тепер треба запитати, де вона живе.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      },
+      {
+        "id": "de_donde_eres",
+        "label": "¿De dónde eres?"
+      },
+      {
+        "id": "como_te_llamas",
+        "label": "¿Cómo te llamas?"
+      }
+    ],
+    "correct_option_id": "donde_vives"
+  },
+  {
+    "id": "template.es.a0.m01.l002.restore_live_answer",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни один пропуск.\n\nВведи 1 повне речення іспанською.\n\nAna: ¿Dónde vives?\nТи: Vivo en ____.",
+    "expected_answer": "Vivo en Kyiv."
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_language_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти хочеш запитати, якими мовами говорить Ana.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "que_idiomas",
+        "label": "¿Qué idiomas hablas?"
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      },
+      {
+        "id": "de_donde_eres",
+        "label": "¿De dónde eres?"
+      }
+    ],
+    "correct_option_id": "que_idiomas"
+  },
+  {
+    "id": "template.es.a0.m01.l002.identify_tambien_function",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "У репліці є: También hablo inglés.\n\nЩо додає También?",
+    "answer_options": [
+      {
+        "id": "adds_another_language",
+        "label": "Додає ще одну мову."
+      },
+      {
+        "id": "starts_goodbye",
+        "label": "Починає прощання."
+      },
+      {
+        "id": "asks_name",
+        "label": "Питає ім'я."
+      }
+    ],
+    "correct_option_id": "adds_another_language"
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_short_language_reply",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿Qué idiomas hablas?\n\nВибери 1 коротку відповідь іспанською.",
+    "answer_options": [
+      {
+        "id": "hablo_espanol",
+        "label": "Hablo español."
+      },
+      {
+        "id": "me_llamo_marta",
+        "label": "Me llamo Marta."
+      },
+      {
+        "id": "soy_de_ucrania",
+        "label": "Soy de Ucrania."
+      }
+    ],
+    "correct_option_id": "hablo_espanol"
+  },
+  {
+    "id": "template.es.a0.m01.l002.restore_two_language_lines",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_language_reply"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи 2 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nHablo español.\nTambién hablo ______.",
+    "expected_answer": "Hablo español.\nTambién hablo inglés."
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_un_poco_context",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_contextual_reply"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти говориш іспанською не вільно, а трохи.\n\nВибери 1 природну репліку.",
+    "answer_options": [
+      {
+        "id": "un_poco",
+        "label": "Hablo un poco de español."
+      },
+      {
+        "id": "no_frances",
+        "label": "No hablo francés."
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      }
+    ],
+    "correct_option_id": "un_poco"
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_no_hablo_reply",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿Hablas francés?\n\nТи не говориш французькою. Вибери 1 відповідь іспанською.",
+    "answer_options": [
+      {
+        "id": "no_hablo_frances",
+        "label": "No hablo francés."
+      },
+      {
+        "id": "hablo_frances",
+        "label": "Hablo francés."
+      },
+      {
+        "id": "tambien_ingles",
+        "label": "También hablo inglés."
+      }
+    ],
+    "correct_option_id": "no_hablo_frances"
+  },
+  {
+    "id": "template.es.a0.m01.l002.order_about_self_pair",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "order_dialogue_logic"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Запиши репліки в природному порядку.\n\nВведи 4 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nVivo en Kyiv.\n¿Dónde vives?\nSoy de Ucrania.\n¿De dónde eres?",
+    "expected_answer": "¿De dónde eres?\nSoy de Ucrania.\n¿Dónde vives?\nVivo en Kyiv."
+  },
+  {
+    "id": "template.es.a0.m01.l002.complete_question_set",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_question_set"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи 3 повні питання іспанською. Кожне питання пиши з нового рядка.\n\n¿De dónde eres?\n¿Dónde _____?\n¿Qué idiomas ______?",
+    "expected_answer": "¿De dónde eres?\n¿Dónde vives?\n¿Qué idiomas hablas?"
+  },
+  {
+    "id": "template.es.a0.m01.l002.complete_answer_set",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_answer_set"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи 4 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nSoy de Ucrania.\nVivo en Kyiv.\nTambién hablo ______.\nNo hablo _______.",
+    "expected_answer": "Soy de Ucrania.\nVivo en Kyiv.\nTambién hablo inglés.\nNo hablo francés."
+  },
+  {
+    "id": "template.es.a0.m01.l002.choose_next_after_city",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_next_dialogue_line"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana вже відповіла, де живе. Ти хочеш продовжити знайомство про мови.\n\nВибери 1 наступну репліку.",
+    "answer_options": [
+      {
+        "id": "que_idiomas",
+        "label": "¿Qué idiomas hablas?"
+      },
+      {
+        "id": "hasta_luego",
+        "label": "Hasta luego."
+      },
+      {
+        "id": "me_llamo_marta",
+        "label": "Me llamo Marta."
+      }
+    ],
+    "correct_option_id": "que_idiomas"
+  },
+  {
+    "id": "template.es.a0.m01.l002.complete_middle_dialogue",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "complete_dialogue_segment"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи весь фрагмент діалогу іспанською. Кожну репліку пиши з нового рядка.\n\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.",
+    "expected_answer": "¿De dónde eres?\nSoy de Ucrania.\n¿Dónde vives?\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo inglés. Hablo un poco de español."
+  },
+  {
+    "id": "template.es.a0.m01.l002.guided_complete_intro_dialogue",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_full_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни всі пропуски.\n\nВведи весь діалог іспанською. Кожну репліку пиши з нового рядка.\n\nHola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.\n¿Hablas francés?\nNo hablo _______.\nGracias. Hasta luego.",
+    "expected_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de Ucrania.\n¿Dónde vives?\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo inglés. Hablo un poco de español.\n¿Hablas francés?\nNo hablo francés.\nGracias. Hasta luego."
+  },
+  {
+    "id": "template.es.a0.m01.l002.independent_complete_intro_dialogue",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "independent_communicative_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Напиши повне знайомство іспанською.\n\nВведи 13-15 коротких реплік. Кожну репліку пиши з нового рядка.\n\nРозмова має: привітатися, назвати тебе Marta, запитати ім'я, прийняти ім'я Ana, відповісти ввічливо, сказати звідки ти, сказати де живеш, запитати про мови, відповісти про свої мови, сказати що французькою не говориш і завершити контакт.",
+    "expected_answer": "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de Ucrania.\n¿Dónde vives?\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo inglés. Hablo un poco de español.\nNo hablo francés.\nGracias. Hasta luego.",
+    "accepted_answers": [
+      "Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de Ucrania.\n¿Dónde vives?\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nNo hablo francés.\nAdiós.",
+      "Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nSoy de Ucrania.\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo inglés.\nNo hablo francés.\nGracias. Hasta luego.",
+      "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nSoy de Ucrania.\nVivo en Kyiv.\nHablo español e inglés.\nTambién hablo inglés. Hablo un poco de español.\nNo hablo francés.\nGracias. Adiós."
+    ]
+  }
+]

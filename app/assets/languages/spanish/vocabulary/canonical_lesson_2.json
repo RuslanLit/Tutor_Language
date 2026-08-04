@@ -1,0 +1,66 @@
+[
+  {
+    "id": "vocab.es.a0.m01.l002.donde_vives",
+    "spanish": "¿Dónde vives?",
+    "native_translation": "де ти живеш?",
+    "cefr": "A0",
+    "example": "¿Dónde vives? Vivo en Kyiv.",
+    "pronunciation": "донде вівес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.que_idiomas_hablas",
+    "spanish": "¿Qué idiomas hablas?",
+    "native_translation": "якими мовами ти говориш?",
+    "cefr": "A0",
+    "example": "¿Qué idiomas hablas? Hablo español.",
+    "pronunciation": "ке ідіомас аблас"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.tambien",
+    "spanish": "También",
+    "native_translation": "також",
+    "cefr": "A0",
+    "example": "También hablo inglés.",
+    "pronunciation": "тамб'єн"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.un_poco",
+    "spanish": "Un poco",
+    "native_translation": "трохи",
+    "cefr": "A0",
+    "example": "Hablo un poco de español.",
+    "pronunciation": "ун поко"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.no_hablo",
+    "spanish": "No hablo...",
+    "native_translation": "я не говорю...",
+    "cefr": "A0",
+    "example": "No hablo francés.",
+    "pronunciation": "но абло"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.frances",
+    "spanish": "francés",
+    "native_translation": "французька мова",
+    "cefr": "A0",
+    "example": "No hablo francés.",
+    "pronunciation": "франсес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.aleman",
+    "spanish": "alemán",
+    "native_translation": "німецька мова",
+    "cefr": "A0",
+    "example": "No hablo alemán.",
+    "pronunciation": "алеман"
+  },
+  {
+    "id": "vocab.es.a0.m01.l002.idiomas",
+    "spanish": "idiomas",
+    "native_translation": "мови",
+    "cefr": "A0",
+    "example": "¿Qué idiomas hablas?",
+    "pronunciation": "ідіомас"
+  }
+]

@@ -4,3 +4,4 @@ export 'answer_evaluator.dart';
 export 'answer_normalizer.dart';
 export 'answer_feedback_presenter.dart';
 export 'spanish_orthography.dart';
+export 'structured_production_evaluator.dart';

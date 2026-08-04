@@ -251,6 +251,59 @@ class EducationalContentValidator {
         );
       }
 
+      final contract = template.productionContract;
+      if (contract != null) {
+        if (template.exerciseType != 'fill_gap' &&
+            template.exerciseType != 'text_entry') {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Production contract is only supported on typed activities: '
+              '${template.id}',
+            ),
+          );
+        }
+        if (contract.mode != 'ordered_functions' ||
+            contract.functions.isEmpty) {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Invalid production contract mode/functions in ${template.id}',
+            ),
+          );
+        }
+        final functionIds = <String>{};
+        for (final function in contract.functions) {
+          if (function.id.trim().isEmpty || !functionIds.add(function.id)) {
+            issues.add(
+              EducationalContentValidationIssue(
+                'Duplicate or empty production function id in ${template.id}',
+              ),
+            );
+          }
+          if (function.acceptedRealizations.isEmpty &&
+              function.acceptedWithFeedbackRealizations.isEmpty) {
+            issues.add(
+              EducationalContentValidationIssue(
+                'Production function has no realizations: '
+                '${template.id}/${function.id}',
+              ),
+            );
+          }
+          if (function.acceptedRealizations.any(
+                (value) => value.trim().isEmpty,
+              ) ||
+              function.acceptedWithFeedbackRealizations.any(
+                (value) => value.trim().isEmpty,
+              )) {
+            issues.add(
+              EducationalContentValidationIssue(
+                'Production function has an empty realization: '
+                '${template.id}/${function.id}',
+              ),
+            );
+          }
+        }
+      }
+
       for (final misconception in template.authoredMisconceptions) {
         _addIdentifierIssues(
           misconceptionIds,

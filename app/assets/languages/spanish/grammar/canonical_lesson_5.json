@@ -1,0 +1,55 @@
+[
+  {
+    "id": "grammar.es.a0.m01.l005.lesson_goal",
+    "title": "Проста розмова про людину",
+    "explanation": "Ти навчишся підтримати коротку розмову про іншу людину: запитати ім'я, країну, місто, мови й зв'язок із тобою.",
+    "examples": [
+      "¿Cómo se llama? Se llama Ana.",
+      "¿De dónde es? Es de España.",
+      "¿Dónde vive? Vive en Madrid.",
+      "¿Qué idiomas habla? Habla español."
+    ],
+    "prerequisite_ids": [
+      "objective.es.a0.m01.l004.introduce_other_person"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l005.me_vs_se",
+    "title": "Про себе і про іншу людину",
+    "explanation": "Me llamo говориш про себе. Se llama говориш про іншу людину.",
+    "examples": [
+      "Me llamo Marta.",
+      "Se llama Ana.",
+      "¿Cómo se llama?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l004.third_person_profile"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l005.i_you_he_she",
+    "title": "Я, ти, він або вона",
+    "explanation": "Soy, vivo, hablo говориш про себе. Es, vive, habla говориш про іншу людину.",
+    "examples": [
+      "Soy de Ucrania. Es de España.",
+      "Vivo en Kyiv. Vive en Madrid.",
+      "Hablo español. Habla español."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l005.me_vs_se"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l005.y_pero",
+    "title": "З'єднати інформацію",
+    "explanation": "Y додає інформацію. Pero показує коротке протиставлення.",
+    "examples": [
+      "Vive en Madrid y habla español.",
+      "Habla español, pero no habla francés.",
+      "No, no es mi profesor, pero es mi amigo."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l005.i_you_he_she"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "grammar.es.a0.m01.l003.lesson_goal",
+    "title": "Ввічлива розмова",
+    "explanation": "Ти додаєш до знайомства коротку ввічливу частину: запитати, як справи, відповісти, подякувати, вибачитися й попрощатися.",
+    "examples": [
+      "Hola. ¿Cómo estás?",
+      "Estoy bien, gracias. ¿Y tú?",
+      "Gracias. De nada.",
+      "Hasta luego. Nos vemos."
+    ],
+    "prerequisite_ids": [
+      "objective.es.a0.m01.l002.complete_about_myself_intro"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l003.thanks_and_reply",
+    "title": "Подяка і відповідь",
+    "explanation": "Gracias або Muchas gracias висловлює подяку. De nada відповідає на подяку.",
+    "examples": [
+      "Gracias. De nada.",
+      "Muchas gracias. De nada.",
+      "Bien, gracias. ¿Y tú?"
+    ],
+    "prerequisite_ids": [
+      "vocab.es.a0.m01.l001.gracias"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l003.polite_repairs",
+    "title": "Коли вибачатися",
+    "explanation": "Perdón привертає увагу або м'яко перебиває. Disculpa звучить як коротке вибачення. Lo siento означає, що тобі шкода.",
+    "examples": [
+      "Perdón. ¿Cómo te llamas?",
+      "Disculpa. No hablo francés.",
+      "Lo siento. No hablo alemán."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l003.lesson_goal"
+    ]
+  }
+]

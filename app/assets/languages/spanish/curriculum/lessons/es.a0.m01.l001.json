@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "id": "es.a0.m01.l001",
+    "title": "Урок 1",
+      "description": "Почни короткий перший контакт: привітайся, назви себе, запитай ім'я й попрощайся.",
+    "moduleId": "es.a0.m01",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 25,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-1",
+      "first-contact",
+      "small-communicative-core"
+    ],
+    "version": "1.0.0-r2e21",
+    "prerequisites": []
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m01.l001.complete_first_contact",
+      "description": "Після уроку учень може самостійно почати короткий контакт: привітатися, назвати себе, запитати ім'я, відреагувати на відповідь і попрощатися."
+    }
+  ],
+  "communicativeOutcome": "Учень самостійно пише короткий перший контакт іспанською: привітання, ім'я, питання про ім'я, ввічлива реакція та прощання.",
+  "sections": [
+    {
+      "id": "es.a0.m01.l001.section.first_contact",
+      "title": "Перший контакт",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m01.l001.activity.first_contact_exchange",
+          "title": "Завершити перший контакт",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_1.json",
+              "referenceId": "grammar.es.a0.m01.l001.first_meeting_goal"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_1.json",
+              "referenceId": "dialogue.es.a0.m01.l001.model_first_meeting"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_1.json",
+              "referenceId": "grammar.es.a0.m01.l001.reading_support"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.identify_morning_greeting"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.identify_opening_function"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.choose_identity_next_line"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.restore_identity_lines"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.choose_name_question"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.understand_answer"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.choose_next_message"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.choose_closing_line"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.guided_full_contact"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_1.json",
+              "referenceId": "template.es.a0.m01.l001.independent_full_contact"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m01.l001.summary.complete_first_contact",
+        "reviewPrompt": "Ти почав короткий перший контакт іспанською: привітався, назвав себе, запитав ім'я та попрощався.",
+    "referenceIds": [
+      "objective.es.a0.m01.l001.complete_first_contact"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m01.l001.activity.first_contact_exchange"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m01.l001.section.first_contact"
+    ]
+  },
+  "references": []
+}

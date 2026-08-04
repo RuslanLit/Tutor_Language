@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "id": "es.a0.m01.l005",
+    "title": "Проста розмова про людину",
+      "description": "Повтори профіль іншої людини, постав пов'язані питання й коротко опиши її з меншими підказками.",
+    "moduleId": "es.a0.m01",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 25,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-5",
+      "talk-about-person"
+    ],
+    "version": "1.0.0-r2e23",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m01.l004"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m01.l005.talk_about_person",
+      "description": "Після уроку учень може самостійно поставити й підтримати серію пов'язаних питань про іншу людину, відрізняючи інформацію про себе, співрозмовника, чоловіка й жінку."
+    }
+  ],
+  "communicativeOutcome": "Учень самостійно інтегрує привітання, ввічливий обмін, питання про іншу людину та зв'язний опис із поступово меншими підказками.",
+  "sections": [
+    {
+      "id": "es.a0.m01.l005.section.simple_talk_about_person",
+      "title": "Проста розмова про людину",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m01.l005.activity.talk_about_person",
+          "title": "Поговорити про іншу людину",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.independent_introduce_person"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_5.json",
+              "referenceId": "dialogue.es.a0.m01.l005.model_about_person"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+              "referenceId": "grammar.es.a0.m01.l005.me_vs_se"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+              "referenceId": "grammar.es.a0.m01.l005.i_you_he_she"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_5.json",
+              "referenceId": "dialogue.es.a0.m01.l005.short_profile"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_5.json",
+              "referenceId": "grammar.es.a0.m01.l005.y_pero"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_name_question_other"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_origin_question_other"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_city_question_other"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_language_question_other"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.restore_other_question_set"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_se_llama_reply"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_es_de_reply"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_y_function"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_pero_function"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.choose_friend_yes_no"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.restore_question_answer_pair"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.order_about_person_dialogue"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.restore_connected_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.complete_about_person_dialogue"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_5.json",
+              "referenceId": "template.es.a0.m01.l005.independent_about_person_dialogue"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m01.l005.summary.talk_about_person",
+    "reviewPrompt": "Ти можеш запитати про іншу людину, зрозуміти відповіді й коротко описати її іспанською.",
+    "referenceIds": [
+      "objective.es.a0.m01.l005.talk_about_person"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m01.l005.activity.talk_about_person"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m01.l005.section.simple_talk_about_person"
+    ]
+  },
+  "references": []
+}

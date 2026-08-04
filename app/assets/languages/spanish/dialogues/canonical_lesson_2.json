@@ -1,0 +1,157 @@
+[
+  {
+    "id": "dialogue.es.a0.m01.l002.model_more_about_myself",
+    "title": "Знайомство з короткою розповіддю про себе",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.buenos_dias",
+      "vocab.es.a0.m01.l001.me_llamo",
+      "vocab.es.a0.m01.l001.como_te_llamas",
+      "vocab.es.a0.m01.l001.mucho_gusto",
+      "vocab.es.a0.m01.l001.soy_de",
+      "vocab.es.a0.m01.l001.de_donde_eres",
+      "vocab.es.a0.m01.l001.vivo_en",
+      "vocab.es.a0.m01.l001.hablo_espanol",
+      "vocab.es.a0.m01.l001.hablo_ingles",
+      "vocab.es.a0.m01.l001.gracias",
+      "vocab.es.a0.m01.l001.hasta_luego",
+      "vocab.es.a0.m01.l001.marta",
+      "vocab.es.a0.m01.l001.ana",
+      "vocab.es.a0.m01.l001.ucrania",
+      "vocab.es.a0.m01.l001.espana",
+      "vocab.es.a0.m01.l001.kyiv",
+      "vocab.es.a0.m01.l001.madrid",
+      "vocab.es.a0.m01.l002.donde_vives",
+      "vocab.es.a0.m01.l002.que_idiomas_hablas",
+      "vocab.es.a0.m01.l002.tambien",
+      "vocab.es.a0.m01.l002.un_poco",
+      "vocab.es.a0.m01.l002.no_hablo",
+      "vocab.es.a0.m01.l002.frances",
+      "vocab.es.a0.m01.l002.aleman"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l002.lesson_goal",
+      "grammar.es.a0.m01.l002.about_self_questions",
+      "grammar.es.a0.m01.l002.language_answers"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Hola. Buenos días.",
+        "native_translation": "ола. буенос діас — привіт. доброго ранку."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Me llamo Marta.",
+        "native_translation": "ме ямо Марта — мене звати Marta."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Me llamo Ana.",
+        "native_translation": "ме ямо Ана — мене звати Ana."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Mucho gusto.",
+        "native_translation": "мучо густо — дуже приємно."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿De dónde eres?",
+        "native_translation": "де донде ерес — звідки ти?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Soy de Ucrania.",
+        "native_translation": "сой де укранія — я з України."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿Dónde vives?",
+        "native_translation": "донде вівес — де ти живеш?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Vivo en Kyiv.",
+        "native_translation": "біво ен Київ — я живу в Києві."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Qué idiomas hablas?",
+        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Hablo español e inglés.",
+        "native_translation": "абло еспаньйол е інглес — я говорю іспанською та англійською."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "También hablo inglés. Hablo un poco de español.",
+        "native_translation": "тамб'єн абло інглес. абло ун поко де еспаньйол — я також говорю англійською. я трохи говорю іспанською."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¿Hablas francés?",
+        "native_translation": "аблас франсес — ти говориш французькою?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "No hablo francés.",
+        "native_translation": "но абло франсес — я не говорю французькою."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Gracias. Hasta luego.",
+        "native_translation": "грасіас. аста луего — дякую. до зустрічі."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m01.l002.variant_more_about_myself",
+    "title": "Той самий обмін з іншими деталями",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.me_llamo",
+      "vocab.es.a0.m01.l001.soy_de",
+      "vocab.es.a0.m01.l001.vivo_en",
+      "vocab.es.a0.m01.l001.hablo_espanol",
+      "vocab.es.a0.m01.l001.no",
+      "vocab.es.a0.m01.l002.donde_vives",
+      "vocab.es.a0.m01.l002.que_idiomas_hablas",
+      "vocab.es.a0.m01.l002.no_hablo",
+      "vocab.es.a0.m01.l002.frances",
+      "vocab.es.a0.m01.l002.aleman"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l002.language_answers"
+    ],
+    "lines": [
+      {
+        "speaker": "Luis",
+        "spanish": "Hola. Me llamo Luis.",
+        "native_translation": "ола. ме ямо Луїс — привіт. мене звати Luis."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Soy de España. Vivo en Madrid.",
+        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді."
+      },
+      {
+        "speaker": "Luis",
+        "spanish": "Hablo español. No hablo alemán.",
+        "native_translation": "абло еспаньйол. но абло алеман — я говорю іспанською. я не говорю німецькою."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Dónde vives?",
+        "native_translation": "донде вівес — де ти живеш?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Qué idiomas hablas?",
+        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?"
+      }
+    ]
+  }
+]

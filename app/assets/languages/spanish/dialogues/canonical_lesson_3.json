@@ -1,0 +1,125 @@
+[
+  {
+    "id": "dialogue.es.a0.m01.l003.model_polite_conversation",
+    "title": "Коротка ввічлива розмова",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.me_llamo",
+      "vocab.es.a0.m01.l001.como_te_llamas",
+      "vocab.es.a0.m01.l001.mucho_gusto",
+      "vocab.es.a0.m01.l001.soy_de",
+      "vocab.es.a0.m01.l001.vivo_en",
+      "vocab.es.a0.m01.l001.gracias",
+      "vocab.es.a0.m01.l001.hasta_luego",
+      "vocab.es.a0.m01.l002.donde_vives",
+      "vocab.es.a0.m01.l002.que_idiomas_hablas",
+      "vocab.es.a0.m01.l003.como_estas",
+      "vocab.es.a0.m01.l003.estoy_bien",
+      "vocab.es.a0.m01.l003.y_tu",
+      "vocab.es.a0.m01.l003.de_nada",
+      "vocab.es.a0.m01.l003.nos_vemos"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l003.lesson_goal",
+      "grammar.es.a0.m01.l003.thanks_and_reply"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Hola. Me llamo Marta.",
+        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Hola, Marta. Me llamo Ana.",
+        "native_translation": "ола Марта. ме ямо Ана — привіт, Marta. мене звати Ana."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Mucho gusto. ¿Cómo estás?",
+        "native_translation": "мучо густо. комо естас — дуже приємно. як ти?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Estoy bien, gracias. ¿Y tú?",
+        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Muy bien, gracias.",
+        "native_translation": "муй б'єн грасіас — дуже добре, дякую."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿De dónde eres?",
+        "native_translation": "де донде ерес — звідки ти?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Soy de España. Vivo en Madrid.",
+        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Gracias. Hasta luego.",
+        "native_translation": "грасіас. аста луего — дякую. до зустрічі."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "De nada. Nos vemos.",
+        "native_translation": "де нада. нос бемос — нема за що. побачимося."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m01.l003.repair_and_farewell",
+    "title": "Вибачення і завершення",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.adios",
+      "vocab.es.a0.m01.l002.no_hablo",
+      "vocab.es.a0.m01.l002.frances",
+      "vocab.es.a0.m01.l003.perdon",
+      "vocab.es.a0.m01.l003.disculpa",
+      "vocab.es.a0.m01.l003.lo_siento",
+      "vocab.es.a0.m01.l003.mas_o_menos",
+      "vocab.es.a0.m01.l003.hasta_pronto",
+      "vocab.es.a0.m01.l003.que_tengas_un_buen_dia"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l003.polite_repairs"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Perdón. ¿Cómo te llamas?",
+        "native_translation": "пердон. комо те ямас — перепрошую. як тебе звати?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Me llamo Ana.",
+        "native_translation": "ме ямо Ана — мене звати Ana."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Disculpa. No hablo francés.",
+        "native_translation": "діскульпа. но абло франсес — вибач. я не говорю французькою."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Está bien.",
+        "native_translation": "еста б'єн — добре."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Lo siento. Hasta pronto.",
+        "native_translation": "ло с'єнто. аста пронто — мені шкода. до скорого."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Que tengas un buen día.",
+        "native_translation": "ке тенгас ун буен діа — гарного дня."
+      }
+    ]
+  }
+]

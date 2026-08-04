@@ -1,36 +1,7 @@
-{
-  "lessonDefinitionPaths": [
-    "assets/languages/spanish/curriculum/lessons/es.a0.u01.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u01.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u01.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u01.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u02.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u02.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u02.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u02.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u03.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u03.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u03.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u03.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u04.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u04.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u04.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u04.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u05.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u05.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u05.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u05.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u06.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u06.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u06.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u06.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u07.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u07.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u07.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u07.l04.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u08.l01.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u08.l02.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u08.l03.json",
-    "assets/languages/spanish/curriculum/lessons/es.a0.u08.l04.json"
-  ]
-}
+[
+  "assets/languages/spanish/curriculum/lessons/es.a0.m01.l001.json",
+  "assets/languages/spanish/curriculum/lessons/es.a0.m01.l002.json",
+  "assets/languages/spanish/curriculum/lessons/es.a0.m01.l003.json",
+  "assets/languages/spanish/curriculum/lessons/es.a0.m01.l004.json",
+  "assets/languages/spanish/curriculum/lessons/es.a0.m01.l005.json"
+]

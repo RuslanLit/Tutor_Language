@@ -702,6 +702,7 @@ class EducationalContentLocalizationResolver {
       requiresExactAnswer: template.requiresExactAnswer,
       authoredMisconceptions: template.authoredMisconceptions,
       reviewTemplateIds: template.reviewTemplateIds,
+      productionContract: template.productionContract,
     );
   }
 

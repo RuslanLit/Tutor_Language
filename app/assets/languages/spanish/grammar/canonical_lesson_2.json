@@ -1,0 +1,42 @@
+[
+  {
+    "id": "grammar.es.a0.m01.l002.lesson_goal",
+    "title": "Більше про себе",
+    "explanation": "Ти продовжуєш перше знайомство. Тепер розмова має показати, звідки ти, де живеш і якими мовами говориш.",
+    "examples": [
+      "Урок повторює привітання й ім'я з попереднього уроку.",
+      "Нові репліки допомагають обмінятися короткою інформацією про себе.",
+      "У фіналі ти самостійно проведеш знайомство від привітання до прощання."
+    ],
+    "prerequisite_ids": [
+      "objective.es.a0.m01.l001.complete_first_contact"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l002.about_self_questions",
+    "title": "Три питання про людину",
+    "explanation": "У знайомстві можна коротко запитати про походження, місто й мови. Кожне питання одразу веде до простої відповіді.",
+    "examples": [
+      "¿De dónde eres? — Soy de Ucrania.",
+      "¿Dónde vives? — Vivo en Kyiv.",
+      "¿Qué idiomas hablas? — Hablo español e inglés."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l001.meeting_building_blocks"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l002.language_answers",
+    "title": "Короткі відповіді про мови",
+    "explanation": "Для мов достатньо короткої репліки: сказати, що говориш, додати ще одну мову або сказати, що не говориш.",
+    "examples": [
+      "Hablo español. — Я говорю іспанською.",
+      "También hablo inglés. — Я також говорю англійською.",
+      "Hablo un poco. — Я говорю трохи.",
+      "No hablo francés. — Я не говорю французькою."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l002.about_self_questions"
+    ]
+  }
+]

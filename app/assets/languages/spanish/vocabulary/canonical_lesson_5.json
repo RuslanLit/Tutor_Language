@@ -1,0 +1,90 @@
+[
+  {
+    "id": "vocab.es.a0.m01.l005.como_se_llama",
+    "spanish": "¿Cómo se llama?",
+    "native_translation": "як його або її звати?",
+    "cefr": "A0",
+    "example": "¿Cómo se llama? Se llama Ana.",
+    "pronunciation": "комо се яма"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.de_donde_es",
+    "spanish": "¿De dónde es?",
+    "native_translation": "звідки він або вона?",
+    "cefr": "A0",
+    "example": "¿De dónde es? Es de España.",
+    "pronunciation": "де донде ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.donde_vive",
+    "spanish": "¿Dónde vive?",
+    "native_translation": "де він або вона живе?",
+    "cefr": "A0",
+    "example": "¿Dónde vive? Vive en Madrid.",
+    "pronunciation": "донде біве"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.que_idiomas_habla",
+    "spanish": "¿Qué idiomas habla?",
+    "native_translation": "якими мовами він або вона говорить?",
+    "cefr": "A0",
+    "example": "¿Qué idiomas habla? Habla español.",
+    "pronunciation": "ке ідіомас абла"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.es_tu_amigo",
+    "spanish": "¿Es tu amigo?",
+    "native_translation": "це твій друг?",
+    "cefr": "A0",
+    "example": "¿Es tu amigo? Sí, es mi amigo.",
+    "pronunciation": "ес ту аміго"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.es_tu_amiga",
+    "spanish": "¿Es tu amiga?",
+    "native_translation": "це твоя подруга?",
+    "cefr": "A0",
+    "example": "¿Es tu amiga? Sí, es mi amiga.",
+    "pronunciation": "ес ту аміга"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.si_es",
+    "spanish": "Sí, es...",
+    "native_translation": "так, це...",
+    "cefr": "A0",
+    "example": "Sí, es mi amiga.",
+    "pronunciation": "сі ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.no_no_es",
+    "spanish": "No, no es...",
+    "native_translation": "ні, це не...",
+    "cefr": "A0",
+    "example": "No, no es mi profesor.",
+    "pronunciation": "но но ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.pero",
+    "spanish": "pero",
+    "native_translation": "але",
+    "cefr": "A0",
+    "example": "No, no es mi profesor, pero es mi amigo.",
+    "pronunciation": "перо"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.y",
+    "spanish": "y",
+    "native_translation": "і",
+    "cefr": "A0",
+    "example": "Vive en Madrid y habla español.",
+    "pronunciation": "і"
+  },
+  {
+    "id": "vocab.es.a0.m01.l005.tu",
+    "spanish": "tu",
+    "native_translation": "твій або твоя",
+    "cefr": "A0",
+    "example": "¿Es tu amiga?",
+    "pronunciation": "ту"
+  }
+]

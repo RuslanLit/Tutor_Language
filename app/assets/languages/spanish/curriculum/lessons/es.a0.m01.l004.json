@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "id": "es.a0.m01.l004",
+    "title": "Люди навколо нас",
+      "description": "Перенеси знайоме знайомство на іншу людину: запитай, хто це, і представ її кількома простими реченнями.",
+    "moduleId": "es.a0.m01",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 25,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-4",
+      "introduce-other-person"
+    ],
+    "version": "1.0.0-r2e23",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m01.l003"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m01.l004.introduce_other_person",
+      "description": "Після уроку учень може перенести відомі моделі імені, країни, міста та мов на іншу людину, запитати, хто це, і представити її."
+    }
+  ],
+  "communicativeOutcome": "Учень самостійно представляє себе й одну іншу людину, використовуючи знайомі рамки контакту в новому соціальному контексті.",
+  "sections": [
+    {
+      "id": "es.a0.m01.l004.section.people_around_us",
+      "title": "Люди навколо нас",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m01.l004.activity.introduce_other_person",
+          "title": "Представити іншу людину",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.independent_polite_conversation"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_4.json",
+              "referenceId": "dialogue.es.a0.m01.l004.model_introduce_person"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+              "referenceId": "grammar.es.a0.m01.l004.el_ella"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+              "referenceId": "grammar.es.a0.m01.l004.gender_pairs"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_4.json",
+              "referenceId": "dialogue.es.a0.m01.l004.model_man_profile"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_4.json",
+              "referenceId": "grammar.es.a0.m01.l004.third_person_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_who_question_woman"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_who_question_man"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_ella_description"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_el_description"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_friend_pair"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_teacher_pair"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.restore_name_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_third_person_origin"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_third_person_city"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_third_person_language"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.order_person_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.restore_full_woman_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.restore_full_man_profile"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.choose_next_after_who"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_4.json",
+              "referenceId": "template.es.a0.m01.l004.independent_introduce_person"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m01.l004.summary.introduce_other_person",
+    "reviewPrompt": "Ти можеш представити іншу людину: хто це, як її звати, звідки вона, де живе і якими мовами говорить.",
+    "referenceIds": [
+      "objective.es.a0.m01.l004.introduce_other_person"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m01.l004.activity.introduce_other_person"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m01.l004.section.people_around_us"
+    ]
+  },
+  "references": []
+}

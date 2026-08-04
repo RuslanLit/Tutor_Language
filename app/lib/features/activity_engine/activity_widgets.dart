@@ -491,8 +491,24 @@ class _ActivityPrompt extends StatelessWidget {
 
 bool _usesLongAnswerInput(ExerciseTemplate template) {
   final expectedAnswer = template.expectedAnswer ?? '';
-  return template.exerciseType == 'text_entry' &&
-      (expectedAnswer.length > 48 || template.promptTemplate.length > 140);
+  return _isTypedAnswerExercise(template.exerciseType) &&
+      _expectsMultiSentenceAnswer(expectedAnswer);
+}
+
+bool _isTypedAnswerExercise(String exerciseType) {
+  return exerciseType == 'fill_gap' || exerciseType == 'text_entry';
+}
+
+bool _expectsMultiSentenceAnswer(String expectedAnswer) {
+  // Input size follows the learner's required answer, not prompt length:
+  // long instructions can still ask for a short answer such as "Hola, Adiós".
+  final answer = expectedAnswer.trim();
+  if (answer.contains('\n')) {
+    return true;
+  }
+
+  final sentenceCount = RegExp(r'[.!?¿¡]').allMatches(answer).length;
+  return answer.length > 48 || sentenceCount > 1;
 }
 
 class _CheckButton extends StatelessWidget {

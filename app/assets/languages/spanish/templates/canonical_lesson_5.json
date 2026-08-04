@@ -1,0 +1,312 @@
+[
+  {
+    "id": "template.es.a0.m01.l005.choose_name_question_other",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти хочеш запитати, як звати іншу людину.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "como_se_llama",
+        "label": "¿Cómo se llama?"
+      },
+      {
+        "id": "como_te_llamas",
+        "label": "¿Cómo te llamas?"
+      },
+      {
+        "id": "como_estas",
+        "label": "¿Cómo estás?"
+      }
+    ],
+    "correct_option_id": "como_se_llama"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_origin_question_other",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти говориш про Sofía. Хочеш запитати, звідки вона.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "de_donde_es",
+        "label": "¿De dónde es?"
+      },
+      {
+        "id": "de_donde_eres",
+        "label": "¿De dónde eres?"
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      }
+    ],
+    "correct_option_id": "de_donde_es"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_city_question_other",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти говориш про Luis. Хочеш запитати, де він живе.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "donde_vive",
+        "label": "¿Dónde vive?"
+      },
+      {
+        "id": "donde_vives",
+        "label": "¿Dónde vives?"
+      },
+      {
+        "id": "que_idiomas_hablas",
+        "label": "¿Qué idiomas hablas?"
+      }
+    ],
+    "correct_option_id": "donde_vive"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_language_question_other",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти хочеш запитати, якими мовами говорить Ana.\n\nВибери 1 питання іспанською.",
+    "answer_options": [
+      {
+        "id": "que_idiomas_habla",
+        "label": "¿Qué idiomas habla?"
+      },
+      {
+        "id": "que_idiomas_hablas",
+        "label": "¿Qué idiomas hablas?"
+      },
+      {
+        "id": "como_se_llama",
+        "label": "¿Cómo se llama?"
+      }
+    ],
+    "correct_option_id": "que_idiomas_habla"
+  },
+  {
+    "id": "template.es.a0.m01.l005.restore_other_question_set",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_question_set"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи 4 питання іспанською. Напиши кожну відповідь з нового рядка.\n\n¿Cómo se llama?\n¿De dónde __?\n¿Dónde ____?\n¿Qué idiomas _____?",
+    "expected_answer": "¿Cómo se llama?\n¿De dónde es?\n¿Dónde vive?\n¿Qué idiomas habla?"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_se_llama_reply",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿Cómo se llama?\n\nТи говориш про Luis.\n\nВибери 1 відповідь.",
+    "answer_options": [
+      {
+        "id": "se_llama_luis",
+        "label": "Se llama Luis."
+      },
+      {
+        "id": "me_llamo_luis",
+        "label": "Me llamo Luis."
+      },
+      {
+        "id": "soy_de_luis",
+        "label": "Soy de Luis."
+      }
+    ],
+    "correct_option_id": "se_llama_luis"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_es_de_reply",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Ти говориш про Sofía. Хочеш сказати, що вона з Іспанії.\n\nВибери 1 речення.",
+    "answer_options": [
+      {
+        "id": "es_de_espana",
+        "label": "Es de España."
+      },
+      {
+        "id": "soy_de_espana",
+        "label": "Soy de España."
+      },
+      {
+        "id": "vive_en_espana",
+        "label": "Vive en España."
+      }
+    ],
+    "correct_option_id": "es_de_espana"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_y_function",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "У реченні є: Es de Ucrania y vive en Kyiv.\n\nЩо робить y?",
+    "answer_options": [
+      {
+        "id": "adds_info",
+        "label": "Додає ще одну інформацію."
+      },
+      {
+        "id": "shows_contrast",
+        "label": "Показує протиставлення."
+      },
+      {
+        "id": "starts_goodbye",
+        "label": "Завершує розмову."
+      }
+    ],
+    "correct_option_id": "adds_info"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_pero_function",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "recognize_communicative_function"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "У реченні є: Habla español, pero no habla francés.\n\nЩо робить pero?",
+    "answer_options": [
+      {
+        "id": "contrast",
+        "label": "Показує коротке протиставлення."
+      },
+      {
+        "id": "thanks",
+        "label": "Відповідає на подяку."
+      },
+      {
+        "id": "asks_name",
+        "label": "Питає ім'я."
+      }
+    ],
+    "correct_option_id": "contrast"
+  },
+  {
+    "id": "template.es.a0.m01.l005.choose_friend_yes_no",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿Es tu amiga?\n\nSofía справді твоя подруга.\n\nВибери 1 відповідь.",
+    "answer_options": [
+      {
+        "id": "si_es",
+        "label": "Sí, es mi amiga."
+      },
+      {
+        "id": "no_no_es",
+        "label": "No, no es mi amiga."
+      },
+      {
+        "id": "de_nada",
+        "label": "De nada."
+      }
+    ],
+    "correct_option_id": "si_es"
+  },
+  {
+    "id": "template.es.a0.m01.l005.restore_question_answer_pair",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "restore_dialogue_segment"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи 4 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\n¿De dónde es?\nEs de España.\n¿Dónde ____?\nVive en Madrid.",
+    "expected_answer": "¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid."
+  },
+  {
+    "id": "template.es.a0.m01.l005.order_about_person_dialogue",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "order_dialogue_logic"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Запиши репліки в природному порядку.\n\nВведи 6 реплік іспанською. Напиши кожну відповідь з нового рядка.\n\nVive en Madrid.\n¿Cómo se llama?\nSe llama Sofía.\n¿Dónde vive?\n¿De dónde es?\nEs de España.",
+    "expected_answer": "¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid."
+  },
+  {
+    "id": "template.es.a0.m01.l005.restore_connected_profile",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_profile_production"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи 4 речення іспанською. Напиши кожну відповідь з нового рядка.\n\nElla es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, ____ no habla francés.",
+    "expected_answer": "Ella es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, pero no habla francés."
+  },
+  {
+    "id": "template.es.a0.m01.l005.complete_about_person_dialogue",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "guided_full_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Заповни пропуски.\n\nВведи весь діалог іспанською. Напиши кожну відповідь з нового рядка.\n\nHola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego.",
+    "expected_answer": "Hola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego."
+  },
+  {
+    "id": "template.es.a0.m01.l005.independent_about_person_dialogue",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "independent_communicative_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Проведи коротку розмову про іншу людину іспанською.\n\nВведи 10-14 реплік. Напиши кожну відповідь з нового рядка.\n\nРозмова має: привітатися з Ana, запитати як справи, запитати чи Sofía її подруга, запитати ім'я, країну, місто й мови Sofía, отримати відповіді, подякувати й попрощатися.",
+    "expected_answer": "Hola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego.",
+    "accepted_answers": [
+      "Hola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés.\nGracias. Hasta luego.",
+      "Hola, Ana.\n¿Cómo estás?\nMuy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español, pero no habla francés.\nGracias. Nos vemos."
+    ]
+  }
+]

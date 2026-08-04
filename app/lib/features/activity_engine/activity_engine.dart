@@ -3,9 +3,13 @@ import '../answer_evaluation/answer_evaluation.dart';
 import 'activity_result.dart';
 
 class ActivityEngine {
-  const ActivityEngine({this.answerEvaluator = const AnswerEvaluator()});
+  const ActivityEngine({
+    this.answerEvaluator = const AnswerEvaluator(),
+    this.structuredProductionEvaluator = const StructuredProductionEvaluator(),
+  });
 
   final AnswerEvaluator answerEvaluator;
+  final StructuredProductionEvaluator structuredProductionEvaluator;
 
   ActivityResult evaluate({
     required ExerciseTemplate template,
@@ -53,14 +57,23 @@ class ActivityEngine {
   ) {
     final expected = template.expectedAnswer;
     final submitted = submission.submittedAnswer ?? '';
-    final evaluation = answerEvaluator.evaluateTypedAnswer(
-      learnerAnswer: submitted,
-      canonicalAnswer: expected,
-      acceptedAnswers: template.acceptedAnswers,
-      acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
-      authoredMisconceptions: template.authoredMisconceptions,
-      allowMeaningSupport: !template.requiresExactAnswer,
-    );
+    final evaluation =
+        template.productionContract != null &&
+            !template.requiresExactAnswer &&
+            expected != null
+        ? structuredProductionEvaluator.evaluate(
+            learnerAnswer: submitted,
+            canonicalAnswer: expected,
+            contract: template.productionContract!,
+          )
+        : answerEvaluator.evaluateTypedAnswer(
+            learnerAnswer: submitted,
+            canonicalAnswer: expected,
+            acceptedAnswers: template.acceptedAnswers,
+            acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
+            authoredMisconceptions: template.authoredMisconceptions,
+            allowMeaningSupport: !template.requiresExactAnswer,
+          );
 
     return ActivityResult(
       exerciseId: template.id,

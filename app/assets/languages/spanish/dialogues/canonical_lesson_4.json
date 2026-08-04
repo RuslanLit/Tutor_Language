@@ -1,0 +1,121 @@
+[
+  {
+    "id": "dialogue.es.a0.m01.l004.model_introduce_person",
+    "title": "Представити іншу людину",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.me_llamo",
+      "vocab.es.a0.m01.l001.mucho_gusto",
+      "vocab.es.a0.m01.l001.soy_de",
+      "vocab.es.a0.m01.l001.vivo_en",
+      "vocab.es.a0.m01.l001.hasta_luego",
+      "vocab.es.a0.m01.l002.que_idiomas_hablas",
+      "vocab.es.a0.m01.l003.como_estas",
+      "vocab.es.a0.m01.l003.estoy_bien",
+      "vocab.es.a0.m01.l003.y_tu",
+      "vocab.es.a0.m01.l004.quien_es_ella",
+      "vocab.es.a0.m01.l004.ella_es",
+      "vocab.es.a0.m01.l004.esta_es",
+      "vocab.es.a0.m01.l004.mi_amiga",
+      "vocab.es.a0.m01.l004.se_llama",
+      "vocab.es.a0.m01.l004.es_de",
+      "vocab.es.a0.m01.l004.vive_en",
+      "vocab.es.a0.m01.l004.habla"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l004.lesson_goal",
+      "grammar.es.a0.m01.l004.el_ella",
+      "grammar.es.a0.m01.l004.gender_pairs",
+      "grammar.es.a0.m01.l004.third_person_profile"
+    ],
+    "lines": [
+      {
+        "speaker": "Ти",
+        "spanish": "Hola. Me llamo Marta.",
+        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Hola, Marta. ¿Cómo estás?",
+        "native_translation": "ола Марта. комо естас — привіт, Marta. як ти?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Estoy bien, gracias. ¿Y tú?",
+        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Muy bien, gracias.",
+        "native_translation": "муй б'єн грасіас — дуже добре, дякую."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "¿Quién es ella?",
+        "native_translation": "к'єн ес ея — хто вона?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Ella es mi amiga. Se llama Sofía.",
+        "native_translation": "ея ес мі аміга. се яма Софія — вона моя подруга. її звати Sofía."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Es de España. Vive en Madrid.",
+        "native_translation": "ес де еспанья. біве ен мадрід — вона з Іспанії. вона живе в Мадриді."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Habla español e inglés.",
+        "native_translation": "абла еспаньйол е інглес — вона говорить іспанською та англійською."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Mucho gusto. Hasta luego.",
+        "native_translation": "мучо густо. аста луего — дуже приємно. до зустрічі."
+      }
+    ]
+  },
+  {
+    "id": "dialogue.es.a0.m01.l004.model_man_profile",
+    "title": "Коротко представити чоловіка",
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l004.quien_es_el",
+      "vocab.es.a0.m01.l004.el_es",
+      "vocab.es.a0.m01.l004.este_es",
+      "vocab.es.a0.m01.l004.mi_amigo",
+      "vocab.es.a0.m01.l004.mi_companero",
+      "vocab.es.a0.m01.l004.mi_profesor",
+      "vocab.es.a0.m01.l004.se_llama",
+      "vocab.es.a0.m01.l004.es_de",
+      "vocab.es.a0.m01.l004.vive_en",
+      "vocab.es.a0.m01.l004.habla"
+    ],
+    "grammar_ids": [
+      "grammar.es.a0.m01.l004.gender_pairs",
+      "grammar.es.a0.m01.l004.third_person_profile"
+    ],
+    "lines": [
+      {
+        "speaker": "Ana",
+        "spanish": "¿Quién es él?",
+        "native_translation": "к'єн ес ель — хто він?"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Él es mi amigo. Se llama Luis.",
+        "native_translation": "ель ес мі аміго. се яма Луїс — він мій друг. його звати Luis."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Es de Ucrania. Vive en Kyiv.",
+        "native_translation": "ес де укранія. біве ен Київ — він з України. він живе в Києві."
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Habla español un poco.",
+        "native_translation": "абла еспаньйол ун поко — він трохи говорить іспанською."
+      }
+    ]
+  }
+]

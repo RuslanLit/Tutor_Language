@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "id": "es.a0.m01.l003",
+    "title": "Ввічлива розмова",
+      "description": "Повернися до знайомства, додай обмін про стан, подяку, коротке вибачення та природне завершення.",
+    "moduleId": "es.a0.m01",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 25,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-3",
+      "polite-conversation"
+    ],
+    "version": "1.0.0-r2e23",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m01.l002"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m01.l003.polite_conversation",
+      "description": "Після уроку учень може вставити ввічливий обмін у вже знайоме знайомство: запитати як справи, відповісти, подякувати, вибачитися за потреби й попрощатися."
+    }
+  ],
+  "communicativeOutcome": "Учень самостійно веде коротке знайомство з новим ввічливим середнім епізодом, не втрачаючи раніше вивченого початку та завершення.",
+  "sections": [
+    {
+      "id": "es.a0.m01.l003.section.polite_conversation",
+      "title": "Ввічлива розмова",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m01.l003.activity.polite_conversation",
+          "title": "Провести ввічливу розмову",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
+              "referenceId": "template.es.a0.m01.l002.independent_complete_intro_dialogue"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_3.json",
+              "referenceId": "dialogue.es.a0.m01.l003.model_polite_conversation"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_3.json",
+              "referenceId": "grammar.es.a0.m01.l003.thanks_and_reply"
+            },
+            {
+              "type": "dialogue",
+              "assetPath": "assets/languages/spanish/dialogues/canonical_lesson_3.json",
+              "referenceId": "dialogue.es.a0.m01.l003.repair_and_farewell"
+            },
+            {
+              "type": "grammar",
+              "assetPath": "assets/languages/spanish/grammar/canonical_lesson_3.json",
+              "referenceId": "grammar.es.a0.m01.l003.polite_repairs"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_how_are_you_question"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_good_status_reply"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_return_question"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.restore_status_exchange"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_mas_o_menos_context"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.identify_de_nada"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_stronger_thanks"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_polite_attention"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_apology_function"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_farewell_variant"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.order_polite_middle"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.restore_thanks_pair"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.choose_next_after_origin"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.complete_polite_conversation"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_3.json",
+              "referenceId": "template.es.a0.m01.l003.independent_polite_conversation"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m01.l003.summary.polite_conversation",
+    "reviewPrompt": "Ти можеш підтримати ввічливу коротку розмову: запитати як справи, відповісти, подякувати, вибачитися й попрощатися.",
+    "referenceIds": [
+      "objective.es.a0.m01.l003.polite_conversation"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m01.l003.activity.polite_conversation"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m01.l003.section.polite_conversation"
+    ]
+  },
+  "references": []
+}

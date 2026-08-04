@@ -1,0 +1,52 @@
+[
+  {
+    "id": "grammar.es.a0.m01.l001.first_meeting_goal",
+    "title": "Мета першого знайомства",
+    "explanation": "Ти відкриваєш короткий чат з іспаномовною людиною. У цьому уроці ти почнеш контакт, назвеш себе, запитаєш ім'я та ввічливо завершиш розмову.",
+    "examples": [
+      "Привітайся, назви себе, запитай ім'я, відреагуй Mucho gusto і заверши контакт.",
+      "Hola та Buenos días — короткі варіанти початку контакту.",
+      "Me llamo... називає тебе, а ¿Cómo te llamas? запитує ім'я співрозмовника."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.l001.reading_support",
+    "title": "Як читати репліки",
+    "explanation": "Спочатку користуйся приблизним читанням. У фіналі підказки зникнуть.",
+    "examples": [
+      "Hola — ола",
+      "Buenos días — буенос діас",
+      "Me llamo Marta — ме ямо Марта",
+      "¿Cómo te llamas? — комо те ямас",
+      "Me llamo Ana — ме ямо Ана",
+      "Mucho gusto — мучо густо",
+      "Hasta luego — аста луего"
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.l001.meeting_building_blocks",
+    "title": "Фрази для знайомства",
+    "explanation": "Кожна фраза має одну роль у короткому контакті: почати розмову, назвати себе, дізнатися ім'я, відреагувати й попрощатися.",
+    "examples": [
+      "Me llamo Marta.",
+      "¿Cómo te llamas?",
+      "Me llamo Ana.",
+      "Mucho gusto.",
+      "Hasta luego."
+    ],
+    "prerequisite_ids": []
+  },
+  {
+    "id": "grammar.es.a0.m01.l001.polite_variants",
+    "title": "Ввічливі варіанти",
+    "explanation": "У цьому короткому контакті достатньо одного привітання та однієї ввічливої реакції.",
+    "examples": [
+      "Buenos días — для ранку.",
+      "Mucho gusto — коротка ввічлива реакція після знайомства.",
+      "Hasta luego — коротке завершення контакту."
+    ],
+    "prerequisite_ids": []
+  }
+]

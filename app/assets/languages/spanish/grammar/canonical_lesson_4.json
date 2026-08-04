@@ -1,0 +1,55 @@
+[
+  {
+    "id": "grammar.es.a0.m01.l004.lesson_goal",
+    "title": "Люди навколо нас",
+    "explanation": "Ти вже можеш говорити про себе. Тепер навчишся коротко представити іншу людину.",
+    "examples": [
+      "Esta es Ana.",
+      "Ella es mi amiga.",
+      "Se llama Ana. Vive en Madrid."
+    ],
+    "prerequisite_ids": [
+      "objective.es.a0.m01.l003.polite_conversation"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l004.el_ella",
+    "title": "Він і вона",
+    "explanation": "Él говорять про чоловіка. Ella говорять про жінку.",
+    "examples": [
+      "Él es Luis.",
+      "Ella es Ana.",
+      "¿Quién es él? ¿Quién es ella?"
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l004.lesson_goal"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l004.gender_pairs",
+    "title": "Друг, подруга, викладач",
+    "explanation": "Amigo, compañero, profesor стосуються чоловіка. Amiga, compañera, profesora стосуються жінки.",
+    "examples": [
+      "Él es mi amigo.",
+      "Ella es mi amiga.",
+      "Este es mi profesor. Esta es mi profesora."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l004.el_ella"
+    ]
+  },
+  {
+    "id": "grammar.es.a0.m01.l004.third_person_profile",
+    "title": "Коротко про іншу людину",
+    "explanation": "Для іншої людини використовуй Se llama, Es de, Vive en і Habla.",
+    "examples": [
+      "Se llama Luis.",
+      "Es de España.",
+      "Vive en Madrid.",
+      "Habla español e inglés."
+    ],
+    "prerequisite_ids": [
+      "grammar.es.a0.m01.l004.el_ella"
+    ]
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "vocab.es.a0.m01.l004.quien_es",
+    "spanish": "¿Quién es?",
+    "native_translation": "хто це?",
+    "cefr": "A0",
+    "example": "¿Quién es? Es Ana.",
+    "pronunciation": "к'єн ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.quien_es_el",
+    "spanish": "¿Quién es él?",
+    "native_translation": "хто він?",
+    "cefr": "A0",
+    "example": "¿Quién es él? Él es Luis.",
+    "pronunciation": "к'єн ес ель"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.quien_es_ella",
+    "spanish": "¿Quién es ella?",
+    "native_translation": "хто вона?",
+    "cefr": "A0",
+    "example": "¿Quién es ella? Ella es Ana.",
+    "pronunciation": "к'єн ес ея"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.el_es",
+    "spanish": "Él es...",
+    "native_translation": "він є...",
+    "cefr": "A0",
+    "example": "Él es Luis.",
+    "pronunciation": "ель ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.ella_es",
+    "spanish": "Ella es...",
+    "native_translation": "вона є...",
+    "cefr": "A0",
+    "example": "Ella es Ana.",
+    "pronunciation": "ея ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.este_es",
+    "spanish": "Este es...",
+    "native_translation": "це він...",
+    "cefr": "A0",
+    "example": "Este es Luis.",
+    "pronunciation": "есте ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.esta_es",
+    "spanish": "Esta es...",
+    "native_translation": "це вона...",
+    "cefr": "A0",
+    "example": "Esta es Ana.",
+    "pronunciation": "еста ес"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_amigo",
+    "spanish": "mi amigo",
+    "native_translation": "мій друг",
+    "cefr": "A0",
+    "example": "Él es mi amigo.",
+    "pronunciation": "мі аміго"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_amiga",
+    "spanish": "mi amiga",
+    "native_translation": "моя подруга",
+    "cefr": "A0",
+    "example": "Ella es mi amiga.",
+    "pronunciation": "мі аміга"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_companero",
+    "spanish": "mi compañero",
+    "native_translation": "мій колега",
+    "cefr": "A0",
+    "example": "Él es mi compañero.",
+    "pronunciation": "мі компаньєро"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_companera",
+    "spanish": "mi compañera",
+    "native_translation": "моя колега",
+    "cefr": "A0",
+    "example": "Ella es mi compañera.",
+    "pronunciation": "мі компаньєра"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_profesor",
+    "spanish": "mi profesor",
+    "native_translation": "мій викладач",
+    "cefr": "A0",
+    "example": "Él es mi profesor.",
+    "pronunciation": "мі професор"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.mi_profesora",
+    "spanish": "mi profesora",
+    "native_translation": "моя викладачка",
+    "cefr": "A0",
+    "example": "Ella es mi profesora.",
+    "pronunciation": "мі професора"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.se_llama",
+    "spanish": "Se llama...",
+    "native_translation": "його або її звати...",
+    "cefr": "A0",
+    "example": "Se llama Ana.",
+    "pronunciation": "се яма"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.es_de",
+    "spanish": "Es de...",
+    "native_translation": "він або вона з...",
+    "cefr": "A0",
+    "example": "Es de España.",
+    "pronunciation": "ес де"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.vive_en",
+    "spanish": "Vive en...",
+    "native_translation": "він або вона живе в...",
+    "cefr": "A0",
+    "example": "Vive en Madrid.",
+    "pronunciation": "біве ен"
+  },
+  {
+    "id": "vocab.es.a0.m01.l004.habla",
+    "spanish": "Habla...",
+    "native_translation": "він або вона говорить...",
+    "cefr": "A0",
+    "example": "Habla español.",
+    "pronunciation": "абла"
+  }
+]

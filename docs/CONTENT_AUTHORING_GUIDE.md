@@ -546,6 +546,19 @@ Typed production should be preferred when active recall or controlled
 application is the learning objective and the learner has enough support to
 answer fairly.
 
+For guided or final communicative production, an exercise may opt into an
+explicit `production_contract`. Its ordered functions must be authored from
+the lesson objective and taught material; they are not inferred by splitting
+`expected_answer`. Each function lists deterministic accepted realizations and
+may list authored realizations that are accepted with feedback. The contract
+is curriculum-bounded and does not perform semantic inference or use runtime
+AI. Surface differences that are not the target may receive feedback, while
+missing functions, wrong lexical slots, extra unexplained text, and wrong
+communicative order remain incorrect.
+
+`requires_exact_answer` takes precedence over a production contract. Use it
+when exact orthography or written reproduction is the learning objective.
+
 Supported implementation may be narrower than the long-term learning model.
 
 When authoring within the current schema, use only exercise types supported by

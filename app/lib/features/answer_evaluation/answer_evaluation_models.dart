@@ -12,6 +12,8 @@ enum AnswerMatchType {
   acceptedAlternativeWithFeedback,
   orthographicEquivalent,
   authoredMisconception,
+  structuredProduction,
+  structuredProductionWithFeedback,
   none,
 }
 

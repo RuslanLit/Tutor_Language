@@ -116,29 +116,30 @@ void main() {
     expect(find.text('Course complete'), findsOneWidget);
   });
 
-  testWidgets('completed competency module exposes competency action', (
-    tester,
-  ) async {
-    final database = AppDatabase(NativeDatabase.memory());
-    addTearDown(database.close);
-    final repository = LearnerProgressRepository(database);
-    for (final lessonId in ['lesson.m03.alpha', 'lesson.m03.beta']) {
-      await repository.recordEvent(
-        ProgressEvent.create(
-          eventType: ProgressEventType.lessonCompleted,
-          topicId: lessonId,
-          now: DateTime.utc(2026),
-        ),
-      );
-    }
+  testWidgets(
+    'canonical Module 1 has no competency action without definitions',
+    (tester) async {
+      final database = AppDatabase(NativeDatabase.memory());
+      addTearDown(database.close);
+      final repository = LearnerProgressRepository(database);
+      for (final lessonId in ['es.a0.m01.l001', 'es.a0.m01.l002']) {
+        await repository.recordEvent(
+          ProgressEvent.create(
+            eventType: ProgressEventType.lessonCompleted,
+            topicId: lessonId,
+            now: DateTime.utc(2026),
+          ),
+        );
+      }
 
-    await tester.pumpWidget(_app(database, course: _competencyCourse));
-    await tester.pumpAndSettle();
+      await tester.pumpWidget(_app(database, course: _canonicalCourse));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Communicative competency check'), findsOneWidget);
-    expect(find.text('Ready to start'), findsOneWidget);
-    expect(find.text('Start'), findsOneWidget);
-  });
+      expect(find.text('Communicative competency check'), findsNothing);
+      expect(find.text('Ready to start'), findsNothing);
+      expect(find.text('Start'), findsNothing);
+    },
+  );
 
   testWidgets('completed lesson continues directly to next course lesson', (
     tester,
@@ -381,24 +382,24 @@ const _course = Course(
   ],
 );
 
-const _competencyCourse = Course(
-  id: 'course.test',
+const _canonicalCourse = Course(
+  id: 'es.a0',
   languageId: 'spanish',
   title: 'Spanish A0',
   level: 'A0',
   version: '1.0.0',
   modules: [
     Module(
-      id: 'es.a0.m03',
-      title: 'Module 3',
-      lessonIds: ['lesson.m03.alpha', 'lesson.m03.beta'],
+      id: 'es.a0.m01',
+      title: 'Module 1',
+      lessonIds: ['es.a0.m01.l001', 'es.a0.m01.l002'],
     ),
   ],
   lessons: [
     Lesson(
-      id: 'lesson.m03.alpha',
-      moduleId: 'es.a0.m03',
-      title: 'Profile A',
+      id: 'es.a0.m01.l001',
+      moduleId: 'es.a0.m01',
+      title: 'Lesson 1',
       activities: [],
       prerequisites: [],
       estimatedDurationMinutes: 5,
@@ -407,9 +408,9 @@ const _competencyCourse = Course(
       ),
     ),
     Lesson(
-      id: 'lesson.m03.beta',
-      moduleId: 'es.a0.m03',
-      title: 'Profile B',
+      id: 'es.a0.m01.l002',
+      moduleId: 'es.a0.m01',
+      title: 'Lesson 2',
       activities: [],
       prerequisites: [],
       estimatedDurationMinutes: 5,

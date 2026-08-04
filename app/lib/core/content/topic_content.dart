@@ -396,6 +396,7 @@ class ExerciseTemplate {
     this.requiresExactAnswer = false,
     this.authoredMisconceptions = const [],
     this.reviewTemplateIds = const [],
+    this.productionContract,
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -432,6 +433,11 @@ class ExerciseTemplate {
               AuthoredMisconception.fromJson,
             ),
       reviewTemplateIds: optionalStringList(json, 'review_template_ids'),
+      productionContract: json['production_contract'] == null
+          ? null
+          : ProductionContract.fromJson(
+              requiredMap(json, 'production_contract'),
+            ),
     );
   }
 
@@ -448,6 +454,7 @@ class ExerciseTemplate {
   final bool requiresExactAnswer;
   final List<AuthoredMisconception> authoredMisconceptions;
   final List<String> reviewTemplateIds;
+  final ProductionContract? productionContract;
 
   Map<String, Object?> toJson() {
     return {
@@ -474,6 +481,8 @@ class ExerciseTemplate {
             .toList(growable: false),
       if (reviewTemplateIds.isNotEmpty)
         'review_template_ids': reviewTemplateIds,
+      if (productionContract != null)
+        'production_contract': productionContract!.toJson(),
     };
   }
 
@@ -496,7 +505,8 @@ class ExerciseTemplate {
             ) &&
             other.requiresExactAnswer == requiresExactAnswer &&
             listEquals(other.authoredMisconceptions, authoredMisconceptions) &&
-            listEquals(other.reviewTemplateIds, reviewTemplateIds);
+            listEquals(other.reviewTemplateIds, reviewTemplateIds) &&
+            other.productionContract == productionContract;
   }
 
   @override
@@ -514,6 +524,90 @@ class ExerciseTemplate {
     requiresExactAnswer,
     Object.hashAll(authoredMisconceptions),
     Object.hashAll(reviewTemplateIds),
+    productionContract,
+  );
+}
+
+class ProductionContract {
+  const ProductionContract({required this.mode, required this.functions});
+
+  factory ProductionContract.fromJson(Map<String, Object?> json) {
+    return ProductionContract(
+      mode: requiredString(json, 'mode'),
+      functions: requiredList(json, 'functions', ProductionFunction.fromJson),
+    );
+  }
+
+  final String mode;
+  final List<ProductionFunction> functions;
+
+  Map<String, Object?> toJson() => {
+    'mode': mode,
+    'functions': functions.map((function) => function.toJson()).toList(),
+  };
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductionContract &&
+          other.mode == mode &&
+          listEquals(other.functions, functions);
+
+  @override
+  int get hashCode => Object.hash(mode, Object.hashAll(functions));
+}
+
+class ProductionFunction {
+  const ProductionFunction({
+    required this.id,
+    required this.required,
+    this.acceptedRealizations = const [],
+    this.acceptedWithFeedbackRealizations = const [],
+  });
+
+  factory ProductionFunction.fromJson(Map<String, Object?> json) {
+    return ProductionFunction(
+      id: requiredString(json, 'id'),
+      required: optionalBool(json, 'required') ?? true,
+      acceptedRealizations: optionalStringList(json, 'accepted'),
+      acceptedWithFeedbackRealizations: optionalStringList(
+        json,
+        'accepted_with_feedback',
+      ),
+    );
+  }
+
+  final String id;
+  final bool required;
+  final List<String> acceptedRealizations;
+  final List<String> acceptedWithFeedbackRealizations;
+
+  Map<String, Object?> toJson() => {
+    'id': id,
+    if (!required) 'required': false,
+    'accepted': acceptedRealizations,
+    if (acceptedWithFeedbackRealizations.isNotEmpty)
+      'accepted_with_feedback': acceptedWithFeedbackRealizations,
+  };
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductionFunction &&
+          other.id == id &&
+          other.required == required &&
+          listEquals(other.acceptedRealizations, acceptedRealizations) &&
+          listEquals(
+            other.acceptedWithFeedbackRealizations,
+            acceptedWithFeedbackRealizations,
+          );
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    required,
+    Object.hashAll(acceptedRealizations),
+    Object.hashAll(acceptedWithFeedbackRealizations),
   );
 }
 

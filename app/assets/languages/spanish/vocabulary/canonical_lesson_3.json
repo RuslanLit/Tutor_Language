@@ -1,0 +1,106 @@
+[
+  {
+    "id": "vocab.es.a0.m01.l003.como_estas",
+    "spanish": "¿Cómo estás?",
+    "native_translation": "як ти?",
+    "cefr": "A0",
+    "example": "Hola. ¿Cómo estás?",
+    "pronunciation": "комо естас"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.estoy_bien",
+    "spanish": "Estoy bien.",
+    "native_translation": "у мене все добре",
+    "cefr": "A0",
+    "example": "Estoy bien, gracias.",
+    "pronunciation": "естой б'єн"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.muy_bien",
+    "spanish": "Muy bien.",
+    "native_translation": "дуже добре",
+    "cefr": "A0",
+    "example": "Muy bien, gracias.",
+    "pronunciation": "муй б'єн"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.mas_o_menos",
+    "spanish": "Más o menos.",
+    "native_translation": "більш-менш",
+    "cefr": "A0",
+    "example": "Más o menos, gracias.",
+    "pronunciation": "мас о менос"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.y_tu",
+    "spanish": "¿Y tú?",
+    "native_translation": "а ти?",
+    "cefr": "A0",
+    "example": "Estoy bien. ¿Y tú?",
+    "pronunciation": "і ту"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.muchas_gracias",
+    "spanish": "Muchas gracias.",
+    "native_translation": "дуже дякую",
+    "cefr": "A0",
+    "example": "Muchas gracias. De nada.",
+    "pronunciation": "мучас грасіас"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.de_nada",
+    "spanish": "De nada.",
+    "native_translation": "нема за що",
+    "cefr": "A0",
+    "example": "Gracias. De nada.",
+    "pronunciation": "де нада"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.perdon",
+    "spanish": "Perdón.",
+    "native_translation": "перепрошую",
+    "cefr": "A0",
+    "example": "Perdón. ¿Cómo te llamas?",
+    "pronunciation": "пердон"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.disculpa",
+    "spanish": "Disculpa.",
+    "native_translation": "вибач",
+    "cefr": "A0",
+    "example": "Disculpa. ¿Dónde vives?",
+    "pronunciation": "діскульпа"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.lo_siento",
+    "spanish": "Lo siento.",
+    "native_translation": "мені шкода",
+    "cefr": "A0",
+    "example": "Lo siento. No hablo francés.",
+    "pronunciation": "ло с'єнто"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.hasta_pronto",
+    "spanish": "Hasta pronto.",
+    "native_translation": "до скорого",
+    "cefr": "A0",
+    "example": "Gracias. Hasta pronto.",
+    "pronunciation": "аста пронто"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.nos_vemos",
+    "spanish": "Nos vemos.",
+    "native_translation": "побачимося",
+    "cefr": "A0",
+    "example": "Nos vemos. Adiós.",
+    "pronunciation": "нос бемос"
+  },
+  {
+    "id": "vocab.es.a0.m01.l003.que_tengas_un_buen_dia",
+    "spanish": "Que tengas un buen día.",
+    "native_translation": "гарного дня",
+    "cefr": "A0",
+    "example": "Gracias. Que tengas un buen día.",
+    "pronunciation": "ке тенгас ун буен діа"
+  }
+]

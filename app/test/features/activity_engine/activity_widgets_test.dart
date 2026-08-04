@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
+import 'package:tutor_language/features/activity_engine/activity_engine.dart';
+import 'package:tutor_language/features/activity_engine/activity_result.dart';
 import 'package:tutor_language/features/activity_engine/activity_template_state.dart';
 import 'package:tutor_language/features/activity_engine/activity_widgets.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
@@ -252,6 +257,46 @@ void main() {
     expect(textField.textInputAction, TextInputAction.newline);
   });
 
+  testWidgets('canonical Lesson 1 final answer uses multiline editing', (
+    tester,
+  ) async {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.independent_full_contact',
+    );
+
+    await tester.pumpWidget(
+      _localizedApp(Scaffold(body: ActivityTemplateWidget(template: template))),
+    );
+
+    final textField = tester.widget<TextField>(find.byType(TextField));
+
+    expect(textField.minLines, 3);
+    expect(textField.maxLines, 8);
+    expect(textField.keyboardType, TextInputType.multiline);
+    expect(textField.textInputAction, TextInputAction.newline);
+  });
+
+  testWidgets('canonical Lesson 1 Step 4 uses multiline editing', (
+    tester,
+  ) async {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.guided_full_contact',
+    );
+
+    await tester.pumpWidget(
+      _localizedApp(Scaffold(body: ActivityTemplateWidget(template: template))),
+    );
+
+    final textField = tester.widget<TextField>(find.byType(TextField));
+
+    expect(textField.minLines, 3);
+    expect(textField.maxLines, 8);
+    expect(textField.keyboardType, TextInputType.multiline);
+    expect(textField.textInputAction, TextInputAction.newline);
+  });
+
   testWidgets('short text_entry widget remains single-line', (tester) async {
     await tester.pumpWidget(
       _localizedApp(
@@ -267,6 +312,136 @@ void main() {
     expect(textField.maxLines, 1);
     expect(textField.keyboardType, TextInputType.text);
     expect(textField.textInputAction, TextInputAction.done);
+  });
+
+  testWidgets('long prompt with short expected answer remains single-line', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(
+            template: _longPromptShortExpectedTemplate,
+          ),
+        ),
+      ),
+    );
+
+    final textField = tester.widget<TextField>(find.byType(TextField));
+
+    expect(textField.minLines, 1);
+    expect(textField.maxLines, 1);
+    expect(textField.keyboardType, TextInputType.text);
+    expect(textField.textInputAction, TextInputAction.done);
+  });
+
+  test('canonical Lesson 1 Step 4 restores the short first contact', () {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.guided_full_contact',
+    );
+
+    expect(template.exerciseType, 'fill_gap');
+    expect(template.promptTemplate, contains('Заповни всі пропуски'));
+    expect(
+      template.promptTemplate,
+      contains('Кожен рядок пиши з нового рядка'),
+    );
+    expect(template.promptTemplate, contains('H__a. Buenos d__s.'));
+    expect(template.promptTemplate, contains('Hasta l____.'));
+    expect(
+      template.expectedAnswer,
+      'Hola. Buenos días.\n'
+      'Me llamo Marta.\n'
+      '¿Cómo te llamas?\n'
+      'Me llamo Ana.\n'
+      'Mucho gusto.\n'
+      'Hasta luego.',
+    );
+
+    final result = const ActivityEngine().evaluate(
+      template: template,
+      submission: const ActivitySubmission(
+        submittedAnswer:
+            'Hola. Buenos días. Me llamo Marta. ¿Cómo te llamas? Me llamo Ana. Mucho gusto. Hasta luego.',
+      ),
+    );
+
+    expect(result.status, ActivityResultStatus.correct);
+  });
+
+  test('canonical Lesson 1 Step 4 is case-insensitive', () {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.guided_full_contact',
+    );
+
+    for (final greeting in ['hola.', 'HOLA.', 'HoLa.']) {
+      final result = const ActivityEngine().evaluate(
+        template: template,
+        submission: ActivitySubmission(
+          submittedAnswer:
+              '$greeting Buenos días.\n'
+              'Me llamo Marta.\n'
+              '¿Cómo te llamas?\n'
+              'Me llamo Ana.\n'
+              'Mucho gusto.\n'
+              'Hasta luego.',
+        ),
+      );
+
+      expect(result.isCorrect, isTrue);
+    }
+  });
+
+  test('canonical Lesson 1 Step 5 is case-insensitive', () {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.independent_full_contact',
+    );
+
+    for (final greeting in ['hola.', 'HOLA.', 'HoLa.']) {
+      final result = const ActivityEngine().evaluate(
+        template: template,
+        submission: ActivitySubmission(
+          submittedAnswer:
+              '$greeting Buenos días.\n'
+              'Me llamo Marta.\n'
+              '¿Cómo te llamas?\n'
+              'Me llamo Ana.\n'
+              'Mucho gusto.\n'
+              'Hasta luego.',
+        ),
+      );
+
+      expect(result.isCorrect, isTrue);
+    }
+  });
+
+  test('canonical Lesson 1 rejects obsolete profile expansion', () {
+    final template = _canonicalLesson1Templates().firstWhere(
+      (template) =>
+          template.id == 'template.es.a0.m01.l001.independent_full_contact',
+    );
+
+    final result = const ActivityEngine().evaluate(
+      template: template,
+      submission: const ActivitySubmission(
+        submittedAnswer:
+            'Hola. Buenos días.\n'
+            'Me llamo Marta.\n'
+            '¿Cómo te llamas?\n'
+            'Me llamo Ana.\n'
+            'Mucho gusto.\n'
+            '¿De dónde eres?\n'
+            'Soy de España.\n'
+            '¿Hablas español?\n'
+            'Sí.\n'
+            'Gracias. Hasta luego.',
+      ),
+    );
+
+    expect(result.status, ActivityResultStatus.incorrect);
   });
 
   testWidgets('feedback does not leak between typed activities', (
@@ -410,6 +585,17 @@ const _longTemplate = ExerciseTemplate(
       'Me llamo Marta. Soy de Colombia. Vivo en Lima. Hablo español.',
 );
 
+const _longPromptShortExpectedTemplate = ExerciseTemplate(
+  id: 'template.widget.long_prompt_short_expected',
+  exerciseType: 'text_entry',
+  supportedGoalTypes: ['guided_full_exchange'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate:
+      'This prompt is deliberately long because it explains a realistic '
+      'context, but the learner action is still just two short expressions.',
+  expectedAnswer: 'Hola, Adiós',
+);
+
 const _matchingTemplate = ExerciseTemplate(
   id: 'template.widget.matching',
   exerciseType: 'matching',
@@ -427,3 +613,14 @@ const _ukrainianMatchingTemplate = ExerciseTemplate(
   promptTemplate: 'Введіть українське значення для кожної іспанської форми.',
   expectedAnswer: 'hola=привіт; gracias=дякую; no entiendo=я не розумію',
 );
+
+List<ExerciseTemplate> _canonicalLesson1Templates() {
+  final raw = File(
+    'assets/languages/spanish/templates/canonical_lesson_1.json',
+  ).readAsStringSync();
+  final decoded = jsonDecode(raw) as List<Object?>;
+  return decoded
+      .cast<Map<String, Object?>>()
+      .map(ExerciseTemplate.fromJson)
+      .toList(growable: false);
+}

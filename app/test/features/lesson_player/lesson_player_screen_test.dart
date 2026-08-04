@@ -57,16 +57,19 @@ void main() {
     await tester.pumpWidget(
       _app(const LessonPlayerScreen(lessonId: _lessonId)),
     );
-    await _pumpUntilFound(tester, find.text('First Spanish Hello'));
+    await _pumpUntilFound(tester, find.text('Урок 1'));
 
-    expect(find.text('First Spanish Hello'), findsOneWidget);
-    expect(find.text('Module 1'), findsOneWidget);
+    expect(find.text('Урок 1'), findsOneWidget);
     expect(find.text('A0'), findsOneWidget);
-    expect(find.text('es.a0.m06.l016'), findsNothing);
+    expect(find.text('es.a0.m01.l001'), findsNothing);
     expect(find.text('es.a0.m01'), findsNothing);
     expect(find.text('es.a0'), findsNothing);
-    expect(find.text('Your first Spanish word'), findsWidgets);
-    expect(find.text('Hola.'), findsWidgets);
+    expect(find.text('Content coming soon.'), findsNothing);
+    expect(find.text('Мета першого знайомства'), findsOneWidget);
+    expect(find.text('Завершити перший контакт'), findsOneWidget);
+    expect(find.text('Перше знайомство'), findsOneWidget);
+    expect(find.text('Me llamo Marta.'), findsWidgets);
+    expect(find.text('¿Cómo te llamas?'), findsWidgets);
     expect(find.text('grammar'), findsNothing);
     expect(find.text('Greeting Exchange'), findsNothing);
   });
@@ -1279,7 +1282,7 @@ class _FinalCourseContentRepository extends ContentRepository {
   }
 }
 
-const _lessonId = 'es.a0.m06.l016';
+const _lessonId = 'es.a0.m01.l001';
 
 const _dynamicLessonContent = LessonContent(
   lesson: Lesson(
