@@ -737,4 +737,338 @@ class AppLocalizationsEn extends AppLocalizations {
   String feedbackStartsWith(String prefix) {
     return 'Starts with: $prefix';
   }
+
+  @override
+  String get primerTitle => 'Spanish Alphabet';
+
+  @override
+  String get primerSubtitle =>
+      'Optional 5–10 minute reading map before Lesson 1.';
+
+  @override
+  String get primerInProgress => 'Continue the optional reading primer.';
+
+  @override
+  String get primerCompleted => 'Completed. Review it any time.';
+
+  @override
+  String get primerSkipped => 'Skipped. You can reopen it any time.';
+
+  @override
+  String get primerUnavailable => 'Optional reading support';
+
+  @override
+  String get primerStart => 'Start primer';
+
+  @override
+  String get primerReview => 'Review primer';
+
+  @override
+  String get primerOptional =>
+      'Optional preparation — Lesson 1 stays available.';
+
+  @override
+  String get primerIntro =>
+      'Below is an approximate guide to Spanish letters. You will learn to read words gradually in the lessons.';
+
+  @override
+  String get primerContinue => 'Continue to Lesson 1';
+
+  @override
+  String get primerAlphabetTitle => 'Spanish alphabet';
+
+  @override
+  String get primerAlphabetRows =>
+      'A (ay) — a\nB (bee) — b\nC (see) — k or s\nD (dee) — d\nE (ee) — e\nF (ef) — f\nG (heh) — g or h\nH (ah-cheh) — not pronounced\nI (ee) — ee\nJ (ho-ta) — approximately a strong h\nK (kah) — k\nL (eh-leh) — l\nM (eh-meh) — m\nN (eh-neh) — n\nÑ (en-yeh) — approximately ny\nO (oh) — o\nP (peh) — p\nQ (koo) — k\nR (eh-rreh) — r\nS (eh-seh) — s\nT (teh) — t\nU (oo) — oo\nV (oo-beh) — approximately b\nW (oo-beh doh-bleh) — depends on the word\nX (eh-kees) — usually ks\nY (ee-gree-eh-gah) — approximately y or ee\nZ (seh-tah) — approximately s';
+
+  @override
+  String get primerDigraphTitle => 'Common letter combinations';
+
+  @override
+  String get primerDigraphRows =>
+      'CH (cheh) — approximately ch\nLL (eh-yeh) — approximately y';
+
+  @override
+  String get primerSkip => 'Skip for now';
+
+  @override
+  String primerSectionCounter(int current, int total) {
+    return 'Reading map $current of $total';
+  }
+
+  @override
+  String get primerExamples => 'Real Spanish examples';
+
+  @override
+  String get primerLettersTitle => 'Letters and common combinations';
+
+  @override
+  String get primerExamplesTitle => 'Real course examples';
+
+  @override
+  String get primerReviewTitle => 'Quick recognition check';
+
+  @override
+  String get primerLetterColumn => 'Spanish form';
+
+  @override
+  String get primerReadingColumn => 'Approximate reading';
+
+  @override
+  String get primerSpanishColumn => 'Spanish';
+
+  @override
+  String get primerMeaningColumn => 'Meaning';
+
+  @override
+  String get primerStressHint =>
+      'The capitalized syllable carries the main stress.';
+
+  @override
+  String get primerLetterH => 'h (hache)';
+
+  @override
+  String get primerReadingA => 'ah';
+
+  @override
+  String get primerReadingE => 'eh';
+
+  @override
+  String get primerReadingI => 'ee';
+
+  @override
+  String get primerReadingO => 'oh';
+
+  @override
+  String get primerReadingU => 'oo';
+
+  @override
+  String get primerReadingH => 'not pronounced';
+
+  @override
+  String get primerReadingJ => 'like a strong h';
+
+  @override
+  String get primerReadingEnye => 'like ny';
+
+  @override
+  String get primerReadingLl => 'like y; in llamo, approximately yah';
+
+  @override
+  String get primerReadingR => 'a short r';
+
+  @override
+  String get primerReadingRr => 'a stronger rolled r';
+
+  @override
+  String get primerApproxReadingLabel => 'Approximate reading';
+
+  @override
+  String get primerReadingHola => 'OH-lah';
+
+  @override
+  String get primerReadingMe => 'meh';
+
+  @override
+  String get primerReadingTu => 'too';
+
+  @override
+  String get primerReadingBuenosDias => 'BWEH-nos DEE-ahs';
+
+  @override
+  String get primerReadingHastaLuego => 'AHS-tah LWEH-goh';
+
+  @override
+  String get primerReadingMeLlamo => 'meh YAH-moh';
+
+  @override
+  String get primerReadingYTu => 'ee too';
+
+  @override
+  String get primerReadingEspana => 'es-PAH-nyah';
+
+  @override
+  String get primerReadingMadrid => 'mah-DRID';
+
+  @override
+  String get primerReadingComo => 'KOH-moh';
+
+  @override
+  String get primerReadingComoTeLlamas => 'KOH-moh teh YAH-mahs';
+
+  @override
+  String get primerReadingGracias => 'GRAH-syahs';
+
+  @override
+  String get primerReadingPrompt => 'Reading habit';
+
+  @override
+  String get primerRecognitionPrompt =>
+      'Read the Spanish form as a whole, notice the highlighted pattern, and keep the example ready for later lessons.';
+
+  @override
+  String get primerFinish => 'Complete primer';
+
+  @override
+  String get primerReopenHint =>
+      'This primer is optional and can be reviewed again from the course screen.';
+
+  @override
+  String get primerVowelsTitle => 'Stable vowels: a, e, i, o, u';
+
+  @override
+  String get primerVowelsBody =>
+      'Read a, e, i, o and u clearly and steadily. The examples below show a practical approximation; the capitalized syllable carries the main stress.';
+
+  @override
+  String get primerVowelGuide =>
+      'Reading cue: a is like ah; e like eh; i like ee; o like oh; u like oo.';
+
+  @override
+  String get primerSilentHTitle => 'h is written but not pronounced';
+
+  @override
+  String get primerSilentHBody =>
+      'In Spanish, h normally has no separate sound. Notice this in hola and hasta luego.';
+
+  @override
+  String get primerLlYTitle => 'll and y in early course words';
+
+  @override
+  String get primerLlYBody =>
+      'll is a single written unit in llamo and llamas. y is a separate letter, as in y tú. Regional pronunciation varies, but the written patterns remain visible.';
+
+  @override
+  String get primerEnyeTitle => 'ñ is a distinct Spanish letter';
+
+  @override
+  String get primerEnyeBody =>
+      'ñ is not the same as n. Recognize it in España and keep the tilde as part of the Spanish spelling.';
+
+  @override
+  String get primerRRTitle => 'r and rr';
+
+  @override
+  String get primerRRBody =>
+      'r and rr mark different written patterns. A single r appears in Madrid; rr is the strong pattern in perro. The Primer only builds recognition, not accent training.';
+
+  @override
+  String get primerContextTitle => 'Context patterns: c, g, qu, gu and gü';
+
+  @override
+  String get primerContextBody =>
+      'c and g change their reading with the following vowel. qu commonly keeps the k-like reading before e/i; gu and gü show different written cues. Meet these patterns as complete words, not as a long rule table.';
+
+  @override
+  String get primerAccentsTitle => 'Accents and Spanish punctuation';
+
+  @override
+  String get primerAccentsBody =>
+      'á, é, í, ó and ú are familiar vowels with a meaningful written accent. Notice the mark in Cómo and días; full Spanish stress rules are outside this Primer.';
+
+  @override
+  String get primerTryReview => 'Try a quick review';
+
+  @override
+  String get primerNoticeLabel => 'NOTICE';
+
+  @override
+  String get primerTryLabel => 'TRY IT';
+
+  @override
+  String primerReviewCounter(Object current, Object total) {
+    return 'Recognition $current of $total';
+  }
+
+  @override
+  String primerCorrectReading(String word, String hint) {
+    return 'Correct. $word is read approximately as $hint.';
+  }
+
+  @override
+  String get primerTryAgain =>
+      'Not quite. Read the options again and try once more.';
+
+  @override
+  String get primerCheck => 'Check';
+
+  @override
+  String get primerLlTitle => 'll is a Spanish spelling pattern';
+
+  @override
+  String get primerLlBody =>
+      'In this course, ll in me llamo uses a y-like starting sound: approximately meh YAH-moh. Other regions may vary, but this is the course reference for now.';
+
+  @override
+  String get primerEnyeRTitle => 'ñ and a single r';
+
+  @override
+  String get primerEnyeRBody =>
+      'In España, ñ is read with a y-like n sound: es-PAH-nyah. Madrid has a single r: mah-DRID. This is an approximate reading, not a perfect-r test.';
+
+  @override
+  String get primerAccentsQuestionsTitle =>
+      'Accent marks and written questions';
+
+  @override
+  String get primerAccentsQuestionsBody =>
+      'An accent mark helps show stress: Cómo is KOH-moh and días is BWEH-nos DEE-ahs in the example phrase. ¿ begins a written question and ? ends it; punctuation is not a sound.';
+
+  @override
+  String get primerNarrowCTitle => 'A small c reading clue';
+
+  @override
+  String get primerNarrowCBody =>
+      'c is not read the same way in every context: c in Cómo is k-like (KOH-moh), while c in Gracias is s-like in this course reference (GRAH-syahs). This is a small clue, not a full c chapter.';
+
+  @override
+  String get primerExampleHola => 'a greeting';
+
+  @override
+  String get primerExampleMe => 'me / myself';
+
+  @override
+  String get primerExampleTu => 'you';
+
+  @override
+  String get primerExampleBuenosDias => 'a daytime greeting';
+
+  @override
+  String get primerExampleMeLlamo => 'saying your name';
+
+  @override
+  String get primerExampleHastaLuego => 'a farewell';
+
+  @override
+  String get primerExampleYTu => 'asking about the other person';
+
+  @override
+  String get primerExampleEspana => 'Spain';
+
+  @override
+  String get primerExampleMadrid => 'Madrid';
+
+  @override
+  String get primerExampleComo => 'how / what way';
+
+  @override
+  String get primerExampleComoTeLlamas => 'What is your name?';
+
+  @override
+  String get primerExampleGracias => 'thank you';
+
+  @override
+  String primerReviewHolaReadingPrompt(String hint) {
+    return 'Which Spanish word is read approximately as $hint?';
+  }
+
+  @override
+  String primerReviewEspanaReadingPrompt(String hint) {
+    return 'Which Spanish word is read approximately as $hint?';
+  }
+
+  @override
+  String primerReviewQuestionReadingPrompt(String hint) {
+    return 'Which Spanish question is read approximately as $hint?';
+  }
 }

@@ -81,6 +81,24 @@ A course does not perform teaching.
 
 Teaching is performed by the Learning Engine.
 
+## Optional reading primer
+
+A target-language course may provide a separate optional reading/pronunciation
+primer before its first canonical lesson when a beginner's support language has
+different grapheme-to-sound expectations. The primer is preparation, not a
+numbered lesson: it must not change canonical lesson IDs, lesson count,
+prerequisites, or progress totals. It must be skippable, reopenable and
+completable without blocking Lesson 1.
+
+Keep the first pass small and deterministic. The current Spanish A0 reference
+is one scrollable alphabet screen: letter names and beginner reading cues, then
+the separate common digraphs `ch` and `ll`. It is a preparation resource, not a
+word-pronunciation course. Do not add a universal English respelling, runtime
+AI, ASR, audio scoring or cloud dependency. Support-language explanations must
+be authored for the released locale; Spanish target forms remain Spanish. The
+primer does not replace just-in-time reading and pronunciation support inside
+later lessons.
+
 ---
 
 # Design Goals

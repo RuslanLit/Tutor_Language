@@ -746,4 +746,339 @@ class AppLocalizationsUk extends AppLocalizations {
   String feedbackStartsWith(String prefix) {
     return 'Починається з: $prefix';
   }
+
+  @override
+  String get primerTitle => 'Іспанський алфавіт';
+
+  @override
+  String get primerSubtitle =>
+      'Необов\'язкова карта читання на 5–10 хвилин перед уроком 1.';
+
+  @override
+  String get primerInProgress =>
+      'Продовжіть необов\'язкову підготовку до читання.';
+
+  @override
+  String get primerCompleted => 'Завершено. Ви можете повторити будь-коли.';
+
+  @override
+  String get primerSkipped =>
+      'Пропущено. Ви можете відкрити підготовку будь-коли.';
+
+  @override
+  String get primerUnavailable => 'Необов\'язкова підтримка читання';
+
+  @override
+  String get primerStart => 'Почати підготовку';
+
+  @override
+  String get primerReview => 'Повторити підготовку';
+
+  @override
+  String get primerOptional =>
+      'Необов\'язкова підготовка — урок 1 залишається доступним.';
+
+  @override
+  String get primerIntro =>
+      'Нижче показано, як приблизно звучать іспанські літери. Читання слів ви поступово вивчатимете в уроках.';
+
+  @override
+  String get primerContinue => 'Перейти до уроку 1';
+
+  @override
+  String get primerAlphabetTitle => 'Іспанський алфавіт';
+
+  @override
+  String get primerAlphabetRows =>
+      'A (а) — а\nB (бе) — б\nC (се) — к або с\nD (де) — д\nE (е) — е\nF (ефе) — ф\nG (хе) — г або х\nH (аче) — не читається\nI (і) — і\nJ (хота) — приблизно х\nK (ка) — к\nL (еле) — л\nM (еме) — м\nN (ене) — н\nÑ (еньє) — приблизно нь\nO (о) — о\nP (пе) — п\nQ (ку) — к\nR (ерре) — р\nS (есе) — с\nT (те) — т\nU (у) — у\nV (уве) — приблизно б\nW (уве добле) — звучання залежить від слова\nX (екіс) — переважно кс\nY (і грієга) — приблизно й або і\nZ (сета) — приблизно с';
+
+  @override
+  String get primerDigraphTitle => 'Поширені сполучення букв';
+
+  @override
+  String get primerDigraphRows =>
+      'CH (че) — приблизно ч\nLL (ельє) — приблизно й';
+
+  @override
+  String get primerSkip => 'Пропустити зараз';
+
+  @override
+  String primerSectionCounter(int current, int total) {
+    return 'Карта читання: $current з $total';
+  }
+
+  @override
+  String get primerExamples => 'Реальні іспанські приклади';
+
+  @override
+  String get primerLettersTitle => 'Літери й поширені сполучення';
+
+  @override
+  String get primerExamplesTitle => 'Реальні приклади з курсу';
+
+  @override
+  String get primerReviewTitle => 'Коротка перевірка читання';
+
+  @override
+  String get primerLetterColumn => 'Іспанська форма';
+
+  @override
+  String get primerReadingColumn => 'Як приблизно читається';
+
+  @override
+  String get primerSpanishColumn => 'Іспанською';
+
+  @override
+  String get primerMeaningColumn => 'Значення';
+
+  @override
+  String get primerStressHint =>
+      'Склад великими літерами вимовляється з наголосом.';
+
+  @override
+  String get primerLetterH => 'h (аче)';
+
+  @override
+  String get primerReadingA => 'а';
+
+  @override
+  String get primerReadingE => 'е';
+
+  @override
+  String get primerReadingI => 'і';
+
+  @override
+  String get primerReadingO => 'о';
+
+  @override
+  String get primerReadingU => 'у';
+
+  @override
+  String get primerReadingH => 'не читається';
+
+  @override
+  String get primerReadingJ => 'приблизно як українське «х»';
+
+  @override
+  String get primerReadingEnye => 'приблизно як «нь»';
+
+  @override
+  String get primerReadingLl => 'приблизно як «й»; у llamo — «я»';
+
+  @override
+  String get primerReadingR => 'коротке «р»';
+
+  @override
+  String get primerReadingRr => 'сильніше, розкотисте «р»';
+
+  @override
+  String get primerApproxReadingLabel => 'Приблизно читається';
+
+  @override
+  String get primerReadingHola => 'О-ла';
+
+  @override
+  String get primerReadingMe => 'ме';
+
+  @override
+  String get primerReadingTu => 'ту';
+
+  @override
+  String get primerReadingBuenosDias => 'БУ-Е-нос ДІ-ас';
+
+  @override
+  String get primerReadingHastaLuego => 'АС-та ЛУ-Е-го';
+
+  @override
+  String get primerReadingMeLlamo => 'ме Я-мо';
+
+  @override
+  String get primerReadingYTu => 'і ту';
+
+  @override
+  String get primerReadingEspana => 'ес-ПА-нья';
+
+  @override
+  String get primerReadingMadrid => 'ма-ДРІД';
+
+  @override
+  String get primerReadingComo => 'КО-мо';
+
+  @override
+  String get primerReadingComoTeLlamas => 'КО-мо те Я-мас';
+
+  @override
+  String get primerReadingGracias => 'ГРА-сіас';
+
+  @override
+  String get primerReadingPrompt => 'Звичка читання';
+
+  @override
+  String get primerRecognitionPrompt =>
+      'Прочитайте іспанську форму цілком, зверніть увагу на потрібну закономірність і збережіть приклад для наступних уроків.';
+
+  @override
+  String get primerFinish => 'Завершити підготовку';
+
+  @override
+  String get primerReopenHint =>
+      'Ця підготовка необов\'язкова, і її можна повторити з екрана курсу.';
+
+  @override
+  String get primerVowelsTitle => 'Стабільні голосні: a, e, i, o, u';
+
+  @override
+  String get primerVowelsBody =>
+      'Читайте a, e, i, o та u чітко й рівно. Приклади нижче дають практичну приблизну підказку; склад великими літерами має основний наголос.';
+
+  @override
+  String get primerVowelGuide =>
+      'Підказка: a — приблизно «а», e — «е», i — «і», o — «о», u — «у».';
+
+  @override
+  String get primerSilentHTitle => 'h пишеться, але не вимовляється';
+
+  @override
+  String get primerSilentHBody =>
+      'Літера h в іспанській зазвичай не має окремого звука. Це видно в hola та hasta luego.';
+
+  @override
+  String get primerLlYTitle => 'll та y у ранніх словах курсу';
+
+  @override
+  String get primerLlYBody =>
+      'll — одна письмова одиниця в llamo та llamas. y — окрема літера, як у y tú. Вимова залежить від регіону, але написані моделі залишаються видимими.';
+
+  @override
+  String get primerEnyeTitle => 'ñ — окрема іспанська літера';
+
+  @override
+  String get primerEnyeBody =>
+      'ñ — не те саме, що n. Розпізнавайте її в España й зберігайте тильду як частину іспанського написання.';
+
+  @override
+  String get primerRRTitle => 'r та rr';
+
+  @override
+  String get primerRRBody =>
+      'r та rr позначають різні письмові моделі. Одна r є в Madrid; rr — сильна модель у perro. Підготовка формує лише розпізнавання, а не тренує акцент.';
+
+  @override
+  String get primerContextTitle => 'Контекстні моделі: c, g, qu, gu та gü';
+
+  @override
+  String get primerContextBody =>
+      'c і g змінюють читання залежно від наступної голосної. qu зазвичай зберігає звук k перед e/i; gu та gü дають різні письмові підказки. Зустрічайте ці моделі в цілих словах, а не в довгій таблиці правил.';
+
+  @override
+  String get primerAccentsTitle => 'Наголоси й іспанська пунктуація';
+
+  @override
+  String get primerAccentsBody =>
+      'á, é, í, ó та ú — знайомі голосні зі значущим письмовим наголосом. Зверніть увагу на знак у Cómo та días; повні правила іспанського наголосу не входять до цієї підготовки.';
+
+  @override
+  String get primerTryReview => 'Перевірити себе';
+
+  @override
+  String get primerNoticeLabel => 'ЗВЕРНІТЬ УВАГУ';
+
+  @override
+  String get primerTryLabel => 'СПРОБУЙТЕ';
+
+  @override
+  String primerReviewCounter(Object current, Object total) {
+    return 'Розпізнавання: $current з $total';
+  }
+
+  @override
+  String primerCorrectReading(String word, String hint) {
+    return 'Правильно. $word приблизно читається як $hint.';
+  }
+
+  @override
+  String get primerTryAgain =>
+      'Поки що ні. Ще раз прочитайте варіанти й спробуйте.';
+
+  @override
+  String get primerCheck => 'Перевірити';
+
+  @override
+  String get primerLlTitle => 'll — іспанська письмова модель';
+
+  @override
+  String get primerLlBody =>
+      'У цьому курсі ll у me llamo починається приблизно як українське «й»: ме Я-мо. В інших регіонах можливі варіанти, але це наша початкова модель.';
+
+  @override
+  String get primerEnyeRTitle => 'ñ та одинарне r';
+
+  @override
+  String get primerEnyeRBody =>
+      'У España ñ читається з м\'яким «нь»: ес-ПА-нья. У Madrid є одна r: ма-ДРІД. Це приблизне читання, а не перевірка ідеального r.';
+
+  @override
+  String get primerAccentsQuestionsTitle => 'Наголос і питання на письмі';
+
+  @override
+  String get primerAccentsQuestionsBody =>
+      'Знак наголосу допомагає побачити наголошений склад: Cómo — КО-мо, а Buenos días — БУ-Е-нос ДІ-ас. ¿ відкриває письмове питання, а ? його закриває; це не окремі звуки.';
+
+  @override
+  String get primerNarrowCTitle => 'Невелика підказка для c';
+
+  @override
+  String get primerNarrowCBody =>
+      'c не читається однаково в усіх позиціях: у Cómo вона дає звук, близький до «к» — КО-мо, а в Gracias у нашій моделі близька до «с» — ГРА-сіас. Це лише мала підказка, не повний розділ про c.';
+
+  @override
+  String get primerExampleHola => 'привітання';
+
+  @override
+  String get primerExampleMe => 'я / мене';
+
+  @override
+  String get primerExampleTu => 'ти';
+
+  @override
+  String get primerExampleBuenosDias => 'денне привітання';
+
+  @override
+  String get primerExampleMeLlamo => 'як назвати своє ім\'я';
+
+  @override
+  String get primerExampleHastaLuego => 'прощання';
+
+  @override
+  String get primerExampleYTu => 'питання про співрозмовника';
+
+  @override
+  String get primerExampleEspana => 'Іспанія';
+
+  @override
+  String get primerExampleMadrid => 'Мадрид';
+
+  @override
+  String get primerExampleComo => 'як / яким способом';
+
+  @override
+  String get primerExampleComoTeLlamas => 'Як тебе звати?';
+
+  @override
+  String get primerExampleGracias => 'дякую';
+
+  @override
+  String primerReviewHolaReadingPrompt(String hint) {
+    return 'Яке іспанське слово приблизно читається як $hint?';
+  }
+
+  @override
+  String primerReviewEspanaReadingPrompt(String hint) {
+    return 'Яке іспанське слово приблизно читається як $hint?';
+  }
+
+  @override
+  String primerReviewQuestionReadingPrompt(String hint) {
+    return 'Яке іспанське питання приблизно читається як $hint?';
+  }
 }

@@ -491,6 +491,26 @@ This phase does not implement:
 Future implementation should continue migrating copied `pronunciation` strings
 to stable PronunciationUnit references.
 
+## Spanish A0 Alphabet Preparation
+
+The Spanish A0 course may expose one optional Spanish Alphabet / Reading
+Preparation screen before Lesson 1. It is a compact scrollable reference, not
+Lesson 0, a pronunciation course or a prerequisite. It does not count toward
+the five canonical lessons. The learner may skip it or reopen it later; using
+the Continue action marks only the preparation as completed before opening
+canonical Lesson 1.
+
+The screen presents the 27 modern Spanish letters with learner-language
+approximations for letter names and beginner reading orientation, followed by
+the common `ch` and `ll` digraphs. Spanish target forms remain unchanged and
+the support explanations are authored independently for each supported locale.
+There are no word examples, recognition questions, retry exercises, audio,
+ASR, pronunciation scoring, runtime AI or cloud dependency in this screen.
+
+Skipping or completing the preparation never changes the canonical 0/5 lesson
+progress or competency state. More detailed spelling and pronunciation support
+belongs just in time inside later lessons.
+
 ---
 
 End of document.

@@ -12,6 +12,7 @@ import '../../features/lesson_launch/lesson_launch_intent.dart';
 import '../../features/lesson_player/lesson_player_screen.dart';
 import '../../features/settings/settings_screen.dart';
 import '../../features/topic/topic_screen.dart';
+import '../../features/pronunciation_primer/pronunciation_primer.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -31,6 +32,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: CourseRoute.path,
         name: CourseRoute.name,
         builder: (context, state) => const CourseNavigationScreen(),
+      ),
+      GoRoute(
+        path: PronunciationPrimerRoute.path,
+        name: PronunciationPrimerRoute.name,
+        builder: (context, state) => const PronunciationPrimerScreen(),
       ),
       GoRoute(
         path: TopicRoute.path,
@@ -103,6 +109,11 @@ abstract final class SettingsRoute {
 abstract final class CourseRoute {
   static const name = 'course';
   static const path = '/course';
+}
+
+abstract final class PronunciationPrimerRoute {
+  static const name = 'pronunciationPrimer';
+  static const path = '/course/pronunciation-primer';
 }
 
 abstract final class TopicRoute {

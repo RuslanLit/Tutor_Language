@@ -1267,6 +1267,606 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Starts with: {prefix}'**
   String feedbackStartsWith(String prefix);
+
+  /// No description provided for @primerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish Alphabet'**
+  String get primerTitle;
+
+  /// No description provided for @primerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional 5–10 minute reading map before Lesson 1.'**
+  String get primerSubtitle;
+
+  /// No description provided for @primerInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue the optional reading primer.'**
+  String get primerInProgress;
+
+  /// No description provided for @primerCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed. Review it any time.'**
+  String get primerCompleted;
+
+  /// No description provided for @primerSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Skipped. You can reopen it any time.'**
+  String get primerSkipped;
+
+  /// No description provided for @primerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional reading support'**
+  String get primerUnavailable;
+
+  /// No description provided for @primerStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start primer'**
+  String get primerStart;
+
+  /// No description provided for @primerReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Review primer'**
+  String get primerReview;
+
+  /// No description provided for @primerOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional preparation — Lesson 1 stays available.'**
+  String get primerOptional;
+
+  /// No description provided for @primerIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Below is an approximate guide to Spanish letters. You will learn to read words gradually in the lessons.'**
+  String get primerIntro;
+
+  /// No description provided for @primerContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue to Lesson 1'**
+  String get primerContinue;
+
+  /// No description provided for @primerAlphabetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish alphabet'**
+  String get primerAlphabetTitle;
+
+  /// No description provided for @primerAlphabetRows.
+  ///
+  /// In en, this message translates to:
+  /// **'A (ay) — a\nB (bee) — b\nC (see) — k or s\nD (dee) — d\nE (ee) — e\nF (ef) — f\nG (heh) — g or h\nH (ah-cheh) — not pronounced\nI (ee) — ee\nJ (ho-ta) — approximately a strong h\nK (kah) — k\nL (eh-leh) — l\nM (eh-meh) — m\nN (eh-neh) — n\nÑ (en-yeh) — approximately ny\nO (oh) — o\nP (peh) — p\nQ (koo) — k\nR (eh-rreh) — r\nS (eh-seh) — s\nT (teh) — t\nU (oo) — oo\nV (oo-beh) — approximately b\nW (oo-beh doh-bleh) — depends on the word\nX (eh-kees) — usually ks\nY (ee-gree-eh-gah) — approximately y or ee\nZ (seh-tah) — approximately s'**
+  String get primerAlphabetRows;
+
+  /// No description provided for @primerDigraphTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Common letter combinations'**
+  String get primerDigraphTitle;
+
+  /// No description provided for @primerDigraphRows.
+  ///
+  /// In en, this message translates to:
+  /// **'CH (cheh) — approximately ch\nLL (eh-yeh) — approximately y'**
+  String get primerDigraphRows;
+
+  /// No description provided for @primerSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip for now'**
+  String get primerSkip;
+
+  /// No description provided for @primerSectionCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading map {current} of {total}'**
+  String primerSectionCounter(int current, int total);
+
+  /// No description provided for @primerExamples.
+  ///
+  /// In en, this message translates to:
+  /// **'Real Spanish examples'**
+  String get primerExamples;
+
+  /// No description provided for @primerLettersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Letters and common combinations'**
+  String get primerLettersTitle;
+
+  /// No description provided for @primerExamplesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Real course examples'**
+  String get primerExamplesTitle;
+
+  /// No description provided for @primerReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick recognition check'**
+  String get primerReviewTitle;
+
+  /// No description provided for @primerLetterColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish form'**
+  String get primerLetterColumn;
+
+  /// No description provided for @primerReadingColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Approximate reading'**
+  String get primerReadingColumn;
+
+  /// No description provided for @primerSpanishColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get primerSpanishColumn;
+
+  /// No description provided for @primerMeaningColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Meaning'**
+  String get primerMeaningColumn;
+
+  /// No description provided for @primerStressHint.
+  ///
+  /// In en, this message translates to:
+  /// **'The capitalized syllable carries the main stress.'**
+  String get primerStressHint;
+
+  /// No description provided for @primerLetterH.
+  ///
+  /// In en, this message translates to:
+  /// **'h (hache)'**
+  String get primerLetterH;
+
+  /// No description provided for @primerReadingA.
+  ///
+  /// In en, this message translates to:
+  /// **'ah'**
+  String get primerReadingA;
+
+  /// No description provided for @primerReadingE.
+  ///
+  /// In en, this message translates to:
+  /// **'eh'**
+  String get primerReadingE;
+
+  /// No description provided for @primerReadingI.
+  ///
+  /// In en, this message translates to:
+  /// **'ee'**
+  String get primerReadingI;
+
+  /// No description provided for @primerReadingO.
+  ///
+  /// In en, this message translates to:
+  /// **'oh'**
+  String get primerReadingO;
+
+  /// No description provided for @primerReadingU.
+  ///
+  /// In en, this message translates to:
+  /// **'oo'**
+  String get primerReadingU;
+
+  /// No description provided for @primerReadingH.
+  ///
+  /// In en, this message translates to:
+  /// **'not pronounced'**
+  String get primerReadingH;
+
+  /// No description provided for @primerReadingJ.
+  ///
+  /// In en, this message translates to:
+  /// **'like a strong h'**
+  String get primerReadingJ;
+
+  /// No description provided for @primerReadingEnye.
+  ///
+  /// In en, this message translates to:
+  /// **'like ny'**
+  String get primerReadingEnye;
+
+  /// No description provided for @primerReadingLl.
+  ///
+  /// In en, this message translates to:
+  /// **'like y; in llamo, approximately yah'**
+  String get primerReadingLl;
+
+  /// No description provided for @primerReadingR.
+  ///
+  /// In en, this message translates to:
+  /// **'a short r'**
+  String get primerReadingR;
+
+  /// No description provided for @primerReadingRr.
+  ///
+  /// In en, this message translates to:
+  /// **'a stronger rolled r'**
+  String get primerReadingRr;
+
+  /// No description provided for @primerApproxReadingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Approximate reading'**
+  String get primerApproxReadingLabel;
+
+  /// No description provided for @primerReadingHola.
+  ///
+  /// In en, this message translates to:
+  /// **'OH-lah'**
+  String get primerReadingHola;
+
+  /// No description provided for @primerReadingMe.
+  ///
+  /// In en, this message translates to:
+  /// **'meh'**
+  String get primerReadingMe;
+
+  /// No description provided for @primerReadingTu.
+  ///
+  /// In en, this message translates to:
+  /// **'too'**
+  String get primerReadingTu;
+
+  /// No description provided for @primerReadingBuenosDias.
+  ///
+  /// In en, this message translates to:
+  /// **'BWEH-nos DEE-ahs'**
+  String get primerReadingBuenosDias;
+
+  /// No description provided for @primerReadingHastaLuego.
+  ///
+  /// In en, this message translates to:
+  /// **'AHS-tah LWEH-goh'**
+  String get primerReadingHastaLuego;
+
+  /// No description provided for @primerReadingMeLlamo.
+  ///
+  /// In en, this message translates to:
+  /// **'meh YAH-moh'**
+  String get primerReadingMeLlamo;
+
+  /// No description provided for @primerReadingYTu.
+  ///
+  /// In en, this message translates to:
+  /// **'ee too'**
+  String get primerReadingYTu;
+
+  /// No description provided for @primerReadingEspana.
+  ///
+  /// In en, this message translates to:
+  /// **'es-PAH-nyah'**
+  String get primerReadingEspana;
+
+  /// No description provided for @primerReadingMadrid.
+  ///
+  /// In en, this message translates to:
+  /// **'mah-DRID'**
+  String get primerReadingMadrid;
+
+  /// No description provided for @primerReadingComo.
+  ///
+  /// In en, this message translates to:
+  /// **'KOH-moh'**
+  String get primerReadingComo;
+
+  /// No description provided for @primerReadingComoTeLlamas.
+  ///
+  /// In en, this message translates to:
+  /// **'KOH-moh teh YAH-mahs'**
+  String get primerReadingComoTeLlamas;
+
+  /// No description provided for @primerReadingGracias.
+  ///
+  /// In en, this message translates to:
+  /// **'GRAH-syahs'**
+  String get primerReadingGracias;
+
+  /// No description provided for @primerReadingPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading habit'**
+  String get primerReadingPrompt;
+
+  /// No description provided for @primerRecognitionPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Read the Spanish form as a whole, notice the highlighted pattern, and keep the example ready for later lessons.'**
+  String get primerRecognitionPrompt;
+
+  /// No description provided for @primerFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete primer'**
+  String get primerFinish;
+
+  /// No description provided for @primerReopenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This primer is optional and can be reviewed again from the course screen.'**
+  String get primerReopenHint;
+
+  /// No description provided for @primerVowelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Stable vowels: a, e, i, o, u'**
+  String get primerVowelsTitle;
+
+  /// No description provided for @primerVowelsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Read a, e, i, o and u clearly and steadily. The examples below show a practical approximation; the capitalized syllable carries the main stress.'**
+  String get primerVowelsBody;
+
+  /// No description provided for @primerVowelGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading cue: a is like ah; e like eh; i like ee; o like oh; u like oo.'**
+  String get primerVowelGuide;
+
+  /// No description provided for @primerSilentHTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'h is written but not pronounced'**
+  String get primerSilentHTitle;
+
+  /// No description provided for @primerSilentHBody.
+  ///
+  /// In en, this message translates to:
+  /// **'In Spanish, h normally has no separate sound. Notice this in hola and hasta luego.'**
+  String get primerSilentHBody;
+
+  /// No description provided for @primerLlYTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'ll and y in early course words'**
+  String get primerLlYTitle;
+
+  /// No description provided for @primerLlYBody.
+  ///
+  /// In en, this message translates to:
+  /// **'ll is a single written unit in llamo and llamas. y is a separate letter, as in y tú. Regional pronunciation varies, but the written patterns remain visible.'**
+  String get primerLlYBody;
+
+  /// No description provided for @primerEnyeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'ñ is a distinct Spanish letter'**
+  String get primerEnyeTitle;
+
+  /// No description provided for @primerEnyeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'ñ is not the same as n. Recognize it in España and keep the tilde as part of the Spanish spelling.'**
+  String get primerEnyeBody;
+
+  /// No description provided for @primerRRTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'r and rr'**
+  String get primerRRTitle;
+
+  /// No description provided for @primerRRBody.
+  ///
+  /// In en, this message translates to:
+  /// **'r and rr mark different written patterns. A single r appears in Madrid; rr is the strong pattern in perro. The Primer only builds recognition, not accent training.'**
+  String get primerRRBody;
+
+  /// No description provided for @primerContextTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Context patterns: c, g, qu, gu and gü'**
+  String get primerContextTitle;
+
+  /// No description provided for @primerContextBody.
+  ///
+  /// In en, this message translates to:
+  /// **'c and g change their reading with the following vowel. qu commonly keeps the k-like reading before e/i; gu and gü show different written cues. Meet these patterns as complete words, not as a long rule table.'**
+  String get primerContextBody;
+
+  /// No description provided for @primerAccentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Accents and Spanish punctuation'**
+  String get primerAccentsTitle;
+
+  /// No description provided for @primerAccentsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'á, é, í, ó and ú are familiar vowels with a meaningful written accent. Notice the mark in Cómo and días; full Spanish stress rules are outside this Primer.'**
+  String get primerAccentsBody;
+
+  /// No description provided for @primerTryReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Try a quick review'**
+  String get primerTryReview;
+
+  /// No description provided for @primerNoticeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'NOTICE'**
+  String get primerNoticeLabel;
+
+  /// No description provided for @primerTryLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'TRY IT'**
+  String get primerTryLabel;
+
+  /// No description provided for @primerReviewCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Recognition {current} of {total}'**
+  String primerReviewCounter(Object current, Object total);
+
+  /// No description provided for @primerCorrectReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct. {word} is read approximately as {hint}.'**
+  String primerCorrectReading(String word, String hint);
+
+  /// No description provided for @primerTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Not quite. Read the options again and try once more.'**
+  String get primerTryAgain;
+
+  /// No description provided for @primerCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Check'**
+  String get primerCheck;
+
+  /// No description provided for @primerLlTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'ll is a Spanish spelling pattern'**
+  String get primerLlTitle;
+
+  /// No description provided for @primerLlBody.
+  ///
+  /// In en, this message translates to:
+  /// **'In this course, ll in me llamo uses a y-like starting sound: approximately meh YAH-moh. Other regions may vary, but this is the course reference for now.'**
+  String get primerLlBody;
+
+  /// No description provided for @primerEnyeRTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'ñ and a single r'**
+  String get primerEnyeRTitle;
+
+  /// No description provided for @primerEnyeRBody.
+  ///
+  /// In en, this message translates to:
+  /// **'In España, ñ is read with a y-like n sound: es-PAH-nyah. Madrid has a single r: mah-DRID. This is an approximate reading, not a perfect-r test.'**
+  String get primerEnyeRBody;
+
+  /// No description provided for @primerAccentsQuestionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Accent marks and written questions'**
+  String get primerAccentsQuestionsTitle;
+
+  /// No description provided for @primerAccentsQuestionsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An accent mark helps show stress: Cómo is KOH-moh and días is BWEH-nos DEE-ahs in the example phrase. ¿ begins a written question and ? ends it; punctuation is not a sound.'**
+  String get primerAccentsQuestionsBody;
+
+  /// No description provided for @primerNarrowCTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A small c reading clue'**
+  String get primerNarrowCTitle;
+
+  /// No description provided for @primerNarrowCBody.
+  ///
+  /// In en, this message translates to:
+  /// **'c is not read the same way in every context: c in Cómo is k-like (KOH-moh), while c in Gracias is s-like in this course reference (GRAH-syahs). This is a small clue, not a full c chapter.'**
+  String get primerNarrowCBody;
+
+  /// No description provided for @primerExampleHola.
+  ///
+  /// In en, this message translates to:
+  /// **'a greeting'**
+  String get primerExampleHola;
+
+  /// No description provided for @primerExampleMe.
+  ///
+  /// In en, this message translates to:
+  /// **'me / myself'**
+  String get primerExampleMe;
+
+  /// No description provided for @primerExampleTu.
+  ///
+  /// In en, this message translates to:
+  /// **'you'**
+  String get primerExampleTu;
+
+  /// No description provided for @primerExampleBuenosDias.
+  ///
+  /// In en, this message translates to:
+  /// **'a daytime greeting'**
+  String get primerExampleBuenosDias;
+
+  /// No description provided for @primerExampleMeLlamo.
+  ///
+  /// In en, this message translates to:
+  /// **'saying your name'**
+  String get primerExampleMeLlamo;
+
+  /// No description provided for @primerExampleHastaLuego.
+  ///
+  /// In en, this message translates to:
+  /// **'a farewell'**
+  String get primerExampleHastaLuego;
+
+  /// No description provided for @primerExampleYTu.
+  ///
+  /// In en, this message translates to:
+  /// **'asking about the other person'**
+  String get primerExampleYTu;
+
+  /// No description provided for @primerExampleEspana.
+  ///
+  /// In en, this message translates to:
+  /// **'Spain'**
+  String get primerExampleEspana;
+
+  /// No description provided for @primerExampleMadrid.
+  ///
+  /// In en, this message translates to:
+  /// **'Madrid'**
+  String get primerExampleMadrid;
+
+  /// No description provided for @primerExampleComo.
+  ///
+  /// In en, this message translates to:
+  /// **'how / what way'**
+  String get primerExampleComo;
+
+  /// No description provided for @primerExampleComoTeLlamas.
+  ///
+  /// In en, this message translates to:
+  /// **'What is your name?'**
+  String get primerExampleComoTeLlamas;
+
+  /// No description provided for @primerExampleGracias.
+  ///
+  /// In en, this message translates to:
+  /// **'thank you'**
+  String get primerExampleGracias;
+
+  /// No description provided for @primerReviewHolaReadingPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Which Spanish word is read approximately as {hint}?'**
+  String primerReviewHolaReadingPrompt(String hint);
+
+  /// No description provided for @primerReviewEspanaReadingPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Which Spanish word is read approximately as {hint}?'**
+  String primerReviewEspanaReadingPrompt(String hint);
+
+  /// No description provided for @primerReviewQuestionReadingPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Which Spanish question is read approximately as {hint}?'**
+  String primerReviewQuestionReadingPrompt(String hint);
 }
 
 class _AppLocalizationsDelegate

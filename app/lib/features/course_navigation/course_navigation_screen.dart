@@ -8,6 +8,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../l10n/l10n.dart';
 import '../communicative_competency/communicative_competency.dart';
 import '../lesson_launch/lesson_launch_intent.dart';
+import '../pronunciation_primer/pronunciation_primer.dart';
 import '../../shared/widgets/course_browser_error.dart';
 import 'course_navigation_models.dart';
 import 'course_navigation_providers.dart';
@@ -63,10 +64,65 @@ class CourseNavigationView extends StatelessWidget {
           Text(l10n.courseComplete),
         ],
         const SizedBox(height: 16),
+        if (state.courseId == 'es.a0') const PronunciationPrimerTile(),
         for (final unit in state.units)
           UnitNavigationSection(courseId: state.courseId, unit: unit),
       ],
     );
+  }
+}
+
+class PronunciationPrimerTile extends ConsumerWidget {
+  const PronunciationPrimerTile({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final primerState = ref.watch(pronunciationPrimerStateProvider);
+
+    return primerState.when(
+      data: (state) => Card(
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          leading: Icon(
+            state.isFinished ? Icons.verified_outlined : Icons.menu_book,
+          ),
+          title: Text(l10n.primerTitle),
+          subtitle: Text(_subtitle(state, l10n)),
+          trailing: Text(_action(state, l10n)),
+          onTap: () => context.goNamed(PronunciationPrimerRoute.name),
+        ),
+      ),
+      error: (error, stackTrace) => Card(
+        child: ListTile(
+          leading: const Icon(Icons.menu_book),
+          title: Text(l10n.primerTitle),
+          subtitle: Text(l10n.primerUnavailable),
+          onTap: () => context.goNamed(PronunciationPrimerRoute.name),
+        ),
+      ),
+      loading: () => const Card(
+        child: ListTile(leading: Icon(Icons.menu_book), title: Text('…')),
+      ),
+    );
+  }
+
+  String _subtitle(PronunciationPrimerState state, AppLocalizations l10n) {
+    return switch (state.status) {
+      PronunciationPrimerStatus.notSeen => l10n.primerSubtitle,
+      PronunciationPrimerStatus.started => l10n.primerInProgress,
+      PronunciationPrimerStatus.completed => l10n.primerCompleted,
+      PronunciationPrimerStatus.skipped => l10n.primerSkipped,
+    };
+  }
+
+  String _action(PronunciationPrimerState state, AppLocalizations l10n) {
+    return switch (state.status) {
+      PronunciationPrimerStatus.notSeen => l10n.primerStart,
+      PronunciationPrimerStatus.started => l10n.continueAction,
+      PronunciationPrimerStatus.completed => l10n.primerReview,
+      PronunciationPrimerStatus.skipped => l10n.primerReview,
+    };
   }
 }
 
