@@ -496,6 +496,19 @@ targets, but isolated vocabulary lists must not be the dominant learning
 mechanism. Audio and spoken-practice requirements, including non-evaluated
 practice boundaries, are defined in AUDIO_LEARNING_STANDARD.md.
 
+AF1 reference-audio authoring uses the single Spanish manifest at
+app/assets/languages/spanish/audio/reference_audio.json. Authors must preserve
+target-language transcripts, stable IDs, provenance and QA status; generated
+does not mean approved. The validator owns deterministic path, metadata,
+purpose, locale, language and asset-existence checks. After human listening
+review, update exactly one entry through the manifest-backed CLI:
+
+    dart run tool/audio_reference.dart --set-qa es.audio.phrase.hola approved
+
+Only generated, reviewed, approved and rejected are accepted. The command
+validates the complete manifest before writing, changes no WAV file and cannot
+approve a missing or otherwise invalid asset.
+
 ---
 
 # Exercise Design

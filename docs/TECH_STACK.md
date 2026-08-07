@@ -146,6 +146,10 @@ Future Speech Intelligence options, explicitly deferred:
 Piper is an authoring-time Spanish reference-audio tool only. It is not an
 application runtime dependency.
 
+AF1 uses WAV for its initial packaged reference assets. The authoring CLI is
+explicitly invoked, accepts Piper/model paths as configuration, and never
+installs Piper or downloads models.
+
 ---
 
 # F-Droid Compatibility

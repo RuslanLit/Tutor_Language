@@ -226,8 +226,11 @@ or pedagogical focus differs. Clear natural speech, natural stress, intonation,
 connected speech and intelligibility are preferred over syllable-by-syllable
 segmentation.
 
-The final codec, bitrate, sample rate and filesystem representation remain
-implementation/QA decisions. Packaged audio must be locally playable on
+AF1 selects WAV for the initial canonical reference assets because it is a
+broad, predictable Android-compatible representation and requires no runtime
+transcoding. This does not freeze future distribution choices: bitrate,
+sample-rate policy, storage optimization and any later packaged representation
+remain implementation/QA decisions. Packaged audio must be locally playable on
 supported Android targets while balancing quality and size.
 
 ## Spanish Reference Voice v1

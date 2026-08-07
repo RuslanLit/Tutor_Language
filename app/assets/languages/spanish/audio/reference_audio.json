@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "audioRoot": "assets/languages/spanish/audio/reference",
+  "assets": [
+    {
+      "id": "es.audio.phrase.hola",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.hola.wav",
+      "transcript": "Hola.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "phrase",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.me_llamo",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.me_llamo.wav",
+      "transcript": "Me llamo Ana.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.como_te_llamas",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.como_te_llamas.wav",
+      "transcript": "¿Cómo te llamas?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    }
+  ]
+}

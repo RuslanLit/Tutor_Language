@@ -525,7 +525,10 @@ and multimodal use. Audio is reusable educational content conceptually, not a
 lesson-owned duplicate. Stable identity, transcript, language/locale, speaker
 provenance, pedagogical purpose and asset path are future authoring
 requirements; this phase does not change the schema or introduce runtime model
-classes. See AUDIO_LEARNING_STANDARD.md.
+classes. AF1 provides the concrete AudioReferenceAsset model and the canonical
+Spanish manifest at
+app/assets/languages/spanish/audio/reference_audio.json; reusable references
+remain independent of lessons. See AUDIO_LEARNING_STANDARD.md.
 
 Educational Content defines what exists.
 

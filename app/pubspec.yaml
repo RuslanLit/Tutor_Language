@@ -46,6 +46,7 @@ flutter:
     - assets/languages/spanish/localization/semantic/uk/
     - assets/languages/spanish/localization/semantic/ru/
     - assets/languages/spanish/pronunciation/
+    - assets/languages/spanish/audio/
 
   fonts:
     - family: Kurale
