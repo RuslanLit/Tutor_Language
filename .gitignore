@@ -24,3 +24,7 @@ Books/**/*.pdf
 Books/**/*.djvu
 Books/**/*.txt
 Books/**/extracted/
+
+# Local TTS environment
+.venv-tts/
+.venv-piper/
