@@ -20,6 +20,7 @@ Related documents:
 - WRITING_SYSTEM_STANDARD.md
 - WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -449,6 +450,14 @@ The exact order may vary by language.
 ---
 
 # Communicative Lesson Design
+
+Lessons should be multimodal where pedagogically justified. A language lesson
+may combine reading, listening, typed recall, pronunciation practice, spoken
+recall and dialogue; this is not a separate audio-course architecture. Guided
+spoken production may begin at A0/pre-A1, progress to guided interaction at A1
+and later become semi-open or open. Use AUDIO_LEARNING_STANDARD.md for the
+distinction between listening, imitation, retrieval, interaction and
+objectively assessed evidence.
 
 Every lesson should teach one measurable communicative capability.
 

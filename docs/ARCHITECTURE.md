@@ -17,6 +17,7 @@ Related documents:
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
 - V1_TECHNICAL_SPEC.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -1364,6 +1365,30 @@ Curriculum Specification defines educational structure.
 Learning Model defines educational behaviour.
 
 Implementation defines software behaviour.
+
+## Planned audio boundary
+
+The future generic platform boundary is:
+
+~~~
+Authored Reference Audio
+        ↓
+Local Audio Playback
+
+Microphone
+        ↓
+Temporary Recording
+        ↓
+Local Playback
+        ↓
+Deletion
+~~~
+
+Playback and temporary recording are subject-independent platform capabilities.
+Listening, pronunciation, imitation and spoken interaction are language-learning
+pedagogy. Piper belongs only to Spanish authoring tooling. This is a planned
+architectural requirement, not a claim that the runtime feature exists. There
+is no runtime AI, TTS or ASR requirement. See AUDIO_LEARNING_STANDARD.md.
 
 These concerns should remain independent.
 

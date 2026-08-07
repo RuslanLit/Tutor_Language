@@ -12,6 +12,7 @@ Related documents:
 - ARCHITECTURE.md
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -1609,6 +1610,57 @@ schema. WRITING_SYSTEM_STANDARD.md defines the target model and authoring
 standard until a future implementation phase adds runtime support.
 
 ---
+
+# ADR-0016
+
+Status
+
+Accepted
+
+Title
+
+Deterministic Authored Audio and Temporary Spoken Practice
+
+Context
+
+Language audio must improve listening and oral practice without weakening the
+offline, deterministic and privacy-first architecture. Spoken practice does
+not become objectively evaluated merely because a microphone is available.
+
+Decision
+
+Language audio begins with deterministic authored reference audio plus
+learner-controlled temporary recording. Reference audio is pre-generated and
+packaged locally. Piper is an authoring-time tool, with
+es_ES-sharvard-medium as Spanish Reference Voice v1. Future capability may
+provide local playback, temporary recording, learner playback,
+self-comparison, spoken-recall practice and deterministic scripted interaction.
+There is no automatic speech evaluation.
+
+Rejected for initial implementation:
+
+- cloud TTS;
+- runtime TTS dependency;
+- runtime LLM;
+- ASR-dependent lesson flow;
+- automated pronunciation scoring;
+- permanent learner voice storage.
+
+Rationale
+
+This approach is simpler, fully offline, deterministic, privacy-preserving and
+suitable for A0/A1. It avoids false precision while preserving the future
+option of offline ASR if later justified.
+
+Consequences
+
+Objectively evaluable listening tasks may use existing deterministic mastery
+rules. Listen-and-repeat, self-comparison, shadowing and spoken responses
+without a valid evaluator remain practice-only. Temporary recordings are local,
+not uploaded, not used for analytics or model training and deleted after use.
+Before any public distribution of generated audio, the exact voice-model
+license and redistribution terms must be verified from authoritative metadata.
+Exact packages, codec, schema, storage and ASR engine remain deferred.
 
 # Final Principle
 

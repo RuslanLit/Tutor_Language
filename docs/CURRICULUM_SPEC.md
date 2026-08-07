@@ -13,10 +13,20 @@ Related documents:
 - WRITING_SYSTEM_STANDARD.md
 - WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
 # Purpose
+
+## Auditory and spoken progression
+
+Communicative development may include listen -> understand -> retrieve ->
+speak -> interact, including guided spoken production from A0/A1. Beginner
+lessons must not require open-ended conversation. Listening tasks may be
+deterministically assessed when an evaluator exists; non-evaluated spoken
+practice remains practice and must not be represented as pronunciation mastery.
+See AUDIO_LEARNING_STANDARD.md.
 
 This document defines the structure of educational curricula used by Tutor Language.
 
@@ -24,7 +34,8 @@ It specifies how educational content is organized independently of any particula
 
 The curriculum is a data model.
 
-It does not define pedagogy.
+It does not define complete lesson pedagogy; it records the communicative
+progression constraints that curriculum structure must support.
 
 It does not define implementation.
 

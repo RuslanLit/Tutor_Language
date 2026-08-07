@@ -640,6 +640,15 @@ Every architectural or release decision should be documented before publication.
 
 ---
 
+# Audio release gate
+
+Before any generated reference audio is publicly distributed, verify the exact
+Piper voice-model license and redistribution terms from authoritative
+project/model metadata. Human QA must also review wording, pronunciation,
+stress, intonation, rhythm, pauses, intelligibility and synthesis artifacts.
+Packaged audio must remain local and runtime generation, cloud speech, ASR and
+automated pronunciation scoring must not be required.
+
 # Definition of Release Ready
 
 Tutor Language is considered Release Ready only when:

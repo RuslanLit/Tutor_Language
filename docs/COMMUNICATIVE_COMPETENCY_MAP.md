@@ -17,6 +17,12 @@ Related documents:
 
 # Purpose
 
+The competency map may describe controlled listening, spoken retrieval and
+scripted oral interaction from A0/A1. These are bounded communicative
+capabilities, not a requirement for open conversation. Spoken activities
+without an objective evaluator are practice evidence only; the canonical
+audio, privacy and assessment boundary is AUDIO_LEARNING_STANDARD.md.
+
 This document maps the Spanish A0 curriculum to communicative competencies.
 
 It is not a lesson plan and does not define content schemas.

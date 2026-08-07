@@ -138,11 +138,13 @@ The app must remain functional without LLM.
 
 Not part of V1.
 
-Future options:
+Future Speech Intelligence options, explicitly deferred:
 
 - Whisper.cpp
 - Vosk
-- Piper TTS
+
+Piper is an authoring-time Spanish reference-audio tool only. It is not an
+application runtime dependency.
 
 ---
 

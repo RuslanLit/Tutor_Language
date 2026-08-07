@@ -18,6 +18,7 @@ Related documents:
 - CURRICULUM_SPEC.md
 - LEARNING_MODEL.md
 - V1_TECHNICAL_SPEC.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -515,6 +516,16 @@ These extensions should extend the model rather than replace it.
 ---
 
 # Final Principles
+
+## Multimodal content and reference audio
+
+Educational content may support authored reference audio, auditory stimuli,
+formulaic sequences/communicative chunks, pronunciation targets, dialogue turns
+and multimodal use. Audio is reusable educational content conceptually, not a
+lesson-owned duplicate. Stable identity, transcript, language/locale, speaker
+provenance, pedagogical purpose and asset path are future authoring
+requirements; this phase does not change the schema or introduce runtime model
+classes. See AUDIO_LEARNING_STANDARD.md.
 
 Educational Content defines what exists.
 

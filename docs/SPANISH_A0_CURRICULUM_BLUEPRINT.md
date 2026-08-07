@@ -29,6 +29,11 @@ Related documents:
 
 # Purpose
 
+The A0 outcome includes a controlled progression from listening and
+comprehension to retrieval, spoken production and bounded interaction. This
+does not add lessons or make open conversation mandatory. Audio and
+non-evaluated spoken practice follow AUDIO_LEARNING_STANDARD.md.
+
 This document defines the target Spanish A0 curriculum structure after the C2 content expansion.
 
 It is a curriculum blueprint, not a finished content pack.

@@ -23,6 +23,7 @@ Related documents:
 - WRITING_UNIT_INTRODUCTION_STANDARD.md
 - READING_RULE_PREREQUISITE_STANDARD.md
 - GRAPHEME_PRESENTATION_STANDARD.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -486,6 +487,14 @@ Listening material should correspond to previously introduced knowledge.
 Speech should initially remain clear and moderate in speed.
 
 Natural pronunciation is preferred over exaggerated pronunciation.
+
+Authors must distinguish audio exposure, genuine listening, imitation, spoken
+retrieval and objective assessment. Prefer the progression
+communicative target -> contextual exposure -> comprehension -> retrieval ->
+variation -> reuse. Communicatively useful chunks may be authored as semantic
+targets, but isolated vocabulary lists must not be the dominant learning
+mechanism. Audio and spoken-practice requirements, including non-evaluated
+practice boundaries, are defined in AUDIO_LEARNING_STANDARD.md.
 
 ---
 

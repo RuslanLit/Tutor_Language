@@ -1221,6 +1221,16 @@ Before approving pronunciation data:
 
 ---
 
+# Audio learning synchronization
+
+Pronunciation authoring follows AUDIO_LEARNING_STANDARD.md. Author explicit
+attention targets and support listen/repeat, temporary self-recording and
+self-comparison, delayed imitation, shadowing and spoken recall. Shadowing is
+supporting practice rather than spontaneous speaking. Do not assign automatic
+pronunciation scores, claim ASR is equivalent to pronunciation assessment or
+claim that a single reference voice defines correctness. Preserve intelligibility
+first, regional variation and reference-audio human QA.
+
 # Future Audio Integration
 
 The pronunciation architecture must support future:

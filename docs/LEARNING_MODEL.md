@@ -13,6 +13,7 @@ Related documents:
 - PROJECT_VISION.md
 - ARCHITECTURE.md
 - V1_TECHNICAL_SPEC.md
+- AUDIO_LEARNING_STANDARD.md
 
 ---
 
@@ -1013,6 +1014,16 @@ Future extensions should enhance the existing learning model rather than replace
 ---
 
 # Final Principle
+
+## Multimodal and spoken learning
+
+The learning model includes auditory perception and spoken production alongside
+reading, writing and typed recall. Audio progression, communicative chunks,
+automaticity, deliberate-practice loops and the boundary between practice and
+objectively assessed mastery are defined canonically in
+AUDIO_LEARNING_STANDARD.md. These additions strengthen, rather than weaken,
+the existing deterministic mastery model: un-evaluated spoken practice is not
+fabricated evidence of pronunciation or speaking mastery.
 
 Learning is not the generation of lessons.
 
