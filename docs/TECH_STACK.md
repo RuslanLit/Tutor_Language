@@ -150,6 +150,12 @@ AF1 uses WAV for its initial packaged reference assets. The authoring CLI is
 explicitly invoked, accepts Piper/model paths as configuration, and never
 installs Piper or downloads models.
 
+AF2 adds `just_audio` 0.10.6 for local bundled WAV playback. It is isolated
+behind the project-owned reference-audio playback service, uses one active
+player, and has no network or runtime TTS role. The package is published under
+Apache-2.0; its transitive platform packages and licenses remain tracked by
+the package metadata before release.
+
 ---
 
 # F-Droid Compatibility

@@ -1867,6 +1867,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Which Spanish question is read approximately as {hint}?'**
   String primerReviewQuestionReadingPrompt(String hint);
+
+  /// No description provided for @audioListen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get audioListen;
+
+  /// No description provided for @audioUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio unavailable. You can continue.'**
+  String get audioUnavailable;
 }
 
 class _AppLocalizationsDelegate

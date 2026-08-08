@@ -79,6 +79,7 @@ class VocabularyItem {
     required this.nativeTranslation,
     required this.cefr,
     required this.example,
+    this.audioReferenceId,
     this.pronunciationUnitId,
     this.pronunciation,
     this.notes,
@@ -93,6 +94,7 @@ class VocabularyItem {
       nativeTranslation: requiredString(json, 'native_translation'),
       cefr: requiredString(json, 'cefr'),
       example: requiredString(json, 'example'),
+      audioReferenceId: optionalString(json, 'audioReferenceId'),
       pronunciationUnitId:
           optionalString(json, 'pronunciationUnitId') ??
           optionalString(json, 'pronunciation_unit_id'),
@@ -106,6 +108,7 @@ class VocabularyItem {
   final String nativeTranslation;
   final String cefr;
   final String example;
+  final String? audioReferenceId;
   final String? pronunciationUnitId;
   final String? pronunciation;
   final String? notes;
@@ -117,6 +120,7 @@ class VocabularyItem {
       'native_translation': nativeTranslation,
       'cefr': cefr,
       'example': example,
+      if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
       if (pronunciationUnitId != null)
         'pronunciationUnitId': pronunciationUnitId,
       if (pronunciation != null) 'pronunciation': pronunciation,
@@ -133,6 +137,7 @@ class VocabularyItem {
             other.nativeTranslation == nativeTranslation &&
             other.cefr == cefr &&
             other.example == example &&
+            other.audioReferenceId == audioReferenceId &&
             other.pronunciationUnitId == pronunciationUnitId &&
             other.pronunciation == pronunciation &&
             other.notes == notes;
@@ -145,6 +150,7 @@ class VocabularyItem {
     nativeTranslation,
     cefr,
     example,
+    audioReferenceId,
     pronunciationUnitId,
     pronunciation,
     notes,
@@ -282,6 +288,7 @@ class DialogueLine {
     required this.speaker,
     required this.spanish,
     required this.nativeTranslation,
+    this.audioReferenceId,
   });
 
   factory DialogueLine.fromJson(Map<String, Object?> json) {
@@ -289,18 +296,21 @@ class DialogueLine {
       speaker: requiredString(json, 'speaker'),
       spanish: requiredString(json, 'spanish'),
       nativeTranslation: requiredString(json, 'native_translation'),
+      audioReferenceId: optionalString(json, 'audioReferenceId'),
     );
   }
 
   final String speaker;
   final String spanish;
   final String nativeTranslation;
+  final String? audioReferenceId;
 
   Map<String, Object?> toJson() {
     return {
       'speaker': speaker,
       'spanish': spanish,
       'native_translation': nativeTranslation,
+      if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
     };
   }
 
@@ -310,11 +320,13 @@ class DialogueLine {
         other is DialogueLine &&
             other.speaker == speaker &&
             other.spanish == spanish &&
-            other.nativeTranslation == nativeTranslation;
+            other.nativeTranslation == nativeTranslation &&
+            other.audioReferenceId == audioReferenceId;
   }
 
   @override
-  int get hashCode => Object.hash(speaker, spanish, nativeTranslation);
+  int get hashCode =>
+      Object.hash(speaker, spanish, nativeTranslation, audioReferenceId);
 }
 
 class ReadingText {

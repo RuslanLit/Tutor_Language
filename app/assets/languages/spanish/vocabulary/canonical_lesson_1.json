@@ -5,6 +5,7 @@
     "native_translation": "Привіт.",
     "cefr": "A0",
     "example": "Hola, Ana.",
+    "audioReferenceId": "es.audio.phrase.hola",
     "pronunciation": "ола",
     "notes": "Почати контакт."
   },
@@ -59,6 +60,7 @@
     "native_translation": "Як тебе звати?",
     "cefr": "A0",
     "example": "Hola. ¿Cómo te llamas?",
+    "audioReferenceId": "es.audio.question.como_te_llamas",
     "pronunciation": "комо те ямас",
     "notes": "Запитати ім'я співрозмовника."
   },

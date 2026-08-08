@@ -1081,4 +1081,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String primerReviewQuestionReadingPrompt(String hint) {
     return 'Какой испанский вопрос примерно читается как $hint?';
   }
+
+  @override
+  String get audioListen => 'Прослушать';
+
+  @override
+  String get audioUnavailable => 'Аудио недоступно. Вы можете продолжить.';
 }

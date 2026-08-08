@@ -31,11 +31,13 @@
       {
         "speaker": "Ти",
         "spanish": "¿Cómo te llamas?",
+        "audioReferenceId": "es.audio.question.como_te_llamas",
         "native_translation": "комо те ямас — як тебе звати?"
       },
       {
         "speaker": "Ana",
-        "spanish": "Me llamo Ana.",
+      "spanish": "Me llamo Ana.",
+      "audioReferenceId": "es.audio.phrase.me_llamo",
         "native_translation": "ме ямо Ана — мене звати Ana."
       },
     {

@@ -472,5 +472,7 @@
   "primerReviewEspanaReadingPrompt": "Какое испанское слово примерно читается как {hint}?",
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Какой испанский вопрос примерно читается как {hint}?",
+  "audioListen": "Прослушать",
+  "audioUnavailable": "Аудио недоступно. Вы можете продолжить.",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

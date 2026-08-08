@@ -12,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  just_audio: ^0.10.6
   drift: ^2.34.0
   drift_flutter: ^0.3.0
   flutter_riverpod: ^3.3.2
@@ -47,6 +48,7 @@ flutter:
     - assets/languages/spanish/localization/semantic/ru/
     - assets/languages/spanish/pronunciation/
     - assets/languages/spanish/audio/
+    - assets/languages/spanish/audio/reference/
 
   fonts:
     - family: Kurale

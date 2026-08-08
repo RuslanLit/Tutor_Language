@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/router/app_router.dart';
 import '../../core/content/content_localization_providers.dart';
+import '../../core/audio/reference_audio_button.dart';
 import '../../core/content/pronunciation_models.dart';
 import '../../core/content/pronunciation_providers.dart';
 import '../../core/content/topic_content.dart';
@@ -1006,7 +1007,17 @@ class VocabularyItemView extends ConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(item.spanish, style: Theme.of(context).textTheme.titleSmall),
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                item.spanish,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+            ReferenceAudioButton(referenceId: item.audioReferenceId),
+          ],
+        ),
         if (presentation?.ipa != null) Text(presentation!.ipa!),
         if (presentation?.localizedLearnerHint != null)
           Text(presentation!.localizedLearnerHint!),
@@ -1208,7 +1219,12 @@ class DialogueView extends StatelessWidget {
                   line.speaker,
                   style: Theme.of(context).textTheme.labelLarge,
                 ),
-                Text(line.spanish),
+                Row(
+                  children: [
+                    Expanded(child: Text(line.spanish)),
+                    ReferenceAudioButton(referenceId: line.audioReferenceId),
+                  ],
+                ),
                 Text(line.nativeTranslation),
               ],
             ),

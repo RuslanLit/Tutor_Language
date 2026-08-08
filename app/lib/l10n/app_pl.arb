@@ -472,5 +472,7 @@
   "primerReviewEspanaReadingPrompt": "Które hiszpańskie słowo czyta się w przybliżeniu jako {hint}?",
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Które hiszpańskie pytanie czyta się w przybliżeniu jako {hint}?",
+  "audioListen": "Odtwórz",
+  "audioUnavailable": "Audio jest niedostępne. Możesz kontynuować.",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

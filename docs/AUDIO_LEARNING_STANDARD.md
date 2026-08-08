@@ -22,9 +22,9 @@ Related documents:
 # Purpose and scope
 
 This is the canonical cross-cutting specification for listening, authored
-reference audio and non-AI spoken practice. It describes future capability and
-authoring requirements; it does not claim that the current runtime implements
-audio playback, recording, speech recognition or pronunciation evaluation.
+reference audio and non-AI spoken practice. AF2 implements local playback of
+approved bundled reference audio; recording, speech recognition and
+pronunciation evaluation remain deferred.
 
 Tutor Language remains offline-first, deterministic, privacy-first,
 Android-only, F-Droid compatible and free of runtime cloud, AI, TTS and ASR
@@ -264,9 +264,10 @@ from authoritative project/model metadata.
 
 # Scope boundary and future architecture
 
-**Audio Foundation** is planned to cover local reference playback, listening
-activities, temporary learner recording, learner playback, self-comparison,
-spoken-recall practice and deterministic scripted interaction.
+**Audio Foundation** currently covers local approved-reference playback. Future
+work may add listening activities, temporary learner recording, learner
+playback, self-comparison, spoken-recall practice and deterministic scripted
+interaction.
 
 **Speech Intelligence** is explicitly deferred: ASR, phoneme scoring,
 pronunciation diagnostics, automatic spoken-answer correctness, free-form

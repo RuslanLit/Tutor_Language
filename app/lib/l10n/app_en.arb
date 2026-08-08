@@ -472,5 +472,7 @@
   "primerReviewEspanaReadingPrompt": "Which Spanish word is read approximately as {hint}?",
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Which Spanish question is read approximately as {hint}?",
+  "audioListen": "Listen",
+  "audioUnavailable": "Audio unavailable. You can continue.",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

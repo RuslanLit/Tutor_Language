@@ -566,6 +566,7 @@ class EducationalContentLocalizationResolver {
           item.nativeTranslation,
       cefr: item.cefr,
       example: _localizedField(item.id, 'example', locale) ?? item.example,
+      audioReferenceId: item.audioReferenceId,
       pronunciationUnitId: item.pronunciationUnitId,
       pronunciation: item.pronunciation,
       notes:
@@ -626,6 +627,7 @@ class EducationalContentLocalizationResolver {
                   locale,
                 ) ??
                 dialogue.lines[index].nativeTranslation,
+            audioReferenceId: dialogue.lines[index].audioReferenceId,
           ),
       ]),
     );

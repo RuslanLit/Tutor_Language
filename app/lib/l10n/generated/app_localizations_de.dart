@@ -1075,4 +1075,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String primerReviewQuestionReadingPrompt(String hint) {
     return 'Welche spanische Frage wird ungefähr wie $hint gelesen?';
   }
+
+  @override
+  String get audioListen => 'Anhören';
+
+  @override
+  String get audioUnavailable =>
+      'Audio nicht verfügbar. Sie können fortfahren.';
 }
