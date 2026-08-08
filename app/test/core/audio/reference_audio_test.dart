@@ -145,6 +145,9 @@ class _FakeBackend implements ReferenceAudioBackend {
   Future<void> setAsset(String assetPath) async => calls.add('set:$assetPath');
 
   @override
+  Future<void> setFile(String filePath) async => calls.add('file:$filePath');
+
+  @override
   Future<void> play() async => calls.add('play');
 
   @override

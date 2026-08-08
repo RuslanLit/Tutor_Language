@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 import '../content/audio_reference_loader.dart';
 import 'reference_audio.dart';
+import 'temporary_learner_recording.dart';
 
 final audioReferenceRepositoryProvider =
     FutureProvider<ReferenceAudioRepository>((ref) async {
@@ -22,6 +24,22 @@ final referenceAudioPlaybackServiceProvider =
       if (kDebugMode) {
         debugPrint('[reference_audio] service-created');
       }
+      ref.onDispose(service.dispose);
+      return service;
+    });
+
+final temporaryLearnerRecordingServiceProvider =
+    ChangeNotifierProvider.autoDispose<TemporaryLearnerRecordingService>((ref) {
+      final referencePlayback = ref.watch(
+        referenceAudioPlaybackServiceProvider,
+      );
+      final service = TemporaryLearnerRecordingService(
+        recorder: RecordLearnerRecorderBackend(),
+        files: AppTemporaryLearnerRecordingFileStore(),
+        referencePlayback: referencePlayback,
+      );
+      referencePlayback.beforeLearnerRecording =
+          service.stopForReferencePlayback;
       ref.onDispose(service.dispose);
       return service;
     });

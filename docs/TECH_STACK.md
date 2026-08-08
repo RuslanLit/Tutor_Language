@@ -156,6 +156,14 @@ player, and has no network or runtime TTS role. The package is published under
 Apache-2.0; its transitive platform packages and licenses remain tracked by
 the package metadata before release.
 
+AF3 adds `record` 7.1.1 for app-private temporary Android microphone capture.
+It is BSD-3-Clause, uses the platform recorder without cloud services, and is
+isolated behind `TemporaryLearnerRecordingService`. AF3 records mono 16 kHz
+WAV because the package provides Android WAV/PCM support and the format is
+locally playable without a transcoding pipeline. Recordings use temporary
+cache storage, are never educational content, and are deleted on clear,
+scope exit, interruption, or stale-file cleanup.
+
 ---
 
 # F-Droid Compatibility

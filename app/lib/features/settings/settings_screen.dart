@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/router/app_router.dart';
 import '../../core/app/app_release_info.dart';
 import '../../debug/semantic_pilot_qa.dart';
+import '../../debug/recording_qa.dart';
 import '../../l10n/l10n.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -71,6 +72,18 @@ class SettingsScreen extends StatelessWidget {
                     onPressed: () =>
                         context.goNamed(DebugSemanticPilotRoute.name),
                     child: const Text('Open semantic pilot QA'),
+                  ),
+                ],
+              ),
+            if (recordingQaEnabled)
+              _SettingsSection(
+                title: 'QA ONLY',
+                children: [
+                  const Text('Temporary learner recording debug harness.'),
+                  const SizedBox(height: 8),
+                  FilledButton(
+                    onPressed: () => context.goNamed(RecordingQaRoute.name),
+                    child: const Text('Open recording QA'),
                   ),
                 ],
               ),

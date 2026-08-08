@@ -269,6 +269,11 @@ work may add listening activities, temporary learner recording, learner
 playback, self-comparison, spoken-recall practice and deterministic scripted
 interaction.
 
+AF3 provides only the temporary learner-recording foundation: just-in-time
+microphone permission, app-private short-lived WAV capture, local self-playback
+and privacy cleanup. It does not evaluate speech, create mastery evidence or
+add a spoken pedagogical activity.
+
 **Speech Intelligence** is explicitly deferred: ASR, phoneme scoring,
 pronunciation diagnostics, automatic spoken-answer correctness, free-form
 conversational AI and cloud speech services.

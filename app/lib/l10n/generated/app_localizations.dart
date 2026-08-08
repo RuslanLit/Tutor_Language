@@ -1879,6 +1879,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Audio unavailable. You can continue.'**
   String get audioUnavailable;
+
+  /// No description provided for @recordingPurpose.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access lets you record your voice and listen to it locally.'**
+  String get recordingPurpose;
+
+  /// No description provided for @record.
+  ///
+  /// In en, this message translates to:
+  /// **'Record'**
+  String get record;
+
+  /// No description provided for @stopRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop recording'**
+  String get stopRecording;
+
+  /// No description provided for @playMyRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Play my recording'**
+  String get playMyRecording;
+
+  /// No description provided for @recordAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Record again'**
+  String get recordAgain;
+
+  /// No description provided for @deleteRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete recording'**
+  String get deleteRecording;
+
+  /// No description provided for @microphoneDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access was denied. You can continue without recording.'**
+  String get microphoneDenied;
+
+  /// No description provided for @tryRecordingAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try recording again'**
+  String get tryRecordingAgain;
+
+  /// No description provided for @recordingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Recording failed. You can continue without recording.'**
+  String get recordingFailed;
+
+  /// No description provided for @continueWithoutRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue without recording'**
+  String get continueWithoutRecording;
 }
 
 class _AppLocalizationsDelegate

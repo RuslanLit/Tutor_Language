@@ -59,6 +59,7 @@ class ReferenceAudioRepository {
 
 abstract interface class ReferenceAudioBackend {
   Future<void> setAsset(String assetPath);
+  Future<void> setFile(String filePath);
   Future<void> play();
   Future<void> stop();
   Future<void> dispose();
@@ -85,6 +86,17 @@ class JustAudioReferenceBackend implements ReferenceAudioBackend {
     final duration = await _player.setAsset(assetPath);
     _debugAudio(
       'setAsset-complete duration=$duration volume=${_player.volume} '
+      'speed=${_player.speed} processingState=${_player.processingState} '
+      'playing=${_player.playing} position=${_player.position}',
+    );
+  }
+
+  @override
+  Future<void> setFile(String filePath) async {
+    _debugAudio('setFile-start path=$filePath');
+    final duration = await _player.setFilePath(filePath);
+    _debugAudio(
+      'setFile-complete duration=$duration volume=${_player.volume} '
       'speed=${_player.speed} processingState=${_player.processingState} '
       'playing=${_player.playing} position=${_player.position}',
     );
@@ -124,12 +136,15 @@ class ReferenceAudioPlaybackService {
   String? _activeReferenceId;
   bool _disposed = false;
 
+  Future<void> Function()? beforeLearnerRecording;
+
   String? get activeReferenceId => _activeReferenceId;
 
   Future<void> play(String referenceId) async {
     if (_disposed) return;
     _debugAudio('play-request reference-id=$referenceId');
     try {
+      await beforeLearnerRecording?.call();
       final asset = (await repository).getApprovedById(referenceId);
       _debugAudio('resolved-asset-path=${asset.assetPath}');
       // One backend/player is deliberately shared: every play request stops
@@ -151,6 +166,26 @@ class ReferenceAudioPlaybackService {
       throw ReferenceAudioFailure(
         ReferenceAudioFailureCode.playbackFailure,
         'Reference audio playback failed: $error',
+      );
+    }
+  }
+
+  Future<void> playFile(
+    String filePath, {
+    bool notifyBeforeLearnerRecording = true,
+  }) async {
+    if (_disposed) return;
+    try {
+      if (notifyBeforeLearnerRecording) {
+        await beforeLearnerRecording?.call();
+      }
+      await backend.stop();
+      await backend.setFile(filePath);
+      await backend.play();
+    } on Object catch (error) {
+      throw ReferenceAudioFailure(
+        ReferenceAudioFailureCode.playbackFailure,
+        'Temporary recording playback failed: $error',
       );
     }
   }

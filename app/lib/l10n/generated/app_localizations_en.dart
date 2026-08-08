@@ -1077,4 +1077,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get audioUnavailable => 'Audio unavailable. You can continue.';
+
+  @override
+  String get recordingPurpose =>
+      'Microphone access lets you record your voice and listen to it locally.';
+
+  @override
+  String get record => 'Record';
+
+  @override
+  String get stopRecording => 'Stop recording';
+
+  @override
+  String get playMyRecording => 'Play my recording';
+
+  @override
+  String get recordAgain => 'Record again';
+
+  @override
+  String get deleteRecording => 'Delete recording';
+
+  @override
+  String get microphoneDenied =>
+      'Microphone access was denied. You can continue without recording.';
+
+  @override
+  String get tryRecordingAgain => 'Try recording again';
+
+  @override
+  String get recordingFailed =>
+      'Recording failed. You can continue without recording.';
+
+  @override
+  String get continueWithoutRecording => 'Continue without recording';
 }

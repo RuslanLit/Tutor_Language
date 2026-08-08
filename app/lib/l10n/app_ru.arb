@@ -474,5 +474,15 @@
   "primerReviewQuestionReadingPrompt": "Какой испанский вопрос примерно читается как {hint}?",
   "audioListen": "Прослушать",
   "audioUnavailable": "Аудио недоступно. Вы можете продолжить.",
+  "recordingPurpose": "Доступ к микрофону позволяет записать свой голос и прослушать его локально.",
+  "record": "Записать",
+  "stopRecording": "Остановить запись",
+  "playMyRecording": "Прослушать мою запись",
+  "recordAgain": "Записать ещё раз",
+  "deleteRecording": "Удалить запись",
+  "microphoneDenied": "Доступ к микрофону отклонён. Вы можете продолжить без записи.",
+  "tryRecordingAgain": "Попробовать записать ещё раз",
+  "recordingFailed": "Не удалось записать. Вы можете продолжить без записи.",
+  "continueWithoutRecording": "Продолжить без записи",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

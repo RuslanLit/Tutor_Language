@@ -474,5 +474,15 @@
   "primerReviewQuestionReadingPrompt": "Which Spanish question is read approximately as {hint}?",
   "audioListen": "Listen",
   "audioUnavailable": "Audio unavailable. You can continue.",
+  "recordingPurpose": "Microphone access lets you record your voice and listen to it locally.",
+  "record": "Record",
+  "stopRecording": "Stop recording",
+  "playMyRecording": "Play my recording",
+  "recordAgain": "Record again",
+  "deleteRecording": "Delete recording",
+  "microphoneDenied": "Microphone access was denied. You can continue without recording.",
+  "tryRecordingAgain": "Try recording again",
+  "recordingFailed": "Recording failed. You can continue without recording.",
+  "continueWithoutRecording": "Continue without recording",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

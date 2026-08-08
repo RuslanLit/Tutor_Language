@@ -474,5 +474,15 @@
   "primerReviewQuestionReadingPrompt": "Welche spanische Frage wird ungefähr wie {hint} gelesen?",
   "audioListen": "Anhören",
   "audioUnavailable": "Audio nicht verfügbar. Sie können fortfahren.",
+  "recordingPurpose": "Der Mikrofonzugriff ermöglicht es Ihnen, Ihre Stimme aufzunehmen und lokal anzuhören.",
+  "record": "Aufnehmen",
+  "stopRecording": "Aufnahme stoppen",
+  "playMyRecording": "Meine Aufnahme abspielen",
+  "recordAgain": "Erneut aufnehmen",
+  "deleteRecording": "Aufnahme löschen",
+  "microphoneDenied": "Der Mikrofonzugriff wurde abgelehnt. Sie können ohne Aufnahme fortfahren.",
+  "tryRecordingAgain": "Erneut versuchen",
+  "recordingFailed": "Aufnahme fehlgeschlagen. Sie können ohne Aufnahme fortfahren.",
+  "continueWithoutRecording": "Ohne Aufnahme fortfahren",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

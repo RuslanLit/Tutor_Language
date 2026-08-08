@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../debug/semantic_pilot_qa.dart';
 import '../../debug/semantic_pilot_qa_screen.dart';
+import '../../debug/recording_qa.dart';
+import '../../debug/recording_qa_screen.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../features/communicative_competency/competency_session_screen.dart';
 import '../../features/course_navigation/course_navigation_screen.dart';
@@ -92,6 +94,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           },
         ),
       ],
+      if (recordingQaEnabled)
+        GoRoute(
+          path: RecordingQaRoute.path,
+          name: RecordingQaRoute.name,
+          builder: (context, state) => const RecordingQaScreen(),
+        ),
     ],
   );
 });
@@ -145,4 +153,9 @@ abstract final class DebugSemanticPilotRoute {
 abstract final class DebugSemanticPilotLessonRoute {
   static const name = 'debugSemanticPilotLesson';
   static const path = '/debug/semantic-pilot/lesson/:lessonId';
+}
+
+abstract final class RecordingQaRoute {
+  static const name = 'recordingQa';
+  static const path = '/debug/recording';
 }

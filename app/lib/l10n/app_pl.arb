@@ -474,5 +474,15 @@
   "primerReviewQuestionReadingPrompt": "Które hiszpańskie pytanie czyta się w przybliżeniu jako {hint}?",
   "audioListen": "Odtwórz",
   "audioUnavailable": "Audio jest niedostępne. Możesz kontynuować.",
+  "recordingPurpose": "Dostęp do mikrofonu pozwala nagrać swój głos i odsłuchać go lokalnie.",
+  "record": "Nagraj",
+  "stopRecording": "Zatrzymaj nagrywanie",
+  "playMyRecording": "Odtwórz moje nagranie",
+  "recordAgain": "Nagraj ponownie",
+  "deleteRecording": "Usuń nagranie",
+  "microphoneDenied": "Odmówiono dostępu do mikrofonu. Możesz kontynuować bez nagrywania.",
+  "tryRecordingAgain": "Spróbuj nagrać ponownie",
+  "recordingFailed": "Nagrywanie nie powiodło się. Możesz kontynuować bez nagrywania.",
+  "continueWithoutRecording": "Kontynuuj bez nagrywania",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

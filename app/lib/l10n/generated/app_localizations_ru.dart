@@ -1087,4 +1087,37 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get audioUnavailable => 'Аудио недоступно. Вы можете продолжить.';
+
+  @override
+  String get recordingPurpose =>
+      'Доступ к микрофону позволяет записать свой голос и прослушать его локально.';
+
+  @override
+  String get record => 'Записать';
+
+  @override
+  String get stopRecording => 'Остановить запись';
+
+  @override
+  String get playMyRecording => 'Прослушать мою запись';
+
+  @override
+  String get recordAgain => 'Записать ещё раз';
+
+  @override
+  String get deleteRecording => 'Удалить запись';
+
+  @override
+  String get microphoneDenied =>
+      'Доступ к микрофону отклонён. Вы можете продолжить без записи.';
+
+  @override
+  String get tryRecordingAgain => 'Попробовать записать ещё раз';
+
+  @override
+  String get recordingFailed =>
+      'Не удалось записать. Вы можете продолжить без записи.';
+
+  @override
+  String get continueWithoutRecording => 'Продолжить без записи';
 }

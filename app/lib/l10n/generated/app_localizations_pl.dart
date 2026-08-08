@@ -1091,4 +1091,37 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get audioUnavailable => 'Audio jest niedostępne. Możesz kontynuować.';
+
+  @override
+  String get recordingPurpose =>
+      'Dostęp do mikrofonu pozwala nagrać swój głos i odsłuchać go lokalnie.';
+
+  @override
+  String get record => 'Nagraj';
+
+  @override
+  String get stopRecording => 'Zatrzymaj nagrywanie';
+
+  @override
+  String get playMyRecording => 'Odtwórz moje nagranie';
+
+  @override
+  String get recordAgain => 'Nagraj ponownie';
+
+  @override
+  String get deleteRecording => 'Usuń nagranie';
+
+  @override
+  String get microphoneDenied =>
+      'Odmówiono dostępu do mikrofonu. Możesz kontynuować bez nagrywania.';
+
+  @override
+  String get tryRecordingAgain => 'Spróbuj nagrać ponownie';
+
+  @override
+  String get recordingFailed =>
+      'Nagrywanie nie powiodło się. Możesz kontynuować bez nagrywania.';
+
+  @override
+  String get continueWithoutRecording => 'Kontynuuj bez nagrywania';
 }

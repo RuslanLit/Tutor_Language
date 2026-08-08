@@ -1082,4 +1082,37 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get audioUnavailable =>
       'Audio nicht verfügbar. Sie können fortfahren.';
+
+  @override
+  String get recordingPurpose =>
+      'Der Mikrofonzugriff ermöglicht es Ihnen, Ihre Stimme aufzunehmen und lokal anzuhören.';
+
+  @override
+  String get record => 'Aufnehmen';
+
+  @override
+  String get stopRecording => 'Aufnahme stoppen';
+
+  @override
+  String get playMyRecording => 'Meine Aufnahme abspielen';
+
+  @override
+  String get recordAgain => 'Erneut aufnehmen';
+
+  @override
+  String get deleteRecording => 'Aufnahme löschen';
+
+  @override
+  String get microphoneDenied =>
+      'Der Mikrofonzugriff wurde abgelehnt. Sie können ohne Aufnahme fortfahren.';
+
+  @override
+  String get tryRecordingAgain => 'Erneut versuchen';
+
+  @override
+  String get recordingFailed =>
+      'Aufnahme fehlgeschlagen. Sie können ohne Aufnahme fortfahren.';
+
+  @override
+  String get continueWithoutRecording => 'Ohne Aufnahme fortfahren';
 }
