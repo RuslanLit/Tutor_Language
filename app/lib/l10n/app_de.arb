@@ -89,6 +89,7 @@
   "lessonCompleted": "Lektion abgeschlossen",
   "continueToNextLesson": "Zur nächsten Lektion",
   "repeatLesson": "Lektion wiederholen",
+  "repeatFromStep": "Ab einem Schritt wiederholen",
   "repeatCheckpoint": "Checkpoint wiederholen",
   "reviewCompletedLessons": "Abgeschlossene Lektionen wiederholen",
   "someTopicsNeedReinforcement": "Einige Themen brauchen noch Festigung.",
@@ -484,5 +485,15 @@
   "tryRecordingAgain": "Erneut versuchen",
   "recordingFailed": "Aufnahme fehlgeschlagen. Sie können ohne Aufnahme fortfahren.",
   "continueWithoutRecording": "Ohne Aufnahme fortfahren",
+  "spokenPractice": "Sprechübung",
+  "listen": "Anhören",
+  "sayItAloud": "Laut sagen",
+  "tryFromMemory": "Aus dem Gedächtnis versuchen",
+  "listenToReference": "Referenz anhören",
+  "showReference": "Referenz anzeigen",
+  "finishAttempt": "Versuch beenden",
+  "tryAgain": "Erneut versuchen",
+  "continuePractice": "Weiter",
+  "practiceComplete": "Übung abgeschlossen",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

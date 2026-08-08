@@ -1,0 +1,12 @@
+{
+  "profile": "B",
+  "voice": "es_ES-sharvard-medium",
+  "speaker": null,
+  "parameters": {
+    "lengthScale": 1.08,
+    "noiseScale": 0.667,
+    "noiseWScale": 0.75,
+    "sentenceSilence": 0.2,
+    "volume": 1.0
+  }
+}

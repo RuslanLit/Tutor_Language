@@ -118,7 +118,9 @@ Future<void> _run(List<String> arguments) async {
   }
 
   final piper = options['piper-command'] ?? 'piper';
-  final voice = options['voice'] ?? _defaultVoice;
+  final profileConfig = _readProfileConfig(options['profile-config']);
+  final voice =
+      profileConfig?['voice'] as String? ?? options['voice'] ?? _defaultVoice;
   final voiceDir = options['voice-dir'];
   final model = voiceDir == null ? voice : voiceDir + '/' + voice + '.onnx';
   final outputDir = Directory(
@@ -136,12 +138,10 @@ Future<void> _run(List<String> arguments) async {
     final output = File(outputDir.path + '/' + _basename(asset.assetPath));
     Process process;
     try {
-      process = await Process.start(piper, [
-        '--model',
-        model,
-        '--output-file',
-        output.path,
-      ]);
+      final piperArguments = <String>['--model', model];
+      _appendProfileArguments(piperArguments, profileConfig);
+      piperArguments.addAll(['--output-file', output.path]);
+      process = await Process.start(piper, piperArguments);
     } on Object catch (error) {
       failures++;
       stderr.writeln(
@@ -168,6 +168,70 @@ Future<void> _run(List<String> arguments) async {
   }
   if (failures > 0) {
     exitCode = 1;
+  }
+}
+
+Map<String, Object?>? _readProfileConfig(String? path) {
+  if (path == null) {
+    return null;
+  }
+  final file = File(path);
+  if (!file.existsSync()) {
+    throw FormatException('Profile config not found: ' + path);
+  }
+  final decoded = jsonDecode(file.readAsStringSync());
+  if (decoded is! Map) {
+    throw FormatException('Profile config must be a JSON object: ' + path);
+  }
+  return Map<String, Object?>.from(decoded);
+}
+
+void _appendProfileArguments(
+  List<String> arguments,
+  Map<String, Object?>? profileConfig,
+) {
+  if (profileConfig == null) {
+    return;
+  }
+  final parameters = profileConfig['parameters'];
+  if (parameters is! Map) {
+    throw const FormatException('Profile config parameters must be an object');
+  }
+  final typedParameters = Map<String, Object?>.from(parameters);
+  final speaker = profileConfig['speaker'];
+  if (speaker is int) {
+    arguments.addAll(['--speaker', speaker.toString()]);
+  }
+  _appendNumericArgument(
+    arguments,
+    '--length-scale',
+    typedParameters['lengthScale'],
+  );
+  _appendNumericArgument(
+    arguments,
+    '--noise-scale',
+    typedParameters['noiseScale'],
+  );
+  _appendNumericArgument(
+    arguments,
+    '--noise-w-scale',
+    typedParameters['noiseWScale'],
+  );
+  _appendNumericArgument(
+    arguments,
+    '--sentence-silence',
+    typedParameters['sentenceSilence'],
+  );
+  _appendNumericArgument(arguments, '--volume', typedParameters['volume']);
+}
+
+void _appendNumericArgument(
+  List<String> arguments,
+  String name,
+  Object? value,
+) {
+  if (value is num) {
+    arguments.addAll([name, value.toString()]);
   }
 }
 
@@ -222,6 +286,7 @@ void _printHelp() {
     '  --piper-command PATH  Piper executable\n'
     '  --voice NAME          Voice name\n'
     '  --voice-dir PATH      Directory containing NAME.onnx\n'
+    '  --profile-config PATH Piper profile JSON for generation\n'
     '  --output-dir PATH     Controlled staging directory\n'
     '  --generate            Generate WAV files into staging\n'
     '  --set-qa ID STATE     Set one item QA state after human review\n'

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
@@ -8,6 +10,82 @@ class LearnerProgressRepository {
   LearnerProgressRepository(this._database);
 
   final AppDatabase _database;
+  Future<void> _resumeWriteQueue = Future<void>.value();
+
+  Future<void> saveLessonResumeCursor(LessonResumeCursor cursor) {
+    final previous = _resumeWriteQueue;
+    final next = previous.then((_) async {
+      final event = ProgressEvent(
+        id: 'lesson.resume.${cursor.attemptId}',
+        eventType: ProgressEventType.lessonResumePosition,
+        topicId: cursor.lessonId,
+        contentReference: cursor.stepId,
+        createdAt: cursor.savedAt,
+        metadataJson: jsonEncode(cursor.toJson()),
+      );
+      await _database
+          .into(_database.learnerProgressEvents)
+          .insertOnConflictUpdate(
+            LearnerProgressEventsCompanion(
+              id: Value(event.id),
+              eventType: Value(event.eventType.name),
+              topicId: Value(event.topicId),
+              sectionId: Value(event.sectionId),
+              contentReference: Value(event.contentReference),
+              createdAt: Value(event.createdAt),
+              metadataJson: Value(event.metadataJson),
+            ),
+          );
+    });
+    _resumeWriteQueue = next.catchError((_) {});
+    return next;
+  }
+
+  Future<LessonResumeCursor?> getLessonResumeCursor(
+    String lessonId,
+    LessonAttemptPurpose purpose,
+  ) async {
+    final rows =
+        await (_database.select(_database.learnerProgressEvents)
+              ..where(
+                (table) =>
+                    table.topicId.equals(lessonId) &
+                    table.eventType.equals(
+                      ProgressEventType.lessonResumePosition.name,
+                    ),
+              )
+              ..orderBy([(table) => OrderingTerm.desc(table.createdAt)]))
+            .get();
+    for (final row in rows) {
+      final metadata = row.metadataJson;
+      if (metadata == null) continue;
+      try {
+        final decoded = jsonDecode(metadata);
+        if (decoded is Map) {
+          final cursor = LessonResumeCursor.fromJson(
+            Map<String, Object?>.from(decoded),
+          );
+          if (cursor.lessonId == lessonId && cursor.attemptPurpose == purpose) {
+            return cursor;
+          }
+        }
+      } on Object {
+        // A stale/corrupt cursor is ignored; lesson launch falls back safely.
+      }
+    }
+    return null;
+  }
+
+  Future<void> clearLessonResumeCursor(String attemptId) async {
+    final previous = _resumeWriteQueue;
+    final next = previous.then((_) async {
+      await (_database.delete(
+        _database.learnerProgressEvents,
+      )..where((table) => table.id.equals('lesson.resume.$attemptId'))).go();
+    });
+    _resumeWriteQueue = next.catchError((_) {});
+    await next;
+  }
 
   Future<void> recordEvent(ProgressEvent event) async {
     await _database
@@ -65,6 +143,7 @@ class LearnerProgressRepository {
                 .into(_database.lessonAttemptStepResults)
                 .insert(_stepResultCompanion(stepResult));
           }
+          await clearLessonResumeCursor(command.attempt.attemptId);
 
           await _ensureLessonCompletionProgress(command.attempt);
           return CompletedLessonAttemptPersistenceResult.created(
@@ -84,6 +163,7 @@ class LearnerProgressRepository {
           incomingAttempt: command.attempt,
           incomingSteps: command.stepResults,
         )) {
+          await clearLessonResumeCursor(existingAttempt.attemptId);
           await _ensureLessonCompletionProgress(existingAttempt);
           return CompletedLessonAttemptPersistenceResult.alreadyRecordedIdentically(
             attemptId: command.attempt.attemptId,

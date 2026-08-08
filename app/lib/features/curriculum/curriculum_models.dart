@@ -294,13 +294,27 @@ class LessonActivity {
     this.introducedReadingRuleIds = const [],
     this.requiredReadingRuleIds = const [],
     this.reviewedReadingRuleIds = const [],
+    this.spokenPractice,
   }) : _legacyContentReferences = contentReferences;
 
   factory LessonActivity.fromJson(Map<String, Object?> json) {
+    final type = requiredString(json, 'type');
+    final spokenPracticeJson = json['spokenPractice'];
+    if (type == 'spoken_practice' && spokenPracticeJson is! Map) {
+      throw const FormatException(
+        'spoken_practice activity requires spokenPractice',
+      );
+    }
+    if (type != 'spoken_practice' && spokenPracticeJson != null) {
+      throw const FormatException(
+        'spokenPractice is only valid for spoken_practice activities',
+      );
+    }
+
     return LessonActivity(
       id: requiredString(json, 'id'),
       title: requiredString(json, 'title'),
-      type: requiredString(json, 'type'),
+      type: type,
       order: _requiredInt(json, 'order'),
       references: _optionalActivityReferenceList(json, 'references'),
       introducedReadingRuleIds: optionalStringList(
@@ -315,6 +329,11 @@ class LessonActivity {
         json,
         'reviewedReadingRuleIds',
       ),
+      spokenPractice: spokenPracticeJson is Map
+          ? SpokenPracticeDefinition.fromJson(
+              Map<String, Object?>.from(spokenPracticeJson),
+            )
+          : null,
     );
   }
 
@@ -326,6 +345,7 @@ class LessonActivity {
   final List<String> introducedReadingRuleIds;
   final List<String> requiredReadingRuleIds;
   final List<String> reviewedReadingRuleIds;
+  final SpokenPracticeDefinition? spokenPractice;
   final List<LessonContentReference> _legacyContentReferences;
 
   List<LessonContentReference> get contentReferences =>
@@ -340,6 +360,68 @@ class LessonActivity {
               ),
             )
             .toList(growable: false);
+}
+
+enum SpokenPracticeMode {
+  listenRepeat('listenRepeat'),
+  delayedImitation('delayedImitation'),
+  spokenRecall('spokenRecall');
+
+  const SpokenPracticeMode(this.code);
+
+  final String code;
+
+  static SpokenPracticeMode fromCode(String code) {
+    for (final mode in values) {
+      if (mode.code == code) return mode;
+    }
+    throw FormatException('Unsupported spoken practice mode: $code');
+  }
+}
+
+class SpokenPracticeDefinition {
+  const SpokenPracticeDefinition({
+    required this.mode,
+    required this.audioReferenceId,
+    required this.prompt,
+    required this.targetText,
+    this.focusCue,
+  });
+
+  factory SpokenPracticeDefinition.fromJson(Map<String, Object?> json) {
+    final mode = SpokenPracticeMode.fromCode(requiredString(json, 'mode'));
+    final audioReferenceId = requiredString(json, 'audioReferenceId');
+    final prompt = requiredString(json, 'prompt');
+    final targetText = requiredString(json, 'targetText');
+    return SpokenPracticeDefinition(
+      mode: mode,
+      audioReferenceId: audioReferenceId,
+      prompt: prompt,
+      targetText: targetText,
+      focusCue: optionalString(json, 'focusCue'),
+    );
+  }
+
+  final SpokenPracticeMode mode;
+  final String audioReferenceId;
+  final String prompt;
+  final String targetText;
+  final String? focusCue;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is SpokenPracticeDefinition &&
+            other.mode == mode &&
+            other.audioReferenceId == audioReferenceId &&
+            other.prompt == prompt &&
+            other.targetText == targetText &&
+            other.focusCue == focusCue;
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(mode, audioReferenceId, prompt, targetText, focusCue);
 }
 
 typedef LessonActivityDefinition = LessonActivity;

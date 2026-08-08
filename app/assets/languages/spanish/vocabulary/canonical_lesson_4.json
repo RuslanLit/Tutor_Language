@@ -5,7 +5,8 @@
     "native_translation": "хто це?",
     "cefr": "A0",
     "example": "¿Quién es? Es Ana.",
-    "pronunciation": "к'єн ес"
+    "pronunciation": "к'єн ес",
+    "audioReferenceId": "es.audio.question.quien_es"
   },
   {
     "id": "vocab.es.a0.m01.l004.quien_es_el",
@@ -13,7 +14,8 @@
     "native_translation": "хто він?",
     "cefr": "A0",
     "example": "¿Quién es él? Él es Luis.",
-    "pronunciation": "к'єн ес ель"
+    "pronunciation": "к'єн ес ель",
+    "audioReferenceId": "es.audio.question.quien_es_el"
   },
   {
     "id": "vocab.es.a0.m01.l004.quien_es_ella",
@@ -21,7 +23,8 @@
     "native_translation": "хто вона?",
     "cefr": "A0",
     "example": "¿Quién es ella? Ella es Ana.",
-    "pronunciation": "к'єн ес ея"
+    "pronunciation": "к'єн ес ея",
+    "audioReferenceId": "es.audio.question.quien_es_ella"
   },
   {
     "id": "vocab.es.a0.m01.l004.el_es",
@@ -29,7 +32,8 @@
     "native_translation": "він є...",
     "cefr": "A0",
     "example": "Él es Luis.",
-    "pronunciation": "ель ес"
+    "pronunciation": "ель ес",
+    "audioReferenceId": "es.audio.phrase.el_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.ella_es",
@@ -37,7 +41,8 @@
     "native_translation": "вона є...",
     "cefr": "A0",
     "example": "Ella es Ana.",
-    "pronunciation": "ея ес"
+    "pronunciation": "ея ес",
+    "audioReferenceId": "es.audio.phrase.ella_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.este_es",
@@ -45,7 +50,8 @@
     "native_translation": "це він...",
     "cefr": "A0",
     "example": "Este es Luis.",
-    "pronunciation": "есте ес"
+    "pronunciation": "есте ес",
+    "audioReferenceId": "es.audio.phrase.este_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.esta_es",
@@ -53,7 +59,8 @@
     "native_translation": "це вона...",
     "cefr": "A0",
     "example": "Esta es Ana.",
-    "pronunciation": "еста ес"
+    "pronunciation": "еста ес",
+    "audioReferenceId": "es.audio.phrase.esta_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_amigo",
@@ -61,7 +68,8 @@
     "native_translation": "мій друг",
     "cefr": "A0",
     "example": "Él es mi amigo.",
-    "pronunciation": "мі аміго"
+    "pronunciation": "мі аміго",
+    "audioReferenceId": "es.audio.phrase.mi_amigo"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_amiga",
@@ -69,7 +77,8 @@
     "native_translation": "моя подруга",
     "cefr": "A0",
     "example": "Ella es mi amiga.",
-    "pronunciation": "мі аміга"
+    "pronunciation": "мі аміга",
+    "audioReferenceId": "es.audio.phrase.mi_amiga"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_companero",
@@ -77,7 +86,8 @@
     "native_translation": "мій колега",
     "cefr": "A0",
     "example": "Él es mi compañero.",
-    "pronunciation": "мі компаньєро"
+    "pronunciation": "мі компаньєро",
+    "audioReferenceId": "es.audio.phrase.mi_companero"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_companera",
@@ -85,7 +95,8 @@
     "native_translation": "моя колега",
     "cefr": "A0",
     "example": "Ella es mi compañera.",
-    "pronunciation": "мі компаньєра"
+    "pronunciation": "мі компаньєра",
+    "audioReferenceId": "es.audio.phrase.mi_companera"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_profesor",
@@ -93,7 +104,8 @@
     "native_translation": "мій викладач",
     "cefr": "A0",
     "example": "Él es mi profesor.",
-    "pronunciation": "мі професор"
+    "pronunciation": "мі професор",
+    "audioReferenceId": "es.audio.phrase.mi_profesor"
   },
   {
     "id": "vocab.es.a0.m01.l004.mi_profesora",
@@ -101,7 +113,8 @@
     "native_translation": "моя викладачка",
     "cefr": "A0",
     "example": "Ella es mi profesora.",
-    "pronunciation": "мі професора"
+    "pronunciation": "мі професора",
+    "audioReferenceId": "es.audio.phrase.mi_profesora"
   },
   {
     "id": "vocab.es.a0.m01.l004.se_llama",
@@ -109,7 +122,8 @@
     "native_translation": "його або її звати...",
     "cefr": "A0",
     "example": "Se llama Ana.",
-    "pronunciation": "се яма"
+    "pronunciation": "се яма",
+    "audioReferenceId": "es.audio.phrase.se_llama_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.es_de",
@@ -117,7 +131,8 @@
     "native_translation": "він або вона з...",
     "cefr": "A0",
     "example": "Es de España.",
-    "pronunciation": "ес де"
+    "pronunciation": "ес де",
+    "audioReferenceId": "es.audio.phrase.es_de_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.vive_en",
@@ -125,7 +140,8 @@
     "native_translation": "він або вона живе в...",
     "cefr": "A0",
     "example": "Vive en Madrid.",
-    "pronunciation": "біве ен"
+    "pronunciation": "біве ен",
+    "audioReferenceId": "es.audio.phrase.vive_en_template"
   },
   {
     "id": "vocab.es.a0.m01.l004.habla",
@@ -133,6 +149,7 @@
     "native_translation": "він або вона говорить...",
     "cefr": "A0",
     "example": "Habla español.",
-    "pronunciation": "абла"
+    "pronunciation": "абла",
+    "audioReferenceId": "es.audio.word.habla_template"
   }
 ]

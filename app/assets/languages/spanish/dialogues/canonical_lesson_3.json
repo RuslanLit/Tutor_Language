@@ -27,47 +27,56 @@
       {
         "speaker": "Ти",
         "spanish": "Hola. Me llamo Marta.",
-        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta."
+        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta.",
+        "audioReferenceId": "es.audio.dialogue.hola_me_llamo_marta"
       },
       {
         "speaker": "Ana",
         "spanish": "Hola, Marta. Me llamo Ana.",
-        "native_translation": "ола Марта. ме ямо Ана — привіт, Marta. мене звати Ana."
+        "native_translation": "ола Марта. ме ямо Ана — привіт, Marta. мене звати Ana.",
+        "audioReferenceId": "es.audio.dialogue.hola_marta_me_llamo_ana"
       },
       {
         "speaker": "Ти",
         "spanish": "Mucho gusto. ¿Cómo estás?",
-        "native_translation": "мучо густо. комо естас — дуже приємно. як ти?"
+        "native_translation": "мучо густо. комо естас — дуже приємно. як ти?",
+        "audioReferenceId": "es.audio.question.mucho_gusto_como_estas"
       },
       {
         "speaker": "Ana",
         "spanish": "Estoy bien, gracias. ¿Y tú?",
-        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?"
+        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?",
+        "audioReferenceId": "es.audio.question.estoy_bien_gracias_y_tu"
       },
       {
         "speaker": "Ти",
         "spanish": "Muy bien, gracias.",
-        "native_translation": "муй б'єн грасіас — дуже добре, дякую."
+        "native_translation": "муй б'єн грасіас — дуже добре, дякую.",
+        "audioReferenceId": "es.audio.dialogue.muy_bien_gracias"
       },
       {
         "speaker": "Ти",
         "spanish": "¿De dónde eres?",
-        "native_translation": "де донде ерес — звідки ти?"
+        "native_translation": "де донде ерес — звідки ти?",
+        "audioReferenceId": "es.audio.question.de_donde_eres"
       },
       {
         "speaker": "Ana",
         "spanish": "Soy de España. Vivo en Madrid.",
-        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді."
+        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді.",
+        "audioReferenceId": "es.audio.dialogue.soy_de_espana_vivo_en_madrid"
       },
       {
         "speaker": "Ти",
         "spanish": "Gracias. Hasta luego.",
-        "native_translation": "грасіас. аста луего — дякую. до зустрічі."
+        "native_translation": "грасіас. аста луего — дякую. до зустрічі.",
+        "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
       },
       {
         "speaker": "Ana",
         "spanish": "De nada. Nos vemos.",
-        "native_translation": "де нада. нос бемос — нема за що. побачимося."
+        "native_translation": "де нада. нос бемос — нема за що. побачимося.",
+        "audioReferenceId": "es.audio.dialogue.de_nada_nos_vemos"
       }
     ]
   },
@@ -93,32 +102,38 @@
       {
         "speaker": "Ти",
         "spanish": "Perdón. ¿Cómo te llamas?",
-        "native_translation": "пердон. комо те ямас — перепрошую. як тебе звати?"
+        "native_translation": "пердон. комо те ямас — перепрошую. як тебе звати?",
+        "audioReferenceId": "es.audio.question.perdon_como_te_llamas"
       },
       {
         "speaker": "Ana",
         "spanish": "Me llamo Ana.",
-        "native_translation": "ме ямо Ана — мене звати Ana."
+        "native_translation": "ме ямо Ана — мене звати Ana.",
+        "audioReferenceId": "es.audio.phrase.me_llamo"
       },
       {
         "speaker": "Ти",
         "spanish": "Disculpa. No hablo francés.",
-        "native_translation": "діскульпа. но абло франсес — вибач. я не говорю французькою."
+        "native_translation": "діскульпа. но абло франсес — вибач. я не говорю французькою.",
+        "audioReferenceId": "es.audio.dialogue.disculpa_no_hablo_frances"
       },
       {
         "speaker": "Ana",
         "spanish": "Está bien.",
-        "native_translation": "еста б'єн — добре."
+        "native_translation": "еста б'єн — добре.",
+        "audioReferenceId": "es.audio.dialogue.esta_bien"
       },
       {
         "speaker": "Ти",
         "spanish": "Lo siento. Hasta pronto.",
-        "native_translation": "ло с'єнто. аста пронто — мені шкода. до скорого."
+        "native_translation": "ло с'єнто. аста пронто — мені шкода. до скорого.",
+        "audioReferenceId": "es.audio.dialogue.lo_siento_hasta_pronto"
       },
       {
         "speaker": "Ana",
         "spanish": "Que tengas un buen día.",
-        "native_translation": "ке тенгас ун буен діа — гарного дня."
+        "native_translation": "ке тенгас ун буен діа — гарного дня.",
+        "audioReferenceId": "es.audio.dialogue.que_tengas_un_buen_dia"
       }
     ]
   }

@@ -920,6 +920,21 @@ Advanced pedagogy is intentionally postponed.
 
 ---
 
+# AF4 Spoken Practice Authoring
+
+The Lesson Player supports a bounded `spoken_practice` activity with these
+mode values: `listenRepeat`, `delayedImitation` and `spokenRecall`. Each entry
+uses a stable `audioReferenceId`, a support-language `prompt`, Spanish
+`targetText` and an optional `focusCue`; it never embeds an audio asset path.
+The referenced AF1 audio must be approved before the activity can be assembled.
+
+Use Listen & Repeat for imitation of an available model, Delayed Imitation
+when the model should be hidden before production, and Spoken Recall only for
+an expression already introduced through the lesson progression. Spoken
+Recall must not reveal or play its target before the learner finishes the
+attempt. These activities are practice operations, not correctness checks;
+recording is optional and microphone denial must not block continuation.
+
 # Final Principle
 
 Educational Content should make learning easier.

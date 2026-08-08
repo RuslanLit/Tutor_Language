@@ -3,7 +3,86 @@
   "targetLanguage": "es",
   "sourceSupportLocale": "en",
   "supportLocales": [
-    "en"
+    "en",
+    "uk",
+    "ru",
+    "pl",
+    "de"
   ],
-  "entries": []
+  "entries": [
+    {
+      "type": "lesson_activity",
+      "id": "es.a0.m01.l001.activity.listen_repeat_hola",
+      "fields": {
+        "title": {
+          "en": "Repeat the greeting aloud",
+          "uk": "Повторіть привітання вголос",
+          "ru": "Повторите приветствие вслух",
+          "pl": "Powtórz powitanie na głos",
+          "de": "Wiederholen Sie die Begrüßung laut"
+        },
+        "spokenPractice.prompt": {
+          "en": "Listen and repeat the greeting aloud.",
+          "uk": "Послухайте й повторіть привітання вголос.",
+          "ru": "Послушайте и повторите приветствие вслух.",
+          "pl": "Posłuchaj i powtórz powitanie na głos.",
+          "de": "Hören Sie zu und wiederholen Sie die Begrüßung laut."
+        },
+        "spokenPractice.focusCue": {
+          "en": "Notice the rhythm and clear vowel sounds.",
+          "uk": "Зверніть увагу на ритм і чіткі голосні.",
+          "ru": "Обратите внимание на ритм и чёткие гласные.",
+          "pl": "Zwróć uwagę na rytm i wyraźne samogłoski.",
+          "de": "Achten Sie auf Rhythmus und klare Vokale."
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "es.a0.m01.l001.activity.delayed_imitation_name_question",
+      "fields": {
+        "title": {
+          "en": "Reproduce the question from memory",
+          "uk": "Відтворіть питання з пам’яті",
+          "ru": "Воспроизведите вопрос по памяти",
+          "pl": "Odtwórz pytanie z pamięci",
+          "de": "Die Frage aus dem Gedächtnis wiedergeben"
+        },
+        "spokenPractice.prompt": {
+          "en": "Listen, hide the model, and try the question from memory.",
+          "uk": "Послухайте, сховайте зразок і спробуйте відтворити питання з пам’яті.",
+          "ru": "Послушайте, скройте образец и попробуйте воспроизвести вопрос по памяти.",
+          "pl": "Posłuchaj, ukryj wzorzec i spróbuj odtworzyć pytanie z pamięci.",
+          "de": "Hören Sie zu, blenden Sie das Modell aus und versuchen Sie die Frage aus dem Gedächtnis."
+        },
+        "spokenPractice.focusCue": {
+          "en": "Notice the question intonation.",
+          "uk": "Зверніть увагу на інтонацію питання.",
+          "ru": "Обратите внимание на вопросительную интонацию.",
+          "pl": "Zwróć uwagę na intonację pytania.",
+          "de": "Achten Sie auf die Frageintonation."
+        }
+      }
+    },
+    {
+      "type": "lesson_activity",
+      "id": "es.a0.m01.l001.activity.spoken_recall_name",
+      "fields": {
+        "title": {
+          "en": "Say your name in Spanish",
+          "uk": "Скажіть своє ім’я іспанською",
+          "ru": "Скажите своё имя по-испански",
+          "pl": "Powiedz swoje imię po hiszpańsku",
+          "de": "Sagen Sie Ihren Namen auf Spanisch"
+        },
+        "spokenPractice.prompt": {
+          "en": "Say in Spanish: My name is Ana.",
+          "uk": "Скажіть іспанською: «Мене звати Ана».",
+          "ru": "Скажите по-испански: «Меня зовут Ана».",
+          "pl": "Powiedz po hiszpańsku: „Mam na imię Ana”.",
+          "de": "Sagen Sie auf Spanisch: „Ich heiße Ana.“"
+        }
+      }
+    }
+  ]
 }

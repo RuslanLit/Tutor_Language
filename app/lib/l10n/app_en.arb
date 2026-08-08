@@ -89,6 +89,7 @@
   "lessonCompleted": "Lesson completed",
   "continueToNextLesson": "Continue to next lesson",
   "repeatLesson": "Repeat lesson",
+  "repeatFromStep": "Repeat from a step",
   "repeatCheckpoint": "Repeat checkpoint",
   "reviewCompletedLessons": "Review completed lessons",
   "someTopicsNeedReinforcement": "Some topics will need reinforcement.",
@@ -484,5 +485,15 @@
   "tryRecordingAgain": "Try recording again",
   "recordingFailed": "Recording failed. You can continue without recording.",
   "continueWithoutRecording": "Continue without recording",
+  "spokenPractice": "Spoken practice",
+  "listen": "Listen",
+  "sayItAloud": "Say it aloud",
+  "tryFromMemory": "Try from memory",
+  "listenToReference": "Listen to reference",
+  "showReference": "Show reference",
+  "finishAttempt": "Finish attempt",
+  "tryAgain": "Try again",
+  "continuePractice": "Continue",
+  "practiceComplete": "Practice complete",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

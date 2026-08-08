@@ -61,6 +61,148 @@ void main() {
     );
   });
 
+  test(
+    'lesson resume cursor saves and restores by lesson and attempt',
+    () async {
+      final cursor = LessonResumeCursor(
+        lessonId: 'lesson.resume',
+        courseId: 'course.a0',
+        attemptId: 'attempt.resume.1',
+        attemptPurpose: LessonAttemptPurpose.normal,
+        stepId: 'lesson.resume::activity.12::info.1',
+        stepIndex: 11,
+        startedAt: DateTime.utc(2026, 8, 8, 10),
+        savedAt: DateTime.utc(2026, 8, 8, 10, 5),
+      );
+
+      await repository.saveLessonResumeCursor(cursor);
+
+      expect(
+        await repository.getLessonResumeCursor(
+          'lesson.resume',
+          LessonAttemptPurpose.normal,
+        ),
+        cursor,
+      );
+      expect(
+        await repository.getLessonResumeCursor(
+          'lesson.resume',
+          LessonAttemptPurpose.manualRepeat,
+        ),
+        null,
+      );
+    },
+  );
+
+  test(
+    'back navigation cursor overwrites the active position idempotently',
+    () async {
+      final base = LessonResumeCursor(
+        lessonId: 'lesson.resume',
+        courseId: 'course.a0',
+        attemptId: 'attempt.resume.2',
+        attemptPurpose: LessonAttemptPurpose.normal,
+        stepId: 'step.12',
+        stepIndex: 11,
+        startedAt: DateTime.utc(2026, 8, 8, 10),
+        savedAt: DateTime.utc(2026, 8, 8, 10, 5),
+      );
+      final back = LessonResumeCursor(
+        lessonId: base.lessonId,
+        courseId: base.courseId,
+        attemptId: base.attemptId,
+        attemptPurpose: base.attemptPurpose,
+        stepId: 'step.11',
+        stepIndex: 10,
+        startedAt: base.startedAt,
+        savedAt: DateTime.utc(2026, 8, 8, 10, 6),
+      );
+
+      await repository.saveLessonResumeCursor(base);
+      await repository.saveLessonResumeCursor(back);
+
+      expect(
+        (await repository.getLessonResumeCursor(
+          base.lessonId,
+          base.attemptPurpose,
+        ))!.stepId,
+        'step.11',
+      );
+    },
+  );
+
+  test('clearing a completed attempt removes only its resume cursor', () async {
+    final first = LessonResumeCursor(
+      lessonId: 'lesson.one',
+      courseId: 'course.a0',
+      attemptId: 'attempt.done',
+      attemptPurpose: LessonAttemptPurpose.normal,
+      stepId: 'step.2',
+      stepIndex: 1,
+      startedAt: DateTime.utc(2026, 8, 8),
+      savedAt: DateTime.utc(2026, 8, 8, 1),
+    );
+    final second = LessonResumeCursor(
+      lessonId: 'lesson.two',
+      courseId: 'course.a0',
+      attemptId: 'attempt.keep',
+      attemptPurpose: LessonAttemptPurpose.normal,
+      stepId: 'step.3',
+      stepIndex: 2,
+      startedAt: DateTime.utc(2026, 8, 8),
+      savedAt: DateTime.utc(2026, 8, 8, 1),
+    );
+
+    await repository.saveLessonResumeCursor(first);
+    await repository.saveLessonResumeCursor(second);
+    await repository.clearLessonResumeCursor(first.attemptId);
+
+    expect(
+      await repository.getLessonResumeCursor(
+        first.lessonId,
+        first.attemptPurpose,
+      ),
+      null,
+    );
+    expect(
+      await repository.getLessonResumeCursor(
+        second.lessonId,
+        second.attemptPurpose,
+      ),
+      second,
+    );
+  });
+
+  test('resume cursor survives database reconstruction', () async {
+    final directory = await Directory.systemTemp.createTemp('resume_cursor_');
+    final databaseFile = File('${directory.path}/tutor.sqlite');
+    final cursor = LessonResumeCursor(
+      lessonId: 'lesson.restart',
+      courseId: 'course.a0',
+      attemptId: 'attempt.restart',
+      attemptPurpose: LessonAttemptPurpose.normal,
+      stepId: 'step.12',
+      stepIndex: 11,
+      startedAt: DateTime.utc(2026, 8, 8),
+      savedAt: DateTime.utc(2026, 8, 8, 1),
+    );
+
+    final firstDatabase = AppDatabase(NativeDatabase(databaseFile));
+    await LearnerProgressRepository(
+      firstDatabase,
+    ).saveLessonResumeCursor(cursor);
+    await firstDatabase.close();
+
+    final secondDatabase = AppDatabase(NativeDatabase(databaseFile));
+    final restored = await LearnerProgressRepository(
+      secondDatabase,
+    ).getLessonResumeCursor(cursor.lessonId, cursor.attemptPurpose);
+    await secondDatabase.close();
+    await directory.delete(recursive: true);
+
+    expect(restored, cursor);
+  });
+
   test('repository records topicViewed', () async {
     final event = ProgressEvent.create(
       eventType: ProgressEventType.topicViewed,
@@ -179,6 +321,18 @@ void main() {
         courseId: 'course.spanish.a0',
         completedAt: DateTime.utc(2026, 7, 11),
       );
+      await repository.saveLessonResumeCursor(
+        LessonResumeCursor(
+          lessonId: command.attempt.lessonId,
+          courseId: command.attempt.courseId,
+          attemptId: command.attempt.attemptId,
+          attemptPurpose: command.attempt.purpose,
+          stepId: 'step.practice',
+          stepIndex: 1,
+          startedAt: DateTime.utc(2026, 7, 11),
+          savedAt: DateTime.utc(2026, 7, 11, 1),
+        ),
+      );
 
       final result = await repository.recordCompletedLessonAttempt(command);
 
@@ -202,6 +356,13 @@ void main() {
       expect(steps.single.stepId, 'step.practice');
       expect(steps.single.masteryStatus, DurableStepMasteryStatus.mastered);
       expect(progress.hasBeenCompleted, isTrue);
+      expect(
+        await repository.getLessonResumeCursor(
+          command.attempt.lessonId,
+          command.attempt.purpose,
+        ),
+        null,
+      );
     },
   );
 

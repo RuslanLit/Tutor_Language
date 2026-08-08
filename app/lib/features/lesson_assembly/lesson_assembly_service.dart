@@ -1,7 +1,9 @@
 import '../../core/content/content_loader.dart';
 import '../../core/content/educational_content_catalog.dart';
 import '../../core/content/educational_content_validator.dart';
+import '../../core/content/audio_reference_loader.dart';
 import '../../core/content/pronunciation_models.dart';
+import '../../core/content/spoken_practice.dart';
 import '../../core/content/topic_content.dart';
 import '../curriculum/curriculum_loader.dart';
 import '../curriculum/curriculum_models.dart';
@@ -20,6 +22,17 @@ class LessonAssemblyService {
   Future<LessonContent> assembleLesson(String lessonId) async {
     final course = await _curriculumLoader.loadCourse();
     final lesson = _findLesson(course, lessonId);
+    final audioManifest = await AudioReferenceLoader().loadManifest();
+    final spokenIssues = [
+      ...const SpokenPracticeValidator().validateActivities(lesson.activities),
+      ...const SpokenPracticeValidator().validateApprovedAudio(
+        lesson.activities,
+        audioManifest,
+      ),
+    ];
+    if (spokenIssues.isNotEmpty) {
+      throw LessonAssemblyException(spokenIssues.first.message);
+    }
     final contentBundle = await _contentLoader.loadLanguagePackContent();
     final catalog = EducationalContentCatalog(contentBundle);
 
@@ -30,6 +43,12 @@ class LessonAssemblyService {
     required LessonDefinition lesson,
     required EducationalContentCatalog catalog,
   }) {
+    final spokenIssues = const SpokenPracticeValidator().validateActivities(
+      lesson.activities,
+    );
+    if (spokenIssues.isNotEmpty) {
+      throw LessonAssemblyException(spokenIssues.first.message);
+    }
     const validator = EducationalContentValidator();
     final issues = validator.validateLessonReferences(
       lesson: lesson,
@@ -99,6 +118,11 @@ class LessonAssemblyService {
     return LessonContentActivity(
       activity: activity,
       resolvedContent: List.unmodifiable([
+        if (activity.spokenPractice != null)
+          SpokenPracticeActivity(
+            id: activity.id,
+            definition: activity.spokenPractice!,
+          ),
         for (final ruleId in activity.introducedReadingRuleIds)
           ReadingRulePresentationReference(ruleId),
         for (final ruleId in activity.reviewedReadingRuleIds)

@@ -32,47 +32,56 @@
       {
         "speaker": "Ти",
         "spanish": "Hola. Me llamo Marta.",
-        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta."
+        "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta.",
+        "audioReferenceId": "es.audio.dialogue.hola_me_llamo_marta"
       },
       {
         "speaker": "Ana",
         "spanish": "Hola, Marta. ¿Cómo estás?",
-        "native_translation": "ола Марта. комо естас — привіт, Marta. як ти?"
+        "native_translation": "ола Марта. комо естас — привіт, Marta. як ти?",
+        "audioReferenceId": "es.audio.question.hola_marta_como_estas"
       },
       {
         "speaker": "Ти",
         "spanish": "Estoy bien, gracias. ¿Y tú?",
-        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?"
+        "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?",
+        "audioReferenceId": "es.audio.question.estoy_bien_gracias_y_tu"
       },
       {
         "speaker": "Ana",
         "spanish": "Muy bien, gracias.",
-        "native_translation": "муй б'єн грасіас — дуже добре, дякую."
+        "native_translation": "муй б'єн грасіас — дуже добре, дякую.",
+        "audioReferenceId": "es.audio.dialogue.muy_bien_gracias"
       },
       {
         "speaker": "Ти",
         "spanish": "¿Quién es ella?",
-        "native_translation": "к'єн ес ея — хто вона?"
+        "native_translation": "к'єн ес ея — хто вона?",
+        "audioReferenceId": "es.audio.question.quien_es_ella"
       },
       {
         "speaker": "Ana",
         "spanish": "Ella es mi amiga. Se llama Sofía.",
-        "native_translation": "ея ес мі аміга. се яма Софія — вона моя подруга. її звати Sofía."
+        "native_translation": "ея ес мі аміга. се яма Софія — вона моя подруга. її звати Sofía.",
+        "audioReferenceId": "es.audio.dialogue.ella_es_mi_amiga_se_llama_sofia"
       },
       {
         "speaker": "Ana",
         "spanish": "Es de España. Vive en Madrid.",
-        "native_translation": "ес де еспанья. біве ен мадрід — вона з Іспанії. вона живе в Мадриді."
+        "native_translation": "ес де еспанья. біве ен мадрід — вона з Іспанії. вона живе в Мадриді.",
+        "audioReferenceId": "es.audio.dialogue.es_de_espana_vive_en_madrid"
       },
       {
         "speaker": "Ana",
         "spanish": "Habla español e inglés.",
-        "native_translation": "абла еспаньйол е інглес — вона говорить іспанською та англійською."
+        "native_translation": "абла еспаньйол е інглес — вона говорить іспанською та англійською.",
+        "audioReferenceId": "es.audio.dialogue.habla_espanol_e_ingles"
       },
       {
         "speaker": "Ти",
         "spanish": "Mucho gusto. Hasta luego.",
-        "native_translation": "мучо густо. аста луего — дуже приємно. до зустрічі."
+        "native_translation": "мучо густо. аста луего — дуже приємно. до зустрічі.",
+        "audioReferenceId": "es.audio.dialogue.mucho_gusto_hasta_luego"
       }
     ]
   },
@@ -99,22 +108,26 @@
       {
         "speaker": "Ana",
         "spanish": "¿Quién es él?",
-        "native_translation": "к'єн ес ель — хто він?"
+        "native_translation": "к'єн ес ель — хто він?",
+        "audioReferenceId": "es.audio.question.quien_es_el"
       },
       {
         "speaker": "Ти",
         "spanish": "Él es mi amigo. Se llama Luis.",
-        "native_translation": "ель ес мі аміго. се яма Луїс — він мій друг. його звати Luis."
+        "native_translation": "ель ес мі аміго. се яма Луїс — він мій друг. його звати Luis.",
+        "audioReferenceId": "es.audio.dialogue.el_es_mi_amigo_se_llama_luis"
       },
       {
         "speaker": "Ти",
         "spanish": "Es de Ucrania. Vive en Kyiv.",
-        "native_translation": "ес де укранія. біве ен Київ — він з України. він живе в Києві."
+        "native_translation": "ес де укранія. біве ен Київ — він з України. він живе в Києві.",
+        "audioReferenceId": "es.audio.dialogue.es_de_ucrania_vive_en_kyiv"
       },
       {
         "speaker": "Ти",
         "spanish": "Habla español un poco.",
-        "native_translation": "абла еспаньйол ун поко — він трохи говорить іспанською."
+        "native_translation": "абла еспаньйол ун поко — він трохи говорить іспанською.",
+        "audioReferenceId": "es.audio.dialogue.habla_espanol_un_poco"
       }
     ]
   }

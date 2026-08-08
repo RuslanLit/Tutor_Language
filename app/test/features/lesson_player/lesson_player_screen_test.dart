@@ -822,6 +822,55 @@ void main() {
     },
   );
 
+  testWidgets('completed lesson can repeat from a selected step', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+    await repository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: _navigationLessonId,
+        now: DateTime.utc(2026),
+      ),
+    );
+
+    await tester.pumpWidget(
+      _routerApp(
+        initialLocation: '/lesson/$_navigationLessonId',
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        database: database,
+        completedProgress: true,
+        nextOrderedLesson: _nextOrderedLesson,
+      ),
+    );
+    await _pumpUntilFound(tester, find.text('Lesson completed'));
+    await _pumpUntilFound(tester, find.text('Repeat from a step'));
+
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Repeat from a step'));
+    await _pumpUntilFound(tester, find.text('Step 2 / 3'));
+    await tester.tap(
+      find.ancestor(
+        of: find.text('Step 2 / 3'),
+        matching: find.byType(ListTile),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await _pumpUntilFound(tester, find.text('Choose the right option.'));
+
+    expect(find.text('Choose the right option.'), findsOneWidget);
+    expect(find.text('Navigation Vocabulary'), findsNothing);
+    final progress = await repository.readTopicProgress(_navigationLessonId);
+    expect(progress.hasBeenCompleted, isTrue);
+  });
+
   testWidgets('repeat completion creates a separate attempt history', (
     tester,
   ) async {

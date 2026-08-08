@@ -170,6 +170,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get repeatLesson => 'Повторити урок';
 
   @override
+  String get repeatFromStep => 'Повторити з вибраного кроку';
+
+  @override
   String get repeatCheckpoint => 'Повторити контрольну перевірку';
 
   @override
@@ -248,7 +251,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get acceptedWithCorrection => 'Прийнято з виправленням';
 
   @override
-  String get tryAgain => 'Спробуйте ще раз';
+  String get tryAgain => 'Спробувати ще раз';
 
   @override
   String get notCorrectYet => 'Поки що не правильно';
@@ -1120,4 +1123,31 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get continueWithoutRecording => 'Продовжити без запису';
+
+  @override
+  String get spokenPractice => 'Усна практика';
+
+  @override
+  String get listen => 'Послухати';
+
+  @override
+  String get sayItAloud => 'Скажіть уголос';
+
+  @override
+  String get tryFromMemory => 'Спробувати з пам’яті';
+
+  @override
+  String get listenToReference => 'Послухати зразок';
+
+  @override
+  String get showReference => 'Показати зразок';
+
+  @override
+  String get finishAttempt => 'Завершити спробу';
+
+  @override
+  String get continuePractice => 'Продовжити';
+
+  @override
+  String get practiceComplete => 'Практику завершено';
 }

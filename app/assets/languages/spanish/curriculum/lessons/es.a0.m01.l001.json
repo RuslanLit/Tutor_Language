@@ -101,6 +101,44 @@
               "referenceId": "template.es.a0.m01.l001.independent_full_contact"
             }
           ]
+        },
+        {
+          "id": "es.a0.m01.l001.activity.listen_repeat_hola",
+          "title": "Повторити привітання уголос",
+          "type": "spoken_practice",
+          "order": 2,
+          "spokenPractice": {
+            "mode": "listenRepeat",
+            "audioReferenceId": "es.audio.phrase.hola",
+            "prompt": "Listen and repeat the greeting aloud.",
+            "targetText": "Hola.",
+            "focusCue": "Notice the rhythm and clear vowel sounds."
+          }
+        },
+        {
+          "id": "es.a0.m01.l001.activity.delayed_imitation_name_question",
+          "title": "Відтворити питання з пам’яті",
+          "type": "spoken_practice",
+          "order": 3,
+          "spokenPractice": {
+            "mode": "delayedImitation",
+            "audioReferenceId": "es.audio.question.como_te_llamas",
+            "prompt": "Listen, hide the model, and try the question from memory.",
+            "targetText": "¿Cómo te llamas?",
+            "focusCue": "Notice the question intonation."
+          }
+        },
+        {
+          "id": "es.a0.m01.l001.activity.spoken_recall_name",
+          "title": "Сказати своє ім’я іспанською",
+          "type": "spoken_practice",
+          "order": 4,
+          "spokenPractice": {
+            "mode": "spokenRecall",
+            "audioReferenceId": "es.audio.phrase.me_llamo",
+            "prompt": "Say in Spanish: My name is Ana.",
+            "targetText": "Me llamo Ana."
+          }
         }
       ]
     }

@@ -5,7 +5,8 @@
     "native_translation": "де ти живеш?",
     "cefr": "A0",
     "example": "¿Dónde vives? Vivo en Kyiv.",
-    "pronunciation": "донде вівес"
+    "pronunciation": "донде вівес",
+    "audioReferenceId": "es.audio.question.donde_vives"
   },
   {
     "id": "vocab.es.a0.m01.l002.que_idiomas_hablas",
@@ -13,7 +14,8 @@
     "native_translation": "якими мовами ти говориш?",
     "cefr": "A0",
     "example": "¿Qué idiomas hablas? Hablo español.",
-    "pronunciation": "ке ідіомас аблас"
+    "pronunciation": "ке ідіомас аблас",
+    "audioReferenceId": "es.audio.question.que_idiomas_hablas"
   },
   {
     "id": "vocab.es.a0.m01.l002.tambien",
@@ -21,7 +23,8 @@
     "native_translation": "також",
     "cefr": "A0",
     "example": "También hablo inglés.",
-    "pronunciation": "тамб'єн"
+    "pronunciation": "тамб'єн",
+    "audioReferenceId": "es.audio.word.tambien"
   },
   {
     "id": "vocab.es.a0.m01.l002.un_poco",
@@ -29,7 +32,8 @@
     "native_translation": "трохи",
     "cefr": "A0",
     "example": "Hablo un poco de español.",
-    "pronunciation": "ун поко"
+    "pronunciation": "ун поко",
+    "audioReferenceId": "es.audio.phrase.un_poco"
   },
   {
     "id": "vocab.es.a0.m01.l002.no_hablo",
@@ -37,7 +41,8 @@
     "native_translation": "я не говорю...",
     "cefr": "A0",
     "example": "No hablo francés.",
-    "pronunciation": "но абло"
+    "pronunciation": "но абло",
+    "audioReferenceId": "es.audio.phrase.no_hablo_template"
   },
   {
     "id": "vocab.es.a0.m01.l002.frances",
@@ -45,7 +50,8 @@
     "native_translation": "французька мова",
     "cefr": "A0",
     "example": "No hablo francés.",
-    "pronunciation": "франсес"
+    "pronunciation": "франсес",
+    "audioReferenceId": "es.audio.word.frances"
   },
   {
     "id": "vocab.es.a0.m01.l002.aleman",
@@ -53,7 +59,8 @@
     "native_translation": "німецька мова",
     "cefr": "A0",
     "example": "No hablo alemán.",
-    "pronunciation": "алеман"
+    "pronunciation": "алеман",
+    "audioReferenceId": "es.audio.word.aleman"
   },
   {
     "id": "vocab.es.a0.m01.l002.idiomas",
@@ -61,6 +68,7 @@
     "native_translation": "мови",
     "cefr": "A0",
     "example": "¿Qué idiomas hablas?",
-    "pronunciation": "ідіомас"
+    "pronunciation": "ідіомас",
+    "audioReferenceId": "es.audio.word.idiomas"
   }
 ]

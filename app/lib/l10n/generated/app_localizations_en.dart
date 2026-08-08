@@ -169,6 +169,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get repeatLesson => 'Repeat lesson';
 
   @override
+  String get repeatFromStep => 'Repeat from a step';
+
+  @override
   String get repeatCheckpoint => 'Repeat checkpoint';
 
   @override
@@ -1110,4 +1113,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueWithoutRecording => 'Continue without recording';
+
+  @override
+  String get spokenPractice => 'Spoken practice';
+
+  @override
+  String get listen => 'Listen';
+
+  @override
+  String get sayItAloud => 'Say it aloud';
+
+  @override
+  String get tryFromMemory => 'Try from memory';
+
+  @override
+  String get listenToReference => 'Listen to reference';
+
+  @override
+  String get showReference => 'Show reference';
+
+  @override
+  String get finishAttempt => 'Finish attempt';
+
+  @override
+  String get continuePractice => 'Continue';
+
+  @override
+  String get practiceComplete => 'Practice complete';
 }

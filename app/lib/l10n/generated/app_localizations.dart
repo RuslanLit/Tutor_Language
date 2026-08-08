@@ -392,6 +392,12 @@ abstract class AppLocalizations {
   /// **'Repeat lesson'**
   String get repeatLesson;
 
+  /// No description provided for @repeatFromStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat from a step'**
+  String get repeatFromStep;
+
   /// No description provided for @repeatCheckpoint.
   ///
   /// In en, this message translates to:
@@ -1939,6 +1945,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue without recording'**
   String get continueWithoutRecording;
+
+  /// No description provided for @spokenPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Spoken practice'**
+  String get spokenPractice;
+
+  /// No description provided for @listen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get listen;
+
+  /// No description provided for @sayItAloud.
+  ///
+  /// In en, this message translates to:
+  /// **'Say it aloud'**
+  String get sayItAloud;
+
+  /// No description provided for @tryFromMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Try from memory'**
+  String get tryFromMemory;
+
+  /// No description provided for @listenToReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen to reference'**
+  String get listenToReference;
+
+  /// No description provided for @showReference.
+  ///
+  /// In en, this message translates to:
+  /// **'Show reference'**
+  String get showReference;
+
+  /// No description provided for @finishAttempt.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish attempt'**
+  String get finishAttempt;
+
+  /// No description provided for @continuePractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continuePractice;
+
+  /// No description provided for @practiceComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Practice complete'**
+  String get practiceComplete;
 }
 
 class _AppLocalizationsDelegate

@@ -170,6 +170,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get repeatLesson => 'Повторить урок';
 
   @override
+  String get repeatFromStep => 'Повторить с шага';
+
+  @override
   String get repeatCheckpoint => 'Повторить контрольную проверку';
 
   @override
@@ -249,7 +252,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get acceptedWithCorrection => 'Принято с исправлением';
 
   @override
-  String get tryAgain => 'Попробуйте ещё раз';
+  String get tryAgain => 'Попробовать ещё раз';
 
   @override
   String get notCorrectYet => 'Пока не правильно';
@@ -1120,4 +1123,31 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get continueWithoutRecording => 'Продолжить без записи';
+
+  @override
+  String get spokenPractice => 'Устная практика';
+
+  @override
+  String get listen => 'Послушать';
+
+  @override
+  String get sayItAloud => 'Скажите вслух';
+
+  @override
+  String get tryFromMemory => 'Попробовать по памяти';
+
+  @override
+  String get listenToReference => 'Послушать образец';
+
+  @override
+  String get showReference => 'Показать образец';
+
+  @override
+  String get finishAttempt => 'Завершить попытку';
+
+  @override
+  String get continuePractice => 'Продолжить';
+
+  @override
+  String get practiceComplete => 'Практика завершена';
 }

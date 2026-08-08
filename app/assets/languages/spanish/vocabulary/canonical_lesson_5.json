@@ -5,7 +5,8 @@
     "native_translation": "як його або її звати?",
     "cefr": "A0",
     "example": "¿Cómo se llama? Se llama Ana.",
-    "pronunciation": "комо се яма"
+    "pronunciation": "комо се яма",
+    "audioReferenceId": "es.audio.question.como_se_llama"
   },
   {
     "id": "vocab.es.a0.m01.l005.de_donde_es",
@@ -13,7 +14,8 @@
     "native_translation": "звідки він або вона?",
     "cefr": "A0",
     "example": "¿De dónde es? Es de España.",
-    "pronunciation": "де донде ес"
+    "pronunciation": "де донде ес",
+    "audioReferenceId": "es.audio.question.de_donde_es"
   },
   {
     "id": "vocab.es.a0.m01.l005.donde_vive",
@@ -21,7 +23,8 @@
     "native_translation": "де він або вона живе?",
     "cefr": "A0",
     "example": "¿Dónde vive? Vive en Madrid.",
-    "pronunciation": "донде біве"
+    "pronunciation": "донде біве",
+    "audioReferenceId": "es.audio.question.donde_vive"
   },
   {
     "id": "vocab.es.a0.m01.l005.que_idiomas_habla",
@@ -29,7 +32,8 @@
     "native_translation": "якими мовами він або вона говорить?",
     "cefr": "A0",
     "example": "¿Qué idiomas habla? Habla español.",
-    "pronunciation": "ке ідіомас абла"
+    "pronunciation": "ке ідіомас абла",
+    "audioReferenceId": "es.audio.question.que_idiomas_habla"
   },
   {
     "id": "vocab.es.a0.m01.l005.es_tu_amigo",
@@ -37,7 +41,8 @@
     "native_translation": "це твій друг?",
     "cefr": "A0",
     "example": "¿Es tu amigo? Sí, es mi amigo.",
-    "pronunciation": "ес ту аміго"
+    "pronunciation": "ес ту аміго",
+    "audioReferenceId": "es.audio.question.es_tu_amigo"
   },
   {
     "id": "vocab.es.a0.m01.l005.es_tu_amiga",
@@ -45,7 +50,8 @@
     "native_translation": "це твоя подруга?",
     "cefr": "A0",
     "example": "¿Es tu amiga? Sí, es mi amiga.",
-    "pronunciation": "ес ту аміга"
+    "pronunciation": "ес ту аміга",
+    "audioReferenceId": "es.audio.question.es_tu_amiga"
   },
   {
     "id": "vocab.es.a0.m01.l005.si_es",
@@ -53,7 +59,8 @@
     "native_translation": "так, це...",
     "cefr": "A0",
     "example": "Sí, es mi amiga.",
-    "pronunciation": "сі ес"
+    "pronunciation": "сі ес",
+    "audioReferenceId": "es.audio.phrase.si_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l005.no_no_es",
@@ -61,7 +68,8 @@
     "native_translation": "ні, це не...",
     "cefr": "A0",
     "example": "No, no es mi profesor.",
-    "pronunciation": "но но ес"
+    "pronunciation": "но но ес",
+    "audioReferenceId": "es.audio.phrase.no_no_es_template"
   },
   {
     "id": "vocab.es.a0.m01.l005.pero",
@@ -69,7 +77,8 @@
     "native_translation": "але",
     "cefr": "A0",
     "example": "No, no es mi profesor, pero es mi amigo.",
-    "pronunciation": "перо"
+    "pronunciation": "перо",
+    "audioReferenceId": "es.audio.word.pero"
   },
   {
     "id": "vocab.es.a0.m01.l005.y",
@@ -77,7 +86,8 @@
     "native_translation": "і",
     "cefr": "A0",
     "example": "Vive en Madrid y habla español.",
-    "pronunciation": "і"
+    "pronunciation": "і",
+    "audioReferenceId": "es.audio.word.y"
   },
   {
     "id": "vocab.es.a0.m01.l005.tu",
@@ -85,6 +95,7 @@
     "native_translation": "твій або твоя",
     "cefr": "A0",
     "example": "¿Es tu amiga?",
-    "pronunciation": "ту"
+    "pronunciation": "ту",
+    "audioReferenceId": "es.audio.word.tu"
   }
 ]

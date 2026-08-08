@@ -1,0 +1,11 @@
+number	audio_id	transcript	category
+1	es.audio.phrase.buenos_dias	Buenos días.	short greeting
+2	es.audio.word.ana	Ana	proper name / single word
+3	es.audio.dialogue.me_llamo_marta	Me llamo Marta.	short statement
+4	es.audio.question.como_te_llamas	¿Cómo te llamas?	question
+5	es.audio.question.estoy_bien_gracias_y_tu	Estoy bien, gracias. ¿Y tú?	statement plus question
+6	es.audio.dialogue.gracias_hasta_luego	Gracias. Hasta luego.	two-sentence dialogue turn
+7	es.audio.dialogue.ella_es_mi_amiga_se_llama_sofia	Ella es mi amiga. Se llama Sofía.	personal introduction
+8	es.audio.dialogue.es_de_ucrania_y_vive_en_kyiv	Es de Ucrania y vive en Kyiv.	place and coordination
+9	es.audio.dialogue.habla_espanol_e_ingles_pero_no_habla_frances	Habla español e inglés, pero no habla francés.	long declarative sentence
+10	es.audio.dialogue.hola_buenos_dias	Hola. Buenos días.	two-sentence greeting

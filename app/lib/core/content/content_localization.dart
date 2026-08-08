@@ -516,6 +516,40 @@ class EducationalContentLocalizationResolver {
                   introducedReadingRuleIds: activity.introducedReadingRuleIds,
                   requiredReadingRuleIds: activity.requiredReadingRuleIds,
                   reviewedReadingRuleIds: activity.reviewedReadingRuleIds,
+                  spokenPractice: activity.spokenPractice == null
+                      ? null
+                      : SpokenPracticeDefinition(
+                          mode: activity.spokenPractice!.mode,
+                          audioReferenceId:
+                              activity.spokenPractice!.audioReferenceId,
+                          prompt:
+                              _localizedField(
+                                activity.id,
+                                'spokenPractice.prompt',
+                                locale,
+                              ) ??
+                              _field(
+                                'lesson_activity',
+                                activity.id,
+                                'spokenPractice.prompt',
+                                locale,
+                              ) ??
+                              activity.spokenPractice!.prompt,
+                          targetText: activity.spokenPractice!.targetText,
+                          focusCue:
+                              _localizedField(
+                                activity.id,
+                                'spokenPractice.focusCue',
+                                locale,
+                              ) ??
+                              _field(
+                                'lesson_activity',
+                                activity.id,
+                                'spokenPractice.focusCue',
+                                locale,
+                              ) ??
+                              activity.spokenPractice!.focusCue,
+                        ),
                 );
               }),
             ),

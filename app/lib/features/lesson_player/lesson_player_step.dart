@@ -1,4 +1,5 @@
 import '../../core/content/topic_content.dart';
+import '../../core/content/spoken_practice.dart';
 import '../lesson_assembly/lesson_content.dart';
 
 enum LessonPlayerStepType {
@@ -7,6 +8,7 @@ enum LessonPlayerStepType {
   dialogue,
   reading,
   exercise,
+  spokenPractice,
   mixed,
 }
 
@@ -165,6 +167,7 @@ class LessonPlayerStepBuilder {
       GrammarTopic() => LessonPlayerStepType.grammar,
       Dialogue() => LessonPlayerStepType.dialogue,
       ReadingText() => LessonPlayerStepType.reading,
+      SpokenPracticeActivity() => LessonPlayerStepType.spokenPractice,
       _ => LessonPlayerStepType.mixed,
     };
   }

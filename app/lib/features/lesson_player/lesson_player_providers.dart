@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/legacy.dart';
 import '../../core/content/content_localization.dart';
 import '../../core/content/content_localization_providers.dart';
 import '../../core/learner/lesson_attempt.dart';
+import '../../core/learner/learner_progress.dart';
+import '../../core/learner/learner_progress_providers.dart';
 import '../activity_engine/activity_template_state.dart';
 import '../lesson_assembly/lesson_assembly_service.dart';
 import '../lesson_assembly/lesson_content.dart';
@@ -43,6 +45,36 @@ final assembledLessonProvider = FutureProvider.family<LessonContent, String>((
 final lessonPlayerSessionProvider =
     StateProvider.family<LessonPlayerSessionState, String>((ref, lessonId) {
       return const LessonPlayerSessionState();
+    });
+
+class LessonResumeCursorRequest {
+  const LessonResumeCursorRequest({
+    required this.lessonId,
+    required this.attemptPurpose,
+  });
+
+  final String lessonId;
+  final LessonAttemptPurpose attemptPurpose;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LessonResumeCursorRequest &&
+          other.lessonId == lessonId &&
+          other.attemptPurpose == attemptPurpose;
+
+  @override
+  int get hashCode => Object.hash(lessonId, attemptPurpose);
+}
+
+final lessonResumeCursorProvider =
+    FutureProvider.family<LessonResumeCursor?, LessonResumeCursorRequest>((
+      ref,
+      request,
+    ) {
+      return ref
+          .watch(learnerProgressRepositoryProvider)
+          .getLessonResumeCursor(request.lessonId, request.attemptPurpose);
     });
 
 enum LessonCompletionPersistenceStatus {
@@ -119,6 +151,8 @@ class LessonPlayerSessionState {
     required String lessonId,
     required List<LessonPlayerStep> steps,
     LessonAttemptPurpose attemptPurpose = LessonAttemptPurpose.normal,
+    LessonResumeCursor? resumeCursor,
+    String? initialStepId,
     LessonSessionEngine engine = const LessonSessionEngine(),
   }) {
     final stepIds = steps.map((step) => step.id).toList(growable: false);
@@ -149,12 +183,44 @@ class LessonPlayerSessionState {
 
     final startedAt = DateTime.now().toUtc();
 
+    var startedSessionState = decision.updatedState;
+    String? restoredAttemptId;
+    DateTime? restoredStartedAt;
+    if (resumeCursor != null &&
+        resumeCursor.lessonId == lessonId &&
+        resumeCursor.attemptPurpose == attemptPurpose) {
+      final restoredIndex = startedSessionState.orderedStepIds.indexOf(
+        resumeCursor.stepId,
+      );
+      if (restoredIndex >= 0) {
+        startedSessionState = startedSessionState.copyWith(
+          currentStepId: resumeCursor.stepId,
+          currentStepIndex: restoredIndex,
+        );
+        restoredAttemptId = resumeCursor.attemptId;
+        restoredStartedAt = resumeCursor.startedAt;
+      }
+    }
+
+    if (restoredAttemptId == null && initialStepId != null) {
+      final initialIndex = startedSessionState.orderedStepIds.indexOf(
+        initialStepId,
+      );
+      if (initialIndex >= 0) {
+        startedSessionState = startedSessionState.copyWith(
+          currentStepId: initialStepId,
+          currentStepIndex: initialIndex,
+        );
+      }
+    }
+
     return LessonPlayerSessionState(
-      sessionState: decision.updatedState,
+      sessionState: startedSessionState,
       attemptPurpose: attemptPurpose,
       attemptId:
+          restoredAttemptId ??
           '${startedAt.microsecondsSinceEpoch}.$lessonId.${attemptPurpose.code}.attempt',
-      attemptStartedAt: startedAt,
+      attemptStartedAt: restoredStartedAt ?? startedAt,
     );
   }
 }

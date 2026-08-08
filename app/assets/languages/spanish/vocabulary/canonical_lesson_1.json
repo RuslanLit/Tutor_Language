@@ -16,7 +16,8 @@
     "cefr": "A0",
     "example": "Buenos días. Me llamo Marta.",
     "pronunciation": "буенос діас",
-    "notes": "Привітатися вранці або вдень."
+    "notes": "Привітатися вранці або вдень.",
+    "audioReferenceId": "es.audio.phrase.buenos_dias"
   },
   {
     "id": "vocab.es.a0.m01.l001.buenas_tardes",
@@ -25,7 +26,8 @@
     "cefr": "A0",
     "example": "Buenas tardes. Me llamo Marta.",
     "pronunciation": "буенас тардес",
-    "notes": "Привітатися вдень або ввечері."
+    "notes": "Привітатися вдень або ввечері.",
+    "audioReferenceId": "es.audio.dialogue.buenas_tardes"
   },
   {
     "id": "vocab.es.a0.m01.l001.buenas_noches",
@@ -34,7 +36,8 @@
     "cefr": "A0",
     "example": "Buenas noches. Me llamo Marta.",
     "pronunciation": "буенас ночес",
-    "notes": "Привітатися ввечері."
+    "notes": "Привітатися ввечері.",
+    "audioReferenceId": "es.audio.dialogue.buenas_noches"
   },
   {
     "id": "vocab.es.a0.m01.l001.me_llamo",
@@ -43,7 +46,8 @@
     "cefr": "A0",
     "example": "Me llamo Marta.",
     "pronunciation": "ме ямо",
-    "notes": "Назвати себе."
+    "notes": "Назвати себе.",
+    "audioReferenceId": "es.audio.phrase.me_llamo_template"
   },
   {
     "id": "vocab.es.a0.m01.l001.soy",
@@ -52,7 +56,8 @@
     "cefr": "A0",
     "example": "Soy de Ucrania.",
     "pronunciation": "сой",
-    "notes": "Сказати коротку інформацію про себе."
+    "notes": "Сказати коротку інформацію про себе.",
+    "audioReferenceId": "es.audio.word.soy_template"
   },
   {
     "id": "vocab.es.a0.m01.l001.como_te_llamas",
@@ -71,7 +76,8 @@
     "cefr": "A0",
     "example": "Me llamo Ana. Mucho gusto.",
     "pronunciation": "мучо густо",
-    "notes": "Ввічливо відповісти після знайомства."
+    "notes": "Ввічливо відповісти після знайомства.",
+    "audioReferenceId": "es.audio.dialogue.mucho_gusto"
   },
   {
     "id": "vocab.es.a0.m01.l001.encantado",
@@ -80,7 +86,8 @@
     "cefr": "A0",
     "example": "Me llamo Marta. Encantado.",
     "pronunciation": "енкантадо",
-    "notes": "Чоловік може так сказати після знайомства."
+    "notes": "Чоловік може так сказати після знайомства.",
+    "audioReferenceId": "es.audio.dialogue.encantado"
   },
   {
     "id": "vocab.es.a0.m01.l001.encantada",
@@ -89,7 +96,8 @@
     "cefr": "A0",
     "example": "Me llamo Ana. Encantada.",
     "pronunciation": "енкантада",
-    "notes": "Жінка може так сказати після знайомства."
+    "notes": "Жінка може так сказати після знайомства.",
+    "audioReferenceId": "es.audio.dialogue.encantada"
   },
   {
     "id": "vocab.es.a0.m01.l001.soy_de",
@@ -98,7 +106,8 @@
     "cefr": "A0",
     "example": "Soy de Ucrania.",
     "pronunciation": "сой де",
-    "notes": "Сказати, звідки ти."
+    "notes": "Сказати, звідки ти.",
+    "audioReferenceId": "es.audio.phrase.soy_de_template"
   },
   {
     "id": "vocab.es.a0.m01.l001.de_donde_eres",
@@ -107,7 +116,8 @@
     "cefr": "A0",
     "example": "Soy de Ucrania. ¿De dónde eres?",
     "pronunciation": "де донде ерес",
-    "notes": "Запитати, звідки співрозмовник."
+    "notes": "Запитати, звідки співрозмовник.",
+    "audioReferenceId": "es.audio.question.de_donde_eres"
   },
   {
     "id": "vocab.es.a0.m01.l001.vivo_en",
@@ -116,7 +126,8 @@
     "cefr": "A0",
     "example": "Vivo en Kyiv.",
     "pronunciation": "біво ен",
-    "notes": "Сказати, де живеш."
+    "notes": "Сказати, де живеш.",
+    "audioReferenceId": "es.audio.phrase.vivo_en_template"
   },
   {
     "id": "vocab.es.a0.m01.l001.hablo_espanol",
@@ -125,7 +136,8 @@
     "cefr": "A0",
     "example": "Sí. Hablo español.",
     "pronunciation": "абло еспаньйол",
-    "notes": "Сказати про мову."
+    "notes": "Сказати про мову.",
+    "audioReferenceId": "es.audio.phrase.hablo_espanol"
   },
   {
     "id": "vocab.es.a0.m01.l001.hablas_espanol",
@@ -134,7 +146,8 @@
     "cefr": "A0",
     "example": "¿Hablas español? Sí.",
     "pronunciation": "аблас еспаньйол",
-    "notes": "Запитати про мову співрозмовника."
+    "notes": "Запитати про мову співрозмовника.",
+    "audioReferenceId": "es.audio.question.hablas_espanol"
   },
   {
     "id": "vocab.es.a0.m01.l001.hablo_ingles",
@@ -143,7 +156,8 @@
     "cefr": "A0",
     "example": "Sí. Hablo inglés.",
     "pronunciation": "абло інглес",
-    "notes": "Сказати про мову."
+    "notes": "Сказати про мову.",
+    "audioReferenceId": "es.audio.phrase.hablo_ingles"
   },
   {
     "id": "vocab.es.a0.m01.l001.si",
@@ -152,7 +166,8 @@
     "cefr": "A0",
     "example": "Sí. Hablo inglés.",
     "pronunciation": "сі",
-    "notes": "Коротко підтвердити."
+    "notes": "Коротко підтвердити.",
+    "audioReferenceId": "es.audio.word.si"
   },
   {
     "id": "vocab.es.a0.m01.l001.no",
@@ -161,7 +176,8 @@
     "cefr": "A0",
     "example": "No. Hablo español.",
     "pronunciation": "но",
-    "notes": "Коротко заперечити."
+    "notes": "Коротко заперечити.",
+    "audioReferenceId": "es.audio.dialogue.no"
   },
   {
     "id": "vocab.es.a0.m01.l001.gracias",
@@ -170,7 +186,8 @@
     "cefr": "A0",
     "example": "Mucho gusto. Gracias.",
     "pronunciation": "грасіас",
-    "notes": "Подякувати."
+    "notes": "Подякувати.",
+    "audioReferenceId": "es.audio.word.gracias"
   },
   {
     "id": "vocab.es.a0.m01.l001.por_favor",
@@ -179,7 +196,8 @@
     "cefr": "A0",
     "example": "Por favor. ¿Cómo te llamas?",
     "pronunciation": "пор фавор",
-    "notes": "Зробити прохання ввічливим."
+    "notes": "Зробити прохання ввічливим.",
+    "audioReferenceId": "es.audio.dialogue.por_favor"
   },
   {
     "id": "vocab.es.a0.m01.l001.hasta_luego",
@@ -188,7 +206,8 @@
     "cefr": "A0",
     "example": "Gracias. Hasta luego.",
     "pronunciation": "аста луего",
-    "notes": "Завершити контакт м'яко."
+    "notes": "Завершити контакт м'яко.",
+    "audioReferenceId": "es.audio.dialogue.hasta_luego"
   },
   {
     "id": "vocab.es.a0.m01.l001.adios",
@@ -197,7 +216,8 @@
     "cefr": "A0",
     "example": "Adiós, Ana.",
     "pronunciation": "адьйос",
-    "notes": "Завершити контакт."
+    "notes": "Завершити контакт.",
+    "audioReferenceId": "es.audio.word.adios"
   },
   {
     "id": "vocab.es.a0.m01.l001.marta",
@@ -206,7 +226,8 @@
     "cefr": "A0",
     "example": "Me llamo Marta.",
     "pronunciation": "Марта",
-    "notes": "Ім'я для ролі учня в уроці."
+    "notes": "Ім'я для ролі учня в уроці.",
+    "audioReferenceId": "es.audio.word.marta"
   },
   {
     "id": "vocab.es.a0.m01.l001.ana",
@@ -215,7 +236,8 @@
     "cefr": "A0",
     "example": "Me llamo Ana.",
     "pronunciation": "Ана",
-    "notes": "Ім'я співрозмовниці в уроці."
+    "notes": "Ім'я співрозмовниці в уроці.",
+    "audioReferenceId": "es.audio.word.ana"
   },
   {
     "id": "vocab.es.a0.m01.l001.ucrania",
@@ -224,7 +246,8 @@
     "cefr": "A0",
     "example": "Soy de Ucrania.",
     "pronunciation": "укранія",
-    "notes": "Країна для представлення."
+    "notes": "Країна для представлення.",
+    "audioReferenceId": "es.audio.word.ucrania"
   },
   {
     "id": "vocab.es.a0.m01.l001.espana",
@@ -233,7 +256,8 @@
     "cefr": "A0",
     "example": "Soy de España.",
     "pronunciation": "еспанья",
-    "notes": "Країна співрозмовника."
+    "notes": "Країна співрозмовника.",
+    "audioReferenceId": "es.audio.word.espana"
   },
   {
     "id": "vocab.es.a0.m01.l001.kyiv",
@@ -242,7 +266,8 @@
     "cefr": "A0",
     "example": "Vivo en Kyiv.",
     "pronunciation": "Київ",
-    "notes": "Місто для представлення."
+    "notes": "Місто для представлення.",
+    "audioReferenceId": "es.audio.word.kyiv"
   },
   {
     "id": "vocab.es.a0.m01.l001.madrid",
@@ -251,6 +276,7 @@
     "cefr": "A0",
     "example": "Vivo en Madrid.",
     "pronunciation": "мадрід",
-    "notes": "Місто співрозмовника."
+    "notes": "Місто співрозмовника.",
+    "audioReferenceId": "es.audio.word.madrid"
   }
 ]

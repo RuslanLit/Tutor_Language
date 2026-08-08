@@ -170,6 +170,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get repeatLesson => 'Lektion wiederholen';
 
   @override
+  String get repeatFromStep => 'Ab einem Schritt wiederholen';
+
+  @override
   String get repeatCheckpoint => 'Checkpoint wiederholen';
 
   @override
@@ -248,7 +251,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get acceptedWithCorrection => 'Mit Korrektur akzeptiert';
 
   @override
-  String get tryAgain => 'Noch einmal versuchen';
+  String get tryAgain => 'Erneut versuchen';
 
   @override
   String get notCorrectYet => 'Noch nicht richtig';
@@ -1115,4 +1118,31 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get continueWithoutRecording => 'Ohne Aufnahme fortfahren';
+
+  @override
+  String get spokenPractice => 'Sprechübung';
+
+  @override
+  String get listen => 'Anhören';
+
+  @override
+  String get sayItAloud => 'Laut sagen';
+
+  @override
+  String get tryFromMemory => 'Aus dem Gedächtnis versuchen';
+
+  @override
+  String get listenToReference => 'Referenz anhören';
+
+  @override
+  String get showReference => 'Referenz anzeigen';
+
+  @override
+  String get finishAttempt => 'Versuch beenden';
+
+  @override
+  String get continuePractice => 'Weiter';
+
+  @override
+  String get practiceComplete => 'Übung abgeschlossen';
 }

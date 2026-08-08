@@ -264,15 +264,16 @@ from authoritative project/model metadata.
 
 # Scope boundary and future architecture
 
-**Audio Foundation** currently covers local approved-reference playback. Future
-work may add listening activities, temporary learner recording, learner
-playback, self-comparison, spoken-recall practice and deterministic scripted
-interaction.
+**Audio Foundation** implements local approved-reference playback, temporary
+learner recording/playback and the first non-evaluated Lesson Player spoken
+practice family: Listen & Repeat, Delayed Imitation and Spoken Recall. These
+activities use explicit reveal boundaries and self-comparison; they do not
+produce correctness or mastery evidence.
 
-AF3 provides only the temporary learner-recording foundation: just-in-time
+AF3 provides the temporary learner-recording foundation: just-in-time
 microphone permission, app-private short-lived WAV capture, local self-playback
-and privacy cleanup. It does not evaluate speech, create mastery evidence or
-add a spoken pedagogical activity.
+and privacy cleanup. AF4 connects it to bounded practice activities without
+evaluating speech or creating mastery evidence.
 
 **Speech Intelligence** is explicitly deferred: ASR, phoneme scoring,
 pronunciation diagnostics, automatic spoken-answer correctness, free-form

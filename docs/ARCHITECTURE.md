@@ -967,7 +967,22 @@ The Session Engine remains persistence-agnostic.
 Durable completed lesson attempts are projected into planner-ready history. The
 Lesson Planner uses them for bounded outcome-aware reinforcement policy.
 
-Active in-progress `LessonSessionState` is still not persisted.
+The active position of an incomplete lesson is persisted through the existing
+`learner_progress_events` table as a typed `lessonResumePosition` event. The
+cursor records lesson identity, attempt identity and purpose, stable runtime
+step ID, derived index, and the existing attempt start time. It is updated only
+when the learner enters or navigates to a different active step; widget
+rebuilds do not write it.
+
+Lesson Player restores a valid cursor before rendering the active lesson view.
+Missing or stale step identities fall back to the first valid step without
+fabricating completion. Completed attempts clear their cursor, and explicit
+manual/reinforcement attempts do not inherit a normal attempt cursor.
+
+The cursor is location state only. Typed input, AF4 reveal state, microphone
+state, temporary learner recording paths/bytes, and audio playback state are
+never persisted. Reopening an AF4 Spoken Recall step therefore starts with its
+target and reference hidden again.
 
 Durable Lesson Attempts
 

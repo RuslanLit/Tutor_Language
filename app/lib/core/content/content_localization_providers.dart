@@ -2,11 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
 import '../../features/lesson_assembly/lesson_content.dart';
+import '../../features/curriculum/curriculum_models.dart';
 import '../content/content_document.dart';
 import 'content_loader.dart';
 import 'content_localization.dart';
 import 'content_providers.dart';
 import 'semantic_localization.dart';
+import 'spoken_practice.dart';
 
 final supportLocaleControllerProvider = StateProvider<SupportLocale>((ref) {
   return SupportLocale.english;
@@ -123,14 +125,19 @@ LessonContent resolveLocalizedLessonContent({
           section: localizedSectionsById[section.section.id] ?? section.section,
           activities: List.unmodifiable(
             section.activities.map((activity) {
+              final localizedActivity =
+                  localizedActivitiesById[activity.activity.id] ??
+                  activity.activity;
               return LessonContentActivity(
-                activity:
-                    localizedActivitiesById[activity.activity.id] ??
-                    activity.activity,
+                activity: localizedActivity,
                 resolvedContent: List.unmodifiable(
                   activity.resolvedContent.map(
-                    (content) =>
-                        resolver.resolveContentObject(content, supportLocale),
+                    (content) => _localizeResolvedContent(
+                      content,
+                      localizedActivity,
+                      resolver,
+                      supportLocale,
+                    ),
                   ),
                 ),
               );
@@ -140,4 +147,20 @@ LessonContent resolveLocalizedLessonContent({
       }),
     ),
   );
+}
+
+Object _localizeResolvedContent(
+  Object content,
+  LessonActivity localizedActivity,
+  EducationalContentLocalizationResolver resolver,
+  SupportLocale supportLocale,
+) {
+  if (content is SpokenPracticeActivity &&
+      localizedActivity.spokenPractice != null) {
+    return SpokenPracticeActivity(
+      id: content.id,
+      definition: localizedActivity.spokenPractice!,
+    );
+  }
+  return resolver.resolveContentObject(content, supportLocale);
 }

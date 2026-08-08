@@ -89,6 +89,7 @@
   "lessonCompleted": "Урок завершён",
   "continueToNextLesson": "Перейти к следующему уроку",
   "repeatLesson": "Повторить урок",
+  "repeatFromStep": "Повторить с шага",
   "repeatCheckpoint": "Повторить контрольную проверку",
   "reviewCompletedLessons": "Просмотреть завершённые уроки",
   "someTopicsNeedReinforcement": "Некоторые темы потребуют закрепления.",
@@ -484,5 +485,15 @@
   "tryRecordingAgain": "Попробовать записать ещё раз",
   "recordingFailed": "Не удалось записать. Вы можете продолжить без записи.",
   "continueWithoutRecording": "Продолжить без записи",
+  "spokenPractice": "Устная практика",
+  "listen": "Послушать",
+  "sayItAloud": "Скажите вслух",
+  "tryFromMemory": "Попробовать по памяти",
+  "listenToReference": "Послушать образец",
+  "showReference": "Показать образец",
+  "finishAttempt": "Завершить попытку",
+  "tryAgain": "Попробовать ещё раз",
+  "continuePractice": "Продолжить",
+  "practiceComplete": "Практика завершена",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

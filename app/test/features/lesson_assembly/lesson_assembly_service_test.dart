@@ -24,7 +24,7 @@ void main() {
 
     expect(lessonContent.lesson.id, 'es.a0.m01.l001');
     expect(lessonContent.sections, hasLength(1));
-    expect(lessonContent.activities, hasLength(1));
+    expect(lessonContent.activities, hasLength(4));
   });
 
   test('resolves the canonical Lesson 1 content', () async {
@@ -131,6 +131,9 @@ void main() {
 
     expect(lessonContent.activities.map((activity) => activity.activity.id), [
       'es.a0.m01.l001.activity.first_contact_exchange',
+      'es.a0.m01.l001.activity.listen_repeat_hola',
+      'es.a0.m01.l001.activity.delayed_imitation_name_question',
+      'es.a0.m01.l001.activity.spoken_recall_name',
     ]);
 
     final grammar = lessonContent.activities

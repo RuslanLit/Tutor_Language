@@ -323,6 +323,7 @@ class TemporaryLearnerRecordingService extends ChangeNotifier
 
   @override
   void dispose() {
+    _debugRecording('service-dispose');
     unawaited(shutdown());
     super.dispose();
   }

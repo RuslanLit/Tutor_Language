@@ -1,9 +1,104 @@
+import 'lesson_attempt.dart';
+
 enum ProgressEventType {
   topicViewed,
   exerciseAnswered,
   answerChecked,
   topicCompleted,
   lessonCompleted,
+  lessonResumePosition,
+}
+
+class LessonResumeCursor {
+  const LessonResumeCursor({
+    required this.lessonId,
+    required this.courseId,
+    required this.attemptId,
+    required this.attemptPurpose,
+    required this.stepId,
+    required this.stepIndex,
+    required this.startedAt,
+    required this.savedAt,
+  });
+
+  factory LessonResumeCursor.fromJson(Map<String, Object?> json) {
+    final lessonId = json['lessonId'];
+    final courseId = json['courseId'];
+    final attemptId = json['attemptId'];
+    final attemptPurpose = json['attemptPurpose'];
+    final stepId = json['stepId'];
+    final stepIndex = json['stepIndex'];
+    final startedAt = json['startedAt'];
+    final savedAt = json['savedAt'];
+    if (lessonId is! String ||
+        courseId is! String ||
+        attemptId is! String ||
+        attemptPurpose is! String ||
+        stepId is! String ||
+        stepIndex is! int ||
+        startedAt is! String ||
+        savedAt is! String ||
+        stepIndex < 0) {
+      throw const FormatException('Invalid lesson resume cursor.');
+    }
+
+    return LessonResumeCursor(
+      lessonId: lessonId,
+      courseId: courseId,
+      attemptId: attemptId,
+      attemptPurpose: LessonAttemptPurpose.fromCode(attemptPurpose),
+      stepId: stepId,
+      stepIndex: stepIndex,
+      startedAt: DateTime.parse(startedAt).toUtc(),
+      savedAt: DateTime.parse(savedAt).toUtc(),
+    );
+  }
+
+  final String lessonId;
+  final String courseId;
+  final String attemptId;
+  final LessonAttemptPurpose attemptPurpose;
+  final String stepId;
+  final int stepIndex;
+  final DateTime startedAt;
+  final DateTime savedAt;
+
+  Map<String, Object?> toJson() => {
+    'lessonId': lessonId,
+    'courseId': courseId,
+    'attemptId': attemptId,
+    'attemptPurpose': attemptPurpose.code,
+    'stepId': stepId,
+    'stepIndex': stepIndex,
+    'startedAt': startedAt.toIso8601String(),
+    'savedAt': savedAt.toIso8601String(),
+  };
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        other is LessonResumeCursor &&
+            other.lessonId == lessonId &&
+            other.courseId == courseId &&
+            other.attemptId == attemptId &&
+            other.attemptPurpose == attemptPurpose &&
+            other.stepId == stepId &&
+            other.stepIndex == stepIndex &&
+            other.startedAt == startedAt &&
+            other.savedAt == savedAt;
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    lessonId,
+    courseId,
+    attemptId,
+    attemptPurpose,
+    stepId,
+    stepIndex,
+    startedAt,
+    savedAt,
+  );
 }
 
 class LearnerProgress {

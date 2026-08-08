@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +11,9 @@ import '../../core/audio/reference_audio_button.dart';
 import '../../core/content/pronunciation_models.dart';
 import '../../core/content/pronunciation_providers.dart';
 import '../../core/content/topic_content.dart';
+import '../../core/content/spoken_practice.dart';
 import '../../core/learner/lesson_attempt.dart';
+import '../../core/learner/learner_progress.dart';
 import '../../core/learner/learner_progress_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../l10n/l10n.dart';
@@ -24,11 +29,14 @@ import '../lesson_session/lesson_attempt_snapshot_factory.dart';
 import '../lesson_session/lesson_session_engine.dart';
 import 'lesson_player_providers.dart';
 import 'lesson_player_step.dart';
+import 'spoken_practice_view.dart';
+import 'spoken_practice_controller.dart';
 
 class LessonPlayerScreen extends ConsumerWidget {
   const LessonPlayerScreen({
     required this.lessonId,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
     super.key,
@@ -36,6 +44,7 @@ class LessonPlayerScreen extends ConsumerWidget {
 
   final String lessonId;
   final LessonAttemptPurpose attemptPurpose;
+  final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
 
@@ -66,6 +75,7 @@ class LessonPlayerScreen extends ConsumerWidget {
           data: (lessonContent) => LessonPlayerView(
             lessonContent: lessonContent,
             attemptPurpose: attemptPurpose,
+            initialStepId: initialStepId,
             persistCompletion: persistCompletion,
             qaBannerLabel: qaBannerLabel,
           ),
@@ -179,6 +189,7 @@ class LessonPlayerView extends ConsumerWidget {
   const LessonPlayerView({
     required this.lessonContent,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
     super.key,
@@ -186,6 +197,7 @@ class LessonPlayerView extends ConsumerWidget {
 
   final LessonContent lessonContent;
   final LessonAttemptPurpose attemptPurpose;
+  final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
   static const _stepBuilder = LessonPlayerStepBuilder();
@@ -209,16 +221,50 @@ class LessonPlayerView extends ConsumerWidget {
           orElse: () => null,
         );
     final steps = _stepBuilder.buildSteps(lessonContent);
+    final resumeCursor = ref.watch(
+      lessonResumeCursorProvider(
+        LessonResumeCursorRequest(
+          lessonId: lesson.id,
+          attemptPurpose: attemptPurpose,
+        ),
+      ),
+    );
+    if (resumeCursor.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    final restoredCursor = resumeCursor.when(
+      data: (cursor) => cursor,
+      loading: () => null,
+      error: (error, stackTrace) {
+        if (kDebugMode) {
+          debugPrint(
+            '[lesson_resume] load-failed lesson=${lesson.id} error=$error',
+          );
+        }
+        return null;
+      },
+    );
     final sessionProvider = lessonPlayerSessionProvider(lesson.id);
     final session = ref.watch(sessionProvider);
     final activeSession = session.ensureStarted(
       lessonId: lesson.id,
       steps: steps,
       attemptPurpose: attemptPurpose,
+      resumeCursor: restoredCursor,
+      initialStepId: initialStepId,
     );
     if (!identical(activeSession, session)) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ref.read(sessionProvider.notifier).state = activeSession;
+        if (activeSession.sessionState.currentStepId != null) {
+          _persistResumeCursor(
+            ref,
+            lesson: lesson,
+            session: activeSession,
+            stepId: activeSession.sessionState.currentStepId!,
+            stepIndex: activeSession.sessionState.currentStepIndex,
+          );
+        }
       });
     }
     final activeStepIds = activeSession.sessionState.orderedStepIds;
@@ -239,6 +285,23 @@ class LessonPlayerView extends ConsumerWidget {
             stepById: stepById,
             sessionState: activeSession.sessionState,
           );
+    final spokenPractice = currentStep == null
+        ? null
+        : _firstSpokenPractice(currentStep.content);
+    final spokenPracticeController = spokenPractice == null
+        ? null
+        : ref.watch(spokenPracticeControllerProvider(spokenPractice));
+    final canAdvanceCurrentStep =
+        spokenPracticeController == null ||
+        spokenPracticeController.stage == SpokenPracticeStage.completed;
+    if (kDebugMode && spokenPractice != null) {
+      debugPrint(
+        '[af4_spoken] lesson-player-gate activity=${spokenPractice.id} '
+        'controller=${identityHashCode(spokenPracticeController)} '
+        'stage=${spokenPracticeController?.stage} '
+        'canAdvance=$canAdvanceCurrentStep',
+      );
+    }
 
     final stepView = currentStep == null
         ? null
@@ -311,9 +374,11 @@ class LessonPlayerView extends ConsumerWidget {
                 lessonId: lesson.id,
                 courseId: lesson.courseId,
                 stepCount: activeStepIds.length,
+                steps: steps,
                 currentStepIndex: currentStepIndex,
                 session: activeSession,
                 persistCompletion: persistCompletion,
+                canAdvanceCurrentStep: canAdvanceCurrentStep,
               ),
             ),
           ],
@@ -422,18 +487,22 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
     required this.lessonId,
     required this.courseId,
     required this.stepCount,
+    required this.steps,
     required this.currentStepIndex,
     required this.session,
     this.persistCompletion = true,
+    this.canAdvanceCurrentStep = true,
     super.key,
   });
 
   final String lessonId;
   final String courseId;
   final int stepCount;
+  final List<LessonPlayerStep> steps;
   final int currentStepIndex;
   final LessonPlayerSessionState session;
   final bool persistCompletion;
+  final bool canAdvanceCurrentStep;
 
   @override
   ConsumerState<LessonNavigationControls> createState() =>
@@ -464,11 +533,13 @@ class _LessonNavigationControlsState
     final canGoPrevious =
         previousDecision.type == LessonSessionDecisionType.moveToPreviousStep;
     final canGoNext =
+        widget.canAdvanceCurrentStep &&
         nextDecision.type == LessonSessionDecisionType.moveToNextStep;
     final isPersisting =
         widget.session.completionPersistenceStatus ==
         LessonCompletionPersistenceStatus.persisting;
     final canFinish =
+        widget.canAdvanceCurrentStep &&
         finishDecision.type == LessonSessionDecisionType.finishLesson;
     final keyboardVisible = MediaQuery.viewInsetsOf(context).bottom > 0;
 
@@ -548,13 +619,17 @@ class _LessonNavigationControlsState
                     return _CourseCompletionActions(
                       lessonId: widget.lessonId,
                       lessonOutcome: widget.session.lessonOutcome,
+                      steps: widget.steps,
                     );
                   }
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _RepeatLessonButton(lessonId: widget.lessonId),
+                      _RepeatLessonButton(
+                        lessonId: widget.lessonId,
+                        steps: widget.steps,
+                      ),
                       const SizedBox(height: 8),
                       FilledButton(
                         onPressed: () {
@@ -722,8 +797,19 @@ class _LessonNavigationControlsState
       return;
     }
 
+    final updatedSession = widget.session.copyWith(
+      sessionState: decision.updatedState,
+    );
     ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
-        widget.session.copyWith(sessionState: decision.updatedState);
+        updatedSession;
+    _persistResumeCursor(
+      ref,
+      lessonId: widget.lessonId,
+      courseId: widget.courseId,
+      session: updatedSession,
+      stepId: decision.updatedState.currentStepId!,
+      stepIndex: decision.updatedState.currentStepIndex,
+    );
   }
 
   void _goToNextStep() {
@@ -732,15 +818,73 @@ class _LessonNavigationControlsState
       return;
     }
 
+    final updatedSession = widget.session.copyWith(
+      sessionState: decision.updatedState,
+    );
     ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
-        widget.session.copyWith(sessionState: decision.updatedState);
+        updatedSession;
+    _persistResumeCursor(
+      ref,
+      lessonId: widget.lessonId,
+      courseId: widget.courseId,
+      session: updatedSession,
+      stepId: decision.updatedState.currentStepId!,
+      stepIndex: decision.updatedState.currentStepIndex,
+    );
   }
 }
 
+void _persistResumeCursor(
+  WidgetRef ref, {
+  Lesson? lesson,
+  String? lessonId,
+  String? courseId,
+  required LessonPlayerSessionState session,
+  required String stepId,
+  required int stepIndex,
+}) {
+  final resolvedLessonId = lesson?.id ?? lessonId;
+  final resolvedCourseId = lesson?.courseId ?? courseId;
+  final attemptId = session.attemptId;
+  final startedAt = session.attemptStartedAt;
+  if (resolvedLessonId == null ||
+      resolvedCourseId == null ||
+      attemptId == null ||
+      startedAt == null) {
+    return;
+  }
+  unawaited(
+    ref
+        .read(learnerProgressRepositoryProvider)
+        .saveLessonResumeCursor(
+          LessonResumeCursor(
+            lessonId: resolvedLessonId,
+            courseId: resolvedCourseId,
+            attemptId: attemptId,
+            attemptPurpose: session.attemptPurpose,
+            stepId: stepId,
+            stepIndex: stepIndex,
+            startedAt: startedAt,
+            savedAt: DateTime.now().toUtc(),
+          ),
+        )
+        .catchError((error) {
+          if (kDebugMode) {
+            debugPrint('[lesson_resume] save-failed error=$error');
+          }
+        }),
+  );
+}
+
 class _CourseCompletionActions extends ConsumerWidget {
-  const _CourseCompletionActions({required this.lessonId, this.lessonOutcome});
+  const _CourseCompletionActions({
+    required this.lessonId,
+    required this.steps,
+    this.lessonOutcome,
+  });
 
   final String lessonId;
+  final List<LessonPlayerStep> steps;
   final LessonOutcome? lessonOutcome;
 
   @override
@@ -775,12 +919,7 @@ class _CourseCompletionActions extends ConsumerWidget {
               },
               child: Text(l10n.reviewCompletedLessons),
             ),
-            OutlinedButton(
-              onPressed: () {
-                _startManualRepeat(context, ref, lessonId);
-              },
-              child: Text(l10n.repeatLesson),
-            ),
+            _RepeatLessonButton(lessonId: lessonId, steps: steps),
           ],
         ),
       ],
@@ -789,30 +928,94 @@ class _CourseCompletionActions extends ConsumerWidget {
 }
 
 class _RepeatLessonButton extends ConsumerWidget {
-  const _RepeatLessonButton({required this.lessonId});
+  const _RepeatLessonButton({required this.lessonId, required this.steps});
 
   final String lessonId;
+  final List<LessonPlayerStep> steps;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
 
-    return OutlinedButton(
-      onPressed: () => _startManualRepeat(context, ref, lessonId),
-      child: Text(l10n.repeatLesson),
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        OutlinedButton(
+          onPressed: () =>
+              _startManualRepeat(context, ref, lessonId, steps: steps),
+          child: Text(l10n.repeatLesson),
+        ),
+        OutlinedButton(
+          onPressed: () => _chooseRepeatStep(context, ref, lessonId, steps),
+          child: Text(l10n.repeatFromStep),
+        ),
+      ],
     );
   }
 }
 
-void _startManualRepeat(BuildContext context, WidgetRef ref, String lessonId) {
-  ref.read(lessonPlayerSessionProvider(lessonId).notifier).state =
-      const LessonPlayerSessionState();
+Future<void> _chooseRepeatStep(
+  BuildContext context,
+  WidgetRef ref,
+  String lessonId,
+  List<LessonPlayerStep> steps,
+) async {
+  final l10n = context.l10n;
+  final selectedStep = await showDialog<LessonPlayerStep>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(l10n.repeatFromStep),
+      content: SizedBox(
+        width: 420,
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: steps.length,
+          itemBuilder: (context, index) {
+            final step = steps[index];
+            return ListTile(
+              title: Text(l10n.stepCounter(index + 1, steps.length)),
+              subtitle: Text(step.sourceActivity.activity.title),
+              onTap: () => Navigator.of(context).pop(step),
+            );
+          },
+        ),
+      ),
+    ),
+  );
+
+  if (selectedStep != null && context.mounted) {
+    _startManualRepeat(
+      context,
+      ref,
+      lessonId,
+      steps: steps,
+      initialStepId: selectedStep.id,
+    );
+  }
+}
+
+void _startManualRepeat(
+  BuildContext context,
+  WidgetRef ref,
+  String lessonId, {
+  required List<LessonPlayerStep> steps,
+  String? initialStepId,
+}) {
+  final session = const LessonPlayerSessionState().ensureStarted(
+    lessonId: lessonId,
+    steps: steps,
+    attemptPurpose: LessonAttemptPurpose.manualRepeat,
+    initialStepId: initialStepId,
+  );
+  ref.read(lessonPlayerSessionProvider(lessonId).notifier).state = session;
   context.goNamed(
     LessonRoute.name,
     pathParameters: {'lessonId': lessonId},
     extra: LessonLaunchIntent(
       lessonId: lessonId,
       attemptPurpose: LessonAttemptPurpose.manualRepeat,
+      initialStepId: initialStepId,
     ),
   );
 }
@@ -908,6 +1111,13 @@ bool _shouldShowMasteryLabel(StepMasteryAssessment? assessment) {
       assessment?.status == StepMasteryStatus.fragile;
 }
 
+SpokenPracticeActivity? _firstSpokenPractice(List<Object> content) {
+  for (final item in content) {
+    if (item is SpokenPracticeActivity) return item;
+  }
+  return null;
+}
+
 bool _hasReadingRulePresentation(LessonPlayerStep step) {
   return step.content.any(
     (content) => content is ReadingRulePresentationReference,
@@ -953,6 +1163,7 @@ class LessonContentObjectView extends StatelessWidget {
       GrammarTopic topic => GrammarTopicView(topic: topic),
       Dialogue dialogue => DialogueView(dialogue: dialogue),
       ReadingText reading => ReadingTextView(reading: reading),
+      SpokenPracticeActivity practice => SpokenPracticeView(activity: practice),
       ReadingRulePresentationReference reference => ReadingRuleReferenceView(
         reference: reference,
       ),
@@ -1286,6 +1497,7 @@ String _stepTypeLabel(LessonPlayerStepType stepType, AppLocalizations l10n) {
     LessonPlayerStepType.dialogue => l10n.stepTypeDialogue,
     LessonPlayerStepType.reading => l10n.stepTypeReading,
     LessonPlayerStepType.exercise => l10n.stepTypeExercise,
+    LessonPlayerStepType.spokenPractice => l10n.spokenPractice,
     LessonPlayerStepType.mixed => l10n.stepTypeMixed,
   };
 }

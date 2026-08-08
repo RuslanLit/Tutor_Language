@@ -1,0 +1,118 @@
+number	audio_id	transcript	occurrences	current_qa	file
+1	es.audio.word.adios	Adiós.	1	generated	assets/languages/spanish/audio/reference/es.audio.word.adios.wav
+2	es.audio.word.ana	Ana	1	generated	assets/languages/spanish/audio/reference/es.audio.word.ana.wav
+3	es.audio.dialogue.buenas_noches	Buenas noches.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.buenas_noches.wav
+4	es.audio.dialogue.buenas_tardes	Buenas tardes.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.buenas_tardes.wav
+5	es.audio.phrase.buenos_dias	Buenos días.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.buenos_dias.wav
+6	es.audio.phrase.de_nada	De nada.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.de_nada.wav
+7	es.audio.dialogue.de_nada_nos_vemos	De nada. Nos vemos.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.de_nada_nos_vemos.wav
+8	es.audio.word.disculpa	Disculpa.	1	generated	assets/languages/spanish/audio/reference/es.audio.word.disculpa.wav
+9	es.audio.dialogue.disculpa_no_hablo_frances	Disculpa. No hablo francés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.disculpa_no_hablo_frances.wav
+10	es.audio.dialogue.ella_es_mi_amiga_se_llama_sofia	Ella es mi amiga. Se llama Sofía.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.ella_es_mi_amiga_se_llama_sofia.wav
+11	es.audio.phrase.ella_es_template	Ella es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.ella_es_template.wav
+12	es.audio.dialogue.encantada	Encantada.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.encantada.wav
+13	es.audio.dialogue.encantado	Encantado.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.encantado.wav
+14	es.audio.dialogue.es_de_espana	Es de España.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.es_de_espana.wav
+15	es.audio.dialogue.es_de_espana_vive_en_madrid	Es de España. Vive en Madrid.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.es_de_espana_vive_en_madrid.wav
+16	es.audio.dialogue.es_de_ucrania_y_vive_en_kyiv	Es de Ucrania y vive en Kyiv.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.es_de_ucrania_y_vive_en_kyiv.wav
+17	es.audio.dialogue.es_de_ucrania_vive_en_kyiv	Es de Ucrania. Vive en Kyiv.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.es_de_ucrania_vive_en_kyiv.wav
+18	es.audio.phrase.es_de_template	Es de...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.es_de_template.wav
+19	es.audio.word.espana	España	1	generated	assets/languages/spanish/audio/reference/es.audio.word.espana.wav
+20	es.audio.phrase.esta_es_template	Esta es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.esta_es_template.wav
+21	es.audio.phrase.este_es_template	Este es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.este_es_template.wav
+22	es.audio.dialogue.estoy_bien_gracias	Estoy bien, gracias.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.estoy_bien_gracias.wav
+23	es.audio.question.estoy_bien_gracias_y_tu	Estoy bien, gracias. ¿Y tú?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.estoy_bien_gracias_y_tu.wav
+24	es.audio.phrase.estoy_bien	Estoy bien.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.estoy_bien.wav
+25	es.audio.dialogue.esta_bien	Está bien.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.esta_bien.wav
+26	es.audio.word.gracias	Gracias.	1	generated	assets/languages/spanish/audio/reference/es.audio.word.gracias.wav
+27	es.audio.dialogue.gracias_hasta_luego	Gracias. Hasta luego.	3	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.gracias_hasta_luego.wav
+28	es.audio.dialogue.habla_espanol_e_ingles_pero_no_habla_frances	Habla español e inglés, pero no habla francés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.habla_espanol_e_ingles_pero_no_habla_frances.wav
+29	es.audio.dialogue.habla_espanol_e_ingles	Habla español e inglés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.habla_espanol_e_ingles.wav
+30	es.audio.dialogue.habla_espanol_un_poco_pero_no_habla_frances	Habla español un poco, pero no habla francés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.habla_espanol_un_poco_pero_no_habla_frances.wav
+31	es.audio.dialogue.habla_espanol_un_poco	Habla español un poco.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.habla_espanol_un_poco.wav
+32	es.audio.word.habla_template	Habla...	1	generated	assets/languages/spanish/audio/reference/es.audio.word.habla_template.wav
+33	es.audio.dialogue.hablo_espanol_e_ingles	Hablo español e inglés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hablo_espanol_e_ingles.wav
+34	es.audio.phrase.hablo_espanol	Hablo español.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.hablo_espanol.wav
+35	es.audio.dialogue.hablo_espanol_no_hablo_aleman	Hablo español. No hablo alemán.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hablo_espanol_no_hablo_aleman.wav
+36	es.audio.phrase.hablo_ingles	Hablo inglés.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.hablo_ingles.wav
+37	es.audio.dialogue.hasta_luego	Hasta luego.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hasta_luego.wav
+38	es.audio.phrase.hasta_pronto	Hasta pronto.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.hasta_pronto.wav
+39	es.audio.question.hola_ana_como_estas	Hola, Ana. ¿Cómo estás?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.hola_ana_como_estas.wav
+40	es.audio.dialogue.hola_marta_me_llamo_ana	Hola, Marta. Me llamo Ana.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hola_marta_me_llamo_ana.wav
+41	es.audio.question.hola_marta_como_estas	Hola, Marta. ¿Cómo estás?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.hola_marta_como_estas.wav
+42	es.audio.phrase.hola	Hola.	1	approved	assets/languages/spanish/audio/reference/es.audio.phrase.hola.wav
+43	es.audio.dialogue.hola_buenos_dias	Hola. Buenos días.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hola_buenos_dias.wav
+44	es.audio.dialogue.hola_me_llamo_luis	Hola. Me llamo Luis.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hola_me_llamo_luis.wav
+45	es.audio.dialogue.hola_me_llamo_marta	Hola. Me llamo Marta.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.hola_me_llamo_marta.wav
+46	es.audio.word.kyiv	Kyiv	1	generated	assets/languages/spanish/audio/reference/es.audio.word.kyiv.wav
+47	es.audio.phrase.lo_siento	Lo siento.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.lo_siento.wav
+48	es.audio.dialogue.lo_siento_hasta_pronto	Lo siento. Hasta pronto.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.lo_siento_hasta_pronto.wav
+49	es.audio.word.madrid	Madrid	1	generated	assets/languages/spanish/audio/reference/es.audio.word.madrid.wav
+50	es.audio.word.marta	Marta	1	generated	assets/languages/spanish/audio/reference/es.audio.word.marta.wav
+51	es.audio.phrase.me_llamo	Me llamo Ana.	3	approved	assets/languages/spanish/audio/reference/es.audio.phrase.me_llamo.wav
+52	es.audio.dialogue.me_llamo_marta	Me llamo Marta.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.me_llamo_marta.wav
+53	es.audio.phrase.me_llamo_template	Me llamo...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.me_llamo_template.wav
+54	es.audio.phrase.muchas_gracias	Muchas gracias.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.muchas_gracias.wav
+55	es.audio.dialogue.mucho_gusto	Mucho gusto.	3	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.mucho_gusto.wav
+56	es.audio.dialogue.mucho_gusto_hasta_luego	Mucho gusto. Hasta luego.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.mucho_gusto_hasta_luego.wav
+57	es.audio.question.mucho_gusto_como_estas	Mucho gusto. ¿Cómo estás?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.mucho_gusto_como_estas.wav
+58	es.audio.dialogue.muy_bien_gracias	Muy bien, gracias.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.muy_bien_gracias.wav
+59	es.audio.phrase.muy_bien	Muy bien.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.muy_bien.wav
+60	es.audio.phrase.mas_o_menos	Más o menos.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mas_o_menos.wav
+61	es.audio.dialogue.no_hablo_frances	No hablo francés.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.no_hablo_frances.wav
+62	es.audio.phrase.no_hablo_template	No hablo...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.no_hablo_template.wav
+63	es.audio.phrase.no_no_es_template	No, no es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.no_no_es_template.wav
+64	es.audio.dialogue.no	No.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.no.wav
+65	es.audio.phrase.nos_vemos	Nos vemos.	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.nos_vemos.wav
+66	es.audio.word.perdon	Perdón.	1	generated	assets/languages/spanish/audio/reference/es.audio.word.perdon.wav
+67	es.audio.question.perdon_como_te_llamas	Perdón. ¿Cómo te llamas?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.perdon_como_te_llamas.wav
+68	es.audio.dialogue.por_favor	Por favor.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.por_favor.wav
+69	es.audio.dialogue.que_tengas_un_buen_dia	Que tengas un buen día.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.que_tengas_un_buen_dia.wav
+70	es.audio.phrase.se_llama_template	Se llama...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.se_llama_template.wav
+71	es.audio.dialogue.soy_de_espana_vivo_en_madrid	Soy de España. Vivo en Madrid.	2	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.soy_de_espana_vivo_en_madrid.wav
+72	es.audio.dialogue.soy_de_ucrania	Soy de Ucrania.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.soy_de_ucrania.wav
+73	es.audio.phrase.soy_de_template	Soy de...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.soy_de_template.wav
+74	es.audio.word.soy_template	Soy...	1	generated	assets/languages/spanish/audio/reference/es.audio.word.soy_template.wav
+75	es.audio.dialogue.si_es_mi_amiga_se_llama_sofia	Sí, es mi amiga. Se llama Sofía.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.si_es_mi_amiga_se_llama_sofia.wav
+76	es.audio.phrase.si_es_template	Sí, es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.si_es_template.wav
+77	es.audio.word.si	Sí.	1	generated	assets/languages/spanish/audio/reference/es.audio.word.si.wav
+78	es.audio.word.tambien	También	1	generated	assets/languages/spanish/audio/reference/es.audio.word.tambien.wav
+79	es.audio.dialogue.tambien_hablo_ingles_hablo_un_poco_de_espanol	También hablo inglés. Hablo un poco de español.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.tambien_hablo_ingles_hablo_un_poco_de_espanol.wav
+80	es.audio.word.ucrania	Ucrania	1	generated	assets/languages/spanish/audio/reference/es.audio.word.ucrania.wav
+81	es.audio.phrase.un_poco	Un poco	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.un_poco.wav
+82	es.audio.dialogue.vive_en_madrid	Vive en Madrid.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.vive_en_madrid.wav
+83	es.audio.phrase.vive_en_template	Vive en...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.vive_en_template.wav
+84	es.audio.dialogue.vivo_en_kyiv	Vivo en Kyiv.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.vivo_en_kyiv.wav
+85	es.audio.phrase.vivo_en_template	Vivo en...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.vivo_en_template.wav
+86	es.audio.word.aleman	alemán	1	generated	assets/languages/spanish/audio/reference/es.audio.word.aleman.wav
+87	es.audio.word.frances	francés	1	generated	assets/languages/spanish/audio/reference/es.audio.word.frances.wav
+88	es.audio.word.idiomas	idiomas	1	generated	assets/languages/spanish/audio/reference/es.audio.word.idiomas.wav
+89	es.audio.phrase.mi_amiga	mi amiga	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_amiga.wav
+90	es.audio.phrase.mi_amigo	mi amigo	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_amigo.wav
+91	es.audio.phrase.mi_companera	mi compañera	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_companera.wav
+92	es.audio.phrase.mi_companero	mi compañero	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_companero.wav
+93	es.audio.phrase.mi_profesor	mi profesor	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_profesor.wav
+94	es.audio.phrase.mi_profesora	mi profesora	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.mi_profesora.wav
+95	es.audio.word.pero	pero	1	generated	assets/languages/spanish/audio/reference/es.audio.word.pero.wav
+96	es.audio.word.tu	tu	1	generated	assets/languages/spanish/audio/reference/es.audio.word.tu.wav
+97	es.audio.word.y	y	1	generated	assets/languages/spanish/audio/reference/es.audio.word.y.wav
+98	es.audio.question.como_estas	¿Cómo estás?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.como_estas.wav
+99	es.audio.question.como_se_llama	¿Cómo se llama?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.como_se_llama.wav
+100	es.audio.question.como_te_llamas	¿Cómo te llamas?	2	approved	assets/languages/spanish/audio/reference/es.audio.question.como_te_llamas.wav
+101	es.audio.question.de_donde_eres	¿De dónde eres?	3	generated	assets/languages/spanish/audio/reference/es.audio.question.de_donde_eres.wav
+102	es.audio.question.de_donde_es	¿De dónde es?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.de_donde_es.wav
+103	es.audio.question.donde_vive	¿Dónde vive?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.donde_vive.wav
+104	es.audio.question.donde_vives	¿Dónde vives?	3	generated	assets/languages/spanish/audio/reference/es.audio.question.donde_vives.wav
+105	es.audio.question.es_tu_amiga	¿Es tu amiga?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.es_tu_amiga.wav
+106	es.audio.question.es_tu_amigo	¿Es tu amigo?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.es_tu_amigo.wav
+107	es.audio.question.hablas_espanol	¿Hablas español?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.hablas_espanol.wav
+108	es.audio.question.hablas_frances	¿Hablas francés?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.hablas_frances.wav
+109	es.audio.question.quien_es_ella	¿Quién es ella?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.quien_es_ella.wav
+110	es.audio.question.quien_es_el	¿Quién es él?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.quien_es_el.wav
+111	es.audio.question.quien_es	¿Quién es?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.quien_es.wav
+112	es.audio.question.que_idiomas_habla	¿Qué idiomas habla?	2	generated	assets/languages/spanish/audio/reference/es.audio.question.que_idiomas_habla.wav
+113	es.audio.question.que_idiomas_hablas	¿Qué idiomas hablas?	3	generated	assets/languages/spanish/audio/reference/es.audio.question.que_idiomas_hablas.wav
+114	es.audio.question.y_tu	¿Y tú?	1	generated	assets/languages/spanish/audio/reference/es.audio.question.y_tu.wav
+115	es.audio.dialogue.el_es_luis_se_llama_luis	Él es Luis. Se llama Luis.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_luis_se_llama_luis.wav
+116	es.audio.dialogue.el_es_mi_amigo_se_llama_luis	Él es mi amigo. Se llama Luis.	1	generated	assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_mi_amigo_se_llama_luis.wav
+117	es.audio.phrase.el_es_template	Él es...	1	generated	assets/languages/spanish/audio/reference/es.audio.phrase.el_es_template.wav

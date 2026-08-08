@@ -89,6 +89,7 @@
   "lessonCompleted": "Lekcja ukończona",
   "continueToNextLesson": "Przejdź do następnej lekcji",
   "repeatLesson": "Powtórz lekcję",
+  "repeatFromStep": "Powtórz od kroku",
   "repeatCheckpoint": "Powtórz sprawdzian",
   "reviewCompletedLessons": "Przejrzyj ukończone lekcje",
   "someTopicsNeedReinforcement": "Niektóre tematy wymagają utrwalenia.",
@@ -484,5 +485,15 @@
   "tryRecordingAgain": "Spróbuj nagrać ponownie",
   "recordingFailed": "Nagrywanie nie powiodło się. Możesz kontynuować bez nagrywania.",
   "continueWithoutRecording": "Kontynuuj bez nagrywania",
+  "spokenPractice": "Ćwiczenie mówienia",
+  "listen": "Posłuchaj",
+  "sayItAloud": "Powiedz na głos",
+  "tryFromMemory": "Spróbuj z pamięci",
+  "listenToReference": "Posłuchaj wzorca",
+  "showReference": "Pokaż wzorzec",
+  "finishAttempt": "Zakończ próbę",
+  "tryAgain": "Spróbuj ponownie",
+  "continuePractice": "Kontynuuj",
+  "practiceComplete": "Ćwiczenie ukończone",
   "@primerReviewQuestionReadingPrompt": {"placeholders": {"hint": {"type": "String"}}}
 }

@@ -5,6 +5,7 @@ class LessonLaunchIntent {
   const LessonLaunchIntent({
     required this.lessonId,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.initialStepId,
   });
 
   factory LessonLaunchIntent.fromPlan(LessonPlan plan) {
@@ -16,4 +17,5 @@ class LessonLaunchIntent {
 
   final String lessonId;
   final LessonAttemptPurpose attemptPurpose;
+  final String? initialStepId;
 }

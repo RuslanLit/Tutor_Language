@@ -38,72 +38,86 @@
       {
         "speaker": "Ти",
         "spanish": "Hola. Buenos días.",
-        "native_translation": "ола. буенос діас — привіт. доброго ранку."
+        "native_translation": "ола. буенос діас — привіт. доброго ранку.",
+        "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"
       },
       {
         "speaker": "Ти",
         "spanish": "Me llamo Marta.",
-        "native_translation": "ме ямо Марта — мене звати Marta."
+        "native_translation": "ме ямо Марта — мене звати Marta.",
+        "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
       },
       {
         "speaker": "Ana",
         "spanish": "Me llamo Ana.",
-        "native_translation": "ме ямо Ана — мене звати Ana."
+        "native_translation": "ме ямо Ана — мене звати Ana.",
+        "audioReferenceId": "es.audio.phrase.me_llamo"
       },
       {
         "speaker": "Ти",
         "spanish": "Mucho gusto.",
-        "native_translation": "мучо густо — дуже приємно."
+        "native_translation": "мучо густо — дуже приємно.",
+        "audioReferenceId": "es.audio.dialogue.mucho_gusto"
       },
       {
         "speaker": "Ana",
         "spanish": "¿De dónde eres?",
-        "native_translation": "де донде ерес — звідки ти?"
+        "native_translation": "де донде ерес — звідки ти?",
+        "audioReferenceId": "es.audio.question.de_donde_eres"
       },
       {
         "speaker": "Ти",
         "spanish": "Soy de Ucrania.",
-        "native_translation": "сой де укранія — я з України."
+        "native_translation": "сой де укранія — я з України.",
+        "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
       },
       {
         "speaker": "Ana",
         "spanish": "¿Dónde vives?",
-        "native_translation": "донде вівес — де ти живеш?"
+        "native_translation": "донде вівес — де ти живеш?",
+        "audioReferenceId": "es.audio.question.donde_vives"
       },
       {
         "speaker": "Ти",
         "spanish": "Vivo en Kyiv.",
-        "native_translation": "біво ен Київ — я живу в Києві."
+        "native_translation": "біво ен Київ — я живу в Києві.",
+        "audioReferenceId": "es.audio.dialogue.vivo_en_kyiv"
       },
       {
         "speaker": "Ти",
         "spanish": "¿Qué idiomas hablas?",
-        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?"
+        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?",
+        "audioReferenceId": "es.audio.question.que_idiomas_hablas"
       },
       {
         "speaker": "Ana",
         "spanish": "Hablo español e inglés.",
-        "native_translation": "абло еспаньйол е інглес — я говорю іспанською та англійською."
+        "native_translation": "абло еспаньйол е інглес — я говорю іспанською та англійською.",
+        "audioReferenceId": "es.audio.dialogue.hablo_espanol_e_ingles"
       },
       {
         "speaker": "Ти",
         "spanish": "También hablo inglés. Hablo un poco de español.",
-        "native_translation": "тамб'єн абло інглес. абло ун поко де еспаньйол — я також говорю англійською. я трохи говорю іспанською."
+        "native_translation": "тамб'єн абло інглес. абло ун поко де еспаньйол — я також говорю англійською. я трохи говорю іспанською.",
+        "audioReferenceId": "es.audio.dialogue.tambien_hablo_ingles_hablo_un_poco_de_espanol"
       },
       {
         "speaker": "Ana",
         "spanish": "¿Hablas francés?",
-        "native_translation": "аблас франсес — ти говориш французькою?"
+        "native_translation": "аблас франсес — ти говориш французькою?",
+        "audioReferenceId": "es.audio.question.hablas_frances"
       },
       {
         "speaker": "Ти",
         "spanish": "No hablo francés.",
-        "native_translation": "но абло франсес — я не говорю французькою."
+        "native_translation": "но абло франсес — я не говорю французькою.",
+        "audioReferenceId": "es.audio.dialogue.no_hablo_frances"
       },
       {
         "speaker": "Ти",
         "spanish": "Gracias. Hasta luego.",
-        "native_translation": "грасіас. аста луего — дякую. до зустрічі."
+        "native_translation": "грасіас. аста луего — дякую. до зустрічі.",
+        "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
       }
     ]
   },
@@ -130,27 +144,32 @@
       {
         "speaker": "Luis",
         "spanish": "Hola. Me llamo Luis.",
-        "native_translation": "ола. ме ямо Луїс — привіт. мене звати Luis."
+        "native_translation": "ола. ме ямо Луїс — привіт. мене звати Luis.",
+        "audioReferenceId": "es.audio.dialogue.hola_me_llamo_luis"
       },
       {
         "speaker": "Luis",
         "spanish": "Soy de España. Vivo en Madrid.",
-        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді."
+        "native_translation": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді.",
+        "audioReferenceId": "es.audio.dialogue.soy_de_espana_vivo_en_madrid"
       },
       {
         "speaker": "Luis",
         "spanish": "Hablo español. No hablo alemán.",
-        "native_translation": "абло еспаньйол. но абло алеман — я говорю іспанською. я не говорю німецькою."
+        "native_translation": "абло еспаньйол. но абло алеман — я говорю іспанською. я не говорю німецькою.",
+        "audioReferenceId": "es.audio.dialogue.hablo_espanol_no_hablo_aleman"
       },
       {
         "speaker": "Ти",
         "spanish": "¿Dónde vives?",
-        "native_translation": "донде вівес — де ти живеш?"
+        "native_translation": "донде вівес — де ти живеш?",
+        "audioReferenceId": "es.audio.question.donde_vives"
       },
       {
         "speaker": "Ти",
         "spanish": "¿Qué idiomas hablas?",
-        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?"
+        "native_translation": "ке ідіомас аблас — якими мовами ти говориш?",
+        "audioReferenceId": "es.audio.question.que_idiomas_hablas"
       }
     ]
   }

@@ -45,27 +45,30 @@ void main() {
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
-    expect(course.lessons.first.sections.first.activities, hasLength(1));
+    expect(course.lessons.first.sections.first.activities, hasLength(4));
     expect(course.lessons.first.summary, isNotNull);
     expect(course.lessons.first.completionCriteria.requiredActivities, [
       'es.a0.m01.l001.activity.first_contact_exchange',
     ]);
   });
 
-  test('legacy course.json mirror stays synchronized with runtime course', () async {
-    final runtimeCourse = jsonDecode(
-      await rootBundle.loadString(
-        'assets/languages/spanish/curriculum/spanish_a0_course.json',
-      ),
-    );
-    final mirrorCourse = jsonDecode(
-      await rootBundle.loadString(
-        'assets/languages/spanish/curriculum/course.json',
-      ),
-    );
+  test(
+    'legacy course.json mirror stays synchronized with runtime course',
+    () async {
+      final runtimeCourse = jsonDecode(
+        await rootBundle.loadString(
+          'assets/languages/spanish/curriculum/spanish_a0_course.json',
+        ),
+      );
+      final mirrorCourse = jsonDecode(
+        await rootBundle.loadString(
+          'assets/languages/spanish/curriculum/course.json',
+        ),
+      );
 
-    expect(mirrorCourse, runtimeCourse);
-  });
+      expect(mirrorCourse, runtimeCourse);
+    },
+  );
 
   test('parses standalone canonical lessons 3 to 5', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
@@ -130,7 +133,7 @@ void main() {
 
     expect(lesson.id, 'es.a0.m01.l001');
     expect(lesson.courseId, 'es.a0');
-    expect(lesson.sections.single.activities, hasLength(1));
+    expect(lesson.sections.single.activities, hasLength(4));
     expect(lesson.activities.first.references, hasLength(13));
     expect(
       lesson.activities.first.references.first.referenceId,

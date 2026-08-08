@@ -2,17 +2,17 @@
   {
     "id": "dialogue.es.a0.m01.l001.model_first_meeting",
     "title": "Перше знайомство",
-  "vocabulary_ids": [
-    "vocab.es.a0.m01.l001.hola",
-    "vocab.es.a0.m01.l001.buenos_dias",
-    "vocab.es.a0.m01.l001.me_llamo",
-    "vocab.es.a0.m01.l001.como_te_llamas",
-    "vocab.es.a0.m01.l001.mucho_gusto",
-    "vocab.es.a0.m01.l001.hasta_luego",
-    "vocab.es.a0.m01.l001.adios",
-    "vocab.es.a0.m01.l001.marta",
-    "vocab.es.a0.m01.l001.ana"
-  ],
+    "vocabulary_ids": [
+      "vocab.es.a0.m01.l001.hola",
+      "vocab.es.a0.m01.l001.buenos_dias",
+      "vocab.es.a0.m01.l001.me_llamo",
+      "vocab.es.a0.m01.l001.como_te_llamas",
+      "vocab.es.a0.m01.l001.mucho_gusto",
+      "vocab.es.a0.m01.l001.hasta_luego",
+      "vocab.es.a0.m01.l001.adios",
+      "vocab.es.a0.m01.l001.marta",
+      "vocab.es.a0.m01.l001.ana"
+    ],
     "grammar_ids": [
       "grammar.es.a0.m01.l001.first_meeting_goal",
       "grammar.es.a0.m01.l001.meeting_building_blocks"
@@ -21,12 +21,14 @@
       {
         "speaker": "Ти",
         "spanish": "Hola. Buenos días.",
-        "native_translation": "ола. буенос діас — привіт. доброго ранку."
+        "native_translation": "ола. буенос діас — привіт. доброго ранку.",
+        "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"
       },
       {
         "speaker": "Ти",
         "spanish": "Me llamo Marta.",
-        "native_translation": "ме ямо Марта — мене звати Marta."
+        "native_translation": "ме ямо Марта — мене звати Marta.",
+        "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
       },
       {
         "speaker": "Ти",
@@ -36,20 +38,22 @@
       },
       {
         "speaker": "Ana",
-      "spanish": "Me llamo Ana.",
-      "audioReferenceId": "es.audio.phrase.me_llamo",
+        "spanish": "Me llamo Ana.",
+        "audioReferenceId": "es.audio.phrase.me_llamo",
         "native_translation": "ме ямо Ана — мене звати Ana."
       },
-    {
-      "speaker": "Ти",
-      "spanish": "Mucho gusto.",
-      "native_translation": "мучо густо — дуже приємно."
-    },
-    {
-      "speaker": "Ти",
-      "spanish": "Hasta luego.",
-      "native_translation": "аста луего — до зустрічі."
-    }
+      {
+        "speaker": "Ти",
+        "spanish": "Mucho gusto.",
+        "native_translation": "мучо густо — дуже приємно.",
+        "audioReferenceId": "es.audio.dialogue.mucho_gusto"
+      },
+      {
+        "speaker": "Ти",
+        "spanish": "Hasta luego.",
+        "native_translation": "аста луего — до зустрічі.",
+        "audioReferenceId": "es.audio.dialogue.hasta_luego"
+      }
     ]
   },
   {
@@ -70,32 +74,38 @@
       {
         "speaker": "Ти",
         "spanish": "Buenas tardes.",
-        "native_translation": "буенас тардес — добрий день."
+        "native_translation": "буенас тардес — добрий день.",
+        "audioReferenceId": "es.audio.dialogue.buenas_tardes"
       },
       {
         "speaker": "Ти",
         "spanish": "Buenas noches.",
-        "native_translation": "буенас ночес — добрий вечір."
+        "native_translation": "буенас ночес — добрий вечір.",
+        "audioReferenceId": "es.audio.dialogue.buenas_noches"
       },
       {
         "speaker": "Ти",
         "spanish": "Encantado.",
-        "native_translation": "енкантадо — приємно познайомитися."
+        "native_translation": "енкантадо — приємно познайомитися.",
+        "audioReferenceId": "es.audio.dialogue.encantado"
       },
       {
         "speaker": "Ana",
         "spanish": "Encantada.",
-        "native_translation": "енкантада — приємно познайомитися."
+        "native_translation": "енкантада — приємно познайомитися.",
+        "audioReferenceId": "es.audio.dialogue.encantada"
       },
       {
         "speaker": "Ти",
         "spanish": "Por favor.",
-        "native_translation": "пор фавор — будь ласка."
+        "native_translation": "пор фавор — будь ласка.",
+        "audioReferenceId": "es.audio.dialogue.por_favor"
       },
       {
         "speaker": "Ana",
         "spanish": "No.",
-        "native_translation": "но — ні."
+        "native_translation": "но — ні.",
+        "audioReferenceId": "es.audio.dialogue.no"
       }
     ]
   }

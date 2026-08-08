@@ -5,7 +5,8 @@
     "native_translation": "як ти?",
     "cefr": "A0",
     "example": "Hola. ¿Cómo estás?",
-    "pronunciation": "комо естас"
+    "pronunciation": "комо естас",
+    "audioReferenceId": "es.audio.question.como_estas"
   },
   {
     "id": "vocab.es.a0.m01.l003.estoy_bien",
@@ -13,7 +14,8 @@
     "native_translation": "у мене все добре",
     "cefr": "A0",
     "example": "Estoy bien, gracias.",
-    "pronunciation": "естой б'єн"
+    "pronunciation": "естой б'єн",
+    "audioReferenceId": "es.audio.phrase.estoy_bien"
   },
   {
     "id": "vocab.es.a0.m01.l003.muy_bien",
@@ -21,7 +23,8 @@
     "native_translation": "дуже добре",
     "cefr": "A0",
     "example": "Muy bien, gracias.",
-    "pronunciation": "муй б'єн"
+    "pronunciation": "муй б'єн",
+    "audioReferenceId": "es.audio.phrase.muy_bien"
   },
   {
     "id": "vocab.es.a0.m01.l003.mas_o_menos",
@@ -29,7 +32,8 @@
     "native_translation": "більш-менш",
     "cefr": "A0",
     "example": "Más o menos, gracias.",
-    "pronunciation": "мас о менос"
+    "pronunciation": "мас о менос",
+    "audioReferenceId": "es.audio.phrase.mas_o_menos"
   },
   {
     "id": "vocab.es.a0.m01.l003.y_tu",
@@ -37,7 +41,8 @@
     "native_translation": "а ти?",
     "cefr": "A0",
     "example": "Estoy bien. ¿Y tú?",
-    "pronunciation": "і ту"
+    "pronunciation": "і ту",
+    "audioReferenceId": "es.audio.question.y_tu"
   },
   {
     "id": "vocab.es.a0.m01.l003.muchas_gracias",
@@ -45,7 +50,8 @@
     "native_translation": "дуже дякую",
     "cefr": "A0",
     "example": "Muchas gracias. De nada.",
-    "pronunciation": "мучас грасіас"
+    "pronunciation": "мучас грасіас",
+    "audioReferenceId": "es.audio.phrase.muchas_gracias"
   },
   {
     "id": "vocab.es.a0.m01.l003.de_nada",
@@ -53,7 +59,8 @@
     "native_translation": "нема за що",
     "cefr": "A0",
     "example": "Gracias. De nada.",
-    "pronunciation": "де нада"
+    "pronunciation": "де нада",
+    "audioReferenceId": "es.audio.phrase.de_nada"
   },
   {
     "id": "vocab.es.a0.m01.l003.perdon",
@@ -61,7 +68,8 @@
     "native_translation": "перепрошую",
     "cefr": "A0",
     "example": "Perdón. ¿Cómo te llamas?",
-    "pronunciation": "пердон"
+    "pronunciation": "пердон",
+    "audioReferenceId": "es.audio.word.perdon"
   },
   {
     "id": "vocab.es.a0.m01.l003.disculpa",
@@ -69,7 +77,8 @@
     "native_translation": "вибач",
     "cefr": "A0",
     "example": "Disculpa. ¿Dónde vives?",
-    "pronunciation": "діскульпа"
+    "pronunciation": "діскульпа",
+    "audioReferenceId": "es.audio.word.disculpa"
   },
   {
     "id": "vocab.es.a0.m01.l003.lo_siento",
@@ -77,7 +86,8 @@
     "native_translation": "мені шкода",
     "cefr": "A0",
     "example": "Lo siento. No hablo francés.",
-    "pronunciation": "ло с'єнто"
+    "pronunciation": "ло с'єнто",
+    "audioReferenceId": "es.audio.phrase.lo_siento"
   },
   {
     "id": "vocab.es.a0.m01.l003.hasta_pronto",
@@ -85,7 +95,8 @@
     "native_translation": "до скорого",
     "cefr": "A0",
     "example": "Gracias. Hasta pronto.",
-    "pronunciation": "аста пронто"
+    "pronunciation": "аста пронто",
+    "audioReferenceId": "es.audio.phrase.hasta_pronto"
   },
   {
     "id": "vocab.es.a0.m01.l003.nos_vemos",
@@ -93,7 +104,8 @@
     "native_translation": "побачимося",
     "cefr": "A0",
     "example": "Nos vemos. Adiós.",
-    "pronunciation": "нос бемос"
+    "pronunciation": "нос бемос",
+    "audioReferenceId": "es.audio.phrase.nos_vemos"
   },
   {
     "id": "vocab.es.a0.m01.l003.que_tengas_un_buen_dia",
@@ -101,6 +113,7 @@
     "native_translation": "гарного дня",
     "cefr": "A0",
     "example": "Gracias. Que tengas un buen día.",
-    "pronunciation": "ке тенгас ун буен діа"
+    "pronunciation": "ке тенгас ун буен діа",
+    "audioReferenceId": "es.audio.dialogue.que_tengas_un_buen_dia"
   }
 ]
