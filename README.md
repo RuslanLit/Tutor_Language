@@ -6,9 +6,22 @@ Adaptive offline Spanish tutor.
 
 Early development.
 
-## Required reading order
+## Mandatory documentation entrypoint
 
-Before implementation, read documents in this order:
+Before any significant implementation or authoring task, begin with:
+
+1. [docs/PROJECT_INVARIANTS.md](docs/PROJECT_INVARIANTS.md)
+2. [docs/DOCUMENTATION_AUTHORITY.md](docs/DOCUMENTATION_AUTHORITY.md)
+3. [docs/AI_WORKING_CONTEXT.md](docs/AI_WORKING_CONTEXT.md)
+
+Then use the task-specific routing in `AI_WORKING_CONTEXT.md` to load only the
+additional current normative documents required by the task. Do not load the
+complete documentation corpus by default.
+
+## Historical core reading order
+
+This broader reading order remains useful when a task genuinely spans the
+whole core, but it is not a mandatory reading list for every task:
 
 1. README.md
 2. docs/PROJECT_VISION.md
@@ -24,10 +37,13 @@ Before implementation, read documents in this order:
 12. docs/TECH_STACK.md
 13. docs/PROJECT_STRUCTURE.md
 
-Development should begin only after these documents have been read.
-The documentation is the project's source of truth.
+Applicable current NORMATIVE documentation is the project's source of truth
+within its registered scope.
 
-If implementation conflicts with the documentation, the documentation has higher priority.
+If implementation conflicts with applicable normative documentation, the
+discrepancy must be explicitly reconciled. Evidence, proposals, reports,
+historical and archived documents do not override implementation by virtue of
+being documentation.
 
 ## Development workflow
 
@@ -49,7 +65,9 @@ The Flutter application has been bootstrapped.
 
 The project contains:
 
-- language-agnostic curriculum and educational content models;
+- curriculum and EducationalContent models that are not hard-coded specifically
+  to Spanish but remain materially language-domain shaped and are not yet fully
+  subject-independent;
 - Spanish A0 content assets;
 - deterministic content loading and validation;
 - LessonAssemblyService for resolving LessonDefinition references;
