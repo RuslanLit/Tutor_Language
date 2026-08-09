@@ -2,7 +2,9 @@
 
 Phase: R2E9B Independent Pedagogical Compliance Examination
 
-Status: Independent adversarial review.
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 Scope examined:
 

@@ -1,6 +1,8 @@
 # R2E5R Educational Localization Reset Report
 
-Status: PASS for automated reset gates and narrow uk-UA device smoke.
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Verdict
 

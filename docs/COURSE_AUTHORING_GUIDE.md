@@ -1,6 +1,8 @@
 # COURSE_AUTHORING_GUIDE.md
 
-Status: Living Document
+Status: DERIVED
+Scope: course authoring
+Canonical owner: CURRICULUM_SPEC.md
 
 Version: 1.0
 

@@ -1,6 +1,8 @@
 # Spanish Pedagogical Foundation
 
-Status: R2E11 research artifact.
+Status: PROPOSAL
+Scope: spanish pedagogical foundation
+Normative authority: none; requires explicit adoption
 
 This document extracts pedagogical principles from local Spanish textbooks for
 the Tutor Language beginner methodology. It does not define lessons, curriculum

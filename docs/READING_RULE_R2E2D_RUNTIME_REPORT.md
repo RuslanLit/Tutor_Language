@@ -1,6 +1,8 @@
 # Reading Rule R2E2D Runtime Report
 
-Status: Validated locally; device QA blocked because no authorized Android
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 device was connected
 
 Phase: R2E2D — Reusable ReadingRule Runtime Integration

@@ -1,6 +1,8 @@
 # READING_RULE_PREREQUISITE_STANDARD.md
 
-Status: Active
+Status: NORMATIVE
+Scope: language reading-rule prerequisites
+Authority: primary
 
 Version: 1.0
 

@@ -1,6 +1,8 @@
 # PRONUNCIATION_AUTHORING_GUIDE.md
 
-Status: Active
+Status: DERIVED
+Scope: pronunciation authoring
+Canonical owner: PRONUNCIATION_MODEL.md
 
 Version: 1.2
 

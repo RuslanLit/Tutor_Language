@@ -1,6 +1,8 @@
 # Semantic Localization Unit Standard
 
-Status: Active
+Status: DERIVED
+Scope: semantic localization unit operations
+Canonical owner: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Version: 1.0
 

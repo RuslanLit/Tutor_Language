@@ -1,6 +1,8 @@
 # Educational Principles
 
-Status: Active
+Status: NORMATIVE
+Scope: generic educational principles
+Authority: primary
 
 Version: 1.0
 

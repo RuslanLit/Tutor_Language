@@ -2,7 +2,9 @@
 
 Phase: R2E8 Documentation Pedagogical Audit
 
-Status: Documentation audit only.
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 This audit reviews the educational documentation as an instructional designer, not as
 an implementer. It assumes that current lesson quality is unacceptable and asks why the

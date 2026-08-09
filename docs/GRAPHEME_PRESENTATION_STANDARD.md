@@ -1,6 +1,8 @@
 # GRAPHEME_PRESENTATION_STANDARD.md
 
-Status: Active
+Status: DERIVED
+Scope: grapheme presentation
+Canonical owner: WRITING_SYSTEM_STANDARD.md
 
 Version: 1.0
 

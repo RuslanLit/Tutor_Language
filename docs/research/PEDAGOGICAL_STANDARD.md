@@ -1,6 +1,8 @@
 # Tutor Language Pedagogical Standard
 
-Status: normative standard
+Status: PROPOSAL
+Scope: pedagogical standard
+Normative authority: none; requires explicit adoption
 
 Phase: R2E16D
 

@@ -1,6 +1,8 @@
 # R2E5A Module 1 Semantic Ukrainian Report
 
-Status: SUPERSEDED by R2E5R
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 R2E5R reset Ukrainian and Russian educational localization after this report.
 The Module 1 semantic bundle and completion declaration described here are no

@@ -1,6 +1,8 @@
 # TECH_STACK.md
 
-Status: Active
+Status: NORMATIVE
+Scope: technology and platform constraints
+Authority: primary
 
 Version: 1.0
 

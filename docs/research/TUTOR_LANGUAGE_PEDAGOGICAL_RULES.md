@@ -1,6 +1,8 @@
 # Tutor Language Pedagogical Rules
 
-Status: R2E11 research artifact.
+Status: PROPOSAL
+Scope: tutor language pedagogical rules
+Normative authority: none; requires explicit adoption
 
 This document converts the Spanish textbook research into an original Tutor
 Language beginner methodology. It is compatible with the existing lesson

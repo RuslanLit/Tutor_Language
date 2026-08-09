@@ -1,6 +1,8 @@
 # Tutor Language Pedagogical Principles
 
-Status: permanent pedagogical synthesis
+Status: PROPOSAL
+Scope: tutor language pedagogical principles
+Normative authority: none; requires explicit adoption
 
 Phase: R2E16B
 

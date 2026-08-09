@@ -1,6 +1,8 @@
 # Beginner Course Blueprint Audit
 
-Status: R2E12A independent audit.
+Status: EVIDENCE
+Scope: Spanish course design or implementation evidence
+Normative authority: SPANISH_A0_CURRICULUM_BLUEPRINT.md
 
 Scope audited:
 

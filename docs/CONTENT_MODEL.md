@@ -1,6 +1,8 @@
 # CONTENT_MODEL.md
 
-Status: Active
+Status: NORMATIVE
+Scope: educational content model and ownership
+Authority: primary
 
 Version: 3.3
 

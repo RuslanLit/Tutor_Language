@@ -1,6 +1,8 @@
 # AUTHORING_DECISIONS.md
 
-Status: Active
+Status: DECISION_RECORD
+Scope: authoring decisions and rationale
+Authority: decision record within declared scope
 
 Version: 1.0
 

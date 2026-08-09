@@ -1,6 +1,8 @@
 # Spanish A0 Foundational Reading Sequence
 
-Status: Active
+Status: DERIVED
+Scope: Spanish A0 foundational reading sequence
+Canonical owner: SPANISH_A0_CURRICULUM_BLUEPRINT.md and READING_RULE_PREREQUISITE_STANDARD.md
 
 Version: 1.0
 

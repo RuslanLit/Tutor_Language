@@ -1,6 +1,8 @@
 # First 15 Lessons Rationale
 
-Status: R2E12 course-design blueprint.
+Status: PROPOSAL
+Scope: first 15 lessons rationale
+Normative authority: none; requires explicit adoption
 
 This document explains why the first 15 Spanish A0 lessons are ordered as
 defined in `BEGINNER_COURSE_SEQUENCE.md` and

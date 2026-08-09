@@ -1,6 +1,8 @@
 # R2E2D2_READING_RULE_SEQUENCE_REPORT.md
 
-Status: Active
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 Version: 1.0
 

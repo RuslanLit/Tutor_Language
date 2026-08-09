@@ -1,6 +1,8 @@
 # EDUCATIONAL_CONTENT_LOCALIZATION.md
 
-Status: Active
+Status: NORMATIVE
+Scope: educational content localization architecture and resolution
+Authority: primary
 
 Version: 1.1
 

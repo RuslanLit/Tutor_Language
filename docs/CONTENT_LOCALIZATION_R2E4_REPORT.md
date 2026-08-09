@@ -4,7 +4,9 @@ Superseded by R2E5R: the Ukrainian educational support data and translation
 memory described here are historical only. Active Ukrainian educational
 localization now rebuilds from clean semantic scaffolds.
 
-Status: PASS for deterministic Ukrainian localization audit, automated tests, APK build, and light device smoke QA.
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Summary
 

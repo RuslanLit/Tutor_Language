@@ -1,4 +1,7 @@
 # AF4A2 Profile B Validation — PASS
+Status: EVIDENCE
+Scope: Spanish audio production / AF4 evidence
+Normative authority: AUDIO_LEARNING_STANDARD.md
 
 Human listening validation passed for all 20 rows in
 [`AF4A2_AUDIO_PROFILE_B_VALIDATION.tsv`](AF4A2_AUDIO_PROFILE_B_VALIDATION.tsv).

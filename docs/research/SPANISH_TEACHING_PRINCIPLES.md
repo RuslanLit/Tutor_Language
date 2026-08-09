@@ -1,6 +1,8 @@
 # Spanish Teaching Principles
 
-Status: R2E11 research artifact.
+Status: PROPOSAL
+Scope: spanish teaching principles
+Normative authority: none; requires explicit adoption
 
 This document normalizes principles extracted from the local Spanish textbook
 collection and classifies them for Tutor Language as `KEEP`, `ADAPT`, or

@@ -1,4 +1,7 @@
 # R2E5N1 Module 1 Ukrainian Authoring Report
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Verdict
 

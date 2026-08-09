@@ -1,6 +1,8 @@
 # Canonical Lesson 1 Educational Design
 
-Status: canonical educational architecture
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 Phase: R2E17
 

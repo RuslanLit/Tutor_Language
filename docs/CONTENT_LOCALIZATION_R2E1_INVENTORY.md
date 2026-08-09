@@ -1,6 +1,8 @@
 # CONTENT_LOCALIZATION_R2E1_INVENTORY.md
 
-Status: Active
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Phase: R2E1 - English Source Normalization and Coverage Inventory
 

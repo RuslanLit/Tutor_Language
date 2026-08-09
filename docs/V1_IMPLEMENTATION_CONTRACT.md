@@ -1,6 +1,8 @@
 # V1_IMPLEMENTATION_CONTRACT.md
 
-Status: Partially Superseded Implementation Contract
+Status: HISTORICAL
+Scope: V1 implementation scope; later active architecture applies
+Superseded by: ARCHITECTURE.md
 
 Superseded by:
 

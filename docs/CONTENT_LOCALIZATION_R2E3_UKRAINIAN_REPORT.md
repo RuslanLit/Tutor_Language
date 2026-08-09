@@ -3,7 +3,9 @@
 Superseded by R2E5R: the Ukrainian educational support data described here was
 cleared from production runtime and remains recoverable through Git history.
 
-Status: PASS
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Phase: R2E3A - Ukrainian Localization Editorial Recovery
 

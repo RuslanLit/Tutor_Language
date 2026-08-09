@@ -1,6 +1,8 @@
 # R2E4C Semantic Localization Pilot Report
 
-Status: AUTOMATED PASS, DEVICE QA PASS FOR PILOT SCOPE
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Verdict
 

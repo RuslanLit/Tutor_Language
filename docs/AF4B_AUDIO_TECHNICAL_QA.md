@@ -1,4 +1,7 @@
 # AF4B Production Audio Technical QA
+Status: EVIDENCE
+Scope: Spanish audio production / AF4 evidence
+Normative authority: AUDIO_LEARNING_STANDARD.md
 
 Scope: the 114 current AF4A entries with manifest QA state `generated`.
 The 3 original AF1 `approved` entries were not scanned for promotion and were

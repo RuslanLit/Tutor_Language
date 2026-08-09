@@ -1,6 +1,8 @@
 # CONTENT_AUTHORING_GUIDE.md
 
-Status: Living Document
+Status: DERIVED
+Scope: content authoring
+Canonical owner: CONTENT_MODEL.md
 
 Version: 1.0
 

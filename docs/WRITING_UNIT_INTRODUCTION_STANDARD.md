@@ -1,6 +1,8 @@
 # WRITING_UNIT_INTRODUCTION_STANDARD.md
 
-Status: Active
+Status: DERIVED
+Scope: writing-unit introduction
+Canonical owner: WRITING_SYSTEM_STANDARD.md
 
 Version: 1.0
 

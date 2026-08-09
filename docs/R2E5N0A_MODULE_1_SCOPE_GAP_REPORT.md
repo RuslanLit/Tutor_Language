@@ -1,4 +1,7 @@
 # R2E5N0A Module 1 Scope Gap Report
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Summary
 

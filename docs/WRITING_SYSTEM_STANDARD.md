@@ -1,6 +1,8 @@
 # WRITING_SYSTEM_STANDARD.md
 
-Status: Active
+Status: NORMATIVE
+Scope: language writing-system model
+Authority: primary
 
 Version: 1.1
 

@@ -1,6 +1,8 @@
 # Beginner Lesson Progression
 
-Status: R2E12 course-design blueprint.
+Status: PROPOSAL
+Scope: beginner lesson progression
+Normative authority: none; requires explicit adoption
 
 This document gives the first 15 Spanish A0 lesson plans at the scenario level.
 It does not design individual exercises and does not create content assets.

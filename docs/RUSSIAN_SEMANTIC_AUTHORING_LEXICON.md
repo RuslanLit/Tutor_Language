@@ -1,6 +1,8 @@
 # Russian Semantic Authoring Lexicon
 
-Status: Placeholder, R2E5R.
+Status: DERIVED
+Scope: Russian semantic authoring resource
+Canonical owner: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Russian educational localization is intentionally empty after the reset and
 will be rebuilt only after Ukrainian reaches production quality.

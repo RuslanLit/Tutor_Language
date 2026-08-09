@@ -1,6 +1,8 @@
 # SPANISH_LLY_PRONUNCIATION_POLICY.md
 
-Status: Active
+Status: NORMATIVE
+Scope: Spanish pronunciation policy for ll/y
+Authority: primary
 
 Version: 1.0
 

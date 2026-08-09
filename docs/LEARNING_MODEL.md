@@ -1,6 +1,8 @@
 # LEARNING_MODEL.md
 
-Status: Active
+Status: NORMATIVE
+Scope: broad conceptual learning model
+Authority: primary
 
 Version: 3.3
 

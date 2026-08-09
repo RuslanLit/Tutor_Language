@@ -1,6 +1,8 @@
 # Pedagogical Evidence For Canonical Lesson 1
 
-Status: Research evidence
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 Phase: R2E16A
 

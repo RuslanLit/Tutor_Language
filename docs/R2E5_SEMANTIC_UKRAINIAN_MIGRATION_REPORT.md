@@ -1,6 +1,8 @@
 # R2E5 Semantic Ukrainian Migration Report
 
-Status: SUPERSEDED by R2E5R reset
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 R2E5R cleared active Ukrainian legacy values and deactivated the R2E5A Module 1
 semantic production bundle. Ukrainian is now rebuilding from empty semantic

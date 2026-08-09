@@ -1,6 +1,8 @@
 # R2E4B Semantic Localization Foundation Report
 
-Status: PASS WITH LIMITATIONS
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Verdict
 

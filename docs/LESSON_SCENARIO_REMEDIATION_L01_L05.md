@@ -2,7 +2,9 @@
 
 Phase: R2E9C Scenario Remediation and Determinism Hardening
 
-Status: Remediation report for `LESSON_SCENARIO_REVIEW_L01_L05.md`.
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 Files changed in this phase:
 

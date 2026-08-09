@@ -1,6 +1,8 @@
 # Pedagogical Principles Critique
 
-Status: internal peer review
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 Phase: R2E16C
 

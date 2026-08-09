@@ -1,6 +1,8 @@
 # Canonical Lesson 1 Implementation Report
 
-Status: R2E13 implementation report.
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 This phase implements only the canonical first Spanish A0 lesson defined by the
 repaired R2E12 beginner blueprint. No runtime architecture, validators,

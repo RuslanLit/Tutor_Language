@@ -1,6 +1,8 @@
 # CONTENT_LOCALIZATION_R2E2A_QUALITY_REPORT.md
 
-Status: Active
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Phase: R2E2A - Russian Support Localization Quality Recovery
 

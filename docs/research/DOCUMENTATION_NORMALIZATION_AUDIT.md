@@ -1,4 +1,7 @@
 # Documentation Normalization Audit
+Status: EVIDENCE
+Scope: documentation authority and lifecycle audit
+Normative authority: DOCUMENTATION_AUTHORITY.md
 
 ## 1. Executive Summary
 

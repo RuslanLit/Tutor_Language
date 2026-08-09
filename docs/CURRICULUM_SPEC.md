@@ -1,6 +1,8 @@
 # CURRICULUM_SPEC.md
 
-Status: Active
+Status: NORMATIVE
+Scope: current curriculum structure and sequencing; language-domain assumptions remain in scope
+Authority: primary
 
 Version: 1.3
 

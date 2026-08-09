@@ -1,6 +1,8 @@
 # Ukrainian Semantic Authoring Lexicon
 
-Status: Clean seed, R2E5R.
+Status: DERIVED
+Scope: Ukrainian semantic authoring resource
+Canonical owner: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 This lexicon is for future authored Ukrainian SemanticLocalizationUnit work.
 It is not a global replacement dictionary and must not be used for automatic

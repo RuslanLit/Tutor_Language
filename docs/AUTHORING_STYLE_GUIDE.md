@@ -1,6 +1,8 @@
 # AUTHORING_STYLE_GUIDE.md
 
-Status: Active
+Status: DERIVED
+Scope: learner-facing authoring style
+Canonical owner: EDUCATIONAL_LANGUAGE_STANDARD.md
 
 Version: 2.3
 

@@ -2,7 +2,9 @@
 
 Phase: R2E9C Revised Design-Only Scenarios for Lessons 1-5
 
-Status: Design review only. Do not implement from this file without human approval.
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 This document defines instructional scenarios only. It does not modify lesson JSON,
 educational content assets, localization, runtime code, schemas, validators, or tests.

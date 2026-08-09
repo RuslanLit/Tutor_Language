@@ -1,4 +1,7 @@
 # Live Tutor Evidence — Documentation Reconciliation
+Status: EVIDENCE
+Scope: project implementation or audit evidence
+Normative authority: applicable current normative owner
 
 ## 1. Purpose
 

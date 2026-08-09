@@ -1,4 +1,7 @@
 # R2E5N1 Clean Ukrainian Module 1 Report
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 ## Verdict
 

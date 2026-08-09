@@ -1,6 +1,8 @@
 # AUDIO_LEARNING_STANDARD.md
 
-Status: Active architectural and pedagogical standard
+Status: NORMATIVE
+Scope: language learning audio and listening pedagogy
+Authority: primary
 
 Version: 1.0
 

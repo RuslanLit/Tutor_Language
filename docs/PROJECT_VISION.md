@@ -1,6 +1,8 @@
 # PROJECT_VISION.md
 
-Status: Active
+Status: NORMATIVE
+Scope: project vision and product identity
+Authority: supporting
 
 Version: 2.2
 

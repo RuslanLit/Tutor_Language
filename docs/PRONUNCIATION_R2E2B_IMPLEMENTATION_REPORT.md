@@ -1,6 +1,8 @@
 # PRONUNCIATION_R2E2B_IMPLEMENTATION_REPORT.md
 
-Status: Active
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 Phase: R2E2B - Pronunciation Model Foundation and Russian Pronunciation Recovery
 

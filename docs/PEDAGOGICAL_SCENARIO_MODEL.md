@@ -1,6 +1,8 @@
 # PEDAGOGICAL_SCENARIO_MODEL.md
 
-Status: Active
+Status: NORMATIVE
+Scope: lesson scenario, learner outcome and evidence model
+Authority: primary
 
 Version: 1.0
 

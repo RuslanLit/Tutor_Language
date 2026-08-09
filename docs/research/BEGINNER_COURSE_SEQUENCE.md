@@ -1,6 +1,8 @@
 # Beginner Course Sequence
 
-Status: R2E12 course-design blueprint.
+Status: PROPOSAL
+Scope: beginner course sequence
+Normative authority: none; requires explicit adoption
 
 This document defines the canonical beginning sequence for Spanish A0 in Tutor
 Language. It is a design artifact only. It does not create lessons, JSON,

@@ -1,6 +1,8 @@
 # COMMUNICATIVE_COMPETENCY_MAP.md
 
-Status: Active
+Status: DERIVED
+Scope: communicative competency mapping
+Canonical owner: SPANISH_A0_CURRICULUM_BLUEPRINT.md
 
 Version: 1.0
 

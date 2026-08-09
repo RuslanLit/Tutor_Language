@@ -1,6 +1,8 @@
 # Canonical Spanish A0 Lessons 1–5: Pedagogical Audit
 
-Status: canonical content revision
+Status: EVIDENCE
+Scope: Spanish course/pedagogical review evidence
+Normative authority: PEDAGOGICAL_SCENARIO_MODEL.md
 
 ## Sequence audit
 

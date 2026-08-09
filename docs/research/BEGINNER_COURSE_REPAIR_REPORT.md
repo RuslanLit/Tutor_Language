@@ -1,6 +1,8 @@
 # Beginner Course Repair Report
 
-Status: R2E12B targeted repair report.
+Status: EVIDENCE
+Scope: Spanish course design or implementation evidence
+Normative authority: SPANISH_A0_CURRICULUM_BLUEPRINT.md
 
 This report records the prerequisite repairs applied to the canonical beginner
 course blueprint after `BEGINNER_COURSE_BLUEPRINT_AUDIT.md`.

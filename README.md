@@ -1,5 +1,9 @@
 # Tutor Language
 
+Status: DERIVED
+Scope: project documentation entrypoint and task routing
+Canonical owner: DOCUMENTATION_AUTHORITY.md
+
 Adaptive offline Spanish tutor.
 
 ## Project status

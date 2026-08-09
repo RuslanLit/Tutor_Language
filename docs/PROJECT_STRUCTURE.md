@@ -1,6 +1,8 @@
 # PROJECT_STRUCTURE.md
 
-Status: Active
+Status: DERIVED
+Scope: runtime/repository structure
+Canonical owner: ARCHITECTURE.md
 
 Version: 3.2
 

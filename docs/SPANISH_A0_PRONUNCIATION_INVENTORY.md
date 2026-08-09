@@ -1,6 +1,8 @@
 # Spanish A0 Pronunciation Inventory
 
-Status: Complete
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 | Metric | Value |
 | --- | ---: |

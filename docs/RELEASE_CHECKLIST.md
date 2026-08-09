@@ -1,6 +1,8 @@
 # RELEASE_CHECKLIST.md
 
-Status: Active
+Status: NORMATIVE
+Scope: release readiness
+Authority: primary
 
 Version: 1.0
 

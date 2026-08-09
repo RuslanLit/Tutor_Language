@@ -5,7 +5,9 @@ review starts from clean semantic scaffolds. Do not approve copied legacy
 Ukrainian/Russian prose, old pronunciation hints or old semantic bundle values
 without fresh review evidence.
 
-Status: Active
+Status: DERIVED
+Scope: content review checklist
+Canonical owner: CONTENT_REVIEW_PROTOCOL.md
 
 Version: 1.0
 

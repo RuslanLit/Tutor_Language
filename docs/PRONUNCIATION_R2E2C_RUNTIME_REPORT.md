@@ -1,6 +1,8 @@
 # Pronunciation R2E2C Runtime Report
 
-Status: Complete with deferred full-course migration
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 Date: 2026-07-15
 

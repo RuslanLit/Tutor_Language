@@ -1,6 +1,8 @@
 # LANGUAGE_COURSE_BLUEPRINT.md
 
-Status: Future Design
+Status: HISTORICAL
+Scope: future language-course design superseded for current implementation
+Superseded by: CURRICULUM_SPEC.md and ARCHITECTURE.md
 
 Superseded for current implementation by:
 

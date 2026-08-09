@@ -1,6 +1,8 @@
 # Spanish A0 Complete Pronunciation Report
 
-Status: Complete
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 Phase: R2E2G
 

@@ -1,6 +1,8 @@
 # LESSON_AUTHORING_ENTRYPOINT.md
 
-Status: Active
+Status: DERIVED
+Scope: lesson authoring entrypoint
+Canonical owner: CONTENT_MODEL.md and PEDAGOGICAL_SCENARIO_MODEL.md
 
 Version: 1.0
 

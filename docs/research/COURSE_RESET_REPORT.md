@@ -1,6 +1,8 @@
 # Course Reset Report
 
-Status: R2E14 course reset (historical baseline; superseded by canonical Lessons 1–5 rebuild).
+Status: HISTORICAL
+Scope: superseded course baseline
+Superseded by: current Spanish A0 curriculum and active architecture
 
 ## Summary
 

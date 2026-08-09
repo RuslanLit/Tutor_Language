@@ -1,6 +1,8 @@
 # PROJECT_CONTRACT.md
 
-Status: Active
+Status: NORMATIVE
+Scope: project priorities and engineering contract
+Authority: primary
 
 Version: 1.1
 

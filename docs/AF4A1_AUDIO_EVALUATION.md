@@ -1,4 +1,7 @@
 # AF4A1 Spanish Reference Voice Evaluation
+Status: EVIDENCE
+Scope: Spanish audio production / AF4 evidence
+Normative authority: AUDIO_LEARNING_STANDARD.md
 
 This is a temporary naturalness comparison before any AF4A corpus
 regeneration. The canonical AF4A WAV files remain untouched.

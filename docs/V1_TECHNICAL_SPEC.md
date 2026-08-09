@@ -1,6 +1,8 @@
 # V1_TECHNICAL_SPEC.md
 
-Status: Partially Superseded Implementation Scope
+Status: HISTORICAL
+Scope: V1 technical target scope; later active architecture applies
+Superseded by: ARCHITECTURE.md
 
 Superseded by:
 

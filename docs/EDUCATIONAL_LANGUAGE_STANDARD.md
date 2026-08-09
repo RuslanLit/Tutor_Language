@@ -1,6 +1,8 @@
 # EDUCATIONAL_LANGUAGE_STANDARD.md
 
-Status: Active
+Status: NORMATIVE
+Scope: educational language quality
+Authority: primary
 
 Version: 1.2
 

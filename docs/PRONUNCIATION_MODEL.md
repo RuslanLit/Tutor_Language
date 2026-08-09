@@ -1,6 +1,8 @@
 # PRONUNCIATION_MODEL.md
 
-Status: Active
+Status: NORMATIVE
+Scope: language pronunciation model
+Authority: primary
 
 Version: 1.0
 

@@ -1,6 +1,8 @@
 # CONTENT_LOCALIZATION_R2E2_RUSSIAN_REPORT.md
 
-Status: Active
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Phase: R2E2 - Complete Russian Support Localization
 

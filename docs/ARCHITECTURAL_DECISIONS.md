@@ -1,6 +1,8 @@
 # ARCHITECTURAL_DECISIONS.md
 
-Status: Active
+Status: DECISION_RECORD
+Scope: architecture decisions and rationale
+Authority: decision record within declared scope
 
 Version: 2.4
 

@@ -1,6 +1,8 @@
 # CONTENT_REVIEW_PROTOCOL.md
 
-Status: Active
+Status: NORMATIVE
+Scope: content review workflow
+Authority: primary
 
 Version: 1.0
 

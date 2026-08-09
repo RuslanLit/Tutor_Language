@@ -1,6 +1,8 @@
 # R2E2D3 Foundational Reading Report
 
-Status: Complete
+Status: EVIDENCE
+Scope: language pronunciation/reading implementation evidence
+Normative authority: PRONUNCIATION_MODEL.md
 
 Phase: R2E2D3 - Foundational Reading Sequence and Course-Order Correction
 

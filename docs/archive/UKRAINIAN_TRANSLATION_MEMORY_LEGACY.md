@@ -1,4 +1,7 @@
 # Ukrainian Translation Memory
+Status: ARCHIVED
+Scope: legacy Ukrainian translation memory
+Normative authority: none
 
 Approved recurring learner-facing Ukrainian terms for Spanish A0 educational content.
 

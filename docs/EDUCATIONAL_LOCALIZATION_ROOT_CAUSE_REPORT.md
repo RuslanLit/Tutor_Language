@@ -2,7 +2,9 @@
 
 Phase: R2E4A diagnostic audit
 
-Status: FAIL for production localization readiness.
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 This report is intentionally diagnostic. It does not regenerate Ukrainian
 localization, does not start Polish localization, and does not declare the

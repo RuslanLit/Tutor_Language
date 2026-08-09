@@ -1,4 +1,7 @@
 # Educational Localization Reset Inventory
+Status: EVIDENCE
+Scope: educational content localization phase evidence
+Normative authority: EDUCATIONAL_CONTENT_LOCALIZATION.md
 
 Phase: R2E5R
 

@@ -1,6 +1,8 @@
 # Spanish A0 Curriculum Blueprint
 
-Status: Draft source of truth for Spanish A0 restructuring
+Status: NORMATIVE
+Scope: Spanish A0 curriculum
+Authority: primary
 
 Version: 0.1
 

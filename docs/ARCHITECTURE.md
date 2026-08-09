@@ -1,6 +1,8 @@
 # ARCHITECTURE.md
 
-Status: Active
+Status: NORMATIVE
+Scope: current runtime architecture
+Authority: primary
 
 Version: 2.4
 

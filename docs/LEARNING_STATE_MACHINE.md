@@ -1,6 +1,8 @@
 # LEARNING_STATE_MACHINE.md
 
-Status: Active
+Status: NORMATIVE
+Scope: learner-state transitions, support fading and remediation
+Authority: primary
 
 Version: 1.0
 
