@@ -23,6 +23,16 @@ void main() {
     expect(decision.status, CompletionStatus.completed);
   });
 
+  test('accepted answer with orthographic feedback returns completed', () {
+    final decision = evaluator.evaluate(
+      const CompletionEvaluation(
+        checkedAnswerStatuses: [AnswerCheckStatus.acceptedWithFeedback],
+      ),
+    );
+
+    expect(decision.status, CompletionStatus.completed);
+  });
+
   test('one incorrect checked answer returns incomplete', () {
     final decision = evaluator.evaluate(
       const CompletionEvaluation(

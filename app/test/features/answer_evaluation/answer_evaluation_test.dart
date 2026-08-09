@@ -244,6 +244,43 @@ void main() {
       );
     });
 
+    test('accepts missing acute accents in otherwise correct answers', () {
+      final question = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Como te llamas',
+        canonicalAnswer: 'Cómo te llamas',
+      );
+      final farewell = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Adios',
+        canonicalAnswer: 'Adiós',
+      );
+
+      expect(question.status, AnswerEvaluationStatus.acceptedWithFeedback);
+      expect(farewell.status, AnswerEvaluationStatus.acceptedWithFeedback);
+    });
+
+    test('does not equate n with ñ', () {
+      final word = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'nino',
+        canonicalAnswer: 'niño',
+      );
+      final year = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'ano',
+        canonicalAnswer: 'año',
+      );
+
+      expect(word.status, AnswerEvaluationStatus.incorrect);
+      expect(year.status, AnswerEvaluationStatus.incorrect);
+    });
+
+    test('does not generally equate u with ü', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'pinguino',
+        canonicalAnswer: 'pingüino',
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+    });
+
     test('case H keeps wrong word incorrect', () {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'Hasta luego',

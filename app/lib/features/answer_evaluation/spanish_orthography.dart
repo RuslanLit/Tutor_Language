@@ -250,8 +250,7 @@ class SpanishOrthographicClassifier {
         .replaceAll('é', 'e')
         .replaceAll('í', 'i')
         .replaceAll('ó', 'o')
-        .replaceAll('ú', 'u')
-        .replaceAll('ü', 'u');
+        .replaceAll('ú', 'u');
   }
 }
 

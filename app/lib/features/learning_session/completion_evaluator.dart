@@ -25,7 +25,9 @@ class CompletionEvaluator {
     }
 
     final allCheckedAnswersCorrect = evaluation.checkedAnswerStatuses.every(
-      (status) => status == AnswerCheckStatus.correct,
+      (status) =>
+          status == AnswerCheckStatus.correct ||
+          status == AnswerCheckStatus.acceptedWithFeedback,
     );
 
     return CompletionDecision(
