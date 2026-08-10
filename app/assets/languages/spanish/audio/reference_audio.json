@@ -58,7 +58,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -74,7 +74,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -90,7 +90,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -106,7 +106,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -122,7 +122,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -138,7 +138,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -154,7 +154,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -170,7 +170,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -186,7 +186,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -202,7 +202,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -218,7 +218,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -234,7 +234,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -250,7 +250,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -266,7 +266,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -282,7 +282,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -298,7 +298,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -314,7 +314,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -330,7 +330,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -346,7 +346,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -362,7 +362,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -378,7 +378,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -394,7 +394,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -410,7 +410,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -426,7 +426,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -442,7 +442,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -458,7 +458,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -474,7 +474,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -490,7 +490,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -506,7 +506,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -522,7 +522,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -538,7 +538,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -554,7 +554,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -570,7 +570,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -586,7 +586,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -602,7 +602,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -618,7 +618,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -634,7 +634,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -650,7 +650,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -666,7 +666,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -682,7 +682,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -698,7 +698,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -714,7 +714,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -730,7 +730,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -746,7 +746,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -762,7 +762,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -778,7 +778,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -794,7 +794,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -810,7 +810,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -826,7 +826,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -842,7 +842,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -858,7 +858,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -874,7 +874,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -890,7 +890,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -906,7 +906,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -922,7 +922,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -938,7 +938,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -954,7 +954,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -970,7 +970,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -986,7 +986,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1002,7 +1002,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1018,7 +1018,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1034,7 +1034,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1050,7 +1050,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1066,7 +1066,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1082,7 +1082,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1098,7 +1098,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1114,7 +1114,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1130,7 +1130,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1146,7 +1146,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1162,7 +1162,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1178,7 +1178,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1194,7 +1194,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1210,7 +1210,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1226,7 +1226,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1242,7 +1242,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1258,7 +1258,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1274,7 +1274,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1290,7 +1290,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1306,7 +1306,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1322,7 +1322,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1338,7 +1338,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1354,7 +1354,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1370,7 +1370,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1386,7 +1386,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1402,7 +1402,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1418,7 +1418,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1434,7 +1434,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1450,7 +1450,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1466,7 +1466,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1482,7 +1482,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1498,7 +1498,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1514,7 +1514,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1530,7 +1530,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1546,7 +1546,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1562,7 +1562,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "word",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1578,7 +1578,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1594,7 +1594,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1610,7 +1610,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1626,7 +1626,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1642,7 +1642,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1658,7 +1658,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1674,7 +1674,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1690,7 +1690,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1706,7 +1706,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1722,7 +1722,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1738,7 +1738,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1754,7 +1754,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1770,7 +1770,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1786,7 +1786,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1802,7 +1802,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1818,7 +1818,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "listeningStimulus",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1834,7 +1834,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1850,7 +1850,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "dialogueTurn",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
@@ -1866,7 +1866,7 @@
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "phrase",
-      "qaStatus": "generated",
+      "qaStatus": "approved",
       "provenance": {
         "engine": "Piper",
         "voice": "es_ES-sharvard-medium",
