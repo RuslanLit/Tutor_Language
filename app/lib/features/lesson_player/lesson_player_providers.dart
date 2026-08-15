@@ -89,6 +89,7 @@ class LessonPlayerSessionState {
     this.sessionState = const LessonSessionState(lessonId: ''),
     this.stepStates = const {},
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.reviewMode = false,
     this.attemptId,
     this.attemptStartedAt,
     this.lessonOutcome,
@@ -102,6 +103,7 @@ class LessonPlayerSessionState {
   final LessonSessionState sessionState;
   final Map<String, ActivityTemplateState> stepStates;
   final LessonAttemptPurpose attemptPurpose;
+  final bool reviewMode;
   final String? attemptId;
   final DateTime? attemptStartedAt;
   final LessonOutcome? lessonOutcome;
@@ -114,6 +116,7 @@ class LessonPlayerSessionState {
     LessonSessionState? sessionState,
     Map<String, ActivityTemplateState>? stepStates,
     LessonAttemptPurpose? attemptPurpose,
+    bool? reviewMode,
     Object? attemptId = _unset,
     Object? attemptStartedAt = _unset,
     Object? lessonOutcome = _unset,
@@ -126,6 +129,7 @@ class LessonPlayerSessionState {
       sessionState: sessionState ?? this.sessionState,
       stepStates: stepStates ?? this.stepStates,
       attemptPurpose: attemptPurpose ?? this.attemptPurpose,
+      reviewMode: reviewMode ?? this.reviewMode,
       attemptId: attemptId == _unset ? this.attemptId : attemptId as String?,
       attemptStartedAt: attemptStartedAt == _unset
           ? this.attemptStartedAt
@@ -151,6 +155,7 @@ class LessonPlayerSessionState {
     required String lessonId,
     required List<LessonPlayerStep> steps,
     LessonAttemptPurpose attemptPurpose = LessonAttemptPurpose.normal,
+    bool reviewMode = false,
     LessonResumeCursor? resumeCursor,
     String? initialStepId,
     LessonSessionEngine engine = const LessonSessionEngine(),
@@ -159,6 +164,7 @@ class LessonPlayerSessionState {
     final isSameSession =
         sessionState.lessonId == lessonId &&
         this.attemptPurpose == attemptPurpose &&
+        this.reviewMode == reviewMode &&
         _listEquals(sessionState.canonicalStepIds, stepIds) &&
         (sessionState.status != LessonSessionStatus.notStarted ||
             steps.isEmpty);
@@ -186,7 +192,8 @@ class LessonPlayerSessionState {
     var startedSessionState = decision.updatedState;
     String? restoredAttemptId;
     DateTime? restoredStartedAt;
-    if (resumeCursor != null &&
+    if (!reviewMode &&
+        resumeCursor != null &&
         resumeCursor.lessonId == lessonId &&
         resumeCursor.attemptPurpose == attemptPurpose) {
       final restoredIndex = startedSessionState.orderedStepIds.indexOf(
@@ -196,6 +203,9 @@ class LessonPlayerSessionState {
         startedSessionState = startedSessionState.copyWith(
           currentStepId: resumeCursor.stepId,
           currentStepIndex: restoredIndex,
+          furthestReachedStepIndex: resumeCursor
+              .effectiveFurthestReachedStepIndex
+              .clamp(0, startedSessionState.orderedStepIds.length - 1),
         );
         restoredAttemptId = resumeCursor.attemptId;
         restoredStartedAt = resumeCursor.startedAt;
@@ -217,10 +227,12 @@ class LessonPlayerSessionState {
     return LessonPlayerSessionState(
       sessionState: startedSessionState,
       attemptPurpose: attemptPurpose,
-      attemptId:
-          restoredAttemptId ??
-          '${startedAt.microsecondsSinceEpoch}.$lessonId.${attemptPurpose.code}.attempt',
-      attemptStartedAt: restoredStartedAt ?? startedAt,
+      reviewMode: reviewMode,
+      attemptId: reviewMode
+          ? null
+          : restoredAttemptId ??
+                '${startedAt.microsecondsSinceEpoch}.$lessonId.${attemptPurpose.code}.attempt',
+      attemptStartedAt: reviewMode ? null : restoredStartedAt ?? startedAt,
     );
   }
 }

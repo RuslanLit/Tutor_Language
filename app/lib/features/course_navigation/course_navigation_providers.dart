@@ -37,6 +37,27 @@ final nextOrderedLessonProvider = FutureProvider.family<OrderedLesson?, String>(
   },
 );
 
+final nextAvailableLessonProvider =
+    FutureProvider.family<OrderedLesson?, String>((ref, lessonId) async {
+      final nextLesson = await ref.watch(
+        nextOrderedLessonProvider(lessonId).future,
+      );
+      if (nextLesson == null) {
+        return null;
+      }
+
+      final navigation = await ref.watch(courseNavigationStateProvider.future);
+      LessonNavigationStatus? nextStatus;
+      for (final unit in navigation.units) {
+        for (final lesson in unit.lessons) {
+          if (lesson.lessonId == nextLesson.lesson.id) {
+            nextStatus = lesson.status;
+          }
+        }
+      }
+      return nextStatus == LessonNavigationStatus.available ? nextLesson : null;
+    });
+
 final orderedCourseLessonsProvider = FutureProvider<List<OrderedLesson>>((
   ref,
 ) async {

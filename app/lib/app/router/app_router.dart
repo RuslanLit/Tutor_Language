@@ -63,6 +63,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 intent?.lessonId ?? state.pathParameters['lessonId'] ?? '',
             attemptPurpose:
                 intent?.attemptPurpose ?? LessonAttemptPurpose.normal,
+            reviewMode: intent?.mode == LessonLaunchMode.review,
             initialStepId: intent?.initialStepId,
           );
         },

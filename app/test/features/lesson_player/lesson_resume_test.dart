@@ -17,6 +17,7 @@ void main() {
       attemptPurpose: LessonAttemptPurpose.normal,
       stepId: 'step.2',
       stepIndex: 1,
+      furthestReachedStepIndex: 2,
       startedAt: DateTime.utc(2026, 8, 8),
       savedAt: DateTime.utc(2026, 8, 8, 1),
     );
@@ -29,6 +30,7 @@ void main() {
 
     expect(state.sessionState.currentStepId, 'step.2');
     expect(state.sessionState.currentStepIndex, 1);
+    expect(state.sessionState.furthestReachedStepIndex, 2);
     expect(state.attemptId, 'attempt.resume');
     expect(state.attemptStartedAt, cursor.startedAt);
   });

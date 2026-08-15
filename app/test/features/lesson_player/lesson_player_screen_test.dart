@@ -776,6 +776,54 @@ void main() {
     expect(latest?.purpose, LessonAttemptPurpose.manualRepeat);
   });
 
+  testWidgets('completed lesson review navigates without creating an attempt', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+    await repository.recordEvent(
+      ProgressEvent.create(
+        eventType: ProgressEventType.lessonCompleted,
+        topicId: _navigationLessonId,
+        now: DateTime.utc(2026),
+      ),
+    );
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(
+          lessonId: _navigationLessonId,
+          reviewMode: true,
+        ),
+        service: _FakeLessonAssemblyService(_navigationLessonContent),
+        database: database,
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Step 1 / 3'), findsOneWidget);
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+    expect(find.text('Step 2 / 3'), findsOneWidget);
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+    expect(find.text('Step 3 / 3'), findsOneWidget);
+
+    await tester.tap(find.text('← Previous'));
+    await tester.pump();
+    await tester.tap(find.text('Next →'));
+    await tester.pump();
+    expect(find.text('Step 3 / 3'), findsOneWidget);
+    expect(await repository.getLessonAttempts(_navigationLessonId), isEmpty);
+    expect(
+      (await repository.readTopicProgress(
+        _navigationLessonId,
+      )).hasBeenCompleted,
+      isTrue,
+    );
+  });
+
   testWidgets(
     'completed lesson screen offers repeat and continue without resetting progress',
     (tester) async {

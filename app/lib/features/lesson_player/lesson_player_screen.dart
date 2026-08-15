@@ -36,6 +36,7 @@ class LessonPlayerScreen extends ConsumerWidget {
   const LessonPlayerScreen({
     required this.lessonId,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.reviewMode = false,
     this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
@@ -44,6 +45,7 @@ class LessonPlayerScreen extends ConsumerWidget {
 
   final String lessonId;
   final LessonAttemptPurpose attemptPurpose;
+  final bool reviewMode;
   final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
@@ -75,6 +77,7 @@ class LessonPlayerScreen extends ConsumerWidget {
           data: (lessonContent) => LessonPlayerView(
             lessonContent: lessonContent,
             attemptPurpose: attemptPurpose,
+            reviewMode: reviewMode,
             initialStepId: initialStepId,
             persistCompletion: persistCompletion,
             qaBannerLabel: qaBannerLabel,
@@ -189,6 +192,7 @@ class LessonPlayerView extends ConsumerWidget {
   const LessonPlayerView({
     required this.lessonContent,
     this.attemptPurpose = LessonAttemptPurpose.normal,
+    this.reviewMode = false,
     this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
@@ -197,6 +201,7 @@ class LessonPlayerView extends ConsumerWidget {
 
   final LessonContent lessonContent;
   final LessonAttemptPurpose attemptPurpose;
+  final bool reviewMode;
   final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
@@ -250,6 +255,7 @@ class LessonPlayerView extends ConsumerWidget {
       lessonId: lesson.id,
       steps: steps,
       attemptPurpose: attemptPurpose,
+      reviewMode: reviewMode,
       resumeCursor: restoredCursor,
       initialStepId: initialStepId,
     );
@@ -263,6 +269,8 @@ class LessonPlayerView extends ConsumerWidget {
             session: activeSession,
             stepId: activeSession.sessionState.currentStepId!,
             stepIndex: activeSession.sessionState.currentStepIndex,
+            furthestReachedStepIndex:
+                activeSession.sessionState.furthestReachedStepIndex,
           );
         }
       });
@@ -292,6 +300,7 @@ class LessonPlayerView extends ConsumerWidget {
         ? null
         : ref.watch(spokenPracticeControllerProvider(spokenPractice));
     final canAdvanceCurrentStep =
+        reviewMode ||
         spokenPracticeController == null ||
         spokenPracticeController.stage == SpokenPracticeStage.completed;
     if (kDebugMode && spokenPractice != null) {
@@ -313,6 +322,7 @@ class LessonPlayerView extends ConsumerWidget {
                 .masteryAssessmentByStepId[currentStep.id],
             showRemediation: activeSession.sessionState.remediationShownByStepId
                 .contains(currentStep.id),
+            reviewMode: reviewMode,
             onStateChanged: (stepState) {
               final nextStepStates = {
                 ...activeSession.stepStates,
@@ -361,6 +371,13 @@ class LessonPlayerView extends ConsumerWidget {
                   _CompactLessonHeader(title: lesson.title)
                 else
                   _LessonHeader(lesson: lesson, position: lessonPosition),
+                if (activeStepIds.isNotEmpty) ...[
+                  const SizedBox(height: 14),
+                  _LessonProgressIndicator(
+                    currentStepIndex: currentStepIndex,
+                    stepCount: activeStepIds.length,
+                  ),
+                ],
                 const SizedBox(height: 12),
                 stepView ?? Text(l10n.noActivitiesAvailable),
               ],
@@ -372,6 +389,7 @@ class LessonPlayerView extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: LessonNavigationControls(
                 lessonId: lesson.id,
+                lessonTitle: lesson.title,
                 courseId: lesson.courseId,
                 stepCount: activeStepIds.length,
                 steps: steps,
@@ -379,6 +397,7 @@ class LessonPlayerView extends ConsumerWidget {
                 session: activeSession,
                 persistCompletion: persistCompletion,
                 canAdvanceCurrentStep: canAdvanceCurrentStep,
+                reviewMode: reviewMode,
               ),
             ),
           ],
@@ -454,6 +473,32 @@ class _CompactLessonHeader extends StatelessWidget {
   }
 }
 
+class _LessonProgressIndicator extends StatelessWidget {
+  const _LessonProgressIndicator({
+    required this.currentStepIndex,
+    required this.stepCount,
+  });
+
+  final int currentStepIndex;
+  final int stepCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final value = ((currentStepIndex + 1) / stepCount).clamp(0.0, 1.0);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(6),
+      child: LinearProgressIndicator(
+        value: value,
+        minHeight: 7,
+        semanticsLabel: context.l10n.stepCounter(
+          currentStepIndex + 1,
+          stepCount,
+        ),
+      ),
+    );
+  }
+}
+
 LessonPlayerStep? _resolveRuntimeStep({
   required String runtimeStepId,
   required Map<String, LessonPlayerStep> stepById,
@@ -485,22 +530,26 @@ LessonPlayerStep? _resolveRuntimeStep({
 class LessonNavigationControls extends ConsumerStatefulWidget {
   const LessonNavigationControls({
     required this.lessonId,
+    required this.lessonTitle,
     required this.courseId,
     required this.stepCount,
     required this.steps,
     required this.currentStepIndex,
     required this.session,
+    this.reviewMode = false,
     this.persistCompletion = true,
     this.canAdvanceCurrentStep = true,
     super.key,
   });
 
   final String lessonId;
+  final String lessonTitle;
   final String courseId;
   final int stepCount;
   final List<LessonPlayerStep> steps;
   final int currentStepIndex;
   final LessonPlayerSessionState session;
+  final bool reviewMode;
   final bool persistCompletion;
   final bool canAdvanceCurrentStep;
 
@@ -526,6 +575,7 @@ class _LessonNavigationControlsState
     );
     final nextDecision = _sessionEngine.requestNext(
       widget.session.sessionState,
+      allowReviewNavigation: widget.reviewMode,
     );
     final finishDecision = _sessionEngine.finishSession(
       widget.session.sessionState,
@@ -548,10 +598,11 @@ class _LessonNavigationControlsState
       child: progress.when(
         data: (progress) {
           final isCompleted =
-              (widget.session.attemptPurpose == LessonAttemptPurpose.normal &&
-                  progress.hasBeenCompleted) ||
-              widget.session.sessionState.status ==
-                  LessonSessionStatus.completed;
+              !widget.reviewMode &&
+              ((widget.session.attemptPurpose == LessonAttemptPurpose.normal &&
+                      progress.hasBeenCompleted) ||
+                  widget.session.sessionState.status ==
+                      LessonSessionStatus.completed);
           if (!isCompleted) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -576,7 +627,9 @@ class _LessonNavigationControlsState
                       ),
                     ),
                     const Spacer(),
-                    if (isLastStep)
+                    if (isLastStep && widget.reviewMode)
+                      _ReviewFinalStepAction(lessonId: widget.lessonId)
+                    else if (isLastStep)
                       FilledButton(
                         onPressed: _isCompleting || isPersisting || !canFinish
                             ? null
@@ -607,7 +660,32 @@ class _LessonNavigationControlsState
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(l10n.lessonCompleted),
+              Card(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.check_circle,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 36,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        l10n.lessonCompleted,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        widget.lessonTitle,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               if (widget.session.lessonOutcome != null) ...[
                 const SizedBox(height: 4),
                 _LessonOutcomeLabel(outcome: widget.session.lessonOutcome!),
@@ -809,11 +887,15 @@ class _LessonNavigationControlsState
       session: updatedSession,
       stepId: decision.updatedState.currentStepId!,
       stepIndex: decision.updatedState.currentStepIndex,
+      furthestReachedStepIndex: decision.updatedState.furthestReachedStepIndex,
     );
   }
 
   void _goToNextStep() {
-    final decision = _sessionEngine.requestNext(widget.session.sessionState);
+    final decision = _sessionEngine.requestNext(
+      widget.session.sessionState,
+      allowReviewNavigation: widget.reviewMode,
+    );
     if (decision.type != LessonSessionDecisionType.moveToNextStep) {
       return;
     }
@@ -830,6 +912,7 @@ class _LessonNavigationControlsState
       session: updatedSession,
       stepId: decision.updatedState.currentStepId!,
       stepIndex: decision.updatedState.currentStepIndex,
+      furthestReachedStepIndex: decision.updatedState.furthestReachedStepIndex,
     );
   }
 }
@@ -842,6 +925,7 @@ void _persistResumeCursor(
   required LessonPlayerSessionState session,
   required String stepId,
   required int stepIndex,
+  required int furthestReachedStepIndex,
 }) {
   final resolvedLessonId = lesson?.id ?? lessonId;
   final resolvedCourseId = lesson?.courseId ?? courseId;
@@ -864,6 +948,7 @@ void _persistResumeCursor(
             attemptPurpose: session.attemptPurpose,
             stepId: stepId,
             stepIndex: stepIndex,
+            furthestReachedStepIndex: furthestReachedStepIndex,
             startedAt: startedAt,
             savedAt: DateTime.now().toUtc(),
           ),
@@ -923,6 +1008,49 @@ class _CourseCompletionActions extends ConsumerWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class _ReviewFinalStepAction extends ConsumerWidget {
+  const _ReviewFinalStepAction({required this.lessonId});
+
+  final String lessonId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
+    final nextLesson = ref.watch(nextAvailableLessonProvider(lessonId));
+
+    return nextLesson.when(
+      data: (nextLesson) => FilledButton(
+        onPressed: () {
+          if (nextLesson == null) {
+            context.goNamed(CourseRoute.name);
+            return;
+          }
+          context.goNamed(
+            LessonRoute.name,
+            pathParameters: {'lessonId': nextLesson.lesson.id},
+            extra: LessonLaunchIntent(
+              lessonId: nextLesson.lesson.id,
+              attemptPurpose: LessonAttemptPurpose.normal,
+            ),
+          );
+        },
+        child: Text(
+          nextLesson == null ? l10n.backToCourse : l10n.continueToNextLesson,
+        ),
+      ),
+      error: (error, stackTrace) => FilledButton(
+        onPressed: () => context.goNamed(CourseRoute.name),
+        child: Text(l10n.backToCourse),
+      ),
+      loading: () => const SizedBox(
+        width: 48,
+        height: 48,
+        child: Center(child: CircularProgressIndicator()),
+      ),
     );
   }
 }
@@ -1044,6 +1172,7 @@ class LessonPlayerStepView extends StatelessWidget {
     this.state,
     this.masteryAssessment,
     this.showRemediation = false,
+    this.reviewMode = false,
     this.onStateChanged,
     super.key,
   });
@@ -1052,6 +1181,7 @@ class LessonPlayerStepView extends StatelessWidget {
   final ActivityTemplateState? state;
   final StepMasteryAssessment? masteryAssessment;
   final bool showRemediation;
+  final bool reviewMode;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
@@ -1087,11 +1217,12 @@ class LessonPlayerStepView extends StatelessWidget {
             const SizedBox(height: 12),
             for (final content in step.content)
               Padding(
-                padding: const EdgeInsets.only(bottom: 12),
+                padding: const EdgeInsets.only(bottom: 16),
                 child: LessonContentObjectView(
                   content: content,
                   state: state,
                   showRemediation: showRemediation,
+                  reviewMode: reviewMode,
                   onStateChanged: onStateChanged,
                 ),
               ),
@@ -1145,6 +1276,7 @@ class LessonContentObjectView extends StatelessWidget {
     required this.content,
     this.state,
     this.showRemediation = false,
+    this.reviewMode = false,
     this.onStateChanged,
     super.key,
   });
@@ -1152,6 +1284,7 @@ class LessonContentObjectView extends StatelessWidget {
   final Object content;
   final ActivityTemplateState? state;
   final bool showRemediation;
+  final bool reviewMode;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
@@ -1171,6 +1304,7 @@ class LessonContentObjectView extends StatelessWidget {
         template: template,
         state: state,
         showRemediation: showRemediation,
+        reviewMode: reviewMode,
         onStateChanged: onStateChanged,
       ),
       _ => Text(l10n.unsupportedContent('${content.runtimeType}')),
@@ -1470,6 +1604,7 @@ class ExerciseTemplateView extends StatelessWidget {
     required this.template,
     this.state,
     this.showRemediation = false,
+    this.reviewMode = false,
     this.onStateChanged,
     super.key,
   });
@@ -1477,15 +1612,19 @@ class ExerciseTemplateView extends StatelessWidget {
   final ExerciseTemplate template;
   final ActivityTemplateState? state;
   final bool showRemediation;
+  final bool reviewMode;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
 
   @override
   Widget build(BuildContext context) {
-    return ActivityTemplateWidget(
-      template: template,
-      state: state,
-      showIncorrectDetails: showRemediation,
-      onStateChanged: onStateChanged,
+    return IgnorePointer(
+      ignoring: reviewMode,
+      child: ActivityTemplateWidget(
+        template: template,
+        state: state,
+        showIncorrectDetails: showRemediation,
+        onStateChanged: onStateChanged,
+      ),
     );
   }
 }

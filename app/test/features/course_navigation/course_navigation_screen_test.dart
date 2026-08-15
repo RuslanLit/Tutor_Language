@@ -20,6 +20,7 @@ import 'package:tutor_language/features/curriculum/curriculum_models.dart';
 import 'package:tutor_language/features/course_navigation/course_navigation_screen.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
+import 'package:tutor_language/features/lesson_launch/lesson_launch_intent.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_screen.dart';
 import 'package:tutor_language/features/lesson_player/lesson_player_providers.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
@@ -167,7 +168,9 @@ void main() {
     expect(latest?.purpose, LessonAttemptPurpose.normal);
   });
 
-  testWidgets('completed lesson tile launches a manual repeat', (tester) async {
+  testWidgets('completed lesson tile launches review without a new attempt', (
+    tester,
+  ) async {
     final database = AppDatabase(NativeDatabase.memory());
     addTearDown(database.close);
     final repository = LearnerProgressRepository(database);
@@ -187,8 +190,49 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Fake Vocabulary'), findsOneWidget);
-    expect(find.text('Lesson completed'), findsOneWidget);
-    expect(find.text('Repeat lesson'), findsOneWidget);
+    expect(find.text('Step 1 / 1'), findsOneWidget);
+    expect(find.text('Continue to next lesson'), findsOneWidget);
+    expect(find.text('Lesson completed'), findsNothing);
+    expect(find.text('Repeat lesson'), findsNothing);
+    expect(await repository.getLessonAttempts('lesson.alpha'), isEmpty);
+
+    await tester.tap(find.text('Continue to next lesson'));
+    await tester.pumpAndSettle();
+    expect(find.text('Beta'), findsOneWidget);
+    expect(await repository.getLessonAttempts('lesson.alpha'), isEmpty);
+  });
+
+  testWidgets('completed final lesson review returns to course', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final repository = LearnerProgressRepository(database);
+    for (final lessonId in ['lesson.alpha', 'lesson.beta', 'lesson.gamma']) {
+      await repository.recordEvent(
+        ProgressEvent.create(
+          eventType: ProgressEventType.lessonCompleted,
+          topicId: lessonId,
+          now: DateTime.utc(2026),
+        ),
+      );
+    }
+
+    await tester.pumpWidget(
+      _app(database, assemblyService: _RecordingLessonAssemblyService()),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Gamma'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Step 1 / 1'), findsOneWidget);
+    expect(find.text('Back to course'), findsOneWidget);
+    expect(find.text('Continue to next lesson'), findsNothing);
+
+    await tester.tap(find.text('Back to course'));
+    await tester.pumpAndSettle();
+    expect(find.text('Spanish A0'), findsOneWidget);
+    expect(await repository.getLessonAttempts('lesson.gamma'), isEmpty);
   });
 }
 
@@ -214,8 +258,12 @@ ProviderScope _app(
               path: LessonRoute.path,
               name: LessonRoute.name,
               builder: (context, state) {
+                final intent = state.extra is LessonLaunchIntent
+                    ? state.extra as LessonLaunchIntent
+                    : null;
                 return LessonPlayerScreen(
                   lessonId: state.pathParameters['lessonId'] ?? '',
+                  reviewMode: intent?.mode == LessonLaunchMode.review,
                 );
               },
             ),

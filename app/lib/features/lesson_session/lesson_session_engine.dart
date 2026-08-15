@@ -204,6 +204,7 @@ class LessonSessionState {
     this.authoredReviewStepIdByInsertedStepId = const {},
     this.currentStepId,
     this.currentStepIndex = 0,
+    this.furthestReachedStepIndex = 0,
     this.completedStepIds = const {},
     this.attemptsByStepId = const {},
     this.resultByStepId = const {},
@@ -227,6 +228,7 @@ class LessonSessionState {
   final Map<String, String> authoredReviewStepIdByInsertedStepId;
   final String? currentStepId;
   final int currentStepIndex;
+  final int furthestReachedStepIndex;
   final Set<String> completedStepIds;
   final Map<String, int> attemptsByStepId;
   final Map<String, ActivityResult> resultByStepId;
@@ -249,6 +251,7 @@ class LessonSessionState {
     Map<String, String>? authoredReviewStepIdByInsertedStepId,
     Object? currentStepId = _unset,
     int? currentStepIndex,
+    int? furthestReachedStepIndex,
     Set<String>? completedStepIds,
     Map<String, int>? attemptsByStepId,
     Map<String, ActivityResult>? resultByStepId,
@@ -283,6 +286,8 @@ class LessonSessionState {
           ? this.currentStepId
           : currentStepId as String?,
       currentStepIndex: currentStepIndex ?? this.currentStepIndex,
+      furthestReachedStepIndex:
+          furthestReachedStepIndex ?? this.furthestReachedStepIndex,
       completedStepIds: completedStepIds ?? this.completedStepIds,
       attemptsByStepId: attemptsByStepId ?? this.attemptsByStepId,
       resultByStepId: resultByStepId ?? this.resultByStepId,
@@ -604,12 +609,18 @@ class LessonSessionEngine {
     );
   }
 
-  LessonSessionDecision requestNext(LessonSessionState state) {
+  LessonSessionDecision requestNext(
+    LessonSessionState state, {
+    bool allowReviewNavigation = false,
+  }) {
     if (state.status == LessonSessionStatus.completed) {
       return _rejectCompleted(state);
     }
 
-    if (!_isCurrentStepComplete(state)) {
+    final isBrowsingReachedHistory =
+        allowReviewNavigation ||
+        state.currentStepIndex < state.furthestReachedStepIndex;
+    if (!isBrowsingReachedHistory && !_isCurrentStepComplete(state)) {
       return LessonSessionDecision(
         type: LessonSessionDecisionType.rejectAction,
         reasonCode: LessonSessionReasonCode.nextStepLocked,
@@ -630,7 +641,7 @@ class LessonSessionEngine {
     final nextIndex = state.currentStepIndex + 1;
     final currentStepId = state.currentStepId;
     final nextCompleted = Set<String>.from(state.completedStepIds);
-    if (currentStepId != null) {
+    if (!allowReviewNavigation && currentStepId != null) {
       nextCompleted.add(currentStepId);
     }
 
@@ -638,6 +649,9 @@ class LessonSessionEngine {
     final updatedState = state.copyWith(
       currentStepIndex: nextIndex,
       currentStepId: stepId,
+      furthestReachedStepIndex: nextIndex > state.furthestReachedStepIndex
+          ? nextIndex
+          : state.furthestReachedStepIndex,
       completedStepIds: Set.unmodifiable(nextCompleted),
     );
 
@@ -1015,6 +1029,7 @@ class LessonSessionEngine {
       masteryAssessmentByStepId: Map.unmodifiable(nextMasteryAssessments),
       currentStepIndex: currentIndex + 1,
       currentStepId: insertedReviewStepId,
+      furthestReachedStepIndex: _frontierAfterReviewInsertion(state),
     );
     final updatedState = _updateMasteryAssessment(
       expandedState,
@@ -1038,6 +1053,14 @@ class LessonSessionEngine {
       updatedState: state,
       stepId: state.currentStepId,
     );
+  }
+
+  int _frontierAfterReviewInsertion(LessonSessionState state) {
+    final insertionIndex = state.currentStepIndex + 1;
+    final shiftedFrontier = state.furthestReachedStepIndex >= insertionIndex
+        ? state.furthestReachedStepIndex + 1
+        : state.furthestReachedStepIndex;
+    return shiftedFrontier < insertionIndex ? insertionIndex : shiftedFrontier;
   }
 }
 

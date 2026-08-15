@@ -17,6 +17,7 @@ class LessonResumeCursor {
     required this.attemptPurpose,
     required this.stepId,
     required this.stepIndex,
+    this.furthestReachedStepIndex,
     required this.startedAt,
     required this.savedAt,
   });
@@ -28,6 +29,7 @@ class LessonResumeCursor {
     final attemptPurpose = json['attemptPurpose'];
     final stepId = json['stepId'];
     final stepIndex = json['stepIndex'];
+    final furthestReachedStepIndex = json['furthestReachedStepIndex'];
     final startedAt = json['startedAt'];
     final savedAt = json['savedAt'];
     if (lessonId is! String ||
@@ -49,6 +51,10 @@ class LessonResumeCursor {
       attemptPurpose: LessonAttemptPurpose.fromCode(attemptPurpose),
       stepId: stepId,
       stepIndex: stepIndex,
+      furthestReachedStepIndex:
+          furthestReachedStepIndex is int && furthestReachedStepIndex >= 0
+          ? furthestReachedStepIndex
+          : null,
       startedAt: DateTime.parse(startedAt).toUtc(),
       savedAt: DateTime.parse(savedAt).toUtc(),
     );
@@ -60,6 +66,10 @@ class LessonResumeCursor {
   final LessonAttemptPurpose attemptPurpose;
   final String stepId;
   final int stepIndex;
+  // Optional keeps cursors written before frontier tracking fully readable.
+  final int? furthestReachedStepIndex;
+  int get effectiveFurthestReachedStepIndex =>
+      furthestReachedStepIndex ?? stepIndex;
   final DateTime startedAt;
   final DateTime savedAt;
 
@@ -70,6 +80,8 @@ class LessonResumeCursor {
     'attemptPurpose': attemptPurpose.code,
     'stepId': stepId,
     'stepIndex': stepIndex,
+    if (furthestReachedStepIndex != null)
+      'furthestReachedStepIndex': furthestReachedStepIndex,
     'startedAt': startedAt.toIso8601String(),
     'savedAt': savedAt.toIso8601String(),
   };
@@ -84,6 +96,8 @@ class LessonResumeCursor {
             other.attemptPurpose == attemptPurpose &&
             other.stepId == stepId &&
             other.stepIndex == stepIndex &&
+            other.effectiveFurthestReachedStepIndex ==
+                effectiveFurthestReachedStepIndex &&
             other.startedAt == startedAt &&
             other.savedAt == savedAt;
   }
@@ -98,6 +112,7 @@ class LessonResumeCursor {
     stepIndex,
     startedAt,
     savedAt,
+    effectiveFurthestReachedStepIndex,
   );
 }
 

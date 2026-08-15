@@ -71,6 +71,7 @@ void main() {
         attemptPurpose: LessonAttemptPurpose.normal,
         stepId: 'lesson.resume::activity.12::info.1',
         stepIndex: 11,
+        furthestReachedStepIndex: 14,
         startedAt: DateTime.utc(2026, 8, 8, 10),
         savedAt: DateTime.utc(2026, 8, 8, 10, 5),
       );

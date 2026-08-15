@@ -431,11 +431,11 @@ class ActivityFeedback extends StatelessWidget {
         attemptCount: attemptCount,
       );
       return Padding(
-        padding: const EdgeInsets.only(top: 8),
+        padding: const EdgeInsets.only(top: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(_statusLabelFor(evaluation.status, l10n)),
+            _FeedbackStatus(status: evaluation.status),
             if (feedback.canonicalAnswer != null &&
                 result.status != ActivityResultStatus.correct) ...[
               const SizedBox(height: 4),
@@ -451,8 +451,11 @@ class ActivityFeedback extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Text(result.feedbackText ?? _labelFor(result.status, l10n)),
+      padding: const EdgeInsets.only(top: 12),
+      child: _FeedbackStatus(
+        status: result.status,
+        fallback: result.feedbackText,
+      ),
     );
   }
 
@@ -464,16 +467,64 @@ class ActivityFeedback extends StatelessWidget {
       ActivityResultStatus.unsupported => l10n.unsupportedActivityType,
     };
   }
+}
 
-  String _statusLabelFor(AnswerEvaluationStatus status, AppLocalizations l10n) {
-    return switch (status) {
-      AnswerEvaluationStatus.correct => l10n.correct,
-      AnswerEvaluationStatus.acceptedWithFeedback =>
-        l10n.acceptedWithCorrection,
-      AnswerEvaluationStatus.incorrect => l10n.notCorrectYet,
-      AnswerEvaluationStatus.unsupported => l10n.unsupportedActivityType,
-    };
+class _FeedbackStatus extends StatelessWidget {
+  const _FeedbackStatus({required this.status, this.fallback});
+
+  final Object status;
+  final String? fallback;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final isCorrect =
+        status == ActivityResultStatus.correct ||
+        status == AnswerEvaluationStatus.correct;
+    final isAccepted =
+        status == ActivityResultStatus.acceptedWithFeedback ||
+        status == AnswerEvaluationStatus.acceptedWithFeedback;
+    final text = isCorrect
+        ? l10n.correct
+        : fallback ??
+              (isAccepted
+                  ? l10n.acceptedWithCorrection
+                  : status is ActivityResultStatus
+                  ? _labelForActivity(status as ActivityResultStatus, l10n)
+                  : l10n.notCorrectYet);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          isCorrect ? Icons.check_circle : Icons.info_outline,
+          color: isCorrect
+              ? Theme.of(context).colorScheme.primary
+              : Theme.of(context).colorScheme.onSurfaceVariant,
+          size: 22,
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            text,
+            style: isCorrect
+                ? Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                  )
+                : null,
+          ),
+        ),
+      ],
+    );
   }
+}
+
+String _labelForActivity(ActivityResultStatus status, AppLocalizations l10n) {
+  return switch (status) {
+    ActivityResultStatus.correct => l10n.correct,
+    ActivityResultStatus.acceptedWithFeedback => l10n.acceptedWithCorrection,
+    ActivityResultStatus.incorrect => l10n.tryAgain,
+    ActivityResultStatus.unsupported => l10n.unsupportedActivityType,
+  };
 }
 
 class _ActivityPrompt extends StatelessWidget {

@@ -841,6 +841,63 @@ void main() {
     expect(nextDecision.updatedState.currentStepId, finalPracticeStep.id);
   });
 
+  test('browsing back does not require re-answering reached history', () {
+    final started = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [infoStep, practiceStep, finalPracticeStep],
+        )
+        .updatedState;
+
+    final reachedPractice = engine.requestNext(started).updatedState;
+    expect(reachedPractice.furthestReachedStepIndex, 1);
+
+    final backAtInfo = engine.requestPrevious(reachedPractice).updatedState;
+    final backForward = engine.requestNext(backAtInfo);
+    expect(backForward.type, LessonSessionDecisionType.moveToNextStep);
+    expect(backForward.updatedState.currentStepId, practiceStep.id);
+
+    // The frontier is the practice step: going beyond it still requires the
+    // ordinary answer gate.
+    final lockedBeyondFrontier = engine.requestNext(backForward.updatedState);
+    expect(lockedBeyondFrontier.type, LessonSessionDecisionType.rejectAction);
+    expect(
+      lockedBeyondFrontier.reasonCode,
+      LessonSessionReasonCode.nextStepLocked,
+    );
+
+    final answeredPractice = engine
+        .submitStepResult(
+          state: backForward.updatedState,
+          result: _correctResult,
+        )
+        .updatedState;
+    final reachedFinal = engine.requestNext(answeredPractice).updatedState;
+    expect(reachedFinal.currentStepId, finalPracticeStep.id);
+    expect(answeredPractice.attemptsByStepId[practiceStep.id], 1);
+
+    final returnedToPractice = engine.requestPrevious(reachedFinal);
+    final forwardWithoutResubmit = engine.requestNext(
+      returnedToPractice.updatedState,
+    );
+    expect(
+      forwardWithoutResubmit.type,
+      LessonSessionDecisionType.moveToNextStep,
+    );
+    expect(
+      forwardWithoutResubmit.updatedState.currentStepId,
+      finalPracticeStep.id,
+    );
+    expect(
+      forwardWithoutResubmit.updatedState.attemptsByStepId[practiceStep.id],
+      1,
+    );
+    expect(
+      forwardWithoutResubmit.updatedState.resultByStepId[practiceStep.id],
+      same(_correctResult),
+    );
+  });
+
   test('previous is rejected on first step', () {
     final state = engine
         .startSession(lessonId: lessonId, steps: const [practiceStep])
