@@ -117,7 +117,15 @@
   "stepTypeExercise": "exercise",
   "stepTypeMixed": "mixed",
   "answerLabel": "Answer",
+  "learnerSpeakerLabel": "You",
   "checkAnswer": "Check",
+  "dialogueProgress": "Dialogue {current} / {total}",
+  "@dialogueProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "selectedAnswer": "Selected answer: {answer}",
   "@selectedAnswer": {
     "placeholders": {
@@ -131,6 +139,16 @@
   "tryAgain": "Try again",
   "notCorrectYet": "Not correct yet",
   "incorrect": "Incorrect",
+  "feedbackMultilineMissing": "You entered {submitted} of {expected} lines. Complete the dialogue.",
+  "@feedbackMultilineMissing": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineExtra": "You entered {submitted} lines instead of {expected}. Check the dialogue.",
+  "@feedbackMultilineExtra": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineIncorrectLines": "{correct} of {expected} lines are correct. Check lines: {lines}.",
+  "@feedbackMultilineIncorrectLines": {"placeholders": {"correct": {"type": "int"}, "expected": {"type": "int"}, "lines": {"type": "String"}}},
+  "feedbackMultilineIncomplete": "You entered {submitted} lines. Complete the dialogue.",
+  "@feedbackMultilineIncomplete": {"placeholders": {"submitted": {"type": "int"}}},
+  "feedbackMultilineTooMany": "You entered {submitted} lines. Check the dialogue.",
+  "@feedbackMultilineTooMany": {"placeholders": {"submitted": {"type": "int"}}},
   "unsupportedActivityType": "Unsupported activity type",
   "unsupportedActivityTypeValue": "Unsupported activity type: {type}",
   "@unsupportedActivityTypeValue": {

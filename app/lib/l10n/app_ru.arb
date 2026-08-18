@@ -117,7 +117,15 @@
   "stepTypeExercise": "упражнение",
   "stepTypeMixed": "смешанное",
   "answerLabel": "Ответ",
+  "learnerSpeakerLabel": "Ты",
   "checkAnswer": "Проверить",
+  "dialogueProgress": "Диалог {current} / {total}",
+  "@dialogueProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "selectedAnswer": "Выбранный ответ: {answer}",
   "@selectedAnswer": {
     "placeholders": {
@@ -131,6 +139,16 @@
   "tryAgain": "Попробуйте ещё раз",
   "notCorrectYet": "Пока не правильно",
   "incorrect": "Неправильно",
+  "feedbackMultilineMissing": "Введено {submitted} из {expected} реплик. Дополните диалог.",
+  "@feedbackMultilineMissing": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineExtra": "Введено {submitted} реплик вместо {expected}. Проверьте диалог.",
+  "@feedbackMultilineExtra": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineIncorrectLines": "{correct} из {expected} реплик правильные. Проверьте реплики: {lines}.",
+  "@feedbackMultilineIncorrectLines": {"placeholders": {"correct": {"type": "int"}, "expected": {"type": "int"}, "lines": {"type": "String"}}},
+  "feedbackMultilineIncomplete": "Введено {submitted} реплик. Дополните диалог.",
+  "@feedbackMultilineIncomplete": {"placeholders": {"submitted": {"type": "int"}}},
+  "feedbackMultilineTooMany": "Введено {submitted} реплик. Проверьте диалог.",
+  "@feedbackMultilineTooMany": {"placeholders": {"submitted": {"type": "int"}}},
   "unsupportedActivityType": "Неподдерживаемый тип задания",
   "unsupportedActivityTypeValue": "Неподдерживаемый тип задания: {type}",
   "@unsupportedActivityTypeValue": {

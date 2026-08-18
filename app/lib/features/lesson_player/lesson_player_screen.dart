@@ -37,6 +37,7 @@ class LessonPlayerScreen extends ConsumerWidget {
     required this.lessonId,
     this.attemptPurpose = LessonAttemptPurpose.normal,
     this.reviewMode = false,
+    this.qaMode = false,
     this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
@@ -46,6 +47,7 @@ class LessonPlayerScreen extends ConsumerWidget {
   final String lessonId;
   final LessonAttemptPurpose attemptPurpose;
   final bool reviewMode;
+  final bool qaMode;
   final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
@@ -71,13 +73,18 @@ class LessonPlayerScreen extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: _LessonExitButton(lessonId: lessonId),
-          title: Text(l10n.lessonPlayerTitle),
+          title: lessonContent.when(
+            data: (content) => _LessonAppBarTitle(lesson: content.lesson),
+            loading: () => Text(l10n.lessonPlayerTitle),
+            error: (_, _) => Text(l10n.lessonPlayerTitle),
+          ),
         ),
         body: lessonContent.when(
           data: (lessonContent) => LessonPlayerView(
             lessonContent: lessonContent,
             attemptPurpose: attemptPurpose,
             reviewMode: reviewMode,
+            qaMode: qaMode,
             initialStepId: initialStepId,
             persistCompletion: persistCompletion,
             qaBannerLabel: qaBannerLabel,
@@ -104,6 +111,17 @@ class _LessonExitButton extends ConsumerWidget {
       onPressed: () => _handleLessonExit(context, ref, lessonId: lessonId),
       icon: const Icon(Icons.arrow_back),
     );
+  }
+}
+
+class _LessonAppBarTitle extends StatelessWidget {
+  const _LessonAppBarTitle({required this.lesson});
+
+  final LessonDefinition lesson;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(lesson.title);
   }
 }
 
@@ -193,6 +211,7 @@ class LessonPlayerView extends ConsumerWidget {
     required this.lessonContent,
     this.attemptPurpose = LessonAttemptPurpose.normal,
     this.reviewMode = false,
+    this.qaMode = false,
     this.initialStepId,
     this.persistCompletion = true,
     this.qaBannerLabel,
@@ -202,6 +221,7 @@ class LessonPlayerView extends ConsumerWidget {
   final LessonContent lessonContent;
   final LessonAttemptPurpose attemptPurpose;
   final bool reviewMode;
+  final bool qaMode;
   final String? initialStepId;
   final bool persistCompletion;
   final String? qaBannerLabel;
@@ -226,14 +246,16 @@ class LessonPlayerView extends ConsumerWidget {
           orElse: () => null,
         );
     final steps = _stepBuilder.buildSteps(lessonContent);
-    final resumeCursor = ref.watch(
-      lessonResumeCursorProvider(
-        LessonResumeCursorRequest(
-          lessonId: lesson.id,
-          attemptPurpose: attemptPurpose,
-        ),
-      ),
-    );
+    final resumeCursor = qaMode
+        ? const AsyncValue<LessonResumeCursor?>.data(null)
+        : ref.watch(
+            lessonResumeCursorProvider(
+              LessonResumeCursorRequest(
+                lessonId: lesson.id,
+                attemptPurpose: attemptPurpose,
+              ),
+            ),
+          );
     if (resumeCursor.isLoading) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -262,7 +284,7 @@ class LessonPlayerView extends ConsumerWidget {
     if (!identical(activeSession, session)) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         ref.read(sessionProvider.notifier).state = activeSession;
-        if (activeSession.sessionState.currentStepId != null) {
+        if (!qaMode && activeSession.sessionState.currentStepId != null) {
           _persistResumeCursor(
             ref,
             lesson: lesson,
@@ -331,7 +353,12 @@ class LessonPlayerView extends ConsumerWidget {
 
               var nextSessionState = activeSession.sessionState;
               final result = stepState.result;
-              if (result != null) {
+              final isIntermediateGuidedDialogue =
+                  currentStep.content.whereType<ExerciseTemplate>().any(
+                    (template) => template.exerciseType == 'guided_dialogue',
+                  ) &&
+                  !stepState.dialogueCompleted;
+              if (result != null && !isIntermediateGuidedDialogue) {
                 final decision = _sessionEngine.submitStepResult(
                   state: nextSessionState,
                   result: result,
@@ -367,10 +394,7 @@ class LessonPlayerView extends ConsumerWidget {
                   _QaLessonBanner(label: qaBannerLabel!),
                   const SizedBox(height: 12),
                 ],
-                if (currentStep?.isCheckable == true)
-                  _CompactLessonHeader(title: lesson.title)
-                else
-                  _LessonHeader(lesson: lesson, position: lessonPosition),
+                _LessonHeader(lesson: lesson, position: lessonPosition),
                 if (activeStepIds.isNotEmpty) ...[
                   const SizedBox(height: 14),
                   _LessonProgressIndicator(
@@ -398,6 +422,7 @@ class LessonPlayerView extends ConsumerWidget {
                 persistCompletion: persistCompletion,
                 canAdvanceCurrentStep: canAdvanceCurrentStep,
                 reviewMode: reviewMode,
+                qaMode: qaMode,
               ),
             ),
           ],
@@ -437,8 +462,6 @@ class _LessonHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(lesson.title, style: Theme.of(context).textTheme.headlineSmall),
-        const SizedBox(height: 8),
         Wrap(
           spacing: 8,
           runSpacing: 8,
@@ -459,17 +482,6 @@ class _LessonHeader extends StatelessWidget {
         ],
       ],
     );
-  }
-}
-
-class _CompactLessonHeader extends StatelessWidget {
-  const _CompactLessonHeader({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(title, style: Theme.of(context).textTheme.titleMedium);
   }
 }
 
@@ -537,6 +549,7 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
     required this.currentStepIndex,
     required this.session,
     this.reviewMode = false,
+    this.qaMode = false,
     this.persistCompletion = true,
     this.canAdvanceCurrentStep = true,
     super.key,
@@ -550,6 +563,7 @@ class LessonNavigationControls extends ConsumerStatefulWidget {
   final int currentStepIndex;
   final LessonPlayerSessionState session;
   final bool reviewMode;
+  final bool qaMode;
   final bool persistCompletion;
   final bool canAdvanceCurrentStep;
 
@@ -880,15 +894,18 @@ class _LessonNavigationControlsState
     );
     ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
         updatedSession;
-    _persistResumeCursor(
-      ref,
-      lessonId: widget.lessonId,
-      courseId: widget.courseId,
-      session: updatedSession,
-      stepId: decision.updatedState.currentStepId!,
-      stepIndex: decision.updatedState.currentStepIndex,
-      furthestReachedStepIndex: decision.updatedState.furthestReachedStepIndex,
-    );
+    if (!widget.qaMode) {
+      _persistResumeCursor(
+        ref,
+        lessonId: widget.lessonId,
+        courseId: widget.courseId,
+        session: updatedSession,
+        stepId: decision.updatedState.currentStepId!,
+        stepIndex: decision.updatedState.currentStepIndex,
+        furthestReachedStepIndex:
+            decision.updatedState.furthestReachedStepIndex,
+      );
+    }
   }
 
   void _goToNextStep() {
@@ -905,15 +922,18 @@ class _LessonNavigationControlsState
     );
     ref.read(lessonPlayerSessionProvider(widget.lessonId).notifier).state =
         updatedSession;
-    _persistResumeCursor(
-      ref,
-      lessonId: widget.lessonId,
-      courseId: widget.courseId,
-      session: updatedSession,
-      stepId: decision.updatedState.currentStepId!,
-      stepIndex: decision.updatedState.currentStepIndex,
-      furthestReachedStepIndex: decision.updatedState.furthestReachedStepIndex,
-    );
+    if (!widget.qaMode) {
+      _persistResumeCursor(
+        ref,
+        lessonId: widget.lessonId,
+        courseId: widget.courseId,
+        session: updatedSession,
+        stepId: decision.updatedState.currentStepId!,
+        stepIndex: decision.updatedState.currentStepIndex,
+        furthestReachedStepIndex:
+            decision.updatedState.furthestReachedStepIndex,
+      );
+    }
   }
 }
 
@@ -1623,6 +1643,7 @@ class ExerciseTemplateView extends StatelessWidget {
         template: template,
         state: state,
         showIncorrectDetails: showRemediation,
+        reviewMode: reviewMode,
         onStateChanged: onStateChanged,
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/content/topic_content.dart';
+import '../../core/audio/reference_audio_button.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../l10n/l10n.dart';
 import '../answer_evaluation/answer_evaluation.dart';
@@ -15,6 +16,7 @@ class ActivityTemplateWidget extends StatelessWidget {
     this.state,
     this.onStateChanged,
     this.showIncorrectDetails = true,
+    this.reviewMode = false,
     super.key,
   });
 
@@ -23,6 +25,7 @@ class ActivityTemplateWidget extends StatelessWidget {
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
   final bool showIncorrectDetails;
+  final bool reviewMode;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +53,14 @@ class ActivityTemplateWidget extends StatelessWidget {
         onStateChanged: onStateChanged,
         showIncorrectDetails: showIncorrectDetails,
       ),
+      'guided_dialogue' => GuidedDialogueActivityWidget(
+        template: template,
+        engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
+        reviewMode: reviewMode,
+      ),
       'matching' => MatchingActivityWidget(
         template: template,
         engine: engine,
@@ -69,6 +80,7 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
     this.state,
     this.onStateChanged,
     this.showIncorrectDetails = true,
+    this.reviewMode = false,
     super.key,
   });
 
@@ -77,6 +89,7 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
   final bool showIncorrectDetails;
+  final bool reviewMode;
 
   @override
   State<MultipleChoiceActivityWidget> createState() =>
@@ -269,6 +282,249 @@ class _FillGapActivityWidgetState extends State<FillGapActivityWidget> {
   }
 }
 
+class GuidedDialogueActivityWidget extends StatefulWidget {
+  const GuidedDialogueActivityWidget({
+    required this.template,
+    required this.engine,
+    this.state,
+    this.onStateChanged,
+    this.showIncorrectDetails = true,
+    this.reviewMode = false,
+    super.key,
+  });
+
+  final ExerciseTemplate template;
+  final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
+  final bool reviewMode;
+
+  @override
+  State<GuidedDialogueActivityWidget> createState() =>
+      _GuidedDialogueActivityWidgetState();
+}
+
+class _GuidedDialogueActivityWidgetState
+    extends State<GuidedDialogueActivityWidget> {
+  final TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
+  ActivityTemplateState _state = const ActivityTemplateState();
+
+  ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  void _updateState(ActivityTemplateState value) {
+    if (widget.onStateChanged != null) {
+      widget.onStateChanged!(value);
+    } else {
+      setState(() => _state = value);
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant GuidedDialogueActivityWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!_focusNode.hasFocus) _controller.text = '';
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final dialogue = widget.template.guidedDialogue;
+    if (dialogue == null || dialogue.turns.isEmpty) {
+      return Text(context.l10n.unsupportedActivityType);
+    }
+    final state = _currentState;
+    final turnIndex = widget.reviewMode
+        ? dialogue.turns.length - 1
+        : state.dialogueTurnIndex.clamp(0, dialogue.turns.length - 1);
+    final groupStart = widget.reviewMode
+        ? 0
+        : _dialogueGroupStart(dialogue.turns, turnIndex);
+    final learnerTurnIndex = widget.reviewMode
+        ? dialogue.turns.length - 1
+        : _firstLearnerAtOrAfter(dialogue.turns, groupStart);
+    final learnerTurnCount = dialogue.turns
+        .where((turn) => turn.learner)
+        .length;
+    final dialoguePosition = widget.reviewMode
+        ? learnerTurnCount
+        : _learnerPosition(dialogue.turns, learnerTurnIndex);
+    final responseByTurn = <int, String>{};
+    var learnerOrdinal = 0;
+    for (var index = 0; index < dialogue.turns.length; index++) {
+      if (!dialogue.turns[index].learner) continue;
+      if (learnerOrdinal < state.dialogueResponses.length) {
+        responseByTurn[index] = state.dialogueResponses[learnerOrdinal];
+      }
+      learnerOrdinal++;
+    }
+    final displayEnd = widget.reviewMode
+        ? dialogue.turns.length - 1
+        : state.dialogueCompleted
+        ? _dialogueCompletionEnd(dialogue.turns, learnerTurnIndex)
+        : _dialogueGroupEnd(dialogue.turns, turnIndex);
+    final current = dialogue.turns[learnerTurnIndex];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _ActivityPrompt(widget.template.promptTemplate),
+        const SizedBox(height: 12),
+        Text(
+          context.l10n.dialogueProgress(dialoguePosition, learnerTurnCount),
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+        const SizedBox(height: 12),
+        for (var index = groupStart; index <= displayEnd; index++)
+          _GuidedDialogueTurnView(
+            turn: dialogue.turns[index],
+            response:
+                responseByTurn[index] ??
+                (widget.reviewMode && dialogue.turns[index].learner
+                    ? dialogue.turns[index].text
+                    : null),
+          ),
+        if (!widget.reviewMode &&
+            current.learner &&
+            !state.dialogueCompleted) ...[
+          TextField(
+            controller: _controller,
+            focusNode: _focusNode,
+            decoration: InputDecoration(labelText: context.l10n.answerLabel),
+            textInputAction: TextInputAction.done,
+            onChanged: (value) => _updateState(
+              state.copyWith(submittedAnswer: value, result: null),
+            ),
+          ),
+          _CheckButton(
+            onPressed: () {
+              final result = widget.engine.evaluate(
+                template: widget.template,
+                submission: ActivitySubmission(
+                  submittedAnswer: _controller.text,
+                  dialogueTurnIndex: learnerTurnIndex,
+                ),
+              );
+              if (!result.isCorrect) {
+                _updateState(
+                  state.copyWith(
+                    submittedAnswer: _controller.text,
+                    result: result,
+                    attemptCount: state.attemptCount + 1,
+                  ),
+                );
+                return;
+              }
+              final nextLearnerIndex = _nextLearnerIndex(
+                dialogue.turns,
+                learnerTurnIndex,
+              );
+              final responses = [...state.dialogueResponses, _controller.text];
+              _controller.clear();
+              _updateState(
+                state.copyWith(
+                  submittedAnswer: '',
+                  result: result,
+                  attemptCount: state.attemptCount + 1,
+                  dialogueTurnIndex: nextLearnerIndex ?? learnerTurnIndex,
+                  dialogueResponses: responses,
+                  dialogueCompleted: nextLearnerIndex == null,
+                ),
+              );
+            },
+          ),
+        ],
+        ActivityFeedback(
+          result: state.result,
+          attemptCount: state.attemptCount,
+          showIncorrectDetails: widget.showIncorrectDetails,
+        ),
+      ],
+    );
+  }
+
+  int _dialogueGroupStart(List<GuidedDialogueTurn> turns, int turnIndex) {
+    for (var index = turnIndex - 1; index >= 0; index--) {
+      if (turns[index].learner) return index + 1;
+    }
+    return 0;
+  }
+
+  int _dialogueGroupEnd(List<GuidedDialogueTurn> turns, int turnIndex) {
+    for (var index = turnIndex; index < turns.length; index++) {
+      if (turns[index].learner) return index;
+    }
+    return turns.length - 1;
+  }
+
+  int _dialogueCompletionEnd(List<GuidedDialogueTurn> turns, int turnIndex) {
+    for (var index = turnIndex + 1; index < turns.length; index++) {
+      if (turns[index].learner) return index - 1;
+    }
+    return turns.length - 1;
+  }
+
+  int _firstLearnerAtOrAfter(List<GuidedDialogueTurn> turns, int startIndex) {
+    for (var index = startIndex; index < turns.length; index++) {
+      if (turns[index].learner) return index;
+    }
+    return turns.length - 1;
+  }
+
+  int _learnerPosition(List<GuidedDialogueTurn> turns, int turnIndex) {
+    final position = turns
+        .take(turnIndex + 1)
+        .where((turn) => turn.learner)
+        .length;
+    return position.clamp(1, turns.where((turn) => turn.learner).length);
+  }
+
+  int? _nextLearnerIndex(List<GuidedDialogueTurn> turns, int turnIndex) {
+    for (var index = turnIndex + 1; index < turns.length; index++) {
+      if (turns[index].learner) return index;
+    }
+    return null;
+  }
+}
+
+class _GuidedDialogueTurnView extends StatelessWidget {
+  const _GuidedDialogueTurnView({required this.turn, this.response});
+
+  final GuidedDialogueTurn turn;
+  final String? response;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = turn.learner ? (response ?? '…') : turn.text;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            turn.learner ? context.l10n.learnerSpeakerLabel : turn.speaker,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(child: Text(text)),
+              if (!turn.learner)
+                ReferenceAudioButton(referenceId: turn.audioReferenceId),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class MatchingActivityWidget extends StatefulWidget {
   const MatchingActivityWidget({
     required this.template,
@@ -418,7 +674,8 @@ class ActivityFeedback extends StatelessWidget {
     final evaluation = result.evaluation;
     if (evaluation != null) {
       if (evaluation.status == AnswerEvaluationStatus.incorrect &&
-          !showIncorrectDetails) {
+          !showIncorrectDetails &&
+          evaluation.feedback.structure == null) {
         return Padding(
           padding: const EdgeInsets.only(top: 8),
           child: Text(result.feedbackText ?? _labelFor(result.status, l10n)),
@@ -430,6 +687,9 @@ class ActivityFeedback extends StatelessWidget {
         evaluation,
         attemptCount: attemptCount,
       );
+      final hideCanonicalAnswer =
+          evaluation.status == AnswerEvaluationStatus.incorrect &&
+          !showIncorrectDetails;
       return Padding(
         padding: const EdgeInsets.only(top: 12),
         child: Column(
@@ -437,7 +697,8 @@ class ActivityFeedback extends StatelessWidget {
           children: [
             _FeedbackStatus(status: evaluation.status),
             if (feedback.canonicalAnswer != null &&
-                result.status != ActivityResultStatus.correct) ...[
+                result.status != ActivityResultStatus.correct &&
+                !hideCanonicalAnswer) ...[
               const SizedBox(height: 4),
               Text(l10n.recommendedAnswer(feedback.canonicalAnswer!)),
             ],

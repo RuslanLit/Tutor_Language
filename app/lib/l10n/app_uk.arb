@@ -117,7 +117,15 @@
   "stepTypeExercise": "вправа",
   "stepTypeMixed": "змішане",
   "answerLabel": "Відповідь",
+  "learnerSpeakerLabel": "Ти",
   "checkAnswer": "Перевірити",
+  "dialogueProgress": "Діалог {current} / {total}",
+  "@dialogueProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "selectedAnswer": "Вибрана відповідь: {answer}",
   "@selectedAnswer": {
     "placeholders": {
@@ -131,6 +139,16 @@
   "tryAgain": "Спробуйте ще раз",
   "notCorrectYet": "Поки що не правильно",
   "incorrect": "Неправильно",
+  "feedbackMultilineMissing": "Введено {submitted} з {expected} реплік. Доповни діалог.",
+  "@feedbackMultilineMissing": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineExtra": "Введено {submitted} реплік замість {expected}. Перевір діалог.",
+  "@feedbackMultilineExtra": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineIncorrectLines": "{correct} з {expected} реплік правильні. Перевір репліки: {lines}.",
+  "@feedbackMultilineIncorrectLines": {"placeholders": {"correct": {"type": "int"}, "expected": {"type": "int"}, "lines": {"type": "String"}}},
+  "feedbackMultilineIncomplete": "Введено {submitted} реплік. Доповни діалог.",
+  "@feedbackMultilineIncomplete": {"placeholders": {"submitted": {"type": "int"}}},
+  "feedbackMultilineTooMany": "Введено {submitted} реплік. Перевір діалог.",
+  "@feedbackMultilineTooMany": {"placeholders": {"submitted": {"type": "int"}}},
   "unsupportedActivityType": "Непідтримуваний тип завдання",
   "unsupportedActivityTypeValue": "Непідтримуваний тип завдання: {type}",
   "@unsupportedActivityTypeValue": {

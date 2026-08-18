@@ -5,6 +5,8 @@ import '../../debug/semantic_pilot_qa.dart';
 import '../../debug/semantic_pilot_qa_screen.dart';
 import '../../debug/recording_qa.dart';
 import '../../debug/recording_qa_screen.dart';
+import '../../debug/qa_navigator.dart';
+import '../../debug/qa_navigator_screen.dart';
 import '../../core/learner/lesson_attempt.dart';
 import '../../features/communicative_competency/competency_session_screen.dart';
 import '../../features/course_navigation/course_navigation_screen.dart';
@@ -64,7 +66,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             attemptPurpose:
                 intent?.attemptPurpose ?? LessonAttemptPurpose.normal,
             reviewMode: intent?.mode == LessonLaunchMode.review,
+            qaMode: intent?.mode == LessonLaunchMode.qa,
             initialStepId: intent?.initialStepId,
+            persistCompletion: intent?.mode != LessonLaunchMode.qa,
           );
         },
       ),
@@ -101,6 +105,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           path: RecordingQaRoute.path,
           name: RecordingQaRoute.name,
           builder: (context, state) => const RecordingQaScreen(),
+        ),
+      if (qaNavigatorEnabled)
+        GoRoute(
+          path: QaNavigatorRoute.path,
+          name: QaNavigatorRoute.name,
+          builder: (context, state) => const QaNavigatorScreen(),
         ),
     ],
   );
@@ -160,4 +170,9 @@ abstract final class DebugSemanticPilotLessonRoute {
 abstract final class RecordingQaRoute {
   static const name = 'recordingQa';
   static const path = '/debug/recording';
+}
+
+abstract final class QaNavigatorRoute {
+  static const name = 'debugQaNavigator';
+  static const path = '/debug/qa-navigator';
 }

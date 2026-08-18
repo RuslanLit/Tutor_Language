@@ -1,5 +1,31 @@
 [
   {
+    "id": "template.es.a0.m01.l002.guided_conversation_dialogue",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["independent_communicative_dialogue"],
+    "required_object_types": ["dialogue"],
+    "prompt_template": "Проведи коротке знайомство іспанською. Слухай репліки Marta та відповідай своїми словами у вивчених конструкціях.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Marta", "text": "Hola. Buenos días.", "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"},
+        {"speaker": "Marta", "text": "Me llamo Marta.", "audioReferenceId": "es.audio.dialogue.me_llamo_marta"},
+        {"speaker": "Marta", "text": "¿Cómo te llamas?", "audioReferenceId": "es.audio.question.como_te_llamas"},
+        {"speaker": "Tú", "text": "Me llamo {name}.", "learner": true, "response_patterns": ["Me llamo {name}."], "response_mode": "prefix_with_value"},
+        {"speaker": "Marta", "text": "Mucho gusto.", "audioReferenceId": "es.audio.dialogue.mucho_gusto"},
+        {"speaker": "Marta", "text": "¿De dónde eres?", "audioReferenceId": "es.audio.question.de_donde_eres"},
+        {"speaker": "Tú", "text": "Soy de {place}.", "learner": true, "response_patterns": ["Soy de {place}."], "response_mode": "prefix_with_value"},
+        {"speaker": "Marta", "text": "¿Dónde vives?", "audioReferenceId": "es.audio.question.donde_vives"},
+        {"speaker": "Tú", "text": "Vivo en {city}.", "learner": true, "response_patterns": ["Vivo en {city}."], "response_mode": "prefix_with_value"},
+        {"speaker": "Marta", "text": "¿Qué idiomas hablas?", "audioReferenceId": "es.audio.question.que_idiomas_hablas"},
+        {"speaker": "Tú", "text": "Hablo español e inglés.", "learner": true, "response_patterns": ["Hablo {open}"], "response_mode": "prefix_with_value"},
+        {"speaker": "Marta", "text": "¿Hablas francés?", "audioReferenceId": "es.audio.question.hablas_frances"},
+        {"speaker": "Tú", "text": "No hablo francés.", "learner": true, "response_patterns": ["No hablo"], "response_mode": "prefix"},
+        {"speaker": "Marta", "text": "Gracias."},
+        {"speaker": "Tú", "text": "Hasta luego.", "learner": true, "response_patterns": ["Hasta luego.", "Adiós."]}
+      ]
+    }
+  },
+  {
     "id": "template.es.a0.m01.l002.choose_origin_answer",
     "exercise_type": "multiple_choice",
     "supported_goal_types": [

@@ -42,9 +42,11 @@ class ActivitySubmission {
     this.selectedAnswerId,
     this.submittedAnswer,
     this.matchedPairs = const {},
+    this.dialogueTurnIndex,
   });
 
   final String? selectedAnswerId;
   final String? submittedAnswer;
   final Map<String, String> matchedPairs;
+  final int? dialogueTurnIndex;
 }

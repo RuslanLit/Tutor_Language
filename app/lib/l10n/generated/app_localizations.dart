@@ -518,11 +518,23 @@ abstract class AppLocalizations {
   /// **'Answer'**
   String get answerLabel;
 
+  /// No description provided for @learnerSpeakerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get learnerSpeakerLabel;
+
   /// No description provided for @checkAnswer.
   ///
   /// In en, this message translates to:
   /// **'Check'**
   String get checkAnswer;
+
+  /// No description provided for @dialogueProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Dialogue {current} / {total}'**
+  String dialogueProgress(int current, int total);
 
   /// No description provided for @selectedAnswer.
   ///
@@ -559,6 +571,40 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Incorrect'**
   String get incorrect;
+
+  /// No description provided for @feedbackMultilineMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'You entered {submitted} of {expected} lines. Complete the dialogue.'**
+  String feedbackMultilineMissing(int submitted, int expected);
+
+  /// No description provided for @feedbackMultilineExtra.
+  ///
+  /// In en, this message translates to:
+  /// **'You entered {submitted} lines instead of {expected}. Check the dialogue.'**
+  String feedbackMultilineExtra(int submitted, int expected);
+
+  /// No description provided for @feedbackMultilineIncorrectLines.
+  ///
+  /// In en, this message translates to:
+  /// **'{correct} of {expected} lines are correct. Check lines: {lines}.'**
+  String feedbackMultilineIncorrectLines(
+    int correct,
+    int expected,
+    String lines,
+  );
+
+  /// No description provided for @feedbackMultilineIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'You entered {submitted} lines. Complete the dialogue.'**
+  String feedbackMultilineIncomplete(int submitted);
+
+  /// No description provided for @feedbackMultilineTooMany.
+  ///
+  /// In en, this message translates to:
+  /// **'You entered {submitted} lines. Check the dialogue.'**
+  String feedbackMultilineTooMany(int submitted);
 
   /// No description provided for @unsupportedActivityType.
   ///

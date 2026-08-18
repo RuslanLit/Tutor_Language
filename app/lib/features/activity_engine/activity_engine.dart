@@ -20,6 +20,11 @@ class ActivityEngine {
       'fill_gap' => _evaluateFillGap(template, submission),
       'text_entry' => _evaluateFillGap(template, submission),
       'matching' => _evaluateMatching(template, submission),
+      'guided_dialogue' => _evaluateGuidedDialogue(
+        template,
+        submission,
+        dialogueTurnIndex: submission.dialogueTurnIndex ?? 0,
+      ),
       _ => ActivityResult(
         exerciseId: template.id,
         isCorrect: false,
@@ -28,6 +33,157 @@ class ActivityEngine {
         feedbackText: 'This activity type is not supported yet.',
       ),
     };
+  }
+
+  ActivityResult _evaluateGuidedDialogue(
+    ExerciseTemplate template,
+    ActivitySubmission submission, {
+    required int dialogueTurnIndex,
+  }) {
+    final dialogue = template.guidedDialogue;
+    final submitted = submission.submittedAnswer ?? '';
+    if (dialogue == null || dialogueTurnIndex >= dialogue.turns.length) {
+      return ActivityResult(
+        exerciseId: template.id,
+        isCorrect: false,
+        status: ActivityResultStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
+      );
+    }
+    final turn = dialogue.turns[dialogueTurnIndex];
+    if (!turn.learner || turn.responsePatterns.isEmpty) {
+      return ActivityResult(
+        exerciseId: template.id,
+        isCorrect: false,
+        status: ActivityResultStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
+      );
+    }
+
+    if (turn.responseMode == 'prefix' ||
+        turn.responseMode == 'prefix_with_value') {
+      return _evaluateGuidedConstruction(
+        template,
+        submitted,
+        turn,
+        requiresValue: turn.responseMode == 'prefix_with_value',
+      );
+    }
+
+    final candidates = <String>[];
+    for (final pattern in turn.responsePatterns) {
+      candidates.addAll(_expandGuidedPattern(pattern, turn.allowedSlots));
+    }
+    final evaluation = answerEvaluator.evaluateTypedAnswer(
+      learnerAnswer: submitted,
+      canonicalAnswer: candidates.firstOrNull,
+      acceptedAnswers: candidates.skip(1).toList(growable: false),
+      allowMeaningSupport: false,
+    );
+    return ActivityResult(
+      exerciseId: template.id,
+      isCorrect: evaluation.isAccepted,
+      status: _activityStatusFor(evaluation.status),
+      submittedAnswer: submitted,
+      expectedAnswer: candidates.firstOrNull,
+      feedbackKey: evaluation.feedback.key,
+      evaluation: evaluation,
+    );
+  }
+
+  ActivityResult _evaluateGuidedConstruction(
+    ExerciseTemplate template,
+    String submitted,
+    GuidedDialogueTurn turn, {
+    required bool requiresValue,
+  }) {
+    final pattern = turn.responsePatterns.first;
+    final placeholder = RegExp(r'\{[^{}]+\}').firstMatch(pattern);
+    final authoredPrefix =
+        (placeholder == null
+                ? pattern
+                : pattern.substring(0, placeholder.start))
+            .replaceFirst(RegExp(r'[.!?…]+\s*$'), '')
+            .trim();
+    final normalizedSubmitted = answerEvaluator.normalizer
+        .normalize(submitted)
+        .value
+        .replaceFirst(RegExp(r'[.!?…]+$'), '')
+        .trim();
+    final normalizedPrefix = answerEvaluator.normalizer
+        .normalize(authoredPrefix)
+        .value;
+    final hasPrefix =
+        normalizedSubmitted == normalizedPrefix ||
+        normalizedSubmitted.startsWith('$normalizedPrefix ');
+    final tail = normalizedSubmitted.length > normalizedPrefix.length
+        ? normalizedSubmitted.substring(normalizedPrefix.length).trim()
+        : '';
+    final meaningfulTail = tail.replaceFirst(RegExp(r'[.!?…]+$'), '').trim();
+    final valid = hasPrefix && (!requiresValue || meaningfulTail.isNotEmpty);
+
+    AnswerEvaluationResult evaluation;
+    if (valid) {
+      final submittedPrefix = submitted
+          .trim()
+          .split(RegExp(r'\s+'))
+          .take(authoredPrefix.split(RegExp(r'\s+')).length)
+          .join(' ');
+      evaluation = answerEvaluator.evaluateTypedAnswer(
+        learnerAnswer: submittedPrefix,
+        canonicalAnswer: authoredPrefix,
+        allowMeaningSupport: false,
+      );
+      if (!evaluation.isAccepted) {
+        evaluation = answerEvaluator.evaluateTypedAnswer(
+          learnerAnswer: authoredPrefix,
+          canonicalAnswer: authoredPrefix,
+          allowMeaningSupport: false,
+        );
+      }
+    } else {
+      evaluation = answerEvaluator.evaluateTypedAnswer(
+        learnerAnswer: submitted,
+        canonicalAnswer: authoredPrefix,
+        allowMeaningSupport: false,
+      );
+    }
+    return ActivityResult(
+      exerciseId: template.id,
+      isCorrect: evaluation.isAccepted && valid,
+      status: _activityStatusFor(
+        valid ? evaluation.status : AnswerEvaluationStatus.incorrect,
+      ),
+      submittedAnswer: submitted,
+      expectedAnswer: authoredPrefix,
+      feedbackKey: evaluation.feedback.key,
+      evaluation: evaluation,
+    );
+  }
+
+  List<String> _expandGuidedPattern(
+    String pattern,
+    Map<String, List<String>> slots,
+  ) {
+    final names = RegExp(r'\{([^{}]+)\}')
+        .allMatches(pattern)
+        .map((match) => match.group(1)!)
+        .toSet()
+        .toList(growable: false);
+    if (names.any((name) => !slots.containsKey(name))) {
+      return const [];
+    }
+    var values = <String>[pattern];
+    for (final name in names) {
+      final next = <String>[];
+      for (final value in values) {
+        for (final option in slots[name]!) {
+          next.add(value.replaceFirst('{$name}', option));
+        }
+      }
+      values = next;
+    }
+    return values;
   }
 
   Map<String, String> expectedMatchingPairs(ExerciseTemplate template) {
@@ -73,6 +229,7 @@ class ActivityEngine {
             acceptedWithFeedbackAnswers: template.acceptedWithFeedbackAnswers,
             authoredMisconceptions: template.authoredMisconceptions,
             allowMeaningSupport: !template.requiresExactAnswer,
+            multilineLineRange: _multilineLineRange(template.promptTemplate),
           );
 
     return ActivityResult(
@@ -83,6 +240,18 @@ class ActivityEngine {
       expectedAnswer: expected,
       feedbackKey: evaluation.feedback.key,
       evaluation: evaluation,
+    );
+  }
+
+  ({int minimum, int maximum})? _multilineLineRange(String prompt) {
+    final match = RegExp(
+      r'(?:Введи|Enter)\s+(\d+)[–-](\d+)\s+(?:коротких\s+реплік|lines)',
+      caseSensitive: false,
+    ).firstMatch(prompt);
+    if (match == null) return null;
+    return (
+      minimum: int.parse(match.group(1)!),
+      maximum: int.parse(match.group(2)!),
     );
   }
 

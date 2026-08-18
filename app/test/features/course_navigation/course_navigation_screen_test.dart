@@ -35,7 +35,6 @@ void main() {
     await tester.pumpWidget(_app(database));
     await tester.pumpAndSettle();
 
-    expect(find.text('Spanish A0'), findsOneWidget);
     expect(find.text('Unit 1'), findsOneWidget);
     expect(find.text('Alpha'), findsOneWidget);
     expect(find.text('Beta'), findsOneWidget);
@@ -82,7 +81,7 @@ void main() {
     expect(find.text('Alpha'), findsOneWidget);
   });
 
-  testWidgets('locked lesson is visible but not launchable', (tester) async {
+  testWidgets('locked lesson is launchable in debug QA mode', (tester) async {
     final database = AppDatabase(NativeDatabase.memory());
     addTearDown(database.close);
     final assemblyService = _RecordingLessonAssemblyService();
@@ -92,8 +91,7 @@ void main() {
     await tester.tap(find.text('Beta'), warnIfMissed: false);
     await tester.pumpAndSettle();
 
-    expect(assemblyService.requestedLessonIds, isEmpty);
-    expect(find.text('Spanish A0'), findsOneWidget);
+    expect(assemblyService.requestedLessonIds, contains('lesson.beta'));
   });
 
   testWidgets('final course state is displayed', (tester) async {

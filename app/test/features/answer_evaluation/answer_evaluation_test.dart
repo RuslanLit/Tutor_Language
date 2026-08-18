@@ -511,6 +511,30 @@ void main() {
       expect(result.feedback.misconceptionId, isNull);
     });
 
+    test('diagnoses incomplete authored multiline answers', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer: 'Hola.\nMe llamo Marta.',
+        canonicalAnswer:
+            'Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.',
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.feedback.structure?.submittedLineCount, 2);
+      expect(result.feedback.structure?.expectedLineCount, 4);
+    });
+
+    test('diagnoses the incorrect line in authored multiline answers', () {
+      final result = const AnswerEvaluator().evaluateTypedAnswer(
+        learnerAnswer:
+            'Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Luis.',
+        canonicalAnswer:
+            'Hola.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.',
+      );
+
+      expect(result.status, AnswerEvaluationStatus.incorrect);
+      expect(result.feedback.structure?.incorrectLineNumbers, [4]);
+    });
+
     test('orthographic feedback takes precedence over misconceptions', () {
       final result = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'que',

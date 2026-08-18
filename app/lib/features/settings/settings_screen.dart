@@ -5,6 +5,7 @@ import '../../app/router/app_router.dart';
 import '../../core/app/app_release_info.dart';
 import '../../debug/semantic_pilot_qa.dart';
 import '../../debug/recording_qa.dart';
+import '../../debug/qa_navigator.dart';
 import '../../l10n/l10n.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -84,6 +85,18 @@ class SettingsScreen extends StatelessWidget {
                   FilledButton(
                     onPressed: () => context.goNamed(RecordingQaRoute.name),
                     child: const Text('Open recording QA'),
+                  ),
+                ],
+              ),
+            if (qaNavigatorEnabled)
+              _SettingsSection(
+                title: 'DEVELOPER / QA',
+                children: [
+                  const Text('Direct access to any authored lesson step.'),
+                  const SizedBox(height: 8),
+                  FilledButton(
+                    onPressed: () => context.goNamed(QaNavigatorRoute.name),
+                    child: const Text('Open QA Navigator'),
                   ),
                 ],
               ),

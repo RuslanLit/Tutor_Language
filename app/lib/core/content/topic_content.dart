@@ -409,6 +409,7 @@ class ExerciseTemplate {
     this.authoredMisconceptions = const [],
     this.reviewTemplateIds = const [],
     this.productionContract,
+    this.guidedDialogue,
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -450,6 +451,9 @@ class ExerciseTemplate {
           : ProductionContract.fromJson(
               requiredMap(json, 'production_contract'),
             ),
+      guidedDialogue: json['guided_dialogue'] == null
+          ? null
+          : GuidedDialogue.fromJson(requiredMap(json, 'guided_dialogue')),
     );
   }
 
@@ -467,6 +471,7 @@ class ExerciseTemplate {
   final List<AuthoredMisconception> authoredMisconceptions;
   final List<String> reviewTemplateIds;
   final ProductionContract? productionContract;
+  final GuidedDialogue? guidedDialogue;
 
   Map<String, Object?> toJson() {
     return {
@@ -495,6 +500,7 @@ class ExerciseTemplate {
         'review_template_ids': reviewTemplateIds,
       if (productionContract != null)
         'production_contract': productionContract!.toJson(),
+      if (guidedDialogue != null) 'guided_dialogue': guidedDialogue!.toJson(),
     };
   }
 
@@ -518,7 +524,8 @@ class ExerciseTemplate {
             other.requiresExactAnswer == requiresExactAnswer &&
             listEquals(other.authoredMisconceptions, authoredMisconceptions) &&
             listEquals(other.reviewTemplateIds, reviewTemplateIds) &&
-            other.productionContract == productionContract;
+            other.productionContract == productionContract &&
+            other.guidedDialogue == guidedDialogue;
   }
 
   @override
@@ -537,7 +544,120 @@ class ExerciseTemplate {
     Object.hashAll(authoredMisconceptions),
     Object.hashAll(reviewTemplateIds),
     productionContract,
+    guidedDialogue,
   );
+}
+
+class GuidedDialogue {
+  const GuidedDialogue({required this.turns});
+
+  factory GuidedDialogue.fromJson(Map<String, Object?> json) {
+    return GuidedDialogue(
+      turns: requiredList(json, 'turns', GuidedDialogueTurn.fromJson),
+    );
+  }
+
+  final List<GuidedDialogueTurn> turns;
+
+  Map<String, Object?> toJson() => {
+    'turns': turns.map((turn) => turn.toJson()).toList(growable: false),
+  };
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GuidedDialogue && listEquals(other.turns, turns);
+
+  @override
+  int get hashCode => Object.hashAll(turns);
+}
+
+class GuidedDialogueTurn {
+  const GuidedDialogueTurn({
+    required this.speaker,
+    required this.text,
+    required this.learner,
+    this.audioReferenceId,
+    this.responsePatterns = const [],
+    this.allowedSlots = const {},
+    this.responseMode = 'exact',
+  });
+
+  factory GuidedDialogueTurn.fromJson(Map<String, Object?> json) {
+    final slots = json['allowed_slots'];
+    return GuidedDialogueTurn(
+      speaker: requiredString(json, 'speaker'),
+      text: requiredString(json, 'text'),
+      learner: optionalBool(json, 'learner') ?? false,
+      audioReferenceId: optionalString(json, 'audioReferenceId'),
+      responsePatterns: optionalStringList(json, 'response_patterns'),
+      allowedSlots: slots == null
+          ? const {}
+          : Map.unmodifiable(
+              Map<String, Object?>.from(slots as Map).map(
+                (key, value) => MapEntry(
+                  key,
+                  (value as List).map((item) => item.toString()).toList(),
+                ),
+              ),
+            ),
+      responseMode: optionalString(json, 'response_mode') ?? 'exact',
+    );
+  }
+
+  final String speaker;
+  final String text;
+  final bool learner;
+  final String? audioReferenceId;
+  final List<String> responsePatterns;
+  final Map<String, List<String>> allowedSlots;
+
+  /// `exact`, `prefix`, or `prefix_with_value`.
+  final String responseMode;
+
+  Map<String, Object?> toJson() => {
+    'speaker': speaker,
+    'text': text,
+    if (learner) 'learner': true,
+    if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
+    if (responsePatterns.isNotEmpty) 'response_patterns': responsePatterns,
+    if (allowedSlots.isNotEmpty) 'allowed_slots': allowedSlots,
+    if (responseMode != 'exact') 'response_mode': responseMode,
+  };
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GuidedDialogueTurn &&
+          other.speaker == speaker &&
+          other.text == text &&
+          other.learner == learner &&
+          other.audioReferenceId == audioReferenceId &&
+          listEquals(other.responsePatterns, responsePatterns) &&
+          _guidedSlotsEqual(other.allowedSlots, allowedSlots) &&
+          other.responseMode == responseMode;
+
+  @override
+  int get hashCode => Object.hash(
+    speaker,
+    text,
+    learner,
+    audioReferenceId,
+    Object.hashAll(responsePatterns),
+    Object.hashAll(allowedSlots.entries),
+    responseMode,
+  );
+}
+
+bool _guidedSlotsEqual(
+  Map<String, List<String>> left,
+  Map<String, List<String>> right,
+) {
+  if (left.length != right.length) return false;
+  for (final entry in left.entries) {
+    if (!listEquals(entry.value, right[entry.key] ?? const [])) return false;
+  }
+  return true;
 }
 
 class ProductionContract {

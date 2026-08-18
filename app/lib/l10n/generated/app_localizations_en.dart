@@ -236,7 +236,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get answerLabel => 'Answer';
 
   @override
+  String get learnerSpeakerLabel => 'You';
+
+  @override
   String get checkAnswer => 'Check';
+
+  @override
+  String dialogueProgress(int current, int total) {
+    return 'Dialogue $current / $total';
+  }
 
   @override
   String selectedAnswer(String answer) {
@@ -257,6 +265,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get incorrect => 'Incorrect';
+
+  @override
+  String feedbackMultilineMissing(int submitted, int expected) {
+    return 'You entered $submitted of $expected lines. Complete the dialogue.';
+  }
+
+  @override
+  String feedbackMultilineExtra(int submitted, int expected) {
+    return 'You entered $submitted lines instead of $expected. Check the dialogue.';
+  }
+
+  @override
+  String feedbackMultilineIncorrectLines(
+    int correct,
+    int expected,
+    String lines,
+  ) {
+    return '$correct of $expected lines are correct. Check lines: $lines.';
+  }
+
+  @override
+  String feedbackMultilineIncomplete(int submitted) {
+    return 'You entered $submitted lines. Complete the dialogue.';
+  }
+
+  @override
+  String feedbackMultilineTooMany(int submitted) {
+    return 'You entered $submitted lines. Check the dialogue.';
+  }
 
   @override
   String get unsupportedActivityType => 'Unsupported activity type';

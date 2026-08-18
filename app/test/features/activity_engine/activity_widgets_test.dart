@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/activity_engine/activity_engine.dart';
@@ -11,6 +12,94 @@ import 'package:tutor_language/features/activity_engine/activity_widgets.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
+  testWidgets(
+    'guided dialogue opens on the first learner turn, not an audio-only state',
+    (tester) async {
+      final template = _canonicalLesson2Templates().first;
+
+      await tester.pumpWidget(
+        _localizedApp(
+          Scaffold(body: ActivityTemplateWidget(template: template)),
+          locale: const Locale('uk'),
+        ),
+      );
+
+      expect(find.text('Hola. Buenos días.'), findsOneWidget);
+      expect(find.text('Me llamo Marta.'), findsOneWidget);
+      expect(find.text('¿Cómo te llamas?'), findsOneWidget);
+      expect(find.text('Ти'), findsOneWidget);
+      expect(find.text('Діалог 1 / 6'), findsOneWidget);
+      expect(find.byType(TextField), findsOneWidget);
+      expect(find.text('Перевірити'), findsOneWidget);
+    },
+  );
+
+  testWidgets('guided dialogue keeps incorrect response on the same turn', (
+    tester,
+  ) async {
+    final template = _canonicalLesson2Templates().first;
+
+    await tester.pumpWidget(
+      _localizedApp(
+        Scaffold(body: ActivityTemplateWidget(template: template)),
+        locale: const Locale('uk'),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Soy Marta.');
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(find.text('¿Cómo te llamas?'), findsOneWidget);
+    expect(find.text('Діалог 1 / 6'), findsOneWidget);
+    expect(find.byType(TextField), findsOneWidget);
+    expect(find.text('Перевірити'), findsOneWidget);
+  });
+
+  testWidgets('accepted guided response advances to the next turn group', (
+    tester,
+  ) async {
+    final template = _canonicalLesson2Templates().first;
+
+    await tester.pumpWidget(
+      _localizedApp(
+        Scaffold(body: ActivityTemplateWidget(template: template)),
+        locale: const Locale('uk'),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Me llamo Ana.');
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(find.text('Mucho gusto.'), findsOneWidget);
+    expect(find.text('¿De dónde eres?'), findsOneWidget);
+    expect(find.text('Ти'), findsOneWidget);
+    expect(find.text('Діалог 2 / 6'), findsOneWidget);
+    expect(find.byType(TextField), findsOneWidget);
+  });
+
+  testWidgets('final learner response renders authored closing turn', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(template: _closingDialogueTemplate),
+        ),
+        locale: Locale('uk'),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Hasta luego.');
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(find.text('Gracias.'), findsOneWidget);
+    expect(find.text('Діалог 1 / 1'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+  });
+
   testWidgets('fill_gap widget checks normalized answer', (tester) async {
     await tester.pumpWidget(
       _localizedApp(
@@ -205,6 +294,140 @@ void main() {
     expect(find.text('Not correct yet'), findsOneWidget);
     expect(find.text('Recommended answer: Me llamo Ana'), findsOneWidget);
     expect(find.textContaining('me llamo'), findsNothing);
+  });
+
+  testWidgets(
+    'Lesson 2 incomplete multiline feedback remains visible when remediation is hidden',
+    (tester) async {
+      final template = _canonicalLesson2Templates().firstWhere(
+        (template) =>
+            template.id ==
+            'template.es.a0.m01.l002.independent_complete_intro_dialogue',
+      );
+
+      await tester.pumpWidget(
+        _localizedApp(
+          Scaffold(
+            body: ActivityTemplateWidget(
+              template: template,
+              showIncorrectDetails: false,
+            ),
+          ),
+          locale: const Locale('uk'),
+        ),
+      );
+
+      await tester.enterText(
+        find.byType(TextField),
+        'Hola. Buenos días.\n'
+        'Me llamo Marta.\n'
+        '¿Cómo te llamas?\n'
+        'Me llamo Ana.\n'
+        'Mucho gusto.\n'
+        '¿De dónde eres?\n'
+        'Soy de Ucrania.\n'
+        '¿Dónde vives?',
+      );
+      await tester.tap(find.text('Перевірити'));
+      await tester.pump();
+
+      expect(
+        find.textContaining('Введено 8 реплік. Доповни діалог.'),
+        findsOneWidget,
+      );
+      expect(find.text('Спробувати ще раз'), findsNothing);
+    },
+  );
+
+  testWidgets('Lesson 2 near-complete answer shows incorrect line numbers', (
+    tester,
+  ) async {
+    final template = _canonicalLesson2Templates().firstWhere(
+      (template) =>
+          template.id ==
+          'template.es.a0.m01.l002.independent_complete_intro_dialogue',
+    );
+
+    await tester.pumpWidget(
+      _localizedApp(
+        Scaffold(
+          body: ActivityTemplateWidget(
+            template: template,
+            showIncorrectDetails: false,
+          ),
+        ),
+        locale: const Locale('uk'),
+      ),
+    );
+
+    await tester.enterText(
+      find.byType(TextField),
+      'Hola. Buenos días.\n'
+      'Me llamo Marta.\n'
+      '¿Cómo te llamas?\n'
+      'Me llamo Ana.\n'
+      'Mucho gusto.\n'
+      '¿De dónde eres?\n'
+      'Soy de Ucrania.\n'
+      '¿Dónde vives?\n'
+      'Vivo en Lima.\n'
+      '¿Qué idiomas hablas?\n'
+      'Hablo francés e inglés.\n'
+      'También hablo inglés. Hablo un poco de español.\n'
+      'No hablo francés.\n'
+      'Gracias. Hasta luego.',
+    );
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(
+      find.textContaining('12 з 14 реплік правильні. Перевір репліки: 9, 11.'),
+      findsOneWidget,
+    );
+  });
+
+  test('Lesson 2 authored 13, 14, and 15 line variants are accepted', () {
+    final template = _canonicalLesson2Templates().firstWhere(
+      (template) =>
+          template.id ==
+          'template.es.a0.m01.l002.independent_complete_intro_dialogue',
+    );
+    final engine = const ActivityEngine();
+    final variants = [
+      template.acceptedAnswers.first,
+      template.expectedAnswer!,
+      template.expectedAnswer!.replaceFirst(
+        'También hablo inglés. Hablo un poco de español.',
+        'También hablo inglés.\nHablo un poco de español.',
+      ),
+    ];
+
+    for (final answer in variants) {
+      final result = engine.evaluate(
+        template: template,
+        submission: ActivitySubmission(submittedAnswer: answer),
+      );
+      expect(result.isCorrect, isTrue, reason: answer);
+    }
+  });
+
+  test('Lesson 2 wrong French-person form remains incorrect', () {
+    final template = _canonicalLesson2Templates().firstWhere(
+      (template) =>
+          template.id ==
+          'template.es.a0.m01.l002.independent_complete_intro_dialogue',
+    );
+    final answer = template.expectedAnswer!.replaceFirst(
+      'No hablo francés.',
+      'No habla francés.',
+    );
+    final result = const ActivityEngine().evaluate(
+      template: template,
+      submission: ActivitySubmission(submittedAnswer: answer),
+    );
+
+    expect(result.isCorrect, isFalse);
+    expect(result.evaluation?.feedback.structure?.incorrectLineNumbers, [13]);
   });
 
   testWidgets('task-mismatch feedback becomes more helpful after retries', (
@@ -503,12 +726,15 @@ void main() {
   });
 }
 
-Widget _localizedApp(Widget child) {
-  return MaterialApp(
-    localizationsDelegates: AppLocalizations.localizationsDelegates,
-    supportedLocales: AppLocalizations.supportedLocales,
-    theme: ThemeData(useMaterial3: false),
-    home: child,
+Widget _localizedApp(Widget child, {Locale? locale}) {
+  return ProviderScope(
+    child: MaterialApp(
+      locale: locale,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      theme: ThemeData(useMaterial3: false),
+      home: child,
+    ),
   );
 }
 
@@ -596,6 +822,26 @@ const _longPromptShortExpectedTemplate = ExerciseTemplate(
   expectedAnswer: 'Hola, Adiós',
 );
 
+const _closingDialogueTemplate = ExerciseTemplate(
+  id: 'template.widget.closing_dialogue',
+  exerciseType: 'guided_dialogue',
+  supportedGoalTypes: ['test'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Reply and finish the dialogue.',
+  guidedDialogue: GuidedDialogue(
+    turns: [
+      GuidedDialogueTurn(speaker: 'Marta', text: 'Adiós.', learner: false),
+      GuidedDialogueTurn(
+        speaker: 'Tú',
+        text: 'Hasta luego.',
+        learner: true,
+        responsePatterns: ['Hasta luego.'],
+      ),
+      GuidedDialogueTurn(speaker: 'Marta', text: 'Gracias.', learner: false),
+    ],
+  ),
+);
+
 const _matchingTemplate = ExerciseTemplate(
   id: 'template.widget.matching',
   exerciseType: 'matching',
@@ -617,6 +863,17 @@ const _ukrainianMatchingTemplate = ExerciseTemplate(
 List<ExerciseTemplate> _canonicalLesson1Templates() {
   final raw = File(
     'assets/languages/spanish/templates/canonical_lesson_1.json',
+  ).readAsStringSync();
+  final decoded = jsonDecode(raw) as List<Object?>;
+  return decoded
+      .cast<Map<String, Object?>>()
+      .map(ExerciseTemplate.fromJson)
+      .toList(growable: false);
+}
+
+List<ExerciseTemplate> _canonicalLesson2Templates() {
+  final raw = File(
+    'assets/languages/spanish/templates/canonical_lesson_2.json',
   ).readAsStringSync();
   final decoded = jsonDecode(raw) as List<Object?>;
   return decoded

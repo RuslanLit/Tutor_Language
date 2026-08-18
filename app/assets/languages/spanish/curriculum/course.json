@@ -323,7 +323,7 @@
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
-                  "referenceId": "template.es.a0.m01.l002.independent_complete_intro_dialogue"
+                  "referenceId": "template.es.a0.m01.l002.guided_conversation_dialogue"
                 }
               ]
             }
@@ -391,7 +391,7 @@
                 {
                   "type": "exercise_template",
                   "assetPath": "assets/languages/spanish/templates/canonical_lesson_2.json",
-                  "referenceId": "template.es.a0.m01.l002.independent_complete_intro_dialogue"
+                  "referenceId": "template.es.a0.m01.l002.guided_conversation_dialogue"
                 },
                 {
                   "type": "dialogue",

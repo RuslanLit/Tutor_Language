@@ -50,6 +50,68 @@ void main() {
     expect(result.feedbackKey, 'answer.correct');
   });
 
+  test('guided dialogue accepts any nonempty value after its construction', () {
+    const engine = ActivityEngine();
+    final accepted = engine.evaluate(
+      template: _guidedDialogueTemplate,
+      submission: const ActivitySubmission(
+        submittedAnswer: 'Soy de Marte.',
+        dialogueTurnIndex: 1,
+      ),
+    );
+    final rejected = engine.evaluate(
+      template: _guidedDialogueTemplate,
+      submission: const ActivitySubmission(
+        submittedAnswer: 'Soy Marte.',
+        dialogueTurnIndex: 1,
+      ),
+    );
+
+    expect(accepted.isCorrect, isTrue);
+    expect(rejected.isCorrect, isFalse);
+  });
+
+  test('guided dialogue prefix mode allows an optional tail', () {
+    const template = ExerciseTemplate(
+      id: 'template.guided.prefix',
+      exerciseType: 'guided_dialogue',
+      supportedGoalTypes: ['test'],
+      requiredObjectTypes: ['dialogue'],
+      promptTemplate: 'Reply.',
+      guidedDialogue: GuidedDialogue(
+        turns: [
+          GuidedDialogueTurn(
+            speaker: 'Tú',
+            text: 'No hablo.',
+            learner: true,
+            responsePatterns: ['No hablo'],
+            responseMode: 'prefix',
+          ),
+        ],
+      ),
+    );
+    expect(
+      const ActivityEngine()
+          .evaluate(
+            template: template,
+            submission: const ActivitySubmission(submittedAnswer: 'No hablo.'),
+          )
+          .isCorrect,
+      isTrue,
+    );
+    expect(
+      const ActivityEngine()
+          .evaluate(
+            template: template,
+            submission: const ActivitySubmission(
+              submittedAnswer: 'No habla francés.',
+            ),
+          )
+          .isCorrect,
+      isFalse,
+    );
+  });
+
   test('propagates accepted-with-feedback through ActivityResult', () {
     final result = const ActivityEngine().evaluate(
       template: _accentTemplate,
@@ -319,4 +381,32 @@ const _exactFormTemplate = ExerciseTemplate(
   promptTemplate: 'Type the exact full English form.',
   expectedAnswer: 'I do not understand',
   requiresExactAnswer: true,
+);
+
+const _guidedDialogueTemplate = ExerciseTemplate(
+  id: 'template.guided.test',
+  exerciseType: 'guided_dialogue',
+  supportedGoalTypes: ['test'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Reply.',
+  guidedDialogue: GuidedDialogue(
+    turns: [
+      GuidedDialogueTurn(
+        speaker: 'Ana',
+        text: '¿De dónde eres?',
+        learner: false,
+        audioReferenceId: 'es.audio.question.de_donde_eres',
+      ),
+      GuidedDialogueTurn(
+        speaker: 'Tú',
+        text: 'Soy de {place}.',
+        learner: true,
+        responsePatterns: ['Soy de {place}.'],
+        responseMode: 'prefix_with_value',
+        allowedSlots: {
+          'place': ['Ucrania', 'España'],
+        },
+      ),
+    ],
+  ),
 );

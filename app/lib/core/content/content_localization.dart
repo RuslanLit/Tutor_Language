@@ -739,6 +739,7 @@ class EducationalContentLocalizationResolver {
       authoredMisconceptions: template.authoredMisconceptions,
       reviewTemplateIds: template.reviewTemplateIds,
       productionContract: template.productionContract,
+      guidedDialogue: template.guidedDialogue,
     );
   }
 

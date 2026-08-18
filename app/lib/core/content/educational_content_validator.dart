@@ -28,6 +28,7 @@ class EducationalContentValidator {
     'fill_gap',
     'text_entry',
     'matching',
+    'guided_dialogue',
   };
 
   List<EducationalContentValidationIssue> validate(
@@ -249,6 +250,56 @@ class EducationalContentValidator {
             '${template.exerciseType}',
           ),
         );
+      }
+
+      if (template.exerciseType == 'guided_dialogue') {
+        final dialogue = template.guidedDialogue;
+        if (dialogue == null || dialogue.turns.isEmpty) {
+          issues.add(
+            EducationalContentValidationIssue(
+              'Guided dialogue must contain turns: ${template.id}',
+            ),
+          );
+        } else {
+          for (final turn in dialogue.turns) {
+            if (!const {
+              'exact',
+              'prefix',
+              'prefix_with_value',
+            }.contains(turn.responseMode)) {
+              issues.add(
+                EducationalContentValidationIssue(
+                  'Unsupported guided-dialogue response mode: '
+                  '${template.id}/${turn.responseMode}',
+                ),
+              );
+            }
+            if (turn.learner && turn.responsePatterns.isEmpty) {
+              issues.add(
+                EducationalContentValidationIssue(
+                  'Learner guided-dialogue turn has no response patterns: '
+                  '${template.id}',
+                ),
+              );
+            }
+            for (final pattern in turn.responsePatterns) {
+              if (turn.responseMode != 'exact') continue;
+              for (final slot in RegExp(
+                r'\{([^{}]+)\}',
+              ).allMatches(pattern).map((match) => match.group(1)!)) {
+                if (!turn.allowedSlots.containsKey(slot) ||
+                    turn.allowedSlots[slot]!.isEmpty) {
+                  issues.add(
+                    EducationalContentValidationIssue(
+                      'Guided-dialogue slot has no authored values: '
+                      '${template.id}/$slot',
+                    ),
+                  );
+                }
+              }
+            }
+          }
+        }
       }
 
       final contract = template.productionContract;

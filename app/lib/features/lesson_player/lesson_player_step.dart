@@ -178,6 +178,9 @@ bool _requiresCompletion(ExerciseTemplate template) {
     'multiple_choice' => template.correctOptionId != null,
     'fill_gap' || 'text_entry' => template.expectedAnswer != null,
     'matching' => template.expectedAnswer != null,
+    'guided_dialogue' =>
+      template.guidedDialogue != null &&
+          template.guidedDialogue!.turns.any((turn) => turn.learner),
     _ => false,
   };
 }

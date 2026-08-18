@@ -237,7 +237,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get answerLabel => 'Відповідь';
 
   @override
+  String get learnerSpeakerLabel => 'Ти';
+
+  @override
   String get checkAnswer => 'Перевірити';
+
+  @override
+  String dialogueProgress(int current, int total) {
+    return 'Діалог $current / $total';
+  }
 
   @override
   String selectedAnswer(String answer) {
@@ -258,6 +266,35 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get incorrect => 'Неправильно';
+
+  @override
+  String feedbackMultilineMissing(int submitted, int expected) {
+    return 'Введено $submitted з $expected реплік. Доповни діалог.';
+  }
+
+  @override
+  String feedbackMultilineExtra(int submitted, int expected) {
+    return 'Введено $submitted реплік замість $expected. Перевір діалог.';
+  }
+
+  @override
+  String feedbackMultilineIncorrectLines(
+    int correct,
+    int expected,
+    String lines,
+  ) {
+    return '$correct з $expected реплік правильні. Перевір репліки: $lines.';
+  }
+
+  @override
+  String feedbackMultilineIncomplete(int submitted) {
+    return 'Введено $submitted реплік. Доповни діалог.';
+  }
+
+  @override
+  String feedbackMultilineTooMany(int submitted) {
+    return 'Введено $submitted реплік. Перевір діалог.';
+  }
 
   @override
   String get unsupportedActivityType => 'Непідтримуваний тип завдання';

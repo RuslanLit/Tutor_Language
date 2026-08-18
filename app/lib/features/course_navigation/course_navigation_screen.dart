@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -332,6 +333,7 @@ class _LessonNodeCard extends StatelessWidget {
     final l10n = context.l10n;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final isDebugQa = kDebugMode;
     final isCurrent = lesson.status == LessonNavigationStatus.available;
     final isCompleted = lesson.status == LessonNavigationStatus.completed;
     final foreground = lesson.status == LessonNavigationStatus.locked
@@ -363,7 +365,7 @@ class _LessonNodeCard extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(isCurrent ? 22 : 18),
-        onTap: lesson.isTappable
+        onTap: lesson.isTappable || isDebugQa
             ? () {
                 context.goNamed(
                   LessonRoute.name,

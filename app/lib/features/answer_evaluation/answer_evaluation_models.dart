@@ -72,6 +72,7 @@ class AnswerFeedback {
     this.differences = const [],
     this.misconceptionId,
     this.explanationReference,
+    this.structure,
   });
 
   final String key;
@@ -79,6 +80,33 @@ class AnswerFeedback {
   final List<AnswerDifference> differences;
   final String? misconceptionId;
   final String? explanationReference;
+  final AnswerStructureDiagnostic? structure;
+}
+
+class AnswerStructureDiagnostic {
+  const AnswerStructureDiagnostic({
+    required this.submittedLineCount,
+    required this.expectedLineCount,
+    this.minimumExpectedLineCount,
+    this.maximumExpectedLineCount,
+    this.correctLineNumbers = const [],
+    this.incorrectLineNumbers = const [],
+  });
+
+  final int submittedLineCount;
+  final int expectedLineCount;
+  final int? minimumExpectedLineCount;
+  final int? maximumExpectedLineCount;
+  final List<int> correctLineNumbers;
+  final List<int> incorrectLineNumbers;
+
+  int get missingLineCount => expectedLineCount > submittedLineCount
+      ? expectedLineCount - submittedLineCount
+      : 0;
+
+  int get extraLineCount => submittedLineCount > expectedLineCount
+      ? submittedLineCount - expectedLineCount
+      : 0;
 }
 
 class AnswerEvaluationResult {

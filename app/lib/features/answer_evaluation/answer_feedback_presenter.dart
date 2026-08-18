@@ -196,13 +196,58 @@ class AnswerFeedbackPresenter {
     };
 
     if (correction == null) {
-      return const [];
+      return _structuralCorrections(l10n, feedback);
     }
 
     return [
       correction,
       ..._progressiveResponseTypeHints(l10n, feedback, attemptCount),
+      ..._structuralCorrections(l10n, feedback),
     ];
+  }
+
+  List<String> _structuralCorrections(
+    AppLocalizations l10n,
+    AnswerFeedback feedback,
+  ) {
+    final structure = feedback.structure;
+    if (structure == null) return const [];
+
+    final messages = <String>[];
+    final minimum = structure.minimumExpectedLineCount;
+    final maximum = structure.maximumExpectedLineCount;
+    if (minimum != null && structure.submittedLineCount < minimum) {
+      messages.add(
+        l10n.feedbackMultilineIncomplete(structure.submittedLineCount),
+      );
+    } else if (maximum != null && structure.submittedLineCount > maximum) {
+      messages.add(l10n.feedbackMultilineTooMany(structure.submittedLineCount));
+    } else if (structure.missingLineCount > 0) {
+      messages.add(
+        l10n.feedbackMultilineMissing(
+          structure.submittedLineCount,
+          structure.expectedLineCount,
+        ),
+      );
+    } else if (structure.extraLineCount > 0) {
+      messages.add(
+        l10n.feedbackMultilineExtra(
+          structure.submittedLineCount,
+          structure.expectedLineCount,
+        ),
+      );
+    }
+
+    if (structure.incorrectLineNumbers.isNotEmpty) {
+      messages.add(
+        l10n.feedbackMultilineIncorrectLines(
+          structure.correctLineNumbers.length,
+          structure.expectedLineCount,
+          structure.incorrectLineNumbers.join(', '),
+        ),
+      );
+    }
+    return messages;
   }
 
   List<String> _progressiveResponseTypeHints(

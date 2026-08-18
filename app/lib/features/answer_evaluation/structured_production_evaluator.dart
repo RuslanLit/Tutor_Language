@@ -32,7 +32,13 @@ class StructuredProductionEvaluator {
       tokenIndex: 0,
     );
     if (match == null || match.tokenIndex != learnerTokens.length) {
-      return _incorrect(canonicalAnswer);
+      return _incorrect(
+        canonicalAnswer,
+        structure: _structureDiagnostic(
+          learnerAnswer: learnerAnswer,
+          canonicalAnswer: canonicalAnswer,
+        ),
+      );
     }
 
     final learnerTokensKey = learnerTokens.join(' ');
@@ -151,21 +157,62 @@ class StructuredProductionEvaluator {
               .replaceAll('é', 'e')
               .replaceAll('í', 'i')
               .replaceAll('ó', 'o')
-              .replaceAll('ú', 'u')
-              .replaceAll('ü', 'u'),
+              .replaceAll('ú', 'u'),
         )
         .toList(growable: false);
   }
 
-  AnswerEvaluationResult _incorrect(String canonicalAnswer) =>
-      AnswerEvaluationResult(
-        status: AnswerEvaluationStatus.incorrect,
-        feedback: AnswerFeedback(
-          key: 'answer.incorrect',
-          canonicalAnswer: canonicalAnswer,
-        ),
-        matchType: AnswerMatchType.none,
-      );
+  AnswerStructureDiagnostic? _structureDiagnostic({
+    required String learnerAnswer,
+    required String canonicalAnswer,
+  }) {
+    final expectedLines = _meaningfulLines(canonicalAnswer);
+    final submittedLines = _meaningfulLines(learnerAnswer);
+    if (expectedLines.length < 2 || submittedLines.isEmpty) {
+      return null;
+    }
+
+    final comparableCount = submittedLines.length < expectedLines.length
+        ? submittedLines.length
+        : expectedLines.length;
+    final correct = <int>[];
+    final incorrect = <int>[];
+    for (var index = 0; index < comparableCount; index++) {
+      final submitted = _tokens(submittedLines[index]);
+      final expected = _tokens(expectedLines[index]);
+      if (_quality(submitted, expected) != null) {
+        correct.add(index + 1);
+      } else {
+        incorrect.add(index + 1);
+      }
+    }
+
+    return AnswerStructureDiagnostic(
+      submittedLineCount: submittedLines.length,
+      expectedLineCount: expectedLines.length,
+      correctLineNumbers: List.unmodifiable(correct),
+      incorrectLineNumbers: List.unmodifiable(incorrect),
+    );
+  }
+
+  List<String> _meaningfulLines(String value) => value
+      .split(RegExp(r'\r?\n'))
+      .map((line) => line.trim())
+      .where((line) => line.isNotEmpty)
+      .toList(growable: false);
+
+  AnswerEvaluationResult _incorrect(
+    String canonicalAnswer, {
+    AnswerStructureDiagnostic? structure,
+  }) => AnswerEvaluationResult(
+    status: AnswerEvaluationStatus.incorrect,
+    feedback: AnswerFeedback(
+      key: 'answer.incorrect',
+      canonicalAnswer: canonicalAnswer,
+      structure: structure,
+    ),
+    matchType: AnswerMatchType.none,
+  );
 
   AnswerEvaluationResult _unsupported(String canonicalAnswer) =>
       AnswerEvaluationResult(

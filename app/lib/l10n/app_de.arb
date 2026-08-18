@@ -117,7 +117,15 @@
   "stepTypeExercise": "Übung",
   "stepTypeMixed": "gemischt",
   "answerLabel": "Antwort",
+  "learnerSpeakerLabel": "Du",
   "checkAnswer": "Prüfen",
+  "dialogueProgress": "Dialog {current} / {total}",
+  "@dialogueProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "selectedAnswer": "Ausgewählte Antwort: {answer}",
   "@selectedAnswer": {
     "placeholders": {
@@ -131,6 +139,16 @@
   "tryAgain": "Noch einmal versuchen",
   "notCorrectYet": "Noch nicht richtig",
   "incorrect": "Falsch",
+  "feedbackMultilineMissing": "Du hast {submitted} von {expected} Zeilen eingegeben. Ergänze den Dialog.",
+  "@feedbackMultilineMissing": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineExtra": "Du hast {submitted} statt {expected} Zeilen eingegeben. Prüfe den Dialog.",
+  "@feedbackMultilineExtra": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineIncorrectLines": "{correct} von {expected} Zeilen sind richtig. Prüfe die Zeilen: {lines}.",
+  "@feedbackMultilineIncorrectLines": {"placeholders": {"correct": {"type": "int"}, "expected": {"type": "int"}, "lines": {"type": "String"}}},
+  "feedbackMultilineIncomplete": "Du hast {submitted} Zeilen eingegeben. Ergänze den Dialog.",
+  "@feedbackMultilineIncomplete": {"placeholders": {"submitted": {"type": "int"}}},
+  "feedbackMultilineTooMany": "Du hast {submitted} Zeilen eingegeben. Prüfe den Dialog.",
+  "@feedbackMultilineTooMany": {"placeholders": {"submitted": {"type": "int"}}},
   "unsupportedActivityType": "Nicht unterstützter Aufgabentyp",
   "unsupportedActivityTypeValue": "Nicht unterstützter Aufgabentyp: {type}",
   "@unsupportedActivityTypeValue": {

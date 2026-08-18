@@ -117,7 +117,15 @@
   "stepTypeExercise": "ćwiczenie",
   "stepTypeMixed": "mieszane",
   "answerLabel": "Odpowiedź",
+  "learnerSpeakerLabel": "Ty",
   "checkAnswer": "Sprawdź",
+  "dialogueProgress": "Dialog {current} / {total}",
+  "@dialogueProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
   "selectedAnswer": "Wybrana odpowiedź: {answer}",
   "@selectedAnswer": {
     "placeholders": {
@@ -131,6 +139,16 @@
   "tryAgain": "Spróbuj ponownie",
   "notCorrectYet": "Jeszcze niepoprawnie",
   "incorrect": "Niepoprawnie",
+  "feedbackMultilineMissing": "Wpisano {submitted} z {expected} kwestii. Uzupełnij dialog.",
+  "@feedbackMultilineMissing": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineExtra": "Wpisano {submitted} kwestii zamiast {expected}. Sprawdź dialog.",
+  "@feedbackMultilineExtra": {"placeholders": {"submitted": {"type": "int"}, "expected": {"type": "int"}}},
+  "feedbackMultilineIncorrectLines": "{correct} z {expected} kwestii jest poprawnych. Sprawdź kwestie: {lines}.",
+  "@feedbackMultilineIncorrectLines": {"placeholders": {"correct": {"type": "int"}, "expected": {"type": "int"}, "lines": {"type": "String"}}},
+  "feedbackMultilineIncomplete": "Wpisano {submitted} kwestii. Uzupełnij dialog.",
+  "@feedbackMultilineIncomplete": {"placeholders": {"submitted": {"type": "int"}}},
+  "feedbackMultilineTooMany": "Wpisano {submitted} kwestii. Sprawdź dialog.",
+  "@feedbackMultilineTooMany": {"placeholders": {"submitted": {"type": "int"}}},
   "unsupportedActivityType": "Nieobsługiwany typ zadania",
   "unsupportedActivityTypeValue": "Nieobsługiwany typ zadania: {type}",
   "@unsupportedActivityTypeValue": {

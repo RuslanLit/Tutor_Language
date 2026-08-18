@@ -1,7 +1,7 @@
 import '../../core/learner/lesson_attempt.dart';
 import '../lesson_planning/lesson_plan.dart';
 
-enum LessonLaunchMode { learning, review }
+enum LessonLaunchMode { learning, review, qa }
 
 class LessonLaunchIntent {
   const LessonLaunchIntent({

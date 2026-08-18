@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/content/content_localization_providers.dart';
@@ -18,12 +19,22 @@ final courseNavigationStateProvider = FutureProvider<CourseNavigationState>((
   final course = await ref.watch(localizedCurrentCourseProvider.future);
   final progressEvents = await ref.watch(learnerProgressEventsProvider.future);
   final completedLessonIds = _completedLessonIds(progressEvents);
+  final effectiveCompletedLessonIds =
+      kDebugMode && course.version.contains('-r2e')
+      ? {
+          for (final lesson
+              in ref
+                  .read(courseNavigationServiceProvider)
+                  .orderedCourseLessons(course))
+            lesson.lesson.id,
+        }
+      : completedLessonIds;
 
   return ref
       .watch(courseNavigationServiceProvider)
       .buildNavigationState(
         course: course,
-        completedLessonIds: completedLessonIds,
+        completedLessonIds: effectiveCompletedLessonIds,
       );
 });
 
