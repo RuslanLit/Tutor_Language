@@ -402,6 +402,8 @@ class ExerciseTemplate {
     required this.promptTemplate,
     this.answerOptions = const [],
     this.correctOptionId,
+    this.audioReferenceId,
+    this.audioTranscript,
     this.expectedAnswer,
     this.acceptedAnswers = const [],
     this.acceptedWithFeedbackAnswers = const [],
@@ -428,6 +430,8 @@ class ExerciseTemplate {
               ExerciseTemplateOption.fromJson,
             ),
       correctOptionId: optionalString(json, 'correct_option_id'),
+      audioReferenceId: optionalString(json, 'audio_reference_id'),
+      audioTranscript: optionalString(json, 'audio_transcript'),
       expectedAnswer: optionalString(json, 'expected_answer'),
       acceptedAnswers: optionalStringList(json, 'accepted_answers'),
       acceptedWithFeedbackAnswers:
@@ -468,6 +472,8 @@ class ExerciseTemplate {
   final String promptTemplate;
   final List<ExerciseTemplateOption> answerOptions;
   final String? correctOptionId;
+  final String? audioReferenceId;
+  final String? audioTranscript;
   final String? expectedAnswer;
   final List<String> acceptedAnswers;
   final List<AcceptedWithFeedbackAnswer> acceptedWithFeedbackAnswers;
@@ -490,6 +496,8 @@ class ExerciseTemplate {
             .map((option) => option.toJson())
             .toList(growable: false),
       if (correctOptionId != null) 'correct_option_id': correctOptionId,
+      if (audioReferenceId != null) 'audio_reference_id': audioReferenceId,
+      if (audioTranscript != null) 'audio_transcript': audioTranscript,
       if (expectedAnswer != null) 'expected_answer': expectedAnswer,
       if (acceptedAnswers.isNotEmpty) 'accepted_answers': acceptedAnswers,
       if (acceptedWithFeedbackAnswers.isNotEmpty)
@@ -522,6 +530,8 @@ class ExerciseTemplate {
             other.promptTemplate == promptTemplate &&
             listEquals(other.answerOptions, answerOptions) &&
             other.correctOptionId == correctOptionId &&
+            other.audioReferenceId == audioReferenceId &&
+            other.audioTranscript == audioTranscript &&
             other.expectedAnswer == expectedAnswer &&
             listEquals(other.acceptedAnswers, acceptedAnswers) &&
             listEquals(
@@ -544,6 +554,8 @@ class ExerciseTemplate {
     promptTemplate,
     Object.hashAll(answerOptions),
     correctOptionId,
+    audioReferenceId,
+    audioTranscript,
     expectedAnswer,
     Object.hashAll(acceptedAnswers),
     Object.hashAll(acceptedWithFeedbackAnswers),

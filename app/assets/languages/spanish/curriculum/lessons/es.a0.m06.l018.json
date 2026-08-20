@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "es.a0.m06.l018",
+    "title": "Як дістатися до готелю?",
+    "description": "Запитай, як дістатися до знайомого місця, і зрозумій короткий напрямок.",
+    "moduleId": "es.a0.m06",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 20,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-18",
+      "route-question"
+    ],
+    "version": "1.0.0-r2e27",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m06.l017"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m06.l018.ask_route",
+      "description": "Після уроку учень може запитати ¿Cómo llego al hotel? і зрозуміти коротку відповідь Sigue recto."
+    }
+  ],
+  "communicativeOutcome": "Учень просить коротку вказівку до місця та розуміє напрямок прямо.",
+  "sections": [
+    {
+      "id": "es.a0.m06.l018.section.spoken",
+      "title": "Відтворити питання",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m06.l018.activity.spoken_route",
+          "title": "Відтворити питання з пам’яті",
+          "type": "spoken_practice",
+          "order": 1,
+          "spokenPractice": {
+            "mode": "delayedImitation",
+            "audioReferenceId": "es.audio.question.como_llego_al_hotel",
+            "prompt": "Послухай, сховай модель і відтвори питання.",
+            "targetText": "¿Cómo llego al hotel?",
+            "focusCue": "Збережи наголос у cómo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "es.a0.m06.l018.section.route",
+      "title": "Запитати дорогу",
+      "order": 2,
+      "activities": [
+        {
+          "id": "es.a0.m06.l018.activity.route",
+          "title": "Запитати, як дістатися",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.meaning_route"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.ask_route"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.straight"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.recall_route"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.recall_far"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+              "referenceId": "template.es.a0.m06.l018.guided_route"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m06.l018.summary.ask_route",
+    "reviewPrompt": "Ти можеш запитати, як дістатися до готелю, і зрозуміти Sigue recto.",
+    "referenceIds": [
+      "objective.es.a0.m06.l018.ask_route"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m06.l018.activity.route"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m06.l018.section.route"
+    ]
+  },
+  "references": []
+}

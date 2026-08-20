@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "es.a0.m06.l016",
+    "title": "Як ти їдеш?",
+    "description": "Назви простий транспорт і скажи, як ти дістаєшся.",
+    "moduleId": "es.a0.m06",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 20,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-16",
+      "transport"
+    ],
+    "version": "1.0.0-r2e27",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m05.l015"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m06.l016.transport_method",
+      "description": "Після уроку учень може назвати кілька простих видів транспорту й сказати Voy en metro, Voy en taxi або Voy a pie."
+    }
+  ],
+  "communicativeOutcome": "Учень повідомляє, яким простим транспортом він їде або що йде пішки.",
+  "sections": [
+    {
+      "id": "es.a0.m06.l016.section.spoken",
+      "title": "Повторити вголос",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m06.l016.activity.spoken_transport",
+          "title": "Повторити фразу про метро",
+          "type": "spoken_practice",
+          "order": 1,
+          "spokenPractice": {
+            "mode": "listenRepeat",
+            "audioReferenceId": "es.audio.phrase.voy_en_metro",
+            "prompt": "Послухай і повтори фразу уголос.",
+            "targetText": "Voy en metro.",
+            "focusCue": "Чітко з’єднай voy en."
+          }
+        }
+      ]
+    },
+    {
+      "id": "es.a0.m06.l016.section.transport",
+      "title": "Транспорт",
+      "order": 2,
+      "activities": [
+        {
+          "id": "es.a0.m06.l016.activity.transport",
+          "title": "Назвати спосіб пересування",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.meaning_transport"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.build_metro"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.build_walk"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.recall_taxi"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.recall_bus"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+              "referenceId": "template.es.a0.m06.l016.guided_transport"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m06.l016.summary.transport_method",
+    "reviewPrompt": "Ти можеш сказати, яким транспортом їдеш.",
+    "referenceIds": [
+      "objective.es.a0.m06.l016.transport_method"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m06.l016.activity.transport"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m06.l016.section.transport"
+    ]
+  },
+  "references": []
+}

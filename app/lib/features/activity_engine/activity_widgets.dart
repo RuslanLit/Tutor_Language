@@ -322,7 +322,7 @@ class _SentenceBuilderActivityWidgetState
   }
 }
 
-class MultipleChoiceActivityWidget extends StatefulWidget {
+class MultipleChoiceActivityWidget extends ConsumerStatefulWidget {
   const MultipleChoiceActivityWidget({
     required this.template,
     required this.engine,
@@ -341,15 +341,43 @@ class MultipleChoiceActivityWidget extends StatefulWidget {
   final bool reviewMode;
 
   @override
-  State<MultipleChoiceActivityWidget> createState() =>
+  ConsumerState<MultipleChoiceActivityWidget> createState() =>
       _MultipleChoiceActivityWidgetState();
 }
 
 class _MultipleChoiceActivityWidgetState
-    extends State<MultipleChoiceActivityWidget> {
+    extends ConsumerState<MultipleChoiceActivityWidget> {
   ActivityTemplateState _state = const ActivityTemplateState();
+  String? _autoPlayedReferenceId;
 
   ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  @override
+  void initState() {
+    super.initState();
+    _scheduleListeningStimulus();
+  }
+
+  @override
+  void didUpdateWidget(covariant MultipleChoiceActivityWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.template.id != widget.template.id) {
+      _autoPlayedReferenceId = null;
+      _scheduleListeningStimulus();
+    }
+  }
+
+  void _scheduleListeningStimulus() {
+    final referenceId = widget.template.audioReferenceId;
+    if (referenceId == null || referenceId.isEmpty) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _autoPlayedReferenceId == referenceId) return;
+      _autoPlayedReferenceId = referenceId;
+      ref.read(referenceAudioPlaybackServiceProvider).play(referenceId).catchError(
+        (_) {},
+      );
+    });
+  }
 
   void _updateState(ActivityTemplateState state) {
     final onStateChanged = widget.onStateChanged;
@@ -371,6 +399,13 @@ class _MultipleChoiceActivityWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _ActivityPrompt(widget.template.promptTemplate),
+        if (widget.template.audioReferenceId != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: ReferenceAudioButton(
+              referenceId: widget.template.audioReferenceId!,
+            ),
+          ),
         const SizedBox(height: 8),
         Wrap(
           spacing: 8,
@@ -410,6 +445,15 @@ class _MultipleChoiceActivityWidgetState
           attemptCount: state.attemptCount,
           showIncorrectDetails: widget.showIncorrectDetails,
         ),
+        if (state.result?.isCorrect == true &&
+            widget.template.audioTranscript != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(
+              widget.template.audioTranscript!,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
       ],
     );
   }

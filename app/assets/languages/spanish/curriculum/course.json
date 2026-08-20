@@ -49,6 +49,17 @@
         "es.a0.m05.l014",
         "es.a0.m05.l015"
       ]
+    },
+    {
+      "id": "es.a0.m06",
+      "title": "Модуль 6",
+      "lessonIds": [
+        "es.a0.m06.l016",
+        "es.a0.m06.l017",
+        "es.a0.m06.l018",
+        "es.a0.m06.l019",
+        "es.a0.m06.l020"
+      ]
     }
   ],
   "lessons": [
@@ -1822,6 +1833,570 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m05.l015.section.availability"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l016",
+        "title": "Як ти їдеш?",
+        "description": "Назви простий транспорт і скажи, як ти дістаєшся.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-16",
+          "transport"
+        ],
+        "version": "1.0.0-r2e27",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l015"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l016.transport_method",
+          "description": "Після уроку учень може назвати кілька простих видів транспорту й сказати Voy en metro, Voy en taxi або Voy a pie."
+        }
+      ],
+      "communicativeOutcome": "Учень повідомляє, яким простим транспортом він їде або що йде пішки.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l016.section.spoken",
+          "title": "Повторити вголос",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l016.activity.spoken_transport",
+              "title": "Повторити фразу про метро",
+              "type": "spoken_practice",
+              "order": 1,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.phrase.voy_en_metro",
+                "prompt": "Послухай і повтори фразу уголос.",
+                "targetText": "Voy en metro.",
+                "focusCue": "Чітко з’єднай voy en."
+              }
+            }
+          ]
+        },
+        {
+          "id": "es.a0.m06.l016.section.transport",
+          "title": "Транспорт",
+          "order": 2,
+          "activities": [
+            {
+              "id": "es.a0.m06.l016.activity.transport",
+              "title": "Назвати спосіб пересування",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.meaning_transport"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.build_metro"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.build_walk"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.recall_taxi"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.recall_bus"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_16.json",
+                  "referenceId": "template.es.a0.m06.l016.guided_transport"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l016.summary.transport_method",
+        "reviewPrompt": "Ти можеш сказати, яким транспортом їдеш.",
+        "referenceIds": [
+          "objective.es.a0.m06.l016.transport_method"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l016.activity.transport"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l016.section.transport"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l017",
+        "title": "Де станція?",
+        "description": "Запитай, де знайоме місце, і зрозумій, чи воно близько або далеко.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-17",
+          "location"
+        ],
+        "version": "1.0.0-r2e27",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l016"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l017.ask_place_location",
+          "description": "Після уроку учень може запитати ¿Dónde está la estación? і сказати Está cerca або Está lejos."
+        }
+      ],
+      "communicativeOutcome": "Учень питає про місце й розрізняє близьку та далеку відстань.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l017.section.spoken",
+          "title": "Послухати фразу про відстань",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l017.activity.spoken_location",
+              "title": "Повторити фразу про відстань",
+              "type": "spoken_practice",
+              "order": 1,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.phrase.esta_lejos",
+                "prompt": "Послухай і повтори фразу про відстань.",
+                "targetText": "Está lejos.",
+                "focusCue": "Чітко вимов наголос у está."
+              }
+            }
+          ]
+        },
+        {
+          "id": "es.a0.m06.l017.section.location",
+          "title": "Місце та відстань",
+          "order": 2,
+          "activities": [
+            {
+              "id": "es.a0.m06.l017.activity.location",
+              "title": "Запитати про станцію",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017.meaning_distance"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017.ask_station"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017_near"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017.recall_far"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017.recall_station"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+                  "referenceId": "template.es.a0.m06.l017.guided_location"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l017.summary.ask_place_location",
+        "reviewPrompt": "Ти можеш запитати, де станція, і сказати, чи вона близько.",
+        "referenceIds": [
+          "objective.es.a0.m06.l017.ask_place_location"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l017.activity.location"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l017.section.location"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l018",
+        "title": "Як дістатися до готелю?",
+        "description": "Запитай, як дістатися до знайомого місця, і зрозумій короткий напрямок.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-18",
+          "route-question"
+        ],
+        "version": "1.0.0-r2e27",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l017"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l018.ask_route",
+          "description": "Після уроку учень може запитати ¿Cómo llego al hotel? і зрозуміти коротку відповідь Sigue recto."
+        }
+      ],
+      "communicativeOutcome": "Учень просить коротку вказівку до місця та розуміє напрямок прямо.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l018.section.spoken",
+          "title": "Відтворити питання",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l018.activity.spoken_route",
+              "title": "Відтворити питання з пам’яті",
+              "type": "spoken_practice",
+              "order": 1,
+              "spokenPractice": {
+                "mode": "delayedImitation",
+                "audioReferenceId": "es.audio.question.como_llego_al_hotel",
+                "prompt": "Послухай, сховай модель і відтвори питання.",
+                "targetText": "¿Cómo llego al hotel?",
+                "focusCue": "Збережи наголос у cómo."
+              }
+            }
+          ]
+        },
+        {
+          "id": "es.a0.m06.l018.section.route",
+          "title": "Запитати дорогу",
+          "order": 2,
+          "activities": [
+            {
+              "id": "es.a0.m06.l018.activity.route",
+              "title": "Запитати, як дістатися",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.meaning_route"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.ask_route"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.straight"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.recall_route"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.recall_far"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_18.json",
+                  "referenceId": "template.es.a0.m06.l018.guided_route"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l018.summary.ask_route",
+        "reviewPrompt": "Ти можеш запитати, як дістатися до готелю, і зрозуміти Sigue recto.",
+        "referenceIds": [
+          "objective.es.a0.m06.l018.ask_route"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l018.activity.route"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l018.section.route"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l019",
+        "title": "Ліворуч чи праворуч?",
+        "description": "Дай два короткі напрямки та збережи їхній порядок у маршруті.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 22,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-19",
+          "directions"
+        ],
+        "version": "1.0.0-r2e27",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l018"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l019.give_directions",
+          "description": "Після уроку учень може дати короткі напрямки Sigue recto, Gira a la izquierda та Gira a la derecha у заданому порядку."
+        }
+      ],
+      "communicativeOutcome": "Учень дає короткі вказівки прямо, ліворуч і праворуч у контрольованій послідовності.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l019.section.spoken",
+          "title": "Повторити напрямок",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l019.activity.spoken_directions",
+              "title": "Повторити напрямок уголос",
+              "type": "spoken_practice",
+              "order": 1,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.phrase.gira_a_la_izquierda",
+                "prompt": "Послухай і повтори напрямок.",
+                "targetText": "Gira a la izquierda.",
+                "focusCue": "Чітко вимов izquierda."
+              }
+            }
+          ]
+        },
+        {
+          "id": "es.a0.m06.l019.section.directions",
+          "title": "Напрямки",
+          "order": 2,
+          "activities": [
+            {
+              "id": "es.a0.m06.l019.activity.directions",
+              "title": "Дати напрямок",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.meaning_left_right"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.left"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.right"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.recall_straight"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.recall_transport"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+                  "referenceId": "template.es.a0.m06.l019.guided_directions"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l019.summary.give_directions",
+        "reviewPrompt": "Ти можеш дати короткі напрямки прямо, ліворуч і праворуч.",
+        "referenceIds": [
+          "objective.es.a0.m06.l019.give_directions"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l019.activity.directions"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l019.section.directions"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m06.l020",
+        "title": "Короткий маршрут",
+        "description": "Поєднай питання про місце, відстань, транспорт і коротку пораду в одному обміні.",
+        "moduleId": "es.a0.m06",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 24,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-20",
+          "route-exchange"
+        ],
+        "version": "1.0.0-r2e27",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m06.l019"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m06.l020.route_exchange",
+          "description": "Після уроку учень може завершити короткий обмін про маршрут: запитати, де станція, зрозуміти Está cerca, запитати дорогу й зрозуміти Toma el metro."
+        }
+      ],
+      "communicativeOutcome": "Учень підтримує короткий передбачуваний обмін про місце, відстань і транспорт.",
+      "sections": [
+        {
+          "id": "es.a0.m06.l020.section.spoken",
+          "title": "Сказати пораду",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m06.l020.activity.spoken_route",
+              "title": "Сказати пораду уголос",
+              "type": "spoken_practice",
+              "order": 1,
+              "spokenPractice": {
+                "mode": "spokenRecall",
+                "audioReferenceId": "es.audio.phrase.toma_el_metro",
+                "prompt": "Скажи іспанською: «Сядь на метро».",
+                "targetText": "Toma el metro."
+              }
+            }
+          ]
+        },
+        {
+          "id": "es.a0.m06.l020.section.route",
+          "title": "Обмін про маршрут",
+          "order": 2,
+          "activities": [
+            {
+              "id": "es.a0.m06.l020.activity.route",
+              "title": "Провести обмін про маршрут",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020.meaning_route"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020.take_metro"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020_near"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020.recall_transport"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020.recall_station"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+                  "referenceId": "template.es.a0.m06.l020.guided_route"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m06.l020.summary.route_exchange",
+        "reviewPrompt": "Ти можеш провести короткий обмін про маршрут і транспорт.",
+        "referenceIds": [
+          "objective.es.a0.m06.l020.route_exchange"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m06.l020.activity.route"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m06.l020.section.route"
         ]
       },
       "references": []

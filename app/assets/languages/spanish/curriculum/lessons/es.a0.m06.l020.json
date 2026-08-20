@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "id": "es.a0.m06.l020",
+    "title": "Короткий маршрут",
+    "description": "Поєднай питання про місце, відстань, транспорт і коротку пораду в одному обміні.",
+    "moduleId": "es.a0.m06",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 24,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-20",
+      "route-exchange"
+    ],
+    "version": "1.0.0-r2e27",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m06.l019"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m06.l020.route_exchange",
+      "description": "Після уроку учень може завершити короткий обмін про маршрут: запитати, де станція, зрозуміти Está cerca, запитати дорогу й зрозуміти Toma el metro."
+    }
+  ],
+  "communicativeOutcome": "Учень підтримує короткий передбачуваний обмін про місце, відстань і транспорт.",
+  "sections": [
+    {
+      "id": "es.a0.m06.l020.section.spoken",
+      "title": "Сказати пораду",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m06.l020.activity.spoken_route",
+          "title": "Сказати пораду уголос",
+          "type": "spoken_practice",
+          "order": 1,
+          "spokenPractice": {
+            "mode": "spokenRecall",
+            "audioReferenceId": "es.audio.phrase.toma_el_metro",
+            "prompt": "Скажи іспанською: «Сядь на метро».",
+            "targetText": "Toma el metro."
+          }
+        }
+      ]
+    },
+    {
+      "id": "es.a0.m06.l020.section.route",
+      "title": "Обмін про маршрут",
+      "order": 2,
+      "activities": [
+        {
+          "id": "es.a0.m06.l020.activity.route",
+          "title": "Провести обмін про маршрут",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020.meaning_route"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020.take_metro"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020_near"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020.recall_transport"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020.recall_station"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_20.json",
+              "referenceId": "template.es.a0.m06.l020.guided_route"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m06.l020.summary.route_exchange",
+    "reviewPrompt": "Ти можеш провести короткий обмін про маршрут і транспорт.",
+    "referenceIds": [
+      "objective.es.a0.m06.l020.route_exchange"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m06.l020.activity.route"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m06.l020.section.route"
+    ]
+  },
+  "references": []
+}

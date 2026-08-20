@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "es.a0.m06.l019",
+    "title": "Ліворуч чи праворуч?",
+    "description": "Дай два короткі напрямки та збережи їхній порядок у маршруті.",
+    "moduleId": "es.a0.m06",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 22,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-19",
+      "directions"
+    ],
+    "version": "1.0.0-r2e27",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m06.l018"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m06.l019.give_directions",
+      "description": "Після уроку учень може дати короткі напрямки Sigue recto, Gira a la izquierda та Gira a la derecha у заданому порядку."
+    }
+  ],
+  "communicativeOutcome": "Учень дає короткі вказівки прямо, ліворуч і праворуч у контрольованій послідовності.",
+  "sections": [
+    {
+      "id": "es.a0.m06.l019.section.spoken",
+      "title": "Повторити напрямок",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m06.l019.activity.spoken_directions",
+          "title": "Повторити напрямок уголос",
+          "type": "spoken_practice",
+          "order": 1,
+          "spokenPractice": {
+            "mode": "listenRepeat",
+            "audioReferenceId": "es.audio.phrase.gira_a_la_izquierda",
+            "prompt": "Послухай і повтори напрямок.",
+            "targetText": "Gira a la izquierda.",
+            "focusCue": "Чітко вимов izquierda."
+          }
+        }
+      ]
+    },
+    {
+      "id": "es.a0.m06.l019.section.directions",
+      "title": "Напрямки",
+      "order": 2,
+      "activities": [
+        {
+          "id": "es.a0.m06.l019.activity.directions",
+          "title": "Дати напрямок",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.meaning_left_right"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.left"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.right"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.recall_straight"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.recall_transport"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_19.json",
+              "referenceId": "template.es.a0.m06.l019.guided_directions"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m06.l019.summary.give_directions",
+    "reviewPrompt": "Ти можеш дати короткі напрямки прямо, ліворуч і праворуч.",
+    "referenceIds": [
+      "objective.es.a0.m06.l019.give_directions"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m06.l019.activity.directions"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m06.l019.section.directions"
+    ]
+  },
+  "references": []
+}

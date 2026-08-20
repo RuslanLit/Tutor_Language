@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "id": "es.a0.m06.l017",
+    "title": "Де станція?",
+    "description": "Запитай, де знайоме місце, і зрозумій, чи воно близько або далеко.",
+    "moduleId": "es.a0.m06",
+    "courseId": "es.a0",
+    "estimatedDurationMinutes": 20,
+    "difficulty": "A0",
+    "tags": [
+      "canonical",
+      "lesson-17",
+      "location"
+    ],
+    "version": "1.0.0-r2e27",
+    "prerequisites": [
+      {
+        "lessonId": "es.a0.m06.l016"
+      }
+    ]
+  },
+  "objectives": [
+    {
+      "id": "objective.es.a0.m06.l017.ask_place_location",
+      "description": "Після уроку учень може запитати ¿Dónde está la estación? і сказати Está cerca або Está lejos."
+    }
+  ],
+  "communicativeOutcome": "Учень питає про місце й розрізняє близьку та далеку відстань.",
+  "sections": [
+    {
+      "id": "es.a0.m06.l017.section.spoken",
+      "title": "Послухати фразу про відстань",
+      "order": 1,
+      "activities": [
+        {
+          "id": "es.a0.m06.l017.activity.spoken_location",
+          "title": "Повторити фразу про відстань",
+          "type": "spoken_practice",
+          "order": 1,
+          "spokenPractice": {
+            "mode": "listenRepeat",
+            "audioReferenceId": "es.audio.phrase.esta_lejos",
+            "prompt": "Послухай і повтори фразу про відстань.",
+            "targetText": "Está lejos.",
+            "focusCue": "Чітко вимов наголос у está."
+          }
+        }
+      ]
+    },
+    {
+      "id": "es.a0.m06.l017.section.location",
+      "title": "Місце та відстань",
+      "order": 2,
+      "activities": [
+        {
+          "id": "es.a0.m06.l017.activity.location",
+          "title": "Запитати про станцію",
+          "type": "dialogue",
+          "order": 1,
+          "references": [
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017.meaning_distance"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017.ask_station"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017_near"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017.recall_far"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017.recall_station"
+            },
+            {
+              "type": "exercise_template",
+              "assetPath": "assets/languages/spanish/templates/canonical_lesson_17.json",
+              "referenceId": "template.es.a0.m06.l017.guided_location"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "id": "es.a0.m06.l017.summary.ask_place_location",
+    "reviewPrompt": "Ти можеш запитати, де станція, і сказати, чи вона близько.",
+    "referenceIds": [
+      "objective.es.a0.m06.l017.ask_place_location"
+    ]
+  },
+  "completionCriteria": {
+    "requiredActivities": [
+      "es.a0.m06.l017.activity.location"
+    ],
+    "minimumCompletedActivities": 1,
+    "mandatorySections": [
+      "es.a0.m06.l017.section.location"
+    ]
+  },
+  "references": []
+}

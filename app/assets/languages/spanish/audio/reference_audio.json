@@ -1883,7 +1883,12 @@
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.mas_o_menos_gracias",
@@ -1894,99 +1899,588 @@
       "voiceId": "es_ES-sharvard-medium",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.ella_es_ana",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.ella_es_ana.wav",
       "transcript": "Ella es Ana.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.el_es_luis",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_luis.wav",
       "transcript": "Él es Luis.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.ella_es_mi_amiga",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.ella_es_mi_amiga.wav",
       "transcript": "Ella es mi amiga.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.el_es_mi_profesor",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_mi_profesor.wav",
       "transcript": "Él es mi profesor.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.es_de_ucrania",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.es_de_ucrania.wav",
       "transcript": "Es de Ucrania.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.habla_espanol",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.habla_espanol.wav",
       "transcript": "Habla español.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.se_llama_luis",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.se_llama_luis.wav",
       "transcript": "Se llama Luis.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.si_es_mi_amiga",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.si_es_mi_amiga.wav",
       "transcript": "Sí, es mi amiga.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.no_entiendo",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.no_entiendo.wav",
       "transcript": "No entiendo.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.repite_por_favor",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.repite_por_favor.wav",
       "transcript": "Repite, por favor.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.dialogue.igualmente",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.igualmente.wav",
       "transcript": "Igualmente.",
-      "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine": "Piper", "voice": "es_ES-sharvard-medium", "locale": "es_ES", "generationRole": "authoring-time only"}
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
-    {"id":"es.audio.dialogue.esta_es_mi_companera","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.esta_es_mi_companera.wav","transcript":"Esta es mi compañera.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.ella_es_joven","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.ella_es_joven.wav","transcript":"Ella es joven.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.el_es_simpatico","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_simpatico.wav","transcript":"Él es simpático.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.como_es_ana","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.como_es_ana.wav","transcript":"¿Cómo es Ana?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.habla_espanol","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.habla_espanol.wav","transcript":"¿Habla español?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.si_habla_espanol","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.si_habla_espanol.wav","transcript":"Sí, habla español.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.habla_frances","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.habla_frances.wav","transcript":"¿Habla francés?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.que_es_esto","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.que_es_esto.wav","transcript":"¿Qué es esto?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.es_un_libro","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.es_un_libro.wav","transcript":"Es un libro.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.y_esto","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.y_esto.wav","transcript":"¿Y esto?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.es_una_botella","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.es_una_botella.wav","transcript":"Es una botella.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.tiene_una_llave","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.tiene_una_llave.wav","transcript":"¿Tiene una llave?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.si_tenemos_una_llave","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.si_tenemos_una_llave.wav","transcript":"Sí, tenemos una llave.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.question.que_necesitas","assetPath":"assets/languages/spanish/audio/reference/es.audio.question.que_necesitas.wav","transcript":"¿Qué necesitas?","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}},
-    {"id":"es.audio.dialogue.necesito_una_llave","assetPath":"assets/languages/spanish/audio/reference/es.audio.dialogue.necesito_una_llave.wav","transcript":"Necesito una llave.","languageCode":"es","locale":"es_ES","voiceId":"es_ES-sharvard-medium","purpose":"communicativeChunk","qaStatus":"approved","provenance":{"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}}
+    {
+      "id": "es.audio.dialogue.esta_es_mi_companera",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.esta_es_mi_companera.wav",
+      "transcript": "Esta es mi compañera.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.ella_es_joven",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.ella_es_joven.wav",
+      "transcript": "Ella es joven.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.el_es_simpatico",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.el_es_simpatico.wav",
+      "transcript": "Él es simpático.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.como_es_ana",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.como_es_ana.wav",
+      "transcript": "¿Cómo es Ana?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.habla_espanol",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.habla_espanol.wav",
+      "transcript": "¿Habla español?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.si_habla_espanol",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.si_habla_espanol.wav",
+      "transcript": "Sí, habla español.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.habla_frances",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.habla_frances.wav",
+      "transcript": "¿Habla francés?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.que_es_esto",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.que_es_esto.wav",
+      "transcript": "¿Qué es esto?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.es_un_libro",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.es_un_libro.wav",
+      "transcript": "Es un libro.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.y_esto",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.y_esto.wav",
+      "transcript": "¿Y esto?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.es_una_botella",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.es_una_botella.wav",
+      "transcript": "Es una botella.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.tiene_una_llave",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.tiene_una_llave.wav",
+      "transcript": "¿Tiene una llave?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.si_tenemos_una_llave",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.si_tenemos_una_llave.wav",
+      "transcript": "Sí, tenemos una llave.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.que_necesitas",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.que_necesitas.wav",
+      "transcript": "¿Qué necesitas?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.necesito_una_llave",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.necesito_una_llave.wav",
+      "transcript": "Necesito una llave.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.voy_en_metro",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.voy_en_metro.wav",
+      "transcript": "Voy en metro.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.voy_a_pie",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.voy_a_pie.wav",
+      "transcript": "Voy a pie.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.donde_esta_la_estacion",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.donde_esta_la_estacion.wav",
+      "transcript": "¿Dónde está la estación?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.esta_cerca",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.esta_cerca.wav",
+      "transcript": "Está cerca.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.esta_lejos",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.esta_lejos.wav",
+      "transcript": "Está lejos.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.como_llego_al_hotel",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.como_llego_al_hotel.wav",
+      "transcript": "¿Cómo llego al hotel?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.sigue_recto",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.sigue_recto.wav",
+      "transcript": "Sigue recto.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.gira_a_la_izquierda",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.gira_a_la_izquierda.wav",
+      "transcript": "Gira a la izquierda.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.gira_a_la_derecha",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.gira_a_la_derecha.wav",
+      "transcript": "Gira a la derecha.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.toma_el_metro",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.toma_el_metro.wav",
+      "transcript": "Toma el metro.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    }
   ]
 }
