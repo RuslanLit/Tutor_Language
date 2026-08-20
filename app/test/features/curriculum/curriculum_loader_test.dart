@@ -30,8 +30,8 @@ void main() {
     expect(course.languageId, 'spanish');
     expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
-    expect(course.modules, hasLength(3));
-    expect(course.lessons, hasLength(10));
+    expect(course.modules, hasLength(5));
+    expect(course.lessons, hasLength(15));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,7 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Де ти живеш?');
+    expect(course.lessons.last.title, 'Чи є у вас?');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +164,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(10));
+    expect(paths, hasLength(15));
 
     final lessonIds = <String>{};
 
@@ -189,7 +189,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(10));
+    expect(lessonIds, hasLength(15));
   });
 
   test(
@@ -245,7 +245,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(10));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(15));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -253,6 +253,11 @@ void main() {
       'es.a0.m02.l008',
       'es.a0.m03.l009',
       'es.a0.m03.l010',
+      'es.a0.m04.l011',
+      'es.a0.m04.l012',
+      'es.a0.m04.l013',
+      'es.a0.m05.l014',
+      'es.a0.m05.l015',
     ]);
   });
 
@@ -268,6 +273,68 @@ void main() {
       }
     }
   });
+
+  test(
+    'Lessons 11 to 15 load with production practice and audio references',
+    () async {
+      final loader = CurriculumLoader(assetBundle: rootBundle);
+      final expected = <String, String>{
+        'es.a0.m04.l011': 'Люди та ролі',
+        'es.a0.m04.l012': 'Яка це людина?',
+        'es.a0.m04.l013': 'Питання про іншу людину',
+        'es.a0.m05.l014': 'Що це?',
+        'es.a0.m05.l015': 'Чи є у вас?',
+      };
+
+      for (final entry in expected.entries) {
+        final lesson = await loader.loadLesson(
+          path: 'assets/languages/spanish/curriculum/lessons/${entry.key}.json',
+        );
+        expect(lesson.title, entry.value);
+        final references = lesson.activities.single.references;
+        expect(references, hasLength(5));
+        expect(
+          references.where(
+            (reference) => (reference.referenceId ?? '').contains('recall'),
+          ),
+          isNotEmpty,
+        );
+        expect(
+          references.where(
+            (reference) => (reference.referenceId ?? '').contains('guided'),
+          ),
+          isNotEmpty,
+        );
+      }
+
+      final audio =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/languages/spanish/audio/reference_audio.json',
+                ),
+              )
+              as Map<String, Object?>;
+      final approvedIds = {
+        for (final raw in (audio['assets']! as List).cast<Map>())
+          if (raw['qaStatus'] == 'approved') raw['id'] as String,
+      };
+      for (final path in [11, 12, 13, 14, 15]) {
+        final templates =
+            jsonDecode(
+                  await rootBundle.loadString(
+                    'assets/languages/spanish/templates/canonical_lesson_$path.json',
+                  ),
+                )
+                as List;
+        for (final raw in templates.cast<Map>()) {
+          final builder = raw['sentence_builder'];
+          if (builder is Map && builder['audioReferenceId'] != null) {
+            expect(approvedIds, contains(builder['audioReferenceId']));
+          }
+        }
+      }
+    },
+  );
 
   test('module lesson references resolve', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);

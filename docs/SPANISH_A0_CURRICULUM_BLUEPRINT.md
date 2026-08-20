@@ -1,5 +1,12 @@
 # Spanish A0 Curriculum Blueprint
 
+> Planning-number note: the lesson numbers in this blueprint are planning
+> references for the competency progression, not immutable runtime IDs. The
+> executable course may consolidate or reorder objectives as the course is
+> implemented. Current runtime lesson numbering is defined by the course and
+> curriculum assets. Future authoring must select the next uncovered canonical
+> objective rather than blindly following a stale numeric label.
+
 Status: NORMATIVE
 Scope: Spanish A0 curriculum
 Authority: primary

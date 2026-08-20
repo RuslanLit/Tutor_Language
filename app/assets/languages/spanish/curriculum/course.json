@@ -18,23 +18,53 @@
         "es.a0.m01.l007"
       ]
     },
-    {"id":"es.a0.m02","title":"Модуль 2","lessonIds":["es.a0.m02.l008"]},
-    {"id":"es.a0.m03","title":"Модуль 3","lessonIds":["es.a0.m03.l009","es.a0.m03.l010"]}
+    {
+      "id": "es.a0.m02",
+      "title": "Модуль 2",
+      "lessonIds": [
+        "es.a0.m02.l008"
+      ]
+    },
+    {
+      "id": "es.a0.m03",
+      "title": "Модуль 3",
+      "lessonIds": [
+        "es.a0.m03.l009",
+        "es.a0.m03.l010"
+      ]
+    },
+    {
+      "id": "es.a0.m04",
+      "title": "Модуль 4",
+      "lessonIds": [
+        "es.a0.m04.l011",
+        "es.a0.m04.l012",
+        "es.a0.m04.l013"
+      ]
+    },
+    {
+      "id": "es.a0.m05",
+      "title": "Модуль 5",
+      "lessonIds": [
+        "es.a0.m05.l014",
+        "es.a0.m05.l015"
+      ]
+    }
   ],
   "lessons": [
     {
       "metadata": {
         "id": "es.a0.m01.l001",
         "title": "Урок 1",
-      "description": "Почни короткий перший контакт: привітайся, назви себе, запитай ім'я й попрощайся.",
+        "description": "Почни короткий перший контакт: привітайся, назви себе, запитай ім'я й попрощайся.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 25,
         "difficulty": "A0",
-      "tags": [
-        "canonical",
-        "lesson-1",
-        "first-contact"
+        "tags": [
+          "canonical",
+          "lesson-1",
+          "first-contact"
         ],
         "version": "1.0.0-r2e21",
         "prerequisites": []
@@ -42,7 +72,7 @@
       "objectives": [
         {
           "id": "objective.es.a0.m01.l001.complete_first_contact",
-        "description": "Після уроку учень може самостійно почати короткий контакт: привітатися, назвати себе, запитати ім'я, відреагувати на відповідь і попрощатися."
+          "description": "Після уроку учень може самостійно почати короткий контакт: привітатися, назвати себе, запитати ім'я, відреагувати на відповідь і попрощатися."
         }
       ],
       "communicativeOutcome": "Учень самостійно пише короткий перший контакт іспанською: привітання, ім'я, питання про ім'я, ввічлива реакція та прощання.",
@@ -188,7 +218,7 @@
       "metadata": {
         "id": "es.a0.m01.l002",
         "title": "Урок 2",
-      "description": "Повтори перший контакт і розшир його: розкажи про країну, місто та мови й запитай те саме.",
+        "description": "Повтори перший контакт і розшир його: розкажи про країну, місто та мови й запитай те саме.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 25,
@@ -208,7 +238,7 @@
       "objectives": [
         {
           "id": "objective.es.a0.m01.l002.complete_about_myself_intro",
-        "description": "Після уроку учень може відновити перший контакт і розширити його: сказати, звідки він, де живе, якими мовами говорить, запитати те саме в іншої людини й завершити знайомство."
+          "description": "Після уроку учень може відновити перший контакт і розширити його: сказати, звідки він, де живе, якими мовами говорить, запитати те саме в іншої людини й завершити знайомство."
         }
       ],
       "communicativeOutcome": "Учень самостійно проводить розширене знайомство іспанською, використовуючи ядро Lesson 1 для початку та завершення контакту.",
@@ -356,7 +386,7 @@
       "metadata": {
         "id": "es.a0.m01.l003",
         "title": "Ввічлива розмова",
-      "description": "Повернися до знайомства, додай обмін про стан, подяку, коротке вибачення та природне завершення.",
+        "description": "Повернися до знайомства, додай обмін про стан, подяку, коротке вибачення та природне завершення.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 25,
@@ -376,7 +406,7 @@
       "objectives": [
         {
           "id": "objective.es.a0.m01.l003.polite_conversation",
-        "description": "Після уроку учень може вставити ввічливий обмін у вже знайоме знайомство: запитати як справи, відповісти, подякувати, вибачитися за потреби й попрощатися."
+          "description": "Після уроку учень може вставити ввічливий обмін у вже знайоме знайомство: запитати як справи, відповісти, подякувати, вибачитися за потреби й попрощатися."
         }
       ],
       "communicativeOutcome": "Учень самостійно веде коротке знайомство з новим ввічливим середнім епізодом, не втрачаючи раніше вивченого початку та завершення.",
@@ -519,7 +549,7 @@
       "metadata": {
         "id": "es.a0.m01.l004",
         "title": "Люди навколо нас",
-      "description": "Перенеси знайоме знайомство на іншу людину: запитай, хто це, і представ її кількома простими реченнями.",
+        "description": "Перенеси знайоме знайомство на іншу людину: запитай, хто це, і представ її кількома простими реченнями.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 25,
@@ -539,7 +569,7 @@
       "objectives": [
         {
           "id": "objective.es.a0.m01.l004.introduce_other_person",
-        "description": "Після уроку учень може перенести відомі моделі імені, країни, міста та мов на іншу людину, запитати, хто це, і представити її."
+          "description": "Після уроку учень може перенести відомі моделі імені, країни, міста та мов на іншу людину, запитати, хто це, і представити її."
         }
       ],
       "communicativeOutcome": "Учень самостійно представляє себе й одну іншу людину, використовуючи знайомі рамки контакту в новому соціальному контексті.",
@@ -687,7 +717,7 @@
       "metadata": {
         "id": "es.a0.m01.l005",
         "title": "Проста розмова про людину",
-      "description": "Повтори профіль іншої людини, постав пов'язані питання й коротко опиши її з меншими підказками.",
+        "description": "Повтори профіль іншої людини, постав пов'язані питання й коротко опиши її з меншими підказками.",
         "moduleId": "es.a0.m01",
         "courseId": "es.a0",
         "estimatedDurationMinutes": 25,
@@ -707,7 +737,7 @@
       "objectives": [
         {
           "id": "objective.es.a0.m01.l005.talk_about_person",
-        "description": "Після уроку учень може самостійно поставити й підтримати серію пов'язаних питань про іншу людину, відрізняючи інформацію про себе, співрозмовника, чоловіка й жінку."
+          "description": "Після уроку учень може самостійно поставити й підтримати серію пов'язаних питань про іншу людину, відрізняючи інформацію про себе, співрозмовника, чоловіка й жінку."
         }
       ],
       "communicativeOutcome": "Учень самостійно інтегрує привітання, ввічливий обмін, питання про іншу людину та зв'язний опис із поступово меншими підказками.",
@@ -851,10 +881,950 @@
       },
       "references": []
     },
-    {"metadata":{"id":"es.a0.m01.l006","title":"Привітання в розмові","description":"Розрізняй привітання за часом доби й використовуй їх у короткому обміні.","moduleId":"es.a0.m01","courseId":"es.a0","estimatedDurationMinutes":18,"difficulty":"A0","tags":["canonical","lesson-6","greetings"],"version":"1.0.0-r2e24","prerequisites":[{"lessonId":"es.a0.m01.l005"}]},"objectives":[{"id":"objective.es.a0.m01.l006.contextual_greetings","description":"Після уроку учень може вибрати й написати доречне привітання для ранку, дня та вечора."}],"communicativeOutcome":"Учень вітається і прощається іспанською, добираючи Buenos días, Buenas tardes або Buenas noches до ситуації.","sections":[{"id":"es.a0.m01.l006.section.greetings","title":"Привітання за часом доби","order":1,"activities":[{"id":"es.a0.m01.l006.activity.greetings","title":"Привітання за часом доби","type":"dialogue","order":1,"references":[{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_6.json","referenceId":"template.es.a0.m01.l006.choose_greeting"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_6.json","referenceId":"template.es.a0.m01.l006.choose_evening"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_6.json","referenceId":"template.es.a0.m01.l006.recall_greetings"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_6.json","referenceId":"template.es.a0.m01.l006.recall_night"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_6.json","referenceId":"template.es.a0.m01.l006.guided_greeting"}]},{"id":"es.a0.m01.l006.activity.listen_greetings","title":"Послухати привітання","type":"spoken_practice","order":2,"spokenPractice":{"mode":"listenRepeat","audioReferenceId":"es.audio.phrase.buenos_dias","prompt":"Послухай і повтори привітання уголос.","targetText":"Buenos días.","focusCue":"Чітко вимов голосні у слові días."}}]}],"summary":{"id":"es.a0.m01.l006.summary.contextual_greetings","reviewPrompt":"Ти можеш привітатися вранці, вдень і ввечері.","referenceIds":["objective.es.a0.m01.l006.contextual_greetings"]},"completionCriteria":{"requiredActivities":["es.a0.m01.l006.activity.greetings"],"minimumCompletedActivities":1,"mandatorySections":["es.a0.m01.l006.section.greetings"]},"references":[]},
-    {"metadata":{"id":"es.a0.m01.l007","title":"Як підтримати розмову","description":"Застосуй знайомі привітання, ввічливість і фрази для уточнення в одному короткому обміні.","moduleId":"es.a0.m01","courseId":"es.a0","estimatedDurationMinutes":20,"difficulty":"A0","tags":["canonical","lesson-7","review"],"version":"1.0.0-r2e24","prerequisites":[{"lessonId":"es.a0.m01.l006"}]},"objectives":[{"id":"objective.es.a0.m01.l007.first_words_review","description":"Після уроку учень може відновити основні фрази першого контакту, ввічливості та комунікативного ремонту."}],"communicativeOutcome":"Учень підтримує короткий передбачуваний контакт і просить повторити, якщо не зрозумів репліку.","sections":[{"id":"es.a0.m01.l007.section.review","title":"Повторення перших фраз","order":1,"activities":[{"id":"es.a0.m01.l007.activity.review","title":"Відновити короткий контакт","type":"dialogue","order":1,"references":[{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_7.json","referenceId":"template.es.a0.m01.l007.choose_repair"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_7.json","referenceId":"template.es.a0.m01.l007.choose_courtesy"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_7.json","referenceId":"template.es.a0.m01.l007.recall_core"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_7.json","referenceId":"template.es.a0.m01.l007.recall_slow"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_7.json","referenceId":"template.es.a0.m01.l007.guided_repair"}]},{"id":"es.a0.m01.l007.activity.listen_repair","title":"Послухати подяку","type":"spoken_practice","order":2,"spokenPractice":{"mode":"delayedImitation","audioReferenceId":"es.audio.word.gracias","prompt":"Послухай і повтори знайому фразу уголос.","targetText":"Gracias.","focusCue":"Збережи чітке початкове g."}}]}],"summary":{"id":"es.a0.m01.l007.summary.first_words_review","reviewPrompt":"Ти можеш привітатися, подякувати, попросити повторити й попрощатися.","referenceIds":["objective.es.a0.m01.l007.first_words_review"]},"completionCriteria":{"requiredActivities":["es.a0.m01.l007.activity.review"],"minimumCompletedActivities":1,"mandatorySections":["es.a0.m01.l007.section.review"]},"references":[]},
-    {"metadata":{"id":"es.a0.m02.l008","title":"Ввічливе знайомство","description":"Розшир коротке знайомство фразами Mucho gusto та Igualmente.","moduleId":"es.a0.m02","courseId":"es.a0","estimatedDurationMinutes":18,"difficulty":"A0","tags":["canonical","lesson-8","introductions"],"version":"1.0.0-r2e24","prerequisites":[{"lessonId":"es.a0.m01.l007"}]},"objectives":[{"id":"objective.es.a0.m02.l008.nice_to_meet_you","description":"Після уроку учень може назвати себе й доречно відповісти на Mucho gusto."}],"communicativeOutcome":"Учень завершує коротке знайомство: називає себе, каже Mucho gusto та відповідає Igualmente.","sections":[{"id":"es.a0.m02.l008.section.meeting","title":"Приємно познайомитися","order":1,"activities":[{"id":"es.a0.m02.l008.activity.meeting","title":"Завершити знайомство","type":"dialogue","order":1,"references":[{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_8.json","referenceId":"template.es.a0.m02.l008.choose_meeting_reply"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_8.json","referenceId":"template.es.a0.m02.l008.choose_name_reply"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_8.json","referenceId":"template.es.a0.m02.l008.recall_meeting"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_8.json","referenceId":"template.es.a0.m02.l008.recall_name"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_8.json","referenceId":"template.es.a0.m02.l008.guided_meeting"}]},{"id":"es.a0.m02.l008.activity.listen_meeting","title":"Послухати Mucho gusto","type":"spoken_practice","order":2,"spokenPractice":{"mode":"listenRepeat","audioReferenceId":"es.audio.dialogue.mucho_gusto","prompt":"Послухай і повтори фразу уголос.","targetText":"Mucho gusto.","focusCue":"Вимовляй два слова як одну ввічливу формулу."}}]}],"summary":{"id":"es.a0.m02.l008.summary.nice_to_meet_you","reviewPrompt":"Ти можеш представитися й завершити знайомство ввічливо.","referenceIds":["objective.es.a0.m02.l008.nice_to_meet_you"]},"completionCriteria":{"requiredActivities":["es.a0.m02.l008.activity.meeting"],"minimumCompletedActivities":1,"mandatorySections":["es.a0.m02.l008.section.meeting"]},"references":[]},
-    {"metadata":{"id":"es.a0.m03.l009","title":"Звідки ти?","description":"Скажи, звідки ти, і запитай про походження співрозмовника.","moduleId":"es.a0.m03","courseId":"es.a0","estimatedDurationMinutes":20,"difficulty":"A0","tags":["canonical","lesson-9","origin"],"version":"1.0.0-r2e24","prerequisites":[{"lessonId":"es.a0.m02.l008"}]},"objectives":[{"id":"objective.es.a0.m03.l009.origin_exchange","description":"Після уроку учень може запитати ¿De dónde eres? і відповісти Soy de ... без пропуску de."}],"communicativeOutcome":"Учень обмінюється короткою інформацією про країну походження під час знайомства.","sections":[{"id":"es.a0.m03.l009.section.origin","title":"Звідки ти?","order":1,"activities":[{"id":"es.a0.m03.l009.activity.origin","title":"Обмінятися інформацією про походження","type":"dialogue","order":1,"references":[{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_9.json","referenceId":"template.es.a0.m03.l009.choose_origin"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_9.json","referenceId":"template.es.a0.m03.l009.choose_origin_answer"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_9.json","referenceId":"template.es.a0.m03.l009.recall_origin"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_9.json","referenceId":"template.es.a0.m03.l009.recall_question"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_9.json","referenceId":"template.es.a0.m03.l009.guided_origin"}]},{"id":"es.a0.m03.l009.activity.listen_origin","title":"Послухати питання про походження","type":"spoken_practice","order":2,"spokenPractice":{"mode":"listenRepeat","audioReferenceId":"es.audio.question.de_donde_eres","prompt":"Послухай і повтори питання.","targetText":"¿De dónde eres?","focusCue":"Зверни увагу на наголос у dónde."}}]}],"summary":{"id":"es.a0.m03.l009.summary.origin_exchange","reviewPrompt":"Ти можеш запитати й сказати, звідки ти.","referenceIds":["objective.es.a0.m03.l009.origin_exchange"]},"completionCriteria":{"requiredActivities":["es.a0.m03.l009.activity.origin"],"minimumCompletedActivities":1,"mandatorySections":["es.a0.m03.l009.section.origin"]},"references":[]},
-    {"metadata":{"id":"es.a0.m03.l010","title":"Де ти живеш?","description":"Скажи, де ти живеш, і поєднай місце проживання з походженням.","moduleId":"es.a0.m03","courseId":"es.a0","estimatedDurationMinutes":20,"difficulty":"A0","tags":["canonical","lesson-10","residence"],"version":"1.0.0-r2e24","prerequisites":[{"lessonId":"es.a0.m03.l009"}]},"objectives":[{"id":"objective.es.a0.m03.l010.residence_exchange","description":"Після уроку учень може запитати ¿Dónde vives? і відповісти Vivo en ... без підміни формою vive."}],"communicativeOutcome":"Учень коротко повідомляє країну походження та місто проживання й завершує обмін ввічливо.","sections":[{"id":"es.a0.m03.l010.section.residence","title":"Де ти живеш?","order":1,"activities":[{"id":"es.a0.m03.l010.activity.residence","title":"Поєднати походження й проживання","type":"dialogue","order":1,"references":[{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_10.json","referenceId":"template.es.a0.m03.l010.choose_residence"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_10.json","referenceId":"template.es.a0.m03.l010.choose_residence_answer"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_10.json","referenceId":"template.es.a0.m03.l010.recall_residence"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_10.json","referenceId":"template.es.a0.m03.l010.recall_residence_question"},{"type":"exercise_template","assetPath":"assets/languages/spanish/templates/canonical_lesson_10.json","referenceId":"template.es.a0.m03.l010.guided_profile"}]},{"id":"es.a0.m03.l010.activity.listen_residence","title":"Послухати питання про місто","type":"spoken_practice","order":2,"spokenPractice":{"mode":"delayedImitation","audioReferenceId":"es.audio.question.donde_vives","prompt":"Послухай, сховай модель і відтвори питання.","targetText":"¿Dónde vives?","focusCue":"Не плутай vives із vive."}}]}],"summary":{"id":"es.a0.m03.l010.summary.residence_exchange","reviewPrompt":"Ти можеш сказати, звідки ти, де живеш і попрощатися.","referenceIds":["objective.es.a0.m03.l010.residence_exchange"]},"completionCriteria":{"requiredActivities":["es.a0.m03.l010.activity.residence"],"minimumCompletedActivities":1,"mandatorySections":["es.a0.m03.l010.section.residence"]},"references":[]}
+    {
+      "metadata": {
+        "id": "es.a0.m01.l006",
+        "title": "Привітання в розмові",
+        "description": "Розрізняй привітання за часом доби й використовуй їх у короткому обміні.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-6",
+          "greetings"
+        ],
+        "version": "1.0.0-r2e24",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l005"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l006.contextual_greetings",
+          "description": "Після уроку учень може вибрати й написати доречне привітання для ранку, дня та вечора."
+        }
+      ],
+      "communicativeOutcome": "Учень вітається і прощається іспанською, добираючи Buenos días, Buenas tardes або Buenas noches до ситуації.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l006.section.greetings",
+          "title": "Привітання за часом доби",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l006.activity.greetings",
+              "title": "Привітання за часом доби",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_6.json",
+                  "referenceId": "template.es.a0.m01.l006.choose_greeting"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_6.json",
+                  "referenceId": "template.es.a0.m01.l006.choose_evening"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_6.json",
+                  "referenceId": "template.es.a0.m01.l006.recall_greetings"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_6.json",
+                  "referenceId": "template.es.a0.m01.l006.recall_night"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_6.json",
+                  "referenceId": "template.es.a0.m01.l006.guided_greeting"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l006.activity.listen_greetings",
+              "title": "Послухати привітання",
+              "type": "spoken_practice",
+              "order": 2,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.phrase.buenos_dias",
+                "prompt": "Послухай і повтори привітання уголос.",
+                "targetText": "Buenos días.",
+                "focusCue": "Чітко вимов голосні у слові días."
+              }
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l006.summary.contextual_greetings",
+        "reviewPrompt": "Ти можеш привітатися вранці, вдень і ввечері.",
+        "referenceIds": [
+          "objective.es.a0.m01.l006.contextual_greetings"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l006.activity.greetings"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l006.section.greetings"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m01.l007",
+        "title": "Як підтримати розмову",
+        "description": "Застосуй знайомі привітання, ввічливість і фрази для уточнення в одному короткому обміні.",
+        "moduleId": "es.a0.m01",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-7",
+          "review"
+        ],
+        "version": "1.0.0-r2e24",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l006"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m01.l007.first_words_review",
+          "description": "Після уроку учень може відновити основні фрази першого контакту, ввічливості та комунікативного ремонту."
+        }
+      ],
+      "communicativeOutcome": "Учень підтримує короткий передбачуваний контакт і просить повторити, якщо не зрозумів репліку.",
+      "sections": [
+        {
+          "id": "es.a0.m01.l007.section.review",
+          "title": "Повторення перших фраз",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m01.l007.activity.review",
+              "title": "Відновити короткий контакт",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_7.json",
+                  "referenceId": "template.es.a0.m01.l007.choose_repair"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_7.json",
+                  "referenceId": "template.es.a0.m01.l007.choose_courtesy"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_7.json",
+                  "referenceId": "template.es.a0.m01.l007.recall_core"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_7.json",
+                  "referenceId": "template.es.a0.m01.l007.recall_slow"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_7.json",
+                  "referenceId": "template.es.a0.m01.l007.guided_repair"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m01.l007.activity.listen_repair",
+              "title": "Послухати подяку",
+              "type": "spoken_practice",
+              "order": 2,
+              "spokenPractice": {
+                "mode": "delayedImitation",
+                "audioReferenceId": "es.audio.word.gracias",
+                "prompt": "Послухай і повтори знайому фразу уголос.",
+                "targetText": "Gracias.",
+                "focusCue": "Збережи чітке початкове g."
+              }
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m01.l007.summary.first_words_review",
+        "reviewPrompt": "Ти можеш привітатися, подякувати, попросити повторити й попрощатися.",
+        "referenceIds": [
+          "objective.es.a0.m01.l007.first_words_review"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m01.l007.activity.review"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m01.l007.section.review"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m02.l008",
+        "title": "Ввічливе знайомство",
+        "description": "Розшир коротке знайомство фразами Mucho gusto та Igualmente.",
+        "moduleId": "es.a0.m02",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-8",
+          "introductions"
+        ],
+        "version": "1.0.0-r2e24",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m01.l007"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m02.l008.nice_to_meet_you",
+          "description": "Після уроку учень може назвати себе й доречно відповісти на Mucho gusto."
+        }
+      ],
+      "communicativeOutcome": "Учень завершує коротке знайомство: називає себе, каже Mucho gusto та відповідає Igualmente.",
+      "sections": [
+        {
+          "id": "es.a0.m02.l008.section.meeting",
+          "title": "Приємно познайомитися",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m02.l008.activity.meeting",
+              "title": "Завершити знайомство",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_8.json",
+                  "referenceId": "template.es.a0.m02.l008.choose_meeting_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_8.json",
+                  "referenceId": "template.es.a0.m02.l008.choose_name_reply"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_8.json",
+                  "referenceId": "template.es.a0.m02.l008.recall_meeting"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_8.json",
+                  "referenceId": "template.es.a0.m02.l008.recall_name"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_8.json",
+                  "referenceId": "template.es.a0.m02.l008.guided_meeting"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m02.l008.activity.listen_meeting",
+              "title": "Послухати Mucho gusto",
+              "type": "spoken_practice",
+              "order": 2,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.dialogue.mucho_gusto",
+                "prompt": "Послухай і повтори фразу уголос.",
+                "targetText": "Mucho gusto.",
+                "focusCue": "Вимовляй два слова як одну ввічливу формулу."
+              }
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m02.l008.summary.nice_to_meet_you",
+        "reviewPrompt": "Ти можеш представитися й завершити знайомство ввічливо.",
+        "referenceIds": [
+          "objective.es.a0.m02.l008.nice_to_meet_you"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m02.l008.activity.meeting"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m02.l008.section.meeting"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l009",
+        "title": "Звідки ти?",
+        "description": "Скажи, звідки ти, і запитай про походження співрозмовника.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-9",
+          "origin"
+        ],
+        "version": "1.0.0-r2e24",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m02.l008"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l009.origin_exchange",
+          "description": "Після уроку учень може запитати ¿De dónde eres? і відповісти Soy de ... без пропуску de."
+        }
+      ],
+      "communicativeOutcome": "Учень обмінюється короткою інформацією про країну походження під час знайомства.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l009.section.origin",
+          "title": "Звідки ти?",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l009.activity.origin",
+              "title": "Обмінятися інформацією про походження",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_9.json",
+                  "referenceId": "template.es.a0.m03.l009.choose_origin"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_9.json",
+                  "referenceId": "template.es.a0.m03.l009.choose_origin_answer"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_9.json",
+                  "referenceId": "template.es.a0.m03.l009.recall_origin"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_9.json",
+                  "referenceId": "template.es.a0.m03.l009.recall_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_9.json",
+                  "referenceId": "template.es.a0.m03.l009.guided_origin"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l009.activity.listen_origin",
+              "title": "Послухати питання про походження",
+              "type": "spoken_practice",
+              "order": 2,
+              "spokenPractice": {
+                "mode": "listenRepeat",
+                "audioReferenceId": "es.audio.question.de_donde_eres",
+                "prompt": "Послухай і повтори питання.",
+                "targetText": "¿De dónde eres?",
+                "focusCue": "Зверни увагу на наголос у dónde."
+              }
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l009.summary.origin_exchange",
+        "reviewPrompt": "Ти можеш запитати й сказати, звідки ти.",
+        "referenceIds": [
+          "objective.es.a0.m03.l009.origin_exchange"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l009.activity.origin"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l009.section.origin"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m03.l010",
+        "title": "Де ти живеш?",
+        "description": "Скажи, де ти живеш, і поєднай місце проживання з походженням.",
+        "moduleId": "es.a0.m03",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 20,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-10",
+          "residence"
+        ],
+        "version": "1.0.0-r2e24",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l009"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m03.l010.residence_exchange",
+          "description": "Після уроку учень може запитати ¿Dónde vives? і відповісти Vivo en ... без підміни формою vive."
+        }
+      ],
+      "communicativeOutcome": "Учень коротко повідомляє країну походження та місто проживання й завершує обмін ввічливо.",
+      "sections": [
+        {
+          "id": "es.a0.m03.l010.section.residence",
+          "title": "Де ти живеш?",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m03.l010.activity.residence",
+              "title": "Поєднати походження й проживання",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_10.json",
+                  "referenceId": "template.es.a0.m03.l010.choose_residence"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_10.json",
+                  "referenceId": "template.es.a0.m03.l010.choose_residence_answer"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_10.json",
+                  "referenceId": "template.es.a0.m03.l010.recall_residence"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_10.json",
+                  "referenceId": "template.es.a0.m03.l010.recall_residence_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_10.json",
+                  "referenceId": "template.es.a0.m03.l010.guided_profile"
+                }
+              ]
+            },
+            {
+              "id": "es.a0.m03.l010.activity.listen_residence",
+              "title": "Послухати питання про місто",
+              "type": "spoken_practice",
+              "order": 2,
+              "spokenPractice": {
+                "mode": "delayedImitation",
+                "audioReferenceId": "es.audio.question.donde_vives",
+                "prompt": "Послухай, сховай модель і відтвори питання.",
+                "targetText": "¿Dónde vives?",
+                "focusCue": "Не плутай vives із vive."
+              }
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m03.l010.summary.residence_exchange",
+        "reviewPrompt": "Ти можеш сказати, звідки ти, де живеш і попрощатися.",
+        "referenceIds": [
+          "objective.es.a0.m03.l010.residence_exchange"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m03.l010.activity.residence"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m03.l010.section.residence"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l011",
+        "title": "Люди та ролі",
+        "description": "Назви знайомих людей і використовуй mi та tu з простими ролями.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-11",
+          "people-roles"
+        ],
+        "version": "1.0.0-r2e25",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m03.l010"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l011.people_roles",
+          "description": "Після уроку учень може представити знайомих людей як друга, викладача або однокурсника."
+        }
+      ],
+      "communicativeOutcome": "Учень коротко представляє двох знайомих і розрізняє знайомі ролі.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l011.section.roles",
+          "title": "Люди та ролі",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l011.activity.roles",
+              "title": "Представити знайомих",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_11.json",
+                  "referenceId": "template.es.a0.m04.l011.choose_role"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_11.json",
+                  "referenceId": "template.es.a0.m04.l011.choose_companion"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_11.json",
+                  "referenceId": "template.es.a0.m04.l011.recall_role"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_11.json",
+                  "referenceId": "template.es.a0.m04.l011.recall_companion"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_11.json",
+                  "referenceId": "template.es.a0.m04.l011.guided_roles"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l011.summary.people_roles",
+        "reviewPrompt": "Ти можеш представити знайомих людей і назвати їхню роль.",
+        "referenceIds": [
+          "objective.es.a0.m04.l011.people_roles"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l011.activity.roles"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l011.section.roles"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l012",
+        "title": "Яка це людина?",
+        "description": "Опиши знайому людину одним простим прикметником і постав питання про опис.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-12",
+          "description"
+        ],
+        "version": "1.0.0-r2e25",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l011"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l012.basic_description",
+          "description": "Після уроку учень може запитати ¿Cómo es? і описати людину одним знайомим прикметником."
+        }
+      ],
+      "communicativeOutcome": "Учень ставить питання про людину й дає короткий опис.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l012.section.description",
+          "title": "Проста характеристика",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l012.activity.description",
+              "title": "Описати людину",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_12.json",
+                  "referenceId": "template.es.a0.m04.l012.choose_young"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_12.json",
+                  "referenceId": "template.es.a0.m04.l012.choose_nice"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_12.json",
+                  "referenceId": "template.es.a0.m04.l012.recall_description"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_12.json",
+                  "referenceId": "template.es.a0.m04.l012.recall_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_12.json",
+                  "referenceId": "template.es.a0.m04.l012.guided_description"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l012.summary.basic_description",
+        "reviewPrompt": "Ти можеш запитати, яка людина, і коротко її описати.",
+        "referenceIds": [
+          "objective.es.a0.m04.l012.basic_description"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l012.activity.description"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l012.section.description"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m04.l013",
+        "title": "Питання про іншу людину",
+        "description": "Постав прості питання про мови іншої людини й відрізни ствердну та заперечну відповідь.",
+        "moduleId": "es.a0.m04",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-13",
+          "people-questions"
+        ],
+        "version": "1.0.0-r2e25",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l012"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m04.l013.people_questions",
+          "description": "Після уроку учень може запитати, чи говорить інша людина іспанською або французькою, і відповісти коротко."
+        }
+      ],
+      "communicativeOutcome": "Учень підтримує короткий обмін питаннями та відповідями про мови іншої людини.",
+      "sections": [
+        {
+          "id": "es.a0.m04.l013.section.questions",
+          "title": "Питання та відповіді",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m04.l013.activity.questions",
+              "title": "Запитати про мови",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_13.json",
+                  "referenceId": "template.es.a0.m04.l013.ask_language"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_13.json",
+                  "referenceId": "template.es.a0.m04.l013.answer_language"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_13.json",
+                  "referenceId": "template.es.a0.m04.l013.recall_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_13.json",
+                  "referenceId": "template.es.a0.m04.l013.recall_negative"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_13.json",
+                  "referenceId": "template.es.a0.m04.l013.guided_questions"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m04.l013.summary.people_questions",
+        "reviewPrompt": "Ти можеш поставити просте питання про мову та відповісти на нього.",
+        "referenceIds": [
+          "objective.es.a0.m04.l013.people_questions"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m04.l013.activity.questions"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m04.l013.section.questions"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l014",
+        "title": "Що це?",
+        "description": "Запитай, що це, і назви кілька простих предметів.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-14",
+          "objects"
+        ],
+        "version": "1.0.0-r2e25",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m04.l013"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l014.what_is_this",
+          "description": "Після уроку учень може запитати ¿Qué es esto? і назвати знайомий предмет з un або una."
+        }
+      ],
+      "communicativeOutcome": "Учень запитує про простий предмет і називає його.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l014.section.objects",
+          "title": "Прості предмети",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l014.activity.objects",
+              "title": "Назвати предмет",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_14.json",
+                  "referenceId": "template.es.a0.m05.l014.what_is_this"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_14.json",
+                  "referenceId": "template.es.a0.m05.l014.identify_book"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_14.json",
+                  "referenceId": "template.es.a0.m05.l014.recall_object"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_14.json",
+                  "referenceId": "template.es.a0.m05.l014.recall_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_14.json",
+                  "referenceId": "template.es.a0.m05.l014.guided_objects"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l014.summary.what_is_this",
+        "reviewPrompt": "Ти можеш запитати про предмет і назвати його іспанською.",
+        "referenceIds": [
+          "objective.es.a0.m05.l014.what_is_this"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l014.activity.objects"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m05.l014.section.objects"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m05.l015",
+        "title": "Чи є у вас?",
+        "description": "Запитай, чи є простий предмет, і відповідай у короткому магазинному обміні.",
+        "moduleId": "es.a0.m05",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 18,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-15",
+          "availability"
+        ],
+        "version": "1.0.0-r2e25",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m05.l014"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m05.l015.availability",
+          "description": "Після уроку учень може запитати ¿Tiene ...? і відповісти Sí, tenemos ... у короткій ситуації."
+        }
+      ],
+      "communicativeOutcome": "Учень запитує про наявність простого предмета й чемно завершує обмін.",
+      "sections": [
+        {
+          "id": "es.a0.m05.l015.section.availability",
+          "title": "Наявність предмета",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m05.l015.activity.availability",
+              "title": "Запитати про наявність",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_15.json",
+                  "referenceId": "template.es.a0.m05.l015.ask_availability"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_15.json",
+                  "referenceId": "template.es.a0.m05.l015.answer_availability"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_15.json",
+                  "referenceId": "template.es.a0.m05.l015.recall_availability"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_15.json",
+                  "referenceId": "template.es.a0.m05.l015.recall_object"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_15.json",
+                  "referenceId": "template.es.a0.m05.l015.guided_availability"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m05.l015.summary.availability",
+        "reviewPrompt": "Ти можеш запитати, чи є предмет, і відповісти коротко.",
+        "referenceIds": [
+          "objective.es.a0.m05.l015.availability"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m05.l015.activity.availability"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m05.l015.section.availability"
+        ]
+      },
+      "references": []
+    }
   ]
 }
