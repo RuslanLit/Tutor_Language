@@ -1135,7 +1135,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get audioListen => 'Прослушать';
 
   @override
-  String get audioUnavailable => 'Аудио недоступно. Вы можете продолжить.';
+  String get audioUnavailable => 'Аудио недоступно. Попробуйте еще раз.';
 
   @override
   String get recordingPurpose =>

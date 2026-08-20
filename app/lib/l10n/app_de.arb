@@ -495,7 +495,7 @@
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Welche spanische Frage wird ungefähr wie {hint} gelesen?",
   "audioListen": "Anhören",
-  "audioUnavailable": "Audio nicht verfügbar. Sie können fortfahren.",
+  "audioUnavailable": "Audio nicht verfügbar. Versuchen Sie es erneut.",
   "recordingPurpose": "Der Mikrofonzugriff ermöglicht es Ihnen, Ihre Stimme aufzunehmen und lokal anzuhören.",
   "record": "Aufnehmen",
   "stopRecording": "Aufnahme stoppen",

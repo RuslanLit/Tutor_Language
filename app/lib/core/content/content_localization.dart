@@ -730,6 +730,8 @@ class EducationalContentLocalizationResolver {
         }),
       ),
       correctOptionId: template.correctOptionId,
+      audioReferenceId: template.audioReferenceId,
+      audioTranscript: template.audioTranscript,
       expectedAnswer:
           _localizedField(template.id, 'expected_answer', locale) ??
           template.expectedAnswer,

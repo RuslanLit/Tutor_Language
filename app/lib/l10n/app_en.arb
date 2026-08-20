@@ -495,7 +495,7 @@
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Which Spanish question is read approximately as {hint}?",
   "audioListen": "Listen",
-  "audioUnavailable": "Audio unavailable. You can continue.",
+  "audioUnavailable": "Audio unavailable. Try again.",
   "recordingPurpose": "Microphone access lets you record your voice and listen to it locally.",
   "record": "Record",
   "stopRecording": "Stop recording",

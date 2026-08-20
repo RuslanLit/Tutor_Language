@@ -495,7 +495,7 @@
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Które hiszpańskie pytanie czyta się w przybliżeniu jako {hint}?",
   "audioListen": "Odtwórz",
-  "audioUnavailable": "Audio jest niedostępne. Możesz kontynuować.",
+  "audioUnavailable": "Audio niedostępne. Spróbuj ponownie.",
   "recordingPurpose": "Dostęp do mikrofonu pozwala nagrać swój głos i odsłuchać go lokalnie.",
   "record": "Nagraj",
   "stopRecording": "Zatrzymaj nagrywanie",

@@ -1139,7 +1139,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get audioListen => 'Odtwórz';
 
   @override
-  String get audioUnavailable => 'Audio jest niedostępne. Możesz kontynuować.';
+  String get audioUnavailable => 'Audio niedostępne. Spróbuj ponownie.';
 
   @override
   String get recordingPurpose =>

@@ -129,6 +129,7 @@ void main() {
     await tester.pump();
 
     expect(find.text('Practice complete'), findsOneWidget);
+    expect(find.text('Listen to reference'), findsOneWidget);
     expect(recording.state, LearnerRecordingState.idle);
   });
 

@@ -1130,7 +1130,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get audioUnavailable =>
-      'Audio nicht verfügbar. Sie können fortfahren.';
+      'Audio nicht verfügbar. Versuchen Sie es erneut.';
 
   @override
   String get recordingPurpose =>

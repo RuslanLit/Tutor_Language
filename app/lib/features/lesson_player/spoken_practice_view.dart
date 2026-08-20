@@ -157,6 +157,13 @@ class _ActionArea extends StatelessWidget {
         );
       case SpokenPracticeStage.completed:
         actions.add(Text(l10n.practiceComplete));
+        actions.add(
+          OutlinedButton.icon(
+            onPressed: controller.playReference,
+            icon: const Icon(Icons.volume_up),
+            label: Text(l10n.listenToReference),
+          ),
+        );
     }
 
     return Wrap(spacing: 8, runSpacing: 8, children: actions);

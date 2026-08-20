@@ -1947,7 +1947,7 @@ abstract class AppLocalizations {
   /// No description provided for @audioUnavailable.
   ///
   /// In en, this message translates to:
-  /// **'Audio unavailable. You can continue.'**
+  /// **'Audio unavailable. Try again.'**
   String get audioUnavailable;
 
   /// No description provided for @recordingPurpose.

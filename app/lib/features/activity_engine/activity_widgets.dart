@@ -21,6 +21,8 @@ class ActivityTemplateWidget extends StatelessWidget {
     this.onStateChanged,
     this.showIncorrectDetails = true,
     this.reviewMode = false,
+    this.showReferenceAudio = true,
+    this.autoPlayReferenceAudio = true,
     super.key,
   });
 
@@ -30,6 +32,8 @@ class ActivityTemplateWidget extends StatelessWidget {
   final ValueChanged<ActivityTemplateState>? onStateChanged;
   final bool showIncorrectDetails;
   final bool reviewMode;
+  final bool showReferenceAudio;
+  final bool autoPlayReferenceAudio;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +46,8 @@ class ActivityTemplateWidget extends StatelessWidget {
         state: state,
         onStateChanged: onStateChanged,
         showIncorrectDetails: showIncorrectDetails,
+        showReferenceAudio: showReferenceAudio,
+        autoPlayReferenceAudio: autoPlayReferenceAudio,
       ),
       'fill_gap' => FillGapActivityWidget(
         template: template,
@@ -78,6 +84,7 @@ class ActivityTemplateWidget extends StatelessWidget {
         state: state,
         onStateChanged: onStateChanged,
         showIncorrectDetails: showIncorrectDetails,
+        showReferenceAudio: showReferenceAudio,
       ),
       _ => Text(l10n.unsupportedActivityTypeValue(template.exerciseType)),
     };
@@ -91,6 +98,7 @@ class SentenceBuilderActivityWidget extends ConsumerStatefulWidget {
     this.state,
     this.onStateChanged,
     this.showIncorrectDetails = true,
+    this.showReferenceAudio = true,
     super.key,
   });
   final ExerciseTemplate template;
@@ -98,6 +106,7 @@ class SentenceBuilderActivityWidget extends ConsumerStatefulWidget {
   final ActivityTemplateState? state;
   final ValueChanged<ActivityTemplateState>? onStateChanged;
   final bool showIncorrectDetails;
+  final bool showReferenceAudio;
 
   @override
   ConsumerState<SentenceBuilderActivityWidget> createState() =>
@@ -276,7 +285,9 @@ class _SentenceBuilderActivityWidgetState
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-        if (state.result?.isCorrect == true && builder.audioReferenceId != null)
+        if (widget.showReferenceAudio &&
+            state.result?.isCorrect == true &&
+            builder.audioReferenceId != null)
           ReferenceAudioButton(referenceId: builder.audioReferenceId!),
       ],
     );
@@ -330,6 +341,8 @@ class MultipleChoiceActivityWidget extends ConsumerStatefulWidget {
     this.onStateChanged,
     this.showIncorrectDetails = true,
     this.reviewMode = false,
+    this.showReferenceAudio = true,
+    this.autoPlayReferenceAudio = true,
     super.key,
   });
 
@@ -339,6 +352,8 @@ class MultipleChoiceActivityWidget extends ConsumerStatefulWidget {
   final ValueChanged<ActivityTemplateState>? onStateChanged;
   final bool showIncorrectDetails;
   final bool reviewMode;
+  final bool showReferenceAudio;
+  final bool autoPlayReferenceAudio;
 
   @override
   ConsumerState<MultipleChoiceActivityWidget> createState() =>
@@ -368,15 +383,25 @@ class _MultipleChoiceActivityWidgetState
   }
 
   void _scheduleListeningStimulus() {
+    if (!widget.autoPlayReferenceAudio) return;
     final referenceId = widget.template.audioReferenceId;
     if (referenceId == null || referenceId.isEmpty) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || _autoPlayedReferenceId == referenceId) return;
       _autoPlayedReferenceId = referenceId;
-      ref.read(referenceAudioPlaybackServiceProvider).play(referenceId).catchError(
-        (_) {},
-      );
+      _playInitialListeningStimulus(referenceId);
     });
+  }
+
+  Future<void> _playInitialListeningStimulus(String referenceId) async {
+    try {
+      await ref.read(referenceAudioPlaybackServiceProvider).play(referenceId);
+    } on ReferenceAudioFailure catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(context.l10n.audioUnavailable)),
+      );
+    }
   }
 
   void _updateState(ActivityTemplateState state) {
@@ -399,11 +424,13 @@ class _MultipleChoiceActivityWidgetState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _ActivityPrompt(widget.template.promptTemplate),
-        if (widget.template.audioReferenceId != null)
+        if (widget.showReferenceAudio &&
+            widget.template.audioReferenceId != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: ReferenceAudioButton(
               referenceId: widget.template.audioReferenceId!,
+              showLabel: true,
             ),
           ),
         const SizedBox(height: 8),

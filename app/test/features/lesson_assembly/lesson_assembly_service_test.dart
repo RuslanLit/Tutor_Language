@@ -2,6 +2,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_document.dart';
 import 'package:tutor_language/core/content/content_loader.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
+import 'package:tutor_language/core/content/content_localization_providers.dart';
 import 'package:tutor_language/core/content/educational_content_catalog.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/curriculum/curriculum_loader.dart';
@@ -74,6 +76,36 @@ void main() {
       expect(steps[entry.value].id, contains(entry.key), reason: entry.key);
       expect(entry.value + 1, lessThanOrEqualTo(steps.length));
     }
+  });
+
+  test('localized Lesson 18 Step 2 preserves listening audio metadata', () async {
+    final service = LessonAssemblyService(
+      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+      contentLoader: ContentLoader(assetBundle: rootBundle),
+    );
+    final assembled = await service.assembleLesson('es.a0.m06.l018');
+    final localized = resolveLocalizedLessonContent(
+      lessonContent: assembled,
+      resolver: EducationalContentLocalizationResolver(
+        const EducationalContentLocalizationBundle(
+          schemaVersion: 1,
+          targetLanguage: 'es',
+          sourceSupportLocale: 'en',
+          supportLocales: ['en', 'uk'],
+          entries: [],
+        ),
+      ),
+      supportLocale: SupportLocale.ukrainian,
+    );
+    final template = localized.activities
+        .expand((activity) => activity.resolvedContent)
+        .whereType<ExerciseTemplate>()
+        .firstWhere(
+          (item) => item.id == 'template.es.a0.m06.l018.meaning_route',
+        );
+
+    expect(template.audioReferenceId, 'es.audio.phrase.sigue_recto');
+    expect(template.audioTranscript, 'Sigue recto.');
   });
 
   test('resolves the canonical Lesson 1 content', () async {

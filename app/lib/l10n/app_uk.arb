@@ -495,7 +495,7 @@
   "@primerReviewEspanaReadingPrompt": {"placeholders": {"hint": {"type": "String"}}},
   "primerReviewQuestionReadingPrompt": "Яке іспанське питання приблизно читається як {hint}?",
   "audioListen": "Прослухати",
-  "audioUnavailable": "Аудіо недоступне. Ви можете продовжити.",
+  "audioUnavailable": "Аудіо недоступне. Спробуйте ще раз.",
   "recordingPurpose": "Доступ до мікрофона дає змогу записати свій голос і прослухати його локально.",
   "record": "Записати",
   "stopRecording": "Зупинити запис",

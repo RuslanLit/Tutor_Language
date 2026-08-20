@@ -1638,15 +1638,41 @@ class ExerciseTemplateView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IgnorePointer(
-      ignoring: reviewMode,
-      child: ActivityTemplateWidget(
+    final audioReferenceId = template.audioReferenceId ??
+        template.sentenceBuilder?.audioReferenceId;
+    if (reviewMode && template.exerciseType == 'guided_dialogue') {
+      return ActivityTemplateWidget(
         template: template,
         state: state,
         showIncorrectDetails: showRemediation,
-        reviewMode: reviewMode,
+        reviewMode: true,
         onStateChanged: onStateChanged,
-      ),
+      );
+    }
+    return Stack(
+      children: [
+        IgnorePointer(
+          ignoring: reviewMode,
+          child: ActivityTemplateWidget(
+            template: template,
+            state: state,
+            showIncorrectDetails: showRemediation,
+            reviewMode: reviewMode,
+            showReferenceAudio: !reviewMode,
+            autoPlayReferenceAudio: !reviewMode,
+            onStateChanged: onStateChanged,
+          ),
+        ),
+        if (reviewMode && audioReferenceId != null)
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: ReferenceAudioButton(
+              referenceId: audioReferenceId,
+              showLabel: true,
+            ),
+          ),
+      ],
     );
   }
 }

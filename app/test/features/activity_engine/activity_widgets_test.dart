@@ -17,6 +17,80 @@ import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
   testWidgets(
+    'audio-first comprehension autoplays once, exposes labeled replay, and hides transcript until success',
+    (tester) async {
+      final backend = _SentenceBuilderFakeBackend();
+      final service = ReferenceAudioPlaybackService(
+        repository: Future.value(
+          ReferenceAudioRepository(_listeningManifest),
+        ),
+        backend: backend,
+      );
+
+      await tester.pumpWidget(
+        _localizedApp(
+          const Scaffold(
+            body: ActivityTemplateWidget(template: _listeningTemplate),
+          ),
+          overrides: [
+            referenceAudioPlaybackServiceProvider.overrideWithValue(service),
+          ],
+        ),
+      );
+      await tester.pump();
+      expect(backend.playCalls, 1);
+      expect(find.text('Listen'), findsOneWidget);
+      expect(find.text('Hola.'), findsNothing);
+      expect(find.text('привіт'), findsOneWidget);
+      expect(find.text('дякую'), findsOneWidget);
+
+      await tester.tap(find.text('дякую'));
+      await tester.pump();
+      expect(backend.playCalls, 1);
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      expect(find.text('Hola.'), findsNothing);
+
+      await tester.tap(find.text('привіт'));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      expect(find.text('Hola.'), findsOneWidget);
+      expect(find.text('Listen'), findsOneWidget);
+
+      await tester.tap(find.text('Listen'));
+      await tester.pumpAndSettle();
+      expect(backend.playCalls, 2);
+      await service.dispose();
+    },
+  );
+
+  testWidgets('audio-first comprehension reports missing audio', (tester) async {
+    final backend = _SentenceBuilderFakeBackend();
+    final service = ReferenceAudioPlaybackService(
+      repository: Future.value(
+        ReferenceAudioRepository(_emptyAudioManifest),
+      ),
+      backend: backend,
+    );
+
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(template: _listeningTemplate),
+        ),
+        overrides: [
+          referenceAudioPlaybackServiceProvider.overrideWithValue(service),
+        ],
+      ),
+    );
+    await tester.pump();
+    await tester.pump();
+    expect(find.text('Audio unavailable. Try again.'), findsOneWidget);
+    await service.dispose();
+  });
+
+  testWidgets(
     'sentence builder plays approved reference audio only after success',
     (tester) async {
       final backend = _SentenceBuilderFakeBackend();
@@ -911,6 +985,21 @@ const _sentenceBuilderTemplate = ExerciseTemplate(
   ),
 );
 
+const _listeningTemplate = ExerciseTemplate(
+  id: 'template.widget.listening',
+  exerciseType: 'multiple_choice',
+  supportedGoalTypes: ['recognize_meaning'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Listen and choose the meaning.',
+  audioReferenceId: 'es.audio.test.hola',
+  audioTranscript: 'Hola.',
+  answerOptions: [
+    ExerciseTemplateOption(id: 'meaning', label: 'привіт'),
+    ExerciseTemplateOption(id: 'wrong', label: 'дякую'),
+  ],
+  correctOptionId: 'meaning',
+);
+
 const _sentenceBuilderWrongTemplate = ExerciseTemplate(
   id: 'template.widget.sentence_builder_wrong',
   exerciseType: 'sentence_builder',
@@ -950,6 +1039,14 @@ final _sentenceBuilderManifest = AudioReferenceManifest(
       ),
     ),
   ],
+);
+
+final _listeningManifest = _sentenceBuilderManifest;
+
+const _emptyAudioManifest = AudioReferenceManifest(
+  schemaVersion: 1,
+  audioRoot: 'assets/languages/spanish/audio/reference',
+  assets: [],
 );
 
 class _SentenceBuilderFakeBackend implements ReferenceAudioBackend {

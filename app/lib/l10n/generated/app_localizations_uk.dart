@@ -1135,7 +1135,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get audioListen => 'Прослухати';
 
   @override
-  String get audioUnavailable => 'Аудіо недоступне. Ви можете продовжити.';
+  String get audioUnavailable => 'Аудіо недоступне. Спробуйте ще раз.';
 
   @override
   String get recordingPurpose =>
