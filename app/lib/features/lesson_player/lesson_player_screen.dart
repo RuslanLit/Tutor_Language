@@ -589,7 +589,7 @@ class _LessonNavigationControlsState
     );
     final nextDecision = _sessionEngine.requestNext(
       widget.session.sessionState,
-      allowReviewNavigation: widget.reviewMode,
+      allowReviewNavigation: widget.reviewMode || widget.qaMode,
     );
     final finishDecision = _sessionEngine.finishSession(
       widget.session.sessionState,
@@ -613,6 +613,7 @@ class _LessonNavigationControlsState
         data: (progress) {
           final isCompleted =
               !widget.reviewMode &&
+              !widget.qaMode &&
               ((widget.session.attemptPurpose == LessonAttemptPurpose.normal &&
                       progress.hasBeenCompleted) ||
                   widget.session.sessionState.status ==
@@ -911,7 +912,7 @@ class _LessonNavigationControlsState
   void _goToNextStep() {
     final decision = _sessionEngine.requestNext(
       widget.session.sessionState,
-      allowReviewNavigation: widget.reviewMode,
+      allowReviewNavigation: widget.reviewMode || widget.qaMode,
     );
     if (decision.type != LessonSessionDecisionType.moveToNextStep) {
       return;

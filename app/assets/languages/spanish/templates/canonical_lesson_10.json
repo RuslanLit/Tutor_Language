@@ -1,0 +1,242 @@
+[
+  {
+    "id": "template.es.a0.m03.l010.choose_residence",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Хочеш запитати, де людина живе. Вибери питання.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "d_nde_1_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_1_2",
+          "label": "vives?"
+        },
+        {
+          "id": "de_2_1",
+          "label": "¿De"
+        },
+        {
+          "id": "d_nde_2_2",
+          "label": "dónde"
+        },
+        {
+          "id": "eres_2_3",
+          "label": "eres?"
+        },
+        {
+          "id": "c_mo_3_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "te_3_2",
+          "label": "te"
+        },
+        {
+          "id": "llamas_3_3",
+          "label": "llamas?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "d_nde_1_1",
+          "vives_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.donde_vives"
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l010.choose_residence_answer",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти живеш у Kyiv. Вибери правильну відповідь на ¿Dónde vives?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "vivo_1_1",
+          "label": "Vivo"
+        },
+        {
+          "id": "en_1_2",
+          "label": "en"
+        },
+        {
+          "id": "kyiv_1_3",
+          "label": "Kyiv."
+        },
+        {
+          "id": "soy_2_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_2_2",
+          "label": "de"
+        },
+        {
+          "id": "vive_3_1",
+          "label": "Vive"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "vivo_1_1",
+          "en_1_2",
+          "kyiv_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.vivo_en_kyiv"
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l010.recall_residence",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Введи іспанською: «Я живу в Kyiv.»",
+    "expected_answer": "Vivo en Kyiv."
+  },
+  {
+    "id": "template.es.a0.m03.l010.recall_residence_question",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як запитати «Де ти живеш?» іспанською?",
+    "expected_answer": "¿Dónde vives?"
+  },
+  {
+    "id": "template.es.a0.m03.l010.guided_profile",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": [
+      "guided_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Проведи короткий обмін про походження й місце проживання.",
+    "guided_dialogue": {
+      "turns": [
+        {
+          "speaker": "Ana",
+          "text": "¿De dónde eres?",
+          "audioReferenceId": "es.audio.question.de_donde_eres"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Soy de {country}.",
+          "learner": true,
+          "response_patterns": [
+            "Soy de {country}."
+          ],
+          "response_mode": "prefix_with_value",
+          "allowed_slots": {
+            "country": [
+              "Ucrania",
+              "España",
+              "México"
+            ]
+          }
+        },
+        {
+          "speaker": "Ana",
+          "text": "¿Dónde vives?",
+          "audioReferenceId": "es.audio.question.donde_vives"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Vivo en {city}.",
+          "learner": true,
+          "response_patterns": [
+            "Vivo en {city}."
+          ],
+          "response_mode": "prefix_with_value",
+          "allowed_slots": {
+            "city": [
+              "Kyiv",
+              "Madrid",
+              "Valencia"
+            ]
+          }
+        },
+        {
+          "speaker": "Ana",
+          "text": "Gracias.",
+          "audioReferenceId": "es.audio.word.gracias"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Hasta luego.",
+          "learner": true,
+          "response_patterns": [
+            "Hasta luego.",
+            "Adiós."
+          ],
+          "response_mode": "exact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l010.build_residence",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як сказати: «Я живу в Kyiv»?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "vivo",
+          "label": "Vivo"
+        },
+        {
+          "id": "en",
+          "label": "en"
+        },
+        {
+          "id": "kyiv",
+          "label": "Kyiv."
+        },
+        {
+          "id": "soy",
+          "label": "Soy"
+        },
+        {
+          "id": "de",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "vivo",
+          "en",
+          "kyiv"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.vivo_en_kyiv"
+    }
+  }
+]

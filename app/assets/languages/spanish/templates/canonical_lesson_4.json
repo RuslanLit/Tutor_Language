@@ -1,7 +1,7 @@
 [
   {
     "id": "template.es.a0.m01.l004.choose_who_question_woman",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -9,25 +9,46 @@
       "dialogue"
     ],
     "prompt_template": "Ana показує на жінку. Ти хочеш запитати, хто вона.\n\nВибери 1 питання іспанською.",
-    "answer_options": [
-      {
-        "id": "quien_es_ella",
-        "label": "¿Quién es ella?"
-      },
-      {
-        "id": "quien_es_el",
-        "label": "¿Quién es él?"
-      },
-      {
-        "id": "como_estas",
-        "label": "¿Cómo estás?"
-      }
-    ],
-    "correct_option_id": "quien_es_ella"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "qui_n_1_1",
+          "label": "¿Quién"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "ella_1_3",
+          "label": "ella?"
+        },
+        {
+          "id": "l_2_3",
+          "label": "él?"
+        },
+        {
+          "id": "c_mo_3_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "est_s_3_2",
+          "label": "estás?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "qui_n_1_1",
+          "es_1_2",
+          "ella_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.quien_es_ella"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_who_question_man",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -35,25 +56,46 @@
       "dialogue"
     ],
     "prompt_template": "Ana показує на чоловіка. Ти хочеш запитати, хто він.\n\nВибери 1 питання іспанською.",
-    "answer_options": [
-      {
-        "id": "quien_es_el",
-        "label": "¿Quién es él?"
-      },
-      {
-        "id": "quien_es_ella",
-        "label": "¿Quién es ella?"
-      },
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      }
-    ],
-    "correct_option_id": "quien_es_el"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "qui_n_1_1",
+          "label": "¿Quién"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "l_1_3",
+          "label": "él?"
+        },
+        {
+          "id": "ella_2_3",
+          "label": "ella?"
+        },
+        {
+          "id": "d_nde_3_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_3_2",
+          "label": "vives?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "qui_n_1_1",
+          "es_1_2",
+          "l_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.quien_es_el"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_ella_description",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -61,25 +103,46 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш про жінку на ім'я Ana.\n\nВибери 1 правильну репліку.",
-    "answer_options": [
-      {
-        "id": "ella_es_ana",
-        "label": "Ella es Ana."
-      },
-      {
-        "id": "el_es_ana",
-        "label": "Él es Ana."
-      },
-      {
-        "id": "me_llamo_ana",
-        "label": "Me llamo Ana."
-      }
-    ],
-    "correct_option_id": "ella_es_ana"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "ella_1_1",
+          "label": "Ella"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "ana_1_3",
+          "label": "Ana."
+        },
+        {
+          "id": "l_2_1",
+          "label": "Él"
+        },
+        {
+          "id": "me_3_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_3_2",
+          "label": "llamo"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "ella_1_1",
+          "es_1_2",
+          "ana_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.ella_es_ana"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_el_description",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -87,25 +150,46 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш про чоловіка на ім'я Luis.\n\nВибери 1 правильну репліку.",
-    "answer_options": [
-      {
-        "id": "el_es_luis",
-        "label": "Él es Luis."
-      },
-      {
-        "id": "ella_es_luis",
-        "label": "Ella es Luis."
-      },
-      {
-        "id": "soy_de_luis",
-        "label": "Soy de Luis."
-      }
-    ],
-    "correct_option_id": "el_es_luis"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "l_1_1",
+          "label": "Él"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "luis_1_3",
+          "label": "Luis."
+        },
+        {
+          "id": "ella_2_1",
+          "label": "Ella"
+        },
+        {
+          "id": "soy_3_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "l_1_1",
+          "es_1_2",
+          "luis_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.el_es_luis"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_friend_pair",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_gender_pair"
     ],
@@ -113,25 +197,47 @@
       "grammar"
     ],
     "prompt_template": "Ти представляєш жінку як подругу.\n\nВибери 1 природну репліку.",
-    "answer_options": [
-      {
-        "id": "mi_amiga",
-        "label": "Ella es mi amiga."
-      },
-      {
-        "id": "mi_amigo",
-        "label": "Ella es mi amigo."
-      },
-      {
-        "id": "mi_profesor",
-        "label": "Ella es mi profesor."
-      }
-    ],
-    "correct_option_id": "mi_amiga"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "ella_1_1",
+          "label": "Ella"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "mi_1_3",
+          "label": "mi"
+        },
+        {
+          "id": "amiga_1_4",
+          "label": "amiga."
+        },
+        {
+          "id": "amigo_2_4",
+          "label": "amigo."
+        },
+        {
+          "id": "profesor_3_4",
+          "label": "profesor."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "ella_1_1",
+          "es_1_2",
+          "mi_1_3",
+          "amiga_1_4"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.ella_es_mi_amiga"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_teacher_pair",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_gender_pair"
     ],
@@ -139,21 +245,43 @@
       "grammar"
     ],
     "prompt_template": "Ти представляєш чоловіка як викладача.\n\nВибери 1 природну репліку.",
-    "answer_options": [
-      {
-        "id": "mi_profesor",
-        "label": "Él es mi profesor."
-      },
-      {
-        "id": "mi_profesora",
-        "label": "Él es mi profesora."
-      },
-      {
-        "id": "mi_amiga",
-        "label": "Él es mi amiga."
-      }
-    ],
-    "correct_option_id": "mi_profesor"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "l_1_1",
+          "label": "Él"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "mi_1_3",
+          "label": "mi"
+        },
+        {
+          "id": "profesor_1_4",
+          "label": "profesor."
+        },
+        {
+          "id": "profesora_2_4",
+          "label": "profesora."
+        },
+        {
+          "id": "amiga_3_4",
+          "label": "amiga."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "l_1_1",
+          "es_1_2",
+          "mi_1_3",
+          "profesor_1_4"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.el_es_mi_profesor"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.restore_name_profile",
@@ -169,7 +297,7 @@
   },
   {
     "id": "template.es.a0.m01.l004.choose_third_person_origin",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -177,25 +305,50 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш про Luis, а не про себе. Хочеш сказати, що він з України.\n\nВибери 1 речення.",
-    "answer_options": [
-      {
-        "id": "es_de_ucrania",
-        "label": "Es de Ucrania."
-      },
-      {
-        "id": "soy_de_ucrania",
-        "label": "Soy de Ucrania."
-      },
-      {
-        "id": "vivo_en_kyiv",
-        "label": "Vivo en Kyiv."
-      }
-    ],
-    "correct_option_id": "es_de_ucrania"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "es_1_1",
+          "label": "Es"
+        },
+        {
+          "id": "de_1_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_1_3",
+          "label": "Ucrania."
+        },
+        {
+          "id": "soy_2_1",
+          "label": "Soy"
+        },
+        {
+          "id": "vivo_3_1",
+          "label": "Vivo"
+        },
+        {
+          "id": "en_3_2",
+          "label": "en"
+        },
+        {
+          "id": "kyiv_3_3",
+          "label": "Kyiv."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "es_1_1",
+          "de_1_2",
+          "ucrania_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.es_de_ucrania"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_third_person_city",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -203,25 +356,46 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш про Ana, а не про себе. Хочеш сказати, що вона живе в Madrid.\n\nВибери 1 речення.",
-    "answer_options": [
-      {
-        "id": "vive_en_madrid",
-        "label": "Vive en Madrid."
-      },
-      {
-        "id": "vivo_en_madrid",
-        "label": "Vivo en Madrid."
-      },
-      {
-        "id": "soy_de_madrid",
-        "label": "Soy de Madrid."
-      }
-    ],
-    "correct_option_id": "vive_en_madrid"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "vive_1_1",
+          "label": "Vive"
+        },
+        {
+          "id": "en_1_2",
+          "label": "en"
+        },
+        {
+          "id": "madrid_1_3",
+          "label": "Madrid."
+        },
+        {
+          "id": "vivo_2_1",
+          "label": "Vivo"
+        },
+        {
+          "id": "soy_3_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "vive_1_1",
+          "en_1_2",
+          "madrid_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.vive_en_madrid"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.choose_third_person_language",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -229,21 +403,41 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш про Sofía. Хочеш сказати, що вона говорить іспанською.\n\nВибери 1 речення.",
-    "answer_options": [
-      {
-        "id": "habla_espanol",
-        "label": "Habla español."
-      },
-      {
-        "id": "hablo_espanol",
-        "label": "Hablo español."
-      },
-      {
-        "id": "que_idiomas",
-        "label": "¿Qué idiomas hablas?"
-      }
-    ],
-    "correct_option_id": "habla_espanol"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "habla_1_1",
+          "label": "Habla"
+        },
+        {
+          "id": "espa_ol_1_2",
+          "label": "español."
+        },
+        {
+          "id": "hablo_2_1",
+          "label": "Hablo"
+        },
+        {
+          "id": "qu_3_1",
+          "label": "¿Qué"
+        },
+        {
+          "id": "idiomas_3_2",
+          "label": "idiomas"
+        },
+        {
+          "id": "hablas_3_3",
+          "label": "hablas?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "habla_1_1",
+          "espa_ol_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.habla_espanol"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.order_person_profile",
@@ -283,7 +477,7 @@
   },
   {
     "id": "template.es.a0.m01.l004.choose_next_after_who",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_next_dialogue_line"
     ],
@@ -291,21 +485,51 @@
       "dialogue"
     ],
     "prompt_template": "Ana питає: ¿Quién es ella?\n\nТи маєш коротко представити жінку.\n\nВибери 1 наступну репліку.",
-    "answer_options": [
-      {
-        "id": "ella_es_mi_amiga",
-        "label": "Ella es mi amiga."
-      },
-      {
-        "id": "estoy_bien",
-        "label": "Estoy bien."
-      },
-      {
-        "id": "hasta_pronto",
-        "label": "Hasta pronto."
-      }
-    ],
-    "correct_option_id": "ella_es_mi_amiga"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "ella_1_1",
+          "label": "Ella"
+        },
+        {
+          "id": "es_1_2",
+          "label": "es"
+        },
+        {
+          "id": "mi_1_3",
+          "label": "mi"
+        },
+        {
+          "id": "amiga_1_4",
+          "label": "amiga."
+        },
+        {
+          "id": "estoy_2_1",
+          "label": "Estoy"
+        },
+        {
+          "id": "bien_2_2",
+          "label": "bien."
+        },
+        {
+          "id": "hasta_3_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "pronto_3_2",
+          "label": "pronto."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "ella_1_1",
+          "es_1_2",
+          "mi_1_3",
+          "amiga_1_4"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.ella_es_mi_amiga"
+    }
   },
   {
     "id": "template.es.a0.m01.l004.independent_introduce_person",
@@ -322,5 +546,48 @@
       "Hola. Me llamo Marta.\nMuy bien, gracias.\nEsta es Ana.\nElla es mi amiga.\nSe llama Ana.\nEs de España.\nVive en Madrid.\nHabla español.\nGracias. Hasta luego.",
       "Hola. Me llamo Marta.\nEstoy bien, gracias.\nEste es Luis.\nÉl es mi amigo.\nSe llama Luis.\nEs de Ucrania.\nVive en Kyiv.\nHabla español un poco.\nHasta pronto."
     ]
+  },
+  {
+    "id": "template.es.a0.m01.l004.build_description",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "grammar"
+    ],
+    "prompt_template": "Склади: «Вона Ana».",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "ella",
+          "label": "Ella"
+        },
+        {
+          "id": "es",
+          "label": "es"
+        },
+        {
+          "id": "ana",
+          "label": "Ana."
+        },
+        {
+          "id": "el",
+          "label": "Él"
+        },
+        {
+          "id": "soy",
+          "label": "Soy"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "ella",
+          "es",
+          "ana"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.ella_es_ana"
+    }
   }
 ]

@@ -43,10 +43,12 @@ class ActivitySubmission {
     this.submittedAnswer,
     this.matchedPairs = const {},
     this.dialogueTurnIndex,
+    this.selectedTokenIds,
   });
 
   final String? selectedAnswerId;
   final String? submittedAnswer;
   final Map<String, String> matchedPairs;
   final int? dialogueTurnIndex;
+  final List<String>? selectedTokenIds;
 }

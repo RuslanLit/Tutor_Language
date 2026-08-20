@@ -29,6 +29,7 @@ class EducationalContentValidator {
     'text_entry',
     'matching',
     'guided_dialogue',
+    'sentence_builder',
   };
 
   List<EducationalContentValidationIssue> validate(

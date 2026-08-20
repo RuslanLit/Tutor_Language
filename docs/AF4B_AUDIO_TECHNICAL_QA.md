@@ -1,7 +1,4 @@
 # AF4B Production Audio Technical QA
-Status: EVIDENCE
-Scope: Spanish audio production / AF4 evidence
-Normative authority: AUDIO_LEARNING_STANDARD.md
 
 Scope: the 114 current AF4A entries with manifest QA state `generated`.
 The 3 original AF1 `approved` entries were not scanned for promotion and were
@@ -13,15 +10,14 @@ pedagogical suitability. Human listening remains mandatory.
 
 ## Summary
 
-- scanned: 114
-- technical `ok`: 112
-- technical `review`: 2
+- scanned: 0
+- technical `ok`: 0
+- technical `review`: 0
 - technical `error`: 0
-- duration min/median/max: 139 / 848 / 2882 ms
+- duration min/median/max: n/a
 
 ## Format distribution
 
-- `22050/1/16/1`: 114
 ## Conservative rules
 
 - `error`: missing/zero-byte file, invalid RIFF/WAVE structure, missing chunks,
@@ -35,8 +31,7 @@ pedagogical suitability. Human listening remains mandatory.
 
 ## Suspicious files
 
-- `es.audio.word.tu` — duration shorter than text heuristic
-- `es.audio.word.y` — duration shorter than text heuristic
+None. This does not constitute human approval.
 ## Human QA
 
 All report rows start with `human_result=pending`. A technical `ok` never

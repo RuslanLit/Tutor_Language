@@ -1,0 +1,222 @@
+[
+  {
+    "id": "template.es.a0.m03.l009.choose_origin",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_question"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Хочеш запитати людину, звідки вона. Вибери питання.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "de_1_1",
+          "label": "¿De"
+        },
+        {
+          "id": "d_nde_1_2",
+          "label": "dónde"
+        },
+        {
+          "id": "eres_1_3",
+          "label": "eres?"
+        },
+        {
+          "id": "d_nde_2_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_2_2",
+          "label": "vives?"
+        },
+        {
+          "id": "c_mo_3_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "est_s_3_2",
+          "label": "estás?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "de_1_1",
+          "d_nde_1_2",
+          "eres_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.de_donde_eres"
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l009.choose_origin_answer",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ana питає: ¿De dónde eres? Вибери відповідь про країну походження.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "soy_1_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_1_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_1_3",
+          "label": "Ucrania."
+        },
+        {
+          "id": "vivo_2_1",
+          "label": "Vivo"
+        },
+        {
+          "id": "en_2_2",
+          "label": "en"
+        },
+        {
+          "id": "kyiv_2_3",
+          "label": "Kyiv."
+        },
+        {
+          "id": "hablo_3_1",
+          "label": "Hablo"
+        },
+        {
+          "id": "espa_ol_3_2",
+          "label": "español."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "soy_1_1",
+          "de_1_2",
+          "ucrania_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l009.recall_origin",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Введи іспанською: «Я з України.»",
+    "expected_answer": "Soy de Ucrania."
+  },
+  {
+    "id": "template.es.a0.m03.l009.recall_question",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як запитати «Звідки ти?» іспанською?",
+    "expected_answer": "¿De dónde eres?"
+  },
+  {
+    "id": "template.es.a0.m03.l009.guided_origin",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": [
+      "guided_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Запитай і скажи, звідки ви. Відповідай іспанською.",
+    "guided_dialogue": {
+      "turns": [
+        {
+          "speaker": "Luis",
+          "text": "Hola. ¿De dónde eres?",
+          "audioReferenceId": "es.audio.question.de_donde_eres"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Soy de {place}.",
+          "learner": true,
+          "response_patterns": [
+            "Soy de {place}."
+          ],
+          "response_mode": "prefix_with_value",
+          "allowed_slots": {
+            "place": [
+              "Ucrania",
+              "España",
+              "México"
+            ]
+          }
+        },
+        {
+          "speaker": "Luis",
+          "text": "Soy de España.",
+          "audioReferenceId": "es.audio.dialogue.soy_de_espana_vivo_en_madrid"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Mucho gusto.",
+          "learner": true,
+          "response_patterns": [
+            "Mucho gusto.",
+            "Igualmente."
+          ],
+          "response_mode": "exact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m03.l009.build_origin",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Склади відповідь: «Я з України».",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "soy",
+          "label": "Soy"
+        },
+        {
+          "id": "de",
+          "label": "de"
+        },
+        {
+          "id": "ucrania",
+          "label": "Ucrania."
+        },
+        {
+          "id": "vivo",
+          "label": "Vivo"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "soy",
+          "de",
+          "ucrania"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
+    }
+  }
+]

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:math' as math;
 
 import '../../core/content/topic_content.dart';
 import '../../core/audio/reference_audio_button.dart';
+import '../../core/audio/reference_audio.dart';
+import '../../core/audio/reference_audio_providers.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../l10n/l10n.dart';
 import '../answer_evaluation/answer_evaluation.dart';
@@ -68,8 +72,253 @@ class ActivityTemplateWidget extends StatelessWidget {
         onStateChanged: onStateChanged,
         showIncorrectDetails: showIncorrectDetails,
       ),
+      'sentence_builder' => SentenceBuilderActivityWidget(
+        template: template,
+        engine: engine,
+        state: state,
+        onStateChanged: onStateChanged,
+        showIncorrectDetails: showIncorrectDetails,
+      ),
       _ => Text(l10n.unsupportedActivityTypeValue(template.exerciseType)),
     };
+  }
+}
+
+class SentenceBuilderActivityWidget extends ConsumerStatefulWidget {
+  const SentenceBuilderActivityWidget({
+    required this.template,
+    required this.engine,
+    this.state,
+    this.onStateChanged,
+    this.showIncorrectDetails = true,
+    super.key,
+  });
+  final ExerciseTemplate template;
+  final ActivityEngine engine;
+  final ActivityTemplateState? state;
+  final ValueChanged<ActivityTemplateState>? onStateChanged;
+  final bool showIncorrectDetails;
+
+  @override
+  ConsumerState<SentenceBuilderActivityWidget> createState() =>
+      _SentenceBuilderActivityWidgetState();
+}
+
+class _SentenceBuilderActivityWidgetState
+    extends ConsumerState<SentenceBuilderActivityWidget> {
+  ActivityTemplateState _state = const ActivityTemplateState();
+  late List<String> _availableTokenIds;
+  String? _autoPlayedReferenceId;
+  ActivityTemplateState get _currentState => widget.state ?? _state;
+
+  @override
+  void initState() {
+    super.initState();
+    _availableTokenIds = _shuffleTokenIds(widget.template.sentenceBuilder);
+  }
+
+  @override
+  void didUpdateWidget(covariant SentenceBuilderActivityWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.template.id != widget.template.id) {
+      _availableTokenIds = _shuffleTokenIds(widget.template.sentenceBuilder);
+      _autoPlayedReferenceId = null;
+    }
+    final oldResult = oldWidget.state?.result;
+    final newResult = widget.state?.result;
+    if (newResult?.isCorrect != true) {
+      _autoPlayedReferenceId = null;
+    } else if (oldResult?.isCorrect != true) {
+      _scheduleAutoPlay();
+    }
+  }
+
+  void _update(ActivityTemplateState value) {
+    final previous = _currentState;
+    if (value.result?.isCorrect != true) {
+      _autoPlayedReferenceId = null;
+    }
+    if (widget.onStateChanged != null) {
+      widget.onStateChanged!(value);
+    } else {
+      setState(() => _state = value);
+    }
+    if (value.result?.isCorrect == true && previous.result?.isCorrect != true) {
+      _scheduleAutoPlay();
+    }
+  }
+
+  void _scheduleAutoPlay() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _autoPlayReferenceAudio();
+    });
+  }
+
+  Future<void> _autoPlayReferenceAudio() async {
+    final referenceId = widget.template.sentenceBuilder?.audioReferenceId;
+    if (referenceId == null ||
+        referenceId.isEmpty ||
+        _autoPlayedReferenceId == referenceId) {
+      return;
+    }
+    _autoPlayedReferenceId = referenceId;
+    try {
+      await ref.read(referenceAudioPlaybackServiceProvider).play(referenceId);
+    } on ReferenceAudioFailure {
+      // A missing/unavailable recording must not turn a correct answer into
+      // an activity failure; the manual replay button remains available.
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final builder = widget.template.sentenceBuilder;
+    if (builder == null) return Text(context.l10n.unsupportedActivityType);
+    final state = _currentState;
+    final selected = state.selectedTokenIds;
+    final tokensById = {for (final token in builder.tokens) token.id: token};
+    final available = _availableTokenIds
+        .where((id) => !selected.contains(id))
+        .map((id) => tokensById[id]!)
+        .toList(growable: false);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _ActivityPrompt(widget.template.promptTemplate),
+        const SizedBox(height: 12),
+        Text(
+          context.l10n.sentenceBuilderAnswer,
+          style: Theme.of(context).textTheme.labelLarge,
+        ),
+        const SizedBox(height: 6),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: selected.map((id) {
+            final token = builder.tokens.firstWhere((item) => item.id == id);
+            return InputChip(
+              label: Text(token.label),
+              onDeleted: () {
+                final next = [...selected];
+                next.removeAt(selected.indexOf(id));
+                _update(state.copyWith(selectedTokenIds: next, result: null));
+              },
+            );
+          }).toList(),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          context.l10n.sentenceBuilderAvailableWords,
+          style: Theme.of(context).textTheme.labelLarge,
+        ),
+        const SizedBox(height: 6),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: available
+              .map(
+                (token) => ActionChip(
+                  label: Text(token.label),
+                  onPressed: () => _update(
+                    state.copyWith(
+                      selectedTokenIds: [...selected, token.id],
+                      result: null,
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+        Row(
+          children: [
+            TextButton(
+              onPressed: selected.isEmpty
+                  ? null
+                  : () => _update(
+                      state.copyWith(selectedTokenIds: const [], result: null),
+                    ),
+              child: Text(context.l10n.sentenceBuilderClear),
+            ),
+            _CheckButton(
+              onPressed: selected.isEmpty
+                  ? null
+                  : () => _update(
+                      state.copyWith(
+                        result: widget.engine.evaluate(
+                          template: widget.template,
+                          submission: ActivitySubmission(
+                            selectedTokenIds: selected,
+                          ),
+                        ),
+                        attemptCount: state.attemptCount + 1,
+                      ),
+                    ),
+            ),
+          ],
+        ),
+        ActivityFeedback(
+          result: state.result,
+          attemptCount: state.attemptCount,
+          showIncorrectDetails: widget.showIncorrectDetails,
+        ),
+        if (state.result?.isCorrect == true)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(
+              state.result?.expectedAnswer ??
+                  selected
+                      .map(
+                        (id) => builder.tokens
+                            .firstWhere((token) => token.id == id)
+                            .label,
+                      )
+                      .join(' '),
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ),
+        if (state.result?.isCorrect == true && builder.audioReferenceId != null)
+          ReferenceAudioButton(referenceId: builder.audioReferenceId!),
+      ],
+    );
+  }
+
+  List<String> _shuffleTokenIds(SentenceBuilder? builder) {
+    if (builder == null) return const [];
+    final ids = builder.tokens.map((token) => token.id).toList();
+    if (ids.length < 2) return ids;
+    final seed = _stableSeed(widget.template.id);
+    for (var attempt = 0; attempt < 32; attempt++) {
+      final candidate = [...ids];
+      candidate.shuffle(math.Random(seed + attempt));
+      if (!_containsAcceptedSequence(builder, candidate)) return candidate;
+    }
+    return ids;
+  }
+
+  bool _containsAcceptedSequence(SentenceBuilder builder, List<String> order) {
+    return builder.acceptedSequences.any((sequence) {
+      if (sequence.length < 2 || sequence.length > order.length) return false;
+      for (var start = 0; start <= order.length - sequence.length; start++) {
+        var matches = true;
+        for (var index = 0; index < sequence.length; index++) {
+          if (order[start + index] != sequence[index]) {
+            matches = false;
+            break;
+          }
+        }
+        if (matches) return true;
+      }
+      return false;
+    });
+  }
+
+  int _stableSeed(String value) {
+    var hash = 0x811c9dc5;
+    for (final codeUnit in value.codeUnits) {
+      hash ^= codeUnit;
+      hash = (hash * 0x01000193) & 0x7fffffff;
+    }
+    return hash;
   }
 }
 

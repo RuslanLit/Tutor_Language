@@ -10,6 +10,7 @@ import 'package:tutor_language/features/activity_engine/activity_engine.dart';
 import 'package:tutor_language/features/activity_engine/activity_result.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_assembly_service.dart';
 import 'package:tutor_language/features/lesson_assembly/lesson_content.dart';
+import 'package:tutor_language/features/lesson_player/lesson_player_step.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,54 @@ void main() {
     expect(lessonContent.lesson.id, 'es.a0.m01.l001');
     expect(lessonContent.sections, hasLength(1));
     expect(lessonContent.activities, hasLength(4));
+  });
+
+  test('assembles Lessons 6 to 10 with executable content', () async {
+    final service = LessonAssemblyService(
+      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+      contentLoader: ContentLoader(assetBundle: rootBundle),
+    );
+
+    for (final lessonId in const [
+      'es.a0.m01.l006',
+      'es.a0.m01.l007',
+      'es.a0.m02.l008',
+      'es.a0.m03.l009',
+      'es.a0.m03.l010',
+    ]) {
+      final lessonContent = await service.assembleLesson(lessonId);
+      expect(lessonContent.activities, hasLength(2), reason: lessonId);
+      expect(
+        lessonContent.activities.first.resolvedContent,
+        everyElement(isA<ExerciseTemplate>()),
+        reason: lessonId,
+      );
+      expect(
+        lessonContent.activities.first.resolvedContent,
+        hasLength(5),
+        reason: lessonId,
+      );
+    }
+  });
+
+  test('new lesson steps support direct QA targets with visible positions', () async {
+    final service = LessonAssemblyService(
+      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+      contentLoader: ContentLoader(assetBundle: rootBundle),
+    );
+    const targets = {
+      'es.a0.m01.l006': 3,
+      'es.a0.m02.l008': 5,
+      'es.a0.m03.l010': 5,
+    };
+
+    for (final entry in targets.entries) {
+      final content = await service.assembleLesson(entry.key);
+      final steps = const LessonPlayerStepBuilder().buildSteps(content);
+      expect(steps, hasLength(6), reason: entry.key);
+      expect(steps[entry.value].id, contains(entry.key), reason: entry.key);
+      expect(entry.value + 1, lessThanOrEqualTo(steps.length));
+    }
   });
 
   test('resolves the canonical Lesson 1 content', () async {

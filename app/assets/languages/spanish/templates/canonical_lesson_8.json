@@ -1,0 +1,209 @@
+[
+  {
+    "id": "template.es.a0.m02.l008.choose_meeting_reply",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Хтось каже: Mucho gusto. Вибери природну відповідь.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "igualmente_1_1",
+          "label": "Igualmente."
+        },
+        {
+          "id": "no_2_1",
+          "label": "No"
+        },
+        {
+          "id": "entiendo_2_2",
+          "label": "entiendo."
+        },
+        {
+          "id": "soy_3_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_3_3",
+          "label": "Ucrania."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "igualmente_1_1"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.igualmente"
+    }
+  },
+  {
+    "id": "template.es.a0.m02.l008.choose_name_reply",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_reply"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Marta питає: ¿Cómo te llamas? Ти відповідаєш про себе.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "me_1_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_1_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_1_3",
+          "label": "Marta."
+        },
+        {
+          "id": "se_2_1",
+          "label": "Se"
+        },
+        {
+          "id": "llama_2_2",
+          "label": "llama"
+        },
+        {
+          "id": "es_3_1",
+          "label": "Es"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "me_1_1",
+          "llamo_1_2",
+          "marta_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
+    }
+  },
+  {
+    "id": "template.es.a0.m02.l008.recall_meeting",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Введи іспанською: «Дуже приємно. Навзаєм.» Кожне речення з нового рядка.",
+    "expected_answer": "Mucho gusto.\nIgualmente."
+  },
+  {
+    "id": "template.es.a0.m02.l008.recall_name",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Напиши іспанською: «Мене звати Marta.»",
+    "expected_answer": "Me llamo Marta."
+  },
+  {
+    "id": "template.es.a0.m02.l008.guided_meeting",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": [
+      "guided_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Проведи коротке знайомство. Відповідай іспанською.",
+    "guided_dialogue": {
+      "turns": [
+        {
+          "speaker": "Marta",
+          "text": "Hola. Me llamo Marta.",
+          "audioReferenceId": "es.audio.dialogue.hola_me_llamo_marta"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Me llamo {name}.",
+          "learner": true,
+          "response_patterns": [
+            "Me llamo {name}."
+          ],
+          "response_mode": "prefix_with_value",
+          "allowed_slots": {
+            "name": [
+              "Ana",
+              "Luis",
+              "Marta"
+            ]
+          }
+        },
+        {
+          "speaker": "Marta",
+          "text": "Mucho gusto.",
+          "audioReferenceId": "es.audio.dialogue.mucho_gusto"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Igualmente.",
+          "learner": true,
+          "response_patterns": [
+            "Igualmente."
+          ],
+          "response_mode": "exact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m02.l008.build_meeting",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Що сказати після Mucho gusto?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "igualmente",
+          "label": "Igualmente."
+        },
+        {
+          "id": "mucho",
+          "label": "Mucho"
+        },
+        {
+          "id": "gusto",
+          "label": "gusto."
+        },
+        {
+          "id": "gracias",
+          "label": "Gracias."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "igualmente"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.igualmente"
+    }
+  }
+]

@@ -518,6 +518,24 @@ abstract class AppLocalizations {
   /// **'Answer'**
   String get answerLabel;
 
+  /// No description provided for @sentenceBuilderAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Your answer'**
+  String get sentenceBuilderAnswer;
+
+  /// No description provided for @sentenceBuilderAvailableWords.
+  ///
+  /// In en, this message translates to:
+  /// **'Available words'**
+  String get sentenceBuilderAvailableWords;
+
+  /// No description provided for @sentenceBuilderClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get sentenceBuilderClear;
+
   /// No description provided for @learnerSpeakerLabel.
   ///
   /// In en, this message translates to:

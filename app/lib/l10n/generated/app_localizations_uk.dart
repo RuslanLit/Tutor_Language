@@ -237,6 +237,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get answerLabel => 'Відповідь';
 
   @override
+  String get sentenceBuilderAnswer => 'Твоя відповідь';
+
+  @override
+  String get sentenceBuilderAvailableWords => 'Доступні слова';
+
+  @override
+  String get sentenceBuilderClear => 'Очистити';
+
+  @override
   String get learnerSpeakerLabel => 'Ти';
 
   @override

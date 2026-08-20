@@ -12,6 +12,7 @@ class ActivityTemplateState {
     this.dialogueTurnIndex = 0,
     this.dialogueResponses = const [],
     this.dialogueCompleted = false,
+    this.selectedTokenIds = const [],
   });
 
   final String? selectedOptionId;
@@ -22,6 +23,7 @@ class ActivityTemplateState {
   final int dialogueTurnIndex;
   final List<String> dialogueResponses;
   final bool dialogueCompleted;
+  final List<String> selectedTokenIds;
 
   bool get isCompleted => result != null;
 
@@ -34,6 +36,7 @@ class ActivityTemplateState {
     int? dialogueTurnIndex,
     List<String>? dialogueResponses,
     bool? dialogueCompleted,
+    List<String>? selectedTokenIds,
   }) {
     return ActivityTemplateState(
       selectedOptionId: selectedOptionId == _unset
@@ -46,6 +49,7 @@ class ActivityTemplateState {
       dialogueTurnIndex: dialogueTurnIndex ?? this.dialogueTurnIndex,
       dialogueResponses: dialogueResponses ?? this.dialogueResponses,
       dialogueCompleted: dialogueCompleted ?? this.dialogueCompleted,
+      selectedTokenIds: selectedTokenIds ?? this.selectedTokenIds,
     );
   }
 }

@@ -238,6 +238,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get answerLabel => 'Odpowiedź';
 
   @override
+  String get sentenceBuilderAnswer => 'Twoja odpowiedź';
+
+  @override
+  String get sentenceBuilderAvailableWords => 'Dostępne słowa';
+
+  @override
+  String get sentenceBuilderClear => 'Wyczyść';
+
+  @override
   String get learnerSpeakerLabel => 'Ty';
 
   @override

@@ -4,6 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tutor_language/core/audio/reference_audio.dart';
+import 'package:tutor_language/core/audio/reference_audio_button.dart';
+import 'package:tutor_language/core/audio/reference_audio_providers.dart';
+import 'package:tutor_language/core/content/audio_reference_models.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/features/activity_engine/activity_engine.dart';
 import 'package:tutor_language/features/activity_engine/activity_result.dart';
@@ -12,6 +16,143 @@ import 'package:tutor_language/features/activity_engine/activity_widgets.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
+  testWidgets(
+    'sentence builder plays approved reference audio only after success',
+    (tester) async {
+      final backend = _SentenceBuilderFakeBackend();
+      final service = ReferenceAudioPlaybackService(
+        repository: Future.value(
+          ReferenceAudioRepository(_sentenceBuilderManifest),
+        ),
+        backend: backend,
+      );
+
+      await tester.pumpWidget(
+        _localizedApp(
+          const Scaffold(
+            body: ActivityTemplateWidget(template: _sentenceBuilderTemplate),
+          ),
+          overrides: [
+            referenceAudioPlaybackServiceProvider.overrideWithValue(service),
+          ],
+        ),
+      );
+      expect(backend.playCalls, 0);
+      expect(find.byType(ReferenceAudioButton), findsNothing);
+
+      await tester.tap(find.widgetWithText(ActionChip, 'Hola.'));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      await tester.pump();
+
+      expect(find.text('Hola.'), findsAtLeastNWidgets(2));
+      expect(find.byType(ReferenceAudioButton), findsOneWidget);
+      expect(backend.playCalls, 1);
+
+      await tester.pump();
+      expect(backend.playCalls, 1);
+      await tester.tap(find.byType(IconButton));
+      await tester.pumpAndSettle();
+      expect(backend.playCalls, 2);
+      await service.dispose();
+    },
+  );
+
+  testWidgets('incorrect sentence builder answer does not play target audio', (
+    tester,
+  ) async {
+    final backend = _SentenceBuilderFakeBackend();
+    final service = ReferenceAudioPlaybackService(
+      repository: Future.value(
+        ReferenceAudioRepository(_sentenceBuilderManifest),
+      ),
+      backend: backend,
+    );
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(template: _sentenceBuilderWrongTemplate),
+        ),
+        overrides: [
+          referenceAudioPlaybackServiceProvider.overrideWithValue(service),
+        ],
+      ),
+    );
+    await tester.tap(find.widgetWithText(ActionChip, 'Adiós.'));
+    await tester.pump();
+    await tester.tap(find.text('Check'));
+    await tester.pump();
+    expect(backend.playCalls, 0);
+    expect(find.byType(ReferenceAudioButton), findsNothing);
+
+    await service.dispose();
+  });
+
+  testWidgets('sentence builder labels are localized in Ukrainian', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _localizedApp(
+        const Scaffold(
+          body: ActivityTemplateWidget(template: _sentenceBuilderTemplate),
+        ),
+        locale: const Locale('uk'),
+      ),
+    );
+
+    expect(find.text('Твоя відповідь'), findsOneWidget);
+    expect(find.text('Доступні слова'), findsOneWidget);
+    expect(find.text('Очистити'), findsOneWidget);
+    expect(find.text('YOUR ANSWER'), findsNothing);
+    expect(find.text('AVAILABLE WORDS'), findsNothing);
+    expect(find.text('Reset'), findsNothing);
+  });
+
+  testWidgets(
+    'sentence builder keeps one shuffled pool across rebuild and clear',
+    (tester) async {
+      await tester.pumpWidget(
+        _localizedApp(
+          const Scaffold(
+            body: ActivityTemplateWidget(
+              template: _shuffledSentenceBuilderTemplate,
+            ),
+          ),
+        ),
+      );
+      final initial = _actionChipLabels(tester);
+      expect(initial, isNot(equals(['¿Cómo', 'te', 'llamas?', 'Soy', 'de'])));
+      expect(initial, containsAll(['¿Cómo', 'te', 'llamas?', 'Soy', 'de']));
+
+      await tester.pumpWidget(
+        _localizedApp(
+          const Scaffold(
+            body: ActivityTemplateWidget(
+              template: _shuffledSentenceBuilderTemplate,
+            ),
+          ),
+        ),
+      );
+      expect(_actionChipLabels(tester), initial);
+
+      await tester.tap(find.widgetWithText(ActionChip, '¿Cómo'));
+      await tester.pump();
+      await tester.tap(find.text('Clear'));
+      await tester.pump();
+      expect(_actionChipLabels(tester), initial);
+
+      await tester.tap(find.widgetWithText(ActionChip, 'de'));
+      await tester.pump();
+      await tester.tap(find.text('Check'));
+      await tester.pump();
+      expect(find.text('Correct'), findsNothing);
+      await tester.tap(find.byIcon(Icons.cancel));
+      await tester.pump();
+      expect(_actionChipLabels(tester), initial);
+    },
+  );
+
   testWidgets(
     'guided dialogue opens on the first learner turn, not an audio-only state',
     (tester) async {
@@ -726,8 +867,13 @@ void main() {
   });
 }
 
-Widget _localizedApp(Widget child, {Locale? locale}) {
+Widget _localizedApp(
+  Widget child, {
+  Locale? locale,
+  List overrides = const [],
+}) {
   return ProviderScope(
+    overrides: overrides.cast(),
     child: MaterialApp(
       locale: locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -745,6 +891,111 @@ const _fillGapTemplate = ExerciseTemplate(
   requiredObjectTypes: ['vocabulary'],
   promptTemplate: 'Complete: ____',
   expectedAnswer: 'Hola',
+);
+
+const _sentenceBuilderTemplate = ExerciseTemplate(
+  id: 'template.widget.sentence_builder',
+  exerciseType: 'sentence_builder',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Склади привітання.',
+  sentenceBuilder: SentenceBuilder(
+    tokens: [
+      SentenceBuilderToken(id: 'hola', label: 'Hola.'),
+      SentenceBuilderToken(id: 'adios', label: 'Adiós.'),
+    ],
+    acceptedSequences: [
+      ['hola'],
+    ],
+    audioReferenceId: 'es.audio.test.hola',
+  ),
+);
+
+const _sentenceBuilderWrongTemplate = ExerciseTemplate(
+  id: 'template.widget.sentence_builder_wrong',
+  exerciseType: 'sentence_builder',
+  supportedGoalTypes: ['review_vocabulary'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Склади привітання.',
+  sentenceBuilder: SentenceBuilder(
+    tokens: [
+      SentenceBuilderToken(id: 'hola', label: 'Hola.'),
+      SentenceBuilderToken(id: 'adios', label: 'Adiós.'),
+    ],
+    acceptedSequences: [
+      ['hola'],
+    ],
+    audioReferenceId: 'es.audio.test.hola',
+  ),
+);
+
+final _sentenceBuilderManifest = AudioReferenceManifest(
+  schemaVersion: 1,
+  audioRoot: 'assets/languages/spanish/audio/reference',
+  assets: [
+    AudioReferenceAsset(
+      id: 'es.audio.test.hola',
+      assetPath: 'assets/languages/spanish/audio/reference/test.wav',
+      transcript: 'Hola.',
+      languageCode: 'es',
+      locale: 'es_ES',
+      voiceId: 'test',
+      purpose: AudioReferencePurpose.phrase,
+      qaStatus: AudioReferenceQaStatus.approved,
+      provenance: AudioReferenceProvenance(
+        engine: 'test',
+        voice: 'test',
+        locale: 'es_ES',
+        generationRole: 'test',
+      ),
+    ),
+  ],
+);
+
+class _SentenceBuilderFakeBackend implements ReferenceAudioBackend {
+  int playCalls = 0;
+
+  @override
+  Future<void> dispose() async {}
+
+  @override
+  Future<void> play() async => playCalls++;
+
+  @override
+  Future<void> setAsset(String assetPath) async {}
+
+  @override
+  Future<void> setFile(String filePath) async {}
+
+  @override
+  Future<void> stop() async {}
+}
+
+List<String> _actionChipLabels(WidgetTester tester) {
+  return tester
+      .widgetList<ActionChip>(find.byType(ActionChip))
+      .map((chip) => (chip.label as Text).data!)
+      .toList();
+}
+
+const _shuffledSentenceBuilderTemplate = ExerciseTemplate(
+  id: 'template.widget.sentence_builder.shuffle',
+  exerciseType: 'sentence_builder',
+  supportedGoalTypes: ['review_grammar'],
+  requiredObjectTypes: ['dialogue'],
+  promptTemplate: 'Склади питання.',
+  sentenceBuilder: SentenceBuilder(
+    tokens: [
+      SentenceBuilderToken(id: 'como', label: '¿Cómo'),
+      SentenceBuilderToken(id: 'te', label: 'te'),
+      SentenceBuilderToken(id: 'llamas', label: 'llamas?'),
+      SentenceBuilderToken(id: 'soy', label: 'Soy'),
+      SentenceBuilderToken(id: 'de', label: 'de'),
+    ],
+    acceptedSequences: [
+      ['como', 'te', 'llamas'],
+    ],
+  ),
 );
 
 const _textEntryTemplate = ExerciseTemplate(

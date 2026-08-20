@@ -13,7 +13,6 @@ import 'package:tutor_language/core/content/semantic_localization.dart';
 import 'package:tutor_language/core/content/topic_content.dart';
 import 'package:tutor_language/core/database/app_database.dart';
 import 'package:tutor_language/core/database/database_provider.dart';
-import 'package:tutor_language/core/learner/lesson_attempt.dart';
 import 'package:tutor_language/core/learner/learner_progress.dart';
 import 'package:tutor_language/core/learner/learner_progress_repository.dart';
 import 'package:tutor_language/features/curriculum/curriculum_models.dart';
@@ -140,7 +139,7 @@ void main() {
     },
   );
 
-  testWidgets('completed lesson continues directly to next course lesson', (
+  testWidgets('debug completed lesson remains active and interactive', (
     tester,
   ) async {
     final database = AppDatabase(NativeDatabase.memory());
@@ -152,21 +151,14 @@ void main() {
     await tester.tap(find.text('Alpha'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Finish Lesson'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue to next lesson'));
-    await tester.pumpAndSettle();
-
-    expect(assemblyService.requestedLessonIds, ['lesson.alpha', 'lesson.beta']);
-    expect(find.text('Beta'), findsOneWidget);
-
-    final latest = await LearnerProgressRepository(
-      database,
-    ).getLatestLessonAttempt('lesson.alpha');
-    expect(latest?.purpose, LessonAttemptPurpose.normal);
+    expect(assemblyService.requestedLessonIds, ['lesson.alpha']);
+    expect(find.text('Finish Lesson'), findsOneWidget);
+    expect(find.text('Lesson completed'), findsNothing);
+    expect(find.text('Continue to next lesson'), findsNothing);
+    expect(await LearnerProgressRepository(database).getLessonAttempts('lesson.alpha'), isEmpty);
   });
 
-  testWidgets('completed lesson tile launches review without a new attempt', (
+  testWidgets('completed lesson tile launches active QA without a new attempt', (
     tester,
   ) async {
     final database = AppDatabase(NativeDatabase.memory());
@@ -189,18 +181,15 @@ void main() {
 
     expect(find.text('Fake Vocabulary'), findsOneWidget);
     expect(find.text('Step 1 / 1'), findsOneWidget);
-    expect(find.text('Continue to next lesson'), findsOneWidget);
+    expect(find.text('Finish Lesson'), findsOneWidget);
     expect(find.text('Lesson completed'), findsNothing);
     expect(find.text('Repeat lesson'), findsNothing);
     expect(await repository.getLessonAttempts('lesson.alpha'), isEmpty);
 
-    await tester.tap(find.text('Continue to next lesson'));
-    await tester.pumpAndSettle();
-    expect(find.text('Beta'), findsOneWidget);
     expect(await repository.getLessonAttempts('lesson.alpha'), isEmpty);
   });
 
-  testWidgets('completed final lesson review returns to course', (
+  testWidgets('completed final lesson opens active QA', (
     tester,
   ) async {
     final database = AppDatabase(NativeDatabase.memory());
@@ -224,12 +213,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Step 1 / 1'), findsOneWidget);
-    expect(find.text('Back to course'), findsOneWidget);
-    expect(find.text('Continue to next lesson'), findsNothing);
-
-    await tester.tap(find.text('Back to course'));
-    await tester.pumpAndSettle();
-    expect(find.text('Spanish A0'), findsOneWidget);
+    expect(find.text('Finish Lesson'), findsOneWidget);
+    expect(find.text('Lesson completed'), findsNothing);
     expect(await repository.getLessonAttempts('lesson.gamma'), isEmpty);
   });
 }
@@ -261,7 +246,8 @@ ProviderScope _app(
                     : null;
                 return LessonPlayerScreen(
                   lessonId: state.pathParameters['lessonId'] ?? '',
-                  reviewMode: intent?.mode == LessonLaunchMode.review,
+                    reviewMode: intent?.mode == LessonLaunchMode.review,
+                    qaMode: intent?.mode == LessonLaunchMode.qa,
                 );
               },
             ),

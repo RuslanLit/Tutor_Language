@@ -112,6 +112,70 @@ void main() {
     );
   });
 
+  test(
+    'guided exact dialogue accepts harmless terminal punctuation variation',
+    () {
+      const template = ExerciseTemplate(
+        id: 'template.guided.exact.punctuation',
+        exerciseType: 'guided_dialogue',
+        supportedGoalTypes: ['test'],
+        requiredObjectTypes: ['dialogue'],
+        promptTemplate: 'Reply.',
+        guidedDialogue: GuidedDialogue(
+          turns: [
+            GuidedDialogueTurn(
+              speaker: 'Tú',
+              text: 'Igualmente.',
+              learner: true,
+              responsePatterns: ['Igualmente.'],
+              responseMode: 'exact',
+            ),
+          ],
+        ),
+      );
+
+      for (final answer in ['Igualmente', 'Igualmente.']) {
+        final result = const ActivityEngine().evaluate(
+          template: template,
+          submission: ActivitySubmission(submittedAnswer: answer),
+        );
+        expect(result.isCorrect, isTrue, reason: answer);
+      }
+    },
+  );
+
+  test(
+    'sentence builder evaluates equivalent visible tokens, not token IDs',
+    () {
+      const template = ExerciseTemplate(
+        id: 'template.sentence.duplicate-visible-token',
+        exerciseType: 'sentence_builder',
+        supportedGoalTypes: ['test'],
+        requiredObjectTypes: ['dialogue'],
+        promptTemplate: 'Build it.',
+        sentenceBuilder: SentenceBuilder(
+          tokens: [
+            SentenceBuilderToken(id: 'me', label: 'Me'),
+            SentenceBuilderToken(id: 'llamo', label: 'llamo'),
+            SentenceBuilderToken(id: 'marta.target', label: 'Marta.'),
+            SentenceBuilderToken(id: 'marta.distractor', label: 'Marta.'),
+          ],
+          acceptedSequences: [
+            ['me', 'llamo', 'marta.target'],
+          ],
+        ),
+      );
+
+      final result = const ActivityEngine().evaluate(
+        template: template,
+        submission: const ActivitySubmission(
+          selectedTokenIds: ['me', 'llamo', 'marta.distractor'],
+        ),
+      );
+      expect(result.isCorrect, isTrue);
+    },
+  );
+
   test('propagates accepted-with-feedback through ActivityResult', () {
     final result = const ActivityEngine().evaluate(
       template: _accentTemplate,

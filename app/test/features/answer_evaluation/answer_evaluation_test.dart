@@ -258,6 +258,24 @@ void main() {
       expect(farewell.status, AnswerEvaluationStatus.acceptedWithFeedback);
     });
 
+    test('accepts harmless ordinary terminal punctuation variation', () {
+      for (final pair in {
+        'Igualmente': 'Igualmente.',
+        'Gracias': 'Gracias.',
+        'Hasta luego': 'Hasta luego.',
+        'Me llamo Ana': 'Me llamo Ana.',
+        'Soy de Ucrania': 'Soy de Ucrania.',
+        'Vivo en Kyiv': 'Vivo en Kyiv.',
+        'No hablo francés': 'No hablo francés.',
+      }.entries) {
+        final result = const AnswerEvaluator().evaluateTypedAnswer(
+          learnerAnswer: pair.key,
+          canonicalAnswer: pair.value,
+        );
+        expect(result.isAccepted, isTrue, reason: pair.key);
+      }
+    });
+
     test('does not equate n with ñ', () {
       final word = const AnswerEvaluator().evaluateTypedAnswer(
         learnerAnswer: 'nino',

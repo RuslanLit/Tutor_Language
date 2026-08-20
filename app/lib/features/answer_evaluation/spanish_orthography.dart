@@ -111,10 +111,76 @@ class SpanishOrthographicClassifier {
       return null;
     }
 
+    final ordinaryTerminalAnalysis = _stripOrdinaryTerminalPunctuation(
+      learner: exclamationAnalysis.learnerCore,
+      canonical: exclamationAnalysis.canonicalCore,
+    );
+    if (ordinaryTerminalAnalysis == null) {
+      return null;
+    }
+
     return _BoundaryPunctuationAnalysis(
-      learnerCore: exclamationAnalysis.learnerCore,
-      canonicalCore: exclamationAnalysis.canonicalCore,
-      differences: [...differences, ...exclamationAnalysis.differences],
+      learnerCore: ordinaryTerminalAnalysis.learnerCore,
+      canonicalCore: ordinaryTerminalAnalysis.canonicalCore,
+      differences: [
+        ...differences,
+        ...exclamationAnalysis.differences,
+        ...ordinaryTerminalAnalysis.differences,
+      ],
+    );
+  }
+
+  _BoundaryPunctuationAnalysis? _stripOrdinaryTerminalPunctuation({
+    required String learner,
+    required String canonical,
+  }) {
+    const punctuation = '.,;:';
+    final canonicalMark =
+        canonical.isNotEmpty &&
+            punctuation.contains(canonical[canonical.length - 1])
+        ? canonical[canonical.length - 1]
+        : null;
+    final learnerMark =
+        learner.isNotEmpty && punctuation.contains(learner[learner.length - 1])
+        ? learner[learner.length - 1]
+        : null;
+
+    if (canonicalMark == null && learnerMark == null) {
+      return _BoundaryPunctuationAnalysis(
+        learnerCore: learner,
+        canonicalCore: canonical,
+        differences: const [],
+      );
+    }
+
+    final learnerCore = learnerMark == null
+        ? learner
+        : learner.substring(0, learner.length - 1).trimRight();
+    final canonicalCore = canonicalMark == null
+        ? canonical
+        : canonical.substring(0, canonical.length - 1).trimRight();
+    if (learnerCore != canonicalCore) {
+      return _BoundaryPunctuationAnalysis(
+        learnerCore: learner,
+        canonicalCore: canonical,
+        differences: const [],
+      );
+    }
+
+    final difference = learnerMark == canonicalMark
+        ? const <AnswerDifference>[]
+        : [
+            AnswerDifference(
+              type: AnswerDifferenceType.terminalPunctuation,
+              feedbackKey: 'spanish.terminal_punctuation',
+              canonicalFragment: canonicalMark,
+              learnerFragment: learnerMark,
+            ),
+          ];
+    return _BoundaryPunctuationAnalysis(
+      learnerCore: learnerCore,
+      canonicalCore: canonicalCore,
+      differences: difference,
     );
   }
 

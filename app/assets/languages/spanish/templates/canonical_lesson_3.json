@@ -1,7 +1,7 @@
 [
   {
     "id": "template.es.a0.m01.l003.choose_how_are_you_question",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -9,25 +9,45 @@
       "dialogue"
     ],
     "prompt_template": "Ти вже привітався і назвав ім'я. Тепер треба запитати, як справи.\n\nВибери 1 питання іспанською.",
-    "answer_options": [
-      {
-        "id": "como_estas",
-        "label": "¿Cómo estás?"
-      },
-      {
-        "id": "como_te_llamas",
-        "label": "¿Cómo te llamas?"
-      },
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      }
-    ],
-    "correct_option_id": "como_estas"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "c_mo_1_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "est_s_1_2",
+          "label": "estás?"
+        },
+        {
+          "id": "te_2_2",
+          "label": "te"
+        },
+        {
+          "id": "llamas_2_3",
+          "label": "llamas?"
+        },
+        {
+          "id": "d_nde_3_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_3_2",
+          "label": "vives?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "c_mo_1_1",
+          "est_s_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.como_estas"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_good_status_reply",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -35,25 +55,54 @@
       "dialogue"
     ],
     "prompt_template": "Ana питає: ¿Cómo estás?\n\nТи хочеш відповісти, що все добре, і подякувати.\n\nВибери 1 репліку.",
-    "answer_options": [
-      {
-        "id": "estoy_bien_gracias",
-        "label": "Estoy bien, gracias."
-      },
-      {
-        "id": "soy_de_ucrania",
-        "label": "Soy de Ucrania."
-      },
-      {
-        "id": "hasta_pronto",
-        "label": "Hasta pronto."
-      }
-    ],
-    "correct_option_id": "estoy_bien_gracias"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "estoy_1_1",
+          "label": "Estoy"
+        },
+        {
+          "id": "bien_1_2",
+          "label": "bien,"
+        },
+        {
+          "id": "gracias_1_3",
+          "label": "gracias."
+        },
+        {
+          "id": "soy_2_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_2_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_2_3",
+          "label": "Ucrania."
+        },
+        {
+          "id": "hasta_3_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "pronto_3_2",
+          "label": "pronto."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "estoy_1_1",
+          "bien_1_2",
+          "gracias_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.estoy_bien_gracias"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_return_question",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -61,21 +110,41 @@
       "grammar"
     ],
     "prompt_template": "Ти відповів: Estoy bien, gracias.\n\nТепер хочеш коротко запитати те саме у співрозмовника.\n\nВибери 1 репліку.",
-    "answer_options": [
-      {
-        "id": "y_tu",
-        "label": "¿Y tú?"
-      },
-      {
-        "id": "de_nada",
-        "label": "De nada."
-      },
-      {
-        "id": "lo_siento",
-        "label": "Lo siento."
-      }
-    ],
-    "correct_option_id": "y_tu"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "y_1_1",
+          "label": "¿Y"
+        },
+        {
+          "id": "t_1_2",
+          "label": "tú?"
+        },
+        {
+          "id": "de_2_1",
+          "label": "De"
+        },
+        {
+          "id": "nada_2_2",
+          "label": "nada."
+        },
+        {
+          "id": "lo_3_1",
+          "label": "Lo"
+        },
+        {
+          "id": "siento_3_2",
+          "label": "siento."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "y_1_1",
+          "t_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.y_tu"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.restore_status_exchange",
@@ -91,7 +160,7 @@
   },
   {
     "id": "template.es.a0.m01.l003.choose_mas_o_menos_context",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_communicative_function"
     ],
@@ -99,25 +168,55 @@
       "grammar"
     ],
     "prompt_template": "Ти не хочеш сказати, що все чудово. Хочеш відповісти: більш-менш.\n\nВибери 1 природну репліку.",
-    "answer_options": [
-      {
-        "id": "mas_o_menos",
-        "label": "Más o menos, gracias."
-      },
-      {
-        "id": "muy_bien",
-        "label": "Muy bien, gracias."
-      },
-      {
-        "id": "de_nada",
-        "label": "De nada."
-      }
-    ],
-    "correct_option_id": "mas_o_menos"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "m_s_1_1",
+          "label": "Más"
+        },
+        {
+          "id": "o_1_2",
+          "label": "o"
+        },
+        {
+          "id": "menos_1_3",
+          "label": "menos,"
+        },
+        {
+          "id": "gracias_1_4",
+          "label": "gracias."
+        },
+        {
+          "id": "muy_2_1",
+          "label": "Muy"
+        },
+        {
+          "id": "bien_2_2",
+          "label": "bien,"
+        },
+        {
+          "id": "de_3_1",
+          "label": "De"
+        },
+        {
+          "id": "nada_3_2",
+          "label": "nada."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "m_s_1_1",
+          "o_1_2",
+          "menos_1_3",
+          "gracias_1_4"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.mas_o_menos_gracias"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.identify_de_nada",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -125,25 +224,41 @@
       "grammar"
     ],
     "prompt_template": "Ana каже: Gracias.\n\nВибери 1 відповідь на подяку.",
-    "answer_options": [
-      {
-        "id": "de_nada",
-        "label": "De nada."
-      },
-      {
-        "id": "perdon",
-        "label": "Perdón."
-      },
-      {
-        "id": "como_estas",
-        "label": "¿Cómo estás?"
-      }
-    ],
-    "correct_option_id": "de_nada"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "de_1_1",
+          "label": "De"
+        },
+        {
+          "id": "nada_1_2",
+          "label": "nada."
+        },
+        {
+          "id": "perd_n_2_1",
+          "label": "Perdón."
+        },
+        {
+          "id": "c_mo_3_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "est_s_3_2",
+          "label": "estás?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "de_1_1",
+          "nada_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.de_nada"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_stronger_thanks",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_communicative_function"
     ],
@@ -151,25 +266,45 @@
       "grammar"
     ],
     "prompt_template": "Ти хочеш подякувати сильніше, ніж просто Gracias.\n\nВибери 1 репліку.",
-    "answer_options": [
-      {
-        "id": "muchas_gracias",
-        "label": "Muchas gracias."
-      },
-      {
-        "id": "de_nada",
-        "label": "De nada."
-      },
-      {
-        "id": "nos_vemos",
-        "label": "Nos vemos."
-      }
-    ],
-    "correct_option_id": "muchas_gracias"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "muchas_1_1",
+          "label": "Muchas"
+        },
+        {
+          "id": "gracias_1_2",
+          "label": "gracias."
+        },
+        {
+          "id": "de_2_1",
+          "label": "De"
+        },
+        {
+          "id": "nada_2_2",
+          "label": "nada."
+        },
+        {
+          "id": "nos_3_1",
+          "label": "Nos"
+        },
+        {
+          "id": "vemos_3_2",
+          "label": "vemos."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "muchas_1_1",
+          "gracias_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.muchas_gracias"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_polite_attention",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_phrase"
     ],
@@ -177,25 +312,40 @@
       "grammar"
     ],
     "prompt_template": "Ти хочеш ввічливо привернути увагу перед питанням.\n\nВибери 1 коротку репліку.",
-    "answer_options": [
-      {
-        "id": "perdon",
-        "label": "Perdón."
-      },
-      {
-        "id": "muy_bien",
-        "label": "Muy bien."
-      },
-      {
-        "id": "de_nada",
-        "label": "De nada."
-      }
-    ],
-    "correct_option_id": "perdon"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "perd_n_1_1",
+          "label": "Perdón."
+        },
+        {
+          "id": "muy_2_1",
+          "label": "Muy"
+        },
+        {
+          "id": "bien_2_2",
+          "label": "bien."
+        },
+        {
+          "id": "de_3_1",
+          "label": "De"
+        },
+        {
+          "id": "nada_3_2",
+          "label": "nada."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "perd_n_1_1"
+        ]
+      ],
+      "audioReferenceId": "es.audio.word.perdon"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_apology_function",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_communicative_function"
     ],
@@ -203,25 +353,45 @@
       "grammar"
     ],
     "prompt_template": "Ти хочеш сказати, що тобі шкода.\n\nВибери 1 репліку.",
-    "answer_options": [
-      {
-        "id": "lo_siento",
-        "label": "Lo siento."
-      },
-      {
-        "id": "hasta_luego",
-        "label": "Hasta luego."
-      },
-      {
-        "id": "muchas_gracias",
-        "label": "Muchas gracias."
-      }
-    ],
-    "correct_option_id": "lo_siento"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "lo_1_1",
+          "label": "Lo"
+        },
+        {
+          "id": "siento_1_2",
+          "label": "siento."
+        },
+        {
+          "id": "hasta_2_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_2_2",
+          "label": "luego."
+        },
+        {
+          "id": "muchas_3_1",
+          "label": "Muchas"
+        },
+        {
+          "id": "gracias_3_2",
+          "label": "gracias."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "lo_1_1",
+          "siento_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.lo_siento"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.choose_farewell_variant",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -229,21 +399,41 @@
       "dialogue"
     ],
     "prompt_template": "Розмова завершується. Ти хочеш сказати: до скорого.\n\nВибери 1 репліку.",
-    "answer_options": [
-      {
-        "id": "hasta_pronto",
-        "label": "Hasta pronto."
-      },
-      {
-        "id": "como_estas",
-        "label": "¿Cómo estás?"
-      },
-      {
-        "id": "estoy_bien",
-        "label": "Estoy bien."
-      }
-    ],
-    "correct_option_id": "hasta_pronto"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "hasta_1_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "pronto_1_2",
+          "label": "pronto."
+        },
+        {
+          "id": "c_mo_2_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "est_s_2_2",
+          "label": "estás?"
+        },
+        {
+          "id": "estoy_3_1",
+          "label": "Estoy"
+        },
+        {
+          "id": "bien_3_2",
+          "label": "bien."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "hasta_1_1",
+          "pronto_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.hasta_pronto"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.order_polite_middle",
@@ -271,7 +461,7 @@
   },
   {
     "id": "template.es.a0.m01.l003.choose_next_after_origin",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_next_dialogue_line"
     ],
@@ -279,21 +469,50 @@
       "dialogue"
     ],
     "prompt_template": "Ana відповіла: Soy de España. Vivo en Madrid.\n\nТи хочеш ввічливо завершити розмову.\n\nВибери 1 наступну репліку.",
-    "answer_options": [
-      {
-        "id": "gracias_hasta_luego",
-        "label": "Gracias. Hasta luego."
-      },
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      },
-      {
-        "id": "me_llamo_marta",
-        "label": "Me llamo Marta."
-      }
-    ],
-    "correct_option_id": "gracias_hasta_luego"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "gracias_1_1",
+          "label": "Gracias."
+        },
+        {
+          "id": "hasta_1_2",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_1_3",
+          "label": "luego."
+        },
+        {
+          "id": "d_nde_2_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_2_2",
+          "label": "vives?"
+        },
+        {
+          "id": "me_3_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_3_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_3_3",
+          "label": "Marta."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "gracias_1_1",
+          "hasta_1_2",
+          "luego_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
+    }
   },
   {
     "id": "template.es.a0.m01.l003.complete_polite_conversation",
@@ -322,5 +541,48 @@
       "Hola. Me llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿Cómo estás?\nEstoy bien, gracias. ¿Y tú?\nMuy bien, gracias.\nMuchas gracias. Hasta pronto.",
       "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿Cómo estás?\nMás o menos, gracias. ¿Y tú?\nMuy bien, gracias.\nGracias. Adiós."
     ]
+  },
+  {
+    "id": "template.es.a0.m01.l003.build_status",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як сказати: «Я добре, дякую»?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "estoy",
+          "label": "Estoy"
+        },
+        {
+          "id": "bien",
+          "label": "bien,"
+        },
+        {
+          "id": "gracias",
+          "label": "gracias."
+        },
+        {
+          "id": "muy",
+          "label": "Muy"
+        },
+        {
+          "id": "de",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "estoy",
+          "bien",
+          "gracias"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.estoy_bien_gracias"
+    }
   }
 ]

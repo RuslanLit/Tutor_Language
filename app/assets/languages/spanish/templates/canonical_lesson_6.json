@@ -1,0 +1,197 @@
+[
+  {
+    "id": "template.es.a0.m01.l006.choose_greeting",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_greeting"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "На початку дня ти вітаєшся з викладачем. Вибери іспанське привітання.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "buenos_1_1",
+          "label": "Buenos"
+        },
+        {
+          "id": "d_as_1_2",
+          "label": "días."
+        },
+        {
+          "id": "buenas_2_1",
+          "label": "Buenas"
+        },
+        {
+          "id": "noches_2_2",
+          "label": "noches."
+        },
+        {
+          "id": "hasta_3_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_3_2",
+          "label": "luego."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "buenos_1_1",
+          "d_as_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.buenos_dias"
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l006.choose_evening",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "choose_contextual_greeting"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти зустрічаєш людину ввечері. Вибери природне привітання.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "buenas_1_1",
+          "label": "Buenas"
+        },
+        {
+          "id": "tardes_1_2",
+          "label": "tardes."
+        },
+        {
+          "id": "buenos_2_1",
+          "label": "Buenos"
+        },
+        {
+          "id": "d_as_2_2",
+          "label": "días."
+        },
+        {
+          "id": "adi_s_3_1",
+          "label": "Adiós."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "buenas_1_1",
+          "tardes_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.buenas_tardes"
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l006.recall_greetings",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Введи два привітання іспанською, кожне з нового рядка: ранок, вечір.",
+    "expected_answer": "Buenos días.\nBuenas tardes."
+  },
+  {
+    "id": "template.es.a0.m01.l006.recall_night",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як сказати іспанською «Доброї ночі»? Напиши повну фразу.",
+    "expected_answer": "Buenas noches."
+  },
+  {
+    "id": "template.es.a0.m01.l006.guided_greeting",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": [
+      "guided_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Проведи короткий обмін привітаннями. Відповідай іспанською.",
+    "guided_dialogue": {
+      "turns": [
+        {
+          "speaker": "Marta",
+          "text": "Buenos días.",
+          "audioReferenceId": "es.audio.phrase.buenos_dias"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Buenos días.",
+          "learner": true,
+          "response_patterns": [
+            "Buenos días.",
+            "Hola."
+          ],
+          "response_mode": "exact"
+        },
+        {
+          "speaker": "Marta",
+          "text": "Hasta luego.",
+          "audioReferenceId": "es.audio.dialogue.hasta_luego"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Hasta luego.",
+          "learner": true,
+          "response_patterns": [
+            "Hasta luego.",
+            "Adiós."
+          ],
+          "response_mode": "exact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l006.build_greeting",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Склади вечірнє привітання.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "buenas",
+          "label": "Buenas"
+        },
+        {
+          "id": "tardes",
+          "label": "tardes."
+        },
+        {
+          "id": "noches",
+          "label": "noches."
+        },
+        {
+          "id": "hasta",
+          "label": "Hasta"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "buenas",
+          "tardes"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.buenas_tardes"
+    }
+  }
+]

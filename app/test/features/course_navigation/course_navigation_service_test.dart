@@ -117,19 +117,25 @@ void main() {
       'es.a0.m01.l003',
       'es.a0.m01.l004',
       'es.a0.m01.l005',
+      'es.a0.m01.l006',
+      'es.a0.m01.l007',
     ]);
     expect(module1.lessons.first.title, 'Урок 1');
     expect(module1.lessons[1].title, 'Урок 2');
     expect(module1.lessons[2].title, 'Ввічлива розмова');
     expect(module1.lessons[3].title, 'Люди навколо нас');
     expect(module1.lessons[4].title, 'Проста розмова про людину');
+    expect(module1.lessons[5].title, 'Привітання в розмові');
+    expect(module1.lessons[6].title, 'Як підтримати розмову');
     expect(module1.lessons.first.position.indexInCourse, 1);
-    expect(module1.lessons.last.position.indexInCourse, 5);
-    expect(module1.lessons.first.position.totalLessons, 5);
-    expect(module1.lessons.last.position.totalLessons, 5);
+    expect(module1.lessons.last.position.indexInCourse, 7);
+    expect(module1.lessons.first.position.totalLessons, 10);
+    expect(module1.lessons.last.position.totalLessons, 10);
     expect(state.nextLessonId, 'es.a0.m01.l001');
     expect(module1.lessons.first.status, LessonNavigationStatus.available);
     expect(module1.lessons.skip(1).map((lesson) => lesson.status), [
+      LessonNavigationStatus.locked,
+      LessonNavigationStatus.locked,
       LessonNavigationStatus.locked,
       LessonNavigationStatus.locked,
       LessonNavigationStatus.locked,
@@ -142,8 +148,8 @@ void main() {
           .map((lesson) => lesson.lessonId)
           .toSet(),
     );
-    expect(completedState.nextLessonId, isNull);
-    expect(completedState.isCourseCompleted, isTrue);
+    expect(completedState.nextLessonId, 'es.a0.m02.l008');
+    expect(completedState.isCourseCompleted, isFalse);
   });
 
   test(

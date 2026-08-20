@@ -1,0 +1,218 @@
+[
+  {
+    "id": "template.es.a0.m01.l007.choose_repair",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "review_communication_repair"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Ти не зрозумів репліку. Вибери, що сказати.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "no_1_1",
+          "label": "No"
+        },
+        {
+          "id": "entiendo_1_2",
+          "label": "entiendo."
+        },
+        {
+          "id": "gracias_2_1",
+          "label": "Gracias."
+        },
+        {
+          "id": "buenos_3_1",
+          "label": "Buenos"
+        },
+        {
+          "id": "d_as_3_2",
+          "label": "días."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "no_1_1",
+          "entiendo_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.no_entiendo"
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l007.choose_courtesy",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "review_courtesy"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Попроси ввічливо повторити.",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "repite_1_1",
+          "label": "Repite,"
+        },
+        {
+          "id": "por_1_2",
+          "label": "por"
+        },
+        {
+          "id": "favor_1_3",
+          "label": "favor."
+        },
+        {
+          "id": "hasta_2_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_2_2",
+          "label": "luego."
+        },
+        {
+          "id": "soy_3_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_3_3",
+          "label": "Ucrania."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "repite_1_1",
+          "por_1_2",
+          "favor_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.repite_por_favor"
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l007.recall_core",
+    "exercise_type": "fill_gap",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Введи іспанською: «Дякую. До зустрічі.»",
+    "expected_answer": "Gracias. Hasta luego."
+  },
+  {
+    "id": "template.es.a0.m01.l007.recall_slow",
+    "exercise_type": "text_entry",
+    "supported_goal_types": [
+      "typed_recall"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як попросити говорити повільніше? Напиши іспанською.",
+    "expected_answer": "Más despacio, por favor."
+  },
+  {
+    "id": "template.es.a0.m01.l007.guided_repair",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": [
+      "guided_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Використай знайомі фрази, щоб привітатися, попросити повторити й попрощатися.",
+    "guided_dialogue": {
+      "turns": [
+        {
+          "speaker": "Ana",
+          "text": "Hola. ¿Cómo estás?",
+          "audioReferenceId": "es.audio.question.hola_ana_como_estas"
+        },
+        {
+          "speaker": "Tú",
+          "text": "No entiendo.",
+          "learner": true,
+          "response_patterns": [
+            "No entiendo."
+          ],
+          "response_mode": "exact"
+        },
+        {
+          "speaker": "Ana",
+          "text": "Repite, por favor."
+        },
+        {
+          "speaker": "Tú",
+          "text": "Más despacio, por favor.",
+          "learner": true,
+          "response_patterns": [
+            "Más despacio, por favor."
+          ],
+          "response_mode": "exact"
+        },
+        {
+          "speaker": "Ana",
+          "text": "Gracias.",
+          "audioReferenceId": "es.audio.word.gracias"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Hasta luego.",
+          "learner": true,
+          "response_patterns": [
+            "Hasta luego.",
+            "Adiós."
+          ],
+          "response_mode": "exact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "template.es.a0.m01.l007.build_repair",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як сказати: «Я не розумію»?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "no",
+          "label": "No"
+        },
+        {
+          "id": "entiendo",
+          "label": "entiendo."
+        },
+        {
+          "id": "gracias",
+          "label": "Gracias."
+        },
+        {
+          "id": "hasta",
+          "label": "Hasta"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "no",
+          "entiendo"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.no_entiendo"
+    }
+  }
+]

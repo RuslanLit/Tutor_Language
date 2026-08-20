@@ -181,6 +181,9 @@ bool _requiresCompletion(ExerciseTemplate template) {
     'guided_dialogue' =>
       template.guidedDialogue != null &&
           template.guidedDialogue!.turns.any((turn) => turn.learner),
+    'sentence_builder' =>
+      template.sentenceBuilder != null &&
+          template.sentenceBuilder!.acceptedSequences.isNotEmpty,
     _ => false,
   };
 }

@@ -231,6 +231,38 @@ void main() {
     expect(nextDecision.reasonCode, LessonSessionReasonCode.nextStepLocked);
   });
 
+  test('QA navigation skips unanswered steps but keeps results transient', () {
+    final state = engine
+        .startSession(
+          lessonId: lessonId,
+          steps: const [infoStep, practiceStep, finalPracticeStep],
+        )
+        .updatedState;
+
+    final stepTwo = engine.requestNext(state, allowReviewNavigation: true);
+    final stepThree = engine.requestNext(
+      stepTwo.updatedState,
+      allowReviewNavigation: true,
+    );
+
+    expect(stepTwo.type, LessonSessionDecisionType.moveToNextStep);
+    expect(stepTwo.updatedState.currentStepId, practiceStep.id);
+    expect(stepThree.type, LessonSessionDecisionType.moveToNextStep);
+    expect(stepThree.updatedState.currentStepId, finalPracticeStep.id);
+    expect(stepThree.updatedState.resultByStepId, isEmpty);
+    expect(stepThree.updatedState.status, LessonSessionStatus.inProgress);
+
+    final back = engine.requestPrevious(stepThree.updatedState);
+    expect(back.type, LessonSessionDecisionType.moveToPreviousStep);
+    expect(back.updatedState.currentStepId, practiceStep.id);
+    final check = engine.submitStepResult(
+      state: back.updatedState,
+      result: _correctResult,
+    );
+    expect(check.type, LessonSessionDecisionType.showFeedback);
+    expect(check.updatedState.resultByStepId, contains(practiceStep.id));
+  });
+
   test('incorrect then correct completes but remains fragile', () {
     final state = engine
         .startSession(lessonId: lessonId, steps: const [practiceStep])

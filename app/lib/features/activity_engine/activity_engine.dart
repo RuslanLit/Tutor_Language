@@ -20,6 +20,7 @@ class ActivityEngine {
       'fill_gap' => _evaluateFillGap(template, submission),
       'text_entry' => _evaluateFillGap(template, submission),
       'matching' => _evaluateMatching(template, submission),
+      'sentence_builder' => _evaluateSentenceBuilder(template, submission),
       'guided_dialogue' => _evaluateGuidedDialogue(
         template,
         submission,
@@ -33,6 +34,47 @@ class ActivityEngine {
         feedbackText: 'This activity type is not supported yet.',
       ),
     };
+  }
+
+  ActivityResult _evaluateSentenceBuilder(
+    ExerciseTemplate template,
+    ActivitySubmission submission,
+  ) {
+    final builder = template.sentenceBuilder;
+    final selected = submission.selectedTokenIds ?? const <String>[];
+    if (builder == null || builder.acceptedSequences.isEmpty) {
+      return ActivityResult(
+        exerciseId: template.id,
+        isCorrect: false,
+        status: ActivityResultStatus.unsupported,
+        feedbackKey: 'answer.unsupported',
+      );
+    }
+    final labels = {for (final token in builder.tokens) token.id: token.label};
+    final selectedLabels = selected
+        .map((id) => labels[id])
+        .toList(growable: false);
+    final correct = selectedLabels.every((label) => label != null) &&
+        builder.acceptedSequences.any((sequence) {
+          final expectedLabels = sequence
+              .map((id) => labels[id])
+              .toList(growable: false);
+          return expectedLabels.length == selectedLabels.length &&
+              expectedLabels.asMap().entries.every(
+                (entry) => entry.value == selectedLabels[entry.key],
+              );
+        });
+    final answer = selectedLabels.map((label) => label ?? '').join(' ');
+    final expected = builder.acceptedSequences.first
+        .map((id) => labels[id] ?? id)
+        .join(' ');
+    return ActivityResult(
+      exerciseId: template.id,
+      isCorrect: correct,
+      submittedAnswer: answer,
+      expectedAnswer: expected,
+      feedbackKey: _feedbackKey(correct),
+    );
   }
 
   ActivityResult _evaluateGuidedDialogue(

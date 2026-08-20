@@ -1,7 +1,7 @@
 [
   {
     "id": "template.es.a0.m01.l001.identify_morning_greeting",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_contextual_greeting"
     ],
@@ -9,21 +9,33 @@
       "dialogue"
     ],
     "prompt_template": "Ти починаєш чат зранку. Яка перша репліка доречна?",
-    "answer_options": [
-      {
-        "id": "buenos_dias",
-        "label": "Buenos días."
-      },
-      {
-        "id": "adios",
-        "label": "Adiós."
-      },
-      {
-        "id": "gracias",
-        "label": "Gracias."
-      }
-    ],
-    "correct_option_id": "buenos_dias"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "buenos_1_1",
+          "label": "Buenos"
+        },
+        {
+          "id": "d_as_1_2",
+          "label": "días."
+        },
+        {
+          "id": "adi_s_2_1",
+          "label": "Adiós."
+        },
+        {
+          "id": "gracias_3_1",
+          "label": "Gracias."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "buenos_1_1",
+          "d_as_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.buenos_dias"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.identify_opening_function",
@@ -53,7 +65,7 @@
   },
   {
     "id": "template.es.a0.m01.l001.choose_identity_next_line",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_next_identity_line"
     ],
@@ -61,21 +73,42 @@
       "dialogue"
     ],
     "prompt_template": "Ти вже привітався. Яка репліка природно представляє тебе?",
-    "answer_options": [
-      {
-        "id": "me_llamo",
-        "label": "Me llamo Marta."
-      },
-      {
-        "id": "hasta_luego",
-        "label": "Hasta luego."
-      },
-      {
-        "id": "si",
-        "label": "Sí."
-      }
-    ],
-    "correct_option_id": "me_llamo"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "me_1_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_1_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_1_3",
+          "label": "Marta."
+        },
+        {
+          "id": "hasta_2_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_2_2",
+          "label": "luego."
+        },
+        {
+          "id": "s_3_1",
+          "label": "Sí."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "me_1_1",
+          "llamo_1_2",
+          "marta_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.restore_identity_lines",
@@ -108,7 +141,7 @@
   },
   {
     "id": "template.es.a0.m01.l001.choose_name_question",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_name_question"
     ],
@@ -116,21 +149,46 @@
       "dialogue"
     ],
     "prompt_template": "Ти вже назвав своє ім'я.\nЯк запитати ім'я співрозмовниці?",
-    "answer_options": [
-      {
-        "id": "como_te_llamas",
-        "label": "¿Cómo te llamas?"
-      },
-      {
-        "id": "soy_de",
-        "label": "Soy de Ucrania."
-      },
-      {
-        "id": "gracias",
-        "label": "Gracias."
-      }
-    ],
-    "correct_option_id": "como_te_llamas"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "c_mo_1_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "te_1_2",
+          "label": "te"
+        },
+        {
+          "id": "llamas_1_3",
+          "label": "llamas?"
+        },
+        {
+          "id": "soy_2_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_2_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_2_3",
+          "label": "Ucrania."
+        },
+        {
+          "id": "gracias_3_1",
+          "label": "Gracias."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "c_mo_1_1",
+          "te_1_2",
+          "llamas_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.como_te_llamas"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.understand_answer",
@@ -160,7 +218,7 @@
   },
   {
     "id": "template.es.a0.m01.l001.choose_next_message",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_polite_response"
     ],
@@ -168,21 +226,49 @@
       "dialogue"
     ],
     "prompt_template": "Ти зрозумів, що співрозмовницю звати Ana. Яка наступна репліка ввічлива?",
-    "answer_options": [
-      {
-        "id": "mucho_gusto",
-        "label": "Mucho gusto."
-      },
-      {
-        "id": "ask_again",
-        "label": "¿Cómo te llamas?"
-      },
-      {
-        "id": "repeat_self",
-        "label": "Me llamo Marta."
-      }
-    ],
-    "correct_option_id": "mucho_gusto"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "mucho_1_1",
+          "label": "Mucho"
+        },
+        {
+          "id": "gusto_1_2",
+          "label": "gusto."
+        },
+        {
+          "id": "c_mo_2_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "te_2_2",
+          "label": "te"
+        },
+        {
+          "id": "llamas_2_3",
+          "label": "llamas?"
+        },
+        {
+          "id": "me_3_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_3_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_3_3",
+          "label": "Marta."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "mucho_1_1",
+          "gusto_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.mucho_gusto"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.order_first_meeting",
@@ -229,7 +315,7 @@
   },
   {
     "id": "template.es.a0.m01.l001.choose_polite_variant",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_polite_variant"
     ],
@@ -237,25 +323,32 @@
       "dialogue"
     ],
     "prompt_template": "Ти говориш як Marta. Після знайомства хочеш сказати \"приємно познайомитися\" від жіночого імені. Яка форма підходить?",
-    "answer_options": [
-      {
-        "id": "encantada",
-        "label": "Encantada."
-      },
-      {
-        "id": "encantado",
-        "label": "Encantado."
-      },
-      {
-        "id": "adios",
-        "label": "Adiós."
-      }
-    ],
-    "correct_option_id": "encantada"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "encantada_1_1",
+          "label": "Encantada."
+        },
+        {
+          "id": "encantado_2_1",
+          "label": "Encantado."
+        },
+        {
+          "id": "adi_s_3_1",
+          "label": "Adiós."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "encantada_1_1"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.encantada"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.choose_closing_line",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_closing_line"
     ],
@@ -263,21 +356,50 @@
       "dialogue"
     ],
     "prompt_template": "Розмова майже завершена. Яка репліка природно закриває контакт?",
-    "answer_options": [
-      {
-        "id": "hasta_luego",
-        "label": "Gracias. Hasta luego."
-      },
-      {
-        "id": "me_llamo",
-        "label": "Me llamo Marta."
-      },
-      {
-        "id": "hablas",
-        "label": "¿Hablas español?"
-      }
-    ],
-    "correct_option_id": "hasta_luego"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "gracias_1_1",
+          "label": "Gracias."
+        },
+        {
+          "id": "hasta_1_2",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_1_3",
+          "label": "luego."
+        },
+        {
+          "id": "me_2_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_2_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_2_3",
+          "label": "Marta."
+        },
+        {
+          "id": "hablas_3_1",
+          "label": "¿Hablas"
+        },
+        {
+          "id": "espa_ol_3_2",
+          "label": "español?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "gracias_1_1",
+          "hasta_1_2",
+          "luego_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
+    }
   },
   {
     "id": "template.es.a0.m01.l001.guided_full_contact",
@@ -293,12 +415,42 @@
     "production_contract": {
       "mode": "ordered_functions",
       "functions": [
-        {"id": "greeting", "accepted": ["Hola. Buenos días."]},
-        {"id": "self_introduction", "accepted": ["Me llamo Marta."]},
-        {"id": "ask_name", "accepted": ["¿Cómo te llamas?"]},
-        {"id": "name_response", "accepted": ["Me llamo Ana."]},
-        {"id": "polite_reaction", "accepted": ["Mucho gusto."]},
-        {"id": "farewell", "accepted": ["Hasta luego."]}
+        {
+          "id": "greeting",
+          "accepted": [
+            "Hola. Buenos días."
+          ]
+        },
+        {
+          "id": "self_introduction",
+          "accepted": [
+            "Me llamo Marta."
+          ]
+        },
+        {
+          "id": "ask_name",
+          "accepted": [
+            "¿Cómo te llamas?"
+          ]
+        },
+        {
+          "id": "name_response",
+          "accepted": [
+            "Me llamo Ana."
+          ]
+        },
+        {
+          "id": "polite_reaction",
+          "accepted": [
+            "Mucho gusto."
+          ]
+        },
+        {
+          "id": "farewell",
+          "accepted": [
+            "Hasta luego."
+          ]
+        }
       ]
     }
   },
@@ -316,12 +468,44 @@
     "production_contract": {
       "mode": "ordered_functions",
       "functions": [
-        {"id": "greeting", "accepted": ["Hola", "Buenos días", "Hola. Buenos días."]},
-        {"id": "self_introduction", "accepted": ["Me llamo Marta."]},
-        {"id": "ask_name", "accepted": ["¿Cómo te llamas?"]},
-        {"id": "name_response", "accepted": ["Me llamo Ana."]},
-        {"id": "polite_reaction", "accepted": ["Mucho gusto."]},
-        {"id": "farewell", "accepted": ["Hasta luego."]}
+        {
+          "id": "greeting",
+          "accepted": [
+            "Hola",
+            "Buenos días",
+            "Hola. Buenos días."
+          ]
+        },
+        {
+          "id": "self_introduction",
+          "accepted": [
+            "Me llamo Marta."
+          ]
+        },
+        {
+          "id": "ask_name",
+          "accepted": [
+            "¿Cómo te llamas?"
+          ]
+        },
+        {
+          "id": "name_response",
+          "accepted": [
+            "Me llamo Ana."
+          ]
+        },
+        {
+          "id": "polite_reaction",
+          "accepted": [
+            "Mucho gusto."
+          ]
+        },
+        {
+          "id": "farewell",
+          "accepted": [
+            "Hasta luego."
+          ]
+        }
       ]
     },
     "authored_misconceptions": [
@@ -348,5 +532,48 @@
       "template.es.a0.m01.l001.guided_full_contact",
       "template.es.a0.m01.l001.complete_short_dialogue"
     ]
+  },
+  {
+    "id": "template.es.a0.m01.l001.build_identity",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Як сказати: «Мене звати Marta»?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "me",
+          "label": "Me"
+        },
+        {
+          "id": "llamo",
+          "label": "llamo"
+        },
+        {
+          "id": "marta",
+          "label": "Marta."
+        },
+        {
+          "id": "soy",
+          "label": "Soy"
+        },
+        {
+          "id": "de",
+          "label": "de"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "me",
+          "llamo",
+          "marta"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
+    }
   }
 ]

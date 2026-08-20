@@ -24,6 +24,7 @@ enum AnswerDifferenceType {
   missingClosingQuestionMark,
   missingOpeningExclamationMark,
   missingClosingExclamationMark,
+  terminalPunctuation,
 }
 
 class NormalizedAnswer {

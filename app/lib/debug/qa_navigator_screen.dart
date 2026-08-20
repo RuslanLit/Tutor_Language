@@ -4,14 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../app/router/app_router.dart';
 import '../core/content/topic_content.dart';
-import '../features/activity_engine/activity_result.dart';
 import '../features/course_navigation/course_navigation_models.dart';
 import '../features/course_navigation/course_navigation_providers.dart';
 import '../features/lesson_assembly/lesson_content.dart';
 import '../features/lesson_launch/lesson_launch_intent.dart';
 import '../features/lesson_player/lesson_player_providers.dart';
 import '../features/lesson_player/lesson_player_step.dart';
-import '../features/lesson_session/lesson_session_engine.dart';
 import 'qa_navigator.dart';
 
 class QaNavigatorScreen extends ConsumerWidget {
@@ -160,7 +158,6 @@ class _QaStepTile extends ConsumerWidget {
         context,
         ref,
         lessonContent: lessonContent,
-        steps: steps,
         targetStep: step,
       ),
     );
@@ -180,49 +177,11 @@ Future<void> _launchQaStep(
   BuildContext context,
   WidgetRef ref, {
   required LessonContent lessonContent,
-  required List<LessonPlayerStep> steps,
   required LessonPlayerStep targetStep,
 }) async {
-  const engine = LessonSessionEngine();
   final lessonId = lessonContent.lesson.id;
   final sessionProvider = lessonPlayerSessionProvider(lessonId);
   ref.read(sessionProvider.notifier).state = const LessonPlayerSessionState();
-
-  var session = const LessonPlayerSessionState().ensureStarted(
-    lessonId: lessonId,
-    steps: steps,
-    engine: engine,
-  );
-  var sessionState = session.sessionState;
-  for (final step in steps) {
-    if (step.id == targetStep.id) break;
-    if (step.isCheckable) {
-      final template = step.content.whereType<ExerciseTemplate>().first;
-      sessionState = engine
-          .submitStepResult(
-            state: sessionState,
-            result: ActivityResult(
-              exerciseId: template.id,
-              isCorrect: true,
-              status: ActivityResultStatus.correct,
-              expectedAnswer: template.expectedAnswer,
-              submittedAnswer: template.expectedAnswer,
-              feedbackKey: 'answer.correct',
-            ),
-          )
-          .updatedState;
-    }
-    sessionState = engine.requestNext(sessionState).updatedState;
-  }
-
-  final targetIndex = sessionState.orderedStepIds.indexOf(targetStep.id);
-  if (targetIndex < 0) return;
-  sessionState = sessionState.copyWith(
-    currentStepId: targetStep.id,
-    currentStepIndex: targetIndex,
-  );
-  session = session.copyWith(sessionState: sessionState);
-  ref.read(sessionProvider.notifier).state = session;
 
   if (context.mounted) {
     context.goNamed(

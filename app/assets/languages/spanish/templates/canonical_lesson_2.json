@@ -2,32 +2,119 @@
   {
     "id": "template.es.a0.m01.l002.guided_conversation_dialogue",
     "exercise_type": "guided_dialogue",
-    "supported_goal_types": ["independent_communicative_dialogue"],
-    "required_object_types": ["dialogue"],
+    "supported_goal_types": [
+      "independent_communicative_dialogue"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
     "prompt_template": "Проведи коротке знайомство іспанською. Слухай репліки Marta та відповідай своїми словами у вивчених конструкціях.",
     "guided_dialogue": {
       "turns": [
-        {"speaker": "Marta", "text": "Hola. Buenos días.", "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"},
-        {"speaker": "Marta", "text": "Me llamo Marta.", "audioReferenceId": "es.audio.dialogue.me_llamo_marta"},
-        {"speaker": "Marta", "text": "¿Cómo te llamas?", "audioReferenceId": "es.audio.question.como_te_llamas"},
-        {"speaker": "Tú", "text": "Me llamo {name}.", "learner": true, "response_patterns": ["Me llamo {name}."], "response_mode": "prefix_with_value"},
-        {"speaker": "Marta", "text": "Mucho gusto.", "audioReferenceId": "es.audio.dialogue.mucho_gusto"},
-        {"speaker": "Marta", "text": "¿De dónde eres?", "audioReferenceId": "es.audio.question.de_donde_eres"},
-        {"speaker": "Tú", "text": "Soy de {place}.", "learner": true, "response_patterns": ["Soy de {place}."], "response_mode": "prefix_with_value"},
-        {"speaker": "Marta", "text": "¿Dónde vives?", "audioReferenceId": "es.audio.question.donde_vives"},
-        {"speaker": "Tú", "text": "Vivo en {city}.", "learner": true, "response_patterns": ["Vivo en {city}."], "response_mode": "prefix_with_value"},
-        {"speaker": "Marta", "text": "¿Qué idiomas hablas?", "audioReferenceId": "es.audio.question.que_idiomas_hablas"},
-        {"speaker": "Tú", "text": "Hablo español e inglés.", "learner": true, "response_patterns": ["Hablo {open}"], "response_mode": "prefix_with_value"},
-        {"speaker": "Marta", "text": "¿Hablas francés?", "audioReferenceId": "es.audio.question.hablas_frances"},
-        {"speaker": "Tú", "text": "No hablo francés.", "learner": true, "response_patterns": ["No hablo"], "response_mode": "prefix"},
-        {"speaker": "Marta", "text": "Gracias."},
-        {"speaker": "Tú", "text": "Hasta luego.", "learner": true, "response_patterns": ["Hasta luego.", "Adiós."]}
+        {
+          "speaker": "Marta",
+          "text": "Hola. Buenos días.",
+          "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"
+        },
+        {
+          "speaker": "Marta",
+          "text": "Me llamo Marta.",
+          "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
+        },
+        {
+          "speaker": "Marta",
+          "text": "¿Cómo te llamas?",
+          "audioReferenceId": "es.audio.question.como_te_llamas"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Me llamo {name}.",
+          "learner": true,
+          "response_patterns": [
+            "Me llamo {name}."
+          ],
+          "response_mode": "prefix_with_value"
+        },
+        {
+          "speaker": "Marta",
+          "text": "Mucho gusto.",
+          "audioReferenceId": "es.audio.dialogue.mucho_gusto"
+        },
+        {
+          "speaker": "Marta",
+          "text": "¿De dónde eres?",
+          "audioReferenceId": "es.audio.question.de_donde_eres"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Soy de {place}.",
+          "learner": true,
+          "response_patterns": [
+            "Soy de {place}."
+          ],
+          "response_mode": "prefix_with_value"
+        },
+        {
+          "speaker": "Marta",
+          "text": "¿Dónde vives?",
+          "audioReferenceId": "es.audio.question.donde_vives"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Vivo en {city}.",
+          "learner": true,
+          "response_patterns": [
+            "Vivo en {city}."
+          ],
+          "response_mode": "prefix_with_value"
+        },
+        {
+          "speaker": "Marta",
+          "text": "¿Qué idiomas hablas?",
+          "audioReferenceId": "es.audio.question.que_idiomas_hablas"
+        },
+        {
+          "speaker": "Tú",
+          "text": "Hablo español e inglés.",
+          "learner": true,
+          "response_patterns": [
+            "Hablo {open}"
+          ],
+          "response_mode": "prefix_with_value"
+        },
+        {
+          "speaker": "Marta",
+          "text": "¿Hablas francés?",
+          "audioReferenceId": "es.audio.question.hablas_frances"
+        },
+        {
+          "speaker": "Tú",
+          "text": "No hablo francés.",
+          "learner": true,
+          "response_patterns": [
+            "No hablo"
+          ],
+          "response_mode": "prefix"
+        },
+        {
+          "speaker": "Marta",
+          "text": "Gracias."
+        },
+        {
+          "speaker": "Tú",
+          "text": "Hasta luego.",
+          "learner": true,
+          "response_patterns": [
+            "Hasta luego.",
+            "Adiós."
+          ]
+        }
       ]
     }
   },
   {
     "id": "template.es.a0.m01.l002.choose_origin_answer",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -35,25 +122,54 @@
       "dialogue"
     ],
     "prompt_template": "Ana питає: ¿De dónde eres?\n\nВибери 1 репліку, яка відповідає саме на це питання.",
-    "answer_options": [
-      {
-        "id": "soy_de_ucrania",
-        "label": "Soy de Ucrania."
-      },
-      {
-        "id": "vivo_en_kyiv",
-        "label": "Vivo en Kyiv."
-      },
-      {
-        "id": "hasta_luego",
-        "label": "Hasta luego."
-      }
-    ],
-    "correct_option_id": "soy_de_ucrania"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "soy_1_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_1_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_1_3",
+          "label": "Ucrania."
+        },
+        {
+          "id": "vivo_2_1",
+          "label": "Vivo"
+        },
+        {
+          "id": "en_2_2",
+          "label": "en"
+        },
+        {
+          "id": "kyiv_2_3",
+          "label": "Kyiv."
+        },
+        {
+          "id": "hasta_3_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_3_2",
+          "label": "luego."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "soy_1_1",
+          "de_1_2",
+          "ucrania_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.choose_live_question",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -61,21 +177,49 @@
       "dialogue"
     ],
     "prompt_template": "Ти вже знаєш, звідки Ana. Тепер треба запитати, де вона живе.\n\nВибери 1 питання іспанською.",
-    "answer_options": [
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      },
-      {
-        "id": "de_donde_eres",
-        "label": "¿De dónde eres?"
-      },
-      {
-        "id": "como_te_llamas",
-        "label": "¿Cómo te llamas?"
-      }
-    ],
-    "correct_option_id": "donde_vives"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "d_nde_1_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_1_2",
+          "label": "vives?"
+        },
+        {
+          "id": "de_2_1",
+          "label": "¿De"
+        },
+        {
+          "id": "d_nde_2_2",
+          "label": "dónde"
+        },
+        {
+          "id": "eres_2_3",
+          "label": "eres?"
+        },
+        {
+          "id": "c_mo_3_1",
+          "label": "¿Cómo"
+        },
+        {
+          "id": "te_3_2",
+          "label": "te"
+        },
+        {
+          "id": "llamas_3_3",
+          "label": "llamas?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "d_nde_1_1",
+          "vives_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.donde_vives"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.restore_live_answer",
@@ -91,7 +235,7 @@
   },
   {
     "id": "template.es.a0.m01.l002.choose_language_question",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_question"
     ],
@@ -99,21 +243,50 @@
       "dialogue"
     ],
     "prompt_template": "Ти хочеш запитати, якими мовами говорить Ana.\n\nВибери 1 питання іспанською.",
-    "answer_options": [
-      {
-        "id": "que_idiomas",
-        "label": "¿Qué idiomas hablas?"
-      },
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      },
-      {
-        "id": "de_donde_eres",
-        "label": "¿De dónde eres?"
-      }
-    ],
-    "correct_option_id": "que_idiomas"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "qu_1_1",
+          "label": "¿Qué"
+        },
+        {
+          "id": "idiomas_1_2",
+          "label": "idiomas"
+        },
+        {
+          "id": "hablas_1_3",
+          "label": "hablas?"
+        },
+        {
+          "id": "d_nde_2_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_2_2",
+          "label": "vives?"
+        },
+        {
+          "id": "de_3_1",
+          "label": "¿De"
+        },
+        {
+          "id": "d_nde_3_2",
+          "label": "dónde"
+        },
+        {
+          "id": "eres_3_3",
+          "label": "eres?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "qu_1_1",
+          "idiomas_1_2",
+          "hablas_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.que_idiomas_hablas"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.identify_tambien_function",
@@ -143,7 +316,7 @@
   },
   {
     "id": "template.es.a0.m01.l002.choose_short_language_reply",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -151,21 +324,49 @@
       "dialogue"
     ],
     "prompt_template": "Ana питає: ¿Qué idiomas hablas?\n\nВибери 1 коротку відповідь іспанською.",
-    "answer_options": [
-      {
-        "id": "hablo_espanol",
-        "label": "Hablo español."
-      },
-      {
-        "id": "me_llamo_marta",
-        "label": "Me llamo Marta."
-      },
-      {
-        "id": "soy_de_ucrania",
-        "label": "Soy de Ucrania."
-      }
-    ],
-    "correct_option_id": "hablo_espanol"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "hablo_1_1",
+          "label": "Hablo"
+        },
+        {
+          "id": "espa_ol_1_2",
+          "label": "español."
+        },
+        {
+          "id": "me_2_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_2_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_2_3",
+          "label": "Marta."
+        },
+        {
+          "id": "soy_3_1",
+          "label": "Soy"
+        },
+        {
+          "id": "de_3_2",
+          "label": "de"
+        },
+        {
+          "id": "ucrania_3_3",
+          "label": "Ucrania."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "hablo_1_1",
+          "espa_ol_1_2"
+        ]
+      ],
+      "audioReferenceId": "es.audio.phrase.hablo_espanol"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.restore_two_language_lines",
@@ -181,7 +382,7 @@
   },
   {
     "id": "template.es.a0.m01.l002.choose_un_poco_context",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "recognize_contextual_reply"
     ],
@@ -189,25 +390,64 @@
       "grammar"
     ],
     "prompt_template": "Ти говориш іспанською не вільно, а трохи.\n\nВибери 1 природну репліку.",
-    "answer_options": [
-      {
-        "id": "un_poco",
-        "label": "Hablo un poco de español."
-      },
-      {
-        "id": "no_frances",
-        "label": "No hablo francés."
-      },
-      {
-        "id": "donde_vives",
-        "label": "¿Dónde vives?"
-      }
-    ],
-    "correct_option_id": "un_poco"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "hablo_1_1",
+          "label": "Hablo"
+        },
+        {
+          "id": "un_1_2",
+          "label": "un"
+        },
+        {
+          "id": "poco_1_3",
+          "label": "poco"
+        },
+        {
+          "id": "de_1_4",
+          "label": "de"
+        },
+        {
+          "id": "espa_ol_1_5",
+          "label": "español."
+        },
+        {
+          "id": "no_2_1",
+          "label": "No"
+        },
+        {
+          "id": "hablo_2_2",
+          "label": "hablo"
+        },
+        {
+          "id": "franc_s_2_3",
+          "label": "francés."
+        },
+        {
+          "id": "d_nde_3_1",
+          "label": "¿Dónde"
+        },
+        {
+          "id": "vives_3_2",
+          "label": "vives?"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "hablo_1_1",
+          "un_1_2",
+          "poco_1_3",
+          "de_1_4",
+          "espa_ol_1_5"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.hablo_un_poco_de_espanol"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.choose_no_hablo_reply",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_contextual_reply"
     ],
@@ -215,21 +455,42 @@
       "dialogue"
     ],
     "prompt_template": "Ana питає: ¿Hablas francés?\n\nТи не говориш французькою. Вибери 1 відповідь іспанською.",
-    "answer_options": [
-      {
-        "id": "no_hablo_frances",
-        "label": "No hablo francés."
-      },
-      {
-        "id": "hablo_frances",
-        "label": "Hablo francés."
-      },
-      {
-        "id": "tambien_ingles",
-        "label": "También hablo inglés."
-      }
-    ],
-    "correct_option_id": "no_hablo_frances"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "no_1_1",
+          "label": "No"
+        },
+        {
+          "id": "hablo_1_2",
+          "label": "hablo"
+        },
+        {
+          "id": "franc_s_1_3",
+          "label": "francés."
+        },
+        {
+          "id": "hablo_2_1",
+          "label": "Hablo"
+        },
+        {
+          "id": "tambi_n_3_1",
+          "label": "También"
+        },
+        {
+          "id": "ingl_s_3_3",
+          "label": "inglés."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "no_1_1",
+          "hablo_1_2",
+          "franc_s_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.no_hablo_frances"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.order_about_self_pair",
@@ -269,7 +530,7 @@
   },
   {
     "id": "template.es.a0.m01.l002.choose_next_after_city",
-    "exercise_type": "multiple_choice",
+    "exercise_type": "sentence_builder",
     "supported_goal_types": [
       "choose_next_dialogue_line"
     ],
@@ -277,21 +538,50 @@
       "dialogue"
     ],
     "prompt_template": "Ana вже відповіла, де живе. Ти хочеш продовжити знайомство про мови.\n\nВибери 1 наступну репліку.",
-    "answer_options": [
-      {
-        "id": "que_idiomas",
-        "label": "¿Qué idiomas hablas?"
-      },
-      {
-        "id": "hasta_luego",
-        "label": "Hasta luego."
-      },
-      {
-        "id": "me_llamo_marta",
-        "label": "Me llamo Marta."
-      }
-    ],
-    "correct_option_id": "que_idiomas"
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "qu_1_1",
+          "label": "¿Qué"
+        },
+        {
+          "id": "idiomas_1_2",
+          "label": "idiomas"
+        },
+        {
+          "id": "hablas_1_3",
+          "label": "hablas?"
+        },
+        {
+          "id": "hasta_2_1",
+          "label": "Hasta"
+        },
+        {
+          "id": "luego_2_2",
+          "label": "luego."
+        },
+        {
+          "id": "me_3_1",
+          "label": "Me"
+        },
+        {
+          "id": "llamo_3_2",
+          "label": "llamo"
+        },
+        {
+          "id": "marta_3_3",
+          "label": "Marta."
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "qu_1_1",
+          "idiomas_1_2",
+          "hablas_1_3"
+        ]
+      ],
+      "audioReferenceId": "es.audio.question.que_idiomas_hablas"
+    }
   },
   {
     "id": "template.es.a0.m01.l002.complete_middle_dialogue",
@@ -333,5 +623,48 @@
       "Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nSoy de Ucrania.\nVivo en Kyiv.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo inglés.\nNo hablo francés.\nGracias. Hasta luego.",
       "Hola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nSoy de Ucrania.\nVivo en Kyiv.\nHablo español e inglés.\nTambién hablo inglés. Hablo un poco de español.\nNo hablo francés.\nGracias. Adiós."
     ]
+  },
+  {
+    "id": "template.es.a0.m01.l002.build_origin",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": [
+      "construct_known_response"
+    ],
+    "required_object_types": [
+      "dialogue"
+    ],
+    "prompt_template": "Що відповісти на ¿De dónde eres?",
+    "sentence_builder": {
+      "tokens": [
+        {
+          "id": "soy",
+          "label": "Soy"
+        },
+        {
+          "id": "de",
+          "label": "de"
+        },
+        {
+          "id": "ucrania",
+          "label": "Ucrania."
+        },
+        {
+          "id": "vivo",
+          "label": "Vivo"
+        },
+        {
+          "id": "en",
+          "label": "en"
+        }
+      ],
+      "accepted_sequences": [
+        [
+          "soy",
+          "de",
+          "ucrania"
+        ]
+      ],
+      "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
+    }
   }
 ]

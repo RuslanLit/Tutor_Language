@@ -372,7 +372,9 @@ class _LessonNodeCard extends StatelessWidget {
                   pathParameters: {'lessonId': lesson.lessonId},
                   extra: LessonLaunchIntent(
                     lessonId: lesson.lessonId,
-                    mode: isCompleted
+                    mode: isDebugQa
+                        ? LessonLaunchMode.qa
+                        : isCompleted
                         ? LessonLaunchMode.review
                         : LessonLaunchMode.learning,
                   ),
@@ -418,7 +420,9 @@ class _LessonNodeCard extends StatelessWidget {
                       pathParameters: {'lessonId': lesson.lessonId},
                       extra: LessonLaunchIntent(
                         lessonId: lesson.lessonId,
-                        mode: isCompleted
+                        mode: isDebugQa
+                            ? LessonLaunchMode.qa
+                            : isCompleted
                             ? LessonLaunchMode.review
                             : LessonLaunchMode.learning,
                       ),

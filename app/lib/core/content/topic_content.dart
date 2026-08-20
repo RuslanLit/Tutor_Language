@@ -410,6 +410,7 @@ class ExerciseTemplate {
     this.reviewTemplateIds = const [],
     this.productionContract,
     this.guidedDialogue,
+    this.sentenceBuilder,
   });
 
   factory ExerciseTemplate.fromJson(Map<String, Object?> json) {
@@ -454,6 +455,9 @@ class ExerciseTemplate {
       guidedDialogue: json['guided_dialogue'] == null
           ? null
           : GuidedDialogue.fromJson(requiredMap(json, 'guided_dialogue')),
+      sentenceBuilder: json['sentence_builder'] == null
+          ? null
+          : SentenceBuilder.fromJson(requiredMap(json, 'sentence_builder')),
     );
   }
 
@@ -472,6 +476,7 @@ class ExerciseTemplate {
   final List<String> reviewTemplateIds;
   final ProductionContract? productionContract;
   final GuidedDialogue? guidedDialogue;
+  final SentenceBuilder? sentenceBuilder;
 
   Map<String, Object?> toJson() {
     return {
@@ -501,6 +506,8 @@ class ExerciseTemplate {
       if (productionContract != null)
         'production_contract': productionContract!.toJson(),
       if (guidedDialogue != null) 'guided_dialogue': guidedDialogue!.toJson(),
+      if (sentenceBuilder != null)
+        'sentence_builder': sentenceBuilder!.toJson(),
     };
   }
 
@@ -545,7 +552,65 @@ class ExerciseTemplate {
     Object.hashAll(reviewTemplateIds),
     productionContract,
     guidedDialogue,
+    sentenceBuilder,
   );
+}
+
+class SentenceBuilder {
+  const SentenceBuilder({
+    required this.tokens,
+    required this.acceptedSequences,
+    this.audioReferenceId,
+  });
+  factory SentenceBuilder.fromJson(Map<String, Object?> json) =>
+      SentenceBuilder(
+        tokens: requiredList(json, 'tokens', SentenceBuilderToken.fromJson),
+        acceptedSequences: (json['accepted_sequences'] as List<Object?>)
+            .map(
+              (sequence) => (sequence as List<Object?>).cast<String>().toList(
+                growable: false,
+              ),
+            )
+            .toList(growable: false),
+        audioReferenceId: optionalString(json, 'audioReferenceId'),
+      );
+  final List<SentenceBuilderToken> tokens;
+  final List<List<String>> acceptedSequences;
+  final String? audioReferenceId;
+  Map<String, Object?> toJson() => {
+    'tokens': tokens.map((token) => token.toJson()).toList(growable: false),
+    'accepted_sequences': acceptedSequences,
+    if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
+  };
+  @override
+  bool operator ==(Object other) =>
+      other is SentenceBuilder &&
+      other.audioReferenceId == audioReferenceId &&
+      listEquals(other.tokens, tokens) &&
+      listEquals(other.acceptedSequences, acceptedSequences);
+  @override
+  int get hashCode => Object.hash(
+    audioReferenceId,
+    Object.hashAll(tokens),
+    Object.hashAll(acceptedSequences),
+  );
+}
+
+class SentenceBuilderToken {
+  const SentenceBuilderToken({required this.id, required this.label});
+  factory SentenceBuilderToken.fromJson(Map<String, Object?> json) =>
+      SentenceBuilderToken(
+        id: requiredString(json, 'id'),
+        label: requiredString(json, 'label'),
+      );
+  final String id;
+  final String label;
+  Map<String, Object?> toJson() => {'id': id, 'label': label};
+  @override
+  bool operator ==(Object other) =>
+      other is SentenceBuilderToken && other.id == id && other.label == label;
+  @override
+  int get hashCode => Object.hash(id, label);
 }
 
 class GuidedDialogue {

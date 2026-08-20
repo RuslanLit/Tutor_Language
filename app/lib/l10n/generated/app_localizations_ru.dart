@@ -238,6 +238,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get answerLabel => 'Ответ';
 
   @override
+  String get sentenceBuilderAnswer => 'Твой ответ';
+
+  @override
+  String get sentenceBuilderAvailableWords => 'Доступные слова';
+
+  @override
+  String get sentenceBuilderClear => 'Очистить';
+
+  @override
   String get learnerSpeakerLabel => 'Ты';
 
   @override

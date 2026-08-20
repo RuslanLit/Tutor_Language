@@ -740,6 +740,7 @@ class EducationalContentLocalizationResolver {
       reviewTemplateIds: template.reviewTemplateIds,
       productionContract: template.productionContract,
       guidedDialogue: template.guidedDialogue,
+      sentenceBuilder: template.sentenceBuilder,
     );
   }
 
