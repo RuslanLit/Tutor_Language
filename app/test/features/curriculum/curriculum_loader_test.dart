@@ -30,8 +30,8 @@ void main() {
     expect(course.languageId, 'spanish');
     expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
-    expect(course.modules, hasLength(6));
-    expect(course.lessons, hasLength(20));
+    expect(course.modules, hasLength(7));
+    expect(course.lessons, hasLength(25));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,7 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Короткий маршрут');
+    expect(course.lessons.last.title, 'Короткий обмін про допомогу');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +164,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(20));
+    expect(paths, hasLength(25));
 
     final lessonIds = <String>{};
 
@@ -189,7 +189,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(20));
+    expect(lessonIds, hasLength(25));
   });
 
   test(
@@ -245,7 +245,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(20));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(25));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -263,6 +263,11 @@ void main() {
       'es.a0.m06.l018',
       'es.a0.m06.l019',
       'es.a0.m06.l020',
+      'es.a0.m07.l021',
+      'es.a0.m07.l022',
+      'es.a0.m07.l023',
+      'es.a0.m07.l024',
+      'es.a0.m07.l025',
     ]);
   });
 
