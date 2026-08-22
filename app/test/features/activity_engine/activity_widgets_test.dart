@@ -21,9 +21,7 @@ void main() {
     (tester) async {
       final backend = _SentenceBuilderFakeBackend();
       final service = ReferenceAudioPlaybackService(
-        repository: Future.value(
-          ReferenceAudioRepository(_listeningManifest),
-        ),
+        repository: Future.value(ReferenceAudioRepository(_listeningManifest)),
         backend: backend,
       );
 
@@ -65,12 +63,12 @@ void main() {
     },
   );
 
-  testWidgets('audio-first comprehension reports missing audio', (tester) async {
+  testWidgets('audio-first comprehension reports missing audio', (
+    tester,
+  ) async {
     final backend = _SentenceBuilderFakeBackend();
     final service = ReferenceAudioPlaybackService(
-      repository: Future.value(
-        ReferenceAudioRepository(_emptyAudioManifest),
-      ),
+      repository: Future.value(ReferenceAudioRepository(_emptyAudioManifest)),
       backend: backend,
     );
 
@@ -248,6 +246,38 @@ void main() {
       expect(find.text('Перевірити'), findsOneWidget);
     },
   );
+
+  testWidgets('Lesson 9 guided dialogue follows question and answer causally', (
+    tester,
+  ) async {
+    final template = _canonicalLesson9Templates().firstWhere(
+      (item) => item.id == 'template.es.a0.m03.l009.guided_origin',
+    );
+
+    await tester.pumpWidget(
+      _localizedApp(
+        Scaffold(body: ActivityTemplateWidget(template: template)),
+        locale: const Locale('uk'),
+      ),
+    );
+
+    expect(find.text('Скажи, звідки ти.'), findsOneWidget);
+    expect(find.text('Soy de España.'), findsNothing);
+
+    await tester.enterText(find.byType(TextField), 'Soy de Ucrania');
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(find.text('Тепер запитай Луїса, звідки він.'), findsOneWidget);
+    expect(find.text('Soy de España.'), findsNothing);
+
+    await tester.enterText(find.byType(TextField), '¿De dónde eres?');
+    await tester.tap(find.text('Перевірити'));
+    await tester.pump();
+
+    expect(find.text('Soy de España.'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
+  });
 
   testWidgets('guided dialogue keeps incorrect response on the same turn', (
     tester,
@@ -1222,6 +1252,17 @@ List<ExerciseTemplate> _canonicalLesson1Templates() {
 List<ExerciseTemplate> _canonicalLesson2Templates() {
   final raw = File(
     'assets/languages/spanish/templates/canonical_lesson_2.json',
+  ).readAsStringSync();
+  final decoded = jsonDecode(raw) as List<Object?>;
+  return decoded
+      .cast<Map<String, Object?>>()
+      .map(ExerciseTemplate.fromJson)
+      .toList(growable: false);
+}
+
+List<ExerciseTemplate> _canonicalLesson9Templates() {
+  final raw = File(
+    'assets/languages/spanish/templates/canonical_lesson_9.json',
   ).readAsStringSync();
   final decoded = jsonDecode(raw) as List<Object?>;
   return decoded

@@ -398,9 +398,9 @@ class _MultipleChoiceActivityWidgetState
       await ref.read(referenceAudioPlaybackServiceProvider).play(referenceId);
     } on ReferenceAudioFailure catch (_) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(context.l10n.audioUnavailable)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(context.l10n.audioUnavailable)));
     }
   }
 
@@ -709,6 +709,14 @@ class _GuidedDialogueActivityWidgetState
                 (widget.reviewMode && dialogue.turns[index].learner
                     ? dialogue.turns[index].text
                     : null),
+          ),
+        if (!widget.reviewMode &&
+            current.learner &&
+            current.learnerCue != null &&
+            !state.dialogueCompleted)
+          Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: _ActivityPrompt(current.learnerCue!),
           ),
         if (!widget.reviewMode &&
             current.learner &&

@@ -138,18 +138,19 @@
     "required_object_types": [
       "dialogue"
     ],
-    "prompt_template": "Запитай і скажи, звідки ви. Відповідай іспанською.",
+    "prompt_template": "Обміняйся інформацією про походження.",
     "guided_dialogue": {
       "turns": [
         {
           "speaker": "Luis",
-          "text": "Hola. ¿De dónde eres?",
+          "text": "¿De dónde eres?",
           "audioReferenceId": "es.audio.question.de_donde_eres"
         },
         {
           "speaker": "Tú",
           "text": "Soy de {place}.",
           "learner": true,
+          "learner_cue": "Скажи, звідки ти.",
           "response_patterns": [
             "Soy de {place}."
           ],
@@ -163,19 +164,16 @@
           }
         },
         {
-          "speaker": "Luis",
-          "text": "Soy de España.",
-          "audioReferenceId": "es.audio.dialogue.soy_de_espana_vivo_en_madrid"
+          "speaker": "Tú",
+          "text": "¿De dónde eres?",
+          "learner": true,
+          "learner_cue": "Тепер запитай Луїса, звідки він.",
+          "response_patterns": ["¿De dónde eres?"]
         },
         {
-          "speaker": "Tú",
-          "text": "Mucho gusto.",
-          "learner": true,
-          "response_patterns": [
-            "Mucho gusto.",
-            "Igualmente."
-          ],
-          "response_mode": "exact"
+          "speaker": "Luis",
+          "text": "Soy de España.",
+          "audioReferenceId": "es.audio.dialogue.soy_de_espana"
         }
       ]
     }

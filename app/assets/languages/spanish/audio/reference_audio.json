@@ -5,62 +5,162 @@
     {
       "id": "es.audio.dialogue.disculpe",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.disculpe.wav",
-      "transcript": "Disculpe.", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "dialogueTurn", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "Disculpe.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "dialogueTurn",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.phrase.necesito_ayuda",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.necesito_ayuda.wav",
-      "transcript": "Necesito ayuda.", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "Necesito ayuda.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.question.donde_esta_el_bano",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.donde_esta_el_bano.wav",
-      "transcript": "¿Dónde está el baño?", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "listeningStimulus", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "¿Dónde está el baño?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.question.donde_esta_la_farmacia",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.donde_esta_la_farmacia.wav",
-      "transcript": "¿Dónde está la farmacia?", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "listeningStimulus", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "¿Dónde está la farmacia?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.phrase.necesito_un_medico",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.necesito_un_medico.wav",
-      "transcript": "Necesito un médico.", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "Necesito un médico.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.phrase.necesito_la_policia",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.necesito_la_policia.wav",
-      "transcript": "Necesito la policía.", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "Necesito la policía.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.phrase.es_una_emergencia",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.es_una_emergencia.wav",
-      "transcript": "Es una emergencia.", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "communicativeChunk", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "Es una emergencia.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.question.puede_ayudarme",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.puede_ayudarme.wav",
-      "transcript": "¿Puede ayudarme?", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "listeningStimulus", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "¿Puede ayudarme?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.question.si",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.si.wav",
-      "transcript": "¿Sí?", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "dialogueTurn", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "¿Sí?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "dialogueTurn",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.question.que_pasa",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.question.que_pasa.wav",
-      "transcript": "¿Qué pasa?", "languageCode": "es", "locale": "es_ES", "voiceId": "es_ES-sharvard-medium", "purpose": "dialogueTurn", "qaStatus": "approved",
-      "provenance": {"engine":"Piper","voice":"es_ES-sharvard-medium","locale":"es_ES","generationRole":"authoring-time only"}
+      "transcript": "¿Qué pasa?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "dialogueTurn",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     },
     {
       "id": "es.audio.phrase.hola",
@@ -1202,6 +1302,22 @@
       "id": "es.audio.dialogue.soy_de_espana_vivo_en_madrid",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.soy_de_espana_vivo_en_madrid.wav",
       "transcript": "Soy de España. Vivo en Madrid.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "dialogueTurn",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.dialogue.soy_de_espana",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.dialogue.soy_de_espana.wav",
+      "transcript": "Soy de España.",
       "languageCode": "es",
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",
@@ -2530,6 +2646,150 @@
       "id": "es.audio.phrase.toma_el_metro",
       "assetPath": "assets/languages/spanish/audio/reference/es.audio.phrase.toma_el_metro.wav",
       "transcript": "Toma el metro.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.esta_es_mi_madre",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l026.esta_es_mi_madre.wav",
+      "transcript": "Esta es mi madre.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.este_es_mi_padre",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l026.esta_es_mi_padre.wav",
+      "transcript": "Este es mi padre.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.tienes_hermanos",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l027.tienes_hermanos.wav",
+      "transcript": "¿Tienes hermanos?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.tengo_una_hermana",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l027.tengo_una_hermana.wav",
+      "transcript": "Tengo una hermana.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.no_tengo_hermanos",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l027.no_tengo_hermanos.wav",
+      "transcript": "No tengo hermanos.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.esta_es_la_cocina",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l028.esta_es_la_cocina.wav",
+      "transcript": "Esta es la cocina.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.question.donde_esta_la_mesa",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l029.donde_esta_la_mesa.wav",
+      "transcript": "¿Dónde está la mesa?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.la_mesa_esta_en_la_cocina",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l029.la_mesa_esta_en_la_cocina.wav",
+      "transcript": "La mesa está en la cocina.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.phrase.hay_una_mesa_en_la_cocina",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.es.a0.m08.l029.hay_una_mesa_en_la_cocina.wav",
+      "transcript": "Hay una mesa en la cocina.",
       "languageCode": "es",
       "locale": "es_ES",
       "voiceId": "es_ES-sharvard-medium",

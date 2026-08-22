@@ -3,7 +3,7 @@
   "languageId": "spanish",
   "title": "Іспанська A0",
   "level": "A0",
-  "version": "1.0.0-r2e28",
+  "version": "1.0.0-r2e30",
   "modules": [
     {
       "id": "es.a0.m01",
@@ -70,6 +70,17 @@
         "es.a0.m07.l023",
         "es.a0.m07.l024",
         "es.a0.m07.l025"
+      ]
+    },
+    {
+      "id": "es.a0.m08",
+      "title": "Модуль 8",
+      "lessonIds": [
+        "es.a0.m08.l026",
+        "es.a0.m08.l027",
+        "es.a0.m08.l028",
+        "es.a0.m08.l029",
+        "es.a0.m08.l030"
       ]
     }
   ],
@@ -2842,6 +2853,453 @@
         "minimumCompletedActivities": 1,
         "mandatorySections": [
           "es.a0.m07.l025.section.exchange"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l026",
+        "title": "Представити родину",
+        "description": "Покажи близьку людину й назви її в короткому обміні.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 22,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-26",
+          "family"
+        ],
+        "version": "1.0.0-r2e29",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m07.l025"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l026.identify_family",
+          "description": "Після уроку учень може представити маму або тата й запитати, хто це."
+        }
+      ],
+      "communicativeOutcome": "Учень каже Esta es mi madre або Este es mi padre і розуміє ¿Quién es ella?",
+      "sections": [
+        {
+          "id": "es.a0.m08.l026.section.family",
+          "title": "Родина",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l026.activity.family",
+              "title": "Представити родину",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_26.json",
+                  "referenceId": "template.es.a0.m08.l026.meaning_family"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_26.json",
+                  "referenceId": "template.es.a0.m08.l026.build_mother"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_26.json",
+                  "referenceId": "template.es.a0.m08.l026.recall_who"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_26.json",
+                  "referenceId": "template.es.a0.m08.l026.build_father"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_26.json",
+                  "referenceId": "template.es.a0.m08.l026.dialogue_family"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l026.summary.identify_family",
+        "reviewPrompt": "Ти можеш представити близьку людину.",
+        "referenceIds": [
+          "objective.es.a0.m08.l026.identify_family"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l026.activity.family"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l026.section.family"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l027",
+        "title": "Запитати про братів і сестер",
+        "description": "Постав запитання про родину й дай коротку відповідь.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 22,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-27",
+          "family"
+        ],
+        "version": "1.0.0-r2e29",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l026"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l027.ask_about_siblings",
+          "description": "Після уроку учень може запитати ¿Tienes hermanos? і відповісти Tengo una hermana або No tengo hermanos."
+        }
+      ],
+      "communicativeOutcome": "Учень веде короткий обмін про братів і сестер.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l027.section.siblings",
+          "title": "Брати і сестри",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l027.activity.siblings",
+              "title": "Запитати про сім’ю",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_27.json",
+                  "referenceId": "template.es.a0.m08.l027.meaning_siblings"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_27.json",
+                  "referenceId": "template.es.a0.m08.l027.build_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_27.json",
+                  "referenceId": "template.es.a0.m08.l027.recall_yes"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_27.json",
+                  "referenceId": "template.es.a0.m08.l027.build_no"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_27.json",
+                  "referenceId": "template.es.a0.m08.l027.dialogue_siblings"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l027.summary.ask_about_siblings",
+        "reviewPrompt": "Ти можеш запитати про братів і сестер.",
+        "referenceIds": [
+          "objective.es.a0.m08.l027.ask_about_siblings"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l027.activity.siblings"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l027.section.siblings"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l028",
+        "title": "Кімнати і предмети",
+        "description": "Назви просту кімнату та знайомий предмет у ній.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 22,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-28",
+          "home"
+        ],
+        "version": "1.0.0-r2e29",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l027"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l028.name_room_object",
+          "description": "Після уроку учень може назвати кухню та стіл у короткому описі дому."
+        }
+      ],
+      "communicativeOutcome": "Учень називає кімнату й предмет у ній.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l028.section.home",
+          "title": "Дім",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l028.activity.home",
+              "title": "Назвати кімнату і предмет",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_28.json",
+                  "referenceId": "template.es.a0.m08.l028.meaning_room"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_28.json",
+                  "referenceId": "template.es.a0.m08.l028.build_room"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_28.json",
+                  "referenceId": "template.es.a0.m08.l028.recall_room"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_28.json",
+                  "referenceId": "template.es.a0.m08.l028.build_object"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_28.json",
+                  "referenceId": "template.es.a0.m08.l028.dialogue_room"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l028.summary.name_room_object",
+        "reviewPrompt": "Ти можеш назвати кімнату та предмет.",
+        "referenceIds": [
+          "objective.es.a0.m08.l028.name_room_object"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l028.activity.home"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l028.section.home"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l029",
+        "title": "Де предмет?",
+        "description": "Розрізни відомий предмет у певному місці та просте повідомлення про існування.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 24,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-29",
+          "home",
+          "location"
+        ],
+        "version": "1.0.0-r2e29",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l028"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l029.locate_home_objects",
+          "description": "Після уроку учень може запитати й сказати, де стіл, а також розрізнити está та hay у межах дому."
+        }
+      ],
+      "communicativeOutcome": "Учень питає ¿Dónde está la mesa?, відповідає La mesa está en la cocina й розуміє Hay una mesa en la cocina.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l029.section.location",
+          "title": "Місце предмета",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l029.activity.location",
+              "title": "Описати місце",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.meaning_location"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.meaning_existence"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.build_question"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.recall_location"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.build_existence"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_29.json",
+                  "referenceId": "template.es.a0.m08.l029.dialogue_location"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l029.summary.locate_home_objects",
+        "reviewPrompt": "Ти можеш запитати й сказати, де предмет у домі.",
+        "referenceIds": [
+          "objective.es.a0.m08.l029.locate_home_objects"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l029.activity.location"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l029.section.location"
+        ]
+      },
+      "references": []
+    },
+    {
+      "metadata": {
+        "id": "es.a0.m08.l030",
+        "title": "Короткий опис сім’ї та дому",
+        "description": "Поєднай родину, кімнату й місце знайомого предмета.",
+        "moduleId": "es.a0.m08",
+        "courseId": "es.a0",
+        "estimatedDurationMinutes": 25,
+        "difficulty": "A0",
+        "tags": [
+          "canonical",
+          "lesson-30",
+          "home",
+          "integration"
+        ],
+        "version": "1.0.0-r2e29",
+        "prerequisites": [
+          {
+            "lessonId": "es.a0.m08.l029"
+          }
+        ]
+      },
+      "objectives": [
+        {
+          "id": "objective.es.a0.m08.l030.family_home_exchange",
+          "description": "Після уроку учень може завершити короткий обмін про сім’ю та дім із представленням людини й описом місця предмета."
+        }
+      ],
+      "communicativeOutcome": "Учень проводить короткий сімейно-побутовий обмін без відкритого опису дому.",
+      "sections": [
+        {
+          "id": "es.a0.m08.l030.section.integration",
+          "title": "Сім’я і дім",
+          "order": 1,
+          "activities": [
+            {
+              "id": "es.a0.m08.l030.activity.integration",
+              "title": "Провести обмін",
+              "type": "dialogue",
+              "order": 1,
+              "references": [
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_30.json",
+                  "referenceId": "template.es.a0.m08.l030.meaning_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_30.json",
+                  "referenceId": "template.es.a0.m08.l030.build_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_30.json",
+                  "referenceId": "template.es.a0.m08.l030.recall_profile"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_30.json",
+                  "referenceId": "template.es.a0.m08.l030.build_location"
+                },
+                {
+                  "type": "exercise_template",
+                  "assetPath": "assets/languages/spanish/templates/canonical_lesson_30.json",
+                  "referenceId": "template.es.a0.m08.l030.guided_profile"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "id": "es.a0.m08.l030.summary.family_home_exchange",
+        "reviewPrompt": "Ти можеш провести короткий обмін про сім’ю та дім.",
+        "referenceIds": [
+          "objective.es.a0.m08.l030.family_home_exchange"
+        ]
+      },
+      "completionCriteria": {
+        "requiredActivities": [
+          "es.a0.m08.l030.activity.integration"
+        ],
+        "minimumCompletedActivities": 1,
+        "mandatorySections": [
+          "es.a0.m08.l030.section.integration"
         ]
       },
       "references": []

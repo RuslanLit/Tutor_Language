@@ -30,8 +30,8 @@ void main() {
     expect(course.languageId, 'spanish');
     expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
-    expect(course.modules, hasLength(7));
-    expect(course.lessons, hasLength(25));
+    expect(course.modules, hasLength(8));
+    expect(course.lessons, hasLength(30));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,7 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Короткий обмін про допомогу');
+    expect(course.lessons.last.title, 'Короткий опис сім’ї та дому');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +164,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(25));
+    expect(paths, hasLength(30));
 
     final lessonIds = <String>{};
 
@@ -189,7 +189,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(25));
+    expect(lessonIds, hasLength(30));
   });
 
   test(
@@ -245,7 +245,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(25));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(30));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -268,6 +268,11 @@ void main() {
       'es.a0.m07.l023',
       'es.a0.m07.l024',
       'es.a0.m07.l025',
+      'es.a0.m08.l026',
+      'es.a0.m08.l027',
+      'es.a0.m08.l028',
+      'es.a0.m08.l029',
+      'es.a0.m08.l030',
     ]);
   });
 
@@ -781,6 +786,49 @@ void main() {
     expect(issueMessages, contains(contains('missing section')));
     expect(issueMessages, contains(contains('Empty lesson summary')));
     expect(issueMessages, contains(contains('Summary references unknown')));
+  });
+
+  test('Lesson 9 origin dialogue asks for one coherent open-value action', () async {
+    final raw = jsonDecode(
+      await rootBundle.loadString(
+        'assets/languages/spanish/templates/canonical_lesson_9.json',
+      ),
+    ) as List;
+    final guided = raw.cast<Map>().firstWhere(
+      (item) => item['id'] == 'template.es.a0.m03.l009.guided_origin',
+    );
+    expect(guided['prompt_template'], 'Обміняйся інформацією про походження.');
+    final learnerTurn = (guided['guided_dialogue'] as Map)['turns']
+        .cast<Map>()
+        .firstWhere((turn) => turn['learner'] == true);
+    expect(learnerTurn['response_mode'], 'prefix_with_value');
+    expect(learnerTurn['response_patterns'], ['Soy de {place}.']);
+  });
+
+  test('known multi-answer and multi-turn prompts are explicit', () async {
+    final l25 = jsonDecode(
+      await rootBundle.loadString(
+        'assets/languages/spanish/templates/canonical_lesson_25.json',
+      ),
+    ) as List;
+    final builder = l25.cast<Map>().firstWhere(
+      (item) => item['id'] == 'template.es.a0.m07.l025.build_request',
+    );
+    expect(builder['prompt_template'], contains('одну коротку репліку'));
+    expect((builder['sentence_builder'] as Map)['accepted_sequences'], hasLength(2));
+
+    for (final lesson in [11, 12, 14, 15]) {
+      final raw = jsonDecode(
+        await rootBundle.loadString(
+          'assets/languages/spanish/templates/canonical_lesson_$lesson.json',
+        ),
+      ) as List;
+      final guided = raw.cast<Map>().firstWhere(
+        (item) => item['exercise_type'] == 'guided_dialogue',
+      );
+      expect(guided['prompt_template'], isNot(contains('своїми словами')));
+      expect(guided['prompt_template'], isNot(contains('короткий обмін')));
+    }
   });
 }
 

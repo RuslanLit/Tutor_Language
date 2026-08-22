@@ -28,7 +28,7 @@ void main() {
     'Spanish A0 keeps canonical lessons separate from the primer',
     () async {
       final course = await CurriculumLoader().loadCourse();
-      expect(course.lessons, hasLength(25));
+      expect(course.lessons, hasLength(30));
       expect(
         pronunciationPrimerTopicId,
         isNot(isIn(course.lessons.map((lesson) => lesson.id))),
@@ -37,7 +37,7 @@ void main() {
         course: course,
         completedLessonIds: {pronunciationPrimerTopicId},
       );
-      expect(state.totalLessonCount, 25);
+      expect(state.totalLessonCount, 30);
       expect(state.completedLessonCount, 0);
       expect(
         state.units

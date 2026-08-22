@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/core/content/content_document.dart';
@@ -58,55 +61,116 @@ void main() {
     }
   });
 
-  test('new lesson steps support direct QA targets with visible positions', () async {
-    final service = LessonAssemblyService(
-      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
-      contentLoader: ContentLoader(assetBundle: rootBundle),
-    );
-    const targets = {
-      'es.a0.m01.l006': 3,
-      'es.a0.m02.l008': 5,
-      'es.a0.m03.l010': 5,
-    };
+  test(
+    'new lesson steps support direct QA targets with visible positions',
+    () async {
+      final service = LessonAssemblyService(
+        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+        contentLoader: ContentLoader(assetBundle: rootBundle),
+      );
+      const targets = {
+        'es.a0.m01.l006': 3,
+        'es.a0.m02.l008': 5,
+        'es.a0.m03.l010': 5,
+      };
 
-    for (final entry in targets.entries) {
-      final content = await service.assembleLesson(entry.key);
-      final steps = const LessonPlayerStepBuilder().buildSteps(content);
-      expect(steps, hasLength(6), reason: entry.key);
-      expect(steps[entry.value].id, contains(entry.key), reason: entry.key);
-      expect(entry.value + 1, lessThanOrEqualTo(steps.length));
-    }
-  });
+      for (final entry in targets.entries) {
+        final content = await service.assembleLesson(entry.key);
+        final steps = const LessonPlayerStepBuilder().buildSteps(content);
+        expect(steps, hasLength(6), reason: entry.key);
+        expect(steps[entry.value].id, contains(entry.key), reason: entry.key);
+        expect(entry.value + 1, lessThanOrEqualTo(steps.length));
+      }
+    },
+  );
 
-  test('localized Lesson 18 Step 2 preserves listening audio metadata', () async {
-    final service = LessonAssemblyService(
-      curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
-      contentLoader: ContentLoader(assetBundle: rootBundle),
-    );
-    final assembled = await service.assembleLesson('es.a0.m06.l018');
-    final localized = resolveLocalizedLessonContent(
-      lessonContent: assembled,
-      resolver: EducationalContentLocalizationResolver(
-        const EducationalContentLocalizationBundle(
-          schemaVersion: 1,
-          targetLanguage: 'es',
-          sourceSupportLocale: 'en',
-          supportLocales: ['en', 'uk'],
-          entries: [],
+  test(
+    'localized Lesson 18 Step 2 preserves listening audio metadata',
+    () async {
+      final service = LessonAssemblyService(
+        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+        contentLoader: ContentLoader(assetBundle: rootBundle),
+      );
+      final assembled = await service.assembleLesson('es.a0.m06.l018');
+      final localized = resolveLocalizedLessonContent(
+        lessonContent: assembled,
+        resolver: EducationalContentLocalizationResolver(
+          const EducationalContentLocalizationBundle(
+            schemaVersion: 1,
+            targetLanguage: 'es',
+            sourceSupportLocale: 'en',
+            supportLocales: ['en', 'uk'],
+            entries: [],
+          ),
         ),
-      ),
-      supportLocale: SupportLocale.ukrainian,
-    );
-    final template = localized.activities
-        .expand((activity) => activity.resolvedContent)
-        .whereType<ExerciseTemplate>()
-        .firstWhere(
-          (item) => item.id == 'template.es.a0.m06.l018.meaning_route',
-        );
+        supportLocale: SupportLocale.ukrainian,
+      );
+      final template = localized.activities
+          .expand((activity) => activity.resolvedContent)
+          .whereType<ExerciseTemplate>()
+          .firstWhere(
+            (item) => item.id == 'template.es.a0.m06.l018.meaning_route',
+          );
 
-    expect(template.audioReferenceId, 'es.audio.phrase.sigue_recto');
-    expect(template.audioTranscript, 'Sigue recto.');
-  });
+      expect(template.audioReferenceId, 'es.audio.phrase.sigue_recto');
+      expect(template.audioTranscript, 'Sigue recto.');
+    },
+  );
+
+  test(
+    'localized Lesson 9 guided dialogue preserves causal learner cues',
+    () async {
+      final service = LessonAssemblyService(
+        curriculumLoader: CurriculumLoader(assetBundle: rootBundle),
+        contentLoader: ContentLoader(assetBundle: rootBundle),
+      );
+      final assembled = await service.assembleLesson('es.a0.m03.l009');
+      final localized = resolveLocalizedLessonContent(
+        lessonContent: assembled,
+        resolver: EducationalContentLocalizationResolver(
+          const EducationalContentLocalizationBundle(
+            schemaVersion: 1,
+            targetLanguage: 'es',
+            sourceSupportLocale: 'en',
+            supportLocales: ['en', 'uk'],
+            entries: [],
+          ),
+        ),
+        supportLocale: SupportLocale.ukrainian,
+      );
+      final template = localized.activities
+          .expand((activity) => activity.resolvedContent)
+          .whereType<ExerciseTemplate>()
+          .firstWhere(
+            (item) => item.id == 'template.es.a0.m03.l009.guided_origin',
+          );
+      final turns = template.guidedDialogue!.turns;
+
+      expect(turns.map((turn) => '${turn.speaker}:${turn.text}'), [
+        'Luis:¿De dónde eres?',
+        'Tú:Soy de {place}.',
+        'Tú:¿De dónde eres?',
+        'Luis:Soy de España.',
+      ]);
+      expect(turns[1].learnerCue, 'Скажи, звідки ти.');
+      expect(turns[2].learnerCue, 'Тепер запитай Луїса, звідки він.');
+      expect(turns[1].responseMode, 'prefix_with_value');
+      expect(turns[2].responsePatterns, ['¿De dónde eres?']);
+      expect(turns[3].audioReferenceId, 'es.audio.dialogue.soy_de_espana');
+      final manifest =
+          jsonDecode(
+                File(
+                  'assets/languages/spanish/audio/reference_audio.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, Object?>;
+      final manifestAsset = (manifest['assets'] as List)
+          .cast<Map>()
+          .map(Map<String, Object?>.from)
+          .firstWhere((asset) => asset['id'] == turns[3].audioReferenceId);
+      expect(manifestAsset['transcript'], 'Soy de España.');
+    },
+  );
 
   test('resolves the canonical Lesson 1 content', () async {
     final service = LessonAssemblyService(

@@ -10,15 +10,15 @@ pedagogical suitability. Human listening remains mandatory.
 
 ## Summary
 
-- scanned: 10
-- technical `ok`: 10
+- scanned: 1
+- technical `ok`: 1
 - technical `review`: 0
 - technical `error`: 0
-- duration min/median/max: 766 / 929 / 1498 ms
+- duration min/median/max: 1033 / 1033 / 1033 ms
 
 ## Format distribution
 
-- `22050/1/16/1`: 10
+- `22050/1/16/1`: 1
 ## Conservative rules
 
 - `error`: missing/zero-byte file, invalid RIFF/WAVE structure, missing chunks,

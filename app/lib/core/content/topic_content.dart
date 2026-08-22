@@ -655,6 +655,7 @@ class GuidedDialogueTurn {
     required this.text,
     required this.learner,
     this.audioReferenceId,
+    this.learnerCue,
     this.responsePatterns = const [],
     this.allowedSlots = const {},
     this.responseMode = 'exact',
@@ -667,6 +668,7 @@ class GuidedDialogueTurn {
       text: requiredString(json, 'text'),
       learner: optionalBool(json, 'learner') ?? false,
       audioReferenceId: optionalString(json, 'audioReferenceId'),
+      learnerCue: optionalString(json, 'learner_cue'),
       responsePatterns: optionalStringList(json, 'response_patterns'),
       allowedSlots: slots == null
           ? const {}
@@ -686,6 +688,7 @@ class GuidedDialogueTurn {
   final String text;
   final bool learner;
   final String? audioReferenceId;
+  final String? learnerCue;
   final List<String> responsePatterns;
   final Map<String, List<String>> allowedSlots;
 
@@ -697,6 +700,7 @@ class GuidedDialogueTurn {
     'text': text,
     if (learner) 'learner': true,
     if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
+    if (learnerCue != null) 'learner_cue': learnerCue,
     if (responsePatterns.isNotEmpty) 'response_patterns': responsePatterns,
     if (allowedSlots.isNotEmpty) 'allowed_slots': allowedSlots,
     if (responseMode != 'exact') 'response_mode': responseMode,
@@ -710,6 +714,7 @@ class GuidedDialogueTurn {
           other.text == text &&
           other.learner == learner &&
           other.audioReferenceId == audioReferenceId &&
+          other.learnerCue == learnerCue &&
           listEquals(other.responsePatterns, responsePatterns) &&
           _guidedSlotsEqual(other.allowedSlots, allowedSlots) &&
           other.responseMode == responseMode;
@@ -720,6 +725,7 @@ class GuidedDialogueTurn {
     text,
     learner,
     audioReferenceId,
+    learnerCue,
     Object.hashAll(responsePatterns),
     Object.hashAll(allowedSlots.entries),
     responseMode,

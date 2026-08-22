@@ -134,7 +134,7 @@
       "turns": [
         {
           "speaker": "Ana",
-          "text": "Hola. ¿Cómo estás?",
+          "text": "Hola, Ana. ¿Cómo estás?",
           "audioReferenceId": "es.audio.question.hola_ana_como_estas"
         },
         {
