@@ -81,7 +81,7 @@ void main() {
   });
 
   test(
-    'current Lessons 1-35 audio-bearing template utterances match audio',
+    'current Lessons 1-37 audio-bearing template utterances match audio',
     () {
       final manifest =
           jsonDecode(
@@ -95,7 +95,7 @@ void main() {
           asset['id'] as String: asset['transcript'] as String,
       };
       var references = 0;
-      for (var lesson = 1; lesson <= 35; lesson++) {
+      for (var lesson = 1; lesson <= 37; lesson++) {
         final path =
             'assets/languages/spanish/templates/canonical_lesson_$lesson.json';
         final data = jsonDecode(File(path).readAsStringSync());

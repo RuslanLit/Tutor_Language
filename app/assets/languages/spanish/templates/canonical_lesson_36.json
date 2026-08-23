@@ -1,0 +1,83 @@
+[
+  {
+    "id": "template.es.a0.m09.l036.reading_transfer_identity",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай коротке повідомлення. Що запитує Ana?\nHola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv. ¿Dónde está la estación? Voy en metro.",
+    "reading_text": "Hola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv.\n¿Dónde está la estación? Voy en metro.",
+    "answer_options": [
+      {"id": "station", "label": "Де станція?"},
+      {"id": "name", "label": "Як її звати?"},
+      {"id": "health", "label": "Як вона почувається?"}
+    ],
+    "correct_option_id": "station"
+  },
+  {
+    "id": "template.es.a0.m09.l036.reading_transfer_service",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай коротке повідомлення. Що треба зробити?\nLa farmacia está cerca. Gira a la izquierda. Necesito ayuda.",
+    "reading_text": "La farmacia está cerca. Gira a la izquierda.\nNecesito ayuda.",
+    "answer_options": [
+      {"id": "left", "label": "Повернути ліворуч."},
+      {"id": "metro", "label": "Їхати метро."},
+      {"id": "doctor", "label": "Попросити лікаря."}
+    ],
+    "correct_option_id": "left"
+  },
+  {
+    "id": "template.es.a0.m09.l036.listening_transfer",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай без текстової підказки. Що запитують?",
+    "audio_reference_id": "es.audio.question.donde_esta_la_estacion",
+    "audio_transcript": "¿Dónde está la estación?",
+    "answer_options": [
+      {"id": "station", "label": "Де станція?"},
+      {"id": "pharmacy", "label": "Де аптека?"},
+      {"id": "help", "label": "Вам потрібна допомога?"}
+    ],
+    "correct_option_id": "station"
+  },
+  {
+    "id": "template.es.a0.m09.l036.build_transport",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи, як ти їдеш: «Я їду метро».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "voy", "label": "Voy"},
+        {"id": "en", "label": "en"},
+        {"id": "metro", "label": "metro."},
+        {"id": "a_pie", "label": "a pie."}
+      ],
+      "accepted_sequences": [["voy", "en", "metro"]],
+      "audioReferenceId": "es.audio.phrase.voy_en_metro"
+    }
+  },
+  {
+    "id": "template.es.a0.m09.l036.recall_help",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «Мені потрібна допомога».",
+    "expected_answer": "Necesito ayuda."
+  },
+  {
+    "id": "template.es.a0.m09.l036.guided_transfer",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["guided_dialogue"],
+    "prompt_template": "Проведи коротке знайомство й поясни, як ти їдеш.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Luis", "text": "Hola. ¿Cómo te llamas?"},
+        {"speaker": "Tú", "text": "Me llamo Ana.", "learner": true, "response_patterns": ["Me llamo Ana."]},
+        {"speaker": "Luis", "text": "¿De dónde eres?", "audioReferenceId": "es.audio.question.de_donde_eres"},
+        {"speaker": "Tú", "text": "Soy de Ucrania.", "learner": true, "response_patterns": ["Soy de Ucrania."]},
+        {"speaker": "Luis", "text": "¿Dónde vives?"},
+        {"speaker": "Tú", "text": "Vivo en Kyiv.", "learner": true, "response_patterns": ["Vivo en Kyiv."]},
+        {"speaker": "Luis", "text": "¿Cómo llegas al hotel?"},
+        {"speaker": "Tú", "text": "Voy en metro.", "learner": true, "response_patterns": ["Voy en metro."]}
+      ]
+    }
+  }
+]

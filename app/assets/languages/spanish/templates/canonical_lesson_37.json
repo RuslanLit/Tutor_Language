@@ -1,0 +1,76 @@
+[
+  {
+    "id": "template.es.a0.m09.l037.check_identity",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай повідомлення. Яка інформація правильна?\nHola. Me llamo Luis. Soy de España y vivo en Madrid.",
+    "reading_text": "Hola. Me llamo Luis. Soy de España y vivo en Madrid.",
+    "answer_options": [
+      {"id": "spain_madrid", "label": "Luis з Іспанії й живе в Мадриді."},
+      {"id": "ukraine_kyiv", "label": "Luis з України й живе в Києві."},
+      {"id": "name_ana", "label": "Luis звати Ana."}
+    ],
+    "correct_option_id": "spain_madrid"
+  },
+  {
+    "id": "template.es.a0.m09.l037.check_listening_help",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай без текстової підказки. Що сказано?",
+    "audio_reference_id": "es.audio.question.puede_ayudarme",
+    "audio_transcript": "¿Puede ayudarme?",
+    "answer_options": [
+      {"id": "help", "label": "Ви можете мені допомогти?"},
+      {"id": "need_doctor", "label": "Мені потрібен лікар."},
+      {"id": "where_station", "label": "Де станція?"}
+    ],
+    "correct_option_id": "help"
+  },
+  {
+    "id": "template.es.a0.m09.l037.build_location",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Запитай: «Де станція?».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "donde", "label": "¿Dónde"},
+        {"id": "esta", "label": "está"},
+        {"id": "la", "label": "la"},
+        {"id": "estacion", "label": "estación?"},
+        {"id": "farmacia", "label": "farmacia?"}
+      ],
+      "accepted_sequences": [["donde", "esta", "la", "estacion"]],
+      "audioReferenceId": "es.audio.question.donde_esta_la_estacion"
+    }
+  },
+  {
+    "id": "template.es.a0.m09.l037.recall_wellbeing",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «Я погано почуваюся».",
+    "expected_answer": "No me siento bien."
+  },
+  {
+    "id": "template.es.a0.m09.l037.recall_personal_request",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «Я з України».",
+    "expected_answer": "Soy de Ucrania."
+  },
+  {
+    "id": "template.es.a0.m09.l037.guided_checkpoint_shopping",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["guided_dialogue"],
+    "prompt_template": "Проведи коротку покупку: попроси ключ, запитай ціну й чемно заверш розмову.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Luis", "text": "¿Qué necesitas?", "audioReferenceId": "es.audio.question.que_necesitas"},
+        {"speaker": "Tú", "text": "Necesito una llave.", "learner": true, "response_patterns": ["Necesito una llave."]},
+        {"speaker": "Luis", "text": "Sí, tenemos una llave."},
+        {"speaker": "Tú", "text": "¿Cuánto cuesta?", "learner": true, "response_patterns": ["¿Cuánto cuesta?"]},
+        {"speaker": "Luis", "text": "Cuesta dos euros."},
+        {"speaker": "Tú", "text": "Nada más, gracias.", "learner": true, "response_patterns": ["Nada más, gracias."]}
+      ]
+    }
+  }
+]

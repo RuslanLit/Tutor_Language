@@ -31,7 +31,7 @@ void main() {
     expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
     expect(course.modules, hasLength(9));
-    expect(course.lessons, hasLength(35));
+    expect(course.lessons, hasLength(37));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,7 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Лікар, аптека і допомога');
+    expect(course.lessons.last.title, 'Підсумкова перевірка A0');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +164,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(35));
+    expect(paths, hasLength(37));
 
     final lessonIds = <String>{};
 
@@ -189,7 +189,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(35));
+    expect(lessonIds, hasLength(37));
   });
 
   test(
@@ -245,7 +245,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(35));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(37));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -278,7 +278,42 @@ void main() {
       'es.a0.m09.l033',
       'es.a0.m09.l034',
       'es.a0.m09.l035',
+      'es.a0.m09.l036',
+      'es.a0.m09.l037',
     ]);
+  });
+
+  test('Lessons 36 and 37 provide integrated transfer and final checkpoint',
+      () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+    final lessons = (await loader.loadCourse()).lessons.skip(35).toList();
+
+    expect(lessons.map((lesson) => lesson.id), [
+      'es.a0.m09.l036',
+      'es.a0.m09.l037',
+    ]);
+    expect(lessons.last.prerequisites.single.lessonId, 'es.a0.m09.l036');
+    for (final lessonNumber in [36, 37]) {
+      final raw = await rootBundle.loadString(
+        'assets/languages/spanish/templates/canonical_lesson_$lessonNumber.json',
+      );
+      final templates = (jsonDecode(raw) as List).cast<Map>();
+      expect(templates, hasLength(6));
+      expect(
+        templates.where((template) => template['reading_text'] is String),
+        isNotEmpty,
+      );
+      expect(
+        templates.any((template) => template['audio_reference_id'] is String),
+        isTrue,
+      );
+      expect(
+        templates.any(
+          (template) => template['exercise_type'] == 'guided_dialogue',
+        ),
+        isTrue,
+      );
+    }
   });
 
   test('prerequisites reference existing lessons', () async {
@@ -297,7 +332,7 @@ void main() {
   test('Lessons 31 to 35 close shopping and health objectives', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
     final course = await loader.loadCourse();
-    final lessons = course.lessons.skip(30).toList();
+    final lessons = course.lessons.skip(30).take(5).toList();
 
     expect(lessons.map((lesson) => lesson.id), [
       'es.a0.m05.l031',

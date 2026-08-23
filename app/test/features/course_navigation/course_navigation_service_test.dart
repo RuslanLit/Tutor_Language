@@ -129,8 +129,8 @@ void main() {
     expect(module1.lessons[6].title, 'Як підтримати розмову');
     expect(module1.lessons.first.position.indexInCourse, 1);
     expect(module1.lessons.last.position.indexInCourse, 7);
-    expect(module1.lessons.first.position.totalLessons, 35);
-    expect(module1.lessons.last.position.totalLessons, 35);
+    expect(module1.lessons.first.position.totalLessons, 37);
+    expect(module1.lessons.last.position.totalLessons, 37);
     expect(state.nextLessonId, 'es.a0.m01.l001');
     expect(module1.lessons.first.status, LessonNavigationStatus.available);
     expect(module1.lessons.skip(1).map((lesson) => lesson.status), [
