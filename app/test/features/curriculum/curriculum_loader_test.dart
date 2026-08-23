@@ -30,8 +30,8 @@ void main() {
     expect(course.languageId, 'spanish');
     expect(course.title, 'Іспанська A0');
     expect(course.level, 'A0');
-    expect(course.modules, hasLength(8));
-    expect(course.lessons, hasLength(30));
+    expect(course.modules, hasLength(9));
+    expect(course.lessons, hasLength(35));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,7 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Короткий опис сім’ї та дому');
+    expect(course.lessons.last.title, 'Лікар, аптека і допомога');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +164,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(30));
+    expect(paths, hasLength(35));
 
     final lessonIds = <String>{};
 
@@ -189,7 +189,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(30));
+    expect(lessonIds, hasLength(35));
   });
 
   test(
@@ -245,7 +245,7 @@ void main() {
       course.lessons.map((lesson) => lesson.id),
       everyElement(startsWith('es.a0.')),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(30));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(35));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -273,6 +273,11 @@ void main() {
       'es.a0.m08.l028',
       'es.a0.m08.l029',
       'es.a0.m08.l030',
+      'es.a0.m05.l031',
+      'es.a0.m05.l032',
+      'es.a0.m09.l033',
+      'es.a0.m09.l034',
+      'es.a0.m09.l035',
     ]);
   });
 
@@ -287,6 +292,93 @@ void main() {
         expect(lessonIds, contains(prerequisite.lessonId));
       }
     }
+  });
+
+  test('Lessons 31 to 35 close shopping and health objectives', () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+    final course = await loader.loadCourse();
+    final lessons = course.lessons.skip(30).toList();
+
+    expect(lessons.map((lesson) => lesson.id), [
+      'es.a0.m05.l031',
+      'es.a0.m05.l032',
+      'es.a0.m09.l033',
+      'es.a0.m09.l034',
+      'es.a0.m09.l035',
+    ]);
+    expect(lessons.map((lesson) => lesson.title), [
+      'Ціна і вартість',
+      'Купівля у магазині',
+      'Що з тобою?',
+      'Температура і біль',
+      'Лікар, аптека і допомога',
+    ]);
+
+    for (var lesson = 31; lesson <= 35; lesson++) {
+      final raw = await rootBundle.loadString(
+        'assets/languages/spanish/templates/canonical_lesson_$lesson.json',
+      );
+      final templates = (jsonDecode(raw) as List).cast<Map>();
+      expect(
+        templates.where((template) => template['reading_text'] is String),
+        isNotEmpty,
+        reason: 'Lesson $lesson needs genuine short-reading comprehension',
+      );
+      expect(
+        templates.any(
+          (template) => template['exercise_type'] == 'guided_dialogue',
+        ),
+        isTrue,
+        reason: 'Lesson $lesson needs guided interaction',
+      );
+    }
+
+    final lesson35Templates =
+        (jsonDecode(
+                  await rootBundle.loadString(
+                    'assets/languages/spanish/templates/canonical_lesson_35.json',
+                  ),
+                )
+                as List)
+            .cast<Map>();
+    final listening = lesson35Templates.firstWhere(
+      (template) =>
+          template['id'] == 'template.es.a0.m09.l035.listening_pharmacy',
+    );
+    expect(
+      listening['audio_reference_id'],
+      'es.audio.question.donde_esta_la_farmacia',
+    );
+    expect(listening['audio_transcript'], '¿Dónde está la farmacia?');
+
+    final lesson32 = await loader.loadLesson(
+      path: 'assets/languages/spanish/curriculum/lessons/es.a0.m05.l032.json',
+    );
+    final lesson35 = await loader.loadLesson(
+      path: 'assets/languages/spanish/curriculum/lessons/es.a0.m09.l035.json',
+    );
+    expect(lesson32.sections.first.activities.single.type, 'spoken_practice');
+    expect(
+      lesson32
+          .sections
+          .first
+          .activities
+          .single
+          .spokenPractice
+          ?.audioReferenceId,
+      'es.audio.dialogue.necesito_una_llave',
+    );
+    expect(lesson35.sections.first.activities.single.type, 'spoken_practice');
+    expect(
+      lesson35
+          .sections
+          .first
+          .activities
+          .single
+          .spokenPractice
+          ?.audioReferenceId,
+      'es.audio.phrase.necesito_un_medico',
+    );
   });
 
   test(
@@ -366,76 +458,97 @@ void main() {
     }
   });
 
-  test('Lessons 16 to 20 load with distinct objectives and production stages', () async {
-    final loader = CurriculumLoader(assetBundle: rootBundle);
-    final expected = <String, String>{
-      'es.a0.m06.l016': 'Як ти їдеш?',
-      'es.a0.m06.l017': 'Де станція?',
-      'es.a0.m06.l018': 'Як дістатися до готелю?',
-      'es.a0.m06.l019': 'Ліворуч чи праворуч?',
-      'es.a0.m06.l020': 'Короткий маршрут',
-    };
+  test(
+    'Lessons 16 to 20 load with distinct objectives and production stages',
+    () async {
+      final loader = CurriculumLoader(assetBundle: rootBundle);
+      final expected = <String, String>{
+        'es.a0.m06.l016': 'Як ти їдеш?',
+        'es.a0.m06.l017': 'Де станція?',
+        'es.a0.m06.l018': 'Як дістатися до готелю?',
+        'es.a0.m06.l019': 'Ліворуч чи праворуч?',
+        'es.a0.m06.l020': 'Короткий маршрут',
+      };
 
-    for (final entry in expected.entries) {
-      final lesson = await loader.loadLesson(
-        path: 'assets/languages/spanish/curriculum/lessons/${entry.key}.json',
-      );
-      expect(lesson.title, entry.value);
-      expect(lesson.primaryObjective?.description, isNotEmpty);
-      expect(lesson.prerequisites, hasLength(1));
-      expect(lesson.activities, isNotEmpty);
-      final references = lesson.activities
-          .expand((activity) => activity.references)
-          .toList();
-      expect(references.any((ref) => (ref.referenceId ?? '').contains('recall')), isTrue);
-      expect(references.any((ref) => (ref.referenceId ?? '').contains('guided')), isTrue);
-      expect(
-        references.any((ref) => (ref.referenceId ?? '').contains('meaning_')),
-        isTrue,
-      );
-      expect(lesson.sections.first.id, endsWith('.section.spoken'));
-      expect(lesson.sections.first.activities.single.type, 'spoken_practice');
-      expect(lesson.sections[1].activities.single.references.first.referenceId,
-          contains('meaning_'));
-    }
-  });
-
-  test('selected Lessons 17 to 19 use audio-first semantic comprehension', () async {
-    final audioJson = jsonDecode(
-      await rootBundle.loadString(
-        'assets/languages/spanish/audio/reference_audio.json',
-      ),
-    ) as Map<String, dynamic>;
-    final approvedIds = {
-      for (final raw in (audioJson['assets'] as List).cast<Map>())
-        if (raw['qaStatus'] == 'approved') raw['id'] as String,
-    };
-    final expected = <int, String>{
-      17: 'es.audio.phrase.esta_lejos',
-      18: 'es.audio.phrase.sigue_recto',
-      19: 'es.audio.phrase.gira_a_la_derecha',
-    };
-
-    for (final entry in expected.entries) {
-      final rawTemplates = jsonDecode(
-        await rootBundle.loadString(
-          'assets/languages/spanish/templates/canonical_lesson_${entry.key}.json',
-        ),
-      ) as List;
-      final listening = rawTemplates.cast<Map>().firstWhere(
-        (template) =>
-            (template['id'] as String).contains('meaning_'),
-      );
-      expect(listening['audio_reference_id'], entry.value);
-      expect(approvedIds, contains(listening['audio_reference_id']));
-      expect(listening['prompt_template'], isNot(contains('Está')));
-      expect(listening['prompt_template'], isNot(contains('Sigue')));
-      expect(listening['prompt_template'], isNot(contains('Gira')));
-      for (final option in (listening['answer_options'] as List).cast<Map>()) {
-        expect(option['label'], isNot(contains(RegExp(r'[A-Za-zÁÉÍÓÚáéíóú¿¡]'))));
+      for (final entry in expected.entries) {
+        final lesson = await loader.loadLesson(
+          path: 'assets/languages/spanish/curriculum/lessons/${entry.key}.json',
+        );
+        expect(lesson.title, entry.value);
+        expect(lesson.primaryObjective?.description, isNotEmpty);
+        expect(lesson.prerequisites, hasLength(1));
+        expect(lesson.activities, isNotEmpty);
+        final references = lesson.activities
+            .expand((activity) => activity.references)
+            .toList();
+        expect(
+          references.any((ref) => (ref.referenceId ?? '').contains('recall')),
+          isTrue,
+        );
+        expect(
+          references.any((ref) => (ref.referenceId ?? '').contains('guided')),
+          isTrue,
+        );
+        expect(
+          references.any((ref) => (ref.referenceId ?? '').contains('meaning_')),
+          isTrue,
+        );
+        expect(lesson.sections.first.id, endsWith('.section.spoken'));
+        expect(lesson.sections.first.activities.single.type, 'spoken_practice');
+        expect(
+          lesson.sections[1].activities.single.references.first.referenceId,
+          contains('meaning_'),
+        );
       }
-    }
-  });
+    },
+  );
+
+  test(
+    'selected Lessons 17 to 19 use audio-first semantic comprehension',
+    () async {
+      final audioJson =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/languages/spanish/audio/reference_audio.json',
+                ),
+              )
+              as Map<String, dynamic>;
+      final approvedIds = {
+        for (final raw in (audioJson['assets'] as List).cast<Map>())
+          if (raw['qaStatus'] == 'approved') raw['id'] as String,
+      };
+      final expected = <int, String>{
+        17: 'es.audio.phrase.esta_lejos',
+        18: 'es.audio.phrase.sigue_recto',
+        19: 'es.audio.phrase.gira_a_la_derecha',
+      };
+
+      for (final entry in expected.entries) {
+        final rawTemplates =
+            jsonDecode(
+                  await rootBundle.loadString(
+                    'assets/languages/spanish/templates/canonical_lesson_${entry.key}.json',
+                  ),
+                )
+                as List;
+        final listening = rawTemplates.cast<Map>().firstWhere(
+          (template) => (template['id'] as String).contains('meaning_'),
+        );
+        expect(listening['audio_reference_id'], entry.value);
+        expect(approvedIds, contains(listening['audio_reference_id']));
+        expect(listening['prompt_template'], isNot(contains('Está')));
+        expect(listening['prompt_template'], isNot(contains('Sigue')));
+        expect(listening['prompt_template'], isNot(contains('Gira')));
+        for (final option
+            in (listening['answer_options'] as List).cast<Map>()) {
+          expect(
+            option['label'],
+            isNot(contains(RegExp(r'[A-Za-zÁÉÍÓÚáéíóú¿¡]'))),
+          );
+        }
+      }
+    },
+  );
 
   test('course languageId matches manifest id', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
@@ -788,41 +901,56 @@ void main() {
     expect(issueMessages, contains(contains('Summary references unknown')));
   });
 
-  test('Lesson 9 origin dialogue asks for one coherent open-value action', () async {
-    final raw = jsonDecode(
-      await rootBundle.loadString(
-        'assets/languages/spanish/templates/canonical_lesson_9.json',
-      ),
-    ) as List;
-    final guided = raw.cast<Map>().firstWhere(
-      (item) => item['id'] == 'template.es.a0.m03.l009.guided_origin',
-    );
-    expect(guided['prompt_template'], 'Обміняйся інформацією про походження.');
-    final learnerTurn = (guided['guided_dialogue'] as Map)['turns']
-        .cast<Map>()
-        .firstWhere((turn) => turn['learner'] == true);
-    expect(learnerTurn['response_mode'], 'prefix_with_value');
-    expect(learnerTurn['response_patterns'], ['Soy de {place}.']);
-  });
+  test(
+    'Lesson 9 origin dialogue asks for one coherent open-value action',
+    () async {
+      final raw =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/languages/spanish/templates/canonical_lesson_9.json',
+                ),
+              )
+              as List;
+      final guided = raw.cast<Map>().firstWhere(
+        (item) => item['id'] == 'template.es.a0.m03.l009.guided_origin',
+      );
+      expect(
+        guided['prompt_template'],
+        'Обміняйся інформацією про походження.',
+      );
+      final learnerTurn = (guided['guided_dialogue'] as Map)['turns']
+          .cast<Map>()
+          .firstWhere((turn) => turn['learner'] == true);
+      expect(learnerTurn['response_mode'], 'prefix_with_value');
+      expect(learnerTurn['response_patterns'], ['Soy de {place}.']);
+    },
+  );
 
   test('known multi-answer and multi-turn prompts are explicit', () async {
-    final l25 = jsonDecode(
-      await rootBundle.loadString(
-        'assets/languages/spanish/templates/canonical_lesson_25.json',
-      ),
-    ) as List;
+    final l25 =
+        jsonDecode(
+              await rootBundle.loadString(
+                'assets/languages/spanish/templates/canonical_lesson_25.json',
+              ),
+            )
+            as List;
     final builder = l25.cast<Map>().firstWhere(
       (item) => item['id'] == 'template.es.a0.m07.l025.build_request',
     );
     expect(builder['prompt_template'], contains('одну коротку репліку'));
-    expect((builder['sentence_builder'] as Map)['accepted_sequences'], hasLength(2));
+    expect(
+      (builder['sentence_builder'] as Map)['accepted_sequences'],
+      hasLength(2),
+    );
 
     for (final lesson in [11, 12, 14, 15]) {
-      final raw = jsonDecode(
-        await rootBundle.loadString(
-          'assets/languages/spanish/templates/canonical_lesson_$lesson.json',
-        ),
-      ) as List;
+      final raw =
+          jsonDecode(
+                await rootBundle.loadString(
+                  'assets/languages/spanish/templates/canonical_lesson_$lesson.json',
+                ),
+              )
+              as List;
       final guided = raw.cast<Map>().firstWhere(
         (item) => item['exercise_type'] == 'guided_dialogue',
       );
