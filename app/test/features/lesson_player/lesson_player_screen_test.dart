@@ -355,6 +355,39 @@ void main() {
     expect(find.text('Remediation Vocabulary'), findsOneWidget);
   });
 
+  testWidgets('QA mode can inspect the next step without answering', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(800, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
+    });
+
+    await tester.pumpWidget(
+      _app(
+        const LessonPlayerScreen(
+          lessonId: 'lesson.remediation',
+          qaMode: true,
+          persistCompletion: false,
+        ),
+        service: _FakeLessonAssemblyService(_remediationLessonContent),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final nextButton = find.widgetWithText(FilledButton, 'Next →');
+    expect(tester.widget<FilledButton>(nextButton).onPressed, isNotNull);
+
+    await tester.ensureVisible(nextButton);
+    await tester.tap(nextButton);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Step 2 / 2'), findsOneWidget);
+    expect(find.text('Remediation Vocabulary'), findsOneWidget);
+  });
+
   testWidgets('third incorrect answer inserts authored review step', (
     tester,
   ) async {

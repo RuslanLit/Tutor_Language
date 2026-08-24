@@ -597,7 +597,7 @@ class _LessonNavigationControlsState
     final canGoPrevious =
         previousDecision.type == LessonSessionDecisionType.moveToPreviousStep;
     final canGoNext =
-        widget.canAdvanceCurrentStep &&
+        (widget.qaMode || widget.canAdvanceCurrentStep) &&
         nextDecision.type == LessonSessionDecisionType.moveToNextStep;
     final isPersisting =
         widget.session.completionPersistenceStatus ==

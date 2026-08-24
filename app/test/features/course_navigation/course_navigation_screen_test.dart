@@ -43,6 +43,29 @@ void main() {
     expect(find.textContaining('Locked'), findsNWidgets(2));
   });
 
+  testWidgets('current course version is fully open in debug QA', (
+    tester,
+  ) async {
+    final database = AppDatabase(NativeDatabase.memory());
+    addTearDown(database.close);
+    final qaCourse = Course(
+      id: _course.id,
+      languageId: _course.languageId,
+      title: _course.title,
+      level: _course.level,
+      version: '1.0.0-a1b1',
+      modules: _course.modules,
+      lessons: _course.lessons,
+    );
+
+    await tester.pumpWidget(_app(database, course: qaCourse));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('Completed'), findsNWidgets(3));
+    expect(find.textContaining('Locked'), findsNothing);
+    expect(find.text('Course complete'), findsOneWidget);
+  });
+
   testWidgets('completed lesson displays completed state and unlocks next', (
     tester,
   ) async {

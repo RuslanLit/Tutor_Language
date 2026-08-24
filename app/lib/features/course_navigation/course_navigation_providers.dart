@@ -20,7 +20,8 @@ final courseNavigationStateProvider = FutureProvider<CourseNavigationState>((
   final progressEvents = await ref.watch(learnerProgressEventsProvider.future);
   final completedLessonIds = _completedLessonIds(progressEvents);
   final effectiveCompletedLessonIds =
-      kDebugMode && course.version.contains('-r2e')
+      kDebugMode &&
+          (course.version.contains('-r2e') || course.version == '1.0.0-a1b1')
       ? {
           for (final lesson
               in ref
