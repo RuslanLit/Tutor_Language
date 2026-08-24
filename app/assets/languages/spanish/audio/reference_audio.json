@@ -2801,6 +2801,70 @@
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
+    },
+    {
+      "id": "es.audio.a1_routine.que_haces_normalmente",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.a1.routine.que_haces_normalmente.wav",
+      "transcript": "¿Qué haces normalmente?",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.a1_routine.me_levanto_a_las_siete",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.a1.routine.me_levanto_a_las_siete.wav",
+      "transcript": "Me levanto a las siete.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "communicativeChunk",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.a1_routine.sequence_morning",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.a1.routine.sequence_morning.wav",
+      "transcript": "Me levanto a las siete. Después desayuno. Por la mañana trabajo.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
+    },
+    {
+      "id": "es.audio.a1_routine.sequence_evening",
+      "assetPath": "assets/languages/spanish/audio/reference/es.audio.a1.routine.sequence_evening.wav",
+      "transcript": "Por la tarde vuelvo a casa. Por la noche ceno y duermo.",
+      "languageCode": "es",
+      "locale": "es_ES",
+      "voiceId": "es_ES-sharvard-medium",
+      "purpose": "listeningStimulus",
+      "qaStatus": "approved",
+      "provenance": {
+        "engine": "Piper",
+        "voice": "es_ES-sharvard-medium",
+        "locale": "es_ES",
+        "generationRole": "authoring-time only"
+      }
     }
   ]
 }

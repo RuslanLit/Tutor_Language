@@ -1,0 +1,79 @@
+[
+  {
+    "id": "template.es.a1.m10.l038.meaning_routine_first",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай короткий опис. Що робить людина після того, як встає?",
+    "reading_text": "Me levanto. Después desayuno. Trabajo.",
+    "answer_options": [
+      {"id": "breakfast", "label": "Снідає."},
+      {"id": "work", "label": "Працює."},
+      {"id": "sleep", "label": "Спить."}
+    ],
+    "correct_option_id": "breakfast"
+  },
+  {
+    "id": "template.es.a1.m10.l038.listening_routine_question",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай без текстової підказки. Про що запитують?",
+    "audio_reference_id": "es.audio.a1_routine.que_haces_normalmente",
+    "audio_transcript": "¿Qué haces normalmente?",
+    "answer_options": [
+      {"id": "routine", "label": "Що ти зазвичай робиш?"},
+      {"id": "time", "label": "О котрій годині?"},
+      {"id": "place", "label": "Де станція?"}
+    ],
+    "correct_option_id": "routine"
+  },
+  {
+    "id": "template.es.a1.m10.l038.build_get_up",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи: «Я встаю».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "me", "label": "Me"},
+        {"id": "levanto", "label": "levanto."},
+        {"id": "desayuno", "label": "desayuno."},
+        {"id": "trabajo", "label": "Trabajo."}
+      ],
+      "accepted_sequences": [["me", "levanto"]]
+    }
+  },
+  {
+    "id": "template.es.a1.m10.l038.recall_breakfast",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «Я снідаю».",
+    "expected_answer": "Desayuno."
+  },
+  {
+    "id": "template.es.a1.m10.l038.build_work",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи: «Я працюю».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "trabajo", "label": "Trabajo."},
+        {"id": "desayuno", "label": "Desayuno."},
+        {"id": "duermo", "label": "Duermo."}
+      ],
+      "accepted_sequences": [["trabajo"]]
+    }
+  },
+  {
+    "id": "template.es.a1.m10.l038.guided_routine_start",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["guided_dialogue"],
+    "prompt_template": "Почни короткий обмін про свій звичайний день.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Luis", "text": "¿Qué haces normalmente?", "audioReferenceId": "es.audio.a1_routine.que_haces_normalmente"},
+        {"speaker": "Tú", "text": "Me levanto.", "learner": true, "learner_cue": "Назви першу дію свого дня.", "response_patterns": ["Me levanto."]},
+        {"speaker": "Luis", "text": "¿Y después?"},
+        {"speaker": "Tú", "text": "Desayuno.", "learner": true, "learner_cue": "Назви наступну дію.", "response_patterns": ["Desayuno."]}
+      ]
+    }
+  }
+]

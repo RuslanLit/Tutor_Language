@@ -109,7 +109,7 @@ void main() {
       (unit) => unit.unitId == 'es.a0.m01',
     );
 
-    expect(course.title, 'Іспанська A0');
+    expect(course.title, 'Іспанська A0 → A1');
     expect(module1.title, 'Модуль 1');
     expect(module1.lessons.map((lesson) => lesson.lessonId), [
       'es.a0.m01.l001',
@@ -129,8 +129,8 @@ void main() {
     expect(module1.lessons[6].title, 'Як підтримати розмову');
     expect(module1.lessons.first.position.indexInCourse, 1);
     expect(module1.lessons.last.position.indexInCourse, 7);
-    expect(module1.lessons.first.position.totalLessons, 37);
-    expect(module1.lessons.last.position.totalLessons, 37);
+    expect(module1.lessons.first.position.totalLessons, 42);
+    expect(module1.lessons.last.position.totalLessons, 42);
     expect(state.nextLessonId, 'es.a0.m01.l001');
     expect(module1.lessons.first.status, LessonNavigationStatus.available);
     expect(module1.lessons.skip(1).map((lesson) => lesson.status), [

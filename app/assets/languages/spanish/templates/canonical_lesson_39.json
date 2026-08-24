@@ -1,0 +1,82 @@
+[
+  {
+    "id": "template.es.a1.m10.l039.reading_time_frequency",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай опис. Коли людина встає?",
+    "reading_text": "Me levanto a las siete. Desayuno por la mañana. Trabajo todos los días.",
+    "answer_options": [
+      {"id": "seven", "label": "О сьомій."},
+      {"id": "afternoon", "label": "У другій половині дня."},
+      {"id": "never", "label": "Ніколи."}
+    ],
+    "correct_option_id": "seven"
+  },
+  {
+    "id": "template.es.a1.m10.l039.listening_time",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай без текстової підказки. Коли людина встає?",
+    "audio_reference_id": "es.audio.a1_routine.me_levanto_a_las_siete",
+    "audio_transcript": "Me levanto a las siete.",
+    "answer_options": [
+      {"id": "seven", "label": "О сьомій."},
+      {"id": "morning", "label": "Уранці."},
+      {"id": "night", "label": "Уночі."}
+    ],
+    "correct_option_id": "seven"
+  },
+  {
+    "id": "template.es.a1.m10.l039.build_time",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи: «Я встаю о сьомій».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "me", "label": "Me"},
+        {"id": "levanto", "label": "levanto"},
+        {"id": "a_las", "label": "a las"},
+        {"id": "siete", "label": "siete."},
+        {"id": "ocho", "label": "ocho."}
+      ],
+      "accepted_sequences": [["me", "levanto", "a_las", "siete"]],
+      "audioReferenceId": "es.audio.a1_routine.me_levanto_a_las_siete"
+    }
+  },
+  {
+    "id": "template.es.a1.m10.l039.recall_frequency",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «Я працюю щодня».",
+    "expected_answer": "Trabajo todos los días."
+  },
+  {
+    "id": "template.es.a1.m10.l039.build_morning",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи: «Я снідаю вранці».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "desayuno", "label": "Desayuno"},
+        {"id": "por_la", "label": "por la"},
+        {"id": "manana", "label": "mañana."},
+        {"id": "tarde", "label": "tarde."}
+      ],
+      "accepted_sequences": [["desayuno", "por_la", "manana"]]
+    }
+  },
+  {
+    "id": "template.es.a1.m10.l039.guided_time_frequency",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["guided_dialogue"],
+    "prompt_template": "Відповідай про час і ранкову дію.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Luis", "text": "¿A qué hora te levantas?"},
+        {"speaker": "Tú", "text": "Me levanto a las siete.", "learner": true, "learner_cue": "Назви час підйому.", "response_patterns": ["Me levanto a las siete."]},
+        {"speaker": "Luis", "text": "¿Qué haces por la mañana?"},
+        {"speaker": "Tú", "text": "Desayuno por la mañana.", "learner": true, "learner_cue": "Назви ранкову дію.", "response_patterns": ["Desayuno por la mañana."]}
+      ]
+    }
+  }
+]

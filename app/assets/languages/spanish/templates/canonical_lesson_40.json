@@ -1,0 +1,81 @@
+[
+  {
+    "id": "template.es.a1.m10.l040.reading_sequence",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Прочитай послідовність. Що людина робить після сніданку?",
+    "reading_text": "Primero me levanto a las siete. Después desayuno. Por la mañana trabajo. Por la tarde vuelvo a casa.",
+    "answer_options": [
+      {"id": "work", "label": "Працює."},
+      {"id": "sleep", "label": "Спить."},
+      {"id": "dinner", "label": "Вечеряє."}
+    ],
+    "correct_option_id": "work"
+  },
+  {
+    "id": "template.es.a1.m10.l040.listening_sequence_morning",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай усю послідовність без текстової підказки. Що відбувається після підйому?",
+    "audio_reference_id": "es.audio.a1_routine.sequence_morning",
+    "audio_transcript": "Me levanto a las siete. Después desayuno. Por la mañana trabajo.",
+    "answer_options": [
+      {"id": "breakfast", "label": "Сніданок."},
+      {"id": "work", "label": "Робота."},
+      {"id": "home", "label": "Повернення додому."}
+    ],
+    "correct_option_id": "breakfast"
+  },
+  {
+    "id": "template.es.a1.m10.l040.listening_sequence_evening",
+    "exercise_type": "multiple_choice",
+    "supported_goal_types": ["recognize_meaning"],
+    "prompt_template": "Послухай усю послідовність. Коли людина повертається додому?",
+    "audio_reference_id": "es.audio.a1_routine.sequence_evening",
+    "audio_transcript": "Por la tarde vuelvo a casa. Por la noche ceno y duermo.",
+    "answer_options": [
+      {"id": "afternoon", "label": "У другій половині дня."},
+      {"id": "morning", "label": "Уранці."},
+      {"id": "night", "label": "Уночі."}
+    ],
+    "correct_option_id": "afternoon"
+  },
+  {
+    "id": "template.es.a1.m10.l040.build_after",
+    "exercise_type": "sentence_builder",
+    "supported_goal_types": ["construct_known_response"],
+    "prompt_template": "Скажи: «Потім я снідаю».",
+    "sentence_builder": {
+      "tokens": [
+        {"id": "despues", "label": "Después"},
+        {"id": "desayuno", "label": "desayuno."},
+        {"id": "trabajo", "label": "trabajo."},
+        {"id": "primero", "label": "Primero"}
+      ],
+      "accepted_sequences": [["despues", "desayuno"]]
+    }
+  },
+  {
+    "id": "template.es.a1.m10.l040.recall_afternoon",
+    "exercise_type": "text_entry",
+    "supported_goal_types": ["typed_recall"],
+    "prompt_template": "Напиши іспанською: «У другій половині дня я повертаюся додому».",
+    "expected_answer": "Por la tarde vuelvo a casa."
+  },
+  {
+    "id": "template.es.a1.m10.l040.guided_sequence",
+    "exercise_type": "guided_dialogue",
+    "supported_goal_types": ["guided_dialogue"],
+    "prompt_template": "Проведи короткий обмін про послідовність дня.",
+    "guided_dialogue": {
+      "turns": [
+        {"speaker": "Luis", "text": "¿Qué haces primero?"},
+        {"speaker": "Tú", "text": "Me levanto.", "learner": true, "learner_cue": "Назви першу дію.", "response_patterns": ["Me levanto."]},
+        {"speaker": "Luis", "text": "¿Y después?"},
+        {"speaker": "Tú", "text": "Después desayuno.", "learner": true, "learner_cue": "Назви наступну дію.", "response_patterns": ["Después desayuno."]},
+        {"speaker": "Luis", "text": "¿Qué haces por la tarde?"},
+        {"speaker": "Tú", "text": "Vuelvo a casa.", "learner": true, "learner_cue": "Назви дію в другій половині дня.", "response_patterns": ["Vuelvo a casa."]}
+      ]
+    }
+  }
+]

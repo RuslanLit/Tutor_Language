@@ -21,17 +21,17 @@ void main() {
     expect(manifest.textDirection, 'ltr');
   });
 
-  test('parses Spanish A0 course, modules, and lessons', () async {
+  test('parses Spanish A0 to A1 course, modules, and lessons', () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
 
     final course = await loader.loadCourse();
 
     expect(course.id, 'es.a0');
     expect(course.languageId, 'spanish');
-    expect(course.title, 'Іспанська A0');
-    expect(course.level, 'A0');
-    expect(course.modules, hasLength(9));
-    expect(course.lessons, hasLength(37));
+    expect(course.title, 'Іспанська A0 → A1');
+    expect(course.level, 'A0–A1');
+    expect(course.modules, hasLength(10));
+    expect(course.lessons, hasLength(42));
     expect(course.modules.first.title, 'Модуль 1');
     expect(course.modules.first.lessonIds, [
       'es.a0.m01.l001',
@@ -43,7 +43,10 @@ void main() {
       'es.a0.m01.l007',
     ]);
     expect(course.lessons.first.title, 'Урок 1');
-    expect(course.lessons.last.title, 'Підсумкова перевірка A0');
+    expect(course.lessons[36].title, 'Підсумкова перевірка A0');
+    expect(course.lessons.last.title, 'Перевірка щоденного ритму');
+    expect(course.lessons.last.metadata?.difficulty, 'A1');
+    expect(course.lessons.last.moduleId, 'es.a1.m10');
     expect(course.lessons.first.metadata, isNotNull);
     expect(course.lessons.first.objectives, hasLength(1));
     expect(course.lessons.first.sections, hasLength(1));
@@ -164,7 +167,7 @@ void main() {
     );
     final paths = (jsonDecode(rawIndex) as List).cast<String>();
 
-    expect(paths, hasLength(37));
+    expect(paths, hasLength(42));
 
     final lessonIds = <String>{};
 
@@ -189,7 +192,7 @@ void main() {
       }
     }
 
-    expect(lessonIds, hasLength(37));
+    expect(lessonIds, hasLength(42));
   });
 
   test(
@@ -243,9 +246,9 @@ void main() {
 
     expect(
       course.lessons.map((lesson) => lesson.id),
-      everyElement(startsWith('es.a0.')),
+      everyElement(anyOf(startsWith('es.a0.'), startsWith('es.a1.'))),
     );
-    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(37));
+    expect(course.lessons.map((lesson) => lesson.id).toSet(), hasLength(42));
 
     expect(course.lessons.skip(5).map((lesson) => lesson.id), [
       'es.a0.m01.l006',
@@ -280,13 +283,19 @@ void main() {
       'es.a0.m09.l035',
       'es.a0.m09.l036',
       'es.a0.m09.l037',
+      'es.a1.m10.l038',
+      'es.a1.m10.l039',
+      'es.a1.m10.l040',
+      'es.a1.m10.l041',
+      'es.a1.m10.l042',
     ]);
   });
 
   test('Lessons 36 and 37 provide integrated transfer and final checkpoint',
       () async {
     final loader = CurriculumLoader(assetBundle: rootBundle);
-    final lessons = (await loader.loadCourse()).lessons.skip(35).toList();
+    final lessons =
+        (await loader.loadCourse()).lessons.skip(35).take(2).toList();
 
     expect(lessons.map((lesson) => lesson.id), [
       'es.a0.m09.l036',
@@ -314,6 +323,44 @@ void main() {
         isTrue,
       );
     }
+  });
+
+  test('Lessons 38 to 42 form the first A1 routine batch', () async {
+    final loader = CurriculumLoader(assetBundle: rootBundle);
+    final lessons = (await loader.loadCourse()).lessons.skip(37).toList();
+
+    expect(lessons.map((lesson) => lesson.id), [
+      'es.a1.m10.l038',
+      'es.a1.m10.l039',
+      'es.a1.m10.l040',
+      'es.a1.m10.l041',
+      'es.a1.m10.l042',
+    ]);
+    expect(lessons.map((lesson) => lesson.metadata?.difficulty), everyElement('A1'));
+    expect(lessons.first.prerequisites.single.lessonId, 'es.a0.m09.l037');
+    expect(lessons.last.prerequisites.single.lessonId, 'es.a1.m10.l041');
+
+    for (var lessonNumber = 38; lessonNumber <= 42; lessonNumber++) {
+      final raw = await rootBundle.loadString(
+        'assets/languages/spanish/templates/canonical_lesson_$lessonNumber.json',
+      );
+      final templates = (jsonDecode(raw) as List).cast<Map>();
+      expect(templates, hasLength(6));
+      expect(templates.where((template) => template['reading_text'] is String), isNotEmpty);
+      expect(templates.any((template) => template['audio_reference_id'] is String), isTrue);
+      expect(templates.any((template) => template['exercise_type'] == 'guided_dialogue'), isTrue);
+    }
+
+    final l40Templates = (jsonDecode(await rootBundle.loadString(
+      'assets/languages/spanish/templates/canonical_lesson_40.json',
+    )) as List).cast<Map>();
+    expect(
+      l40Templates
+          .where((template) => template['audio_transcript'] is String)
+          .map((template) => template['audio_transcript'] as String)
+          .any((transcript) => transcript.contains('. ') && transcript.length > 45),
+      isTrue,
+    );
   });
 
   test('prerequisites reference existing lessons', () async {
