@@ -13,7 +13,8 @@
       "fields": {
         "title": {
           "uk": "Іспанська A0 → A1",
-          "ru": "Испанский A0 → A1"
+          "ru": "Испанский A0 → A1",
+          "en": "Spanish A0 → A1"
         }
       }
     },
@@ -23,31 +24,38 @@
       "fields": {
         "title": {
           "uk": "Перше знайомство",
-          "ru": "Первое знакомство"
+          "ru": "Первое знакомство",
+          "en": "First meeting"
         },
         "lines.0.native_translation": {
           "uk": "ола. буенос діас — привіт. доброго ранку.",
-          "ru": "ола. буенос диас — привет. доброе утро."
+          "ru": "ола. буенос диас — привет. доброе утро.",
+          "en": "OH-lah. BWEH-nos DEE-as — Hello. good morning."
         },
         "lines.1.native_translation": {
           "uk": "ме ямо Марта — мене звати Marta.",
-          "ru": "ме ямо Марта — меня зовут Marta."
+          "ru": "ме ямо Марта — меня зовут Marta.",
+          "en": "meh YAH-moh MAR-tah — My name is Marta."
         },
         "lines.2.native_translation": {
           "uk": "комо те ямас — як тебе звати?",
-          "ru": "комо те ямас — как тебя зовут?"
+          "ru": "комо те ямас — как тебя зовут?",
+          "en": "KOH-moh teh YAH-mas — What's your name?"
         },
         "lines.3.native_translation": {
           "uk": "ме ямо Ана — мене звати Ana.",
-          "ru": "ме ямо Ана — меня зовут Ana."
+          "ru": "ме ямо Ана — меня зовут Ana.",
+          "en": "meh YAH-moh AH-nah — My name is Ana."
         },
         "lines.4.native_translation": {
           "uk": "мучо густо — дуже приємно.",
-          "ru": "мучо густо — очень приятно."
+          "ru": "мучо густо — очень приятно.",
+          "en": "MOO-choh GOOS-toh — Nice to meet you."
         },
         "lines.5.native_translation": {
           "uk": "аста луего — до зустрічі.",
-          "ru": "аста луэго — до встречи."
+          "ru": "аста луэго — до встречи.",
+          "en": "AH-stah LWEH-goh — See you later."
         }
       }
     },
@@ -91,63 +99,78 @@
       "fields": {
         "title": {
           "uk": "Знайомство з короткою розповіддю про себе",
-          "ru": "Знакомство и короткий рассказ о себе"
+          "ru": "Знакомство и короткий рассказ о себе",
+          "en": "Meeting someone and talking briefly about yourself"
         },
         "lines.0.native_translation": {
           "uk": "ола. буенос діас — привіт. доброго ранку.",
-          "ru": "ола. буенос диас — привет. доброе утро."
+          "ru": "ола. буенос диас — привет. доброе утро.",
+          "en": "OH-lah. BWEH-nos DEE-as — Hello. good morning."
         },
         "lines.1.native_translation": {
           "uk": "ме ямо Марта — мене звати Marta.",
-          "ru": "ме ямо Марта — меня зовут Marta."
+          "ru": "ме ямо Марта — меня зовут Marta.",
+          "en": "meh YAH-moh MAR-tah — My name is Marta."
         },
         "lines.2.native_translation": {
           "uk": "ме ямо Ана — мене звати Ana.",
-          "ru": "ме ямо Ана — меня зовут Ana."
+          "ru": "ме ямо Ана — меня зовут Ana.",
+          "en": "meh YAH-moh AH-nah — My name is Ana."
         },
         "lines.3.native_translation": {
           "uk": "мучо густо — дуже приємно.",
-          "ru": "мучо густо — очень приятно."
+          "ru": "мучо густо — очень приятно.",
+          "en": "MOO-choh GOOS-toh — Nice to meet you."
         },
         "lines.4.native_translation": {
           "uk": "де донде ерес — звідки ти?",
-          "ru": "де донде эрес — откуда ты?"
+          "ru": "де донде эрес — откуда ты?",
+          "en": "deh DOHN-deh EH-res — Where are you from?"
         },
         "lines.5.native_translation": {
           "uk": "сой де укранія — я з України.",
-          "ru": "сой де украния — я из Украины."
+          "ru": "сой де украния — я из Украины.",
+          "en": "soy deh oo-KRAH-nyah — I'm from Ukraine."
         },
         "lines.6.native_translation": {
           "uk": "донде вівес — де ти живеш?",
-          "ru": "донде бивес — где ты живёшь?"
+          "ru": "донде бивес — где ты живёшь?",
+          "en": "DOHN-deh BEE-bes — Where do you live?"
         },
         "lines.7.native_translation": {
           "uk": "біво ен Київ — я живу в Києві.",
-          "ru": "биво эн Киев — я живу в Киеве."
+          "ru": "биво эн Киев — я живу в Киеве.",
+          "en": "BEE-boh en KEE-yiv — I live in Kyiv."
         },
         "lines.8.native_translation": {
           "uk": "ке ідіомас аблас — якими мовами ти говориш?",
-          "ru": "ке идиомас аблас — на каких языках ты говоришь?"
+          "ru": "ке идиомас аблас — на каких языках ты говоришь?",
+          "en": "keh ee-DYOH-mas AH-blas — What languages do you speak?"
         },
         "lines.9.native_translation": {
           "uk": "абло еспаньйол е інглес — я говорю іспанською та англійською.",
-          "ru": "абло эспаньоль э инглес — я говорю по-испански и по-английски."
+          "ru": "абло эспаньоль э инглес — я говорю по-испански и по-английски.",
+          "en": "AH-bloh es-pah-NYOL eh een-GLEHS — I speak Spanish and English."
         },
         "lines.10.native_translation": {
           "uk": "тамб'єн абло інглес. абло ун поко де еспаньйол — я також говорю англійською. я трохи говорю іспанською.",
-          "ru": "тамбьен абло инглес. абло ун поко де эспаньоль — я также говорю по-английски. я немного говорю по-испански."
+          "ru": "тамбьен абло инглес. абло ун поко де эспаньоль — я также говорю по-английски. я немного говорю по-испански.",
+          "en": "tam-BYEN AH-bloh een-GLEHS. AH-bloh oon POH-koh deh es-pah-NYOL — I also speak English. I speak a little Spanish."
         },
         "lines.11.native_translation": {
           "uk": "аблас франсес — ти говориш французькою?",
-          "ru": "аблас франсес — ты говоришь по-французски?"
+          "ru": "аблас франсес — ты говоришь по-французски?",
+          "en": "AH-blas frahn-THEHS — Do you speak French?"
         },
         "lines.12.native_translation": {
           "uk": "но абло франсес — я не говорю французькою.",
-          "ru": "но абло франсес — я не говорю по-французски."
+          "ru": "но абло франсес — я не говорю по-французски.",
+          "en": "noh AH-bloh frahn-THEHS — I don't speak French."
         },
         "lines.13.native_translation": {
           "uk": "грасіас. аста луего — дякую. до зустрічі.",
-          "ru": "грасиас. аста луэго — спасибо. до встречи."
+          "ru": "грасиас. аста луэго — спасибо. до встречи.",
+          "en": "GRAH-thyahs. AH-stah LWEH-goh — Thank you. see you later."
         }
       }
     },
@@ -157,27 +180,33 @@
       "fields": {
         "title": {
           "uk": "Той самий обмін з іншими деталями",
-          "ru": "Тот же разговор с другими деталями"
+          "ru": "Тот же разговор с другими деталями",
+          "en": "The same conversation with different details"
         },
         "lines.0.native_translation": {
           "uk": "ола. ме ямо Луїс — привіт. мене звати Luis.",
-          "ru": "ола. ме ямо Луис — привет. меня зовут Luis."
+          "ru": "ола. ме ямо Луис — привет. меня зовут Luis.",
+          "en": "OH-lah. meh YAH-moh loo-EES — Hello. my name is Luis."
         },
         "lines.1.native_translation": {
           "uk": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді.",
-          "ru": "сой де эспанья. биво эн мадрид — я из Испании. я живу в Мадриде."
+          "ru": "сой де эспанья. биво эн мадрид — я из Испании. я живу в Мадриде.",
+          "en": "soy deh es-PAH-nyah. BEE-boh en mah-DREED — I'm from Spain. I live in Madrid."
         },
         "lines.2.native_translation": {
           "uk": "абло еспаньйол. но абло алеман — я говорю іспанською. я не говорю німецькою.",
-          "ru": "абло эспаньоль. но абло алеман — я говорю по-испански. я не говорю по-немецки."
+          "ru": "абло эспаньоль. но абло алеман — я говорю по-испански. я не говорю по-немецки.",
+          "en": "AH-bloh es-pah-NYOL. noh AH-bloh ah-leh-MAHN — I speak Spanish. I don't speak German."
         },
         "lines.3.native_translation": {
           "uk": "донде вівес — де ти живеш?",
-          "ru": "донде бивес — где ты живёшь?"
+          "ru": "донде бивес — где ты живёшь?",
+          "en": "DOHN-deh BEE-bes — Where do you live?"
         },
         "lines.4.native_translation": {
           "uk": "ке ідіомас аблас — якими мовами ти говориш?",
-          "ru": "ке идиомас аблас — на каких языках ты говоришь?"
+          "ru": "ке идиомас аблас — на каких языках ты говоришь?",
+          "en": "keh ee-DYOH-mas AH-blas — What languages do you speak?"
         }
       }
     },
@@ -187,43 +216,53 @@
       "fields": {
         "title": {
           "uk": "Коротка ввічлива розмова",
-          "ru": "Короткий вежливый разговор"
+          "ru": "Короткий вежливый разговор",
+          "en": "A short polite conversation"
         },
         "lines.0.native_translation": {
           "uk": "ола. ме ямо Марта — привіт. мене звати Marta.",
-          "ru": "ола. ме ямо Марта — привет. меня зовут Marta."
+          "ru": "ола. ме ямо Марта — привет. меня зовут Marta.",
+          "en": "OH-lah. meh YAH-moh MAR-tah — Hello. my name is Marta."
         },
         "lines.1.native_translation": {
           "uk": "ола Марта. ме ямо Ана — привіт, Marta. мене звати Ana.",
-          "ru": "ола Марта. ме ямо Ана — привет, Marta. меня зовут Ana."
+          "ru": "ола Марта. ме ямо Ана — привет, Marta. меня зовут Ana.",
+          "en": "OH-lah MAR-tah. meh YAH-moh AH-nah — Hello, Marta. my name is Ana."
         },
         "lines.2.native_translation": {
           "uk": "мучо густо. комо естас — дуже приємно. як ти?",
-          "ru": "мучо густо. комо эстас — очень приятно. как дела?"
+          "ru": "мучо густо. комо эстас — очень приятно. как дела?",
+          "en": "MOO-choh GOOS-toh. KOH-moh es-TAS — Nice to meet you. how are you?"
         },
         "lines.3.native_translation": {
           "uk": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?",
-          "ru": "эстой бьен, грасиас. и ту — у меня всё хорошо, спасибо. а у тебя?"
+          "ru": "эстой бьен, грасиас. и ту — у меня всё хорошо, спасибо. а у тебя?",
+          "en": "es-TOY BYEN GRAH-thyahs. ee TOO — I'm fine, thank you. and you?"
         },
         "lines.4.native_translation": {
           "uk": "муй б'єн грасіас — дуже добре, дякую.",
-          "ru": "муй бьен, грасиас — очень хорошо, спасибо."
+          "ru": "муй бьен, грасиас — очень хорошо, спасибо.",
+          "en": "mooy BYEN GRAH-thyahs — Very well, thank you."
         },
         "lines.5.native_translation": {
           "uk": "де донде ерес — звідки ти?",
-          "ru": "де донде эрес — откуда ты?"
+          "ru": "де донде эрес — откуда ты?",
+          "en": "deh DOHN-deh EH-res — Where are you from?"
         },
         "lines.6.native_translation": {
           "uk": "сой де еспанья. біво ен мадрід — я з Іспанії. я живу в Мадриді.",
-          "ru": "сой де эспанья. биво эн мадрид — я из Испании. я живу в Мадриде."
+          "ru": "сой де эспанья. биво эн мадрид — я из Испании. я живу в Мадриде.",
+          "en": "soy deh es-PAH-nyah. BEE-boh en mah-DREED — I'm from Spain. I live in Madrid."
         },
         "lines.7.native_translation": {
           "uk": "грасіас. аста луего — дякую. до зустрічі.",
-          "ru": "грасиас. аста луэго — спасибо. до встречи."
+          "ru": "грасиас. аста луэго — спасибо. до встречи.",
+          "en": "GRAH-thyahs. AH-stah LWEH-goh — Thank you. see you later."
         },
         "lines.8.native_translation": {
           "uk": "де нада. нос бемос — нема за що. побачимося.",
-          "ru": "де нада. нос бемос — не за что. увидимся."
+          "ru": "де нада. нос бемос — не за что. увидимся.",
+          "en": "deh NAH-dah. nos BEH-mos — You're welcome. see you."
         }
       }
     },
@@ -233,31 +272,38 @@
       "fields": {
         "title": {
           "uk": "Вибачення і завершення",
-          "ru": "Извинения и завершение разговора"
+          "ru": "Извинения и завершение разговора",
+          "en": "Apologizing and ending the conversation"
         },
         "lines.0.native_translation": {
           "uk": "пердон. комо те ямас — перепрошую. як тебе звати?",
-          "ru": "пердон. комо те ямас — извини. как тебя зовут?"
+          "ru": "пердон. комо те ямас — извини. как тебя зовут?",
+          "en": "pehr-DOHN. KOH-moh teh YAH-mas — Excuse me. what's your name?"
         },
         "lines.1.native_translation": {
           "uk": "ме ямо Ана — мене звати Ana.",
-          "ru": "ме ямо Ана — меня зовут Ana."
+          "ru": "ме ямо Ана — меня зовут Ana.",
+          "en": "meh YAH-moh AH-nah — My name is Ana."
         },
         "lines.2.native_translation": {
           "uk": "діскульпа. но абло франсес — вибач. я не говорю французькою.",
-          "ru": "дискульпа. но абло франсес — извини. я не говорю по-французски."
+          "ru": "дискульпа. но абло франсес — извини. я не говорю по-французски.",
+          "en": "dees-KOOL-pah. noh AH-bloh frahn-THEHS — Sorry. I don't speak French."
         },
         "lines.3.native_translation": {
           "uk": "еста б'єн — добре.",
-          "ru": "эста бьен — хорошо."
+          "ru": "эста бьен — хорошо.",
+          "en": "es-TAH BYEN — Okay."
         },
         "lines.4.native_translation": {
           "uk": "ло с'єнто. аста пронто — мені шкода. до скорого.",
-          "ru": "ло сьенто. аста пронто — мне жаль. до скорого."
+          "ru": "ло сьенто. аста пронто — мне жаль. до скорого.",
+          "en": "loh SYEN-toh. AH-stah PROHN-toh — I'm sorry. see you soon."
         },
         "lines.5.native_translation": {
           "uk": "ке тенгас ун буен діа — гарного дня.",
-          "ru": "ке тенгас ун буен диа — хорошего дня."
+          "ru": "ке тенгас ун буен диа — хорошего дня.",
+          "en": "keh TEN-gas oon bwen DEE-ah — Have a good day."
         }
       }
     },
@@ -267,43 +313,53 @@
       "fields": {
         "title": {
           "uk": "Представити іншу людину",
-          "ru": "Представляем другого человека"
+          "ru": "Представляем другого человека",
+          "en": "Introducing another person"
         },
         "lines.0.native_translation": {
           "uk": "ола. ме ямо Марта — привіт. мене звати Marta.",
-          "ru": "ола. ме ямо Марта — привет. меня зовут Marta."
+          "ru": "ола. ме ямо Марта — привет. меня зовут Marta.",
+          "en": "OH-lah. meh YAH-moh MAR-tah — Hello. my name is Marta."
         },
         "lines.1.native_translation": {
           "uk": "ола Марта. комо естас — привіт, Marta. як ти?",
-          "ru": "ола Марта. комо эстас — привет, Marta. как дела?"
+          "ru": "ола Марта. комо эстас — привет, Marta. как дела?",
+          "en": "OH-lah MAR-tah. KOH-moh es-TAS — Hello, Marta. how are you?"
         },
         "lines.2.native_translation": {
           "uk": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?",
-          "ru": "эстой бьен, грасиас. и ту — у меня всё хорошо, спасибо. а у тебя?"
+          "ru": "эстой бьен, грасиас. и ту — у меня всё хорошо, спасибо. а у тебя?",
+          "en": "es-TOY BYEN GRAH-thyahs. ee TOO — I'm fine, thank you. and you?"
         },
         "lines.3.native_translation": {
           "uk": "муй б'єн грасіас — дуже добре, дякую.",
-          "ru": "муй бьен, грасиас — очень хорошо, спасибо."
+          "ru": "муй бьен, грасиас — очень хорошо, спасибо.",
+          "en": "mooy BYEN GRAH-thyahs — Very well, thank you."
         },
         "lines.4.native_translation": {
           "uk": "к'єн ес ея — хто вона?",
-          "ru": "кьен эс эйя — кто она?"
+          "ru": "кьен эс эйя — кто она?",
+          "en": "KYEN es EH-yah — Who is she?"
         },
         "lines.5.native_translation": {
           "uk": "ея ес мі аміга. се яма Софія — вона моя подруга. її звати Sofía.",
-          "ru": "эйя эс ми амига. се яма София — она моя подруга. её зовут Sofía."
+          "ru": "эйя эс ми амига. се яма София — она моя подруга. её зовут Sofía.",
+          "en": "EH-yah es mee ah-MEE-gah. seh YAH-mah soh-FEE-ah — She's my friend. her name is Sofía."
         },
         "lines.6.native_translation": {
           "uk": "ес де еспанья. біве ен мадрід — вона з Іспанії. вона живе в Мадриді.",
-          "ru": "эс де эспанья. биве эн мадрид — она из Испании. она живёт в Мадриде."
+          "ru": "эс де эспанья. биве эн мадрид — она из Испании. она живёт в Мадриде.",
+          "en": "es deh es-PAH-nyah. BEE-beh en mah-DREED — She's from Spain. she lives in Madrid."
         },
         "lines.7.native_translation": {
           "uk": "абла еспаньйол е інглес — вона говорить іспанською та англійською.",
-          "ru": "абла эспаньоль э инглес — она говорит по-испански и по-английски."
+          "ru": "абла эспаньоль э инглес — она говорит по-испански и по-английски.",
+          "en": "AH-blah es-pah-NYOL eh een-GLEHS — She speaks Spanish and English."
         },
         "lines.8.native_translation": {
           "uk": "мучо густо. аста луего — дуже приємно. до зустрічі.",
-          "ru": "мучо густо. аста луэго — очень приятно. до встречи."
+          "ru": "мучо густо. аста луэго — очень приятно. до встречи.",
+          "en": "MOO-choh GOOS-toh. AH-stah LWEH-goh — Nice to meet you. see you later."
         }
       }
     },
@@ -313,23 +369,28 @@
       "fields": {
         "title": {
           "uk": "Коротко представити чоловіка",
-          "ru": "Коротко о мужчине"
+          "ru": "Коротко о мужчине",
+          "en": "Introducing a man briefly"
         },
         "lines.0.native_translation": {
           "uk": "к'єн ес ель — хто він?",
-          "ru": "кьен эс эль — кто он?"
+          "ru": "кьен эс эль — кто он?",
+          "en": "KYEN es EHL — Who is he?"
         },
         "lines.1.native_translation": {
           "uk": "ель ес мі аміго. се яма Луїс — він мій друг. його звати Luis.",
-          "ru": "эль эс ми амиго. се яма Луис — он мой друг. его зовут Luis."
+          "ru": "эль эс ми амиго. се яма Луис — он мой друг. его зовут Luis.",
+          "en": "EHL es mee ah-MEE-goh. seh YAH-mah loo-EES — He's my friend. his name is Luis."
         },
         "lines.2.native_translation": {
           "uk": "ес де укранія. біве ен Київ — він з України. він живе в Києві.",
-          "ru": "эс де украния. биве эн Киев — он из Украины. он живёт в Киеве."
+          "ru": "эс де украния. биве эн Киев — он из Украины. он живёт в Киеве.",
+          "en": "es deh oo-KRAH-nyah. BEE-beh en KEE-yiv — He's from Ukraine. he lives in Kyiv."
         },
         "lines.3.native_translation": {
           "uk": "абла еспаньйол ун поко — він трохи говорить іспанською.",
-          "ru": "абла эспаньоль ун поко — он немного говорит по-испански."
+          "ru": "абла эспаньоль ун поко — он немного говорит по-испански.",
+          "en": "AH-blah es-pah-NYOL oon POH-koh — He speaks a little Spanish."
         }
       }
     },
@@ -339,51 +400,63 @@
       "fields": {
         "title": {
           "uk": "Запитати про іншу людину",
-          "ru": "Разговор о другом человеке"
+          "ru": "Разговор о другом человеке",
+          "en": "Talking about another person"
         },
         "lines.0.native_translation": {
           "uk": "ола Ана. комо естас — привіт, Ana. як ти?",
-          "ru": "ола Ана. комо эстас — привет, Ana. как дела?"
+          "ru": "ола Ана. комо эстас — привет, Ana. как дела?",
+          "en": "OH-lah AH-nah. KOH-moh es-TAS — Hello, Ana. how are you?"
         },
         "lines.1.native_translation": {
           "uk": "естой б'єн грасіас — у мене все добре, дякую.",
-          "ru": "эстой бьен, грасиас — у меня всё хорошо, спасибо."
+          "ru": "эстой бьен, грасиас — у меня всё хорошо, спасибо.",
+          "en": "es-TOY BYEN GRAH-thyahs — I'm fine, thank you."
         },
         "lines.2.native_translation": {
           "uk": "ес ту аміга — це твоя подруга?",
-          "ru": "эс ту амига — это твоя подруга?"
+          "ru": "эс ту амига — это твоя подруга?",
+          "en": "es too ah-MEE-gah — Is she your friend?"
         },
         "lines.3.native_translation": {
           "uk": "сі ес мі аміга. се яма Софія — так, це моя подруга. її звати Sofía.",
-          "ru": "си, эс ми амига. се яма София — да, это моя подруга. её зовут Sofía."
+          "ru": "си, эс ми амига. се яма София — да, это моя подруга. её зовут Sofía.",
+          "en": "see, es mee ah-MEE-gah. seh YAH-mah soh-FEE-ah — Yes, she's my friend. her name is Sofía."
         },
         "lines.4.native_translation": {
           "uk": "де донде ес — звідки вона?",
-          "ru": "де донде эс — откуда она?"
+          "ru": "де донде эс — откуда она?",
+          "en": "deh DOHN-deh es — Where is she from?"
         },
         "lines.5.native_translation": {
           "uk": "ес де еспанья — вона з Іспанії.",
-          "ru": "эс де эспанья — она из Испании."
+          "ru": "эс де эспанья — она из Испании.",
+          "en": "es deh es-PAH-nyah — She's from Spain."
         },
         "lines.6.native_translation": {
           "uk": "донде біве — де вона живе?",
-          "ru": "донде биве — где она живёт?"
+          "ru": "донде биве — где она живёт?",
+          "en": "DOHN-deh BEE-beh — Where does she live?"
         },
         "lines.7.native_translation": {
           "uk": "біве ен мадрід — вона живе в Мадриді.",
-          "ru": "биве эн мадрид — она живёт в Мадриде."
+          "ru": "биве эн мадрид — она живёт в Мадриде.",
+          "en": "BEE-beh en mah-DREED — She lives in Madrid."
         },
         "lines.8.native_translation": {
           "uk": "ке ідіомас абла — якими мовами вона говорить?",
-          "ru": "ке идиомас абла — на каких языках она говорит?"
+          "ru": "ке идиомас абла — на каких языках она говорит?",
+          "en": "keh ee-DYOH-mas AH-blah — What languages does she speak?"
         },
         "lines.9.native_translation": {
           "uk": "абла еспаньйол е інглес, перо но абла франсес — вона говорить іспанською та англійською, але не говорить французькою.",
-          "ru": "абла эспаньоль э инглес, перо но абла франсес — она говорит по-испански и по-английски, но не говорит по-французски."
+          "ru": "абла эспаньоль э инглес, перо но абла франсес — она говорит по-испански и по-английски, но не говорит по-французски.",
+          "en": "AH-blah es-pah-NYOL eh een-GLEHS, PEH-roh noh AH-blah frahn-THEHS — She speaks Spanish and English, but she doesn't speak French."
         },
         "lines.10.native_translation": {
           "uk": "грасіас. аста луего — дякую. до зустрічі.",
-          "ru": "грасиас. аста луэго — спасибо. до встречи."
+          "ru": "грасиас. аста луэго — спасибо. до встречи.",
+          "en": "GRAH-thyahs. AH-stah LWEH-goh — Thank you. see you later."
         }
       }
     },
@@ -393,19 +466,23 @@
       "fields": {
         "title": {
           "uk": "Короткий профіль",
-          "ru": "Короткий профиль"
+          "ru": "Короткий профиль",
+          "en": "Short profile"
         },
         "lines.0.native_translation": {
           "uk": "ель ес Луїс. се яма Луїс — це Luis. його звати Luis.",
-          "ru": "эль эс Луис. се яма Луис — это Luis. его зовут Luis."
+          "ru": "эль эс Луис. се яма Луис — это Luis. его зовут Luis.",
+          "en": "EHL es loo-EES. seh YAH-mah loo-EES — This is Luis. his name is Luis."
         },
         "lines.1.native_translation": {
           "uk": "ес де укранія і біве ен Київ — він з України і живе в Києві.",
-          "ru": "эс де украния и биве эн Киев — он из Украины и живёт в Киеве."
+          "ru": "эс де украния и биве эн Киев — он из Украины и живёт в Киеве.",
+          "en": "es deh oo-KRAH-nyah ee BEE-beh en KEE-yiv — He's from Ukraine and lives in Kyiv."
         },
         "lines.2.native_translation": {
           "uk": "абла еспаньйол ун поко, перо но абла франсес — він трохи говорить іспанською, але не говорить французькою.",
-          "ru": "абла эспаньоль ун поко, перо но абла франсес — он немного говорит по-испански, но не говорит по-французски."
+          "ru": "абла эспаньоль ун поко, перо но абла франсес — он немного говорит по-испански, но не говорит по-французски.",
+          "en": "AH-blah es-pah-NYOL oon POH-koh, PEH-roh noh AH-blah frahn-THEHS — He speaks a little Spanish, but he doesn't speak French."
         }
       }
     },
@@ -425,7 +502,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Розмова майже завершена. Яка репліка природно закриває контакт?",
-          "ru": "Разговор почти закончен. Какая реплика естественно завершает его?"
+          "ru": "Разговор почти закончен. Какая реплика естественно завершает его?",
+          "en": "The conversation is almost over. Which line is a natural way to end it?"
         }
       }
     },
@@ -435,7 +513,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти вже привітався. Яка репліка природно представляє тебе?",
-          "ru": "После приветствия какая реплика естественно представляет тебя?"
+          "ru": "После приветствия какая реплика естественно представляет тебя?",
+          "en": "You've already said hello. Which line naturally introduces you?"
         }
       }
     },
@@ -445,7 +524,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти вже назвав своє ім'я.\nЯк запитати ім'я співрозмовниці?",
-          "ru": "После того как назовёшь своё имя, как спросить имя собеседницы?"
+          "ru": "После того как назовёшь своё имя, как спросить имя собеседницы?",
+          "en": "You've already said your name.\n\nHow do you ask the other person's name?"
         }
       }
     },
@@ -455,7 +535,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти зрозумів, що співрозмовницю звати Ana. Яка наступна репліка ввічлива?",
-          "ru": "Теперь ты знаешь, что собеседницу зовут Ana. Какая следующая реплика будет вежливой?"
+          "ru": "Теперь ты знаешь, что собеседницу зовут Ana. Какая следующая реплика будет вежливой?",
+          "en": "You now know the other person's name is Ana. Which reply would be polite here?"
         }
       }
     },
@@ -485,7 +566,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи короткий контакт іспанською. Кожен рядок пиши з нового рядка.\n\nH__a. Buenos d__s.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta l____.",
-          "ru": "Заполни все пропуски.\n\nВведи короткий диалог на испанском. Каждую реплику пиши с новой строки.\n\nH__a. Buenos d__s.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta l____."
+          "ru": "Заполни все пропуски.\n\nВведи короткий диалог на испанском. Каждую реплику пиши с новой строки.\n\nH__a. Buenos d__s.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta l____.",
+          "en": "Fill in all the blanks.\n\nEnter a short conversation in Spanish. Put each line on a new line.\n\nH__a. Buenos d__s.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\nHasta l____."
         }
       }
     },
@@ -495,7 +577,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти починаєш чат зранку. Яка перша репліка доречна?",
-          "ru": "Ты начинаешь разговор утром. Какое приветствие подходит?"
+          "ru": "Ты начинаешь разговор утром. Какое приветствие подходит?",
+          "en": "You're starting a conversation in the morning. Which greeting fits?"
         }
       }
     },
@@ -505,19 +588,23 @@
       "fields": {
         "prompt_template": {
           "uk": "У діалозі з'являється: Hola. Buenos días. Що ця репліка робить?",
-          "ru": "В диалоге есть: Hola. Buenos días.\n\nЧто делает эта реплика?"
+          "ru": "В диалоге есть: Hola. Buenos días.\n\nЧто делает эта реплика?",
+          "en": "The dialogue includes: Hola. Buenos días.\n\nWhat does this line do?"
         },
         "answer_options.starts_contact.label": {
           "uk": "Починає контакт.",
-          "ru": "Начинает разговор."
+          "ru": "Начинает разговор.",
+          "en": "Starts the conversation."
         },
         "answer_options.asks_name.label": {
           "uk": "Запитує ім'я.",
-          "ru": "Спрашивает имя."
+          "ru": "Спрашивает имя.",
+          "en": "Asks the person's name."
         },
         "answer_options.ends_contact.label": {
           "uk": "Завершує контакт.",
-          "ru": "Завершает разговор."
+          "ru": "Завершает разговор.",
+          "en": "Ends the conversation."
         }
       }
     },
@@ -527,7 +614,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши короткий перший контакт іспанською.\n\nВведи 6-7 коротких реплік. Кожну репліку пиши з нового рядка.\n\nРозмова має: початися привітанням, назвати тебе Marta, запитати ім'я, прийняти відповідь Ana, сказати Mucho gusto і завершити контакт.",
-          "ru": "Напиши короткий первый диалог на испанском.\n\nВведи 6–7 коротких реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, спросить имя собеседницы, отреагировать на ответ Ana, сказать Mucho gusto и завершить разговор."
+          "ru": "Напиши короткий первый диалог на испанском.\n\nВведи 6–7 коротких реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, спросить имя собеседницы, отреагировать на ответ Ana, сказать Mucho gusto и завершить разговор.",
+          "en": "Write a short first conversation in Spanish.\n\nEnter 6–7 short lines. Put each line on a new line.\n\nYour conversation should include a greeting, introduce yourself as Marta, ask the other person's name, acknowledge that their name is Ana, say Mucho gusto, and end the conversation."
         }
       }
     },
@@ -547,7 +635,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуск.\n\nВведи 1 повне речення іспанською.\n\nMe ___ Marta.",
-          "ru": "Заполни пропуск.\n\nВведи одно полное предложение на испанском.\n\nMe ___ Marta."
+          "ru": "Заполни пропуск.\n\nВведи одно полное предложение на испанском.\n\nMe ___ Marta.",
+          "en": "Fill in the blank.\n\nEnter one complete sentence in Spanish.\n\nMe ___ Marta."
         }
       }
     },
@@ -557,19 +646,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana пише: Me llamo Ana. Що ти тепер знаєш?",
-          "ru": "Ana пишет: Me llamo Ana. Что ты теперь знаешь?"
+          "ru": "Ana пишет: Me llamo Ana. Что ты теперь знаешь?",
+          "en": "Ana writes: Me llamo Ana. What do you know now?"
         },
         "answer_options.ana_name.label": {
           "uk": "Її звати Ana.",
-          "ru": "Её зовут Ana."
+          "ru": "Её зовут Ana.",
+          "en": "Her name is Ana."
         },
         "answer_options.ana_goodbye.label": {
           "uk": "Вона завершує розмову.",
-          "ru": "Она завершает разговор."
+          "ru": "Она завершает разговор.",
+          "en": "She is ending the conversation."
         },
         "answer_options.ana_asks.label": {
           "uk": "Вона питає твоє ім'я.",
-          "ru": "Она спрашивает твоё имя."
+          "ru": "Она спрашивает твоё имя.",
+          "en": "She is asking your name."
         }
       }
     },
@@ -589,7 +682,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш запитати, якими мовами говорить Ana.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты хочешь спросить, на каких языках говорит Ana.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты хочешь спросить, на каких языках говорит Ana.\n\nВыбери один вопрос на испанском.",
+          "en": "You want to ask what languages Ana speaks.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -599,7 +693,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти вже знаєш, звідки Ana. Тепер треба запитати, де вона живе.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты уже знаешь, откуда Ana. Теперь спроси, где она живёт.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты уже знаешь, откуда Ana. Теперь спроси, где она живёт.\n\nВыбери один вопрос на испанском.",
+          "en": "You already know where Ana is from. Now ask where she lives.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -609,7 +704,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana вже відповіла, де живе. Ти хочеш продовжити знайомство про мови.\n\nВибери 1 наступну репліку.",
-          "ru": "Ana уже сказала, где живёт. Продолжи разговор вопросом о языках.\n\nВыбери одну реплику."
+          "ru": "Ana уже сказала, где живёт. Продолжи разговор вопросом о языках.\n\nВыбери одну реплику.",
+          "en": "Ana has already said where she lives. Continue the conversation by asking about languages.\n\nChoose one line."
         }
       }
     },
@@ -619,7 +715,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Hablas francés?\n\nТи не говориш французькою. Вибери 1 відповідь іспанською.",
-          "ru": "Ana спрашивает: ¿Hablas francés?\n\nТы не говоришь по-французски. Выбери один ответ на испанском."
+          "ru": "Ana спрашивает: ¿Hablas francés?\n\nТы не говоришь по-французски. Выбери один ответ на испанском.",
+          "en": "Ana asks: ¿Hablas francés?\n\nYou don't speak French. Choose one answer in Spanish."
         }
       }
     },
@@ -629,7 +726,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿De dónde eres?\n\nВибери 1 репліку, яка відповідає саме на це питання.",
-          "ru": "Ana спрашивает: ¿De dónde eres?\n\nВыбери одну реплику, которая отвечает именно на этот вопрос."
+          "ru": "Ana спрашивает: ¿De dónde eres?\n\nВыбери одну реплику, которая отвечает именно на этот вопрос.",
+          "en": "Ana asks: ¿De dónde eres?\n\nChoose one line that answers the question."
         }
       }
     },
@@ -639,7 +737,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Qué idiomas hablas?\n\nВибери 1 коротку відповідь іспанською.",
-          "ru": "Ana спрашивает: ¿Qué idiomas hablas?\n\nВыбери один короткий ответ на испанском."
+          "ru": "Ana спрашивает: ¿Qué idiomas hablas?\n\nВыбери один короткий ответ на испанском.",
+          "en": "Ana asks: ¿Qué idiomas hablas?\n\nChoose one short answer in Spanish."
         }
       }
     },
@@ -649,7 +748,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш іспанською не вільно, а трохи.\n\nВибери 1 природну репліку.",
-          "ru": "Ты немного говоришь по-испански, но не свободно.\n\nВыбери одну естественную реплику."
+          "ru": "Ты немного говоришь по-испански, но не свободно.\n\nВыбери одну естественную реплику.",
+          "en": "You speak a little Spanish, but you're not fluent.\n\nChoose one natural line."
         }
       }
     },
@@ -659,7 +759,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи 4 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nSoy de Ucrania.\nVivo en Kyiv.\nTambién hablo ______.\nNo hablo _______.",
-          "ru": "Заполни все пропуски.\n\nВведи 4 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nSoy de Ucrania.\nVivo en Kyiv.\nTambién hablo ______.\nNo hablo _______."
+          "ru": "Заполни все пропуски.\n\nВведи 4 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nSoy de Ucrania.\nVivo en Kyiv.\nTambién hablo ______.\nNo hablo _______.",
+          "en": "Fill in all the blanks.\n\nEnter 4 complete sentences in Spanish. Put each sentence on a new line.\n\nSoy de Ucrania.\nVivo en Kyiv.\nTambién hablo ______.\nNo hablo _______."
         }
       }
     },
@@ -669,7 +770,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи весь фрагмент діалогу іспанською. Кожну репліку пиши з нового рядка.\n\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.",
-          "ru": "Заполни все пропуски.\n\nВведи весь фрагмент диалога на испанском. Каждую реплику пиши с новой строки.\n\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______."
+          "ru": "Заполни все пропуски.\n\nВведи весь фрагмент диалога на испанском. Каждую реплику пиши с новой строки.\n\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.",
+          "en": "Fill in all the blanks.\n\nEnter the whole dialogue excerpt in Spanish. Put each line on a new line.\n\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______."
         }
       }
     },
@@ -679,7 +781,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи 3 повні питання іспанською. Кожне питання пиши з нового рядка.\n\n¿De dónde eres?\n¿Dónde _____?\n¿Qué idiomas ______?",
-          "ru": "Заполни все пропуски.\n\nВведи 3 полных вопроса на испанском. Каждый вопрос пиши с новой строки.\n\n¿De dónde eres?\n¿Dónde _____?\n¿Qué idiomas ______?"
+          "ru": "Заполни все пропуски.\n\nВведи 3 полных вопроса на испанском. Каждый вопрос пиши с новой строки.\n\n¿De dónde eres?\n¿Dónde _____?\n¿Qué idiomas ______?",
+          "en": "Fill in all the blanks.\n\nEnter 3 complete questions in Spanish. Put each question on a new line.\n\n¿De dónde eres?\n¿Dónde _____?\n¿Qué idiomas ______?"
         }
       }
     },
@@ -689,7 +792,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи весь діалог іспанською. Кожну репліку пиши з нового рядка.\n\nHola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.\n¿Hablas francés?\nNo hablo _______.\nGracias. Hasta luego.",
-          "ru": "Заполни все пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.\n¿Hablas francés?\nNo hablo _______.\nGracias. Hasta luego."
+          "ru": "Заполни все пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.\n¿Hablas francés?\nNo hablo _______.\nGracias. Hasta luego.",
+          "en": "Fill in all the blanks.\n\nEnter the whole dialogue in Spanish. Put each line on a new line.\n\nHola. Buenos días.\nMe llamo Marta.\n¿Cómo te llamas?\nMe llamo Ana.\nMucho gusto.\n¿De dónde eres?\nSoy de _______.\n¿Dónde vives?\nVivo en ____.\n¿Qué idiomas hablas?\nHablo español e inglés.\nTambién hablo ______. Hablo un poco de _______.\n¿Hablas francés?\nNo hablo _______.\nGracias. Hasta luego."
         }
       }
     },
@@ -699,7 +803,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи коротке знайомство іспанською. Слухай репліки Marta та відповідай своїми словами у вивчених конструкціях.",
-          "ru": "Проведи короткий разговор на испанском. Слушай реплики Marta и отвечай своими словами, используя знакомые конструкции."
+          "ru": "Проведи короткий разговор на испанском. Слушай реплики Marta и отвечай своими словами, используя знакомые конструкции.",
+          "en": "Have a short conversation in Spanish. Listen to Marta and respond in your own words using the patterns you've learned."
         }
       }
     },
@@ -709,19 +814,23 @@
       "fields": {
         "prompt_template": {
           "uk": "У репліці є: También hablo inglés.\n\nЩо додає También?",
-          "ru": "В реплике есть: También hablo inglés.\n\nЧто добавляет También?"
+          "ru": "В реплике есть: También hablo inglés.\n\nЧто добавляет También?",
+          "en": "The line is: También hablo inglés.\n\nWhat does También add?"
         },
         "answer_options.adds_another_language.label": {
           "uk": "Додає ще одну мову.",
-          "ru": "Добавляет ещё один язык."
+          "ru": "Добавляет ещё один язык.",
+          "en": "Adds another language."
         },
         "answer_options.starts_goodbye.label": {
           "uk": "Починає прощання.",
-          "ru": "Начинает прощание."
+          "ru": "Начинает прощание.",
+          "en": "Starts saying goodbye."
         },
         "answer_options.asks_name.label": {
           "uk": "Питає ім'я.",
-          "ru": "Спрашивает имя."
+          "ru": "Спрашивает имя.",
+          "en": "Asks the person's name."
         }
       }
     },
@@ -741,7 +850,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запиши репліки в природному порядку.\n\nВведи 4 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nVivo en Kyiv.\n¿Dónde vives?\nSoy de Ucrania.\n¿De dónde eres?",
-          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nVivo en Kyiv.\n¿Dónde vives?\nSoy de Ucrania.\n¿De dónde eres?"
+          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nVivo en Kyiv.\n¿Dónde vives?\nSoy de Ucrania.\n¿De dónde eres?",
+          "en": "Put the lines in a natural order.\n\nEnter 4 complete sentences in Spanish. Put each sentence on a new line.\n\nVivo en Kyiv.\n¿Dónde vives?\nSoy de Ucrania.\n¿De dónde eres?"
         }
       }
     },
@@ -751,7 +861,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни один пропуск.\n\nВведи 1 повне речення іспанською.\n\nAna: ¿Dónde vives?\nТи: Vivo en ____.",
-          "ru": "Заполни один пропуск.\n\nВведи одно полное предложение на испанском.\n\nAna: ¿Dónde vives?\nТы: Vivo en ____."
+          "ru": "Заполни один пропуск.\n\nВведи одно полное предложение на испанском.\n\nAna: ¿Dónde vives?\nТы: Vivo en ____.",
+          "en": "Fill in the blank.\n\nEnter one complete sentence in Spanish.\n\nAna: ¿Dónde vives?\nYou: Vivo en ____."
         }
       }
     },
@@ -761,7 +872,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни всі пропуски.\n\nВведи 2 повні речення іспанською. Кожне речення пиши з нового рядка.\n\nHablo español.\nTambién hablo ______.",
-          "ru": "Заполни все пропуски.\n\nВведи 2 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nHablo español.\nTambién hablo ______."
+          "ru": "Заполни все пропуски.\n\nВведи 2 полных предложения на испанском. Каждое предложение пиши с новой строки.\n\nHablo español.\nTambién hablo ______.",
+          "en": "Fill in all the blanks.\n\nEnter 2 complete sentences in Spanish. Put each sentence on a new line.\n\nHablo español.\nTambién hablo ______."
         }
       }
     },
@@ -781,7 +893,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш сказати, що тобі шкода.\n\nВибери 1 репліку.",
-          "ru": "Ты хочешь извиниться.\n\nВыбери одну реплику."
+          "ru": "Ты хочешь извиниться.\n\nВыбери одну реплику.",
+          "en": "You want to apologize.\n\nChoose one line."
         }
       }
     },
@@ -791,7 +904,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Розмова завершується. Ти хочеш сказати: до скорого.\n\nВибери 1 репліку.",
-          "ru": "Разговор заканчивается. Ты хочешь сказать: «До скорого».\n\nВыбери одну реплику."
+          "ru": "Разговор заканчивается. Ты хочешь сказать: «До скорого».\n\nВыбери одну реплику.",
+          "en": "The conversation is ending. You want to say \"See you soon.\"\n\nChoose one line."
         }
       }
     },
@@ -801,7 +915,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Cómo estás?\n\nТи хочеш відповісти, що все добре, і подякувати.\n\nВибери 1 репліку.",
-          "ru": "Ana спрашивает: ¿Cómo estás?\n\nТы хочешь ответить, что всё хорошо, и поблагодарить.\n\nВыбери одну реплику."
+          "ru": "Ana спрашивает: ¿Cómo estás?\n\nТы хочешь ответить, что всё хорошо, и поблагодарить.\n\nВыбери одну реплику.",
+          "en": "Ana asks: ¿Cómo estás?\n\nYou want to say you're doing well and thank her.\n\nChoose one line."
         }
       }
     },
@@ -811,7 +926,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти вже привітався і назвав ім'я. Тепер треба запитати, як справи.\n\nВибери 1 питання іспанською.",
-          "ru": "После приветствия и знакомства спроси, как дела у собеседницы.\n\nВыбери один вопрос на испанском."
+          "ru": "После приветствия и знакомства спроси, как дела у собеседницы.\n\nВыбери один вопрос на испанском.",
+          "en": "You've already said hello and introduced yourself. Now ask how the other person is doing.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -821,7 +937,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти не хочеш сказати, що все чудово. Хочеш відповісти: більш-менш.\n\nВибери 1 природну репліку.",
-          "ru": "Ты не хочешь говорить, что всё отлично. Хочешь ответить: «Более-менее».\n\nВыбери одну естественную реплику."
+          "ru": "Ты не хочешь говорить, что всё отлично. Хочешь ответить: «Более-менее».\n\nВыбери одну естественную реплику.",
+          "en": "Things aren't great, but they're not bad either. You want to say you're doing so-so.\n\nChoose one natural line."
         }
       }
     },
@@ -831,7 +948,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana відповіла: Soy de España. Vivo en Madrid.\n\nТи хочеш ввічливо завершити розмову.\n\nВибери 1 наступну репліку.",
-          "ru": "Ana ответила: Soy de España. Vivo en Madrid.\n\nТы хочешь вежливо завершить разговор.\n\nВыбери одну реплику."
+          "ru": "Ana ответила: Soy de España. Vivo en Madrid.\n\nТы хочешь вежливо завершить разговор.\n\nВыбери одну реплику.",
+          "en": "Ana answers: Soy de España. Vivo en Madrid.\n\nYou want to end the conversation politely.\n\nChoose one line."
         }
       }
     },
@@ -841,7 +959,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш ввічливо привернути увагу перед питанням.\n\nВибери 1 коротку репліку.",
-          "ru": "Ты хочешь вежливо привлечь внимание перед вопросом.\n\nВыбери одну короткую реплику."
+          "ru": "Ты хочешь вежливо привлечь внимание перед вопросом.\n\nВыбери одну короткую реплику.",
+          "en": "You want to get someone's attention politely before asking a question.\n\nChoose one short line."
         }
       }
     },
@@ -851,7 +970,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти відповів: Estoy bien, gracias.\n\nТепер хочеш коротко запитати те саме у співрозмовника.\n\nВибери 1 репліку.",
-          "ru": "После ответа Estoy bien, gracias коротко задай собеседнице тот же вопрос.\n\nВыбери одну реплику."
+          "ru": "После ответа Estoy bien, gracias коротко задай собеседнице тот же вопрос.\n\nВыбери одну реплику.",
+          "en": "You answered: Estoy bien, gracias.\n\nNow briefly ask the same question back.\n\nChoose one line."
         }
       }
     },
@@ -861,7 +981,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш подякувати сильніше, ніж просто Gracias.\n\nВибери 1 репліку.",
-          "ru": "Ты хочешь поблагодарить сильнее, чем просто Gracias.\n\nВыбери одну реплику."
+          "ru": "Ты хочешь поблагодарить сильнее, чем просто Gracias.\n\nВыбери одну реплику.",
+          "en": "You want to say more than just Gracias.\n\nChoose one line."
         }
       }
     },
@@ -871,7 +992,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи весь діалог іспанською. Напиши кожну відповідь з нового рядка.\n\nHola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy ____, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta ____.\nDe nada. Nos vemos.",
-          "ru": "Заполни пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy ____, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta ____.\nDe nada. Nos vemos."
+          "ru": "Заполни пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy ____, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta ____.\nDe nada. Nos vemos.",
+          "en": "Fill in the blanks.\n\nEnter the whole dialogue in Spanish. Put each line on a new line.\n\nHola. Me llamo Marta.\nMe llamo Ana.\nMucho gusto. ¿Cómo estás?\nEstoy ____, gracias. ¿Y tú?\nMuy bien, gracias.\n¿De dónde eres?\nSoy de España. Vivo en Madrid.\nGracias. Hasta ____.\nDe nada. Nos vemos."
         }
       }
     },
@@ -881,7 +1003,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana каже: Gracias.\n\nВибери 1 відповідь на подяку.",
-          "ru": "Ana говорит: Gracias.\n\nВыбери один ответ на благодарность."
+          "ru": "Ana говорит: Gracias.\n\nВыбери один ответ на благодарность.",
+          "en": "Ana says: Gracias.\n\nChoose one reply."
         }
       }
     },
@@ -891,7 +1014,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши коротку ввічливу розмову іспанською.\n\nВведи 8-10 реплік. Напиши кожну відповідь з нового рядка.\n\nРозмова має: привітатися, назвати себе Marta, запитати ім'я Ana, сказати Mucho gusto, запитати як справи, відповісти й запитати те саме, подякувати, завершити контакт.",
-          "ru": "Напиши короткий вежливый разговор на испанском.\n\nВведи 8–10 реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, спросить имя Ana, сказать Mucho gusto, спросить, как у неё дела, ответить на тот же вопрос и задать его в ответ, поблагодарить и завершить разговор."
+          "ru": "Напиши короткий вежливый разговор на испанском.\n\nВведи 8–10 реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, спросить имя Ana, сказать Mucho gusto, спросить, как у неё дела, ответить на тот же вопрос и задать его в ответ, поблагодарить и завершить разговор.",
+          "en": "Write a short polite conversation in Spanish.\n\nEnter 8–10 lines. Put each line on a new line.\n\nYour conversation should include a greeting, introduce yourself as Marta, ask Ana's name, say Mucho gusto, ask how she is, answer the same question and ask it back, thank her, and end the conversation."
         }
       }
     },
@@ -901,7 +1025,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запиши репліки в природному порядку.\n\nВведи 4 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\nEstoy bien, gracias.\n¿Cómo estás?\n¿Y tú?\nMuy bien, gracias.",
-          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 реплики на испанском. Каждую реплику пиши с новой строки.\n\nEstoy bien, gracias.\n¿Cómo estás?\n¿Y tú?\nMuy bien, gracias."
+          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 реплики на испанском. Каждую реплику пиши с новой строки.\n\nEstoy bien, gracias.\n¿Cómo estás?\n¿Y tú?\nMuy bien, gracias.",
+          "en": "Put the lines in a natural order.\n\nEnter 4 lines in Spanish. Put each line on a new line.\n\nEstoy bien, gracias.\n¿Cómo estás?\n¿Y tú?\nMuy bien, gracias."
         }
       }
     },
@@ -911,7 +1036,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 3 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\n¿Cómo estás?\nEstoy ____, gracias.\n¿Y ___?",
-          "ru": "Заполни пропуски.\n\nВведи 3 реплики на испанском. Каждую реплику пиши с новой строки.\n\n¿Cómo estás?\nEstoy ____, gracias.\n¿Y ___?"
+          "ru": "Заполни пропуски.\n\nВведи 3 реплики на испанском. Каждую реплику пиши с новой строки.\n\n¿Cómo estás?\nEstoy ____, gracias.\n¿Y ___?",
+          "en": "Fill in the blanks.\n\nEnter 3 lines in Spanish. Put each line on a new line.\n\n¿Cómo estás?\nEstoy ____, gracias.\n¿Y ___?"
         }
       }
     },
@@ -921,7 +1047,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 2 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\nMuchas _______.\nDe ____.",
-          "ru": "Заполни пропуски.\n\nВведи 2 реплики на испанском. Каждую реплику пиши с новой строки.\n\nMuchas _______.\nDe ____."
+          "ru": "Заполни пропуски.\n\nВведи 2 реплики на испанском. Каждую реплику пиши с новой строки.\n\nMuchas _______.\nDe ____.",
+          "en": "Fill in the blanks.\n\nEnter 2 lines in Spanish. Put each line on a new line.\n\nMuchas _______.\nDe ____."
         }
       }
     },
@@ -941,7 +1068,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про чоловіка на ім'я Luis.\n\nВибери 1 правильну репліку.",
-          "ru": "Ты говоришь о мужчине по имени Luis.\n\nВыбери одну правильную реплику."
+          "ru": "Ты говоришь о мужчине по имени Luis.\n\nВыбери одну правильную реплику.",
+          "en": "You're talking about a man named Luis.\n\nChoose one correct line."
         }
       }
     },
@@ -951,7 +1079,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про жінку на ім'я Ana.\n\nВибери 1 правильну репліку.",
-          "ru": "Ты говоришь о женщине по имени Ana.\n\nВыбери одну правильную реплику."
+          "ru": "Ты говоришь о женщине по имени Ana.\n\nВыбери одну правильную реплику.",
+          "en": "You're talking about a woman named Ana.\n\nChoose one correct line."
         }
       }
     },
@@ -961,7 +1090,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти представляєш жінку як подругу.\n\nВибери 1 природну репліку.",
-          "ru": "Ты представляешь женщину как подругу.\n\nВыбери одну естественную реплику."
+          "ru": "Ты представляешь женщину как подругу.\n\nВыбери одну естественную реплику.",
+          "en": "You're introducing a woman as a friend.\n\nChoose one natural line."
         }
       }
     },
@@ -971,7 +1101,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Quién es ella?\n\nТи маєш коротко представити жінку.\n\nВибери 1 наступну репліку.",
-          "ru": "Ana спрашивает: ¿Quién es ella?\n\nКоротко представь эту женщину.\n\nВыбери одну реплику."
+          "ru": "Ana спрашивает: ¿Quién es ella?\n\nКоротко представь эту женщину.\n\nВыбери одну реплику.",
+          "en": "Ana asks: ¿Quién es ella?\n\nBriefly introduce the woman.\n\nChoose one line."
         }
       }
     },
@@ -981,7 +1112,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти представляєш чоловіка як викладача.\n\nВибери 1 природну репліку.",
-          "ru": "Ты представляешь мужчину как преподавателя.\n\nВыбери одну естественную реплику."
+          "ru": "Ты представляешь мужчину как преподавателя.\n\nВыбери одну естественную реплику.",
+          "en": "You're introducing a man as a teacher.\n\nChoose one natural line."
         }
       }
     },
@@ -991,7 +1123,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Ana, а не про себе. Хочеш сказати, що вона живе в Madrid.\n\nВибери 1 речення.",
-          "ru": "Ты говоришь об Ana, а не о себе. Хочешь сказать, что она живёт в Madrid.\n\nВыбери одно предложение."
+          "ru": "Ты говоришь об Ana, а не о себе. Хочешь сказать, что она живёт в Madrid.\n\nВыбери одно предложение.",
+          "en": "You're talking about Ana, not yourself. You want to say that she lives in Madrid.\n\nChoose one sentence."
         }
       }
     },
@@ -1001,7 +1134,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Sofía. Хочеш сказати, що вона говорить іспанською.\n\nВибери 1 речення.",
-          "ru": "Ты говоришь о Sofía. Хочешь сказать, что она говорит по-испански.\n\nВыбери одно предложение."
+          "ru": "Ты говоришь о Sofía. Хочешь сказать, что она говорит по-испански.\n\nВыбери одно предложение.",
+          "en": "You're talking about Sofía. You want to say that she speaks Spanish.\n\nChoose one sentence."
         }
       }
     },
@@ -1011,7 +1145,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Luis, а не про себе. Хочеш сказати, що він з України.\n\nВибери 1 речення.",
-          "ru": "Ты говоришь о Luis, а не о себе. Хочешь сказать, что он из Украины.\n\nВыбери одно предложение."
+          "ru": "Ты говоришь о Luis, а не о себе. Хочешь сказать, что он из Украины.\n\nВыбери одно предложение.",
+          "en": "You're talking about Luis, not yourself. You want to say that he's from Ukraine.\n\nChoose one sentence."
         }
       }
     },
@@ -1021,7 +1156,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana показує на чоловіка. Ти хочеш запитати, хто він.\n\nВибери 1 питання іспанською.",
-          "ru": "Ana показывает на мужчину. Ты хочешь спросить, кто он.\n\nВыбери один вопрос на испанском."
+          "ru": "Ana показывает на мужчину. Ты хочешь спросить, кто он.\n\nВыбери один вопрос на испанском.",
+          "en": "Ana points to a man. You want to ask who he is.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1031,7 +1167,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana показує на жінку. Ти хочеш запитати, хто вона.\n\nВибери 1 питання іспанською.",
-          "ru": "Ana показывает на женщину. Ты хочешь спросить, кто она.\n\nВыбери один вопрос на испанском."
+          "ru": "Ana показывает на женщину. Ты хочешь спросить, кто она.\n\nВыбери один вопрос на испанском.",
+          "en": "Ana points to a woman. You want to ask who she is.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1041,7 +1178,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Представ себе і одну іншу людину іспанською.\n\nВведи 8-10 коротких речень. Напиши кожну відповідь з нового рядка.\n\nРозмова має: привітатися, назвати себе Marta, сказати як справи, представити Ana як подругу, назвати її ім'я, країну, місто, мови й завершити контакт.",
-          "ru": "Представь себя и ещё одного человека на испанском.\n\nВведи 8–10 коротких предложений. Каждое предложение пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, сказать, как у тебя дела, представить Ana как подругу, назвать её имя, страну, город и языки, затем завершить разговор."
+          "ru": "Представь себя и ещё одного человека на испанском.\n\nВведи 8–10 коротких предложений. Каждое предложение пиши с новой строки.\n\nВ разговоре нужно: поздороваться, представиться как Marta, сказать, как у тебя дела, представить Ana как подругу, назвать её имя, страну, город и языки, затем завершить разговор.",
+          "en": "Introduce yourself and one other person in Spanish.\n\nEnter 8–10 short sentences. Put each sentence on a new line.\n\nYour conversation should include a greeting, introduce yourself as Marta, say how you're doing, introduce Ana as a friend, give her name, country, city, and languages, and end the conversation."
         }
       }
     },
@@ -1051,7 +1189,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запиши репліки в природному порядку.\n\nВведи 4 речення іспанською. Напиши кожну відповідь з нового рядка.\n\nVive en Madrid.\nElla es mi amiga.\nHabla español.\nSe llama Ana.",
-          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 предложения на испанском. Каждое предложение пиши с новой строки.\n\nVive en Madrid.\nElla es mi amiga.\nHabla español.\nSe llama Ana."
+          "ru": "Расположи реплики в естественном порядке.\n\nВведи 4 предложения на испанском. Каждое предложение пиши с новой строки.\n\nVive en Madrid.\nElla es mi amiga.\nHabla español.\nSe llama Ana.",
+          "en": "Put the lines in a natural order.\n\nEnter 4 sentences in Spanish. Put each sentence on a new line.\n\nVive en Madrid.\nElla es mi amiga.\nHabla español.\nSe llama Ana."
         }
       }
     },
@@ -1061,7 +1200,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 5 речень іспанською. Напиши кожну відповідь з нового рядка.\n\nEste es Luis.\nÉl es mi _____.\nSe llama Luis.\nEs de Ucrania.\nVive en ____.\nHabla español un poco.",
-          "ru": "Заполни пропуски.\n\nВведи 5 предложений на испанском. Каждое предложение пиши с новой строки.\n\nEste es Luis.\nÉl es mi _____.\nSe llama Luis.\nEs de Ucrania.\nVive en ____.\nHabla español un poco."
+          "ru": "Заполни пропуски.\n\nВведи 5 предложений на испанском. Каждое предложение пиши с новой строки.\n\nEste es Luis.\nÉl es mi _____.\nSe llama Luis.\nEs de Ucrania.\nVive en ____.\nHabla español un poco.",
+          "en": "Fill in the blanks.\n\nEnter 5 sentences in Spanish. Put each sentence on a new line.\n\nEste es Luis.\nÉl es mi _____.\nSe llama Luis.\nEs de Ucrania.\nVive en ____.\nHabla español un poco."
         }
       }
     },
@@ -1071,7 +1211,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 5 речень іспанською. Напиши кожну відповідь з нового рядка.\n\nEsta es Ana.\nElla es mi _____.\nSe llama Ana.\nEs de España.\nVive en _____.\nHabla español e inglés.",
-          "ru": "Заполни пропуски.\n\nВведи 5 предложений на испанском. Каждое предложение пиши с новой строки.\n\nEsta es Ana.\nElla es mi _____.\nSe llama Ana.\nEs de España.\nVive en _____.\nHabla español e inglés."
+          "ru": "Заполни пропуски.\n\nВведи 5 предложений на испанском. Каждое предложение пиши с новой строки.\n\nEsta es Ana.\nElla es mi _____.\nSe llama Ana.\nEs de España.\nVive en _____.\nHabla español e inglés.",
+          "en": "Fill in the blanks.\n\nEnter 5 sentences in Spanish. Put each sentence on a new line.\n\nEsta es Ana.\nElla es mi _____.\nSe llama Ana.\nEs de España.\nVive en _____.\nHabla español e inglés."
         }
       }
     },
@@ -1081,7 +1222,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 2 речення іспанською. Напиши кожну відповідь з нового рядка.\n\nElla es mi amiga.\nSe _____ Ana.",
-          "ru": "Заполни пропуски.\n\nВведи 2 предложения на испанском. Каждое предложение пиши с новой строки.\n\nElla es mi amiga.\nSe _____ Ana."
+          "ru": "Заполни пропуски.\n\nВведи 2 предложения на испанском. Каждое предложение пиши с новой строки.\n\nElla es mi amiga.\nSe _____ Ana.",
+          "en": "Fill in the blanks.\n\nEnter 2 sentences in Spanish. Put each sentence on a new line.\n\nElla es mi amiga.\nSe _____ Ana."
         }
       }
     },
@@ -1101,7 +1243,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Luis. Хочеш запитати, де він живе.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты говоришь о Luis. Хочешь спросить, где он живёт.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты говоришь о Luis. Хочешь спросить, где он живёт.\n\nВыбери один вопрос на испанском.",
+          "en": "You're talking about Luis. You want to ask where he lives.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1111,7 +1254,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Sofía. Хочеш сказати, що вона з Іспанії.\n\nВибери 1 речення.",
-          "ru": "Ты говоришь о Sofía. Хочешь сказать, что она из Испании.\n\nВыбери одно предложение."
+          "ru": "Ты говоришь о Sofía. Хочешь сказать, что она из Испании.\n\nВыбери одно предложение.",
+          "en": "You're talking about Sofía. You want to say that she's from Spain.\n\nChoose one sentence."
         }
       }
     },
@@ -1121,7 +1265,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Es tu amiga?\n\nSofía справді твоя подруга.\n\nВибери 1 відповідь.",
-          "ru": "Ana спрашивает: ¿Es tu amiga?\n\nSofía действительно твоя подруга.\n\nВыбери один ответ."
+          "ru": "Ana спрашивает: ¿Es tu amiga?\n\nSofía действительно твоя подруга.\n\nВыбери один ответ.",
+          "en": "Ana asks: ¿Es tu amiga?\n\nSofía is your friend.\n\nChoose one answer."
         }
       }
     },
@@ -1131,7 +1276,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш запитати, якими мовами говорить Ana.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты хочешь спросить, на каких языках говорит Ana.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты хочешь спросить, на каких языках говорит Ana.\n\nВыбери один вопрос на испанском.",
+          "en": "You want to ask what languages Ana speaks.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1141,7 +1287,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти хочеш запитати, як звати іншу людину.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты хочешь спросить, как зовут другого человека.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты хочешь спросить, как зовут другого человека.\n\nВыбери один вопрос на испанском.",
+          "en": "You want to ask for another person's name.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1151,7 +1298,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти говориш про Sofía. Хочеш запитати, звідки вона.\n\nВибери 1 питання іспанською.",
-          "ru": "Ты говоришь о Sofía. Хочешь спросить, откуда она.\n\nВыбери один вопрос на испанском."
+          "ru": "Ты говоришь о Sofía. Хочешь спросить, откуда она.\n\nВыбери один вопрос на испанском.",
+          "en": "You're talking about Sofía. You want to ask where she's from.\n\nChoose one question in Spanish."
         }
       }
     },
@@ -1161,19 +1309,23 @@
       "fields": {
         "prompt_template": {
           "uk": "У реченні є: Habla español, pero no habla francés.\n\nЩо робить pero?",
-          "ru": "В предложении есть: Habla español, pero no habla francés.\n\nЧто делает pero?"
+          "ru": "В предложении есть: Habla español, pero no habla francés.\n\nЧто делает pero?",
+          "en": "The sentence is: Habla español, pero no habla francés.\n\nWhat does pero do here?"
         },
         "answer_options.contrast.label": {
           "uk": "Показує коротке протиставлення.",
-          "ru": "Показывает простое противопоставление."
+          "ru": "Показывает простое противопоставление.",
+          "en": "Shows a simple contrast."
         },
         "answer_options.thanks.label": {
           "uk": "Відповідає на подяку.",
-          "ru": "Отвечает на благодарность."
+          "ru": "Отвечает на благодарность.",
+          "en": "Responds to thanks."
         },
         "answer_options.asks_name.label": {
           "uk": "Питає ім'я.",
-          "ru": "Спрашивает имя."
+          "ru": "Спрашивает имя.",
+          "en": "Asks the person's name."
         }
       }
     },
@@ -1183,7 +1335,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿Cómo se llama?\n\nТи говориш про Luis.\n\nВибери 1 відповідь.",
-          "ru": "Ana спрашивает: ¿Cómo se llama?\n\nТы говоришь о Luis.\n\nВыбери один ответ."
+          "ru": "Ana спрашивает: ¿Cómo se llama?\n\nТы говоришь о Luis.\n\nВыбери один ответ.",
+          "en": "Ana asks: ¿Cómo se llama?\n\nYou're talking about Luis.\n\nChoose one answer."
         }
       }
     },
@@ -1193,19 +1346,23 @@
       "fields": {
         "prompt_template": {
           "uk": "У реченні є: Es de Ucrania y vive en Kyiv.\n\nЩо робить y?",
-          "ru": "В предложении есть: Es de Ucrania y vive en Kyiv.\n\nЧто делает y?"
+          "ru": "В предложении есть: Es de Ucrania y vive en Kyiv.\n\nЧто делает y?",
+          "en": "The sentence is: Es de Ucrania y vive en Kyiv.\n\nWhat does y do here?"
         },
         "answer_options.adds_info.label": {
           "uk": "Додає ще одну інформацію.",
-          "ru": "Добавляет ещё одну информацию."
+          "ru": "Добавляет ещё одну информацию.",
+          "en": "Adds another piece of information."
         },
         "answer_options.shows_contrast.label": {
           "uk": "Показує протиставлення.",
-          "ru": "Показывает противопоставление."
+          "ru": "Показывает противопоставление.",
+          "en": "Shows a contrast."
         },
         "answer_options.starts_goodbye.label": {
           "uk": "Завершує розмову.",
-          "ru": "Завершает разговор."
+          "ru": "Завершает разговор.",
+          "en": "Ends the conversation."
         }
       }
     },
@@ -1215,7 +1372,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи весь діалог іспанською. Напиши кожну відповідь з нового рядка.\n\nHola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego.",
-          "ru": "Заполни пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego."
+          "ru": "Заполни пропуски.\n\nВведи весь диалог на испанском. Каждую реплику пиши с новой строки.\n\nHola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego.",
+          "en": "Fill in the blanks.\n\nEnter the whole dialogue in Spanish. Put each line on a new line.\n\nHola, Ana. ¿Cómo estás?\nEstoy bien, gracias.\n¿Es tu amiga?\nSí, es mi amiga. Se llama Sofía.\n¿Cómo se llama?\nSe llama Sofía.\n¿De dónde es?\nEs de España.\n¿Dónde vive?\nVive en Madrid.\n¿Qué idiomas habla?\nHabla español e inglés, pero no habla francés.\nGracias. Hasta luego."
         }
       }
     },
@@ -1225,7 +1383,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи коротку розмову про іншу людину іспанською.\n\nВведи 10-14 реплік. Напиши кожну відповідь з нового рядка.\n\nРозмова має: привітатися з Ana, запитати як справи, запитати чи Sofía її подруга, запитати ім'я, країну, місто й мови Sofía, отримати відповіді, подякувати й попрощатися.",
-          "ru": "Проведи короткий разговор на испанском о другом человеке.\n\nВведи 10–14 реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться с Ana, спросить, как у неё дела, спросить, является ли Sofía её подругой, узнать имя, страну, город и языки Sofía, получить ответы, поблагодарить и попрощаться."
+          "ru": "Проведи короткий разговор на испанском о другом человеке.\n\nВведи 10–14 реплик. Каждую реплику пиши с новой строки.\n\nВ разговоре нужно: поздороваться с Ana, спросить, как у неё дела, спросить, является ли Sofía её подругой, узнать имя, страну, город и языки Sofía, получить ответы, поблагодарить и попрощаться.",
+          "en": "Have a short conversation in Spanish about another person.\n\nEnter 10–14 lines. Put each line on a new line.\n\nYour conversation should greet Ana, ask how she is, ask whether Sofía is her friend, ask about Sofía's name, country, city, and languages, then thank Ana and say goodbye."
         }
       }
     },
@@ -1235,7 +1394,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запиши репліки в природному порядку.\n\nВведи 6 реплік іспанською. Напиши кожну відповідь з нового рядка.\n\nVive en Madrid.\n¿Cómo se llama?\nSe llama Sofía.\n¿Dónde vive?\n¿De dónde es?\nEs de España.",
-          "ru": "Расположи реплики в естественном порядке.\n\nВведи 6 реплик на испанском. Каждую реплику пиши с новой строки.\n\nVive en Madrid.\n¿Cómo se llama?\nSe llama Sofía.\n¿Dónde vive?\n¿De dónde es?\nEs de España."
+          "ru": "Расположи реплики в естественном порядке.\n\nВведи 6 реплик на испанском. Каждую реплику пиши с новой строки.\n\nVive en Madrid.\n¿Cómo se llama?\nSe llama Sofía.\n¿Dónde vive?\n¿De dónde es?\nEs de España.",
+          "en": "Put the lines in a natural order.\n\nEnter 6 lines in Spanish. Put each line on a new line.\n\nVive en Madrid.\n¿Cómo se llama?\nSe llama Sofía.\n¿Dónde vive?\n¿De dónde es?\nEs de España."
         }
       }
     },
@@ -1245,7 +1405,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 4 речення іспанською. Напиши кожну відповідь з нового рядка.\n\nElla es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, ____ no habla francés.",
-          "ru": "Заполни пропуски.\n\nВведи 4 предложения на испанском. Каждое предложение пиши с новой строки.\n\nElla es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, ____ no habla francés."
+          "ru": "Заполни пропуски.\n\nВведи 4 предложения на испанском. Каждое предложение пиши с новой строки.\n\nElla es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, ____ no habla francés.",
+          "en": "Fill in the blanks.\n\nEnter 4 sentences in Spanish. Put each sentence on a new line.\n\nElla es mi amiga.\nSe llama Sofía.\nEs de España y vive en Madrid.\nHabla español e inglés, ____ no habla francés."
         }
       }
     },
@@ -1255,7 +1416,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 4 питання іспанською. Напиши кожну відповідь з нового рядка.\n\n¿Cómo se llama?\n¿De dónde __?\n¿Dónde ____?\n¿Qué idiomas _____?",
-          "ru": "Заполни пропуски.\n\nВведи 4 вопроса на испанском. Каждый вопрос пиши с новой строки.\n\n¿Cómo se llama?\n¿De dónde __?\n¿Dónde ____?\n¿Qué idiomas _____?"
+          "ru": "Заполни пропуски.\n\nВведи 4 вопроса на испанском. Каждый вопрос пиши с новой строки.\n\n¿Cómo se llama?\n¿De dónde __?\n¿Dónde ____?\n¿Qué idiomas _____?",
+          "en": "Fill in the blanks.\n\nEnter 4 questions in Spanish. Put each question on a new line.\n\n¿Cómo se llama?\n¿De dónde __?\n¿Dónde ____?\n¿Qué idiomas _____?"
         }
       }
     },
@@ -1265,7 +1427,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Заповни пропуски.\n\nВведи 4 репліки іспанською. Напиши кожну відповідь з нового рядка.\n\n¿De dónde es?\nEs de España.\n¿Dónde ____?\nVive en Madrid.",
-          "ru": "Заполни пропуски.\n\nВведи 4 реплики на испанском. Каждую реплику пиши с новой строки.\n\n¿De dónde es?\nEs de España.\n¿Dónde ____?\nVive en Madrid."
+          "ru": "Заполни пропуски.\n\nВведи 4 реплики на испанском. Каждую реплику пиши с новой строки.\n\n¿De dónde es?\nEs de España.\n¿Dónde ____?\nVive en Madrid.",
+          "en": "Fill in the blanks.\n\nEnter 4 lines in Spanish. Put each line on a new line.\n\n¿De dónde es?\nEs de España.\n¿Dónde ____?\nVive en Madrid."
         }
       }
     },
@@ -1285,7 +1448,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти зустрічаєш людину ввечері. Вибери природне привітання.",
-          "ru": "Ты встречаешь человека вечером. Выбери естественное приветствие."
+          "ru": "Ты встречаешь человека вечером. Выбери естественное приветствие.",
+          "en": "You meet someone in the evening. Choose a natural greeting."
         }
       }
     },
@@ -1295,7 +1459,8 @@
       "fields": {
         "prompt_template": {
           "uk": "На початку дня ти вітаєшся з викладачем. Вибери іспанське привітання.",
-          "ru": "В начале дня ты здороваешься с преподавателем. Выбери подходящее приветствие на испанском."
+          "ru": "В начале дня ты здороваешься с преподавателем. Выбери подходящее приветствие на испанском.",
+          "en": "At the start of the day, you greet a teacher. Choose the appropriate Spanish greeting."
         }
       }
     },
@@ -1305,7 +1470,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін привітаннями. Відповідай іспанською.",
-          "ru": "Проведи короткий обмен приветствиями. Отвечай на испанском."
+          "ru": "Проведи короткий обмен приветствиями. Отвечай на испанском.",
+          "en": "Have a short greeting exchange. Reply in Spanish."
         }
       }
     },
@@ -1315,7 +1481,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи два привітання іспанською, кожне з нового рядка: ранок, вечір.",
-          "ru": "Введи два приветствия на испанском, каждое с новой строки: для утра и для вечера."
+          "ru": "Введи два приветствия на испанском, каждое с новой строки: для утра и для вечера.",
+          "en": "Write two greetings in Spanish: one for the morning and one for the evening. Put each greeting on a new line."
         }
       }
     },
@@ -1325,7 +1492,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як сказати іспанською «Доброї ночі»? Напиши повну фразу.",
-          "ru": "Как сказать по-испански «Доброй ночи»? Напиши полную фразу."
+          "ru": "Как сказать по-испански «Доброй ночи»? Напиши полную фразу.",
+          "en": "How do you say \"Good night\" in Spanish? Write the full phrase."
         }
       }
     },
@@ -1345,7 +1513,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси ввічливо повторити.",
-          "ru": "Вежливо попроси повторить."
+          "ru": "Вежливо попроси повторить.",
+          "en": "Politely ask the person to repeat what they said."
         }
       }
     },
@@ -1355,7 +1524,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти не зрозумів репліку. Вибери, що сказати.",
-          "ru": "Ты не понял реплику. Выбери, что сказать."
+          "ru": "Ты не понял реплику. Выбери, что сказать.",
+          "en": "You didn't understand what was said. Choose what to say."
         }
       }
     },
@@ -1365,7 +1535,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Використай знайомі фрази, щоб привітатися, попросити повторити й попрощатися.",
-          "ru": "Используй знакомые фразы, чтобы поздороваться, попросить повторить и попрощаться."
+          "ru": "Используй знакомые фразы, чтобы поздороваться, попросить повторить и попрощаться.",
+          "en": "Use familiar phrases to say hello, ask the person to repeat, and say goodbye."
         }
       }
     },
@@ -1375,7 +1546,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Дякую. До зустрічі.»",
-          "ru": "Введи по-испански: «Спасибо. До встречи.»"
+          "ru": "Введи по-испански: «Спасибо. До встречи.»",
+          "en": "Write in Spanish: \"Thank you. See you later.\""
         }
       }
     },
@@ -1385,7 +1557,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як попросити говорити повільніше? Напиши іспанською.",
-          "ru": "Как попросить говорить медленнее? Напиши по-испански."
+          "ru": "Как попросить говорить медленнее? Напиши по-испански.",
+          "en": "How do you ask someone to speak more slowly? Write the full sentence in Spanish."
         }
       }
     },
@@ -3865,23 +4038,28 @@
       "fields": {
         "title": {
           "uk": "Мета першого знайомства",
-          "ru": "Цель первого знакомства"
+          "ru": "Цель первого знакомства",
+          "en": "Goal for your first conversation"
         },
         "explanation": {
           "uk": "Ти відкриваєш короткий чат з іспаномовною людиною. У цьому уроці ти почнеш контакт, назвеш себе, запитаєш ім'я та ввічливо завершиш розмову.",
-          "ru": "Ты начинаешь короткий разговор с испаноговорящим человеком. В этом уроке ты поздороваешься, представишься, спросишь имя собеседника и вежливо завершишь разговор."
+          "ru": "Ты начинаешь короткий разговор с испаноговорящим человеком. В этом уроке ты поздороваешься, представишься, спросишь имя собеседника и вежливо завершишь разговор.",
+          "en": "You're starting a short conversation with a Spanish speaker. In this lesson, you'll say hello, introduce yourself, ask the other person's name, and end the conversation politely."
         },
         "examples.0": {
           "uk": "Привітайся, назви себе, запитай ім'я, відреагуй Mucho gusto і заверши контакт.",
-          "ru": "Поздоровайся, представься, спроси имя собеседника, скажи Mucho gusto и попрощайся."
+          "ru": "Поздоровайся, представься, спроси имя собеседника, скажи Mucho gusto и попрощайся.",
+          "en": "Say hello, introduce yourself, ask the other person's name, respond with Mucho gusto, and say goodbye."
         },
         "examples.1": {
           "uk": "Hola та Buenos días — короткі варіанти початку контакту.",
-          "ru": "Hola и Buenos días — короткие способы начать разговор."
+          "ru": "Hola и Buenos días — короткие способы начать разговор.",
+          "en": "Hola and Buenos días are short ways to open a conversation."
         },
         "examples.2": {
           "uk": "Me llamo... називає тебе, а ¿Cómo te llamas? запитує ім'я співрозмовника.",
-          "ru": "Me llamo... — чтобы представиться, а ¿Cómo te llamas? — чтобы спросить имя собеседника."
+          "ru": "Me llamo... — чтобы представиться, а ¿Cómo te llamas? — чтобы спросить имя собеседника.",
+          "en": "Use Me llamo... to introduce yourself and ¿Cómo te llamas? to ask the other person's name."
         }
       }
     },
@@ -3951,39 +4129,48 @@
       "fields": {
         "title": {
           "uk": "Як читати репліки",
-          "ru": "Как произносить реплики"
+          "ru": "Как произносить реплики",
+          "en": "How to pronounce the lines"
         },
         "explanation": {
           "uk": "Спочатку користуйся приблизним читанням. У фіналі підказки зникнуть.",
-          "ru": "Сначала пользуйся простой подсказкой по произношению. К концу урока подсказки исчезнут."
+          "ru": "Сначала пользуйся простой подсказкой по произношению. К концу урока подсказки исчезнут.",
+          "en": "Start with a simple pronunciation guide. The hints will disappear by the end."
         },
         "examples.0": {
           "uk": "Hola — ола",
-          "ru": "Hola — ола"
+          "ru": "Hola — ола",
+          "en": "Hola — OH-lah"
         },
         "examples.1": {
           "uk": "Buenos días — буенос діас",
-          "ru": "Buenos días — буенос диас"
+          "ru": "Buenos días — буенос диас",
+          "en": "Buenos días — BWEH-nos DEE-as"
         },
         "examples.2": {
           "uk": "Me llamo Marta — ме ямо Марта",
-          "ru": "Me llamo Marta — ме ямо Марта"
+          "ru": "Me llamo Marta — ме ямо Марта",
+          "en": "Me llamo Marta — meh YAH-moh MAR-tah"
         },
         "examples.3": {
           "uk": "¿Cómo te llamas? — комо те ямас",
-          "ru": "¿Cómo te llamas? — комо те ямас"
+          "ru": "¿Cómo te llamas? — комо те ямас",
+          "en": "¿Cómo te llamas? — KOH-moh teh YAH-mas"
         },
         "examples.4": {
           "uk": "Me llamo Ana — ме ямо Ана",
-          "ru": "Me llamo Ana — ме ямо Ана"
+          "ru": "Me llamo Ana — ме ямо Ана",
+          "en": "Me llamo Ana — meh YAH-moh AH-nah"
         },
         "examples.5": {
           "uk": "Mucho gusto — мучо густо",
-          "ru": "Mucho gusto — мучо густо"
+          "ru": "Mucho gusto — мучо густо",
+          "en": "Mucho gusto — MOO-choh GOOS-toh"
         },
         "examples.6": {
           "uk": "Hasta luego — аста луего",
-          "ru": "Hasta luego — аста луэго"
+          "ru": "Hasta luego — аста луэго",
+          "en": "Hasta luego — AH-stah LWEH-goh"
         }
       }
     },
@@ -3993,23 +4180,28 @@
       "fields": {
         "title": {
           "uk": "Три питання про людину",
-          "ru": "Три вопроса при знакомстве"
+          "ru": "Три вопроса при знакомстве",
+          "en": "Three questions to get to know someone"
         },
         "explanation": {
           "uk": "У знайомстві можна коротко запитати про походження, місто й мови. Кожне питання одразу веде до простої відповіді.",
-          "ru": "При знакомстве можно коротко спросить, откуда человек, где он живёт и на каких языках говорит. На каждый вопрос можно дать простой прямой ответ."
+          "ru": "При знакомстве можно коротко спросить, откуда человек, где он живёт и на каких языках говорит. На каждый вопрос можно дать простой прямой ответ.",
+          "en": "When you meet someone, you can ask where they're from, where they live, and what languages they speak. Each question has a simple, direct answer."
         },
         "examples.0": {
           "uk": "¿De dónde eres? — Soy de Ucrania.",
-          "ru": "¿De dónde eres? — Soy de Ucrania."
+          "ru": "¿De dónde eres? — Soy de Ucrania.",
+          "en": "¿De dónde eres? — Soy de Ucrania."
         },
         "examples.1": {
           "uk": "¿Dónde vives? — Vivo en Kyiv.",
-          "ru": "¿Dónde vives? — Vivo en Kyiv."
+          "ru": "¿Dónde vives? — Vivo en Kyiv.",
+          "en": "¿Dónde vives? — Vivo en Kyiv."
         },
         "examples.2": {
           "uk": "¿Qué idiomas hablas? — Hablo español e inglés.",
-          "ru": "¿Qué idiomas hablas? — Hablo español e inglés."
+          "ru": "¿Qué idiomas hablas? — Hablo español e inglés.",
+          "en": "¿Qué idiomas hablas? — Hablo español e inglés."
         }
       }
     },
@@ -4019,27 +4211,33 @@
       "fields": {
         "title": {
           "uk": "Короткі відповіді про мови",
-          "ru": "Короткие ответы о языках"
+          "ru": "Короткие ответы о языках",
+          "en": "Short answers about languages"
         },
         "explanation": {
           "uk": "Для мов достатньо короткої репліки: сказати, що говориш, додати ще одну мову або сказати, що не говориш.",
-          "ru": "О языках достаточно ответить коротко: скажи, на каком языке говоришь, добавь ещё один язык или скажи, на каком не говоришь."
+          "ru": "О языках достаточно ответить коротко: скажи, на каком языке говоришь, добавь ещё один язык или скажи, на каком не говоришь.",
+          "en": "When talking about languages, keep your answer short: say which language you speak, add another one, or say which one you don't speak."
         },
         "examples.0": {
           "uk": "Hablo español. — Я говорю іспанською.",
-          "ru": "Hablo español. — Я говорю по-испански."
+          "ru": "Hablo español. — Я говорю по-испански.",
+          "en": "Hablo español. — I speak Spanish."
         },
         "examples.1": {
           "uk": "También hablo inglés. — Я також говорю англійською.",
-          "ru": "También hablo inglés. — Я также говорю по-английски."
+          "ru": "También hablo inglés. — Я также говорю по-английски.",
+          "en": "También hablo inglés. — I also speak English."
         },
         "examples.2": {
           "uk": "Hablo un poco. — Я говорю трохи.",
-          "ru": "Hablo un poco. — Я немного говорю."
+          "ru": "Hablo un poco. — Я немного говорю.",
+          "en": "Hablo un poco. — I speak a little."
         },
         "examples.3": {
           "uk": "No hablo francés. — Я не говорю французькою.",
-          "ru": "No hablo francés. — Я не говорю по-французски."
+          "ru": "No hablo francés. — Я не говорю по-французски.",
+          "en": "No hablo francés. — I don't speak French."
         }
       }
     },
@@ -4105,23 +4303,28 @@
       "fields": {
         "title": {
           "uk": "Коли вибачатися",
-          "ru": "Когда извиняться"
+          "ru": "Когда извиняться",
+          "en": "When to apologize"
         },
         "explanation": {
           "uk": "Perdón привертає увагу або м'яко перебиває. Disculpa звучить як коротке вибачення. Lo siento означає, що тобі шкода.",
-          "ru": "Perdón помогает привлечь внимание или вежливо перебить. Disculpa — короткое извинение. Lo siento означает, что тебе жаль."
+          "ru": "Perdón помогает привлечь внимание или вежливо перебить. Disculpa — короткое извинение. Lo siento означает, что тебе жаль.",
+          "en": "Use Perdón to get someone's attention or interrupt politely. Disculpa is a brief apology. Lo siento means you're sorry."
         },
         "examples.0": {
           "uk": "Perdón. ¿Cómo te llamas?",
-          "ru": "Perdón. ¿Cómo te llamas?"
+          "ru": "Perdón. ¿Cómo te llamas?",
+          "en": "Perdón. ¿Cómo te llamas?"
         },
         "examples.1": {
           "uk": "Disculpa. No hablo francés.",
-          "ru": "Disculpa. No hablo francés."
+          "ru": "Disculpa. No hablo francés.",
+          "en": "Disculpa. No hablo francés."
         },
         "examples.2": {
           "uk": "Lo siento. No hablo alemán.",
-          "ru": "Lo siento. No hablo alemán."
+          "ru": "Lo siento. No hablo alemán.",
+          "en": "Lo siento. No hablo alemán."
         }
       }
     },
@@ -4131,23 +4334,28 @@
       "fields": {
         "title": {
           "uk": "Подяка і відповідь",
-          "ru": "Как поблагодарить и ответить"
+          "ru": "Как поблагодарить и ответить",
+          "en": "Saying thanks and replying"
         },
         "explanation": {
           "uk": "Gracias або Muchas gracias висловлює подяку. De nada відповідає на подяку.",
-          "ru": "Gracias или Muchas gracias используют, чтобы поблагодарить. De nada — обычный ответ на благодарность."
+          "ru": "Gracias или Muchas gracias используют, чтобы поблагодарить. De nada — обычный ответ на благодарность.",
+          "en": "Use Gracias or Muchas gracias to say thanks. De nada is a common response to thanks."
         },
         "examples.0": {
           "uk": "Gracias. De nada.",
-          "ru": "Gracias. De nada."
+          "ru": "Gracias. De nada.",
+          "en": "Gracias. De nada."
         },
         "examples.1": {
           "uk": "Muchas gracias. De nada.",
-          "ru": "Muchas gracias. De nada."
+          "ru": "Muchas gracias. De nada.",
+          "en": "Muchas gracias. De nada."
         },
         "examples.2": {
           "uk": "Bien, gracias. ¿Y tú?",
-          "ru": "Bien, gracias. ¿Y tú?"
+          "ru": "Bien, gracias. ¿Y tú?",
+          "en": "Bien, gracias. ¿Y tú?"
         }
       }
     },
@@ -4157,23 +4365,28 @@
       "fields": {
         "title": {
           "uk": "Він і вона",
-          "ru": "Он и она"
+          "ru": "Он и она",
+          "en": "He and she"
         },
         "explanation": {
           "uk": "Él говорять про чоловіка. Ella говорять про жінку.",
-          "ru": "Él относится к мужчине, а Ella — к женщине."
+          "ru": "Él относится к мужчине, а Ella — к женщине.",
+          "en": "Él refers to a man; ella refers to a woman."
         },
         "examples.0": {
           "uk": "Él es Luis.",
-          "ru": "Él es Luis."
+          "ru": "Él es Luis.",
+          "en": "Él es Luis."
         },
         "examples.1": {
           "uk": "Ella es Ana.",
-          "ru": "Ella es Ana."
+          "ru": "Ella es Ana.",
+          "en": "Ella es Ana."
         },
         "examples.2": {
           "uk": "¿Quién es él? ¿Quién es ella?",
-          "ru": "¿Quién es él? ¿Quién es ella?"
+          "ru": "¿Quién es él? ¿Quién es ella?",
+          "en": "¿Quién es él? ¿Quién es ella?"
         }
       }
     },
@@ -4183,23 +4396,28 @@
       "fields": {
         "title": {
           "uk": "Друг, подруга, викладач",
-          "ru": "Друг, подруга и преподаватель"
+          "ru": "Друг, подруга и преподаватель",
+          "en": "Friend and teacher: masculine and feminine forms"
         },
         "explanation": {
           "uk": "Amigo, compañero, profesor стосуються чоловіка. Amiga, compañera, profesora стосуються жінки.",
-          "ru": "Amigo, compañero и profesor — формы мужского рода. Amiga, compañera и profesora — формы женского рода."
+          "ru": "Amigo, compañero и profesor — формы мужского рода. Amiga, compañera и profesora — формы женского рода.",
+          "en": "Amigo, compañero, and profesor are masculine forms. Amiga, compañera, and profesora are feminine forms."
         },
         "examples.0": {
           "uk": "Él es mi amigo.",
-          "ru": "Él es mi amigo."
+          "ru": "Él es mi amigo.",
+          "en": "Él es mi amigo."
         },
         "examples.1": {
           "uk": "Ella es mi amiga.",
-          "ru": "Ella es mi amiga."
+          "ru": "Ella es mi amiga.",
+          "en": "Ella es mi amiga."
         },
         "examples.2": {
           "uk": "Este es mi profesor. Esta es mi profesora.",
-          "ru": "Este es mi profesor. Esta es mi profesora."
+          "ru": "Este es mi profesor. Esta es mi profesora.",
+          "en": "Este es mi profesor. Esta es mi profesora."
         }
       }
     },
@@ -4235,27 +4453,33 @@
       "fields": {
         "title": {
           "uk": "Коротко про іншу людину",
-          "ru": "Коротко о другом человеке"
+          "ru": "Коротко о другом человеке",
+          "en": "A short profile of someone else"
         },
         "explanation": {
           "uk": "Для іншої людини використовуй Se llama, Es de, Vive en і Habla.",
-          "ru": "Чтобы рассказать о другом человеке, используй Se llama, Es de, Vive en и Habla."
+          "ru": "Чтобы рассказать о другом человеке, используй Se llama, Es de, Vive en и Habla.",
+          "en": "To talk about someone else, use Se llama, Es de, Vive en, and Habla."
         },
         "examples.0": {
           "uk": "Se llama Luis.",
-          "ru": "Se llama Luis."
+          "ru": "Se llama Luis.",
+          "en": "Se llama Luis."
         },
         "examples.1": {
           "uk": "Es de España.",
-          "ru": "Es de España."
+          "ru": "Es de España.",
+          "en": "Es de España."
         },
         "examples.2": {
           "uk": "Vive en Madrid.",
-          "ru": "Vive en Madrid."
+          "ru": "Vive en Madrid.",
+          "en": "Vive en Madrid."
         },
         "examples.3": {
           "uk": "Habla español e inglés.",
-          "ru": "Habla español e inglés."
+          "ru": "Habla español e inglés.",
+          "en": "Habla español e inglés."
         }
       }
     },
@@ -4265,23 +4489,28 @@
       "fields": {
         "title": {
           "uk": "Я, ти, він або вона",
-          "ru": "Я, ты, он или она"
+          "ru": "Я, ты, он или она",
+          "en": "I, you, he, or she"
         },
         "explanation": {
           "uk": "Soy, vivo, hablo говориш про себе. Es, vive, habla говориш про іншу людину.",
-          "ru": "Используй soy, vivo и hablo, когда говоришь о себе. Для другого человека используй es, vive и habla."
+          "ru": "Используй soy, vivo и hablo, когда говоришь о себе. Для другого человека используй es, vive и habla.",
+          "en": "Use soy, vivo, and hablo to talk about yourself. Use es, vive, and habla to talk about someone else."
         },
         "examples.0": {
           "uk": "Soy de Ucrania. Es de España.",
-          "ru": "Soy de Ucrania. Es de España."
+          "ru": "Soy de Ucrania. Es de España.",
+          "en": "Soy de Ucrania. Es de España."
         },
         "examples.1": {
           "uk": "Vivo en Kyiv. Vive en Madrid.",
-          "ru": "Vivo en Kyiv. Vive en Madrid."
+          "ru": "Vivo en Kyiv. Vive en Madrid.",
+          "en": "Vivo en Kyiv. Vive en Madrid."
         },
         "examples.2": {
           "uk": "Hablo español. Habla español.",
-          "ru": "Hablo español. Habla español."
+          "ru": "Hablo español. Habla español.",
+          "en": "Hablo español. Habla español."
         }
       }
     },
@@ -4321,23 +4550,28 @@
       "fields": {
         "title": {
           "uk": "Про себе і про іншу людину",
-          "ru": "О себе и о другом человеке"
+          "ru": "О себе и о другом человеке",
+          "en": "Talking about yourself and someone else"
         },
         "explanation": {
           "uk": "Me llamo говориш про себе. Se llama говориш про іншу людину.",
-          "ru": "Используй Me llamo, когда говоришь о себе, и Se llama, когда говоришь о другом человеке."
+          "ru": "Используй Me llamo, когда говоришь о себе, и Se llama, когда говоришь о другом человеке.",
+          "en": "Use Me llamo to talk about yourself and Se llama to talk about someone else."
         },
         "examples.0": {
           "uk": "Me llamo Marta.",
-          "ru": "Me llamo Marta."
+          "ru": "Me llamo Marta.",
+          "en": "Me llamo Marta."
         },
         "examples.1": {
           "uk": "Se llama Ana.",
-          "ru": "Se llama Ana."
+          "ru": "Se llama Ana.",
+          "en": "Se llama Ana."
         },
         "examples.2": {
           "uk": "¿Cómo se llama?",
-          "ru": "¿Cómo se llama?"
+          "ru": "¿Cómo se llama?",
+          "en": "¿Cómo se llama?"
         }
       }
     },
@@ -4347,23 +4581,28 @@
       "fields": {
         "title": {
           "uk": "З'єднати інформацію",
-          "ru": "Связываем информацию"
+          "ru": "Связываем информацию",
+          "en": "Connecting information"
         },
         "explanation": {
           "uk": "Y додає інформацію. Pero показує коротке протиставлення.",
-          "ru": "Y добавляет информацию. Pero показывает простое противопоставление."
+          "ru": "Y добавляет информацию. Pero показывает простое противопоставление.",
+          "en": "Y adds information. Pero shows a simple contrast."
         },
         "examples.0": {
           "uk": "Vive en Madrid y habla español.",
-          "ru": "Vive en Madrid y habla español."
+          "ru": "Vive en Madrid y habla español.",
+          "en": "Vive en Madrid y habla español."
         },
         "examples.1": {
           "uk": "Habla español, pero no habla francés.",
-          "ru": "Habla español, pero no habla francés."
+          "ru": "Habla español, pero no habla francés.",
+          "en": "Habla español, pero no habla francés."
         },
         "examples.2": {
           "uk": "No, no es mi profesor, pero es mi amigo.",
-          "ru": "No, no es mi profesor, pero es mi amigo."
+          "ru": "No, no es mi profesor, pero es mi amigo.",
+          "en": "No, no es mi profesor, pero es mi amigo."
         }
       }
     },
@@ -4387,15 +4626,18 @@
       "fields": {
         "title": {
           "uk": "Урок 1",
-          "ru": "Урок 1"
+          "ru": "Урок 1",
+          "en": "Lesson 1"
         },
         "description": {
           "uk": "Почни короткий перший контакт: привітайся, назви себе, запитай ім'я й попрощайся.",
-          "ru": "Начни короткий разговор: поздоровайся, представься, спроси имя собеседника и попрощайся."
+          "ru": "Начни короткий разговор: поздоровайся, представься, спроси имя собеседника и попрощайся.",
+          "en": "Start a short conversation: say hello, introduce yourself, ask the other person's name, and say goodbye."
         },
         "communicativeOutcome": {
           "uk": "Учень самостійно пише короткий перший контакт іспанською: привітання, ім'я, питання про ім'я, ввічлива реакція та прощання.",
-          "ru": "Ты можешь написать короткий первый диалог на испанском: приветствие, своё имя, вопрос об имени собеседника, вежливая реакция и прощание."
+          "ru": "Ты можешь написать короткий первый диалог на испанском: приветствие, своё имя, вопрос об имени собеседника, вежливая реакция и прощание.",
+          "en": "You can write a short first conversation in Spanish with a greeting, your name, a question about the other person's name, a polite response, and a goodbye."
         }
       }
     },
@@ -4405,15 +4647,18 @@
       "fields": {
         "title": {
           "uk": "Урок 2",
-          "ru": "Урок 2"
+          "ru": "Урок 2",
+          "en": "Lesson 2"
         },
         "description": {
           "uk": "Повтори перший контакт і розшир його: розкажи про країну, місто та мови й запитай те саме.",
-          "ru": "Продолжи первый разговор: расскажи о своей стране, городе и языках и задай собеседнику те же вопросы."
+          "ru": "Продолжи первый разговор: расскажи о своей стране, городе и языках и задай собеседнику те же вопросы.",
+          "en": "Build on the first conversation: talk about your country, city, and languages, and ask the other person the same questions."
         },
         "communicativeOutcome": {
           "uk": "Учень самостійно проводить розширене знайомство іспанською, використовуючи ядро Lesson 1 для початку та завершення контакту.",
-          "ru": "Ты можешь провести более подробное знакомство на испанском, используя фразы из урока 1 для начала и завершения разговора."
+          "ru": "Ты можешь провести более подробное знакомство на испанском, используя фразы из урока 1 для начала и завершения разговора.",
+          "en": "You can have a longer introductory conversation in Spanish, using the core phrases from Lesson 1 to open and close it."
         }
       }
     },
@@ -4423,15 +4668,18 @@
       "fields": {
         "title": {
           "uk": "Ввічлива розмова",
-          "ru": "Вежливый разговор"
+          "ru": "Вежливый разговор",
+          "en": "Polite conversation"
         },
         "description": {
           "uk": "Повернися до знайомства, додай обмін про стан, подяку, коротке вибачення та природне завершення.",
-          "ru": "Продолжи знакомство: добавь короткий обмен репликами о том, как дела, благодарность, краткое извинение и естественное завершение."
+          "ru": "Продолжи знакомство: добавь короткий обмен репликами о том, как дела, благодарность, краткое извинение и естественное завершение.",
+          "en": "Build on the introduction by adding a short exchange about how someone is doing, thanks, a brief apology, and a natural ending."
         },
         "communicativeOutcome": {
           "uk": "Учень самостійно веде коротке знайомство з новим ввічливим середнім епізодом, не втрачаючи раніше вивченого початку та завершення.",
-          "ru": "Ты можешь провести короткое знакомство, добавив в середину вежливый обмен репликами и сохранив знакомые начало и завершение разговора."
+          "ru": "Ты можешь провести короткое знакомство, добавив в середину вежливый обмен репликами и сохранив знакомые начало и завершение разговора.",
+          "en": "You can have a short introductory conversation with a polite exchange in the middle while keeping the familiar opening and closing."
         }
       }
     },
@@ -4441,15 +4689,18 @@
       "fields": {
         "title": {
           "uk": "Люди навколо нас",
-          "ru": "Люди вокруг нас"
+          "ru": "Люди вокруг нас",
+          "en": "People around us"
         },
         "description": {
           "uk": "Перенеси знайоме знайомство на іншу людину: запитай, хто це, і представ її кількома простими реченнями.",
-          "ru": "Используй знакомую модель знакомства, чтобы рассказать о другом человеке: спроси, кто это, и представь этого человека несколькими простыми предложениями."
+          "ru": "Используй знакомую модель знакомства, чтобы рассказать о другом человеке: спроси, кто это, и представь этого человека несколькими простыми предложениями.",
+          "en": "Use the familiar introduction pattern to talk about someone else: ask who they are and introduce them in a few simple sentences."
         },
         "communicativeOutcome": {
           "uk": "Учень самостійно представляє себе й одну іншу людину, використовуючи знайомі рамки контакту в новому соціальному контексті.",
-          "ru": "Ты можешь представить себя и другого человека, используя знакомые модели общения в новом социальном контексте."
+          "ru": "Ты можешь представить себя и другого человека, используя знакомые модели общения в новом социальном контексте.",
+          "en": "You can introduce yourself and another person using familiar conversation patterns in a new social context."
         }
       }
     },
@@ -4459,15 +4710,18 @@
       "fields": {
         "title": {
           "uk": "Проста розмова про людину",
-          "ru": "Простой разговор о другом человеке"
+          "ru": "Простой разговор о другом человеке",
+          "en": "A simple conversation about someone else"
         },
         "description": {
           "uk": "Повтори профіль іншої людини, постав пов'язані питання й коротко опиши її з меншими підказками.",
-          "ru": "Повтори краткое описание другого человека, задай связанные вопросы и кратко расскажи о нём с меньшим количеством подсказок."
+          "ru": "Повтори краткое описание другого человека, задай связанные вопросы и кратко расскажи о нём с меньшим количеством подсказок.",
+          "en": "Review a short profile, ask follow-up questions, and describe the person with fewer hints."
         },
         "communicativeOutcome": {
           "uk": "Учень самостійно інтегрує привітання, ввічливий обмін, питання про іншу людину та зв'язний опис із поступово меншими підказками.",
-          "ru": "Ты можешь объединить приветствие, вежливый обмен, вопросы о другом человеке и короткое связное описание, постепенно обходясь без подсказок."
+          "ru": "Ты можешь объединить приветствие, вежливый обмен, вопросы о другом человеке и короткое связное описание, постепенно обходясь без подсказок.",
+          "en": "You can combine greetings, a polite exchange, questions about another person, and a short description that links several facts together, with gradually fewer hints."
         }
       }
     },
@@ -4477,15 +4731,18 @@
       "fields": {
         "title": {
           "uk": "Привітання в розмові",
-          "ru": "Приветствия в разговоре"
+          "ru": "Приветствия в разговоре",
+          "en": "Greetings in conversation"
         },
         "description": {
           "uk": "Розрізняй привітання за часом доби й використовуй їх у короткому обміні.",
-          "ru": "Различай приветствия по времени суток и используй их в коротком диалоге."
+          "ru": "Различай приветствия по времени суток и используй их в коротком диалоге.",
+          "en": "Choose greetings based on the time of day and use them in a short exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень вітається і прощається іспанською, добираючи Buenos días, Buenas tardes або Buenas noches до ситуації.",
-          "ru": "Ты можешь здороваться и прощаться по-испански, выбирая Buenos días, Buenas tardes или Buenas noches в зависимости от ситуации."
+          "ru": "Ты можешь здороваться и прощаться по-испански, выбирая Buenos días, Buenas tardes или Buenas noches в зависимости от ситуации.",
+          "en": "You can greet someone and say goodbye in Spanish, choosing Buenos días, Buenas tardes, or Buenas noches to fit the situation."
         }
       }
     },
@@ -4495,15 +4752,18 @@
       "fields": {
         "title": {
           "uk": "Як підтримати розмову",
-          "ru": "Как поддержать разговор"
+          "ru": "Как поддержать разговор",
+          "en": "Keeping a conversation going"
         },
         "description": {
           "uk": "Застосуй знайомі привітання, ввічливість і фрази для уточнення в одному короткому обміні.",
-          "ru": "Используй знакомые приветствия, вежливые фразы и просьбы об уточнении в одном коротком диалоге."
+          "ru": "Используй знакомые приветствия, вежливые фразы и просьбы об уточнении в одном коротком диалоге.",
+          "en": "Use familiar greetings, polite expressions, and clarification phrases in a short exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень підтримує короткий передбачуваний контакт і просить повторити, якщо не зрозумів репліку.",
-          "ru": "Ты можешь поддерживать короткий предсказуемый разговор и попросить повторить реплику, если не понял её."
+          "ru": "Ты можешь поддерживать короткий предсказуемый разговор и попросить повторить реплику, если не понял её.",
+          "en": "You can keep a short, predictable conversation going and ask someone to repeat when you don't understand."
         }
       }
     },
@@ -5143,15 +5403,18 @@
       "fields": {
         "title": {
           "uk": "Відтворити питання з пам’яті",
-          "ru": "Воспроизвести вопрос по памяти"
+          "ru": "Воспроизвести вопрос по памяти",
+          "en": "Say the question from memory"
         },
         "spokenPractice.prompt": {
           "uk": "Listen, hide the model, and try the question from memory.",
-          "ru": "Послушай, скрой образец и попробуй произнести вопрос по памяти."
+          "ru": "Послушай, скрой образец и попробуй произнести вопрос по памяти.",
+          "en": "Listen, hide the model, then say the question from memory."
         },
         "spokenPractice.focusCue": {
           "uk": "Notice the question intonation.",
-          "ru": "Обрати внимание на вопросительную интонацию."
+          "ru": "Обрати внимание на вопросительную интонацию.",
+          "en": "Pay attention to the question intonation."
         }
       }
     },
@@ -5161,7 +5424,8 @@
       "fields": {
         "title": {
           "uk": "Завершити перший контакт",
-          "ru": "Завершить первый разговор"
+          "ru": "Завершить первый разговор",
+          "en": "Complete the first conversation"
         }
       }
     },
@@ -5171,15 +5435,18 @@
       "fields": {
         "title": {
           "uk": "Повторити привітання уголос",
-          "ru": "Повторить приветствие вслух"
+          "ru": "Повторить приветствие вслух",
+          "en": "Repeat the greeting aloud"
         },
         "spokenPractice.prompt": {
           "uk": "Listen and repeat the greeting aloud.",
-          "ru": "Послушай и повтори приветствие вслух."
+          "ru": "Послушай и повтори приветствие вслух.",
+          "en": "Listen and repeat the greeting aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Notice the rhythm and clear vowel sounds.",
-          "ru": "Обрати внимание на ритм и чёткое произношение гласных."
+          "ru": "Обрати внимание на ритм и чёткое произношение гласных.",
+          "en": "Notice the rhythm and keep the vowel sounds clear."
         }
       }
     },
@@ -5189,11 +5456,13 @@
       "fields": {
         "title": {
           "uk": "Сказати своє ім’я іспанською",
-          "ru": "Сказать своё имя по-испански"
+          "ru": "Сказать своё имя по-испански",
+          "en": "Say your name in Spanish"
         },
         "spokenPractice.prompt": {
           "uk": "Say in Spanish: My name is Ana.",
-          "ru": "Скажи по-испански: «Меня зовут Ana»."
+          "ru": "Скажи по-испански: «Меня зовут Ana».",
+          "en": "Say \"My name is Ana\" in Spanish."
         }
       }
     },
@@ -5203,7 +5472,8 @@
       "fields": {
         "title": {
           "uk": "Провести знайомство про себе",
-          "ru": "Поговорить о себе при знакомстве"
+          "ru": "Поговорить о себе при знакомстве",
+          "en": "Introduce yourself in a conversation"
         }
       }
     },
@@ -5213,7 +5483,8 @@
       "fields": {
         "title": {
           "uk": "Провести ввічливу розмову",
-          "ru": "Провести вежливый разговор"
+          "ru": "Провести вежливый разговор",
+          "en": "Have a polite conversation"
         }
       }
     },
@@ -5223,7 +5494,8 @@
       "fields": {
         "title": {
           "uk": "Представити іншу людину",
-          "ru": "Представить другого человека"
+          "ru": "Представить другого человека",
+          "en": "Introduce another person"
         }
       }
     },
@@ -5233,7 +5505,8 @@
       "fields": {
         "title": {
           "uk": "Поговорити про іншу людину",
-          "ru": "Поговорить о другом человеке"
+          "ru": "Поговорить о другом человеке",
+          "en": "Talk about another person"
         }
       }
     },
@@ -5243,7 +5516,8 @@
       "fields": {
         "title": {
           "uk": "Привітання за часом доби",
-          "ru": "Приветствия по времени суток"
+          "ru": "Приветствия по времени суток",
+          "en": "Greetings by time of day"
         }
       }
     },
@@ -5253,15 +5527,18 @@
       "fields": {
         "title": {
           "uk": "Послухати привітання",
-          "ru": "Послушать приветствия"
+          "ru": "Послушать приветствия",
+          "en": "Listen to the greetings"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори привітання уголос.",
-          "ru": "Послушай и повтори приветствия вслух."
+          "ru": "Послушай и повтори приветствия вслух.",
+          "en": "Listen and repeat the greetings aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко вимов голосні у слові días.",
-          "ru": "Чётко произноси гласные в слове días."
+          "ru": "Чётко произноси гласные в слове días.",
+          "en": "Keep the vowels in días clear."
         }
       }
     },
@@ -5271,15 +5548,18 @@
       "fields": {
         "title": {
           "uk": "Послухати подяку",
-          "ru": "Послушать фразу благодарности"
+          "ru": "Послушать фразу благодарности",
+          "en": "Listen to a thank-you phrase"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори знайому фразу уголос.",
-          "ru": "Послушай и повтори знакомую фразу вслух."
+          "ru": "Послушай и повтори знакомую фразу вслух.",
+          "en": "Listen and repeat the familiar phrase aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Збережи чітке початкове g.",
-          "ru": "Чётко произноси начальное сочетание gr."
+          "ru": "Чётко произноси начальное сочетание gr.",
+          "en": "Keep the initial gr- sound clear."
         }
       }
     },
@@ -5289,7 +5569,8 @@
       "fields": {
         "title": {
           "uk": "Відновити короткий контакт",
-          "ru": "Восстановить короткий разговор"
+          "ru": "Восстановить короткий разговор",
+          "en": "Recreate a short conversation"
         }
       }
     },
@@ -5879,7 +6160,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може самостійно почати короткий контакт: привітатися, назвати себе, запитати ім'я, відреагувати на відповідь і попрощатися.",
-          "ru": "После этого урока ты сможешь самостоятельно начать короткий разговор: поздороваться, представиться, спросить имя собеседника, отреагировать на ответ и попрощаться."
+          "ru": "После этого урока ты сможешь самостоятельно начать короткий разговор: поздороваться, представиться, спросить имя собеседника, отреагировать на ответ и попрощаться.",
+          "en": "After this lesson, you can start a short conversation on your own: say hello, introduce yourself, ask the other person's name, respond to the answer, and say goodbye."
         }
       }
     },
@@ -5889,7 +6171,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може відновити перший контакт і розширити його: сказати, звідки він, де живе, якими мовами говорить, запитати те саме в іншої людини й завершити знайомство.",
-          "ru": "После этого урока ты сможешь восстановить первый разговор и расширить его: сказать, откуда ты, где живёшь и на каких языках говоришь, задать собеседнику те же вопросы и завершить знакомство."
+          "ru": "После этого урока ты сможешь восстановить первый разговор и расширить его: сказать, откуда ты, где живёшь и на каких языках говоришь, задать собеседнику те же вопросы и завершить знакомство.",
+          "en": "After this lesson, you can recreate the first conversation and expand it: say where you're from, where you live, what languages you speak, ask the other person the same questions, and end the conversation."
         }
       }
     },
@@ -5899,7 +6182,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може вставити ввічливий обмін у вже знайоме знайомство: запитати як справи, відповісти, подякувати, вибачитися за потреби й попрощатися.",
-          "ru": "После этого урока ты сможешь добавить к знакомому знакомству вежливый обмен: спросить, как дела, ответить, поблагодарить, при необходимости извиниться и попрощаться."
+          "ru": "После этого урока ты сможешь добавить к знакомому знакомству вежливый обмен: спросить, как дела, ответить, поблагодарить, при необходимости извиниться и попрощаться.",
+          "en": "After this lesson, you can add a polite exchange to a familiar introduction: ask how someone is, answer, say thanks, apologize when needed, and say goodbye."
         }
       }
     },
@@ -5909,7 +6193,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може перенести відомі моделі імені, країни, міста та мов на іншу людину, запитати, хто це, і представити її.",
-          "ru": "После этого урока ты сможешь использовать знакомые модели для имени, страны, города и языков, чтобы спросить о другом человеке и представить его."
+          "ru": "После этого урока ты сможешь использовать знакомые модели для имени, страны, города и языков, чтобы спросить о другом человеке и представить его.",
+          "en": "After this lesson, you can use familiar patterns for names, countries, cities, and languages to ask about and introduce another person."
         }
       }
     },
@@ -5919,7 +6204,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може самостійно поставити й підтримати серію пов'язаних питань про іншу людину, відрізняючи інформацію про себе, співрозмовника, чоловіка й жінку.",
-          "ru": "После этого урока ты сможешь самостоятельно задать серию связанных вопросов о другом человеке и правильно различать формы для себя, собеседника, мужчины и женщины."
+          "ru": "После этого урока ты сможешь самостоятельно задать серию связанных вопросов о другом человеке и правильно различать формы для себя, собеседника, мужчины и женщины.",
+          "en": "After this lesson, you can ask and answer a series of related questions about another person while using the correct forms for yourself, the person you're speaking to, a man, and a woman."
         }
       }
     },
@@ -5929,7 +6215,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може вибрати й написати доречне привітання для ранку, дня та вечора.",
-          "ru": "После этого урока ты сможешь выбрать и написать подходящее приветствие для утра, дня и вечера."
+          "ru": "После этого урока ты сможешь выбрать и написать подходящее приветствие для утра, дня и вечера.",
+          "en": "After this lesson, you can choose and write an appropriate greeting for the morning, afternoon, and evening."
         }
       }
     },
@@ -5939,7 +6226,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може відновити основні фрази першого контакту, ввічливості та комунікативного ремонту.",
-          "ru": "После этого урока ты сможешь вспомнить основные фразы для первого контакта, вежливого общения и просьбы об уточнении."
+          "ru": "После этого урока ты сможешь вспомнить основные фразы для первого контакта, вежливого общения и просьбы об уточнении.",
+          "en": "After this lesson, you can recall the core phrases for first contact, politeness, and asking for clarification."
         }
       }
     },
@@ -6299,7 +6587,8 @@
       "fields": {
         "title": {
           "uk": "Перший контакт",
-          "ru": "Первый разговор"
+          "ru": "Первый разговор",
+          "en": "First conversation"
         }
       }
     },
@@ -6309,7 +6598,8 @@
       "fields": {
         "title": {
           "uk": "Більше про себе",
-          "ru": "Больше о себе"
+          "ru": "Больше о себе",
+          "en": "More about yourself"
         }
       }
     },
@@ -6319,7 +6609,8 @@
       "fields": {
         "title": {
           "uk": "Ввічлива розмова",
-          "ru": "Вежливый разговор"
+          "ru": "Вежливый разговор",
+          "en": "Polite conversation"
         }
       }
     },
@@ -6329,7 +6620,8 @@
       "fields": {
         "title": {
           "uk": "Люди навколо нас",
-          "ru": "Люди вокруг нас"
+          "ru": "Люди вокруг нас",
+          "en": "People around us"
         }
       }
     },
@@ -6339,7 +6631,8 @@
       "fields": {
         "title": {
           "uk": "Проста розмова про людину",
-          "ru": "Простой разговор о другом человеке"
+          "ru": "Простой разговор о другом человеке",
+          "en": "Talking about someone else"
         }
       }
     },
@@ -6349,7 +6642,8 @@
       "fields": {
         "title": {
           "uk": "Привітання за часом доби",
-          "ru": "Приветствия по времени суток"
+          "ru": "Приветствия по времени суток",
+          "en": "Greetings by time of day"
         }
       }
     },
@@ -6359,7 +6653,8 @@
       "fields": {
         "title": {
           "uk": "Повторення перших фраз",
-          "ru": "Повторение первых фраз"
+          "ru": "Повторение первых фраз",
+          "en": "Review the basics"
         }
       }
     },
@@ -6819,7 +7114,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти провів повне перше іспанське знайомство від привітання до прощання.",
-          "ru": "Теперь ты умеешь проводить полный первый разговор на испанском — от приветствия до прощания."
+          "ru": "Теперь ты умеешь проводить полный первый разговор на испанском — от приветствия до прощания.",
+          "en": "You completed a full first conversation in Spanish, from greeting to goodbye."
         }
       }
     },
@@ -6829,7 +7125,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти провів знайомство іспанською: назвав себе, сказав звідки ти, де живеш, якими мовами говориш, поставив ті самі питання й завершив контакт.",
-          "ru": "Теперь ты умеешь знакомиться по-испански: представляться, говорить, откуда ты, где живёшь и на каких языках говоришь, задавать те же вопросы собеседнику и завершать разговор."
+          "ru": "Теперь ты умеешь знакомиться по-испански: представляться, говорить, откуда ты, где живёшь и на каких языках говоришь, задавать те же вопросы собеседнику и завершать разговор.",
+          "en": "You completed a full introduction in Spanish: you gave your name, said where you're from, where you live, and what languages you speak, asked the same questions, and ended the conversation."
         }
       }
     },
@@ -6839,7 +7136,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш підтримати ввічливу коротку розмову: запитати як справи, відповісти, подякувати, вибачитися й попрощатися.",
-          "ru": "Ты можешь поддержать короткий вежливый разговор: спросить, как дела, ответить, поблагодарить, извиниться и попрощаться."
+          "ru": "Ты можешь поддержать короткий вежливый разговор: спросить, как дела, ответить, поблагодарить, извиниться и попрощаться.",
+          "en": "You can carry on a short polite conversation: ask how someone is, answer, say thanks, apologize, and say goodbye."
         }
       }
     },
@@ -6849,7 +7147,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш представити іншу людину: хто це, як її звати, звідки вона, де живе і якими мовами говорить.",
-          "ru": "Ты можешь представить другого человека: сказать, кто это, как его зовут, откуда он, где живёт и на каких языках говорит."
+          "ru": "Ты можешь представить другого человека: сказать, кто это, как его зовут, откуда он, где живёт и на каких языках говорит.",
+          "en": "You can introduce someone else by saying who they are, their name, where they're from, where they live, and what languages they speak."
         }
       }
     },
@@ -6859,7 +7158,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати про іншу людину, зрозуміти відповіді й коротко описати її іспанською.",
-          "ru": "Ты можешь спросить о другом человеке, понять ответы и кратко описать его по-испански."
+          "ru": "Ты можешь спросить о другом человеке, понять ответы и кратко описать его по-испански.",
+          "en": "You can ask about another person, understand the answers, and briefly describe them in Spanish."
         }
       }
     },
@@ -6869,7 +7169,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш привітатися вранці, вдень і ввечері.",
-          "ru": "Ты можешь выбрать подходящее приветствие для утра, дня и вечера."
+          "ru": "Ты можешь выбрать подходящее приветствие для утра, дня и вечера.",
+          "en": "You can choose an appropriate greeting for the morning, afternoon, and evening."
         }
       }
     },
@@ -6879,7 +7180,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш привітатися, подякувати, попросити повторити й попрощатися.",
-          "ru": "Ты можешь поздороваться, поблагодарить, попросить повторить и попрощаться."
+          "ru": "Ты можешь поздороваться, поблагодарить, попросить повторить и попрощаться.",
+          "en": "You can say hello, say thanks, ask someone to repeat, and say goodbye."
         }
       }
     },
