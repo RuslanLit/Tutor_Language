@@ -253,6 +253,70 @@ void main() {
     expect(missingEn, isEmpty);
   });
 
+  test('Course Path titles have explicit locale coverage at runtime', () {
+    final entriesByKey = {
+      for (final entry in bundle.entries) '${entry.type}|${entry.id}': entry,
+    };
+    final titleIds = <String, List<String>>{
+      'course': [course.id],
+      'module': [for (final module in course.modules) module.id],
+    };
+    const expectedEnglishModules = {
+      'es.a0.m01': 'Module 1',
+      'es.a0.m02': 'Module 2',
+      'es.a0.m03': 'Module 3',
+      'es.a0.m04': 'Module 4',
+      'es.a0.m05': 'Module 5',
+      'es.a0.m06': 'Module 6',
+      'es.a0.m07': 'Module 7',
+      'es.a0.m08': 'Module 8',
+      'es.a0.m09': 'Module 9',
+      'es.a1.m10': 'A1 · Daily Routine',
+    };
+
+    expect(titleIds['course'], hasLength(1));
+    expect(titleIds['module'], hasLength(10));
+
+    for (final locale in const [
+      SupportLocale.ukrainian,
+      SupportLocale.russian,
+      SupportLocale.english,
+    ]) {
+      final resolvedCourse = resolver.resolveCourse(course, locale);
+      final resolvedTitles = <String, String>{
+        'course|${resolvedCourse.id}': resolvedCourse.title,
+        for (final module in resolvedCourse.modules)
+          'module|${module.id}': module.title,
+      };
+
+      for (final typeEntry in titleIds.entries) {
+        for (final id in typeEntry.value) {
+          final key = '${typeEntry.key}|$id';
+          final explicit = entriesByKey[key]?.fields['title']?[locale.code];
+          expect(explicit, isNotNull, reason: '$key|${locale.code}');
+          expect(explicit, isNotEmpty, reason: '$key|${locale.code}');
+          expect(resolvedTitles[key], explicit, reason: '$key|${locale.code}');
+        }
+      }
+
+      final resolvedText = resolvedTitles.values.join('\n');
+      if (locale == SupportLocale.english) {
+        expect(resolvedText, isNot(matches(RegExp(r'[А-Яа-яІіЇїЄєҐґ]'))));
+      }
+      if (locale == SupportLocale.russian) {
+        expect(resolvedText, isNot(matches(RegExp(r'[ІіЇїЄєҐґ]'))));
+      }
+    }
+
+    final resolvedEnglish = resolver.resolveCourse(
+      course,
+      SupportLocale.english,
+    );
+    expect({
+      for (final module in resolvedEnglish.modules) module.id: module.title,
+    }, expectedEnglishModules);
+  });
+
   test('guided-dialogue localization changes cues only', () {
     final source = templates['template.es.a1.m10.l040.guided_sequence']!;
     final localizedBundle = EducationalContentLocalizationBundle(
