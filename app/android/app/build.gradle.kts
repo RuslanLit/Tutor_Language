@@ -24,9 +24,8 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            // Leave release artifacts unsigned for upstream/F-Droid packaging.
+            // A distribution maintainer supplies the final signing key.
         }
     }
 }

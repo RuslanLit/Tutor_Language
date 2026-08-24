@@ -651,6 +651,24 @@ stress, intonation, rhythm, pauses, intelligibility and synthesis artifacts.
 Packaged audio must remain local and runtime generation, cloud speech, ASR and
 automated pronunciation scoring must not be required.
 
+# Current executable validation
+
+The current release checks use the canonical course assets and the reference
+audio manifest:
+
+```sh
+cd app
+flutter analyze
+flutter test
+flutter test test/core/content --reporter compact --concurrency=1
+dart run tool/audio_reference.dart
+flutter build apk --release
+```
+
+Earlier pronunciation and semantic-localization migration scripts are
+historical and are documented in `app/tool/README.md`. They are not release
+gates and must not be invoked as current validation commands.
+
 # Definition of Release Ready
 
 Tutor Language is considered Release Ready only when:
