@@ -14,6 +14,7 @@ class TutorLanguageApp extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       theme: buildLightTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
