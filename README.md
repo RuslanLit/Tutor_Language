@@ -68,7 +68,9 @@ see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 ## Support and screenshots
 
-The public source repository and issue tracker have not yet been selected.
-Until they are published, support/contact links are intentionally omitted.
-Release screenshots will be added after capture from the current executable;
-no screenshots are fabricated in this repository.
+Source code: <https://github.com/RuslanLit/Tutor_Language>
+
+Issue tracker: <https://github.com/RuslanLit/Tutor_Language/issues>
+
+Screenshots are still pending capture from the current executable; no
+screenshots are fabricated in this repository.

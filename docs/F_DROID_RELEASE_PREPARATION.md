@@ -1,20 +1,26 @@
 # F-Droid release preparation
 
-This repository is prepared for a future first public release, but it is not
-yet published and no F-Droid metadata submission has been made.
+This public repository is prepared for a future first F-Droid submission. No
+F-Droid metadata submission has been made yet.
 
-## Information required after publication
+## Public repository
 
-Fill these values in the F-Droid submission metadata only after the public
-repository exists:
+- SourceCode: <https://github.com/RuslanLit/Tutor_Language>
+- IssueTracker: <https://github.com/RuslanLit/Tutor_Language/issues>
 
-- `SourceCode`: the public Git repository URL;
-- `IssueTracker`: the public issue tracker URL;
+No project website or personal support email is declared.
+
+## Information required before submission
+
+Complete these values in the F-Droid submission metadata before submission:
+
+- `SourceCode`: use the public Git repository URL above;
+- `IssueTracker`: use the public issue tracker URL above;
 - `Changelog`: the public changelog URL, if maintained separately;
 - `WebSite`: the project website, if one is created;
 - maintainer/support contact, according to the selected hosting and F-Droid
   process;
-- the immutable `v1.0.0` source tag.
+- the immutable `v1.0.0` source tag, which has not been created yet.
 
 Do not replace these with invented or local URLs.
 
@@ -32,7 +38,7 @@ python3 -m venv "$HOME/.venvs/fdroidserver"
 ```
 
 Then, from the repository checkout, run the official metadata/build checks
-after the public repository URL and tag are available:
+after the `v1.0.0` source tag is available:
 
 ```sh
 cd app
@@ -42,8 +48,8 @@ cd app
 ```
 
 The exact F-Droid build recipe belongs in the public F-Droid metadata
-submission once the source URL and tag exist. `.fdroid.yml` is intentionally
-not added yet because it would require repository-specific source information.
+submission. `.fdroid.yml` is intentionally not added yet because the release
+tag and final F-Droid build recipe are not available.
 
 References:
 
