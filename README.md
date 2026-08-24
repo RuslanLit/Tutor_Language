@@ -21,9 +21,10 @@ learner chooses to record.
 Tutor Language is an early public-release candidate. Spanish A0 is complete;
 Spanish A1 is currently represented by its first routine module and is not
 claimed to be a complete A1 course. The primary course-learning support
-language is Ukrainian. The generic application interface also includes
-English, German, Polish, Russian, and Ukrainian locales; this does not imply
-complete educational localization in each language.
+languages are Ukrainian and Russian. Russian educational localization covers
+the executable course Lessons 1–42. English, German, Polish, Russian, and
+Ukrainian application locales are also present; this does not imply complete
+educational localization in English or Polish.
 
 ## Build from source
 

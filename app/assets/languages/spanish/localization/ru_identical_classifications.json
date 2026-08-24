@@ -1,0 +1,322 @@
+{
+  "exercise_template|template.es.a0.m05.l031.reading_price|answer_options.water.label": {
+    "classification": "same-spelling",
+    "value": "Вода."
+  },
+  "exercise_template|template.es.a0.m06.l020.meaning_route|answer_options.take_metro.label": {
+    "classification": "same-spelling",
+    "value": "Сядь на метро."
+  },
+  "exercise_template|template.es.a0.m08.l030.meaning_profile|answer_options.mother.label": {
+    "classification": "same-spelling",
+    "value": "Мама."
+  },
+  "exercise_template|template.es.a0.m08.l030.meaning_profile|answer_options.sister.label": {
+    "classification": "same-spelling",
+    "value": "Сестра."
+  },
+  "exercise_template|template.es.a0.m09.l033.reading_wellbeing|answer_options.ana.label": {
+    "classification": "same-spelling",
+    "value": "Ана."
+  },
+  "exercise_template|template.es.a0.m09.l034.reading_symptoms|answer_options.shopping.label": {
+    "classification": "same-spelling",
+    "value": "Покупки."
+  },
+  "exercise_template|template.es.a1.m10.l038.build_get_up|prompt_template": {
+    "classification": "same-spelling",
+    "value": "Скажи: «Я встаю»."
+  },
+  "exercise_template|template.es.a1.m10.l038.meaning_routine_first|answer_options.sleep.label": {
+    "classification": "same-spelling",
+    "value": "Спить."
+  },
+  "exercise_template|template.es.a1.m10.l040.reading_sequence|answer_options.sleep.label": {
+    "classification": "same-spelling",
+    "value": "Спить."
+  },
+  "grammar|grammar.es.a0.m01.l001.meeting_building_blocks|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Me llamo Marta."
+  },
+  "grammar|grammar.es.a0.m01.l001.meeting_building_blocks|examples.1": {
+    "classification": "target-language-owned",
+    "value": "¿Cómo te llamas?"
+  },
+  "grammar|grammar.es.a0.m01.l001.meeting_building_blocks|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Me llamo Ana."
+  },
+  "grammar|grammar.es.a0.m01.l001.meeting_building_blocks|examples.3": {
+    "classification": "target-language-owned",
+    "value": "Mucho gusto."
+  },
+  "grammar|grammar.es.a0.m01.l001.meeting_building_blocks|examples.4": {
+    "classification": "target-language-owned",
+    "value": "Hasta luego."
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Hola — ола"
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Me llamo Marta — ме ямо Марта"
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.3": {
+    "classification": "target-language-owned",
+    "value": "¿Cómo te llamas? — комо те ямас"
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.4": {
+    "classification": "target-language-owned",
+    "value": "Me llamo Ana — ме ямо Ана"
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.5": {
+    "classification": "target-language-owned",
+    "value": "Mucho gusto — мучо густо"
+  },
+  "grammar|grammar.es.a0.m01.l001.reading_support|examples.6": {
+    "classification": "target-language-owned",
+    "value": "Hasta luego — аста луего"
+  },
+  "grammar|grammar.es.a0.m01.l002.about_self_questions|examples.0": {
+    "classification": "target-language-owned",
+    "value": "¿De dónde eres? — Soy de Ucrania."
+  },
+  "grammar|grammar.es.a0.m01.l002.about_self_questions|examples.1": {
+    "classification": "target-language-owned",
+    "value": "¿Dónde vives? — Vivo en Kyiv."
+  },
+  "grammar|grammar.es.a0.m01.l002.about_self_questions|examples.2": {
+    "classification": "target-language-owned",
+    "value": "¿Qué idiomas hablas? — Hablo español e inglés."
+  },
+  "grammar|grammar.es.a0.m01.l003.lesson_goal|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Hola. ¿Cómo estás?"
+  },
+  "grammar|grammar.es.a0.m01.l003.lesson_goal|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Estoy bien, gracias. ¿Y tú?"
+  },
+  "grammar|grammar.es.a0.m01.l003.lesson_goal|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Gracias. De nada."
+  },
+  "grammar|grammar.es.a0.m01.l003.lesson_goal|examples.3": {
+    "classification": "target-language-owned",
+    "value": "Hasta luego. Nos vemos."
+  },
+  "grammar|grammar.es.a0.m01.l003.polite_repairs|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Perdón. ¿Cómo te llamas?"
+  },
+  "grammar|grammar.es.a0.m01.l003.polite_repairs|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Disculpa. No hablo francés."
+  },
+  "grammar|grammar.es.a0.m01.l003.polite_repairs|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Lo siento. No hablo alemán."
+  },
+  "grammar|grammar.es.a0.m01.l003.thanks_and_reply|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Gracias. De nada."
+  },
+  "grammar|grammar.es.a0.m01.l003.thanks_and_reply|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Muchas gracias. De nada."
+  },
+  "grammar|grammar.es.a0.m01.l003.thanks_and_reply|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Bien, gracias. ¿Y tú?"
+  },
+  "grammar|grammar.es.a0.m01.l004.el_ella|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Él es Luis."
+  },
+  "grammar|grammar.es.a0.m01.l004.el_ella|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Ella es Ana."
+  },
+  "grammar|grammar.es.a0.m01.l004.el_ella|examples.2": {
+    "classification": "target-language-owned",
+    "value": "¿Quién es él? ¿Quién es ella?"
+  },
+  "grammar|grammar.es.a0.m01.l004.gender_pairs|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Él es mi amigo."
+  },
+  "grammar|grammar.es.a0.m01.l004.gender_pairs|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Ella es mi amiga."
+  },
+  "grammar|grammar.es.a0.m01.l004.gender_pairs|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Este es mi profesor. Esta es mi profesora."
+  },
+  "grammar|grammar.es.a0.m01.l004.lesson_goal|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Esta es Ana."
+  },
+  "grammar|grammar.es.a0.m01.l004.lesson_goal|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Ella es mi amiga."
+  },
+  "grammar|grammar.es.a0.m01.l004.lesson_goal|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Se llama Ana. Vive en Madrid."
+  },
+  "grammar|grammar.es.a0.m01.l004.third_person_profile|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Se llama Luis."
+  },
+  "grammar|grammar.es.a0.m01.l004.third_person_profile|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Es de España."
+  },
+  "grammar|grammar.es.a0.m01.l004.third_person_profile|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Vive en Madrid."
+  },
+  "grammar|grammar.es.a0.m01.l004.third_person_profile|examples.3": {
+    "classification": "target-language-owned",
+    "value": "Habla español e inglés."
+  },
+  "grammar|grammar.es.a0.m01.l005.i_you_he_she|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Soy de Ucrania. Es de España."
+  },
+  "grammar|grammar.es.a0.m01.l005.i_you_he_she|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Vivo en Kyiv. Vive en Madrid."
+  },
+  "grammar|grammar.es.a0.m01.l005.i_you_he_she|examples.2": {
+    "classification": "target-language-owned",
+    "value": "Hablo español. Habla español."
+  },
+  "grammar|grammar.es.a0.m01.l005.lesson_goal|examples.0": {
+    "classification": "target-language-owned",
+    "value": "¿Cómo se llama? Se llama Ana."
+  },
+  "grammar|grammar.es.a0.m01.l005.lesson_goal|examples.1": {
+    "classification": "target-language-owned",
+    "value": "¿De dónde es? Es de España."
+  },
+  "grammar|grammar.es.a0.m01.l005.lesson_goal|examples.2": {
+    "classification": "target-language-owned",
+    "value": "¿Dónde vive? Vive en Madrid."
+  },
+  "grammar|grammar.es.a0.m01.l005.lesson_goal|examples.3": {
+    "classification": "target-language-owned",
+    "value": "¿Qué idiomas habla? Habla español."
+  },
+  "grammar|grammar.es.a0.m01.l005.me_vs_se|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Me llamo Marta."
+  },
+  "grammar|grammar.es.a0.m01.l005.me_vs_se|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Se llama Ana."
+  },
+  "grammar|grammar.es.a0.m01.l005.me_vs_se|examples.2": {
+    "classification": "target-language-owned",
+    "value": "¿Cómo se llama?"
+  },
+  "grammar|grammar.es.a0.m01.l005.y_pero|examples.0": {
+    "classification": "target-language-owned",
+    "value": "Vive en Madrid y habla español."
+  },
+  "grammar|grammar.es.a0.m01.l005.y_pero|examples.1": {
+    "classification": "target-language-owned",
+    "value": "Habla español, pero no habla francés."
+  },
+  "grammar|grammar.es.a0.m01.l005.y_pero|examples.2": {
+    "classification": "target-language-owned",
+    "value": "No, no es mi profesor, pero es mi amigo."
+  },
+  "grammar|grammar.es.a0.placeholder.content_coming_soon|title": {
+    "classification": "same-spelling",
+    "value": "Content coming soon."
+  },
+  "grammar|grammar.es.a0.placeholder.content_coming_soon|explanation": {
+    "classification": "same-spelling",
+    "value": "Content coming soon."
+  },
+  "lesson|es.a0.m01.l001|title": {
+    "classification": "same-spelling",
+    "value": "Урок 1"
+  },
+  "lesson|es.a0.m01.l002|title": {
+    "classification": "same-spelling",
+    "value": "Урок 2"
+  },
+  "lesson|es.a0.m06.l020|title": {
+    "classification": "same-spelling",
+    "value": "Короткий маршрут"
+  },
+  "lesson_section|es.a0.m06.l016.section.transport|title": {
+    "classification": "same-spelling",
+    "value": "Транспорт"
+  },
+  "module|es.a0.m01|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 1"
+  },
+  "module|es.a0.m02|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 2"
+  },
+  "module|es.a0.m03|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 3"
+  },
+  "module|es.a0.m04|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 4"
+  },
+  "module|es.a0.m05|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 5"
+  },
+  "module|es.a0.m06|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 6"
+  },
+  "module|es.a0.m07|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 7"
+  },
+  "module|es.a0.m08|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 8"
+  },
+  "module|es.a0.m09|title": {
+    "classification": "same-spelling",
+    "value": "Модуль 9"
+  },
+  "vocabulary|vocab.es.a0.m01.l001.madrid|native_translation": {
+    "classification": "same-spelling",
+    "value": "Мадрид"
+  },
+  "vocabulary|vocab.es.a0.m01.l001.si|native_translation": {
+    "classification": "same-spelling",
+    "value": "Так."
+  },
+  "vocabulary|vocab.es.a0.m01.l001.vivo_en|native_translation": {
+    "classification": "same-spelling",
+    "value": "Я живу в..."
+  },
+  "vocabulary|vocab.es.a0.m01.l002.no_hablo|native_translation": {
+    "classification": "same-spelling",
+    "value": "я не говорю..."
+  },
+  "vocabulary|vocab.es.a0.m01.l003.hasta_pronto|native_translation": {
+    "classification": "same-spelling",
+    "value": "до скорого"
+  },
+  "vocabulary|vocab.es.a0.m01.l004.mi_amiga|native_translation": {
+    "classification": "same-spelling",
+    "value": "моя подруга"
+  }
+}

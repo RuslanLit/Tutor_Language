@@ -992,39 +992,39 @@ class AppLocalizationsRu extends AppLocalizations {
       'В испанском h обычно не имеет отдельного звука. Это видно в hola и hasta luego.';
 
   @override
-  String get primerLlYTitle => 'll and y in early course words';
+  String get primerLlYTitle => 'll и y в первых словах курса';
 
   @override
   String get primerLlYBody =>
-      'll is a single written unit in llamo and llamas. y is a separate letter, as in y tú. Regional pronunciation varies, but the written patterns remain visible.';
+      'll — это одна письменная единица в llamo и llamas. y — отдельная буква, как в y tú. Произношение зависит от региона, но письменные модели остаются неизменными.';
 
   @override
-  String get primerEnyeTitle => 'ñ is a distinct Spanish letter';
+  String get primerEnyeTitle => 'ñ — отдельная испанская буква';
 
   @override
   String get primerEnyeBody =>
-      'ñ is not the same as n. Recognize it in España and keep the tilde as part of the Spanish spelling.';
+      'ñ — не то же самое, что n. Узнавайте её в España и сохраняйте тильду как часть испанского написания.';
 
   @override
-  String get primerRRTitle => 'r and rr';
+  String get primerRRTitle => 'r и rr';
 
   @override
   String get primerRRBody =>
-      'r and rr mark different written patterns. A single r appears in Madrid; rr is the strong pattern in perro. The Primer only builds recognition, not accent training.';
+      'r и rr обозначают разные письменные модели. Одна r есть в Madrid, а rr — сильная модель в perro. Этот раздел тренирует только распознавание, а не идеальное произношение.';
 
   @override
-  String get primerContextTitle => 'Context patterns: c, g, qu, gu and gü';
+  String get primerContextTitle => 'Контекстные модели: c, g, qu, gu и gü';
 
   @override
   String get primerContextBody =>
-      'c and g change their reading with the following vowel. qu commonly keeps the k-like reading before e/i; gu and gü show different written cues. Meet these patterns as complete words, not as a long rule table.';
+      'c и g читаются по-разному в зависимости от следующей гласной. qu обычно сохраняет звук к перед e/i; gu и gü показывают разные письменные подсказки. Встречайте эти модели в готовых словах, а не в длинной таблице правил.';
 
   @override
-  String get primerAccentsTitle => 'Accents and Spanish punctuation';
+  String get primerAccentsTitle => 'Ударения и испанская пунктуация';
 
   @override
   String get primerAccentsBody =>
-      'á, é, í, ó and ú are familiar vowels with a meaningful written accent. Notice the mark in Cómo and días; full Spanish stress rules are outside this Primer.';
+      'á, é, í, ó и ú — знакомые гласные со значимым знаком ударения. Обратите внимание на знак в Cómo и días; полные правила испанского ударения не входят в этот раздел.';
 
   @override
   String get primerTryReview => 'Быстрая проверка';
