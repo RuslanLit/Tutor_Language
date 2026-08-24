@@ -1568,7 +1568,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Що сказати після Mucho gusto?",
-          "ru": "Что сказать после Mucho gusto?"
+          "ru": "Что сказать после Mucho gusto?",
+          "en": "What can you say after Mucho gusto?"
         }
       }
     },
@@ -1578,7 +1579,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Хтось каже: Mucho gusto. Вибери природну відповідь.",
-          "ru": "Кто-то говорит: Mucho gusto. Выбери естественный ответ."
+          "ru": "Кто-то говорит: Mucho gusto. Выбери естественный ответ.",
+          "en": "Someone says Mucho gusto. Choose a natural reply."
         }
       }
     },
@@ -1588,7 +1590,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Marta питає: ¿Cómo te llamas? Ти відповідаєш про себе.",
-          "ru": "Marta спрашивает: ¿Cómo te llamas? Ответь о себе."
+          "ru": "Marta спрашивает: ¿Cómo te llamas? Ответь о себе.",
+          "en": "Marta asks: ¿Cómo te llamas? Answer about yourself."
         }
       }
     },
@@ -1598,7 +1601,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи коротке знайомство. Відповідай іспанською.",
-          "ru": "Проведи короткое знакомство. Отвечай по-испански."
+          "ru": "Проведи короткое знакомство. Отвечай по-испански.",
+          "en": "Have a short introduction. Answer in Spanish."
         }
       }
     },
@@ -1608,7 +1612,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Дуже приємно. Навзаєм.» Кожне речення з нового рядка.",
-          "ru": "Введи по-испански: «Очень приятно. Взаимно». Каждое предложение пиши с новой строки."
+          "ru": "Введи по-испански: «Очень приятно. Взаимно». Каждое предложение пиши с новой строки.",
+          "en": "Type in Spanish: “Nice to meet you. Likewise.” Put each sentence on a new line."
         }
       }
     },
@@ -1618,7 +1623,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Мене звати Marta.»",
-          "ru": "Напиши по-испански: «Меня зовут Marta»."
+          "ru": "Напиши по-испански: «Меня зовут Marta».",
+          "en": "Write in Spanish: “My name is Marta.”"
         }
       }
     },
@@ -1628,7 +1634,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Склади відповідь: «Я з України».",
-          "ru": "Составь ответ: «Я из Украины»."
+          "ru": "Составь ответ: «Я из Украины».",
+          "en": "Build the answer: “I’m from Ukraine.”"
         }
       }
     },
@@ -1638,7 +1645,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Хочеш запитати людину, звідки вона. Вибери питання.",
-          "ru": "Ты хочешь узнать, откуда человек. Выбери вопрос."
+          "ru": "Ты хочешь узнать, откуда человек. Выбери вопрос.",
+          "en": "You want to ask someone where they’re from. Choose the question."
         }
       }
     },
@@ -1648,7 +1656,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ana питає: ¿De dónde eres? Вибери відповідь про країну походження.",
-          "ru": "Ana спрашивает: ¿De dónde eres? Выбери ответ о том, откуда ты."
+          "ru": "Ana спрашивает: ¿De dónde eres? Выбери ответ о том, откуда ты.",
+          "en": "Ana asks: ¿De dónde eres? Choose the answer about your country of origin."
         }
       }
     },
@@ -1658,7 +1667,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Обміняйся інформацією про походження.",
-          "ru": "Расскажи, откуда ты, и узнай, откуда собеседник."
+          "ru": "Расскажи, откуда ты, и узнай, откуда собеседник.",
+          "en": "Exchange information about where you’re from."
         }
       }
     },
@@ -1668,7 +1678,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Я з України.»",
-          "ru": "Введи по-испански: «Я из Украины»."
+          "ru": "Введи по-испански: «Я из Украины».",
+          "en": "Type in Spanish: “I’m from Ukraine.”"
         }
       }
     },
@@ -1678,7 +1689,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як запитати «Звідки ти?» іспанською?",
-          "ru": "Как спросить по-испански: «Откуда ты?»"
+          "ru": "Как спросить по-испански: «Откуда ты?»",
+          "en": "How do you ask “Where are you from?” in Spanish?"
         }
       }
     },
@@ -1688,7 +1700,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як сказати: «Я живу в Kyiv»?",
-          "ru": "Как сказать по-испански: «Я живу в Kyiv»?"
+          "ru": "Как сказать по-испански: «Я живу в Kyiv»?",
+          "en": "How do you say “I live in Kyiv”?"
         }
       }
     },
@@ -1698,7 +1711,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Хочеш запитати, де людина живе. Вибери питання.",
-          "ru": "Ты хочешь спросить, где живёт человек. Выбери вопрос."
+          "ru": "Ты хочешь спросить, где живёт человек. Выбери вопрос.",
+          "en": "You want to ask where someone lives. Choose the question."
         }
       }
     },
@@ -1708,7 +1722,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Ти живеш у Kyiv. Вибери правильну відповідь на ¿Dónde vives?",
-          "ru": "Ты живёшь в Kyiv. Выбери правильный ответ на ¿Dónde vives?"
+          "ru": "Ты живёшь в Kyiv. Выбери правильный ответ на ¿Dónde vives?",
+          "en": "You live in Kyiv. Choose the correct answer to ¿Dónde vives?"
         }
       }
     },
@@ -1718,7 +1733,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про походження й місце проживання.",
-          "ru": "Проведи короткий разговор о том, откуда ты и где живёшь."
+          "ru": "Проведи короткий разговор о том, откуда ты и где живёшь.",
+          "en": "Have a short exchange about where you’re from and where you live."
         }
       }
     },
@@ -1728,7 +1744,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Я живу в Kyiv.»",
-          "ru": "Введи по-испански: «Я живу в Kyiv»."
+          "ru": "Введи по-испански: «Я живу в Kyiv».",
+          "en": "Type in Spanish: “I live in Kyiv.”"
         }
       }
     },
@@ -1738,7 +1755,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як запитати «Де ти живеш?» іспанською?",
-          "ru": "Как спросить по-испански: «Где ты живёшь?»"
+          "ru": "Как спросить по-испански: «Где ты живёшь?»",
+          "en": "How do you ask “Where do you live?” in Spanish?"
         }
       }
     },
@@ -1748,7 +1766,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Представ подругу-однокурсницю. Склади речення: «Це моя однокурсниця».",
-          "ru": "Представь подругу-однокурсницу. Составь предложение: «Это моя однокурсница»."
+          "ru": "Представь подругу-однокурсницу. Составь предложение: «Это моя однокурсница».",
+          "en": "Introduce a female classmate. Build the sentence: “This is my classmate.”"
         }
       }
     },
@@ -1758,7 +1777,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Представ друга-викладача. Склади речення: «Він мій викладач».",
-          "ru": "Представь друга-преподавателя. Составь предложение: «Он мой преподаватель»."
+          "ru": "Представь друга-преподавателя. Составь предложение: «Он мой преподаватель».",
+          "en": "Introduce a male friend who is a teacher. Build the sentence: “He is my teacher.”"
         }
       }
     },
@@ -1768,7 +1788,8 @@
       "fields": {
         "prompt_template": {
           "uk": "На перше питання скажи «Він мій викладач», а на друге — «Вона моя подруга».",
-          "ru": "На первый вопрос ответь: «Он мой преподаватель», а на второй: «Она моя подруга»."
+          "ru": "На первый вопрос ответь: «Он мой преподаватель», а на второй: «Она моя подруга».",
+          "en": "For the first question, say “He is my teacher”; for the second, say “She is my friend.”"
         }
       }
     },
@@ -1778,7 +1799,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як сказати іспанською: «Це мій однокурсник»?",
-          "ru": "Как сказать по-испански: «Это мой однокурсник»?"
+          "ru": "Как сказать по-испански: «Это мой однокурсник»?",
+          "en": "How do you say “This is my classmate” in Spanish?"
         }
       }
     },
@@ -1788,7 +1810,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Вона моя подруга».",
-          "ru": "Введи по-испански: «Она моя подруга»."
+          "ru": "Введи по-испански: «Она моя подруга».",
+          "en": "Type in Spanish: “She is my friend.”"
         }
       }
     },
@@ -1798,7 +1821,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Опиши Luis: «Він симпатичний».",
-          "ru": "Опиши Luis: «Он приятный»."
+          "ru": "Опиши Luis: «Он приятный».",
+          "en": "Describe Luis: “He is nice.”"
         }
       }
     },
@@ -1808,7 +1832,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Опиши Ana одним знайомим словом: «Вона молода».",
-          "ru": "Опиши Ana одним знакомым словом: «Она молодая»."
+          "ru": "Опиши Ana одним знакомым словом: «Она молодая».",
+          "en": "Describe Ana with one familiar word: “She is young.”"
         }
       }
     },
@@ -1818,7 +1843,8 @@
       "fields": {
         "prompt_template": {
           "uk": "На питання про Ana опиши її як молоду, потім відповідай на подяку «De nada».",
-          "ru": "На вопрос об Ana скажи, что она молодая, затем ответь на благодарность: «De nada»."
+          "ru": "На вопрос об Ana скажи, что она молодая, затем ответь на благодарность: «De nada».",
+          "en": "When asked about Ana, describe her as young, then respond to the thanks with De nada."
         }
       }
     },
@@ -1828,7 +1854,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Вона серйозна».",
-          "ru": "Введи по-испански: «Она серьёзная»."
+          "ru": "Введи по-испански: «Она серьёзная».",
+          "en": "Type in Spanish: “She is serious.”"
         }
       }
     },
@@ -1838,7 +1865,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як запитати «Яка вона?» іспанською?",
-          "ru": "Как спросить по-испански: «Какая она?»"
+          "ru": "Как спросить по-испански: «Какая она?»",
+          "en": "How do you ask “What is she like?” in Spanish?"
         }
       }
     },
@@ -1848,7 +1876,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Відповідай: «Так, вона говорить іспанською».",
-          "ru": "Ответь: «Да, она говорит по-испански»."
+          "ru": "Ответь: «Да, она говорит по-испански».",
+          "en": "Answer: “Yes, she speaks Spanish.”"
         }
       }
     },
@@ -1858,7 +1887,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай, чи говорить Ana іспанською.",
-          "ru": "Спроси, говорит ли Ana по-испански."
+          "ru": "Спроси, говорит ли Ana по-испански.",
+          "en": "Ask whether Ana speaks Spanish."
         }
       }
     },
@@ -1868,7 +1898,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Постав питання про мови й відповідай коротко.",
-          "ru": "Задай вопрос о языках и ответь коротко."
+          "ru": "Задай вопрос о языках и ответь коротко.",
+          "en": "Ask questions about languages and give short answers."
         }
       }
     },
@@ -1878,7 +1909,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Ні, він не говорить французькою».",
-          "ru": "Введи по-испански: «Он не говорит по-французски»."
+          "ru": "Введи по-испански: «Он не говорит по-французски».",
+          "en": "Type in Spanish: “No, he doesn’t speak French.”"
         }
       }
     },
@@ -1888,7 +1920,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як запитати «Чи говорить він іспанською?»",
-          "ru": "Как по-испански спросить: «Он говорит по-испански?»"
+          "ru": "Как по-испански спросить: «Он говорит по-испански?»",
+          "en": "How do you ask “Does he speak Spanish?”"
         }
       }
     },
@@ -1898,7 +1931,8 @@
       "fields": {
         "prompt_template": {
           "uk": "На перше питання назви книжку, а на друге — пляшку.",
-          "ru": "На первый вопрос назови книгу, а на второй — бутылку."
+          "ru": "На первый вопрос назови книгу, а на второй — бутылку.",
+          "en": "For the first question, name the book; for the second, name the bottle."
         }
       }
     },
@@ -1908,7 +1942,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Назви предмет: «Це книжка».",
-          "ru": "Назови предмет: «Это книга»."
+          "ru": "Назови предмет: «Это книга».",
+          "en": "Name the object: “It’s a book.”"
         }
       }
     },
@@ -1918,7 +1953,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це пляшка».",
-          "ru": "Введи по-испански: «Это бутылка»."
+          "ru": "Введи по-испански: «Это бутылка».",
+          "en": "Type in Spanish: “It’s a bottle.”"
         }
       }
     },
@@ -1928,7 +1964,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Як запитати «Що це?» іспанською?",
-          "ru": "Как спросить по-испански: «Что это?»"
+          "ru": "Как спросить по-испански: «Что это?»",
+          "en": "How do you ask “What is this?” in Spanish?"
         }
       }
     },
@@ -1938,7 +1975,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Що це?»",
-          "ru": "Спроси: «Что это?»"
+          "ru": "Спроси: «Что это?»",
+          "en": "Ask: “What is this?”"
         }
       }
     },
@@ -1948,7 +1986,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Відповідай: «Так, у нас є ключ».",
-          "ru": "Ответь: «Да, у нас есть ключ»."
+          "ru": "Ответь: «Да, у нас есть ключ».",
+          "en": "Answer: “Yes, we have a key.”"
         }
       }
     },
@@ -1958,7 +1997,8 @@
       "fields": {
         "prompt_template": {
           "uk": "У магазині запитай: «У вас є ключ?»",
-          "ru": "В магазине спроси: «У вас есть ключ?»"
+          "ru": "В магазине спроси: «У вас есть ключ?»",
+          "en": "In a shop, ask: “Do you have a key?”"
         }
       }
     },
@@ -1968,7 +2008,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Коли продавець питає, що тобі потрібно, попроси ключ, потім подякуй.",
-          "ru": "Когда продавец спросит, что тебе нужно, попроси ключ, затем поблагодари."
+          "ru": "Когда продавец спросит, что тебе нужно, попроси ключ, затем поблагодари.",
+          "en": "When the shopkeeper asks what you need, ask for a key, then say thank you."
         }
       }
     },
@@ -1978,7 +2019,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «У вас є вода?»",
-          "ru": "Введи по-испански: «У вас есть вода?»"
+          "ru": "Введи по-испански: «У вас есть вода?»",
+          "en": "Type in Spanish: “Do you have water?”"
         }
       }
     },
@@ -1988,7 +2030,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «У нас є ручка».",
-          "ru": "Введи по-испански: «У нас есть ручка»."
+          "ru": "Введи по-испански: «У нас есть ручка».",
+          "en": "Type in Spanish: “We have a pen.”"
         }
       }
     },
@@ -1998,7 +2041,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Скільки це коштує?»",
-          "ru": "Спроси: «Сколько это стоит?»"
+          "ru": "Спроси: «Сколько это стоит?»",
+          "en": "Ask: “How much does this cost?”"
         }
       }
     },
@@ -2008,7 +2052,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про ціну.",
-          "ru": "Проведи короткий разговор о цене."
+          "ru": "Проведи короткий разговор о цене.",
+          "en": "Have a short exchange about the price."
         }
       }
     },
@@ -2018,19 +2063,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Що означає «Es barato»?",
-          "ru": "Что означает «Es barato»?"
+          "ru": "Что означает «Es barato»?",
+          "en": "What does Es barato mean?"
         },
         "answer_options.cheap.label": {
           "uk": "Це дешево.",
-          "ru": "Это дёшево."
+          "ru": "Это дёшево.",
+          "en": "It’s cheap."
         },
         "answer_options.expensive.label": {
           "uk": "Це дорого.",
-          "ru": "Это дорого."
+          "ru": "Это дорого.",
+          "en": "It’s expensive."
         },
         "answer_options.price.label": {
           "uk": "Скільки це коштує?",
-          "ru": "Сколько это стоит?"
+          "ru": "Сколько это стоит?",
+          "en": "How much does this cost?"
         }
       }
     },
@@ -2040,19 +2089,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Що означає «¿Cuánto cuesta?»",
-          "ru": "Что означает «¿Cuánto cuesta?»"
+          "ru": "Что означает «¿Cuánto cuesta?»",
+          "en": "What does ¿Cuánto cuesta? mean?"
         },
         "answer_options.price.label": {
           "uk": "Скільки це коштує?",
-          "ru": "Сколько это стоит?"
+          "ru": "Сколько это стоит?",
+          "en": "How much does this cost?"
         },
         "answer_options.availability.label": {
           "uk": "У вас це є?",
-          "ru": "У вас это есть?"
+          "ru": "У вас это есть?",
+          "en": "Do you have this?"
         },
         "answer_options.more.label": {
           "uk": "Ще щось?",
-          "ru": "Ещё что-нибудь?"
+          "ru": "Ещё что-нибудь?",
+          "en": "Anything else?"
         }
       }
     },
@@ -2062,19 +2115,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай короткий цінник:\nPan: Cuesta dos euros.\nAgua: Cuesta un euro.\nЩо дешевше?",
-          "ru": "Прочитай короткий ценник:\nPan: Cuesta dos euros.\nAgua: Cuesta un euro.\nЧто дешевле?"
+          "ru": "Прочитай короткий ценник:\nPan: Cuesta dos euros.\nAgua: Cuesta un euro.\nЧто дешевле?",
+          "en": "Read the short price list:\nPan: Cuesta dos euros.\nAgua: Cuesta un euro.\nWhich is cheaper?"
         },
         "answer_options.water.label": {
           "uk": "Вода.",
-          "ru": "Вода."
+          "ru": "Вода.",
+          "en": "Water."
         },
         "answer_options.bread.label": {
           "uk": "Хліб.",
-          "ru": "Хлеб."
+          "ru": "Хлеб.",
+          "en": "Bread."
         },
         "answer_options.same.label": {
           "uk": "Вони коштують однаково.",
-          "ru": "Они стоят одинаково."
+          "ru": "Они стоят одинаково.",
+          "en": "They cost the same."
         }
       }
     },
@@ -2084,7 +2141,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це коштує два євро».",
-          "ru": "Введи по-испански: «Это стоит два евро»."
+          "ru": "Введи по-испански: «Это стоит два евро».",
+          "en": "Type in Spanish: “It costs two euros.”"
         }
       }
     },
@@ -2094,7 +2152,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси воду: «Мені потрібна вода».",
-          "ru": "Попроси воду: «Мне нужна вода»."
+          "ru": "Попроси воду: «Мне нужна вода».",
+          "en": "Ask for water: “I need water.”"
         }
       }
     },
@@ -2104,7 +2163,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін покупця і продавця.",
-          "ru": "Проведи короткий разговор покупателя и продавца."
+          "ru": "Проведи короткий разговор покупателя и продавца.",
+          "en": "Have a short exchange between a customer and a shopkeeper."
         }
       }
     },
@@ -2114,19 +2174,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Що запитує покупець?",
-          "ru": "Послушай без текстовой подсказки. Что спрашивает покупатель?"
+          "ru": "Послушай без текстовой подсказки. Что спрашивает покупатель?",
+          "en": "Listen without a text prompt. What does the customer ask?"
         },
         "answer_options.availability.label": {
           "uk": "У вас є ключ?",
-          "ru": "У вас есть ключ?"
+          "ru": "У вас есть ключ?",
+          "en": "Do you have a key?"
         },
         "answer_options.price.label": {
           "uk": "Скільки це коштує?",
-          "ru": "Сколько это стоит?"
+          "ru": "Сколько это стоит?",
+          "en": "How much does this cost?"
         },
         "answer_options.more.label": {
           "uk": "Ще щось?",
-          "ru": "Ещё что-нибудь?"
+          "ru": "Ещё что-нибудь?",
+          "en": "Anything else?"
         }
       }
     },
@@ -2136,7 +2200,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Яка репліка означає «Мені потрібна вода»?",
-          "ru": "Какая реплика означает «Мне нужна вода»?"
+          "ru": "Какая реплика означает «Мне нужна вода»?",
+          "en": "Which line means “I need water”?"
         }
       }
     },
@@ -2146,19 +2211,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай повідомлення продавця:\nSí, tenemos agua. Cuesta un euro. ¿Algo más?\nЩо може ввічливо сказати покупець?",
-          "ru": "Прочитай сообщение продавца:\nSí, tenemos agua. Cuesta un euro. ¿Algo más?\nЧто покупатель может вежливо ответить?"
+          "ru": "Прочитай сообщение продавца:\nSí, tenemos agua. Cuesta un euro. ¿Algo más?\nЧто покупатель может вежливо ответить?",
+          "en": "Read the shopkeeper’s message:\nSí, tenemos agua. Cuesta un euro. ¿Algo más?\nWhat can the customer say politely?"
         },
         "answer_options.nothing.label": {
           "uk": "Ні, більше нічого, дякую.",
-          "ru": "Нет, больше ничего, спасибо."
+          "ru": "Нет, больше ничего, спасибо.",
+          "en": "No, nothing else, thank you."
         },
         "answer_options.doctor.label": {
           "uk": "Мені потрібен лікар.",
-          "ru": "Мне нужен врач."
+          "ru": "Мне нужен врач.",
+          "en": "I need a doctor."
         },
         "answer_options.route.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         }
       }
     },
@@ -2168,7 +2237,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи відповідь на «¿Algo más?»: «Ні, більше нічого, дякую».",
-          "ru": "Введи ответ на «¿Algo más?»: «Нет, больше ничего, спасибо»."
+          "ru": "Введи ответ на «¿Algo más?»: «Нет, больше ничего, спасибо».",
+          "en": "Type the reply to ¿Algo más?: “No, nothing else, thank you.”"
         }
       }
     },
@@ -2178,7 +2248,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я їду метро».",
-          "ru": "Скажи: «Я еду на метро»."
+          "ru": "Скажи: «Я еду на метро».",
+          "en": "Say: “I’m going by metro.”"
         }
       }
     },
@@ -2188,7 +2259,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я йду пішки».",
-          "ru": "Скажи: «Я иду пешком»."
+          "ru": "Скажи: «Я иду пешком».",
+          "en": "Say: “I’m walking.”"
         }
       }
     },
@@ -2198,7 +2270,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи, яким транспортом ти їдеш.",
-          "ru": "Скажи, как ты добираешься."
+          "ru": "Скажи, как ты добираешься.",
+          "en": "Say how you’re getting there."
         }
       }
     },
@@ -2208,19 +2281,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Voy en metro. Що означає ця фраза?",
-          "ru": "Voy en metro. Что означает эта фраза?"
+          "ru": "Voy en metro. Что означает эта фраза?",
+          "en": "Voy en metro. What does this mean?"
         },
         "answer_options.metro.label": {
           "uk": "Я їду метро.",
-          "ru": "Я еду на метро."
+          "ru": "Я еду на метро.",
+          "en": "I’m going by metro."
         },
         "answer_options.walk.label": {
           "uk": "Я йду пішки.",
-          "ru": "Я иду пешком."
+          "ru": "Я иду пешком.",
+          "en": "I’m walking."
         },
         "answer_options.taxi.label": {
           "uk": "Я їду таксі.",
-          "ru": "Я еду на такси."
+          "ru": "Я еду на такси.",
+          "en": "I’m going by taxi."
         }
       }
     },
@@ -2230,7 +2307,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Я їду автобусом».",
-          "ru": "Введи по-испански: «Я еду на автобусе»."
+          "ru": "Введи по-испански: «Я еду на автобусе».",
+          "en": "Type in Spanish: “I’m going by bus.”"
         }
       }
     },
@@ -2240,7 +2318,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Я їду таксі».",
-          "ru": "Введи по-испански: «Я еду на такси»."
+          "ru": "Введи по-испански: «Я еду на такси».",
+          "en": "Type in Spanish: “I’m going by taxi.”"
         }
       }
     },
@@ -2250,7 +2329,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Де станція?»",
-          "ru": "Спроси: «Где станция?»"
+          "ru": "Спроси: «Где станция?»",
+          "en": "Ask: “Where is the station?”"
         }
       }
     },
@@ -2260,7 +2340,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай про станцію та зрозумій відповідь про відстань.",
-          "ru": "Спроси, где станция, и пойми, близко она или далеко."
+          "ru": "Спроси, где станция, и пойми, близко она или далеко.",
+          "en": "Ask about the station and understand whether it is near or far."
         }
       }
     },
@@ -2270,19 +2351,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай фразу. Що означає почуте?",
-          "ru": "Послушай фразу. Что она означает?"
+          "ru": "Послушай фразу. Что она означает?",
+          "en": "Listen to the sentence. What does it mean?"
         },
         "answer_options.far.label": {
           "uk": "Це далеко.",
-          "ru": "Это далеко."
+          "ru": "Это далеко.",
+          "en": "It’s far."
         },
         "answer_options.near.label": {
           "uk": "Це близько.",
-          "ru": "Это близко."
+          "ru": "Это близко.",
+          "en": "It’s near."
         },
         "answer_options.route.label": {
           "uk": "Іди прямо.",
-          "ru": "Иди прямо."
+          "ru": "Иди прямо.",
+          "en": "Go straight."
         }
       }
     },
@@ -2292,7 +2377,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це далеко».",
-          "ru": "Введи по-испански: «Это далеко»."
+          "ru": "Введи по-испански: «Это далеко».",
+          "en": "Type in Spanish: “It’s far.”"
         }
       }
     },
@@ -2302,7 +2388,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Де станція?»",
-          "ru": "Введи по-испански: «Где станция?»"
+          "ru": "Введи по-испански: «Где станция?»",
+          "en": "Type in Spanish: “Where is the station?”"
         }
       }
     },
@@ -2312,7 +2399,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Це близько».",
-          "ru": "Скажи: «Это близко»."
+          "ru": "Скажи: «Это близко».",
+          "en": "Say: “It’s near.”"
         }
       }
     },
@@ -2322,7 +2410,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Як дістатися до готелю?»",
-          "ru": "Спроси: «Как добраться до отеля?»"
+          "ru": "Спроси: «Как добраться до отеля?»",
+          "en": "Ask: “How do I get to the hotel?”"
         }
       }
     },
@@ -2332,7 +2421,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай дорогу до готелю та повтори короткий напрямок.",
-          "ru": "Спроси, как добраться до отеля, и повтори короткое указание."
+          "ru": "Спроси, как добраться до отеля, и повтори короткое указание.",
+          "en": "Ask how to get to the hotel and repeat a short direction."
         }
       }
     },
@@ -2342,19 +2432,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай фразу. Що означає почуте?",
-          "ru": "Послушай фразу. Что она означает?"
+          "ru": "Послушай фразу. Что она означает?",
+          "en": "Listen to the sentence. What does it mean?"
         },
         "answer_options.straight.label": {
           "uk": "Іди прямо.",
-          "ru": "Иди прямо."
+          "ru": "Иди прямо.",
+          "en": "Go straight."
         },
         "answer_options.left.label": {
           "uk": "Поверни ліворуч.",
-          "ru": "Поверни налево."
+          "ru": "Поверни налево.",
+          "en": "Turn left."
         },
         "answer_options.near.label": {
           "uk": "Це близько.",
-          "ru": "Это близко."
+          "ru": "Это близко.",
+          "en": "It’s near."
         }
       }
     },
@@ -2364,7 +2458,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Готель далеко».",
-          "ru": "Введи по-испански: «Отель далеко»."
+          "ru": "Введи по-испански: «Отель далеко».",
+          "en": "Type in Spanish: “The hotel is far.”"
         }
       }
     },
@@ -2374,7 +2469,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Як дістатися до готелю?»",
-          "ru": "Введи по-испански: «Как добраться до отеля?»"
+          "ru": "Введи по-испански: «Как добраться до отеля?»",
+          "en": "Type in Spanish: “How do I get to the hotel?”"
         }
       }
     },
@@ -2384,7 +2480,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Дай напрямок: «Іди прямо».",
-          "ru": "Скажи: «Иди прямо»."
+          "ru": "Скажи: «Иди прямо».",
+          "en": "Give the direction: “Go straight.”"
         }
       }
     },
@@ -2394,7 +2491,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Дай коротку послідовність напрямків.",
-          "ru": "Дай несколько коротких указаний по порядку."
+          "ru": "Дай несколько коротких указаний по порядку.",
+          "en": "Give a short sequence of directions."
         }
       }
     },
@@ -2404,7 +2502,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Дай напрямок: «Поверни ліворуч».",
-          "ru": "Скажи: «Поверни налево»."
+          "ru": "Скажи: «Поверни налево».",
+          "en": "Give the direction: “Turn left.”"
         }
       }
     },
@@ -2414,19 +2513,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай фразу. Що означає почуте?",
-          "ru": "Послушай фразу. Что она означает?"
+          "ru": "Послушай фразу. Что она означает?",
+          "en": "Listen to the sentence. What does it mean?"
         },
         "answer_options.right.label": {
           "uk": "Поверни праворуч.",
-          "ru": "Поверни направо."
+          "ru": "Поверни направо.",
+          "en": "Turn right."
         },
         "answer_options.left.label": {
           "uk": "Поверни ліворуч.",
-          "ru": "Поверни налево."
+          "ru": "Поверни налево.",
+          "en": "Turn left."
         },
         "answer_options.straight.label": {
           "uk": "Іди прямо.",
-          "ru": "Иди прямо."
+          "ru": "Иди прямо.",
+          "en": "Go straight."
         }
       }
     },
@@ -2436,7 +2539,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Іди прямо».",
-          "ru": "Введи по-испански: «Иди прямо»."
+          "ru": "Введи по-испански: «Иди прямо».",
+          "en": "Type in Spanish: “Go straight.”"
         }
       }
     },
@@ -2446,7 +2550,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Сядь на метро».",
-          "ru": "Введи по-испански: «Поезжай на метро»."
+          "ru": "Введи по-испански: «Поезжай на метро».",
+          "en": "Type in Spanish: “Take the metro.”"
         }
       }
     },
@@ -2456,7 +2561,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Дай напрямок: «Поверни праворуч».",
-          "ru": "Скажи: «Поверни направо»."
+          "ru": "Скажи: «Поверни направо».",
+          "en": "Give the direction: “Turn right.”"
         }
       }
     },
@@ -2466,7 +2572,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про маршрут.",
-          "ru": "Проведи короткий разговор о маршруте."
+          "ru": "Проведи короткий разговор о маршруте.",
+          "en": "Have a short exchange about a route."
         }
       }
     },
@@ -2476,19 +2583,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Toma el metro. Що означає ця фраза?",
-          "ru": "Toma el metro. Что означает эта фраза?"
+          "ru": "Toma el metro. Что означает эта фраза?",
+          "en": "Toma el metro. What does this mean?"
         },
         "answer_options.take_metro.label": {
           "uk": "Сядь на метро.",
-          "ru": "Поезжай на метро."
+          "ru": "Поезжай на метро.",
+          "en": "Take the metro."
         },
         "answer_options.go_metro.label": {
           "uk": "Я їду метро.",
-          "ru": "Я еду на метро."
+          "ru": "Я еду на метро.",
+          "en": "I’m going by metro."
         },
         "answer_options.station.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         }
       }
     },
@@ -2498,7 +2609,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Де станція?»",
-          "ru": "Введи по-испански: «Где станция?»"
+          "ru": "Введи по-испански: «Где станция?»",
+          "en": "Type in Spanish: “Where is the station?”"
         }
       }
     },
@@ -2508,7 +2620,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Я їду метро».",
-          "ru": "Введи по-испански: «Я еду на метро»."
+          "ru": "Введи по-испански: «Я еду на метро».",
+          "en": "Type in Spanish: “I’m going by metro.”"
         }
       }
     },
@@ -2518,7 +2631,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Порадь: «Сядь на метро».",
-          "ru": "Посоветуй: «Поезжай на метро»."
+          "ru": "Посоветуй: «Поезжай на метро».",
+          "en": "Give the advice: “Take the metro.”"
         }
       }
     },
@@ -2528,7 +2642,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Це близько».",
-          "ru": "Скажи: «Это близко»."
+          "ru": "Скажи: «Это близко».",
+          "en": "Say: “It’s near.”"
         }
       }
     },
@@ -2538,7 +2653,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Приверни увагу ввічливо: «Перепрошую».",
-          "ru": "Вежливо привлеки внимание: «Извините»."
+          "ru": "Вежливо привлеки внимание: «Извините».",
+          "en": "Get someone’s attention politely: “Excuse me.”"
         }
       }
     },
@@ -2548,7 +2664,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси про допомогу: «Мені потрібна допомога».",
-          "ru": "Попроси о помощи: «Мне нужна помощь»."
+          "ru": "Попроси о помощи: «Мне нужна помощь».",
+          "en": "Ask for help: “I need help.”"
         }
       }
     },
@@ -2558,7 +2675,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Почни коротке прохання про допомогу.",
-          "ru": "Начни короткую просьбу о помощи."
+          "ru": "Начни короткую просьбу о помощи.",
+          "en": "Start a short request for help."
         }
       }
     },
@@ -2568,19 +2686,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Що означає ця фраза?",
-          "ru": "Послушай. Что означает эта фраза?"
+          "ru": "Послушай. Что означает эта фраза?",
+          "en": "Listen. What does this phrase mean?"
         },
         "answer_options.attention.label": {
           "uk": "Перепрошую / зверніть увагу.",
-          "ru": "Извините / обратите внимание."
+          "ru": "Извините / обратите внимание.",
+          "en": "Excuse me / to get someone’s attention."
         },
         "answer_options.thanks.label": {
           "uk": "Дякую.",
-          "ru": "Спасибо."
+          "ru": "Спасибо.",
+          "en": "Thank you."
         },
         "answer_options.goodbye.label": {
           "uk": "До побачення.",
-          "ru": "До свидания."
+          "ru": "До свидания.",
+          "en": "Goodbye."
         }
       }
     },
@@ -2590,7 +2712,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Чи можете ви мені допомогти?»",
-          "ru": "Введи по-испански: «Вы можете мне помочь?»"
+          "ru": "Введи по-испански: «Вы можете мне помочь?»",
+          "en": "Type in Spanish: “Can you help me?”"
         }
       }
     },
@@ -2600,7 +2723,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Де туалет?»",
-          "ru": "Спроси: «Где туалет?»"
+          "ru": "Спроси: «Где туалет?»",
+          "en": "Ask: “Where is the bathroom?”"
         }
       }
     },
@@ -2610,7 +2734,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Де аптека?»",
-          "ru": "Спроси: «Где аптека?»"
+          "ru": "Спроси: «Где аптека?»",
+          "en": "Ask: “Where is the pharmacy?”"
         }
       }
     },
@@ -2620,7 +2745,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай, де важлива служба.",
-          "ru": "Спроси, где находится нужное место."
+          "ru": "Спроси, где находится нужное место.",
+          "en": "Ask where a needed place is."
         }
       }
     },
@@ -2630,19 +2756,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Де потрібно шукати?",
-          "ru": "Послушай. Что нужно найти?"
+          "ru": "Послушай. Что нужно найти?",
+          "en": "Listen. What place is being asked for?"
         },
         "answer_options.bathroom.label": {
           "uk": "Де туалет?",
-          "ru": "Где туалет?"
+          "ru": "Где туалет?",
+          "en": "Where is the bathroom?"
         },
         "answer_options.pharmacy.label": {
           "uk": "Де аптека?",
-          "ru": "Где аптека?"
+          "ru": "Где аптека?",
+          "en": "Where is the pharmacy?"
         },
         "answer_options.hospital.label": {
           "uk": "Де лікарня?",
-          "ru": "Где больница?"
+          "ru": "Где больница?",
+          "en": "Where is the hospital?"
         }
       }
     },
@@ -2652,7 +2782,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Де аптека?»",
-          "ru": "Введи по-испански: «Где аптека?»"
+          "ru": "Введи по-испански: «Где аптека?»",
+          "en": "Type in Spanish: “Where is the pharmacy?”"
         }
       }
     },
@@ -2662,7 +2793,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Мені потрібен лікар».",
-          "ru": "Скажи: «Мне нужен врач»."
+          "ru": "Скажи: «Мне нужен врач».",
+          "en": "Say: “I need a doctor.”"
         }
       }
     },
@@ -2672,7 +2804,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Мені потрібна поліція».",
-          "ru": "Скажи: «Мне нужна полиция»."
+          "ru": "Скажи: «Мне нужна полиция».",
+          "en": "Say: “I need the police.”"
         }
       }
     },
@@ -2682,7 +2815,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси про просту термінову допомогу.",
-          "ru": "Попроси о срочной помощи."
+          "ru": "Попроси о срочной помощи.",
+          "en": "Ask for simple urgent help."
         }
       }
     },
@@ -2692,19 +2826,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Що потрібно мовцеві?",
-          "ru": "Послушай. Что нужно человеку?"
+          "ru": "Послушай. Что нужно человеку?",
+          "en": "Listen. What does the speaker need?"
         },
         "answer_options.doctor.label": {
           "uk": "Мені потрібен лікар.",
-          "ru": "Мне нужен врач."
+          "ru": "Мне нужен врач.",
+          "en": "I need a doctor."
         },
         "answer_options.police.label": {
           "uk": "Мені потрібна поліція.",
-          "ru": "Мне нужна полиция."
+          "ru": "Мне нужна полиция.",
+          "en": "I need the police."
         },
         "answer_options.bathroom.label": {
           "uk": "Мені потрібен туалет.",
-          "ru": "Мне нужен туалет."
+          "ru": "Мне нужен туалет.",
+          "en": "I need a bathroom."
         }
       }
     },
@@ -2714,7 +2852,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це надзвичайна ситуація».",
-          "ru": "Введи по-испански: «Это чрезвычайная ситуация»."
+          "ru": "Введи по-испански: «Это чрезвычайная ситуация».",
+          "en": "Type in Spanish: “It’s an emergency.”"
         }
       }
     },
@@ -2724,7 +2863,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Це надзвичайна ситуація».",
-          "ru": "Скажи: «Это чрезвычайная ситуация»."
+          "ru": "Скажи: «Это чрезвычайная ситуация».",
+          "en": "Say: “It’s an emergency.”"
         }
       }
     },
@@ -2734,7 +2874,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Сформулюй коротке термінове повідомлення.",
-          "ru": "Сформулируй короткое срочное сообщение."
+          "ru": "Сформулируй короткое срочное сообщение.",
+          "en": "Give a short urgent message."
         }
       }
     },
@@ -2744,19 +2885,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Що означає ця фраза?",
-          "ru": "Послушай. Что означает эта фраза?"
+          "ru": "Послушай. Что означает эта фраза?",
+          "en": "Listen. What does this phrase mean?"
         },
         "answer_options.emergency.label": {
           "uk": "Це надзвичайна ситуація.",
-          "ru": "Это чрезвычайная ситуация."
+          "ru": "Это чрезвычайная ситуация.",
+          "en": "It’s an emergency."
         },
         "answer_options.help.label": {
           "uk": "Мені потрібна допомога.",
-          "ru": "Мне нужна помощь."
+          "ru": "Мне нужна помощь.",
+          "en": "I need help."
         },
         "answer_options.repeat.label": {
           "uk": "Повторіть, будь ласка.",
-          "ru": "Повторите, пожалуйста."
+          "ru": "Повторите, пожалуйста.",
+          "en": "Please repeat."
         }
       }
     },
@@ -2766,7 +2911,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Мені потрібна допомога».",
-          "ru": "Введи по-испански: «Мне нужна помощь»."
+          "ru": "Введи по-испански: «Мне нужна помощь».",
+          "en": "Type in Spanish: “I need help.”"
         }
       }
     },
@@ -2776,7 +2922,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи одну коротку репліку прохання: «Перепрошую» або «Чи можете ви мені допомогти?»",
-          "ru": "Скажи одну короткую фразу: «Извините» или «Вы можете мне помочь?»"
+          "ru": "Скажи одну короткую фразу: «Извините» или «Вы можете мне помочь?»",
+          "en": "Say one short request: “Excuse me” or “Can you help me?”"
         }
       }
     },
@@ -2786,7 +2933,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про допомогу.",
-          "ru": "Проведи короткий разговор о помощи."
+          "ru": "Проведи короткий разговор о помощи.",
+          "en": "Have a short exchange about getting help."
         }
       }
     },
@@ -2796,19 +2944,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай відповідь. Чого потребує людина?",
-          "ru": "Послушай ответ. Что нужно человеку?"
+          "ru": "Послушай ответ. Что нужно человеку?",
+          "en": "Listen to the answer. What does the person need?"
         },
         "answer_options.doctor.label": {
           "uk": "Їй потрібен лікар.",
-          "ru": "Ей нужен врач."
+          "ru": "Ей нужен врач.",
+          "en": "She needs a doctor."
         },
         "answer_options.pharmacy.label": {
           "uk": "Їй потрібна аптека.",
-          "ru": "Ей нужна аптека."
+          "ru": "Ей нужна аптека.",
+          "en": "She needs a pharmacy."
         },
         "answer_options.station.label": {
           "uk": "Їй потрібна станція.",
-          "ru": "Ей нужна станция."
+          "ru": "Ей нужна станция.",
+          "en": "She needs a station."
         }
       }
     },
@@ -2818,7 +2970,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Де туалет?»",
-          "ru": "Введи по-испански: «Где туалет?»"
+          "ru": "Введи по-испански: «Где туалет?»",
+          "en": "Type in Spanish: “Where is the bathroom?”"
         }
       }
     },
@@ -2828,7 +2981,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Представ тата: «Це мій тато».",
-          "ru": "Представь папу: «Это мой папа»."
+          "ru": "Представь папу: «Это мой папа».",
+          "en": "Introduce your father: “This is my father.”"
         }
       }
     },
@@ -2838,7 +2992,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Представ маму: «Це моя мама».",
-          "ru": "Представь маму: «Это моя мама»."
+          "ru": "Представь маму: «Это моя мама».",
+          "en": "Introduce your mother: “This is my mother.”"
         }
       }
     },
@@ -2848,7 +3003,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Покажи родинне фото.",
-          "ru": "Покажи семейную фотографию."
+          "ru": "Покажи семейную фотографию.",
+          "en": "Show a family photo."
         }
       }
     },
@@ -2858,19 +3014,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай і визнач, кого представляють.",
-          "ru": "Послушай и определи, кого представляют."
+          "ru": "Послушай и определи, кого представляют.",
+          "en": "Listen and identify who is being introduced."
         },
         "answer_options.mother.label": {
           "uk": "Це моя мама.",
-          "ru": "Это моя мама."
+          "ru": "Это моя мама.",
+          "en": "This is my mother."
         },
         "answer_options.father.label": {
           "uk": "Це мій тато.",
-          "ru": "Это мой папа."
+          "ru": "Это мой папа.",
+          "en": "This is my father."
         },
         "answer_options.sister.label": {
           "uk": "Це моя сестра.",
-          "ru": "Это моя сестра."
+          "ru": "Это моя сестра.",
+          "en": "This is my sister."
         }
       }
     },
@@ -2880,7 +3040,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Хто вона?»",
-          "ru": "Введи по-испански: «Кто она?»"
+          "ru": "Введи по-испански: «Кто она?»",
+          "en": "Type in Spanish: “Who is she?”"
         }
       }
     },
@@ -2890,7 +3051,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «У мене немає братів».",
-          "ru": "Скажи: «У меня нет братьев»."
+          "ru": "Скажи: «У меня нет братьев».",
+          "en": "Say: “I don’t have any brothers.”"
         }
       }
     },
@@ -2900,7 +3062,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай про братів і сестер.",
-          "ru": "Спроси о братьях и сёстрах."
+          "ru": "Спроси о братьях и сёстрах.",
+          "en": "Ask about brothers and sisters."
         }
       }
     },
@@ -2910,7 +3073,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про сім’ю.",
-          "ru": "Проведи короткий разговор о семье."
+          "ru": "Проведи короткий разговор о семье.",
+          "en": "Have a short exchange about family."
         }
       }
     },
@@ -2920,19 +3084,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай питання. Що хочуть дізнатися?",
-          "ru": "Послушай вопрос. Что хотят узнать?"
+          "ru": "Послушай вопрос. Что хотят узнать?",
+          "en": "Listen to the question. What do they want to know?"
         },
         "answer_options.siblings.label": {
           "uk": "Чи маєш ти братів або сестер?",
-          "ru": "Есть ли у тебя братья или сёстры?"
+          "ru": "Есть ли у тебя братья или сёстры?",
+          "en": "Do you have any brothers or sisters?"
         },
         "answer_options.name.label": {
           "uk": "Як тебе звати?",
-          "ru": "Как тебя зовут?"
+          "ru": "Как тебя зовут?",
+          "en": "What’s your name?"
         },
         "answer_options.home.label": {
           "uk": "Де ти живеш?",
-          "ru": "Где ты живёшь?"
+          "ru": "Где ты живёшь?",
+          "en": "Where do you live?"
         }
       }
     },
@@ -2942,7 +3110,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «У мене є сестра».",
-          "ru": "Введи по-испански: «У меня есть сестра»."
+          "ru": "Введи по-испански: «У меня есть сестра».",
+          "en": "Type in Spanish: “I have a sister.”"
         }
       }
     },
@@ -2952,7 +3121,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Назви предмет: «Це стіл».",
-          "ru": "Назови предмет: «Это стол»."
+          "ru": "Назови предмет: «Это стол».",
+          "en": "Name the object: “It’s a table.”"
         }
       }
     },
@@ -2962,7 +3132,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Назви кімнату: «Це кухня».",
-          "ru": "Назови комнату: «Это кухня»."
+          "ru": "Назови комнату: «Это кухня».",
+          "en": "Name the room: “It’s a kitchen.”"
         }
       }
     },
@@ -2972,7 +3143,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Покажи кімнату в короткому обміні.",
-          "ru": "Покажи комнату в коротком диалоге."
+          "ru": "Покажи комнату в коротком диалоге.",
+          "en": "Talk about the room in a short exchange."
         }
       }
     },
@@ -2982,19 +3154,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Що показують?",
-          "ru": "Послушай. Что показывают?"
+          "ru": "Послушай. Что показывают?",
+          "en": "Listen. What is being shown?"
         },
         "answer_options.kitchen.label": {
           "uk": "Це кухня.",
-          "ru": "Это кухня."
+          "ru": "Это кухня.",
+          "en": "It’s a kitchen."
         },
         "answer_options.table.label": {
           "uk": "Це стіл.",
-          "ru": "Это стол."
+          "ru": "Это стол.",
+          "en": "It’s a table."
         },
         "answer_options.bedroom.label": {
           "uk": "Це спальня.",
-          "ru": "Это спальня."
+          "ru": "Это спальня.",
+          "en": "It’s a bedroom."
         }
       }
     },
@@ -3004,7 +3180,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це моя кухня».",
-          "ru": "Введи по-испански: «Это моя кухня»."
+          "ru": "Введи по-испански: «Это моя кухня».",
+          "en": "Type in Spanish: “This is my kitchen.”"
         }
       }
     },
@@ -3014,7 +3191,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи, що на кухні є стіл.",
-          "ru": "Скажи, что на кухне есть стол."
+          "ru": "Скажи, что на кухне есть стол.",
+          "en": "Say that there is a table in the kitchen."
         }
       }
     },
@@ -3024,7 +3202,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Де стіл?»",
-          "ru": "Спроси: «Где стол?»"
+          "ru": "Спроси: «Где стол?»",
+          "en": "Ask: “Where is the table?”"
         }
       }
     },
@@ -3034,7 +3213,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи обмін про місце предмета.",
-          "ru": "Проведи короткий разговор о том, где находится предмет."
+          "ru": "Проведи короткий разговор о том, где находится предмет.",
+          "en": "Have an exchange about where an object is."
         }
       }
     },
@@ -3044,19 +3224,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Що повідомляє фраза?",
-          "ru": "Послушай. Что сообщает эта фраза?"
+          "ru": "Послушай. Что сообщает эта фраза?",
+          "en": "Listen. What does the sentence tell you?"
         },
         "answer_options.there_is.label": {
           "uk": "На кухні є стіл.",
-          "ru": "На кухне есть стол."
+          "ru": "На кухне есть стол.",
+          "en": "There is a table in the kitchen."
         },
         "answer_options.known_location.label": {
           "uk": "Стіл на кухні.",
-          "ru": "Стол на кухне."
+          "ru": "Стол на кухне.",
+          "en": "The table is in the kitchen."
         },
         "answer_options.question.label": {
           "uk": "Де стіл?",
-          "ru": "Где стол?"
+          "ru": "Где стол?",
+          "en": "Where is the table?"
         }
       }
     },
@@ -3066,19 +3250,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай. Де стіл?",
-          "ru": "Послушай. Где стол?"
+          "ru": "Послушай. Где стол?",
+          "en": "Listen. Where is the table?"
         },
         "answer_options.in_kitchen.label": {
           "uk": "Стіл на кухні.",
-          "ru": "Стол на кухне."
+          "ru": "Стол на кухне.",
+          "en": "The table is in the kitchen."
         },
         "answer_options.exists.label": {
           "uk": "На кухні є стіл.",
-          "ru": "На кухне есть стол."
+          "ru": "На кухне есть стол.",
+          "en": "There is a table in the kitchen."
         },
         "answer_options.bedroom.label": {
           "uk": "Стіл у спальні.",
-          "ru": "Стол в спальне."
+          "ru": "Стол в спальне.",
+          "en": "The table is in the bedroom."
         }
       }
     },
@@ -3088,7 +3276,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Стіл на кухні».",
-          "ru": "Введи по-испански: «Стол на кухне»."
+          "ru": "Введи по-испански: «Стол на кухне».",
+          "en": "Type in Spanish: “The table is in the kitchen.”"
         }
       }
     },
@@ -3098,7 +3287,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Моя мама у вітальні».",
-          "ru": "Скажи: «Моя мама в гостиной»."
+          "ru": "Скажи: «Моя мама в гостиной».",
+          "en": "Say: “My mother is in the living room.”"
         }
       }
     },
@@ -3108,7 +3298,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Це моя сім’я».",
-          "ru": "Скажи: «Это моя семья»."
+          "ru": "Скажи: «Это моя семья».",
+          "en": "Say: “This is my family.”"
         }
       }
     },
@@ -3118,7 +3309,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про сім’ю та дім.",
-          "ru": "Проведи короткий разговор о семье и доме."
+          "ru": "Проведи короткий разговор о семье и доме.",
+          "en": "Have a short exchange about family and home."
         }
       }
     },
@@ -3128,19 +3320,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай короткий профіль. Хто на кухні?",
-          "ru": "Послушай короткое описание. Кто на кухне?"
+          "ru": "Послушай короткое описание. Кто на кухне?",
+          "en": "Listen to the short description. Who is in the kitchen?"
         },
         "answer_options.table.label": {
           "uk": "Стіл.",
-          "ru": "Стол."
+          "ru": "Стол.",
+          "en": "The table."
         },
         "answer_options.mother.label": {
           "uk": "Мама.",
-          "ru": "Мама."
+          "ru": "Мама.",
+          "en": "Mother."
         },
         "answer_options.sister.label": {
           "uk": "Сестра.",
-          "ru": "Сестра."
+          "ru": "Сестра.",
+          "en": "Sister."
         }
       }
     },
@@ -3150,7 +3346,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Це моя мама».",
-          "ru": "Введи по-испански: «Это моя мама»."
+          "ru": "Введи по-испански: «Это моя мама».",
+          "en": "Type in Spanish: “This is my mother.”"
         }
       }
     },
@@ -3160,7 +3357,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я погано почуваюся».",
-          "ru": "Скажи: «Я плохо себя чувствую»."
+          "ru": "Скажи: «Я плохо себя чувствую».",
+          "en": "Say: “I don’t feel well.”"
         }
       }
     },
@@ -3170,7 +3368,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про самопочуття.",
-          "ru": "Проведи короткий разговор о самочувствии."
+          "ru": "Проведи короткий разговор о самочувствии.",
+          "en": "Have a short exchange about how you feel."
         }
       }
     },
@@ -3180,19 +3379,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Про що запитують?",
-          "ru": "Послушай без текстовой подсказки. О чём спрашивают?"
+          "ru": "Послушай без текстовой подсказки. О чём спрашивают?",
+          "en": "Listen without a text prompt. What are they asking about?"
         },
         "answer_options.problem.label": {
           "uk": "Що сталося? / Що з тобою?",
-          "ru": "Что случилось? / Что с тобой?"
+          "ru": "Что случилось? / Что с тобой?",
+          "en": "What happened? / What’s wrong?"
         },
         "answer_options.name.label": {
           "uk": "Як тебе звати?",
-          "ru": "Как тебя зовут?"
+          "ru": "Как тебя зовут?",
+          "en": "What’s your name?"
         },
         "answer_options.place.label": {
           "uk": "Де ти живеш?",
-          "ru": "Где ты живёшь?"
+          "ru": "Где ты живёшь?",
+          "en": "Where do you live?"
         }
       }
     },
@@ -3202,19 +3405,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Що запитує «¿Qué te pasa?»",
-          "ru": "Что означает вопрос «¿Qué te pasa?»"
+          "ru": "Что означает вопрос «¿Qué te pasa?»",
+          "en": "What does ¿Qué te pasa? ask?"
         },
         "answer_options.wrong.label": {
           "uk": "Що з тобою?",
-          "ru": "Что с тобой?"
+          "ru": "Что с тобой?",
+          "en": "What’s wrong?"
         },
         "answer_options.name.label": {
           "uk": "Як тебе звати?",
-          "ru": "Как тебя зовут?"
+          "ru": "Как тебя зовут?",
+          "en": "What’s your name?"
         },
         "answer_options.place.label": {
           "uk": "Де ти живеш?",
-          "ru": "Где ты живёшь?"
+          "ru": "Где ты живёшь?",
+          "en": "Where do you live?"
         }
       }
     },
@@ -3224,19 +3431,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай коротке повідомлення:\nAna: Hola. No me siento bien. Tengo fiebre.\nХто почувається недобре?",
-          "ru": "Прочитай короткое сообщение:\nAna: Hola. No me siento bien. Tengo fiebre.\nКто чувствует себя плохо?"
+          "ru": "Прочитай короткое сообщение:\nAna: Hola. No me siento bien. Tengo fiebre.\nКто чувствует себя плохо?",
+          "en": "Read the short message:\nAna: Hola. No me siento bien. Tengo fiebre.\nWho doesn’t feel well?"
         },
         "answer_options.ana.label": {
           "uk": "Ана.",
-          "ru": "Ана."
+          "ru": "Ана.",
+          "en": "Ana."
         },
         "answer_options.luis.label": {
           "uk": "Луїс.",
-          "ru": "Луис."
+          "ru": "Луис.",
+          "en": "Luis."
         },
         "answer_options.unknown.label": {
           "uk": "Це невідомо.",
-          "ru": "Это неизвестно."
+          "ru": "Это неизвестно.",
+          "en": "It’s not stated."
         }
       }
     },
@@ -3246,7 +3457,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Що з тобою?»",
-          "ru": "Введи по-испански: «Что с тобой?»"
+          "ru": "Введи по-испански: «Что с тобой?»",
+          "en": "Type in Spanish: “What’s wrong?”"
         }
       }
     },
@@ -3256,7 +3468,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «У мене температура».",
-          "ru": "Скажи: «У меня температура»."
+          "ru": "Скажи: «У меня температура».",
+          "en": "Say: “I have a fever.”"
         }
       }
     },
@@ -3266,7 +3479,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про температуру і біль.",
-          "ru": "Проведи короткий разговор о температуре и боли."
+          "ru": "Проведи короткий разговор о температуре и боли.",
+          "en": "Have a short exchange about fever and pain."
         }
       }
     },
@@ -3276,19 +3490,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Що запитує «¿Tienes fiebre?»",
-          "ru": "Что означает вопрос «¿Tienes fiebre?»"
+          "ru": "Что означает вопрос «¿Tienes fiebre?»",
+          "en": "What does ¿Tienes fiebre? ask?"
         },
         "answer_options.fever.label": {
           "uk": "У тебе є температура?",
-          "ru": "У тебя температура?"
+          "ru": "У тебя температура?",
+          "en": "Do you have a fever?"
         },
         "answer_options.pain.label": {
           "uk": "У тебе болить голова?",
-          "ru": "У тебя болит голова?"
+          "ru": "У тебя болит голова?",
+          "en": "Does your head hurt?"
         },
         "answer_options.help.label": {
           "uk": "Тобі потрібна допомога?",
-          "ru": "Тебе нужна помощь?"
+          "ru": "Тебе нужна помощь?",
+          "en": "Do you need help?"
         }
       }
     },
@@ -3298,19 +3516,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай повідомлення:\nLuis: Tengo fiebre. Me duele la cabeza.\nЯкі проблеми описує Луїс?",
-          "ru": "Прочитай сообщение:\nLuis: Tengo fiebre. Me duele la cabeza.\nКакие проблемы описывает Луис?"
+          "ru": "Прочитай сообщение:\nLuis: Tengo fiebre. Me duele la cabeza.\nКакие проблемы описывает Луис?",
+          "en": "Read the message:\nLuis: Tengo fiebre. Me duele la cabeza.\nWhat problems does Luis describe?"
         },
         "answer_options.fever_head.label": {
           "uk": "Температура і біль у голові.",
-          "ru": "Температура и головная боль."
+          "ru": "Температура и головная боль.",
+          "en": "A fever and a headache."
         },
         "answer_options.shopping.label": {
           "uk": "Покупки.",
-          "ru": "Покупки."
+          "ru": "Покупки.",
+          "en": "Shopping."
         },
         "answer_options.route.label": {
           "uk": "Маршрут до станції.",
-          "ru": "Маршрут до станции."
+          "ru": "Маршрут до станции.",
+          "en": "A route to the station."
         }
       }
     },
@@ -3320,7 +3542,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «У мене болить голова».",
-          "ru": "Введи по-испански: «У меня болит голова»."
+          "ru": "Введи по-испански: «У меня болит голова».",
+          "en": "Type in Spanish: “I have a headache.”"
         }
       }
     },
@@ -3330,7 +3553,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси лікаря: «Мені потрібен лікар».",
-          "ru": "Попроси врача: «Мне нужен врач»."
+          "ru": "Попроси врача: «Мне нужен врач».",
+          "en": "Ask for a doctor: “I need a doctor.”"
         }
       }
     },
@@ -3340,7 +3564,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Попроси лікарню: «Мені потрібна лікарня».",
-          "ru": "Скажи: «Мне нужна больница»."
+          "ru": "Скажи: «Мне нужна больница».",
+          "en": "Say: “I need a hospital.”"
         }
       }
     },
@@ -3350,7 +3575,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи передбачуваний обмін про здоров’я і допомогу.",
-          "ru": "Проведи короткий предсказуемый разговор о здоровье и помощи."
+          "ru": "Проведи короткий предсказуемый разговор о здоровье и помощи.",
+          "en": "Have a short, predictable exchange about health and getting help."
         }
       }
     },
@@ -3360,19 +3586,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без підказки текстом. Де потрібно шукати?",
-          "ru": "Послушай без текстовой подсказки. Что нужно найти?"
+          "ru": "Послушай без текстовой подсказки. Что нужно найти?",
+          "en": "Listen without a text prompt. What place is being asked for?"
         },
         "answer_options.pharmacy.label": {
           "uk": "Де аптека?",
-          "ru": "Где аптека?"
+          "ru": "Где аптека?",
+          "en": "Where is the pharmacy?"
         },
         "answer_options.doctor.label": {
           "uk": "Мені потрібен лікар.",
-          "ru": "Мне нужен врач."
+          "ru": "Мне нужен врач.",
+          "en": "I need a doctor."
         },
         "answer_options.hospital.label": {
           "uk": "Де лікарня?",
-          "ru": "Где больница?"
+          "ru": "Где больница?",
+          "en": "Where is the hospital?"
         }
       }
     },
@@ -3382,19 +3612,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай ситуацію:\nDisculpe. Necesito un médico. No me siento bien.\nЧого потребує людина?",
-          "ru": "Прочитай ситуацию:\nDisculpe. Necesito un médico. No me siento bien.\nЧто нужно человеку?"
+          "ru": "Прочитай ситуацию:\nDisculpe. Necesito un médico. No me siento bien.\nЧто нужно человеку?",
+          "en": "Read the situation:\nDisculpe. Necesito un médico. No me siento bien.\nWhat does the person need?"
         },
         "answer_options.doctor.label": {
           "uk": "Їй потрібен лікар.",
-          "ru": "Ей нужен врач."
+          "ru": "Ей нужен врач.",
+          "en": "She needs a doctor."
         },
         "answer_options.water.label": {
           "uk": "Їй потрібна вода.",
-          "ru": "Ей нужна вода."
+          "ru": "Ей нужна вода.",
+          "en": "She needs water."
         },
         "answer_options.station.label": {
           "uk": "Їй потрібна станція.",
-          "ru": "Ей нужна станция."
+          "ru": "Ей нужна станция.",
+          "en": "She needs a station."
         }
       }
     },
@@ -3404,7 +3638,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи іспанською: «Мені потрібна аптека».",
-          "ru": "Введи по-испански: «Мне нужна аптека»."
+          "ru": "Введи по-испански: «Мне нужна аптека».",
+          "en": "Type in Spanish: “I need a pharmacy.”"
         }
       }
     },
@@ -3414,7 +3649,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи, як ти їдеш: «Я їду метро».",
-          "ru": "Скажи, как ты добираешься: «Я еду на метро»."
+          "ru": "Скажи, как ты добираешься: «Я еду на метро».",
+          "en": "Say how you’re getting there: “I’m going by metro.”"
         }
       }
     },
@@ -3424,7 +3660,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи коротке знайомство й поясни, як ти їдеш.",
-          "ru": "Проведи короткое знакомство и объясни, как ты добираешься."
+          "ru": "Проведи короткое знакомство и объясни, как ты добираешься.",
+          "en": "Have a short introduction and explain how you’re getting there."
         }
       }
     },
@@ -3434,19 +3671,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Що запитують?",
-          "ru": "Послушай без текстовой подсказки. О чём спрашивают?"
+          "ru": "Послушай без текстовой подсказки. О чём спрашивают?",
+          "en": "Listen without a text prompt. What are they asking?"
         },
         "answer_options.station.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         },
         "answer_options.pharmacy.label": {
           "uk": "Де аптека?",
-          "ru": "Где аптека?"
+          "ru": "Где аптека?",
+          "en": "Where is the pharmacy?"
         },
         "answer_options.help.label": {
           "uk": "Вам потрібна допомога?",
-          "ru": "Вам нужна помощь?"
+          "ru": "Вам нужна помощь?",
+          "en": "Do you need help?"
         }
       }
     },
@@ -3456,19 +3697,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай коротке повідомлення. Що запитує Ana?\nHola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv. ¿Dónde está la estación? Voy en metro.",
-          "ru": "Прочитай короткое сообщение. Что спрашивает Ana?\nHola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv. ¿Dónde está la estación? Voy en metro."
+          "ru": "Прочитай короткое сообщение. Что спрашивает Ana?\nHola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv. ¿Dónde está la estación? Voy en metro.",
+          "en": "Read the short message. What does Ana ask?\nHola. Me llamo Ana. Soy de Ucrania y vivo en Kyiv. ¿Dónde está la estación? Voy en metro."
         },
         "answer_options.station.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         },
         "answer_options.name.label": {
           "uk": "Як її звати?",
-          "ru": "Как её зовут?"
+          "ru": "Как её зовут?",
+          "en": "What’s her name?"
         },
         "answer_options.health.label": {
           "uk": "Як вона почувається?",
-          "ru": "Как она себя чувствует?"
+          "ru": "Как она себя чувствует?",
+          "en": "How does she feel?"
         }
       }
     },
@@ -3478,19 +3723,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай коротке повідомлення. Що треба зробити?\nLa farmacia está cerca. Gira a la izquierda. Necesito ayuda.",
-          "ru": "Прочитай короткое сообщение. Что нужно сделать?\nLa farmacia está cerca. Gira a la izquierda. Necesito ayuda."
+          "ru": "Прочитай короткое сообщение. Что нужно сделать?\nLa farmacia está cerca. Gira a la izquierda. Necesito ayuda.",
+          "en": "Read the short message. What should you do?\nLa farmacia está cerca. Gira a la izquierda. Necesito ayuda."
         },
         "answer_options.left.label": {
           "uk": "Повернути ліворуч.",
-          "ru": "Повернуть налево."
+          "ru": "Повернуть налево.",
+          "en": "Turn left."
         },
         "answer_options.metro.label": {
           "uk": "Їхати метро.",
-          "ru": "Поехать на метро."
+          "ru": "Поехать на метро.",
+          "en": "Take the metro."
         },
         "answer_options.doctor.label": {
           "uk": "Попросити лікаря.",
-          "ru": "Попросить врача."
+          "ru": "Попросить врача.",
+          "en": "Ask for a doctor."
         }
       }
     },
@@ -3500,7 +3749,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Мені потрібна допомога».",
-          "ru": "Напиши по-испански: «Мне нужна помощь»."
+          "ru": "Напиши по-испански: «Мне нужна помощь».",
+          "en": "Write in Spanish: “I need help.”"
         }
       }
     },
@@ -3510,7 +3760,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Запитай: «Де станція?».",
-          "ru": "Спроси: «Где станция?»"
+          "ru": "Спроси: «Где станция?»",
+          "en": "Ask: “Where is the station?”"
         }
       }
     },
@@ -3520,19 +3771,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай повідомлення. Яка інформація правильна?\nHola. Me llamo Luis. Soy de España y vivo en Madrid.",
-          "ru": "Прочитай сообщение. Какая информация верна?\nHola. Me llamo Luis. Soy de España y vivo en Madrid."
+          "ru": "Прочитай сообщение. Какая информация верна?\nHola. Me llamo Luis. Soy de España y vivo en Madrid.",
+          "en": "Read the message. Which information is correct?\nHola. Me llamo Luis. Soy de España y vivo en Madrid."
         },
         "answer_options.spain_madrid.label": {
           "uk": "Luis з Іспанії й живе в Мадриді.",
-          "ru": "Luis из Испании и живёт в Мадриде."
+          "ru": "Luis из Испании и живёт в Мадриде.",
+          "en": "Luis is from Spain and lives in Madrid."
         },
         "answer_options.ukraine_kyiv.label": {
           "uk": "Luis з України й живе в Києві.",
-          "ru": "Luis из Украины и живёт в Киеве."
+          "ru": "Luis из Украины и живёт в Киеве.",
+          "en": "Luis is from Ukraine and lives in Kyiv."
         },
         "answer_options.name_ana.label": {
           "uk": "Luis звати Ana.",
-          "ru": "Luis зовут Ana."
+          "ru": "Luis зовут Ana.",
+          "en": "Luis’s name is Ana."
         }
       }
     },
@@ -3542,19 +3797,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Що сказано?",
-          "ru": "Послушай без текстовой подсказки. Что сказано?"
+          "ru": "Послушай без текстовой подсказки. Что сказано?",
+          "en": "Listen without a text prompt. What is being said?"
         },
         "answer_options.help.label": {
           "uk": "Ви можете мені допомогти?",
-          "ru": "Вы можете мне помочь?"
+          "ru": "Вы можете мне помочь?",
+          "en": "Can you help me?"
         },
         "answer_options.need_doctor.label": {
           "uk": "Мені потрібен лікар.",
-          "ru": "Мне нужен врач."
+          "ru": "Мне нужен врач.",
+          "en": "I need a doctor."
         },
         "answer_options.where_station.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         }
       }
     },
@@ -3564,7 +3823,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи коротку покупку: попроси ключ, запитай ціну й чемно заверш розмову.",
-          "ru": "Проведи короткую покупку: попроси ключ, спроси цену и вежливо заверши разговор."
+          "ru": "Проведи короткую покупку: попроси ключ, спроси цену и вежливо заверши разговор.",
+          "en": "Complete a short purchase: ask for a key, ask the price, and end the conversation politely."
         }
       }
     },
@@ -3574,7 +3834,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Я з України».",
-          "ru": "Напиши по-испански: «Я из Украины»."
+          "ru": "Напиши по-испански: «Я из Украины».",
+          "en": "Write in Spanish: “I’m from Ukraine.”"
         }
       }
     },
@@ -3584,7 +3845,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Я погано почуваюся».",
-          "ru": "Напиши по-испански: «Я плохо себя чувствую»."
+          "ru": "Напиши по-испански: «Я плохо себя чувствую».",
+          "en": "Write in Spanish: “I don’t feel well.”"
         }
       }
     },
@@ -3594,7 +3856,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я встаю».",
-          "ru": "Скажи: «Я встаю»."
+          "ru": "Скажи: «Я встаю».",
+          "en": "Say: “I get up.”"
         }
       }
     },
@@ -3604,7 +3867,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я працюю».",
-          "ru": "Скажи: «Я работаю»."
+          "ru": "Скажи: «Я работаю».",
+          "en": "Say: “I work.”"
         }
       }
     },
@@ -3614,7 +3878,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Почни короткий обмін про свій звичайний день.",
-          "ru": "Начни короткий разговор о своём обычном дне."
+          "ru": "Начни короткий разговор о своём обычном дне.",
+          "en": "Start a short exchange about your usual day."
         }
       }
     },
@@ -3624,19 +3889,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Про що запитують?",
-          "ru": "Послушай без текстовой подсказки. О чём спрашивают?"
+          "ru": "Послушай без текстовой подсказки. О чём спрашивают?",
+          "en": "Listen without a text prompt. What are they asking about?"
         },
         "answer_options.routine.label": {
           "uk": "Що ти зазвичай робиш?",
-          "ru": "Что ты обычно делаешь?"
+          "ru": "Что ты обычно делаешь?",
+          "en": "What do you usually do?"
         },
         "answer_options.time.label": {
           "uk": "О котрій годині?",
-          "ru": "Во сколько?"
+          "ru": "Во сколько?",
+          "en": "What time?"
         },
         "answer_options.place.label": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where is the station?"
         }
       }
     },
@@ -3646,19 +3915,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай короткий опис. Що робить людина після того, як встає?",
-          "ru": "Прочитай короткое описание. Что человек делает после того, как встаёт?"
+          "ru": "Прочитай короткое описание. Что человек делает после того, как встаёт?",
+          "en": "Read the short description. What does the person do after getting up?"
         },
         "answer_options.breakfast.label": {
           "uk": "Снідає.",
-          "ru": "Завтракает."
+          "ru": "Завтракает.",
+          "en": "Has breakfast."
         },
         "answer_options.work.label": {
           "uk": "Працює.",
-          "ru": "Работает."
+          "ru": "Работает.",
+          "en": "Works."
         },
         "answer_options.sleep.label": {
           "uk": "Спить.",
-          "ru": "Спит."
+          "ru": "Спит.",
+          "en": "Sleeps."
         }
       }
     },
@@ -3668,7 +3941,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Я снідаю».",
-          "ru": "Напиши по-испански: «Я завтракаю»."
+          "ru": "Напиши по-испански: «Я завтракаю».",
+          "en": "Write in Spanish: “I have breakfast.”"
         }
       }
     },
@@ -3678,7 +3952,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я снідаю вранці».",
-          "ru": "Скажи: «Я завтракаю утром»."
+          "ru": "Скажи: «Я завтракаю утром».",
+          "en": "Say: “I have breakfast in the morning.”"
         }
       }
     },
@@ -3688,7 +3963,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Я встаю о сьомій».",
-          "ru": "Скажи: «Я встаю в семь»."
+          "ru": "Скажи: «Я встаю в семь».",
+          "en": "Say: “I get up at seven.”"
         }
       }
     },
@@ -3698,7 +3974,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Відповідай про час і ранкову дію.",
-          "ru": "Ответь, во сколько ты встаёшь и что делаешь утром."
+          "ru": "Ответь, во сколько ты встаёшь и что делаешь утром.",
+          "en": "Answer with a time and a morning activity."
         }
       }
     },
@@ -3708,19 +3985,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Коли людина встає?",
-          "ru": "Послушай без текстовой подсказки. Во сколько человек встаёт?"
+          "ru": "Послушай без текстовой подсказки. Во сколько человек встаёт?",
+          "en": "Listen without a text prompt. When does the person get up?"
         },
         "answer_options.seven.label": {
           "uk": "О сьомій.",
-          "ru": "В семь."
+          "ru": "В семь.",
+          "en": "At seven."
         },
         "answer_options.morning.label": {
           "uk": "Уранці.",
-          "ru": "Утром."
+          "ru": "Утром.",
+          "en": "In the morning."
         },
         "answer_options.night.label": {
           "uk": "Уночі.",
-          "ru": "Ночью."
+          "ru": "Ночью.",
+          "en": "At night."
         }
       }
     },
@@ -3730,19 +4011,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай опис. Коли людина встає?",
-          "ru": "Прочитай описание. Во сколько человек встаёт?"
+          "ru": "Прочитай описание. Во сколько человек встаёт?",
+          "en": "Read the description. When does the person get up?"
         },
         "answer_options.seven.label": {
           "uk": "О сьомій.",
-          "ru": "В семь."
+          "ru": "В семь.",
+          "en": "At seven."
         },
         "answer_options.afternoon.label": {
           "uk": "У другій половині дня.",
-          "ru": "Во второй половине дня."
+          "ru": "Во второй половине дня.",
+          "en": "In the afternoon."
         },
         "answer_options.never.label": {
           "uk": "Ніколи.",
-          "ru": "Никогда."
+          "ru": "Никогда.",
+          "en": "Never."
         }
       }
     },
@@ -3752,7 +4037,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «Я працюю щодня».",
-          "ru": "Напиши по-испански: «Я работаю каждый день»."
+          "ru": "Напиши по-испански: «Я работаю каждый день».",
+          "en": "Write in Spanish: “I work every day.”"
         }
       }
     },
@@ -3762,7 +4048,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Потім я снідаю».",
-          "ru": "Скажи: «Потом я завтракаю»."
+          "ru": "Скажи: «Потом я завтракаю».",
+          "en": "Say: “Then I have breakfast.”"
         }
       }
     },
@@ -3772,7 +4059,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Проведи короткий обмін про послідовність дня.",
-          "ru": "Проведи короткий разговор о последовательности дня."
+          "ru": "Проведи короткий разговор о последовательности дня.",
+          "en": "Have a short exchange about the order of the day."
         }
       }
     },
@@ -3782,19 +4070,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай усю послідовність. Коли людина повертається додому?",
-          "ru": "Послушай всю последовательность. Когда человек возвращается домой?"
+          "ru": "Послушай всю последовательность. Когда человек возвращается домой?",
+          "en": "Listen to the whole sequence. When does the person return home?"
         },
         "answer_options.afternoon.label": {
           "uk": "У другій половині дня.",
-          "ru": "Во второй половине дня."
+          "ru": "Во второй половине дня.",
+          "en": "In the afternoon."
         },
         "answer_options.morning.label": {
           "uk": "Уранці.",
-          "ru": "Утром."
+          "ru": "Утром.",
+          "en": "In the morning."
         },
         "answer_options.night.label": {
           "uk": "Уночі.",
-          "ru": "Ночью."
+          "ru": "Ночью.",
+          "en": "At night."
         }
       }
     },
@@ -3804,19 +4096,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай усю послідовність без текстової підказки. Що відбувається після підйому?",
-          "ru": "Послушай всю последовательность без текстовой подсказки. Что происходит после подъёма?"
+          "ru": "Послушай всю последовательность без текстовой подсказки. Что происходит после подъёма?",
+          "en": "Listen to the whole sequence without a text prompt. What happens after getting up?"
         },
         "answer_options.breakfast.label": {
           "uk": "Сніданок.",
-          "ru": "Завтрак."
+          "ru": "Завтрак.",
+          "en": "Breakfast."
         },
         "answer_options.work.label": {
           "uk": "Робота.",
-          "ru": "Работа."
+          "ru": "Работа.",
+          "en": "Work."
         },
         "answer_options.home.label": {
           "uk": "Повернення додому.",
-          "ru": "Возвращение домой."
+          "ru": "Возвращение домой.",
+          "en": "Returning home."
         }
       }
     },
@@ -3826,19 +4122,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай послідовність. Що людина робить після сніданку?",
-          "ru": "Прочитай последовательность. Что человек делает после завтрака?"
+          "ru": "Прочитай последовательность. Что человек делает после завтрака?",
+          "en": "Read the sequence. What does the person do after breakfast?"
         },
         "answer_options.work.label": {
           "uk": "Працює.",
-          "ru": "Работает."
+          "ru": "Работает.",
+          "en": "Works."
         },
         "answer_options.sleep.label": {
           "uk": "Спить.",
-          "ru": "Спит."
+          "ru": "Спит.",
+          "en": "Sleeps."
         },
         "answer_options.dinner.label": {
           "uk": "Вечеряє.",
-          "ru": "Ужинает."
+          "ru": "Ужинает.",
+          "en": "Has dinner."
         }
       }
     },
@@ -3848,7 +4148,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «У другій половині дня я повертаюся додому».",
-          "ru": "Напиши по-испански: «Во второй половине дня я возвращаюсь домой»."
+          "ru": "Напиши по-испански: «Во второй половине дня я возвращаюсь домой».",
+          "en": "Write in Spanish: “In the afternoon, I return home.”"
         }
       }
     },
@@ -3858,7 +4159,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Вранці я працюю».",
-          "ru": "Скажи: «Утром я работаю»."
+          "ru": "Скажи: «Утром я работаю».",
+          "en": "Say: “In the morning, I work.”"
         }
       }
     },
@@ -3868,7 +4170,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи кожне речення з нового рядка. Напиши короткий початок дня: «Я встаю о сьомій. Потім снідаю».",
-          "ru": "Введи каждое предложение с новой строки. Напиши короткое начало дня: «Я встаю в семь. Потом завтракаю»."
+          "ru": "Введи каждое предложение с новой строки. Напиши короткое начало дня: «Я встаю в семь. Потом завтракаю».",
+          "en": "Put each sentence on a new line. Write a short beginning to the day: “I get up at seven. Then I have breakfast.”"
         }
       }
     },
@@ -3878,7 +4181,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Розкажи про початок і кінець свого дня двома репліками.",
-          "ru": "Расскажи о начале и конце своего дня двумя репликами."
+          "ru": "Расскажи о начале и конце своего дня двумя репликами.",
+          "en": "Describe the beginning and end of your day in two turns."
         }
       }
     },
@@ -3888,19 +4192,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай і вибери дію з повідомлення.",
-          "ru": "Послушай и выбери действие из сообщения."
+          "ru": "Послушай и выбери действие из сообщения.",
+          "en": "Listen and choose the action mentioned in the message."
         },
         "answer_options.return.label": {
           "uk": "Повертається додому.",
-          "ru": "Возвращается домой."
+          "ru": "Возвращается домой.",
+          "en": "Returns home."
         },
         "answer_options.breakfast.label": {
           "uk": "Снідає.",
-          "ru": "Завтракает."
+          "ru": "Завтракает.",
+          "en": "Has breakfast."
         },
         "answer_options.works.label": {
           "uk": "Працює вранці.",
-          "ru": "Работает утром."
+          "ru": "Работает утром.",
+          "en": "Works in the morning."
         }
       }
     },
@@ -3910,19 +4218,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай два речення. Яка дія відбувається першою?",
-          "ru": "Прочитай два предложения. Какое действие происходит первым?"
+          "ru": "Прочитай два предложения. Какое действие происходит первым?",
+          "en": "Read the two sentences. Which action happens first?"
         },
         "answer_options.get_up.label": {
           "uk": "Встати.",
-          "ru": "Встать."
+          "ru": "Встать.",
+          "en": "Get up."
         },
         "answer_options.breakfast.label": {
           "uk": "Поснідати.",
-          "ru": "Позавтракать."
+          "ru": "Позавтракать.",
+          "en": "Have breakfast."
         },
         "answer_options.return.label": {
           "uk": "Повернутися додому.",
-          "ru": "Вернуться домой."
+          "ru": "Вернуться домой.",
+          "en": "Return home."
         }
       }
     },
@@ -3932,7 +4244,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Напиши іспанською: «У другій половині дня я повертаюся додому».",
-          "ru": "Напиши по-испански: «Во второй половине дня я возвращаюсь домой»."
+          "ru": "Напиши по-испански: «Во второй половине дня я возвращаюсь домой».",
+          "en": "Write in Spanish: “In the afternoon, I return home.”"
         }
       }
     },
@@ -3942,7 +4255,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Скажи: «Потім я снідаю».",
-          "ru": "Скажи: «Потом я завтракаю»."
+          "ru": "Скажи: «Потом я завтракаю».",
+          "en": "Say: “Then I have breakfast.”"
         }
       }
     },
@@ -3952,19 +4266,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Що означає «todos los días» у цьому реченні: «Trabajo todos los días»?",
-          "ru": "Что означает «todos los días» в предложении «Trabajo todos los días»?"
+          "ru": "Что означает «todos los días» в предложении «Trabajo todos los días»?",
+          "en": "What does “todos los días” mean in this sentence: “Trabajo todos los días”?"
         },
         "answer_options.every_day.label": {
           "uk": "Щодня.",
-          "ru": "Каждый день."
+          "ru": "Каждый день.",
+          "en": "Every day."
         },
         "answer_options.sometimes.label": {
           "uk": "Іноді.",
-          "ru": "Иногда."
+          "ru": "Иногда.",
+          "en": "Sometimes."
         },
         "answer_options.at_night.label": {
           "uk": "Уночі.",
-          "ru": "Ночью."
+          "ru": "Ночью.",
+          "en": "At night."
         }
       }
     },
@@ -3974,19 +4292,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Послухай без текстової підказки. Яка дія відбувається вночі?",
-          "ru": "Послушай без текстовой подсказки. Какое действие происходит ночью?"
+          "ru": "Послушай без текстовой подсказки. Какое действие происходит ночью?",
+          "en": "Listen without a text prompt. Which action happens at night?"
         },
         "answer_options.dinner_sleep.label": {
           "uk": "Вечеряє і спить.",
-          "ru": "Ужинает и спит."
+          "ru": "Ужинает и спит.",
+          "en": "Has dinner and sleeps."
         },
         "answer_options.return.label": {
           "uk": "Повертається додому.",
-          "ru": "Возвращается домой."
+          "ru": "Возвращается домой.",
+          "en": "Returns home."
         },
         "answer_options.breakfast.label": {
           "uk": "Снідає.",
-          "ru": "Завтракает."
+          "ru": "Завтракает.",
+          "en": "Has breakfast."
         }
       }
     },
@@ -3996,19 +4318,23 @@
       "fields": {
         "prompt_template": {
           "uk": "Прочитай розклад дня. Що людина робить після роботи?",
-          "ru": "Прочитай распорядок дня. Что человек делает после работы?"
+          "ru": "Прочитай распорядок дня. Что человек делает после работы?",
+          "en": "Read the daily routine. What does the person do after work?"
         },
         "answer_options.return.label": {
           "uk": "Повертається додому.",
-          "ru": "Возвращается домой."
+          "ru": "Возвращается домой.",
+          "en": "Returns home."
         },
         "answer_options.breakfast.label": {
           "uk": "Снідає.",
-          "ru": "Завтракает."
+          "ru": "Завтракает.",
+          "en": "Has breakfast."
         },
         "answer_options.get_up.label": {
           "uk": "Встає.",
-          "ru": "Встаёт."
+          "ru": "Встаёт.",
+          "en": "Gets up."
         }
       }
     },
@@ -4018,7 +4344,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Введи кожне речення з нового рядка. Напиши дві знайомі дії: «Я встаю о сьомій. У другій половині дня я повертаюся додому».",
-          "ru": "Введи каждое предложение с новой строки. Напиши два знакомых действия: «Я встаю в семь. Во второй половине дня я возвращаюсь домой»."
+          "ru": "Введи каждое предложение с новой строки. Напиши два знакомых действия: «Я встаю в семь. Во второй половине дня я возвращаюсь домой».",
+          "en": "Put each sentence on a new line. Write two familiar actions: “I get up at seven. In the afternoon, I return home.”"
         }
       }
     },
@@ -4028,7 +4355,8 @@
       "fields": {
         "prompt_template": {
           "uk": "Покажи, що можеш розповісти про час і послідовність дня.",
-          "ru": "Покажи, что можешь рассказать о времени и последовательности дня."
+          "ru": "Покажи, что можешь рассказать о времени и последовательности дня.",
+          "en": "Show that you can talk about time and the sequence of your day."
         }
       }
     },
@@ -4773,15 +5101,18 @@
       "fields": {
         "title": {
           "uk": "Ввічливе знайомство",
-          "ru": "Вежливое знакомство"
+          "ru": "Вежливое знакомство",
+          "en": "A Polite Introduction"
         },
         "description": {
           "uk": "Розшир коротке знайомство фразами Mucho gusto та Igualmente.",
-          "ru": "Расширь короткое знакомство фразами Mucho gusto и Igualmente."
+          "ru": "Расширь короткое знакомство фразами Mucho gusto и Igualmente.",
+          "en": "Expand a short introduction with Mucho gusto and Igualmente."
         },
         "communicativeOutcome": {
           "uk": "Учень завершує коротке знайомство: називає себе, каже Mucho gusto та відповідає Igualmente.",
-          "ru": "Ты можешь завершить короткое знакомство: представиться, сказать Mucho gusto и ответить Igualmente."
+          "ru": "Ты можешь завершить короткое знакомство: представиться, сказать Mucho gusto и ответить Igualmente.",
+          "en": "You can complete a short introduction: say your name, say Mucho gusto, and reply with Igualmente."
         }
       }
     },
@@ -4791,15 +5122,18 @@
       "fields": {
         "title": {
           "uk": "Звідки ти?",
-          "ru": "Откуда ты?"
+          "ru": "Откуда ты?",
+          "en": "Where Are You From?"
         },
         "description": {
           "uk": "Скажи, звідки ти, і запитай про походження співрозмовника.",
-          "ru": "Скажи, откуда ты, и спроси собеседника, откуда он."
+          "ru": "Скажи, откуда ты, и спроси собеседника, откуда он.",
+          "en": "Say where you’re from and ask where the other person is from."
         },
         "communicativeOutcome": {
           "uk": "Учень обмінюється короткою інформацією про країну походження під час знайомства.",
-          "ru": "Ты можешь во время знакомства кратко рассказать, откуда ты, и спросить об этом собеседника."
+          "ru": "Ты можешь во время знакомства кратко рассказать, откуда ты, и спросить об этом собеседника.",
+          "en": "You can exchange brief information about where you and another person are from during an introduction."
         }
       }
     },
@@ -4809,15 +5143,18 @@
       "fields": {
         "title": {
           "uk": "Де ти живеш?",
-          "ru": "Где ты живёшь?"
+          "ru": "Где ты живёшь?",
+          "en": "Where Do You Live?"
         },
         "description": {
           "uk": "Скажи, де ти живеш, і поєднай місце проживання з походженням.",
-          "ru": "Скажи, где ты живёшь, и добавь, откуда ты."
+          "ru": "Скажи, где ты живёшь, и добавь, откуда ты.",
+          "en": "Say where you live and connect where you live with where you’re from."
         },
         "communicativeOutcome": {
           "uk": "Учень коротко повідомляє країну походження та місто проживання й завершує обмін ввічливо.",
-          "ru": "Ты можешь кратко сказать, откуда ты и где живёшь, а затем вежливо завершить разговор."
+          "ru": "Ты можешь кратко сказать, откуда ты и где живёшь, а затем вежливо завершить разговор.",
+          "en": "You can briefly say where you’re from and where you live, then end the exchange politely."
         }
       }
     },
@@ -4827,15 +5164,18 @@
       "fields": {
         "title": {
           "uk": "Люди та ролі",
-          "ru": "Люди и роли"
+          "ru": "Люди и роли",
+          "en": "People and Roles"
         },
         "description": {
           "uk": "Назви знайомих людей і використовуй mi та tu з простими ролями.",
-          "ru": "Назови знакомых людей и используй mi и tu с простыми обозначениями ролей."
+          "ru": "Назови знакомых людей и используй mi и tu с простыми обозначениями ролей.",
+          "en": "Name familiar people and use mi and tu with simple roles."
         },
         "communicativeOutcome": {
           "uk": "Учень коротко представляє двох знайомих і розрізняє знайомі ролі.",
-          "ru": "Ты можешь кратко представить двух знакомых и различать уже знакомые роли."
+          "ru": "Ты можешь кратко представить двух знакомых и различать уже знакомые роли.",
+          "en": "You can briefly introduce two familiar people and distinguish familiar roles."
         }
       }
     },
@@ -4845,15 +5185,18 @@
       "fields": {
         "title": {
           "uk": "Яка це людина?",
-          "ru": "Какой это человек?"
+          "ru": "Какой это человек?",
+          "en": "What Is This Person Like?"
         },
         "description": {
           "uk": "Опиши знайому людину одним простим прикметником і постав питання про опис.",
-          "ru": "Опиши знакомого человека одним простым прилагательным и спроси, какой он."
+          "ru": "Опиши знакомого человека одним простым прилагательным и спроси, какой он.",
+          "en": "Describe a familiar person with one simple adjective and ask what someone is like."
         },
         "communicativeOutcome": {
           "uk": "Учень ставить питання про людину й дає короткий опис.",
-          "ru": "Ты можешь спросить, какой человек, и коротко его описать."
+          "ru": "Ты можешь спросить, какой человек, и коротко его описать.",
+          "en": "You can ask what someone is like and give a short description."
         }
       }
     },
@@ -4863,15 +5206,18 @@
       "fields": {
         "title": {
           "uk": "Питання про іншу людину",
-          "ru": "Вопросы о другом человеке"
+          "ru": "Вопросы о другом человеке",
+          "en": "Questions About Another Person"
         },
         "description": {
           "uk": "Постав прості питання про мови іншої людини й відрізни ствердну та заперечну відповідь.",
-          "ru": "Задай простые вопросы о том, на каких языках говорит другой человек, и различай утвердительный и отрицательный ответы."
+          "ru": "Задай простые вопросы о том, на каких языках говорит другой человек, и различай утвердительный и отрицательный ответы.",
+          "en": "Ask simple questions about what languages another person speaks and distinguish affirmative and negative answers."
         },
         "communicativeOutcome": {
           "uk": "Учень підтримує короткий обмін питаннями та відповідями про мови іншої людини.",
-          "ru": "Ты можешь поддержать короткий обмен вопросами и ответами о том, на каких языках говорит другой человек."
+          "ru": "Ты можешь поддержать короткий обмен вопросами и ответами о том, на каких языках говорит другой человек.",
+          "en": "You can have a short question-and-answer exchange about what languages another person speaks."
         }
       }
     },
@@ -4881,15 +5227,18 @@
       "fields": {
         "title": {
           "uk": "Що це?",
-          "ru": "Что это?"
+          "ru": "Что это?",
+          "en": "What Is This?"
         },
         "description": {
           "uk": "Запитай, що це, і назви кілька простих предметів.",
-          "ru": "Спроси, что это, и назови несколько простых предметов."
+          "ru": "Спроси, что это, и назови несколько простых предметов.",
+          "en": "Ask what something is and name a few simple objects."
         },
         "communicativeOutcome": {
           "uk": "Учень запитує про простий предмет і називає його.",
-          "ru": "Ты можешь спросить, что это за предмет, и назвать его."
+          "ru": "Ты можешь спросить, что это за предмет, и назвать его.",
+          "en": "You can ask what a simple object is and name it."
         }
       }
     },
@@ -4899,15 +5248,18 @@
       "fields": {
         "title": {
           "uk": "Чи є у вас?",
-          "ru": "У вас есть...?"
+          "ru": "У вас есть...?",
+          "en": "Do You Have...?"
         },
         "description": {
           "uk": "Запитай, чи є простий предмет, і відповідай у короткому магазинному обміні.",
-          "ru": "Спроси, есть ли нужный предмет, и ответь в коротком разговоре в магазине."
+          "ru": "Спроси, есть ли нужный предмет, и ответь в коротком разговоре в магазине.",
+          "en": "Ask whether a simple item is available and answer in a short shop exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень запитує про наявність простого предмета й чемно завершує обмін.",
-          "ru": "Ты можешь спросить, есть ли нужный предмет, и вежливо завершить разговор."
+          "ru": "Ты можешь спросить, есть ли нужный предмет, и вежливо завершить разговор.",
+          "en": "You can ask whether a simple item is available and end the exchange politely."
         }
       }
     },
@@ -4917,15 +5269,18 @@
       "fields": {
         "title": {
           "uk": "Ціна і вартість",
-          "ru": "Цена и стоимость"
+          "ru": "Цена и стоимость",
+          "en": "Price and Cost"
         },
         "description": {
           "uk": "Запитай ціну, зрозумій просту ціну й назви товар дешевим.",
-          "ru": "Спроси цену, пойми простой ответ и скажи, что товар дешёвый."
+          "ru": "Спроси цену, пойми простой ответ и скажи, что товар дешёвый.",
+          "en": "Ask the price, understand a simple price, and say that an item is cheap."
         },
         "communicativeOutcome": {
           "uk": "Учень запитує ¿Cuánto cuesta?, розуміє Cuesta dos euros і каже Es barato.",
-          "ru": "Ты можешь спросить ¿Cuánto cuesta?, понять Cuesta dos euros и сказать Es barato."
+          "ru": "Ты можешь спросить ¿Cuánto cuesta?, понять Cuesta dos euros и сказать Es barato.",
+          "en": "You can ask ¿Cuánto cuesta?, understand Cuesta dos euros, and say Es barato."
         }
       }
     },
@@ -4935,15 +5290,18 @@
       "fields": {
         "title": {
           "uk": "Купівля у магазині",
-          "ru": "Покупка в магазине"
+          "ru": "Покупка в магазине",
+          "en": "Buying Something in a Shop"
         },
         "description": {
           "uk": "Попроси товар, запитай ціну й заверши короткий обмін покупця і продавця.",
-          "ru": "Попроси товар, спроси цену и заверши короткий разговор покупателя и продавца."
+          "ru": "Попроси товар, спроси цену и заверши короткий разговор покупателя и продавца.",
+          "en": "Ask for an item, ask the price, and complete a short customer–shopkeeper exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень проводить короткий обмін покупця і продавця: ¿Tiene agua?, ¿Cuánto cuesta?, Necesito agua, Nada más, gracias.",
-          "ru": "Ты можешь провести короткий разговор покупателя и продавца: ¿Tiene agua?, ¿Cuánto cuesta?, Necesito agua, Nada más, gracias."
+          "ru": "Ты можешь провести короткий разговор покупателя и продавца: ¿Tiene agua?, ¿Cuánto cuesta?, Necesito agua, Nada más, gracias.",
+          "en": "You can have a short customer–shopkeeper exchange using ¿Tiene agua?, ¿Cuánto cuesta?, Necesito agua, and Nada más, gracias."
         }
       }
     },
@@ -4953,15 +5311,18 @@
       "fields": {
         "title": {
           "uk": "Як ти їдеш?",
-          "ru": "Как ты добираешься?"
+          "ru": "Как ты добираешься?",
+          "en": "How Do You Get There?"
         },
         "description": {
           "uk": "Назви простий транспорт і скажи, як ти дістаєшся.",
-          "ru": "Назови вид транспорта и скажи, как ты добираешься."
+          "ru": "Назови вид транспорта и скажи, как ты добираешься.",
+          "en": "Name a simple way of getting around and say how you travel."
         },
         "communicativeOutcome": {
           "uk": "Учень повідомляє, яким простим транспортом він їде або що йде пішки.",
-          "ru": "Ты можешь сказать, на чём едешь или что идёшь пешком."
+          "ru": "Ты можешь сказать, на чём едешь или что идёшь пешком.",
+          "en": "You can say how you travel using a simple means of transport or that you walk."
         }
       }
     },
@@ -4971,15 +5332,18 @@
       "fields": {
         "title": {
           "uk": "Де станція?",
-          "ru": "Где станция?"
+          "ru": "Где станция?",
+          "en": "Where Is the Station?"
         },
         "description": {
           "uk": "Запитай, де знайоме місце, і зрозумій, чи воно близько або далеко.",
-          "ru": "Спроси, где находится знакомое место, и пойми, близко оно или далеко."
+          "ru": "Спроси, где находится знакомое место, и пойми, близко оно или далеко.",
+          "en": "Ask where a familiar place is and understand whether it is near or far."
         },
         "communicativeOutcome": {
           "uk": "Учень питає про місце й розрізняє близьку та далеку відстань.",
-          "ru": "Ты можешь спросить, где находится место, и понять, близко оно или далеко."
+          "ru": "Ты можешь спросить, где находится место, и понять, близко оно или далеко.",
+          "en": "You can ask where a place is and distinguish between near and far."
         }
       }
     },
@@ -4989,15 +5353,18 @@
       "fields": {
         "title": {
           "uk": "Як дістатися до готелю?",
-          "ru": "Как добраться до отеля?"
+          "ru": "Как добраться до отеля?",
+          "en": "How Do I Get to the Hotel?"
         },
         "description": {
           "uk": "Запитай, як дістатися до знайомого місця, і зрозумій короткий напрямок.",
-          "ru": "Спроси, как добраться до знакомого места, и пойми короткое указание."
+          "ru": "Спроси, как добраться до знакомого места, и пойми короткое указание.",
+          "en": "Ask how to get to a familiar place and understand a short direction."
         },
         "communicativeOutcome": {
           "uk": "Учень просить коротку вказівку до місця та розуміє напрямок прямо.",
-          "ru": "Ты можешь попросить объяснить дорогу и понять указание идти прямо."
+          "ru": "Ты можешь попросить объяснить дорогу и понять указание идти прямо.",
+          "en": "You can ask for a short direction to a place and understand Sigue recto."
         }
       }
     },
@@ -5007,15 +5374,18 @@
       "fields": {
         "title": {
           "uk": "Ліворуч чи праворуч?",
-          "ru": "Налево или направо?"
+          "ru": "Налево или направо?",
+          "en": "Left or Right?"
         },
         "description": {
           "uk": "Дай два короткі напрямки та збережи їхній порядок у маршруті.",
-          "ru": "Дай два коротких указания и сохрани их порядок в маршруте."
+          "ru": "Дай два коротких указания и сохрани их порядок в маршруте.",
+          "en": "Give two short directions and keep them in the correct order on a route."
         },
         "communicativeOutcome": {
           "uk": "Учень дає короткі вказівки прямо, ліворуч і праворуч у контрольованій послідовності.",
-          "ru": "Ты можешь дать короткие указания: идти прямо, повернуть налево или направо — в заданной последовательности."
+          "ru": "Ты можешь дать короткие указания: идти прямо, повернуть налево или направо — в заданной последовательности.",
+          "en": "You can give short directions using straight ahead, left, and right in a controlled sequence."
         }
       }
     },
@@ -5025,15 +5395,18 @@
       "fields": {
         "title": {
           "uk": "Короткий маршрут",
-          "ru": "Короткий маршрут"
+          "ru": "Короткий маршрут",
+          "en": "A Short Route"
         },
         "description": {
           "uk": "Поєднай питання про місце, відстань, транспорт і коротку пораду в одному обміні.",
-          "ru": "Проведи короткий разговор: спроси о месте и расстоянии, уточни транспорт и дай совет."
+          "ru": "Проведи короткий разговор: спроси о месте и расстоянии, уточни транспорт и дай совет.",
+          "en": "Combine a question about a place, distance, transport, and a short piece of advice in one exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень підтримує короткий передбачуваний обмін про місце, відстань і транспорт.",
-          "ru": "Ты можешь поддержать короткий предсказуемый разговор о месте, расстоянии и транспорте."
+          "ru": "Ты можешь поддержать короткий предсказуемый разговор о месте, расстоянии и транспорте.",
+          "en": "You can have a short, predictable exchange about location, distance, and transport."
         }
       }
     },
@@ -5043,15 +5416,18 @@
       "fields": {
         "title": {
           "uk": "Попросити про допомогу",
-          "ru": "Попросить о помощи"
+          "ru": "Попросить о помощи",
+          "en": "Ask for Help"
         },
         "description": {
           "uk": "Ввічливо приверни увагу й попроси про допомогу.",
-          "ru": "Вежливо привлеки внимание и попроси о помощи."
+          "ru": "Вежливо привлеки внимание и попроси о помощи.",
+          "en": "Get someone’s attention politely and ask for help."
         },
         "communicativeOutcome": {
           "uk": "Учень починає коротке прохання про допомогу фразами Disculpe, ¿Puede ayudarme? і Necesito ayuda.",
-          "ru": "Ты можешь начать короткую просьбу о помощи, используя Disculpe, ¿Puede ayudarme? и Necesito ayuda."
+          "ru": "Ты можешь начать короткую просьбу о помощи, используя Disculpe, ¿Puede ayudarme? и Necesito ayuda.",
+          "en": "You can start a short request for help using Disculpe, ¿Puede ayudarme?, and Necesito ayuda."
         }
       }
     },
@@ -5061,15 +5437,18 @@
       "fields": {
         "title": {
           "uk": "Знайти важливу службу",
-          "ru": "Найти нужное место"
+          "ru": "Найти нужное место",
+          "en": "Find a Needed Place"
         },
         "description": {
           "uk": "Запитай, де туалет або аптека, у короткій ситуації допомоги.",
-          "ru": "Спроси, где находятся туалет или аптека, в короткой ситуации обращения за помощью."
+          "ru": "Спроси, где находятся туалет или аптека, в короткой ситуации обращения за помощью.",
+          "en": "Ask where the bathroom or pharmacy is in a short situation where you need help."
         },
         "communicativeOutcome": {
           "uk": "Учень привертає увагу й запитує, де туалет або аптека.",
-          "ru": "Ты можешь привлечь внимание и спросить, где находятся туалет или аптека."
+          "ru": "Ты можешь привлечь внимание и спросить, где находятся туалет или аптека.",
+          "en": "You can get someone’s attention and ask where the bathroom or pharmacy is."
         }
       }
     },
@@ -5079,15 +5458,18 @@
       "fields": {
         "title": {
           "uk": "Попросити лікаря або поліцію",
-          "ru": "Сказать, что нужен врач или полиция"
+          "ru": "Сказать, что нужен врач или полиция",
+          "en": "Ask for a Doctor or the Police"
         },
         "description": {
           "uk": "Назви просту термінову потребу без опису складної проблеми.",
-          "ru": "Назови простую срочную потребность, не описывая сложную проблему."
+          "ru": "Назови простую срочную потребность, не описывая сложную проблему.",
+          "en": "State a simple urgent need without describing a complex problem."
         },
         "communicativeOutcome": {
           "uk": "Учень каже Necesito un médico, Necesito la policía або Es una emergencia.",
-          "ru": "Ты можешь сказать Necesito un médico, Necesito la policía или Es una emergencia."
+          "ru": "Ты можешь сказать Necesito un médico, Necesito la policía или Es una emergencia.",
+          "en": "You can say Necesito un médico, Necesito la policía, or Es una emergencia."
         }
       }
     },
@@ -5097,15 +5479,18 @@
       "fields": {
         "title": {
           "uk": "Сказати про надзвичайну ситуацію",
-          "ru": "Сообщить о чрезвычайной ситуации"
+          "ru": "Сообщить о чрезвычайной ситуации",
+          "en": "Say It’s an Emergency"
         },
         "description": {
           "uk": "Сформулюй коротке термінове повідомлення й попроси допомогу.",
-          "ru": "Сформулируй короткое срочное сообщение и попроси о помощи."
+          "ru": "Сформулируй короткое срочное сообщение и попроси о помощи.",
+          "en": "Give a short urgent message and ask for help."
         },
         "communicativeOutcome": {
           "uk": "Учень коротко повідомляє про надзвичайну ситуацію без опису процедур або діагнозів.",
-          "ru": "Ты можешь кратко сообщить о чрезвычайной ситуации, не описывая процедуры или диагнозы."
+          "ru": "Ты можешь кратко сообщить о чрезвычайной ситуации, не описывая процедуры или диагнозы.",
+          "en": "You can briefly say that it is an emergency without describing procedures or diagnoses."
         }
       }
     },
@@ -5115,15 +5500,18 @@
       "fields": {
         "title": {
           "uk": "Короткий обмін про допомогу",
-          "ru": "Короткий разговор о помощи"
+          "ru": "Короткий разговор о помощи",
+          "en": "A Short Help Exchange"
         },
         "description": {
           "uk": "Поєднай увагу, прохання та просту потребу в одному обміні.",
-          "ru": "Объедини привлечение внимания, просьбу и простую потребность в одном коротком разговоре."
+          "ru": "Объедини привлечение внимания, просьбу и простую потребность в одном коротком разговоре.",
+          "en": "Combine getting someone’s attention, making a request, and stating a simple need in one exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень проводить короткий обмін про допомогу з Disculpe, ¿Puede ayudarme? і Necesito un médico.",
-          "ru": "Ты можешь провести короткий разговор о помощи, используя Disculpe, ¿Puede ayudarme? и Necesito un médico."
+          "ru": "Ты можешь провести короткий разговор о помощи, используя Disculpe, ¿Puede ayudarme? и Necesito un médico.",
+          "en": "You can have a short help exchange using Disculpe, ¿Puede ayudarme?, and Necesito un médico."
         }
       }
     },
@@ -5133,15 +5521,18 @@
       "fields": {
         "title": {
           "uk": "Представити родину",
-          "ru": "Представить семью"
+          "ru": "Представить семью",
+          "en": "Introduce Your Family"
         },
         "description": {
           "uk": "Покажи близьку людину й назви її в короткому обміні.",
-          "ru": "Покажи близкого человека и представь его в коротком разговоре."
+          "ru": "Покажи близкого человека и представь его в коротком разговоре.",
+          "en": "Point to a family member and introduce them in a short exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень каже Esta es mi madre або Este es mi padre і розуміє ¿Quién es ella?",
-          "ru": "Ты можешь сказать Esta es mi madre или Este es mi padre и понять вопрос ¿Quién es ella?"
+          "ru": "Ты можешь сказать Esta es mi madre или Este es mi padre и понять вопрос ¿Quién es ella?",
+          "en": "You can say Esta es mi madre or Este es mi padre and understand ¿Quién es ella?"
         }
       }
     },
@@ -5151,15 +5542,18 @@
       "fields": {
         "title": {
           "uk": "Запитати про братів і сестер",
-          "ru": "Спросить о братьях и сёстрах"
+          "ru": "Спросить о братьях и сёстрах",
+          "en": "Ask About Brothers and Sisters"
         },
         "description": {
           "uk": "Постав запитання про родину й дай коротку відповідь.",
-          "ru": "Задай вопрос о семье и дай короткий ответ."
+          "ru": "Задай вопрос о семье и дай короткий ответ.",
+          "en": "Ask a question about family and give a short answer."
         },
         "communicativeOutcome": {
           "uk": "Учень веде короткий обмін про братів і сестер.",
-          "ru": "Ты можешь поддержать короткий разговор о братьях и сёстрах."
+          "ru": "Ты можешь поддержать короткий разговор о братьях и сёстрах.",
+          "en": "You can have a short exchange about brothers and sisters."
         }
       }
     },
@@ -5169,15 +5563,18 @@
       "fields": {
         "title": {
           "uk": "Кімнати і предмети",
-          "ru": "Комнаты и предметы"
+          "ru": "Комнаты и предметы",
+          "en": "Rooms and Objects"
         },
         "description": {
           "uk": "Назви просту кімнату та знайомий предмет у ній.",
-          "ru": "Назови простую комнату и знакомый предмет в ней."
+          "ru": "Назови простую комнату и знакомый предмет в ней.",
+          "en": "Name a simple room and a familiar object in it."
         },
         "communicativeOutcome": {
           "uk": "Учень називає кімнату й предмет у ній.",
-          "ru": "Ты можешь назвать комнату и предмет в ней."
+          "ru": "Ты можешь назвать комнату и предмет в ней.",
+          "en": "You can name a room and an object in it."
         }
       }
     },
@@ -5187,15 +5584,18 @@
       "fields": {
         "title": {
           "uk": "Де предмет?",
-          "ru": "Где предмет?"
+          "ru": "Где предмет?",
+          "en": "Where Is the Object?"
         },
         "description": {
           "uk": "Розрізни відомий предмет у певному місці та просте повідомлення про існування.",
-          "ru": "Различи сообщение о местоположении известного предмета и сообщение о его наличии."
+          "ru": "Различи сообщение о местоположении известного предмета и сообщение о его наличии.",
+          "en": "Distinguish between locating a known object and simply saying that it exists."
         },
         "communicativeOutcome": {
           "uk": "Учень питає ¿Dónde está la mesa?, відповідає La mesa está en la cocina й розуміє Hay una mesa en la cocina.",
-          "ru": "Ты можешь спросить ¿Dónde está la mesa?, ответить La mesa está en la cocina и понять Hay una mesa en la cocina."
+          "ru": "Ты можешь спросить ¿Dónde está la mesa?, ответить La mesa está en la cocina и понять Hay una mesa en la cocina.",
+          "en": "You can ask ¿Dónde está la mesa?, answer La mesa está en la cocina, and understand Hay una mesa en la cocina."
         }
       }
     },
@@ -5205,15 +5605,18 @@
       "fields": {
         "title": {
           "uk": "Короткий опис сім’ї та дому",
-          "ru": "Краткое описание семьи и дома"
+          "ru": "Краткое описание семьи и дома",
+          "en": "A Short Description of Family and Home"
         },
         "description": {
           "uk": "Поєднай родину, кімнату й місце знайомого предмета.",
-          "ru": "Объедини рассказ о семье, комнате и местоположении знакомого предмета."
+          "ru": "Объедини рассказ о семье, комнате и местоположении знакомого предмета.",
+          "en": "Combine family, a room, and the location of a familiar object."
         },
         "communicativeOutcome": {
           "uk": "Учень проводить короткий сімейно-побутовий обмін без відкритого опису дому.",
-          "ru": "Ты можешь провести короткий разговор о семье и доме без свободного описания дома."
+          "ru": "Ты можешь провести короткий разговор о семье и доме без свободного описания дома.",
+          "en": "You can have a short family-and-home exchange without giving an open-ended description of the home."
         }
       }
     },
@@ -5223,15 +5626,18 @@
       "fields": {
         "title": {
           "uk": "Що з тобою?",
-          "ru": "Что с тобой?"
+          "ru": "Что с тобой?",
+          "en": "What’s Wrong?"
         },
         "description": {
           "uk": "Зрозумій і скажи, що ти погано почуваєшся, у короткому обміні.",
-          "ru": "Пойми и скажи, что ты плохо себя чувствуешь, в коротком разговоре."
+          "ru": "Пойми и скажи, что ты плохо себя чувствуешь, в коротком разговоре.",
+          "en": "Understand and say that you don’t feel well in a short exchange."
         },
         "communicativeOutcome": {
           "uk": "Учень запитує ¿Qué te pasa? і повідомляє No me siento bien.",
-          "ru": "Ты можешь спросить ¿Qué te pasa? и ответить No me siento bien."
+          "ru": "Ты можешь спросить ¿Qué te pasa? и ответить No me siento bien.",
+          "en": "You can ask ¿Qué te pasa? and say No me siento bien."
         }
       }
     },
@@ -5241,15 +5647,18 @@
       "fields": {
         "title": {
           "uk": "Температура і біль",
-          "ru": "Температура и боль"
+          "ru": "Температура и боль",
+          "en": "Fever and Pain"
         },
         "description": {
           "uk": "Запитай про температуру й повідом про температуру або простий біль.",
-          "ru": "Спроси о температуре и скажи, что у тебя температура или что-то болит."
+          "ru": "Спроси о температуре и скажи, что у тебя температура или что-то болит.",
+          "en": "Ask about a fever and say that you have a fever or that something hurts."
         },
         "communicativeOutcome": {
           "uk": "Учень запитує про температуру й повідомляє про температуру або біль у голові.",
-          "ru": "Ты можешь спросить о температуре и сказать, что у тебя температура или болит голова."
+          "ru": "Ты можешь спросить о температуре и сказать, что у тебя температура или болит голова.",
+          "en": "You can ask about a fever and say that you have a fever or a headache."
         }
       }
     },
@@ -5259,15 +5668,18 @@
       "fields": {
         "title": {
           "uk": "Лікар, аптека і допомога",
-          "ru": "Врач, аптека и помощь"
+          "ru": "Врач, аптека и помощь",
+          "en": "Doctor, Pharmacy, and Help"
         },
         "description": {
           "uk": "Поєднай прохання про допомогу з коротким повідомленням про здоров’я.",
-          "ru": "Объедини просьбу о помощи с коротким сообщением о самочувствии."
+          "ru": "Объедини просьбу о помощи с коротким сообщением о самочувствии.",
+          "en": "Combine a request for help with a short statement about your health."
         },
         "communicativeOutcome": {
           "uk": "Учень проводить короткий обмін про здоров’я і допомогу: Disculpe, ¿Puede ayudarme?, No me siento bien, Necesito un médico.",
-          "ru": "Ты можешь провести короткий разговор о здоровье и помощи: Disculpe, ¿Puede ayudarme?, No me siento bien, Necesito un médico."
+          "ru": "Ты можешь провести короткий разговор о здоровье и помощи: Disculpe, ¿Puede ayudarme?, No me siento bien, Necesito un médico.",
+          "en": "You can have a short health-and-help exchange using Disculpe, ¿Puede ayudarme?, No me siento bien, and Necesito un médico."
         }
       }
     },
@@ -5277,15 +5689,18 @@
       "fields": {
         "title": {
           "uk": "Поєднання знайомого",
-          "ru": "Сочетаем знакомое"
+          "ru": "Сочетаем знакомое",
+          "en": "Putting Familiar Language Together"
         },
         "description": {
           "uk": "Поєднай знайомство, особисту інформацію, транспорт і прохання про допомогу в коротких практичних ситуаціях.",
-          "ru": "Объедини знакомство, личную информацию, транспорт и просьбу о помощи в коротких практических ситуациях."
+          "ru": "Объедини знакомство, личную информацию, транспорт и просьбу о помощи в коротких практических ситуациях.",
+          "en": "Combine introductions, personal information, transport, and asking for help in short practical situations."
         },
         "communicativeOutcome": {
           "uk": "Учень переносить знайомі іспанські фрази в короткі ситуації про знайомство, дорогу, послуги й допомогу.",
-          "ru": "Ты можешь использовать знакомые испанские фразы в коротких ситуациях: знакомство, дорога, услуги и помощь."
+          "ru": "Ты можешь использовать знакомые испанские фразы в коротких ситуациях: знакомство, дорога, услуги и помощь.",
+          "en": "You can use familiar Spanish phrases in short situations involving introductions, directions, services, and help."
         }
       }
     },
@@ -5295,15 +5710,18 @@
       "fields": {
         "title": {
           "uk": "Підсумкова перевірка A0",
-          "ru": "Итоговая проверка A0"
+          "ru": "Итоговая проверка A0",
+          "en": "A0 Final Check"
         },
         "description": {
           "uk": "Покажи, що можеш зрозуміти й виконати короткі знайомі комунікативні завдання іспанською.",
-          "ru": "Покажи, что можешь понять и выполнить короткие знакомые коммуникативные задания на испанском."
+          "ru": "Покажи, что можешь понять и выполнить короткие знакомые коммуникативные задания на испанском.",
+          "en": "Show that you can understand and complete short, familiar communicative tasks in Spanish."
         },
         "communicativeOutcome": {
           "uk": "Учень проходить підсумкову перевірку знайомих A0-комунікативних дій без нового мовного матеріалу.",
-          "ru": "Ты можешь пройти итоговую проверку знакомых коммуникативных действий уровня A0 без нового языкового материала."
+          "ru": "Ты можешь пройти итоговую проверку знакомых коммуникативных действий уровня A0 без нового языкового материала.",
+          "en": "You can complete a final check of familiar A0 communication tasks without new language."
         }
       }
     },
@@ -5313,15 +5731,18 @@
       "fields": {
         "title": {
           "uk": "Мій звичайний день",
-          "ru": "Мой обычный день"
+          "ru": "Мой обычный день",
+          "en": "My Usual Day"
         },
         "description": {
           "uk": "Зрозумій і назви кілька основних дій свого звичайного дня.",
-          "ru": "Пойми и назови несколько основных действий своего обычного дня."
+          "ru": "Пойми и назови несколько основных действий своего обычного дня.",
+          "en": "Understand and name a few basic actions from your usual day."
         },
         "communicativeOutcome": {
           "uk": "Учень коротко відповідає про звичайний день: Me levanto, desayuno, trabajo.",
-          "ru": "Ты можешь коротко рассказать об обычном дне: Me levanto, desayuno, trabajo."
+          "ru": "Ты можешь коротко рассказать об обычном дне: Me levanto, desayuno, trabajo.",
+          "en": "You can give a short answer about your usual day: Me levanto, desayuno, trabajo."
         }
       }
     },
@@ -5331,15 +5752,18 @@
       "fields": {
         "title": {
           "uk": "Коли і як часто?",
-          "ru": "Когда и как часто?"
+          "ru": "Когда и как часто?",
+          "en": "When and How Often?"
         },
         "description": {
           "uk": "Поєднай знайомі дії з простим часом доби й частотою.",
-          "ru": "Соедини знакомые действия с простым указанием времени суток и частоты."
+          "ru": "Соедини знакомые действия с простым указанием времени суток и частоты.",
+          "en": "Combine familiar actions with simple times of day and frequency."
         },
         "communicativeOutcome": {
           "uk": "Учень поєднує дію з часом і частотою: Me levanto a las siete, desayuno por la mañana, trabajo todos los días.",
-          "ru": "Ты можешь связать действие со временем и частотой: Me levanto a las siete, desayuno por la mañana, trabajo todos los días."
+          "ru": "Ты можешь связать действие со временем и частотой: Me levanto a las siete, desayuno por la mañana, trabajo todos los días.",
+          "en": "You can combine an action with time and frequency: Me levanto a las siete, desayuno por la mañana, trabajo todos los días."
         }
       }
     },
@@ -5349,15 +5773,18 @@
       "fields": {
         "title": {
           "uk": "Ранок, день і вечір",
-          "ru": "Утро, день и вечер"
+          "ru": "Утро, день и вечер",
+          "en": "Morning, Afternoon, and Evening"
         },
         "description": {
           "uk": "Зрозумій коротку послідовність подій звичайного дня в тексті й на слух.",
-          "ru": "Пойми короткую последовательность событий обычного дня в тексте и на слух."
+          "ru": "Пойми короткую последовательность событий обычного дня в тексте и на слух.",
+          "en": "Understand a short sequence of events from a usual day in text and audio."
         },
         "communicativeOutcome": {
           "uk": "Учень розуміє коротку послідовність: Primero me levanto, después desayuno, por la mañana trabajo, por la tarde vuelvo a casa.",
-          "ru": "Ты можешь понять короткую последовательность: Primero me levanto, después desayuno, por la mañana trabajo, por la tarde vuelvo a casa."
+          "ru": "Ты можешь понять короткую последовательность: Primero me levanto, después desayuno, por la mañana trabajo, por la tarde vuelvo a casa.",
+          "en": "You can understand a short sequence: Primero me levanto, después desayuno, por la mañana trabajo, por la tarde vuelvo a casa."
         }
       }
     },
@@ -5367,15 +5794,18 @@
       "fields": {
         "title": {
           "uk": "Розкажи про свій день",
-          "ru": "Расскажи о своём дне"
+          "ru": "Расскажи о своём дне",
+          "en": "Talk About Your Day"
         },
         "description": {
           "uk": "Створи короткий зв’язний опис початку й кінця дня в межах знайомих структур.",
-          "ru": "Составь короткое связное описание начала и конца дня, используя знакомые конструкции."
+          "ru": "Составь короткое связное описание начала и конца дня, используя знакомые конструкции.",
+          "en": "Create a short, connected description of the beginning and end of your day using familiar structures."
         },
         "communicativeOutcome": {
           "uk": "Учень створює короткий опис: Me levanto a las siete. Después desayuno. Por la tarde vuelvo a casa.",
-          "ru": "Ты можешь составить короткое описание: Me levanto a las siete. Después desayuno. Por la tarde vuelvo a casa."
+          "ru": "Ты можешь составить короткое описание: Me levanto a las siete. Después desayuno. Por la tarde vuelvo a casa.",
+          "en": "You can create a short description: Me levanto a las siete. Después desayuno. Por la tarde vuelvo a casa."
         }
       }
     },
@@ -5385,15 +5815,18 @@
       "fields": {
         "title": {
           "uk": "Перевірка щоденного ритму",
-          "ru": "Проверка распорядка дня"
+          "ru": "Проверка распорядка дня",
+          "en": "Daily Routine Check"
         },
         "description": {
           "uk": "Інтегруй дії, час, частоту й послідовність у короткій перевірці A1.",
-          "ru": "Объедини действия, время, частоту и последовательность в короткой проверке A1."
+          "ru": "Объедини действия, время, частоту и последовательность в короткой проверке A1.",
+          "en": "Combine actions, time, frequency, and sequence in a short A1 check."
         },
         "communicativeOutcome": {
           "uk": "Учень проходить локальну перевірку першого A1-модуля: розуміє, будує й пише короткі повідомлення про щоденний ритм.",
-          "ru": "Ты можешь пройти итоговую проверку первого модуля A1: понять, составить и написать короткие сообщения о распорядке дня."
+          "ru": "Ты можешь пройти итоговую проверку первого модуля A1: понять, составить и написать короткие сообщения о распорядке дня.",
+          "en": "You can complete the first A1 module check: understand, build, and write short messages about a daily routine."
         }
       }
     },
@@ -5580,15 +6013,18 @@
       "fields": {
         "title": {
           "uk": "Послухати Mucho gusto",
-          "ru": "Послушать Mucho gusto"
+          "ru": "Послушать Mucho gusto",
+          "en": "Listen to Mucho gusto"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори фразу уголос.",
-          "ru": "Послушай и повтори фразу вслух."
+          "ru": "Послушай и повтори фразу вслух.",
+          "en": "Listen and repeat the phrase aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Вимовляй два слова як одну ввічливу формулу.",
-          "ru": "Произнеси два слова как одну вежливую фразу."
+          "ru": "Произнеси два слова как одну вежливую фразу.",
+          "en": "Say the two words as one polite expression."
         }
       }
     },
@@ -5598,7 +6034,8 @@
       "fields": {
         "title": {
           "uk": "Завершити знайомство",
-          "ru": "Завершить знакомство"
+          "ru": "Завершить знакомство",
+          "en": "Complete the Introduction"
         }
       }
     },
@@ -5608,15 +6045,18 @@
       "fields": {
         "title": {
           "uk": "Послухати питання про походження",
-          "ru": "Послушать вопрос о происхождении"
+          "ru": "Послушать вопрос о происхождении",
+          "en": "Listen to a Question About Where Someone Is From"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори питання.",
-          "ru": "Послушай и повтори вопрос."
+          "ru": "Послушай и повтори вопрос.",
+          "en": "Listen and repeat the question."
         },
         "spokenPractice.focusCue": {
           "uk": "Зверни увагу на наголос у dónde.",
-          "ru": "Обрати внимание на ударение в слове dónde."
+          "ru": "Обрати внимание на ударение в слове dónde.",
+          "en": "Notice the stress in dónde."
         }
       }
     },
@@ -5626,7 +6066,8 @@
       "fields": {
         "title": {
           "uk": "Обмінятися інформацією про походження",
-          "ru": "Поговорить о том, кто откуда"
+          "ru": "Поговорить о том, кто откуда",
+          "en": "Exchange Information About Where You’re From"
         }
       }
     },
@@ -5636,15 +6077,18 @@
       "fields": {
         "title": {
           "uk": "Послухати питання про місто",
-          "ru": "Послушать вопрос о городе"
+          "ru": "Послушать вопрос о городе",
+          "en": "Listen to a Question About Where Someone Lives"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай, сховай модель і відтвори питання.",
-          "ru": "Послушай, скрой образец и воспроизведи вопрос."
+          "ru": "Послушай, скрой образец и воспроизведи вопрос.",
+          "en": "Listen, hide the model, and reproduce the question."
         },
         "spokenPractice.focusCue": {
           "uk": "Не плутай vives із vive.",
-          "ru": "Не путай vives и vive."
+          "ru": "Не путай vives и vive.",
+          "en": "Don’t confuse vives with vive."
         }
       }
     },
@@ -5654,7 +6098,8 @@
       "fields": {
         "title": {
           "uk": "Поєднати походження й проживання",
-          "ru": "Сказать, откуда ты и где живёшь"
+          "ru": "Сказать, откуда ты и где живёшь",
+          "en": "Combine Where You’re From and Where You Live"
         }
       }
     },
@@ -5664,7 +6109,8 @@
       "fields": {
         "title": {
           "uk": "Представити знайомих",
-          "ru": "Представить знакомых"
+          "ru": "Представить знакомых",
+          "en": "Introduce Familiar People"
         }
       }
     },
@@ -5674,7 +6120,8 @@
       "fields": {
         "title": {
           "uk": "Описати людину",
-          "ru": "Описать человека"
+          "ru": "Описать человека",
+          "en": "Describe a Person"
         }
       }
     },
@@ -5684,7 +6131,8 @@
       "fields": {
         "title": {
           "uk": "Запитати про мови",
-          "ru": "Спросить о языках"
+          "ru": "Спросить о языках",
+          "en": "Ask About Languages"
         }
       }
     },
@@ -5694,7 +6142,8 @@
       "fields": {
         "title": {
           "uk": "Назвати предмет",
-          "ru": "Назвать предмет"
+          "ru": "Назвать предмет",
+          "en": "Name an Object"
         }
       }
     },
@@ -5704,7 +6153,8 @@
       "fields": {
         "title": {
           "uk": "Запитати про наявність",
-          "ru": "Спросить о наличии"
+          "ru": "Спросить о наличии",
+          "en": "Ask About Availability"
         }
       }
     },
@@ -5714,7 +6164,8 @@
       "fields": {
         "title": {
           "uk": "Запитати й зрозуміти ціну",
-          "ru": "Спросить и понять цену"
+          "ru": "Спросить и понять цену",
+          "en": "Ask and Understand the Price"
         }
       }
     },
@@ -5724,7 +6175,8 @@
       "fields": {
         "title": {
           "uk": "Завершити купівлю",
-          "ru": "Завершить покупку"
+          "ru": "Завершить покупку",
+          "en": "Complete the Purchase"
         }
       }
     },
@@ -5734,15 +6186,18 @@
       "fields": {
         "title": {
           "uk": "Повторити прохання про товар",
-          "ru": "Повторить просьбу о товаре"
+          "ru": "Повторить просьбу о товаре",
+          "en": "Repeat the Request for an Item"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори репліку покупця уголос.",
-          "ru": "Послушай и повтори реплику покупателя вслух."
+          "ru": "Послушай и повтори реплику покупателя вслух.",
+          "en": "Listen and repeat the customer’s line aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко скажи necesito una.",
-          "ru": "Чётко произнеси necesito una."
+          "ru": "Чётко произнеси necesito una.",
+          "en": "Say necesito una clearly."
         }
       }
     },
@@ -5752,15 +6207,18 @@
       "fields": {
         "title": {
           "uk": "Повторити фразу про метро",
-          "ru": "Повторить фразу о метро"
+          "ru": "Повторить фразу о метро",
+          "en": "Repeat the Metro Phrase"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори фразу уголос.",
-          "ru": "Послушай и повтори фразу вслух."
+          "ru": "Послушай и повтори фразу вслух.",
+          "en": "Listen and repeat the phrase aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко з’єднай voy en.",
-          "ru": "Соедини voy en без паузы."
+          "ru": "Соедини voy en без паузы.",
+          "en": "Say voy en without a pause."
         }
       }
     },
@@ -5770,7 +6228,8 @@
       "fields": {
         "title": {
           "uk": "Назвати спосіб пересування",
-          "ru": "Назвать способ передвижения"
+          "ru": "Назвать способ передвижения",
+          "en": "Name a Way of Getting Around"
         }
       }
     },
@@ -5780,7 +6239,8 @@
       "fields": {
         "title": {
           "uk": "Запитати про станцію",
-          "ru": "Спросить, где станция"
+          "ru": "Спросить, где станция",
+          "en": "Ask About the Station"
         }
       }
     },
@@ -5790,15 +6250,18 @@
       "fields": {
         "title": {
           "uk": "Повторити фразу про відстань",
-          "ru": "Повторить фразу о расстоянии"
+          "ru": "Повторить фразу о расстоянии",
+          "en": "Repeat a Distance Phrase"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори фразу про відстань.",
-          "ru": "Послушай и повтори фразу о расстоянии."
+          "ru": "Послушай и повтори фразу о расстоянии.",
+          "en": "Listen and repeat the distance phrase."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко вимов наголос у está.",
-          "ru": "Обрати внимание на ударение в está."
+          "ru": "Обрати внимание на ударение в está.",
+          "en": "Make the stress in está clear."
         }
       }
     },
@@ -5808,7 +6271,8 @@
       "fields": {
         "title": {
           "uk": "Запитати, як дістатися",
-          "ru": "Спросить, как добраться"
+          "ru": "Спросить, как добраться",
+          "en": "Ask How to Get There"
         }
       }
     },
@@ -5818,15 +6282,18 @@
       "fields": {
         "title": {
           "uk": "Відтворити питання з пам’яті",
-          "ru": "Воспроизвести вопрос по памяти"
+          "ru": "Воспроизвести вопрос по памяти",
+          "en": "Reproduce the Question from Memory"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай, сховай модель і відтвори питання.",
-          "ru": "Послушай, скрой образец и воспроизведи вопрос."
+          "ru": "Послушай, скрой образец и воспроизведи вопрос.",
+          "en": "Listen, hide the model, and reproduce the question."
         },
         "spokenPractice.focusCue": {
           "uk": "Збережи наголос у cómo.",
-          "ru": "Сохрани ударение в cómo."
+          "ru": "Сохрани ударение в cómo.",
+          "en": "Keep the stress in cómo."
         }
       }
     },
@@ -5836,7 +6303,8 @@
       "fields": {
         "title": {
           "uk": "Дати напрямок",
-          "ru": "Дать указание по маршруту"
+          "ru": "Дать указание по маршруту",
+          "en": "Give a Direction"
         }
       }
     },
@@ -5846,15 +6314,18 @@
       "fields": {
         "title": {
           "uk": "Повторити напрямок уголос",
-          "ru": "Повторить указание вслух"
+          "ru": "Повторить указание вслух",
+          "en": "Repeat the Direction Aloud"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори напрямок.",
-          "ru": "Послушай и повтори указание."
+          "ru": "Послушай и повтори указание.",
+          "en": "Listen and repeat the direction."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко вимов izquierda.",
-          "ru": "Чётко произнеси izquierda."
+          "ru": "Чётко произнеси izquierda.",
+          "en": "Pronounce izquierda clearly."
         }
       }
     },
@@ -5864,7 +6335,8 @@
       "fields": {
         "title": {
           "uk": "Провести обмін про маршрут",
-          "ru": "Провести разговор о маршруте"
+          "ru": "Провести разговор о маршруте",
+          "en": "Have a Route Exchange"
         }
       }
     },
@@ -5874,11 +6346,13 @@
       "fields": {
         "title": {
           "uk": "Сказати пораду уголос",
-          "ru": "Дать совет вслух"
+          "ru": "Дать совет вслух",
+          "en": "Say the Advice Aloud"
         },
         "spokenPractice.prompt": {
           "uk": "Скажи іспанською: «Сядь на метро».",
-          "ru": "Скажи по-испански: «Поезжай на метро»."
+          "ru": "Скажи по-испански: «Поезжай на метро».",
+          "en": "Say in Spanish: “Take the metro.”"
         }
       }
     },
@@ -5888,7 +6362,8 @@
       "fields": {
         "title": {
           "uk": "Почати прохання",
-          "ru": "Начать просьбу о помощи"
+          "ru": "Начать просьбу о помощи",
+          "en": "Start a Request"
         }
       }
     },
@@ -5898,7 +6373,8 @@
       "fields": {
         "title": {
           "uk": "Знайти службу",
-          "ru": "Найти нужное место"
+          "ru": "Найти нужное место",
+          "en": "Find a Service"
         }
       }
     },
@@ -5908,7 +6384,8 @@
       "fields": {
         "title": {
           "uk": "Попросити термінову допомогу",
-          "ru": "Попросить о срочной помощи"
+          "ru": "Попросить о срочной помощи",
+          "en": "Ask for Urgent Help"
         }
       }
     },
@@ -5918,7 +6395,8 @@
       "fields": {
         "title": {
           "uk": "Сказати про ситуацію",
-          "ru": "Сообщить о чрезвычайной ситуации"
+          "ru": "Сообщить о чрезвычайной ситуации",
+          "en": "State the Situation"
         }
       }
     },
@@ -5928,7 +6406,8 @@
       "fields": {
         "title": {
           "uk": "Провести обмін",
-          "ru": "Провести разговор"
+          "ru": "Провести разговор",
+          "en": "Have the Exchange"
         }
       }
     },
@@ -5938,7 +6417,8 @@
       "fields": {
         "title": {
           "uk": "Представити родину",
-          "ru": "Представить семью"
+          "ru": "Представить семью",
+          "en": "Introduce Your Family"
         }
       }
     },
@@ -5948,7 +6428,8 @@
       "fields": {
         "title": {
           "uk": "Запитати про сім’ю",
-          "ru": "Спросить о семье"
+          "ru": "Спросить о семье",
+          "en": "Ask About Family"
         }
       }
     },
@@ -5958,7 +6439,8 @@
       "fields": {
         "title": {
           "uk": "Назвати кімнату і предмет",
-          "ru": "Назвать комнату и предмет"
+          "ru": "Назвать комнату и предмет",
+          "en": "Name a Room and an Object"
         }
       }
     },
@@ -5968,7 +6450,8 @@
       "fields": {
         "title": {
           "uk": "Описати місце",
-          "ru": "Описать местоположение"
+          "ru": "Описать местоположение",
+          "en": "Describe the Location"
         }
       }
     },
@@ -5978,7 +6461,8 @@
       "fields": {
         "title": {
           "uk": "Провести обмін",
-          "ru": "Провести разговор"
+          "ru": "Провести разговор",
+          "en": "Have the Exchange"
         }
       }
     },
@@ -5988,7 +6472,8 @@
       "fields": {
         "title": {
           "uk": "Сказати про самопочуття",
-          "ru": "Рассказать о самочувствии"
+          "ru": "Рассказать о самочувствии",
+          "en": "Talk About How You Feel"
         }
       }
     },
@@ -5998,7 +6483,8 @@
       "fields": {
         "title": {
           "uk": "Повідомити про симптом",
-          "ru": "Рассказать о симптоме"
+          "ru": "Рассказать о симптоме",
+          "en": "Report a Symptom"
         }
       }
     },
@@ -6008,7 +6494,8 @@
       "fields": {
         "title": {
           "uk": "Попросити медичну допомогу",
-          "ru": "Попросить медицинскую помощь"
+          "ru": "Попросить медицинскую помощь",
+          "en": "Ask for Medical Help"
         }
       }
     },
@@ -6018,15 +6505,18 @@
       "fields": {
         "title": {
           "uk": "Повторити медичне прохання",
-          "ru": "Повторить просьбу о враче"
+          "ru": "Повторить просьбу о враче",
+          "en": "Repeat the Medical Request"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори прохання уголос.",
-          "ru": "Послушай и повтори просьбу вслух."
+          "ru": "Послушай и повтори просьбу вслух.",
+          "en": "Listen and repeat the request aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко скажи necesito un médico.",
-          "ru": "Чётко произнеси necesito un médico."
+          "ru": "Чётко произнеси necesito un médico.",
+          "en": "Say necesito un médico clearly."
         }
       }
     },
@@ -6036,7 +6526,8 @@
       "fields": {
         "title": {
           "uk": "Поєднати знайомі ситуації",
-          "ru": "Объединить знакомые ситуации"
+          "ru": "Объединить знакомые ситуации",
+          "en": "Combine Familiar Situations"
         }
       }
     },
@@ -6046,7 +6537,8 @@
       "fields": {
         "title": {
           "uk": "Показати знайомі A0-уміння",
-          "ru": "Показать знакомые навыки A0"
+          "ru": "Показать знакомые навыки A0",
+          "en": "Show Familiar A0 Skills"
         }
       }
     },
@@ -6056,7 +6548,8 @@
       "fields": {
         "title": {
           "uk": "Назвати дії дня",
-          "ru": "Назвать действия дня"
+          "ru": "Назвать действия дня",
+          "en": "Name Daily Actions"
         }
       }
     },
@@ -6066,15 +6559,18 @@
       "fields": {
         "title": {
           "uk": "Повторити фразу про звичайний день",
-          "ru": "Повторить вопрос об обычном дне"
+          "ru": "Повторить вопрос об обычном дне",
+          "en": "Repeat the Question About Your Usual Day"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори питання уголос.",
-          "ru": "Послушай и повтори вопрос вслух."
+          "ru": "Послушай и повтори вопрос вслух.",
+          "en": "Listen and repeat the question aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко скажи normalmente.",
-          "ru": "Чётко произнеси normalmente."
+          "ru": "Чётко произнеси normalmente.",
+          "en": "Say normalmente clearly."
         }
       }
     },
@@ -6084,15 +6580,18 @@
       "fields": {
         "title": {
           "uk": "Повторити час підйому",
-          "ru": "Повторить время подъёма"
+          "ru": "Повторить время подъёма",
+          "en": "Repeat the Time You Get Up"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай, сховай текст і повтори фразу уголос.",
-          "ru": "Послушай, скрой текст и повтори фразу вслух."
+          "ru": "Послушай, скрой текст и повтори фразу вслух.",
+          "en": "Listen, hide the text, and repeat the phrase aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Чітко скажи a las siete.",
-          "ru": "Чётко произнеси a las siete."
+          "ru": "Чётко произнеси a las siete.",
+          "en": "Say a las siete clearly."
         }
       }
     },
@@ -6102,7 +6601,8 @@
       "fields": {
         "title": {
           "uk": "Сказати коли і як часто",
-          "ru": "Сказать, когда и как часто"
+          "ru": "Сказать, когда и как часто",
+          "en": "Say When and How Often"
         }
       }
     },
@@ -6112,7 +6612,8 @@
       "fields": {
         "title": {
           "uk": "Зрозуміти послідовність дня",
-          "ru": "Понять последовательность дня"
+          "ru": "Понять последовательность дня",
+          "en": "Understand the Sequence of the Day"
         }
       }
     },
@@ -6122,7 +6623,8 @@
       "fields": {
         "title": {
           "uk": "Скласти короткий опис",
-          "ru": "Составить короткое описание"
+          "ru": "Составить короткое описание",
+          "en": "Build a Short Description"
         }
       }
     },
@@ -6132,15 +6634,18 @@
       "fields": {
         "title": {
           "uk": "Повторити початок дня",
-          "ru": "Повторить начало дня"
+          "ru": "Повторить начало дня",
+          "en": "Repeat the Start of the Day"
         },
         "spokenPractice.prompt": {
           "uk": "Послухай і повтори початок опису уголос.",
-          "ru": "Послушай и повтори начало описания вслух."
+          "ru": "Послушай и повтори начало описания вслух.",
+          "en": "Listen and repeat the start of the description aloud."
         },
         "spokenPractice.focusCue": {
           "uk": "Збережи паузу після levanto.",
-          "ru": "Сохрани паузу после levanto."
+          "ru": "Сохрани паузу после levanto.",
+          "en": "Keep the pause after levanto."
         }
       }
     },
@@ -6150,7 +6655,8 @@
       "fields": {
         "title": {
           "uk": "Показати вміння говорити про день",
-          "ru": "Показать умение рассказывать о своём дне"
+          "ru": "Показать умение рассказывать о своём дне",
+          "en": "Show That You Can Talk About Your Day"
         }
       }
     },
@@ -6237,7 +6743,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може назвати себе й доречно відповісти на Mucho gusto.",
-          "ru": "После этого урока ты сможешь представиться и уместно ответить на Mucho gusto."
+          "ru": "После этого урока ты сможешь представиться и уместно ответить на Mucho gusto.",
+          "en": "After this lesson, you can say your name and respond appropriately to Mucho gusto."
         }
       }
     },
@@ -6247,7 +6754,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿De dónde eres? і відповісти Soy de ... без пропуску de.",
-          "ru": "После этого урока ты сможешь спросить ¿De dónde eres? и ответить Soy de ..., не пропуская de."
+          "ru": "После этого урока ты сможешь спросить ¿De dónde eres? и ответить Soy de ..., не пропуская de.",
+          "en": "After this lesson, you can ask ¿De dónde eres? and answer Soy de ... without leaving out de."
         }
       }
     },
@@ -6257,7 +6765,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Dónde vives? і відповісти Vivo en ... без підміни формою vive.",
-          "ru": "После этого урока ты сможешь спросить ¿Dónde vives? и ответить Vivo en ..., не заменяя vives формой vive."
+          "ru": "После этого урока ты сможешь спросить ¿Dónde vives? и ответить Vivo en ..., не заменяя vives формой vive.",
+          "en": "After this lesson, you can ask ¿Dónde vives? and answer Vivo en ... without replacing vives with vive."
         }
       }
     },
@@ -6267,7 +6776,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може представити знайомих людей як друга, викладача або однокурсника.",
-          "ru": "После этого урока ты сможешь представить знакомых как друга, преподавателя или однокурсника."
+          "ru": "После этого урока ты сможешь представить знакомых как друга, преподавателя или однокурсника.",
+          "en": "After this lesson, you can introduce familiar people as a friend, teacher, or classmate."
         }
       }
     },
@@ -6277,7 +6787,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Cómo es? і описати людину одним знайомим прикметником.",
-          "ru": "После этого урока ты сможешь спросить ¿Cómo es? и описать человека одним знакомым прилагательным."
+          "ru": "После этого урока ты сможешь спросить ¿Cómo es? и описать человека одним знакомым прилагательным.",
+          "en": "After this lesson, you can ask ¿Cómo es? and describe someone with one familiar adjective."
         }
       }
     },
@@ -6287,7 +6798,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати, чи говорить інша людина іспанською або французькою, і відповісти коротко.",
-          "ru": "После этого урока ты сможешь спросить, говорит ли другой человек по-испански или по-французски, и кратко ответить."
+          "ru": "После этого урока ты сможешь спросить, говорит ли другой человек по-испански или по-французски, и кратко ответить.",
+          "en": "After this lesson, you can ask whether another person speaks Spanish or French and give a short answer."
         }
       }
     },
@@ -6297,7 +6809,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Qué es esto? і назвати знайомий предмет з un або una.",
-          "ru": "После этого урока ты сможешь спросить ¿Qué es esto? и назвать знакомый предмет с артиклем un или una."
+          "ru": "После этого урока ты сможешь спросить ¿Qué es esto? и назвать знакомый предмет с артиклем un или una.",
+          "en": "After this lesson, you can ask ¿Qué es esto? and name a familiar object with un or una."
         }
       }
     },
@@ -6307,7 +6820,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Tiene ...? і відповісти Sí, tenemos ... у короткій ситуації.",
-          "ru": "После этого урока ты сможешь спросить ¿Tiene ...? и ответить Sí, tenemos ... в короткой ситуации в магазине."
+          "ru": "После этого урока ты сможешь спросить ¿Tiene ...? и ответить Sí, tenemos ... в короткой ситуации в магазине.",
+          "en": "After this lesson, you can ask ¿Tiene ...? and answer Sí, tenemos ... in a short situation."
         }
       }
     },
@@ -6317,7 +6831,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати просту ціну, зрозуміти ціну в євро й назвати знайомий товар дешевим.",
-          "ru": "После этого урока ты сможешь спросить простую цену, понять цену в евро и сказать, что знакомый товар дешёвый."
+          "ru": "После этого урока ты сможешь спросить простую цену, понять цену в евро и сказать, что знакомый товар дешёвый.",
+          "en": "After this lesson, you can ask the price, understand a price in euros, and say that a familiar item is cheap."
         }
       }
     },
@@ -6327,7 +6842,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може в контрольованому магазинному обміні попросити товар, запитати ціну й відповісти на ¿Algo más? ввічливим завершенням.",
-          "ru": "После этого урока ты сможешь в контролируемом разговоре в магазине попросить товар, спросить цену и вежливо ответить на ¿Algo más? при завершении покупки."
+          "ru": "После этого урока ты сможешь в контролируемом разговоре в магазине попросить товар, спросить цену и вежливо ответить на ¿Algo más? при завершении покупки.",
+          "en": "After this lesson, you can ask for an item, ask the price, and respond to ¿Algo más? with a polite closing in a controlled shop exchange."
         }
       }
     },
@@ -6337,7 +6853,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може назвати кілька простих видів транспорту й сказати Voy en metro, Voy en taxi або Voy a pie.",
-          "ru": "После этого урока ты сможешь назвать несколько простых видов транспорта и сказать Voy en metro, Voy en taxi или Voy a pie."
+          "ru": "После этого урока ты сможешь назвать несколько простых видов транспорта и сказать Voy en metro, Voy en taxi или Voy a pie.",
+          "en": "After this lesson, you can name several simple means of transport and say Voy en metro, Voy en taxi, or Voy a pie."
         }
       }
     },
@@ -6347,7 +6864,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Dónde está la estación? і сказати Está cerca або Está lejos.",
-          "ru": "После этого урока ты сможешь спросить ¿Dónde está la estación? и сказать Está cerca или Está lejos."
+          "ru": "После этого урока ты сможешь спросить ¿Dónde está la estación? и сказать Está cerca или Está lejos.",
+          "en": "After this lesson, you can ask ¿Dónde está la estación? and say Está cerca or Está lejos."
         }
       }
     },
@@ -6357,7 +6875,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Cómo llego al hotel? і зрозуміти коротку відповідь Sigue recto.",
-          "ru": "После этого урока ты сможешь спросить ¿Cómo llego al hotel? и понять короткий ответ Sigue recto."
+          "ru": "После этого урока ты сможешь спросить ¿Cómo llego al hotel? и понять короткий ответ Sigue recto.",
+          "en": "After this lesson, you can ask ¿Cómo llego al hotel? and understand the short answer Sigue recto."
         }
       }
     },
@@ -6367,7 +6886,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може дати короткі напрямки Sigue recto, Gira a la izquierda та Gira a la derecha у заданому порядку.",
-          "ru": "После этого урока ты сможешь дать короткие указания Sigue recto, Gira a la izquierda и Gira a la derecha в заданном порядке."
+          "ru": "После этого урока ты сможешь дать короткие указания Sigue recto, Gira a la izquierda и Gira a la derecha в заданном порядке.",
+          "en": "After this lesson, you can give the short directions Sigue recto, Gira a la izquierda, and Gira a la derecha in the given order."
         }
       }
     },
@@ -6377,7 +6897,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може завершити короткий обмін про маршрут: запитати, де станція, зрозуміти Está cerca, запитати дорогу й зрозуміти Toma el metro.",
-          "ru": "После этого урока ты сможешь провести короткий разговор о маршруте: спросить, где станция, понять Está cerca, спросить дорогу и понять Toma el metro."
+          "ru": "После этого урока ты сможешь провести короткий разговор о маршруте: спросить, где станция, понять Está cerca, спросить дорогу и понять Toma el metro.",
+          "en": "After this lesson, you can complete a short route exchange: ask where the station is, understand Está cerca, ask for directions, and understand Toma el metro."
         }
       }
     },
@@ -6387,7 +6908,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може ввічливо привернути увагу, попросити допомогу й назвати базову потребу.",
-          "ru": "После этого урока ты сможешь вежливо привлечь внимание, попросить о помощи и сказать, что тебе нужно."
+          "ru": "После этого урока ты сможешь вежливо привлечь внимание, попросить о помощи и сказать, что тебе нужно.",
+          "en": "After this lesson, you can get someone’s attention politely, ask for help, and state a basic need."
         }
       }
     },
@@ -6397,7 +6919,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати, де знаходиться важлива служба: baño або farmacia.",
-          "ru": "После этого урока ты сможешь спросить, где находится нужное место: baño или farmacia."
+          "ru": "После этого урока ты сможешь спросить, где находится нужное место: baño или farmacia.",
+          "en": "After this lesson, you can ask where a needed place is, such as a baño or farmacia."
         }
       }
     },
@@ -6407,7 +6930,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може попросити лікаря або поліцію в короткій контрольованій ситуації.",
-          "ru": "После этого урока ты сможешь сказать, что тебе нужен врач или полиция, в короткой контролируемой ситуации."
+          "ru": "После этого урока ты сможешь сказать, что тебе нужен врач или полиция, в короткой контролируемой ситуации.",
+          "en": "After this lesson, you can ask for a doctor or the police in a short, controlled situation."
         }
       }
     },
@@ -6417,7 +6941,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може сказати Es una emergencia й попросити допомогу в контрольованому обміні.",
-          "ru": "После этого урока ты сможешь сказать Es una emergencia и попросить о помощи в контролируемом разговоре."
+          "ru": "После этого урока ты сможешь сказать Es una emergencia и попросить о помощи в контролируемом разговоре.",
+          "en": "After this lesson, you can say Es una emergencia and ask for help in a controlled exchange."
         }
       }
     },
@@ -6427,7 +6952,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може завершити короткий передбачуваний обмін: привернути увагу, попросити допомогу й назвати базову потребу.",
-          "ru": "После этого урока ты сможешь провести короткий предсказуемый разговор: привлечь внимание, попросить о помощи и назвать основную потребность."
+          "ru": "После этого урока ты сможешь провести короткий предсказуемый разговор: привлечь внимание, попросить о помощи и назвать основную потребность.",
+          "en": "After this lesson, you can complete a short, predictable exchange: get someone’s attention, ask for help, and state a basic need."
         }
       }
     },
@@ -6437,7 +6963,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може представити маму або тата й запитати, хто це.",
-          "ru": "После этого урока ты сможешь представить маму или папу и спросить, кто это."
+          "ru": "После этого урока ты сможешь представить маму или папу и спросить, кто это.",
+          "en": "After this lesson, you can introduce your mother or father and ask who someone is."
         }
       }
     },
@@ -6447,7 +6974,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Tienes hermanos? і відповісти Tengo una hermana або No tengo hermanos.",
-          "ru": "После этого урока ты сможешь спросить ¿Tienes hermanos? и ответить Tengo una hermana или No tengo hermanos."
+          "ru": "После этого урока ты сможешь спросить ¿Tienes hermanos? и ответить Tengo una hermana или No tengo hermanos.",
+          "en": "After this lesson, you can ask ¿Tienes hermanos? and answer Tengo una hermana or No tengo hermanos."
         }
       }
     },
@@ -6457,7 +6985,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може назвати кухню та стіл у короткому описі дому.",
-          "ru": "После этого урока ты сможешь назвать кухню и стол в коротком описании дома."
+          "ru": "После этого урока ты сможешь назвать кухню и стол в коротком описании дома.",
+          "en": "After this lesson, you can name the kitchen and a table in a short description of a home."
         }
       }
     },
@@ -6467,7 +6996,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати й сказати, де стіл, а також розрізнити está та hay у межах дому.",
-          "ru": "После этого урока ты сможешь спросить и сказать, где находится стол, а также различать está и hay в контексте дома."
+          "ru": "После этого урока ты сможешь спросить и сказать, где находится стол, а также различать está и hay в контексте дома.",
+          "en": "After this lesson, you can ask and say where the table is and distinguish está from hay in a home context."
         }
       }
     },
@@ -6477,7 +7007,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може завершити короткий обмін про сім’ю та дім із представленням людини й описом місця предмета.",
-          "ru": "После этого урока ты сможешь провести короткий разговор о семье и доме: представить человека и описать местоположение предмета."
+          "ru": "После этого урока ты сможешь провести короткий разговор о семье и доме: представить человека и описать местоположение предмета.",
+          "en": "After this lesson, you can complete a short exchange about family and home by introducing a person and describing where an object is."
         }
       }
     },
@@ -6487,7 +7018,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може зрозуміти ¿Qué te pasa? і сказати No me siento bien у короткій контрольованій ситуації.",
-          "ru": "После этого урока ты сможешь понять ¿Qué te pasa? и сказать No me siento bien в короткой контролируемой ситуации."
+          "ru": "После этого урока ты сможешь понять ¿Qué te pasa? и сказать No me siento bien в короткой контролируемой ситуации.",
+          "en": "After this lesson, you can understand ¿Qué te pasa? and say No me siento bien in a short, controlled situation."
         }
       }
     },
@@ -6497,7 +7029,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може запитати ¿Tienes fiebre?, сказати Tengo fiebre і повідомити Me duele la cabeza у контрольованому обміні.",
-          "ru": "После этого урока ты сможешь спросить ¿Tienes fiebre?, сказать Tengo fiebre и сообщить Me duele la cabeza в контролируемом разговоре."
+          "ru": "После этого урока ты сможешь спросить ¿Tienes fiebre?, сказать Tengo fiebre и сообщить Me duele la cabeza в контролируемом разговоре.",
+          "en": "After this lesson, you can ask ¿Tienes fiebre?, say Tengo fiebre, and report Me duele la cabeza in a controlled exchange."
         }
       }
     },
@@ -6507,7 +7040,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може в передбачуваному обміні попросити лікаря, аптеку або лікарню, сказати про самопочуття й зрозуміти просту відповідь.",
-          "ru": "После этого урока ты сможешь в предсказуемом разговоре сказать, что тебе нужен врач, аптека или больница, рассказать о самочувствии и понять простой ответ."
+          "ru": "После этого урока ты сможешь в предсказуемом разговоре сказать, что тебе нужен врач, аптека или больница, рассказать о самочувствии и понять простой ответ.",
+          "en": "After this lesson, you can say that you need a doctor, pharmacy, or hospital, say how you feel, and understand a simple reply in a predictable exchange."
         }
       }
     },
@@ -6517,7 +7051,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може зрозуміти короткі практичні повідомлення та поєднати знайомство, особисту інформацію, транспорт і прохання про допомогу.",
-          "ru": "После этого урока ты сможешь понять короткие практические сообщения и объединить знакомство, личную информацию, транспорт и просьбу о помощи."
+          "ru": "После этого урока ты сможешь понять короткие практические сообщения и объединить знакомство, личную информацию, транспорт и просьбу о помощи.",
+          "en": "After this lesson, you can understand short practical messages and combine introductions, personal information, transport, and asking for help."
         }
       }
     },
@@ -6527,7 +7062,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може самостійно зрозуміти й створити короткі повідомлення про особисту інформацію, місце, допомогу, здоров’я та покупку на рівні A0.",
-          "ru": "После этого урока ты сможешь самостоятельно понять и составить короткие сообщения о личной информации, местоположении, помощи, здоровье и покупке на уровне A0."
+          "ru": "После этого урока ты сможешь самостоятельно понять и составить короткие сообщения о личной информации, местоположении, помощи, здоровье и покупке на уровне A0.",
+          "en": "After this lesson, you can independently understand and create short A0 messages about personal information, location, help, health, and shopping."
         }
       }
     },
@@ -6537,7 +7073,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може зрозуміти й назвати кілька знайомих дій свого звичайного дня.",
-          "ru": "После этого урока ты сможешь понять и назвать несколько знакомых действий своего обычного дня."
+          "ru": "После этого урока ты сможешь понять и назвать несколько знакомых действий своего обычного дня.",
+          "en": "After this lesson, you can understand and name several familiar actions from your usual day."
         }
       }
     },
@@ -6547,7 +7084,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може сказати, о котрій годині та як часто виконує знайому дію.",
-          "ru": "После этого урока ты сможешь сказать, во сколько и как часто выполняешь знакомое действие."
+          "ru": "После этого урока ты сможешь сказать, во сколько и как часто выполняешь знакомое действие.",
+          "en": "After this lesson, you can say what time you do a familiar action and how often you do it."
         }
       }
     },
@@ -6557,7 +7095,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може зрозуміти послідовність із кількох щоденних дій, час доби й наступну дію.",
-          "ru": "После этого урока ты сможешь понять последовательность из нескольких ежедневных действий, время суток и следующее действие."
+          "ru": "После этого урока ты сможешь понять последовательность из нескольких ежедневных действий, время суток и следующее действие.",
+          "en": "After this lesson, you can understand a sequence of several daily actions, the time of day, and what happens next."
         }
       }
     },
@@ -6567,7 +7106,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може написати два короткі речення про свій день і використати їх у передбачуваному обміні.",
-          "ru": "После этого урока ты сможешь написать два коротких предложения о своём дне и использовать их в предсказуемом разговоре."
+          "ru": "После этого урока ты сможешь написать два коротких предложения о своём дне и использовать их в предсказуемом разговоре.",
+          "en": "After this lesson, you can write two short sentences about your day and use them in a predictable exchange."
         }
       }
     },
@@ -6577,7 +7117,8 @@
       "fields": {
         "description": {
           "uk": "Після уроку учень може зрозуміти й створити короткий опис звичайного дня з часом, частотою та послідовністю без нового мовного матеріалу.",
-          "ru": "После этого урока ты сможешь понять и составить короткое описание обычного дня со временем, частотой и последовательностью без нового языкового материала."
+          "ru": "После этого урока ты сможешь понять и составить короткое описание обычного дня со временем, частотой и последовательностью без нового языкового материала.",
+          "en": "After this lesson, you can understand and create a short description of a usual day using time, frequency, and sequence, without new language."
         }
       }
     },
@@ -6664,7 +7205,8 @@
       "fields": {
         "title": {
           "uk": "Приємно познайомитися",
-          "ru": "Приятно познакомиться"
+          "ru": "Приятно познакомиться",
+          "en": "Nice to Meet You"
         }
       }
     },
@@ -6674,7 +7216,8 @@
       "fields": {
         "title": {
           "uk": "Звідки ти?",
-          "ru": "Откуда ты?"
+          "ru": "Откуда ты?",
+          "en": "Where Are You From?"
         }
       }
     },
@@ -6684,7 +7227,8 @@
       "fields": {
         "title": {
           "uk": "Де ти живеш?",
-          "ru": "Где ты живёшь?"
+          "ru": "Где ты живёшь?",
+          "en": "Where Do You Live?"
         }
       }
     },
@@ -6694,7 +7238,8 @@
       "fields": {
         "title": {
           "uk": "Люди та ролі",
-          "ru": "Люди и роли"
+          "ru": "Люди и роли",
+          "en": "People and Roles"
         }
       }
     },
@@ -6704,7 +7249,8 @@
       "fields": {
         "title": {
           "uk": "Проста характеристика",
-          "ru": "Простое описание"
+          "ru": "Простое описание",
+          "en": "A Simple Description"
         }
       }
     },
@@ -6714,7 +7260,8 @@
       "fields": {
         "title": {
           "uk": "Питання та відповіді",
-          "ru": "Вопросы и ответы"
+          "ru": "Вопросы и ответы",
+          "en": "Questions and Answers"
         }
       }
     },
@@ -6724,7 +7271,8 @@
       "fields": {
         "title": {
           "uk": "Прості предмети",
-          "ru": "Простые предметы"
+          "ru": "Простые предметы",
+          "en": "Simple Objects"
         }
       }
     },
@@ -6734,7 +7282,8 @@
       "fields": {
         "title": {
           "uk": "Наявність предмета",
-          "ru": "Наличие предмета"
+          "ru": "Наличие предмета",
+          "en": "Item Availability"
         }
       }
     },
@@ -6744,7 +7293,8 @@
       "fields": {
         "title": {
           "uk": "Ціна",
-          "ru": "Цена"
+          "ru": "Цена",
+          "en": "Price"
         }
       }
     },
@@ -6754,7 +7304,8 @@
       "fields": {
         "title": {
           "uk": "Купівля",
-          "ru": "Покупка"
+          "ru": "Покупка",
+          "en": "Purchase"
         }
       }
     },
@@ -6764,7 +7315,8 @@
       "fields": {
         "title": {
           "uk": "Повторити репліку покупця уголос",
-          "ru": "Повторить реплику покупателя вслух"
+          "ru": "Повторить реплику покупателя вслух",
+          "en": "Repeat the Customer’s Line Aloud"
         }
       }
     },
@@ -6774,7 +7326,8 @@
       "fields": {
         "title": {
           "uk": "Повторити вголос",
-          "ru": "Повторить вслух"
+          "ru": "Повторить вслух",
+          "en": "Repeat Aloud"
         }
       }
     },
@@ -6784,7 +7337,8 @@
       "fields": {
         "title": {
           "uk": "Транспорт",
-          "ru": "Транспорт"
+          "ru": "Транспорт",
+          "en": "Transport"
         }
       }
     },
@@ -6794,7 +7348,8 @@
       "fields": {
         "title": {
           "uk": "Місце та відстань",
-          "ru": "Место и расстояние"
+          "ru": "Место и расстояние",
+          "en": "Location and Distance"
         }
       }
     },
@@ -6804,7 +7359,8 @@
       "fields": {
         "title": {
           "uk": "Послухати фразу про відстань",
-          "ru": "Послушать фразу о расстоянии"
+          "ru": "Послушать фразу о расстоянии",
+          "en": "Listen to a Distance Phrase"
         }
       }
     },
@@ -6814,7 +7370,8 @@
       "fields": {
         "title": {
           "uk": "Запитати дорогу",
-          "ru": "Спросить дорогу"
+          "ru": "Спросить дорогу",
+          "en": "Ask for Directions"
         }
       }
     },
@@ -6824,7 +7381,8 @@
       "fields": {
         "title": {
           "uk": "Відтворити питання",
-          "ru": "Воспроизвести вопрос"
+          "ru": "Воспроизвести вопрос",
+          "en": "Reproduce the Question"
         }
       }
     },
@@ -6834,7 +7392,8 @@
       "fields": {
         "title": {
           "uk": "Напрямки",
-          "ru": "Указания по маршруту"
+          "ru": "Указания по маршруту",
+          "en": "Directions"
         }
       }
     },
@@ -6844,7 +7403,8 @@
       "fields": {
         "title": {
           "uk": "Повторити напрямок",
-          "ru": "Повторить указание"
+          "ru": "Повторить указание",
+          "en": "Repeat the Direction"
         }
       }
     },
@@ -6854,7 +7414,8 @@
       "fields": {
         "title": {
           "uk": "Обмін про маршрут",
-          "ru": "Разговор о маршруте"
+          "ru": "Разговор о маршруте",
+          "en": "Route Exchange"
         }
       }
     },
@@ -6864,7 +7425,8 @@
       "fields": {
         "title": {
           "uk": "Сказати пораду",
-          "ru": "Дать совет"
+          "ru": "Дать совет",
+          "en": "Give Advice"
         }
       }
     },
@@ -6874,7 +7436,8 @@
       "fields": {
         "title": {
           "uk": "Попросити про допомогу",
-          "ru": "Попросить о помощи"
+          "ru": "Попросить о помощи",
+          "en": "Ask for Help"
         }
       }
     },
@@ -6884,7 +7447,8 @@
       "fields": {
         "title": {
           "uk": "Запитати про службу",
-          "ru": "Спросить, где находится нужное место"
+          "ru": "Спросить, где находится нужное место",
+          "en": "Ask About a Place"
         }
       }
     },
@@ -6894,7 +7458,8 @@
       "fields": {
         "title": {
           "uk": "Проста термінова потреба",
-          "ru": "Простая срочная потребность"
+          "ru": "Простая срочная потребность",
+          "en": "A Simple Urgent Need"
         }
       }
     },
@@ -6904,7 +7469,8 @@
       "fields": {
         "title": {
           "uk": "Надзвичайна ситуація",
-          "ru": "Чрезвычайная ситуация"
+          "ru": "Чрезвычайная ситуация",
+          "en": "Emergency"
         }
       }
     },
@@ -6914,7 +7480,8 @@
       "fields": {
         "title": {
           "uk": "Обмін про допомогу",
-          "ru": "Разговор о помощи"
+          "ru": "Разговор о помощи",
+          "en": "Help Exchange"
         }
       }
     },
@@ -6924,7 +7491,8 @@
       "fields": {
         "title": {
           "uk": "Родина",
-          "ru": "Семья"
+          "ru": "Семья",
+          "en": "Family"
         }
       }
     },
@@ -6934,7 +7502,8 @@
       "fields": {
         "title": {
           "uk": "Брати і сестри",
-          "ru": "Братья и сёстры"
+          "ru": "Братья и сёстры",
+          "en": "Brothers and Sisters"
         }
       }
     },
@@ -6944,7 +7513,8 @@
       "fields": {
         "title": {
           "uk": "Дім",
-          "ru": "Дом"
+          "ru": "Дом",
+          "en": "Home"
         }
       }
     },
@@ -6954,7 +7524,8 @@
       "fields": {
         "title": {
           "uk": "Місце предмета",
-          "ru": "Местоположение предмета"
+          "ru": "Местоположение предмета",
+          "en": "Object Location"
         }
       }
     },
@@ -6964,7 +7535,8 @@
       "fields": {
         "title": {
           "uk": "Сім’я і дім",
-          "ru": "Семья и дом"
+          "ru": "Семья и дом",
+          "en": "Family and Home"
         }
       }
     },
@@ -6974,7 +7546,8 @@
       "fields": {
         "title": {
           "uk": "Самопочуття",
-          "ru": "Самочувствие"
+          "ru": "Самочувствие",
+          "en": "How You Feel"
         }
       }
     },
@@ -6984,7 +7557,8 @@
       "fields": {
         "title": {
           "uk": "Температура і біль",
-          "ru": "Температура и боль"
+          "ru": "Температура и боль",
+          "en": "Fever and Pain"
         }
       }
     },
@@ -6994,7 +7568,8 @@
       "fields": {
         "title": {
           "uk": "Здоров’я і допомога",
-          "ru": "Здоровье и помощь"
+          "ru": "Здоровье и помощь",
+          "en": "Health and Help"
         }
       }
     },
@@ -7004,7 +7579,8 @@
       "fields": {
         "title": {
           "uk": "Повторити прохання про лікаря уголос",
-          "ru": "Повторить просьбу о враче вслух"
+          "ru": "Повторить просьбу о враче вслух",
+          "en": "Repeat the Request for a Doctor Aloud"
         }
       }
     },
@@ -7014,7 +7590,8 @@
       "fields": {
         "title": {
           "uk": "Інтегрований A0-перенос",
-          "ru": "Перенос навыков A0"
+          "ru": "Перенос навыков A0",
+          "en": "Use A0 Skills in New Situations"
         }
       }
     },
@@ -7024,7 +7601,8 @@
       "fields": {
         "title": {
           "uk": "Підсумкова перевірка",
-          "ru": "Итоговая проверка"
+          "ru": "Итоговая проверка",
+          "en": "Final Check"
         }
       }
     },
@@ -7034,7 +7612,8 @@
       "fields": {
         "title": {
           "uk": "Звичайний день",
-          "ru": "Обычный день"
+          "ru": "Обычный день",
+          "en": "Usual Day"
         }
       }
     },
@@ -7044,7 +7623,8 @@
       "fields": {
         "title": {
           "uk": "Почути нові дії уголос",
-          "ru": "Новые действия на слух"
+          "ru": "Новые действия на слух",
+          "en": "Listen to New Daily Actions"
         }
       }
     },
@@ -7054,7 +7634,8 @@
       "fields": {
         "title": {
           "uk": "Повторити час",
-          "ru": "Повторить время"
+          "ru": "Повторить время",
+          "en": "Repeat the Time"
         }
       }
     },
@@ -7064,7 +7645,8 @@
       "fields": {
         "title": {
           "uk": "Час і частота",
-          "ru": "Время и частота"
+          "ru": "Время и частота",
+          "en": "Time and Frequency"
         }
       }
     },
@@ -7074,7 +7656,8 @@
       "fields": {
         "title": {
           "uk": "Послідовність дня",
-          "ru": "Последовательность дня"
+          "ru": "Последовательность дня",
+          "en": "Sequence of the Day"
         }
       }
     },
@@ -7084,7 +7667,8 @@
       "fields": {
         "title": {
           "uk": "Зв’язний опис",
-          "ru": "Связное описание"
+          "ru": "Связное описание",
+          "en": "Connected Description"
         }
       }
     },
@@ -7094,7 +7678,8 @@
       "fields": {
         "title": {
           "uk": "Підготувати усний опис",
-          "ru": "Подготовить устное описание"
+          "ru": "Подготовить устное описание",
+          "en": "Prepare an Oral Description"
         }
       }
     },
@@ -7104,7 +7689,8 @@
       "fields": {
         "title": {
           "uk": "Перевірка щоденного ритму",
-          "ru": "Проверка распорядка дня"
+          "ru": "Проверка распорядка дня",
+          "en": "Daily Routine Check"
         }
       }
     },
@@ -7191,7 +7777,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш представитися й завершити знайомство ввічливо.",
-          "ru": "Ты можешь представиться и вежливо завершить знакомство."
+          "ru": "Ты можешь представиться и вежливо завершить знакомство.",
+          "en": "You can introduce yourself and end an introduction politely."
         }
       }
     },
@@ -7201,7 +7788,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати й сказати, звідки ти.",
-          "ru": "Ты можешь спросить собеседника, откуда он, и сказать, откуда ты."
+          "ru": "Ты можешь спросить собеседника, откуда он, и сказать, откуда ты.",
+          "en": "You can ask and say where you’re from."
         }
       }
     },
@@ -7211,7 +7799,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш сказати, звідки ти, де живеш і попрощатися.",
-          "ru": "Ты можешь сказать, откуда ты, где живёшь, и попрощаться."
+          "ru": "Ты можешь сказать, откуда ты, где живёшь, и попрощаться.",
+          "en": "You can say where you’re from, where you live, and say goodbye."
         }
       }
     },
@@ -7221,7 +7810,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш представити знайомих людей і назвати їхню роль.",
-          "ru": "Ты можешь представить знакомых людей и назвать их роли."
+          "ru": "Ты можешь представить знакомых людей и назвать их роли.",
+          "en": "You can introduce familiar people and name their roles."
         }
       }
     },
@@ -7231,7 +7821,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати, яка людина, і коротко її описати.",
-          "ru": "Ты можешь спросить, какой человек, и коротко его описать."
+          "ru": "Ты можешь спросить, какой человек, и коротко его описать.",
+          "en": "You can ask what someone is like and describe them briefly."
         }
       }
     },
@@ -7241,7 +7832,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш поставити просте питання про мову та відповісти на нього.",
-          "ru": "Ты можешь задать простой вопрос о том, на каком языке говорит человек, и кратко ответить на такой вопрос."
+          "ru": "Ты можешь задать простой вопрос о том, на каком языке говорит человек, и кратко ответить на такой вопрос.",
+          "en": "You can ask a simple question about someone’s language and answer it."
         }
       }
     },
@@ -7251,7 +7843,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати про предмет і назвати його іспанською.",
-          "ru": "Ты можешь спросить о предмете и назвать его по-испански."
+          "ru": "Ты можешь спросить о предмете и назвать его по-испански.",
+          "en": "You can ask about an object and name it in Spanish."
         }
       }
     },
@@ -7261,7 +7854,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати, чи є предмет, і відповісти коротко.",
-          "ru": "Ты можешь спросить, есть ли нужный предмет, и кратко ответить."
+          "ru": "Ты можешь спросить, есть ли нужный предмет, и кратко ответить.",
+          "en": "You can ask whether an item is available and give a short answer."
         }
       }
     },
@@ -7271,7 +7865,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати ціну й зрозуміти просту відповідь.",
-          "ru": "Ты можешь спросить цену и понять простой ответ."
+          "ru": "Ты можешь спросить цену и понять простой ответ.",
+          "en": "You can ask the price and understand a simple answer."
         }
       }
     },
@@ -7281,7 +7876,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш завершити коротку купівлю іспанською.",
-          "ru": "Ты можешь завершить короткую покупку на испанском."
+          "ru": "Ты можешь завершить короткую покупку на испанском.",
+          "en": "You can complete a short purchase in Spanish."
         }
       }
     },
@@ -7291,7 +7887,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш сказати, яким транспортом їдеш.",
-          "ru": "Ты можешь сказать, как добираешься."
+          "ru": "Ты можешь сказать, как добираешься.",
+          "en": "You can say how you get somewhere."
         }
       }
     },
@@ -7301,7 +7898,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати, де станція, і сказати, чи вона близько.",
-          "ru": "Ты можешь спросить, где станция, и сказать, что она близко."
+          "ru": "Ты можешь спросить, где станция, и сказать, что она близко.",
+          "en": "You can ask where the station is and say whether it is near."
         }
       }
     },
@@ -7311,7 +7909,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати, як дістатися до готелю, і зрозуміти Sigue recto.",
-          "ru": "Ты можешь спросить, как добраться до отеля, и понять Sigue recto."
+          "ru": "Ты можешь спросить, как добраться до отеля, и понять Sigue recto.",
+          "en": "You can ask how to get to the hotel and understand Sigue recto."
         }
       }
     },
@@ -7321,7 +7920,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш дати короткі напрямки прямо, ліворуч і праворуч.",
-          "ru": "Ты можешь дать короткие указания: прямо, налево и направо."
+          "ru": "Ты можешь дать короткие указания: прямо, налево и направо.",
+          "en": "You can give short directions using straight ahead, left, and right."
         }
       }
     },
@@ -7331,7 +7931,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш провести короткий обмін про маршрут і транспорт.",
-          "ru": "Ты можешь провести короткий разговор о маршруте и транспорте."
+          "ru": "Ты можешь провести короткий разговор о маршруте и транспорте.",
+          "en": "You can have a short exchange about a route and transport."
         }
       }
     },
@@ -7341,7 +7942,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш ввічливо привернути увагу й попросити про допомогу.",
-          "ru": "Ты можешь вежливо привлечь внимание и попросить о помощи."
+          "ru": "Ты можешь вежливо привлечь внимание и попросить о помощи.",
+          "en": "You can get someone’s attention politely and ask for help."
         }
       }
     },
@@ -7351,7 +7953,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати, де знаходиться важлива служба.",
-          "ru": "Ты можешь спросить, где находится нужное место."
+          "ru": "Ты можешь спросить, где находится нужное место.",
+          "en": "You can ask where a needed place is."
         }
       }
     },
@@ -7361,7 +7964,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш коротко попросити лікаря або поліцію.",
-          "ru": "Ты можешь коротко сказать, что тебе нужен врач или полиция."
+          "ru": "Ты можешь коротко сказать, что тебе нужен врач или полиция.",
+          "en": "You can briefly ask for a doctor or the police."
         }
       }
     },
@@ -7371,7 +7975,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш коротко повідомити про надзвичайну ситуацію й попросити допомогу.",
-          "ru": "Ты можешь кратко сообщить о чрезвычайной ситуации и попросить о помощи."
+          "ru": "Ты можешь кратко сообщить о чрезвычайной ситуации и попросить о помощи.",
+          "en": "You can briefly say that it is an emergency and ask for help."
         }
       }
     },
@@ -7381,7 +7986,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш провести короткий передбачуваний обмін про допомогу.",
-          "ru": "Ты можешь провести короткий предсказуемый разговор о помощи."
+          "ru": "Ты можешь провести короткий предсказуемый разговор о помощи.",
+          "en": "You can have a short, predictable exchange about getting help."
         }
       }
     },
@@ -7391,7 +7997,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш представити близьку людину.",
-          "ru": "Ты можешь представить близкого человека."
+          "ru": "Ты можешь представить близкого человека.",
+          "en": "You can introduce a close family member."
         }
       }
     },
@@ -7401,7 +8008,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати про братів і сестер.",
-          "ru": "Ты можешь спросить о братьях и сёстрах."
+          "ru": "Ты можешь спросить о братьях и сёстрах.",
+          "en": "You can ask about brothers and sisters."
         }
       }
     },
@@ -7411,7 +8019,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш назвати кімнату та предмет.",
-          "ru": "Ты можешь назвать комнату и предмет."
+          "ru": "Ты можешь назвать комнату и предмет.",
+          "en": "You can name a room and an object."
         }
       }
     },
@@ -7421,7 +8030,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш запитати й сказати, де предмет у домі.",
-          "ru": "Ты можешь спросить и сказать, где находится предмет в доме."
+          "ru": "Ты можешь спросить и сказать, где находится предмет в доме.",
+          "en": "You can ask and say where an object is in a home."
         }
       }
     },
@@ -7431,7 +8041,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш провести короткий обмін про сім’ю та дім.",
-          "ru": "Ты можешь провести короткий разговор о семье и доме."
+          "ru": "Ты можешь провести короткий разговор о семье и доме.",
+          "en": "You can have a short exchange about family and home."
         }
       }
     },
@@ -7441,7 +8052,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш коротко сказати про своє самопочуття.",
-          "ru": "Ты можешь коротко рассказать о своём самочувствии."
+          "ru": "Ты можешь коротко рассказать о своём самочувствии.",
+          "en": "You can briefly say how you feel."
         }
       }
     },
@@ -7451,7 +8063,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш сказати про температуру або простий біль.",
-          "ru": "Ты можешь сказать, что у тебя температура или что-то болит."
+          "ru": "Ты можешь сказать, что у тебя температура или что-то болит.",
+          "en": "You can say that you have a fever or that something hurts."
         }
       }
     },
@@ -7461,7 +8074,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш попросити медичну допомогу й коротко сказати про здоров’я.",
-          "ru": "Ты можешь попросить медицинскую помощь и коротко рассказать о самочувствии."
+          "ru": "Ты можешь попросить медицинскую помощь и коротко рассказать о самочувствии.",
+          "en": "You can ask for medical help and briefly say how you feel."
         }
       }
     },
@@ -7471,7 +8085,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти поєднав знайомі фрази в кількох практичних ситуаціях.",
-          "ru": "Ты объединил знакомые фразы в нескольких практических ситуациях."
+          "ru": "Ты объединил знакомые фразы в нескольких практических ситуациях.",
+          "en": "You have used familiar phrases in several practical situations."
         }
       }
     },
@@ -7481,7 +8096,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти завершив підсумкову перевірку знайомих A0-комунікативних дій.",
-          "ru": "Ты завершил итоговую проверку знакомых коммуникативных действий уровня A0."
+          "ru": "Ты завершил итоговую проверку знакомых коммуникативных действий уровня A0.",
+          "en": "You have completed the final check of familiar A0 communication tasks."
         }
       }
     },
@@ -7491,7 +8107,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш назвати кілька основних дій свого дня.",
-          "ru": "Ты можешь назвать несколько основных действий своего дня."
+          "ru": "Ты можешь назвать несколько основных действий своего дня.",
+          "en": "You can name several basic actions from your day."
         }
       }
     },
@@ -7501,7 +8118,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш додати до знайомої дії час і частоту.",
-          "ru": "Ты можешь добавить к знакомому действию время и частоту."
+          "ru": "Ты можешь добавить к знакомому действию время и частоту.",
+          "en": "You can add time and frequency to a familiar action."
         }
       }
     },
@@ -7511,7 +8129,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш зрозуміти коротку послідовність дій дня.",
-          "ru": "Ты можешь понять короткую последовательность действий в течение дня."
+          "ru": "Ты можешь понять короткую последовательность действий в течение дня.",
+          "en": "You can understand a short sequence of daily actions."
         }
       }
     },
@@ -7521,7 +8140,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти можеш скласти короткий опис свого дня в межах знайомих структур.",
-          "ru": "Ты можешь составить короткое описание своего дня в рамках знакомых конструкций."
+          "ru": "Ты можешь составить короткое описание своего дня в рамках знакомых конструкций.",
+          "en": "You can build a short description of your day using familiar structures."
         }
       }
     },
@@ -7531,7 +8151,8 @@
       "fields": {
         "reviewPrompt": {
           "uk": "Ти завершив інтеграцію першого A1-модуля.",
-          "ru": "Ты завершил интеграцию первого модуля A1."
+          "ru": "Ты завершил интеграцию первого модуля A1.",
+          "en": "You have completed the first A1 module."
         }
       }
     },
