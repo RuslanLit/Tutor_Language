@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tutor_language/app/app.dart';
+import 'package:tutor_language/core/content/content_localization.dart';
 import 'package:tutor_language/l10n/generated/app_localizations.dart';
 
 void main() {
@@ -30,6 +31,7 @@ void main() {
 
   test('supported locales resolve by language code', () {
     final cases = <Locale, Locale>{
+      const Locale('en', 'US'): const Locale('en'),
       const Locale('uk', 'UA'): const Locale('uk'),
       const Locale('ru', 'UA'): const Locale('ru'),
       const Locale('ru', 'RU'): const Locale('ru'),
@@ -43,6 +45,22 @@ void main() {
       ], supportedTutorLanguageLocales);
 
       expect(resolved, entry.value);
+    }
+  });
+
+  test('educational support locales use release-ready localization only', () {
+    const resolver = SupportLocaleResolver();
+    final cases = <String, SupportLocale>{
+      'en': SupportLocale.english,
+      'uk': SupportLocale.ukrainian,
+      'ru': SupportLocale.russian,
+      'pl': SupportLocale.english,
+      'de': SupportLocale.english,
+      'fr': SupportLocale.english,
+    };
+
+    for (final entry in cases.entries) {
+      expect(resolver.resolveLanguageCode(entry.key), entry.value);
     }
   });
 

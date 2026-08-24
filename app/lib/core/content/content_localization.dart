@@ -55,8 +55,12 @@ class SupportLocaleResolver {
   }
 
   SupportLocale resolveLanguageCode(String languageCode) {
-    return SupportLocale.supported[languageCode.toLowerCase()] ??
-        SupportLocale.english;
+    return switch (languageCode.toLowerCase()) {
+      'uk' => SupportLocale.ukrainian,
+      'ru' => SupportLocale.russian,
+      'en' => SupportLocale.english,
+      _ => SupportLocale.english,
+    };
   }
 }
 

@@ -24,6 +24,17 @@
       "crossLocaleFallbackProhibited": true,
       "completedModules": ["es.a0.m01", "es.a0.m02", "es.a0.m03", "es.a0.m04", "es.a0.m05", "es.a0.m06", "es.a0.m07", "es.a0.m08", "es.a0.m09", "es.a1.m10"],
       "releaseEligible": true
+    },
+    {
+      "locale": "en",
+      "uiAvailable": true,
+      "educationalLocalizationState": "available",
+      "educationalContentSource": "source",
+      "semanticProductionReady": true,
+      "allowedFallbackLocale": null,
+      "crossLocaleFallbackProhibited": true,
+      "completedModules": ["es.a0.m01", "es.a0.m02", "es.a0.m03", "es.a0.m04", "es.a0.m05", "es.a0.m06", "es.a0.m07", "es.a0.m08", "es.a0.m09", "es.a1.m10"],
+      "releaseEligible": true
     }
   ]
 }
