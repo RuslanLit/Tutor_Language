@@ -703,33 +703,21 @@ class EducationalContentLocalizationResolver {
           template.promptTemplate,
       answerOptions: List.unmodifiable(
         template.answerOptions.map((option) {
-          final shouldLocalize = shouldLocalizeSupportAnswerOption(
-            promptTemplate: template.promptTemplate,
-            optionLabel: option.label,
-          );
-          final semanticLabel = _localizedField(
-            template.id,
-            'answer_options.${option.id}.label',
-            locale,
-          );
           return ExerciseTemplateOption(
             id: option.id,
             label:
-                semanticLabel ??
-                (shouldLocalize
-                    ? _localizedField(
-                            template.id,
-                            'answer_options.${option.id}.label',
-                            locale,
-                          ) ??
-                          _field(
-                            'exercise_template',
-                            template.id,
-                            'answer_options.${option.id}.label',
-                            locale,
-                          ) ??
-                          option.label
-                    : option.label),
+                _localizedField(
+                  template.id,
+                  'answer_options.${option.id}.label',
+                  locale,
+                ) ??
+                _explicitField(
+                  'exercise_template',
+                  template.id,
+                  'answer_options.${option.id}.label',
+                  locale,
+                ) ??
+                option.label,
           );
         }),
       ),
@@ -745,8 +733,45 @@ class EducationalContentLocalizationResolver {
       authoredMisconceptions: template.authoredMisconceptions,
       reviewTemplateIds: template.reviewTemplateIds,
       productionContract: template.productionContract,
-      guidedDialogue: template.guidedDialogue,
+      guidedDialogue: _resolveGuidedDialogue(template, locale),
       sentenceBuilder: template.sentenceBuilder,
+    );
+  }
+
+  GuidedDialogue? _resolveGuidedDialogue(
+    ExerciseTemplate template,
+    SupportLocale locale,
+  ) {
+    final dialogue = template.guidedDialogue;
+    if (dialogue == null) {
+      return null;
+    }
+    return GuidedDialogue(
+      turns: List.unmodifiable([
+        for (var index = 0; index < dialogue.turns.length; index += 1)
+          GuidedDialogueTurn(
+            speaker: dialogue.turns[index].speaker,
+            text: dialogue.turns[index].text,
+            learner: dialogue.turns[index].learner,
+            audioReferenceId: dialogue.turns[index].audioReferenceId,
+            learnerCue:
+                _localizedField(
+                  template.id,
+                  'guided_dialogue.turns.$index.learner_cue',
+                  locale,
+                ) ??
+                _explicitField(
+                  'exercise_template',
+                  template.id,
+                  'guided_dialogue.turns.$index.learner_cue',
+                  locale,
+                ) ??
+                dialogue.turns[index].learnerCue,
+            responsePatterns: dialogue.turns[index].responsePatterns,
+            allowedSlots: dialogue.turns[index].allowedSlots,
+            responseMode: dialogue.turns[index].responseMode,
+          ),
+      ]),
     );
   }
 
@@ -776,6 +801,18 @@ class EducationalContentLocalizationResolver {
     }
 
     return values[locale.code] ?? values[bundle.sourceSupportLocale];
+  }
+
+  String? _explicitField(
+    String type,
+    String? id,
+    String fieldName,
+    SupportLocale locale,
+  ) {
+    if (id == null) {
+      return null;
+    }
+    return _entriesByKey['$type|$id']?.fields[fieldName]?[locale.code];
   }
 
   List<String> _listFields(
@@ -953,6 +990,23 @@ class EducationalContentLocalizationInventory {
             fieldName: 'title',
             sourceText: activity.title,
           );
+          final spokenPractice = activity.spokenPractice;
+          if (spokenPractice != null) {
+            add(
+              category: 'spoken practice',
+              type: 'lesson_activity',
+              id: activity.id,
+              fieldName: 'spokenPractice.prompt',
+              sourceText: spokenPractice.prompt,
+            );
+            add(
+              category: 'spoken practice',
+              type: 'lesson_activity',
+              id: activity.id,
+              fieldName: 'spokenPractice.focusCue',
+              sourceText: spokenPractice.focusCue,
+            );
+          }
         }
       }
       if (lesson.summary != null) {
@@ -1070,6 +1124,18 @@ class EducationalContentLocalizationInventory {
                 );
               }
             }
+            final dialogue = template.guidedDialogue;
+            if (dialogue != null) {
+              for (var index = 0; index < dialogue.turns.length; index += 1) {
+                add(
+                  category: 'guided dialogue learner cues',
+                  type: 'exercise_template',
+                  id: template.id,
+                  fieldName: 'guided_dialogue.turns.$index.learner_cue',
+                  sourceText: dialogue.turns[index].learnerCue,
+                );
+              }
+            }
           }
         default:
           break;
@@ -1141,6 +1207,10 @@ bool shouldLocalizeSupportAnswerOption({
   final label = optionLabel.trim();
   if (label.isEmpty || _looksLikeTargetSpanish(label)) {
     return false;
+  }
+
+  if (RegExp(r'[А-Яа-яЁёІіЇїЄєҐґ]').hasMatch(label)) {
+    return true;
   }
 
   final lowerPrompt = promptTemplate.toLowerCase();

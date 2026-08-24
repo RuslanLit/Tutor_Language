@@ -1670,6 +1670,16 @@
           "uk": "Обміняйся інформацією про походження.",
           "ru": "Расскажи, откуда ты, и узнай, откуда собеседник.",
           "en": "Exchange information about where you’re from."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Скажи, звідки ти.",
+          "ru": "Скажи, откуда ты.",
+          "en": "Say where you’re from."
+        },
+        "guided_dialogue.turns.2.learner_cue": {
+          "uk": "Тепер запитай Луїса, звідки він.",
+          "ru": "Теперь спроси Луиса, откуда он.",
+          "en": "Now ask Luis where he’s from."
         }
       }
     },
@@ -3881,6 +3891,16 @@
           "uk": "Почни короткий обмін про свій звичайний день.",
           "ru": "Начни короткий разговор о своём обычном дне.",
           "en": "Start a short exchange about your usual day."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Назви першу дію свого дня.",
+          "ru": "Назови первое действие своего дня.",
+          "en": "Say the first thing you do in your day."
+        },
+        "guided_dialogue.turns.3.learner_cue": {
+          "uk": "Назви наступну дію.",
+          "ru": "Назови следующее действие.",
+          "en": "Name the next action."
         }
       }
     },
@@ -3977,6 +3997,16 @@
           "uk": "Відповідай про час і ранкову дію.",
           "ru": "Ответь, во сколько ты встаёшь и что делаешь утром.",
           "en": "Answer with a time and a morning activity."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Назви час підйому.",
+          "ru": "Назови время подъёма.",
+          "en": "Say what time you get up."
+        },
+        "guided_dialogue.turns.3.learner_cue": {
+          "uk": "Назви ранкову дію.",
+          "ru": "Назови утреннее действие.",
+          "en": "Say what you do in the morning."
         }
       }
     },
@@ -4062,6 +4092,21 @@
           "uk": "Проведи короткий обмін про послідовність дня.",
           "ru": "Проведи короткий разговор о последовательности дня.",
           "en": "Have a short exchange about the order of the day."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Назви першу дію.",
+          "ru": "Назови первое действие.",
+          "en": "Name the first action."
+        },
+        "guided_dialogue.turns.3.learner_cue": {
+          "uk": "Назви наступну дію.",
+          "ru": "Назови следующее действие.",
+          "en": "Name the next action."
+        },
+        "guided_dialogue.turns.5.learner_cue": {
+          "uk": "Назви дію в другій половині дня.",
+          "ru": "Назови действие во второй половине дня.",
+          "en": "Say what you do in the afternoon."
         }
       }
     },
@@ -4184,6 +4229,16 @@
           "uk": "Розкажи про початок і кінець свого дня двома репліками.",
           "ru": "Расскажи о начале и конце своего дня двумя репликами.",
           "en": "Describe the beginning and end of your day in two turns."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Назви час підйому.",
+          "ru": "Назови время подъёма.",
+          "en": "Say what time you get up."
+        },
+        "guided_dialogue.turns.3.learner_cue": {
+          "uk": "Назви наступну дію.",
+          "ru": "Назови следующее действие.",
+          "en": "Name the next action."
         }
       }
     },
@@ -4358,6 +4413,21 @@
           "uk": "Покажи, що можеш розповісти про час і послідовність дня.",
           "ru": "Покажи, что можешь рассказать о времени и последовательности дня.",
           "en": "Show that you can talk about time and the sequence of your day."
+        },
+        "guided_dialogue.turns.1.learner_cue": {
+          "uk": "Назви час підйому.",
+          "ru": "Назови время подъёма.",
+          "en": "Say what time you get up."
+        },
+        "guided_dialogue.turns.3.learner_cue": {
+          "uk": "Назви наступну дію.",
+          "ru": "Назови следующее действие.",
+          "en": "Name the next action."
+        },
+        "guided_dialogue.turns.5.learner_cue": {
+          "uk": "Назви дію в другій половині дня.",
+          "ru": "Назови действие во второй половине дня.",
+          "en": "Say what you do in the afternoon."
         }
       }
     },
