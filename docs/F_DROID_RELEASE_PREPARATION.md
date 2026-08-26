@@ -51,6 +51,12 @@ The exact F-Droid build recipe belongs in the public F-Droid metadata
 submission. `.fdroid.yml` is intentionally not added yet because the release
 tag and final F-Droid build recipe are not available.
 
+## Reproducible-build follow-up
+
+Future reproducible-build work: investigate Flutter embedded absolute build
+paths. This does not block the standard F-Droid source-build/signing workflow
+for v1.0.0.
+
 References:
 
 - <https://f-droid.org/docs/Installing_the_Server_and_Repo_Tools/>

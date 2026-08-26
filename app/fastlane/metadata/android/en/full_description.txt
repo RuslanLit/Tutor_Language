@@ -1,0 +1,20 @@
+Tutor Language is an offline app for learning Spanish.
+
+The first public release includes:
+
+• a complete Spanish A0 foundation;
+• the first A1 lessons about daily routine;
+• active typed recall;
+• sentence construction;
+• reading comprehension;
+• true listening comprehension with bundled reference audio;
+• guided dialogues and spoken rehearsal;
+• local progress and review.
+
+The app works without a network connection, account, ads, analytics, tracking,
+cloud AI, or synchronization. Learning data is stored on the device.
+Microphone access is used only while the learner voluntarily records speech
+for spoken rehearsal.
+
+Spanish A0 is complete. A complete A1 course is not claimed: the current
+release includes the first A1 module about daily routine.

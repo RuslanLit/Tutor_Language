@@ -19,12 +19,11 @@ learner chooses to record.
 ## Current maturity
 
 Tutor Language is an early public-release candidate. Spanish A0 is complete;
-Spanish A1 is currently represented by its first routine module and is not
-claimed to be a complete A1 course. The primary course-learning support
-languages are Ukrainian and Russian. Russian educational localization covers
-the executable course Lessons 1–42. English, German, Polish, Russian, and
-Ukrainian application locales are also present; this does not imply complete
-educational localization in English or Polish.
+Spanish A1 is currently represented by its first daily-routine module and is
+not claimed to be a complete A1 course. The release educational support
+languages are Ukrainian, Russian, and English. Generic application UI is also
+available in Polish and German, but Polish and German educational content is
+not claimed to be release-complete.
 
 ## Build from source
 
@@ -73,5 +72,5 @@ Source code: <https://github.com/RuslanLit/Tutor_Language>
 
 Issue tracker: <https://github.com/RuslanLit/Tutor_Language/issues>
 
-Screenshots are still pending capture from the current executable; no
-screenshots are fabricated in this repository.
+Release screenshots for Ukrainian, Russian, and English are included under
+`app/fastlane/metadata/android/`.

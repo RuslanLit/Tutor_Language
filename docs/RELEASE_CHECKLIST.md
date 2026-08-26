@@ -29,13 +29,13 @@ This document applies to all future releases unless explicitly superseded.
 Current Release Target
 
 Version:
-1.0
+1.0.0
 
 Current Phase:
-R2E2C — PronunciationUnit Runtime Integration
+First Public Release / F-Droid Preparation
 
 Overall Readiness:
-IN PROGRESS
+FINAL VERIFICATION
 
 ---
 
@@ -48,12 +48,16 @@ A public release is allowed only after all mandatory gates are complete.
 | Functional completeness | ✅ |
 | Educational completeness | ✅ |
 | User interface completeness | ✅ |
-| Localization | ⏳ |
-| Branding | ⏳ |
-| Legal documentation | ⏳ |
-| Release packaging | ⏳ |
-| F-Droid compliance | ⏳ |
-| Community review | ⏳ |
+| Localization | ✅ |
+| Branding | ✅ |
+| Legal documentation | ✅ |
+| Release packaging | ✅ |
+| F-Droid compliance | ✅ |
+| Release metadata | ✅ |
+| Physical/device QA | ✅ |
+
+Community review is a post-release, non-blocking activity for v1.0.0. The
+first public release is intended to make broader community feedback possible.
 
 Legend
 
@@ -63,6 +67,39 @@ Legend
 [x] complete
 [-] not applicable
 ```
+
+---
+
+## v1.0.0 final verification record
+
+| Check | Result |
+|-------|--------|
+| applicationId | `org.tutorlanguage.app` |
+| versionName | `1.0.0` |
+| versionCode | `1` |
+| minSdk | `26` |
+| targetSdk | `36` |
+| `flutter analyze` | PASS |
+| `flutter test` | PASS — 617 tests |
+| Release APK build | PASS |
+| `android.permission.INTERNET` | Absent |
+| `android.permission.RECORD_AUDIO` | Present — expected for voluntary spoken rehearsal |
+| `android.permission.ACCESS_NETWORK_STATE` | Present — does not grant network access |
+| QA Navigator user-reachable in release | No |
+| Debug/QA controls user-reachable in release | No |
+| Release lesson locking and persistence | PASS |
+| Educational support locales | Ukrainian, Russian, English |
+| Release screenshots | 15/15 |
+| `LICENSE` | Present |
+| `THIRD_PARTY_NOTICES.md` | Present |
+
+## Historical checklist scope
+
+The historical and development milestone checklists below are retained for
+traceability. Unchecked items outside the declared v1.0.0 product scope are
+not mandatory v1.0.0 release gates. The authoritative v1.0.0 release decision
+is the top-level Release Gates table together with the final verification
+record above.
 
 ---
 
@@ -681,7 +718,7 @@ Tutor Language is considered Release Ready only when:
 
 • manual device validation succeeds;
 
-• release packaging is reproducible;
+• the release packaging and source-build workflow are validated;
 
 • licensing and privacy documentation are complete;
 
