@@ -223,6 +223,9 @@ class _FakePlayback implements ReferenceAudioBackend {
   Future<void> setFile(String filePath) async => filePaths.add(filePath);
 
   @override
+  Future<void> setSpeed(double speed) async {}
+
+  @override
   Future<void> play() async {}
 
   @override

@@ -468,6 +468,9 @@ class _FakeBackend implements ReferenceAudioBackend {
   Future<void> setFile(String filePath) async {}
 
   @override
+  Future<void> setSpeed(double speed) async {}
+
+  @override
   Future<void> play() async {}
 
   @override

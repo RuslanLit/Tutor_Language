@@ -47,9 +47,11 @@ void main() {
     expect(backend.calls, [
       'stop',
       'set:assets/a.wav',
+      'speed:1.0',
       'play',
       'stop',
       'set:assets/a.wav',
+      'speed:1.0',
       'play',
     ]);
     expect(service.activeReferenceId, 'approved');
@@ -58,6 +60,42 @@ void main() {
     expect(service.activeReferenceId, isNull);
     await service.dispose();
     expect(backend.calls.last, 'dispose');
+  });
+
+  test('slow playback uses 0.75x', () async {
+    final backend = _FakeBackend();
+    final service = ReferenceAudioPlaybackService(
+      repository: Future.value(ReferenceAudioRepository(_manifest())),
+      backend: backend,
+    );
+
+    await service.play('approved', mode: ReferenceAudioPlaybackMode.slow);
+
+    expect(backend.calls, ['stop', 'set:assets/a.wav', 'speed:0.75', 'play']);
+    await service.dispose();
+  });
+
+  test('normal playback restores 1.0x after slow playback', () async {
+    final backend = _FakeBackend();
+    final service = ReferenceAudioPlaybackService(
+      repository: Future.value(ReferenceAudioRepository(_manifest())),
+      backend: backend,
+    );
+
+    await service.play('approved', mode: ReferenceAudioPlaybackMode.slow);
+    await service.play('approved');
+
+    expect(backend.calls, [
+      'stop',
+      'set:assets/a.wav',
+      'speed:0.75',
+      'play',
+      'stop',
+      'set:assets/a.wav',
+      'speed:1.0',
+      'play',
+    ]);
+    await service.dispose();
   });
 
   testWidgets(
@@ -88,6 +126,10 @@ void main() {
       await tester.tap(find.byTooltip('Listen'));
       await tester.pumpAndSettle();
       expect(backend.calls, contains('play'));
+      expect(find.byTooltip('0.75×'), findsOneWidget);
+      await tester.tap(find.byTooltip('0.75×'));
+      await tester.pumpAndSettle();
+      expect(backend.calls, contains('speed:0.75'));
 
       await tester.pumpWidget(
         ProviderScope(
@@ -146,6 +188,9 @@ class _FakeBackend implements ReferenceAudioBackend {
 
   @override
   Future<void> setFile(String filePath) async => calls.add('file:$filePath');
+
+  @override
+  Future<void> setSpeed(double speed) async => calls.add('speed:$speed');
 
   @override
   Future<void> play() async => calls.add('play');

@@ -124,7 +124,7 @@ void main() {
 
       await tester.pump();
       expect(backend.playCalls, 1);
-      await tester.tap(find.byType(IconButton));
+      await tester.tap(find.byTooltip('Listen'));
       await tester.pumpAndSettle();
       expect(backend.playCalls, 2);
       await service.dispose();
@@ -1093,6 +1093,9 @@ class _SentenceBuilderFakeBackend implements ReferenceAudioBackend {
 
   @override
   Future<void> setFile(String filePath) async {}
+
+  @override
+  Future<void> setSpeed(double speed) async {}
 
   @override
   Future<void> stop() async {}

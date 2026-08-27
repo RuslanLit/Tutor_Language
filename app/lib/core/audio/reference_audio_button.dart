@@ -22,6 +22,7 @@ class ReferenceAudioButton extends ConsumerStatefulWidget {
 
 class _ReferenceAudioButtonState extends ConsumerState<ReferenceAudioButton> {
   bool _busy = false;
+  ReferenceAudioPlaybackMode? _busyMode;
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +33,17 @@ class _ReferenceAudioButtonState extends ConsumerState<ReferenceAudioButton> {
 
     final label = context.l10n.audioListen;
     final playbackService = ref.watch(referenceAudioPlaybackServiceProvider);
-    final control = widget.showLabel
+    final normalControl = widget.showLabel
         ? OutlinedButton.icon(
             onPressed: _busy ? null : () => _play(playbackService, referenceId),
             icon: _busy
-                ? const SizedBox(
-                    width: 18,
-                    height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
+                ? _busyMode == ReferenceAudioPlaybackMode.normal
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.volume_up_outlined)
                 : const Icon(Icons.volume_up_outlined),
             label: Text(label),
           )
@@ -48,29 +51,83 @@ class _ReferenceAudioButtonState extends ConsumerState<ReferenceAudioButton> {
             tooltip: label,
             onPressed: _busy ? null : () => _play(playbackService, referenceId),
             icon: _busy
+                ? _busyMode == ReferenceAudioPlaybackMode.normal
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.volume_up_outlined)
+                : const Icon(Icons.volume_up_outlined),
+          );
+    const slowLabel = '0.75×';
+    final slowControl = widget.showLabel
+        ? OutlinedButton.icon(
+            onPressed: _busy
+                ? null
+                : () => _play(
+                    playbackService,
+                    referenceId,
+                    mode: ReferenceAudioPlaybackMode.slow,
+                  ),
+            icon: _busy && _busyMode == ReferenceAudioPlaybackMode.slow
+                ? const SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : const Icon(Icons.slow_motion_video_outlined),
+            label: const Text(slowLabel),
+          )
+        : IconButton(
+            tooltip: slowLabel,
+            onPressed: _busy
+                ? null
+                : () => _play(
+                    playbackService,
+                    referenceId,
+                    mode: ReferenceAudioPlaybackMode.slow,
+                  ),
+            icon: _busy && _busyMode == ReferenceAudioPlaybackMode.slow
                 ? const SizedBox(
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Icon(Icons.volume_up_outlined),
+                : const Icon(Icons.slow_motion_video_outlined),
           );
-    return Semantics(
-      button: true,
-      label: label,
-      child: widget.showLabel
-          ? Tooltip(message: label, child: control)
-          : control,
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Semantics(
+          button: true,
+          label: label,
+          child: widget.showLabel
+              ? Tooltip(message: label, child: normalControl)
+              : normalControl,
+        ),
+        Semantics(
+          button: true,
+          label: slowLabel,
+          child: widget.showLabel
+              ? Tooltip(message: slowLabel, child: slowControl)
+              : slowControl,
+        ),
+      ],
     );
   }
 
   Future<void> _play(
     ReferenceAudioPlaybackService playbackService,
-    String referenceId,
-  ) async {
-    setState(() => _busy = true);
+    String referenceId, {
+    ReferenceAudioPlaybackMode mode = ReferenceAudioPlaybackMode.normal,
+  }) async {
+    setState(() {
+      _busy = true;
+      _busyMode = mode;
+    });
     try {
-      await playbackService.play(referenceId);
+      await playbackService.play(referenceId, mode: mode);
     } on ReferenceAudioFailure catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(
@@ -78,7 +135,12 @@ class _ReferenceAudioButtonState extends ConsumerState<ReferenceAudioButton> {
         ).showSnackBar(SnackBar(content: Text(context.l10n.audioUnavailable)));
       }
     } finally {
-      if (mounted) setState(() => _busy = false);
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _busyMode = null;
+        });
+      }
     }
   }
 }

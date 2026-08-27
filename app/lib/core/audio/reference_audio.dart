@@ -60,6 +60,7 @@ class ReferenceAudioRepository {
 abstract interface class ReferenceAudioBackend {
   Future<void> setAsset(String assetPath);
   Future<void> setFile(String filePath);
+  Future<void> setSpeed(double speed);
   Future<void> play();
   Future<void> stop();
   Future<void> dispose();
@@ -103,6 +104,12 @@ class JustAudioReferenceBackend implements ReferenceAudioBackend {
   }
 
   @override
+  Future<void> setSpeed(double speed) async {
+    _debugAudio('set-speed speed=$speed');
+    await _player.setSpeed(speed);
+  }
+
+  @override
   Future<void> play() async {
     _debugAudio(
       'play-called volume=${_player.volume} speed=${_player.speed} '
@@ -125,6 +132,15 @@ class JustAudioReferenceBackend implements ReferenceAudioBackend {
   }
 }
 
+enum ReferenceAudioPlaybackMode { normal, slow }
+
+extension ReferenceAudioPlaybackModeX on ReferenceAudioPlaybackMode {
+  double get speed => switch (this) {
+    ReferenceAudioPlaybackMode.normal => 1.0,
+    ReferenceAudioPlaybackMode.slow => 0.75,
+  };
+}
+
 class ReferenceAudioPlaybackService {
   ReferenceAudioPlaybackService({
     required this.repository,
@@ -140,7 +156,10 @@ class ReferenceAudioPlaybackService {
 
   String? get activeReferenceId => _activeReferenceId;
 
-  Future<void> play(String referenceId) async {
+  Future<void> play(
+    String referenceId, {
+    ReferenceAudioPlaybackMode mode = ReferenceAudioPlaybackMode.normal,
+  }) async {
     if (_disposed) return;
     _debugAudio('play-request reference-id=$referenceId');
     try {
@@ -152,6 +171,7 @@ class ReferenceAudioPlaybackService {
       await backend.stop();
       try {
         await backend.setAsset(asset.assetPath);
+        await backend.setSpeed(mode.speed);
       } on Object catch (error) {
         throw ReferenceAudioFailure(
           ReferenceAudioFailureCode.assetUnavailable,
@@ -181,6 +201,7 @@ class ReferenceAudioPlaybackService {
       }
       await backend.stop();
       await backend.setFile(filePath);
+      await backend.setSpeed(ReferenceAudioPlaybackMode.normal.speed);
       await backend.play();
     } on Object catch (error) {
       throw ReferenceAudioFailure(
