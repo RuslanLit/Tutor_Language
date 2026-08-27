@@ -1,7 +1,7 @@
 # DRAFT ONLY — not valid for submission until every USER INPUT REQUIRED item
 # is replaced and the WAV/reproducibility gates in fdroid/README.md pass.
 Categories:
-  - Education
+  - Science & Education
 License: GPL-3.0-or-later
 AuthorName: Tutor Language contributors
 WebSite: https://github.com/RuslanLit/Tutor_Language
@@ -29,8 +29,10 @@ AntiFeatures:
 Builds:
   - versionName: 1.0.1
     versionCode: 2
-    # USER INPUT REQUIRED: exact clean source commit containing this recipe.
-    commit: EXACT_RELEASE_COMMIT
+    # NOT a constant: this must be bumped to the exact clean release commit for
+    # EVERY new release (the commit that contains this recipe and the matching
+    # versionName/versionCode). Current value = tag v1.0.1.
+    commit: 4ef91e4a7ec50934bbefa360287a3415822af259
     subdir: app
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
@@ -40,8 +42,10 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter pub get --enforce-lockfile
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter build apk --release
+    # subdir is `app`, so PUB_CACHE=$(pwd)/.pub-cache lands at <repo>/app/.pub-cache,
+    # but scandelete is resolved from the repo root — hence the `app/` prefix.
     scandelete:
-      - .pub-cache
+      - app/.pub-cache
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags
