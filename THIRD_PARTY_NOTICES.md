@@ -7,39 +7,49 @@ provenance and licensing terms.
 ## Spanish reference audio
 
 The bundled Spanish reference WAV files in
-`app/assets/languages/spanish/audio/reference/` were generated locally during
-development with Piper using the voice `es_ES-sharvard-medium`. Piper and its
-voice metadata are not runtime dependencies of the Android application, and
-the Piper executable, voice model, and development virtual environments are
-not bundled in the APK.
+`app/assets/languages/spanish/audio/reference/` are **Generated Output of the
+Google Cloud Text-to-Speech API**. They were synthesized at authoring time,
+outside the application; no Google SDK, model, API key, or network call is a
+runtime dependency of the Android application, and nothing Google-side is
+bundled in the APK.
 
-The upstream voice record is published in the `rhasspy/piper-voices`
-repository:
+- Voice: `es-ES-Chirp3-HD-Charon` (Spanish (Spain), male, Chirp 3: HD tier),
+  24 kHz LINEAR16 output, resampled to 22.05 kHz mono for the bundle. Peak
+  normalized to −3 dBFS and leading silence trimmed; no other processing.
+- Generated: 2026-08-27.
+- Terms in effect: Google Cloud Platform Terms of Service and the Google Cloud
+  Service Specific Terms, **"Generative AI Services"** section.
+  - <https://cloud.google.com/terms> (accessed 2026-08-27)
+  - <https://cloud.google.com/terms/service-terms> (accessed 2026-08-27)
+  - <https://cloud.google.com/text-to-speech> (accessed 2026-08-27)
+- Under those terms the synthesized audio is **Customer Data**: Google states
+  it does not acquire rights to Customer Data or to new intellectual property
+  in Generated Output, and permits use of Generated Output (including
+  commercial use and redistribution) subject to the Acceptable Use Policy.
+  Google, not the customer, is responsible for the training data behind its
+  voice models.
+- The exact synthesis parameters, per-file SHA-256, and the review record are
+  kept with the release engineering notes, not in the APK.
 
-- Voice/model record: <https://huggingface.co/rhasspy/piper-voices/tree/main/es/es_ES/sharvard/medium>
-- Voice model metadata: <https://huggingface.co/rhasspy/piper-voices/blob/main/es/es_ES/sharvard/medium/MODEL_CARD>
-- The upstream `piper-voices` repository/model record is marked MIT in its
-  published metadata.
+A dated copy of the applicable Terms should be retained with the release
+records before each public distribution, and the "Generative AI" section
+re-checked for any attribution or non-endorsement clause relevant to store
+metadata.
 
-The voice model card identifies the training data as the Sharvard corpus
-(also referred to as Sharvard_IJA):
+### Archived audio-provenance research (no longer used in production)
 
-- Dataset: Sharvard Corpus
-- Authors: Vincent Aubanel; Maria Luisa García Lecumberri; Martin Cooke
-- Dataset license identified by the voice model card: Creative Commons
-  Attribution 3.0 (CC BY 3.0)
-- Dataset source: <https://datashare.ed.ac.uk/handle/10283/574>
-- Dataset citation: <https://doi.org/10.3109/14992027.2014.907507>
-
-These notices document the upstream provenance of the voice used to generate
-the files. Tutor Language generated the bundled WAV files during development.
-They are distributed as project reference audio with the applicable upstream
-provenance and attribution preserved. No claim is made that the generated WAV
-files are MIT, CC BY 3.0, or relicensed under GPL merely because those terms
-apply to upstream components or source data. The remaining release question
-is whether any additional attribution or redistribution condition applies to
-these generated recordings under the exact voice/model and dataset/depositor
-terms; that question must be confirmed before public distribution.
+Earlier development used Piper `es_ES-sharvard-medium` for this WAV set, and
+`es_ES-davefx-medium`, `es_ES-carlfm-*` (incl. the community retrain
+`friyin/vits-piper-es_ES-carlfm-high`), `es_ES-mls_*`, and eSpeak NG were
+investigated as alternatives. Those voices are **no longer used in
+production**. The blocking issue in each case was that redistribution and
+commercial-use rights in the *generated recordings* could not be established
+from an authoritative source (Sharvard: DataShare record does not display the
+CC BY 3.0 grant asserted by the model card; davefx: Lessac Blizzard 2013
+lineage restricts use to research; carlfm: LibriVox single-speaker source is
+undocumented and its download is gone; mls: broken output). The full
+investigation history remains in the Git log for transparency; the current
+production voice is Google Cloud Text-to-Speech as described above.
 
 ## Font
 

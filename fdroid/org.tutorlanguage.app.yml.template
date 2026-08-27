@@ -1,0 +1,49 @@
+# DRAFT ONLY — not valid for submission until every USER INPUT REQUIRED item
+# is replaced and the WAV/reproducibility gates in fdroid/README.md pass.
+Categories:
+  - Education
+License: GPL-3.0-or-later
+AuthorName: Tutor Language contributors
+WebSite: https://github.com/RuslanLit/Tutor_Language
+SourceCode: https://github.com/RuslanLit/Tutor_Language
+IssueTracker: https://github.com/RuslanLit/Tutor_Language/issues
+
+RepoType: git
+Repo: https://github.com/RuslanLit/Tutor_Language.git
+
+AntiFeatures:
+  NonFreeAssets:
+    en-US: >-
+      The bundled Spanish reference speech in
+      app/assets/languages/spanish/audio/reference/ is Generated Output of the
+      proprietary Google Cloud Text-to-Speech service (voice
+      es-ES-Chirp3-HD-Charon). The app has no non-free code, network
+      dependency, or runtime service; only these pre-rendered WAV assets are
+      non-free. See THIRD_PARTY_NOTICES.md.
+
+# USER INPUT REQUIRED after the real GitHub release exists:
+# Binaries: https://github.com/RuslanLit/Tutor_Language/releases/download/v%v/TutorLanguage-%v.apk
+# USER INPUT REQUIRED after the permanent developer key exists:
+# AllowedAPKSigningKeys: CERTIFICATE_SHA256_WITHOUT_SEPARATORS
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    # USER INPUT REQUIRED: exact clean source commit containing this recipe.
+    commit: EXACT_RELEASE_COMMIT
+    subdir: app
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.44.9
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter config --no-analytics
+      - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter pub get --enforce-lockfile
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter build apk --release
+    scandelete:
+      - .pub-cache
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1

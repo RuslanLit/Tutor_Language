@@ -8,12 +8,12 @@
       "transcript": "Disculpe.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -24,12 +24,12 @@
       "transcript": "Necesito ayuda.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -40,12 +40,12 @@
       "transcript": "¿Dónde está el baño?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -56,12 +56,12 @@
       "transcript": "¿Dónde está la farmacia?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -72,12 +72,12 @@
       "transcript": "Necesito un médico.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -88,12 +88,12 @@
       "transcript": "Necesito la policía.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -104,12 +104,12 @@
       "transcript": "Es una emergencia.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -120,12 +120,12 @@
       "transcript": "¿Puede ayudarme?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -136,12 +136,12 @@
       "transcript": "¿Sí?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -152,12 +152,12 @@
       "transcript": "¿Qué pasa?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -168,12 +168,12 @@
       "transcript": "Hola.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -184,12 +184,12 @@
       "transcript": "Me llamo Ana.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -200,12 +200,12 @@
       "transcript": "¿Cómo te llamas?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -216,12 +216,12 @@
       "transcript": "Adiós.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -232,12 +232,12 @@
       "transcript": "Ana",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -248,12 +248,12 @@
       "transcript": "Buenas noches.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -264,12 +264,12 @@
       "transcript": "Buenas tardes.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -280,12 +280,12 @@
       "transcript": "Buenos días.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -296,12 +296,12 @@
       "transcript": "De nada.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -312,12 +312,12 @@
       "transcript": "De nada. Nos vemos.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -328,12 +328,12 @@
       "transcript": "Disculpa.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -344,12 +344,12 @@
       "transcript": "Disculpa. No hablo francés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -360,12 +360,12 @@
       "transcript": "Ella es mi amiga. Se llama Sofía.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -376,12 +376,12 @@
       "transcript": "Ella es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -392,12 +392,12 @@
       "transcript": "Encantada.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -408,12 +408,12 @@
       "transcript": "Encantado.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -424,12 +424,12 @@
       "transcript": "Es de España.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -440,12 +440,12 @@
       "transcript": "Es de España. Vive en Madrid.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -456,12 +456,12 @@
       "transcript": "Es de Ucrania y vive en Kyiv.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -472,12 +472,12 @@
       "transcript": "Es de Ucrania. Vive en Kyiv.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -488,12 +488,12 @@
       "transcript": "Es de...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -504,12 +504,12 @@
       "transcript": "España",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -520,12 +520,12 @@
       "transcript": "Esta es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -536,12 +536,12 @@
       "transcript": "Este es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -552,12 +552,12 @@
       "transcript": "Estoy bien, gracias.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -568,12 +568,12 @@
       "transcript": "Estoy bien, gracias. ¿Y tú?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -584,12 +584,12 @@
       "transcript": "Estoy bien.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -600,12 +600,12 @@
       "transcript": "Está bien.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -616,12 +616,12 @@
       "transcript": "Gracias.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -632,12 +632,12 @@
       "transcript": "Gracias. Hasta luego.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -648,12 +648,12 @@
       "transcript": "Habla español e inglés, pero no habla francés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -664,12 +664,12 @@
       "transcript": "Habla español e inglés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -680,12 +680,12 @@
       "transcript": "Habla español un poco, pero no habla francés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -696,12 +696,12 @@
       "transcript": "Habla español un poco.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -712,12 +712,12 @@
       "transcript": "Habla...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -728,12 +728,12 @@
       "transcript": "Hablo español e inglés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -744,12 +744,12 @@
       "transcript": "Hablo español.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -760,12 +760,12 @@
       "transcript": "Hablo español. No hablo alemán.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -776,12 +776,12 @@
       "transcript": "Hablo inglés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -792,12 +792,12 @@
       "transcript": "Hasta luego.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -808,12 +808,12 @@
       "transcript": "Hasta pronto.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -824,12 +824,12 @@
       "transcript": "Hola, Ana. ¿Cómo estás?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -840,12 +840,12 @@
       "transcript": "Hola, Marta. Me llamo Ana.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -856,12 +856,12 @@
       "transcript": "Hola, Marta. ¿Cómo estás?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -872,12 +872,12 @@
       "transcript": "Hola. Buenos días.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -888,12 +888,12 @@
       "transcript": "Hola. Me llamo Luis.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -904,12 +904,12 @@
       "transcript": "Hola. Me llamo Marta.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -920,12 +920,12 @@
       "transcript": "Kyiv",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -936,12 +936,12 @@
       "transcript": "Lo siento.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -952,12 +952,12 @@
       "transcript": "Lo siento. Hasta pronto.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -968,12 +968,12 @@
       "transcript": "Madrid",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -984,12 +984,12 @@
       "transcript": "Marta",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1000,12 +1000,12 @@
       "transcript": "Me llamo Marta.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1016,12 +1016,12 @@
       "transcript": "Me llamo...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1032,12 +1032,12 @@
       "transcript": "Muchas gracias.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1048,12 +1048,12 @@
       "transcript": "Mucho gusto.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1064,12 +1064,12 @@
       "transcript": "Mucho gusto. Hasta luego.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1080,12 +1080,12 @@
       "transcript": "Mucho gusto. ¿Cómo estás?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1096,12 +1096,12 @@
       "transcript": "Muy bien, gracias.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1112,12 +1112,12 @@
       "transcript": "Muy bien.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1128,12 +1128,12 @@
       "transcript": "Más o menos.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1144,12 +1144,12 @@
       "transcript": "No hablo francés.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1160,12 +1160,12 @@
       "transcript": "No hablo...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1176,12 +1176,12 @@
       "transcript": "No, no es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1192,12 +1192,12 @@
       "transcript": "No.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1208,12 +1208,12 @@
       "transcript": "Nos vemos.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1224,12 +1224,12 @@
       "transcript": "Perdón.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1240,12 +1240,12 @@
       "transcript": "Perdón. ¿Cómo te llamas?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1256,12 +1256,12 @@
       "transcript": "Por favor.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1272,12 +1272,12 @@
       "transcript": "Que tengas un buen día.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1288,12 +1288,12 @@
       "transcript": "Se llama...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1304,12 +1304,12 @@
       "transcript": "Soy de España. Vivo en Madrid.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1320,12 +1320,12 @@
       "transcript": "Soy de España.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1336,12 +1336,12 @@
       "transcript": "Soy de Ucrania.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1352,12 +1352,12 @@
       "transcript": "Soy de...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1368,12 +1368,12 @@
       "transcript": "Soy...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1384,12 +1384,12 @@
       "transcript": "Sí, es mi amiga. Se llama Sofía.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1400,12 +1400,12 @@
       "transcript": "Sí, es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1416,12 +1416,12 @@
       "transcript": "Sí.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1432,12 +1432,12 @@
       "transcript": "También",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1448,12 +1448,12 @@
       "transcript": "También hablo inglés. Hablo un poco de español.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1464,12 +1464,12 @@
       "transcript": "Ucrania",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1480,12 +1480,12 @@
       "transcript": "Un poco",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1496,12 +1496,12 @@
       "transcript": "Vive en Madrid.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1512,12 +1512,12 @@
       "transcript": "Vive en...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1528,12 +1528,12 @@
       "transcript": "Vivo en Kyiv.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1544,12 +1544,12 @@
       "transcript": "Vivo en...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1560,12 +1560,12 @@
       "transcript": "alemán",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1576,12 +1576,12 @@
       "transcript": "francés",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1592,12 +1592,12 @@
       "transcript": "idiomas",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1608,12 +1608,12 @@
       "transcript": "mi amiga",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1624,12 +1624,12 @@
       "transcript": "mi amigo",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1640,12 +1640,12 @@
       "transcript": "mi compañera",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1656,12 +1656,12 @@
       "transcript": "mi compañero",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1672,12 +1672,12 @@
       "transcript": "mi profesor",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1688,12 +1688,12 @@
       "transcript": "mi profesora",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1704,12 +1704,12 @@
       "transcript": "pero",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1720,12 +1720,12 @@
       "transcript": "tu",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1736,12 +1736,12 @@
       "transcript": "y",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "word",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1752,12 +1752,12 @@
       "transcript": "¿Cómo estás?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1768,12 +1768,12 @@
       "transcript": "¿Cómo se llama?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1784,12 +1784,12 @@
       "transcript": "¿De dónde eres?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1800,12 +1800,12 @@
       "transcript": "¿De dónde es?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1816,12 +1816,12 @@
       "transcript": "¿Dónde vive?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1832,12 +1832,12 @@
       "transcript": "¿Dónde vives?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1848,12 +1848,12 @@
       "transcript": "¿Es tu amiga?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1864,12 +1864,12 @@
       "transcript": "¿Es tu amigo?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1880,12 +1880,12 @@
       "transcript": "¿Hablas español?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1896,12 +1896,12 @@
       "transcript": "¿Hablas francés?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1912,12 +1912,12 @@
       "transcript": "¿Quién es ella?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1928,12 +1928,12 @@
       "transcript": "¿Quién es él?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1944,12 +1944,12 @@
       "transcript": "¿Quién es?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1960,12 +1960,12 @@
       "transcript": "¿Qué idiomas habla?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1976,12 +1976,12 @@
       "transcript": "¿Qué idiomas hablas?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -1992,12 +1992,12 @@
       "transcript": "¿Y tú?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2008,12 +2008,12 @@
       "transcript": "Él es Luis. Se llama Luis.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2024,12 +2024,12 @@
       "transcript": "Él es mi amigo. Se llama Luis.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "dialogueTurn",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2040,12 +2040,12 @@
       "transcript": "Él es...",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "phrase",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2056,12 +2056,12 @@
       "transcript": "Hablo un poco de español.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2072,12 +2072,12 @@
       "transcript": "Más o menos, gracias.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2088,12 +2088,12 @@
       "transcript": "Ella es Ana.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2104,12 +2104,12 @@
       "transcript": "Él es Luis.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2120,12 +2120,12 @@
       "transcript": "Ella es mi amiga.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2136,12 +2136,12 @@
       "transcript": "Él es mi profesor.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2152,12 +2152,12 @@
       "transcript": "Es de Ucrania.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2168,12 +2168,12 @@
       "transcript": "Habla español.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2184,12 +2184,12 @@
       "transcript": "Se llama Luis.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2200,12 +2200,12 @@
       "transcript": "Sí, es mi amiga.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2216,12 +2216,12 @@
       "transcript": "No entiendo.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2232,12 +2232,12 @@
       "transcript": "Repite, por favor.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2248,12 +2248,12 @@
       "transcript": "Igualmente.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2264,12 +2264,12 @@
       "transcript": "Esta es mi compañera.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2280,12 +2280,12 @@
       "transcript": "Ella es joven.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2296,12 +2296,12 @@
       "transcript": "Él es simpático.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2312,12 +2312,12 @@
       "transcript": "¿Cómo es Ana?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2328,12 +2328,12 @@
       "transcript": "¿Habla español?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2344,12 +2344,12 @@
       "transcript": "Sí, habla español.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2360,12 +2360,12 @@
       "transcript": "¿Habla francés?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2376,12 +2376,12 @@
       "transcript": "¿Qué es esto?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2392,12 +2392,12 @@
       "transcript": "Es un libro.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2408,12 +2408,12 @@
       "transcript": "¿Y esto?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2424,12 +2424,12 @@
       "transcript": "Es una botella.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2440,12 +2440,12 @@
       "transcript": "¿Tiene una llave?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2456,12 +2456,12 @@
       "transcript": "Sí, tenemos una llave.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2472,12 +2472,12 @@
       "transcript": "¿Qué necesitas?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2488,12 +2488,12 @@
       "transcript": "Necesito una llave.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2504,12 +2504,12 @@
       "transcript": "Voy en metro.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2520,12 +2520,12 @@
       "transcript": "Voy a pie.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2536,12 +2536,12 @@
       "transcript": "¿Dónde está la estación?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2552,12 +2552,12 @@
       "transcript": "Está cerca.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2568,12 +2568,12 @@
       "transcript": "Está lejos.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2584,12 +2584,12 @@
       "transcript": "¿Cómo llego al hotel?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2600,12 +2600,12 @@
       "transcript": "Sigue recto.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2616,12 +2616,12 @@
       "transcript": "Gira a la izquierda.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2632,12 +2632,12 @@
       "transcript": "Gira a la derecha.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2648,12 +2648,12 @@
       "transcript": "Toma el metro.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2664,12 +2664,12 @@
       "transcript": "Esta es mi madre.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2680,12 +2680,12 @@
       "transcript": "Este es mi padre.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2696,12 +2696,12 @@
       "transcript": "¿Tienes hermanos?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2712,12 +2712,12 @@
       "transcript": "Tengo una hermana.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2728,12 +2728,12 @@
       "transcript": "No tengo hermanos.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2744,12 +2744,12 @@
       "transcript": "Esta es la cocina.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2760,12 +2760,12 @@
       "transcript": "¿Dónde está la mesa?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2776,12 +2776,12 @@
       "transcript": "La mesa está en la cocina.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2792,12 +2792,12 @@
       "transcript": "Hay una mesa en la cocina.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2808,12 +2808,12 @@
       "transcript": "¿Qué haces normalmente?",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2824,12 +2824,12 @@
       "transcript": "Me levanto a las siete.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "communicativeChunk",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2840,12 +2840,12 @@
       "transcript": "Me levanto a las siete. Después desayuno. Por la mañana trabajo.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }
@@ -2856,12 +2856,12 @@
       "transcript": "Por la tarde vuelvo a casa. Por la noche ceno y duermo.",
       "languageCode": "es",
       "locale": "es_ES",
-      "voiceId": "es_ES-sharvard-medium",
+      "voiceId": "es-ES-Chirp3-HD-Charon",
       "purpose": "listeningStimulus",
       "qaStatus": "approved",
       "provenance": {
-        "engine": "Piper",
-        "voice": "es_ES-sharvard-medium",
+        "engine": "Google Cloud TTS",
+        "voice": "es-ES-Chirp3-HD-Charon",
         "locale": "es_ES",
         "generationRole": "authoring-time only"
       }

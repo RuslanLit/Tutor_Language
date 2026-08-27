@@ -28,3 +28,6 @@ Books/**/extracted/
 # Local TTS environment
 .venv-tts/
 .venv-piper/
+
+# Claude Code local session/permission settings
+.claude/
