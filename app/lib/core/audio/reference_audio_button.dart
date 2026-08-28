@@ -60,7 +60,7 @@ class _ReferenceAudioButtonState extends ConsumerState<ReferenceAudioButton> {
                       : const Icon(Icons.volume_up_outlined)
                 : const Icon(Icons.volume_up_outlined),
           );
-    const slowLabel = '0.75×';
+    const slowLabel = '0.6×';
     final slowControl = widget.showLabel
         ? OutlinedButton.icon(
             onPressed: _busy

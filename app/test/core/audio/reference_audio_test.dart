@@ -62,7 +62,7 @@ void main() {
     expect(backend.calls.last, 'dispose');
   });
 
-  test('slow playback uses 0.75x', () async {
+  test('slow playback uses 0.6x', () async {
     final backend = _FakeBackend();
     final service = ReferenceAudioPlaybackService(
       repository: Future.value(ReferenceAudioRepository(_manifest())),
@@ -71,7 +71,7 @@ void main() {
 
     await service.play('approved', mode: ReferenceAudioPlaybackMode.slow);
 
-    expect(backend.calls, ['stop', 'set:assets/a.wav', 'speed:0.75', 'play']);
+    expect(backend.calls, ['stop', 'set:assets/a.wav', 'speed:0.6', 'play']);
     await service.dispose();
   });
 
@@ -88,7 +88,7 @@ void main() {
     expect(backend.calls, [
       'stop',
       'set:assets/a.wav',
-      'speed:0.75',
+      'speed:0.6',
       'play',
       'stop',
       'set:assets/a.wav',
@@ -126,10 +126,10 @@ void main() {
       await tester.tap(find.byTooltip('Listen'));
       await tester.pumpAndSettle();
       expect(backend.calls, contains('play'));
-      expect(find.byTooltip('0.75×'), findsOneWidget);
-      await tester.tap(find.byTooltip('0.75×'));
+      expect(find.byTooltip('0.6×'), findsOneWidget);
+      await tester.tap(find.byTooltip('0.6×'));
       await tester.pumpAndSettle();
-      expect(backend.calls, contains('speed:0.75'));
+      expect(backend.calls, contains('speed:0.6'));
 
       await tester.pumpWidget(
         ProviderScope(

@@ -134,10 +134,13 @@ class JustAudioReferenceBackend implements ReferenceAudioBackend {
 
 enum ReferenceAudioPlaybackMode { normal, slow }
 
+/// Playback rate applied when learners request slow reference audio.
+const double kSlowPlaybackSpeed = 0.6;
+
 extension ReferenceAudioPlaybackModeX on ReferenceAudioPlaybackMode {
   double get speed => switch (this) {
     ReferenceAudioPlaybackMode.normal => 1.0,
-    ReferenceAudioPlaybackMode.slow => 0.75,
+    ReferenceAudioPlaybackMode.slow => kSlowPlaybackSpeed,
   };
 }
 
