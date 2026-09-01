@@ -6,8 +6,9 @@ plugins {
 
 android {
     namespace = "org.tutorlanguage.app"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 36
+    buildToolsVersion = "36.1.0"
+    ndkVersion = "28.2.13676358"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -17,15 +18,17 @@ android {
     defaultConfig {
         applicationId = "org.tutorlanguage.app"
         minSdk = 26
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
     buildTypes {
         release {
-            // Leave release artifacts unsigned for upstream/F-Droid packaging.
-            // A distribution maintainer supplies the final signing key.
+            // BUILD and SIGN are deliberately separate. Gradle produces the
+            // reproducible unsigned artifact; tool/release/sign_apk.sh applies
+            // the permanent developer signature outside the source build.
+            // F-Droid never receives or needs the private signing key.
         }
     }
 }
