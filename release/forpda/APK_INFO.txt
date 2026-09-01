@@ -1,0 +1,63 @@
+Tutor Language 1.0.1 — APK inspection record
+
+Artifact: TutorLanguage-1.0.1-signed.apk
+Publication status: SIGNED — installable release artifact
+Size: 73205947 bytes (69.81 MiB; Flutter reported 73.2 MB)
+SHA-256 (signed APK):   9aefd7033c0248a17b255af4d43dfebaf15a8e4e3b4505b2c76c35c1dc396c82
+SHA-256 (unsigned APK): e5a449612d753935a1dd41a02eadcf2774bfe9c593a52764662c59afadc3699d
+
+Package: org.tutorlanguage.app
+Application label: Tutor Language
+Version name: 1.0.1
+Version code: 2
+minSdk: API 26
+Android requirement: Android 8.0+
+targetSdk: API 36
+compileSdk: API 36
+Platform build: Android 16 / API 36
+
+Supported ABI:
+- arm64-v8a
+- armeabi-v7a
+- x86_64
+
+Change vs. earlier 1.0.1 build:
+- Slow reference-audio playback rate lowered from 0.75x to 0.6x
+  (ReferenceAudioPlaybackMode.slow => 0.6; slow button label now "0.6x").
+  No other code or asset change. This APK therefore differs byte-for-byte
+  from the F-Droid canonical-test build and from the earlier 0.75x signed
+  4PDA artifact.
+
+Permissions in final APK:
+- android.permission.RECORD_AUDIO — voluntary local spoken-practice recording.
+- android.permission.ACCESS_NETWORK_STATE — merged from AndroidX Media3 1.4.1; does not grant network access.
+- org.tutorlanguage.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION — signature-level app-scoped receiver protection merged from AndroidX Core 1.13.1.
+
+Not present:
+- android.permission.INTERNET
+- camera, contacts, location, broad storage, advertising-ID permissions
+
+Signing verification (apksigner verify -v --print-certs):
+PASS — Verifies.
+- v2 (APK Signature Scheme v2): true
+- v3 (APK Signature Scheme v3): true
+- v1 (JAR signing): false (not required for minSdk 26)
+- Signer #1 certificate DN: CN=Tutor Language, OU=Release, O=Tutor Language, L=Unknown, ST=Unknown, C=UA
+- Signer #1 certificate SHA-256: 4f5244d1f7a1c1801947397d8b48a736e8de0baf4132db13042e500cd14ea2c0
+  (matches the authorized release certificate
+   4F:52:44:D1:F7:A1:C1:80:19:47:39:7D:8B:48:A7:36:E8:DE:0B:AF:41:32:DB:13:04:2E:50:0C:D1:4E:A2:C0)
+- Signer #1 key: RSA 4096
+16 KB page alignment: PASS (zipalign -c -P 16 4).
+
+Build command:
+flutter build apk --release
+
+Signing command:
+apksigner sign --ks <tutor-language-release.jks> \
+  --ks-key-alias tutor-language-release \
+  --out TutorLanguage-1.0.1-signed.apk \
+  TutorLanguage-1.0.1-unsigned.apk
+
+Toolchain:
+Flutter 3.44.9 / Dart 3.12.2 / Java 17 / Gradle 9.1.0 / AGP 9.0.1 / Kotlin 2.3.20
+Android SDK Build Tools 36.1.0 (build/aapt), 34.0.0 (apksigner, F-Droid-compatible)
