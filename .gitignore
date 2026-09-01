@@ -29,5 +29,16 @@ Books/**/extracted/
 .venv-tts/
 .venv-piper/
 
+# Local release artifacts (review packages under release/forpda stay visible)
+release/build/
+
+# Diagnostic unsigned APKs must never be committed
+*-unsigned.apk
+release/**/*.apk
+
+# Legal archive: only the README and text extract are tracked; the full
+# vendored HTML page captures stay with the offline release records
+docs/legal/*.html
+
 # Claude Code local session/permission settings
 .claude/
