@@ -1,64 +1,66 @@
 # F-Droid release preparation
 
-This public repository is prepared for a future first F-Droid submission. No
-F-Droid metadata submission has been made yet.
+This public repository is being prepared for a future F-Droid submission. No
+submission has been made. The canonical multi-channel release procedure is
+[`RELEASE_DISTRIBUTION.md`](RELEASE_DISTRIBUTION.md), the policy/dependency
+result is [`FDROID_READINESS_AUDIT.md`](FDROID_READINESS_AUDIT.md), and the
+non-submittable metadata draft is under `fdroid/`.
 
-## Public repository
+## Public project references
 
 - SourceCode: <https://github.com/RuslanLit/Tutor_Language>
 - IssueTracker: <https://github.com/RuslanLit/Tutor_Language/issues>
 
 No project website or personal support email is declared.
 
-## Information required before submission
+## Current blockers
 
-Complete these values in the F-Droid submission metadata before submission:
+- Different absolute Flutter source paths still produce different `libapp.so`
+  because the generated Dart plugin registrant URI is embedded. A real
+  fdroidserver/upstream fixed-path match has not yet passed.
+- `fdroidserver` is not installed in the current environment, so `fdroid lint`,
+  `fdroid scanner` and `fdroid build` remain pending.
+- No GitHub Release asset exists yet, so `Binaries` in the recipe template
+  stays commented out.
+- An annotated `v1.0.0` tag already exists locally and on `origin`, pointing to
+  `816cc5f9a1bd9b4791a8e0c67c9ca7e8c3cd7f27`. It predates the release
+  engineering changes in this audit. The owner must resolve that release
+  identity deliberately; this audit does not move or delete public tags.
 
-- `SourceCode`: use the public Git repository URL above;
-- `IssueTracker`: use the public issue tracker URL above;
-- `Changelog`: the public changelog URL, if maintained separately;
-- `WebSite`: the project website, if one is created;
-- maintainer/support contact, according to the selected hosting and F-Droid
-  process;
-- the immutable `v1.0.0` source tag, which has not been created yet.
+## Resolved
 
-Do not replace these with invented or local URLs.
+- Reference-audio rights: commit `cc1792d` replaced the Piper/Sharvard voice
+  with Google Cloud TTS Generated Output (Customer Data under the GCP Terms
+  "Generative AI Services" section). Basis in `THIRD_PARTY_NOTICES.md`, dated
+  terms archived under `docs/legal/`. The recipe declares `NonFreeAssets`.
+- The permanent developer key and its certificate SHA-256 exist; the
+  fingerprint is filled into `AllowedAPKSigningKeys` in the recipe template,
+  and a signed `1.0.1` APK has been produced for the GitHub/4PDA channel.
 
-## Local fdroidserver setup
+Do not invent a GitHub binary URL, exact release commit or support contact.
+Complete those values only after their gates pass.
 
-Do not install system packages automatically from this repository. In a clean
-Ubuntu environment, install fdroidserver in an isolated Python environment
-using the current official instructions:
+## Required fdroidserver checks
+
+Following the current official setup, copy the completed template into an
+fdroiddata checkout and run at least:
 
 ```sh
-python3 -m venv "$HOME/.venvs/fdroidserver"
-"$HOME/.venvs/fdroidserver/bin/python" -m pip install --upgrade pip
-"$HOME/.venvs/fdroidserver/bin/pip" install \
-  git+https://gitlab.com/fdroid/fdroidserver.git
+fdroid readmeta
+fdroid rewritemeta org.tutorlanguage.app
+fdroid lint org.tutorlanguage.app
+fdroid scanner org.tutorlanguage.app
+fdroid build org.tutorlanguage.app
 ```
 
-Then, from the repository checkout, run the official metadata/build checks
-after the `v1.0.0` source tag is available:
+Do not add `scanignore` for an unexplained finding. The template's
+`scandelete: .pub-cache` removes the isolated build cache after Flutter
+dependency resolution; it is not justification for a non-FLOSS dependency.
 
-```sh
-cd app
-"$HOME/.venvs/fdroidserver/bin/fdroid" readmeta
-"$HOME/.venvs/fdroidserver/bin/fdroid" lint
-"$HOME/.venvs/fdroidserver/bin/fdroid" build -v -l
-```
+Official references:
 
-The exact F-Droid build recipe belongs in the public F-Droid metadata
-submission. `.fdroid.yml` is intentionally not added yet because the release
-tag and final F-Droid build recipe are not available.
-
-## Reproducible-build follow-up
-
-Future reproducible-build work: investigate Flutter embedded absolute build
-paths. This does not block the standard F-Droid source-build/signing workflow
-for v1.0.0.
-
-References:
-
-- <https://f-droid.org/docs/Installing_the_Server_and_Repo_Tools/>
-- <https://gitlab.com/fdroid/fdroiddata/-/blob/master/CONTRIBUTING.md>
+- <https://f-droid.org/en/docs/Inclusion_Policy/>
+- <https://f-droid.org/docs/Reproducible_Builds/>
+- <https://fdroid.gitlab.io/jekyll-fdroid/en/docs/Build_Metadata_Reference/>
+- <https://fdroid.gitlab.io/jekyll-fdroid/docs/Submitting_to_F-Droid_Quick_Start_Guide/>
 - <https://f-droid.org/docs/Building_Applications/>
