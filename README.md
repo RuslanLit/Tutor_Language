@@ -29,25 +29,25 @@ not claimed to be release-complete.
 
 Requirements:
 
-- Flutter with Dart SDK compatibility declared in `app/pubspec.yaml`;
-- an Android SDK and Java toolchain accepted by the Flutter/Android build
-  configuration;
+- the exact toolchain pinned in `tool/release/TOOLCHAIN.env`;
 - an Android device or emulator for installation testing.
 
-The repository does not currently pin a Flutter SDK revision. Use a current
-stable Flutter installation compatible with the declared Dart SDK.
+The release build is deliberately split into an unsigned source-build stage
+and a developer-signing stage. The private key is never required to build the
+app from source and must remain outside this repository.
 
 ```sh
-cd app
-flutter pub get
-flutter analyze
-flutter test
-flutter build apk --release
+tool/release/build_unsigned.sh
+# After a reproducibility comparison, the key owner runs:
+tool/release/sign_apk.sh UNSIGNED_APK KEYSTORE KEY_ALIAS
 ```
 
-The release build is intentionally unsigned for upstream/F-Droid packaging.
-Do not distribute a locally built APK as an official signed release. F-Droid
-or a release maintainer supplies release signing separately.
+Official GitHub and 4PDA releases use the permanent developer signature.
+F-Droid builds independently from source and is intended to publish that same
+developer-signed APK only after its reproducible-build verification succeeds.
+Until then, unsigned artifacts are diagnostics and must not be distributed.
+The canonical workflow and current release gates are documented in
+[`docs/RELEASE_DISTRIBUTION.md`](docs/RELEASE_DISTRIBUTION.md).
 
 Contributor workflow and project invariants are documented in
 [`docs/PROJECT_CONTRACT.md`](docs/PROJECT_CONTRACT.md) and
