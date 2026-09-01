@@ -23,16 +23,23 @@ AntiFeatures:
 
 # USER INPUT REQUIRED after the real GitHub release exists:
 # Binaries: https://github.com/RuslanLit/Tutor_Language/releases/download/v%v/TutorLanguage-%v.apk
-# USER INPUT REQUIRED after the permanent developer key exists:
-# AllowedAPKSigningKeys: CERTIFICATE_SHA256_WITHOUT_SEPARATORS
+
+# Permanent developer release key (keystore: tutor-language-release.jks,
+# alias tutor-language-release, RSA 4096). apksigner-reported certificate
+# SHA-256, lowercase hex, no separators.
+AllowedAPKSigningKeys: 4f5244d1f7a1c1801947397d8b48a736e8de0baf4132db13042e500cd14ea2c0
 
 Builds:
   - versionName: 1.0.1
     versionCode: 2
     # NOT a constant: this must be bumped to the exact clean release commit for
-    # EVERY new release (the commit that contains this recipe and the matching
-    # versionName/versionCode). Current value = tag v1.0.1.
-    commit: 4ef91e4a7ec50934bbefa360287a3415822af259
+    # EVERY new release (the commit with the matching versionName/versionCode).
+    # Current value = main HEAD, the 1.0.1 code that is actually shipped
+    # (slow playback 0.6x, commit e6e0df6; 42cb6e5 only adds a doc file).
+    # WARNING: the git tag v1.0.1 still points at 4ef91e4 (pre-0.6x). Before
+    # this recipe is submitted, re-point v1.0.1 to this commit or cut v1.0.2,
+    # so UpdateCheckMode: Tags stays consistent with the pinned commit.
+    commit: 42cb6e5815013b47a86ae6e3db32f7fc16664b16
     subdir: app
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
