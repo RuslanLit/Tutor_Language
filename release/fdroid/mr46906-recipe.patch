@@ -1,0 +1,58 @@
+diff --git a/metadata/org.tutorlanguage.app.yml b/metadata/org.tutorlanguage.app.yml
+index 4cd20b1c8..84a163053 100644
+--- a/metadata/org.tutorlanguage.app.yml
++++ b/metadata/org.tutorlanguage.app.yml
+@@ -1,7 +1,14 @@
++AntiFeatures:
++  NonFreeAssets:
++    en-US: The bundled Spanish reference speech in app/assets/languages/spanish/audio/reference/
++      is Generated Output of the proprietary Google Cloud Text-to-Speech service (voice
++      es-ES-Chirp3-HD-Charon). The app has no non-free code, network dependency, or
++      runtime service; only these pre-rendered WAV assets are non-free. See THIRD_PARTY_NOTICES.md.
+ Categories:
+   - Science & Education
+ License: GPL-3.0-or-later
+-AuthorName: RuslanLit
++AuthorName: Tutor Language contributors
++WebSite: https://github.com/RuslanLit/Tutor_Language
+ SourceCode: https://github.com/RuslanLit/Tutor_Language
+ IssueTracker: https://github.com/RuslanLit/Tutor_Language/issues
+ 
+@@ -11,26 +18,23 @@ RepoType: git
+ Repo: https://github.com/RuslanLit/Tutor_Language.git
+ 
+ Builds:
+-  - versionName: 1.0.0
+-    versionCode: 1
+-    commit: 816cc5f9a1bd9b4791a8e0c67c9ca7e8c3cd7f27
++  - versionName: 1.0.1
++    versionCode: 2
++    commit: 02573807f1e8ddedf3aedc3c39c49c7e2585062d
+     subdir: app
+     output: build/app/outputs/flutter-apk/app-release.apk
+     srclibs:
+-      - flutter@stable
++      - flutter@3.44.9
+     prebuild:
+-      - git -C $$flutter$$ checkout -f 3.44.0
+-      - export PUB_CACHE=$(pwd)/.pub-cache
+-      - $$flutter$$/bin/flutter config --no-analytics
+-      - $$flutter$$/bin/flutter pub get --enforce-lockfile
++      - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter config --no-analytics
++      - export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter pub get --enforce-lockfile
+     scandelete:
+       - app/.pub-cache
+-    build:
+-      - export PUB_CACHE=$(pwd)/.pub-cache
+-      - $$flutter$$/bin/flutter build apk --release
++    build: export PUB_CACHE=$(pwd)/.pub-cache && $$flutter$$/bin/flutter build apk
++      --release
+ 
+-AutoUpdateMode: Version
++AutoUpdateMode: None
+ UpdateCheckMode: Tags
+ UpdateCheckData: app/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+-CurrentVersion: 1.0.0
+-CurrentVersionCode: 1
++CurrentVersion: 1.0.1
++CurrentVersionCode: 2
