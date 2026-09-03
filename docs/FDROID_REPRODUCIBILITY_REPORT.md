@@ -1,13 +1,42 @@
 # F-Droid reproducibility investigation — v1.0.1
 
-Consolidated record. Date of investigation: 2026-08-27.
-Repo/`main` NOT modified. No signing key. No publication. All builds ran in
-isolated `/tmp` environments.
-
+Consolidated record. Original investigation: 2026-08-27 (Sections 1–6 below).
 The full narrative (Этапы 0–6) is preserved verbatim in
 [`fdroid-reproducibility-investigation-full.md`](fdroid-reproducibility-investigation-full.md).
 This file is the durable summary that survives `/tmp` cleanup: APK hashes and
 the exact commands that produced the canonical-path match.
+
+---
+
+## Status update — 2026-09-01
+
+Supersedes the "No signing key / no publication" framing of the original
+investigation.
+
+| Item | State |
+|---|---|
+| Permanent developer key | **Exists.** Keystore `tutor-language-release.jks`, alias `tutor-language-release`, RSA 4096. Certificate SHA-256 `4f5244d1f7a1c1801947397d8b48a736e8de0baf4132db13042e500cd14ea2c0` (recorded in `AllowedAPKSigningKeys`). |
+| GitHub Release `v1.0.1` | **Published.** <https://github.com/RuslanLit/Tutor_Language/releases/tag/v1.0.1>, asset `TutorLanguage-1.0.1-signed.apk` (SHA-256 `9aefd7033c0248a17b255af4d43dfebaf15a8e4e3b4505b2c76c35c1dc396c82`), signed with the developer key. Also the 4PDA artifact. |
+| Actual build commit of the published APK | **`02573807f1e8ddedf3aedc3c39c49c7e2585062d`** — the 1.0.1 code (slow playback 0.6x) plus the Android build pins and the jni `-Wl,--build-id=none` workaround. NOT `4ef91e4` (Section 1) and NOT the `v1.0.1` tag commit `42cb6e5`: the reproducibility fixes were uncommitted in the working tree when the APK was built on 2026-08-28 and were committed on 2026-09-01. |
+| Byte-reproducibility of the published APK | **Proven.** A clean `flutter build apk --release` of commit `02573807` at the absolute path `/home/master/Tutor_Language` (the path embedded in `libapp.so`) produced an unsigned APK byte-identical to the unsigned form of the published signed APK: SHA-256 `e5a449612d753935a1dd41a02eadcf2774bfe9c593a52764662c59afadc3699d` (matches `APK_INFO.txt` / `SHA256SUMS.txt`). All 373 zip entries identical. `apksigcopier compare` transplants the developer signature and the result verifies (v2+v3). |
+| Same test at commit `42cb6e5` (tag `v1.0.1`) | **Fails** — `libdartjni.so` ×3 differ (that tree has no `-Wl,--build-id=none`; the build-id is path/environment sensitive). |
+| Path sensitivity | Confirmed still real: `libapp.so` ×3 embed the absolute Dart plugin-registrant URI. Byte-match requires the F-Droid build path to equal the upstream build path. The published APK's path is `/home/master/Tutor_Language` — a developer-machine path, unsuitable for a public recipe. |
+| Real `fdroid build` (fdroidserver 2.4.5, local mode, commit `02573807`) | **Succeeds.** `INFO: Successfully built version 1.0.1 of org.tutorlanguage.app from 02573807…`. Output APK 73 162 784 bytes; **370 / 373 zip entries byte-identical** to the published APK, the only difference being `lib/{arm64-v8a,armeabi-v7a,x86_64}/libapp.so` (F-Droid's build path `/build/…` vs the developer's). `libdartjni.so` ×3 now match — the committed `-Wl,--build-id=none` workaround holds. Confirms the recipe drives a clean source build end-to-end; for v1.0.1 F-Droid signs this itself (no `Binaries`). |
+
+### Plan for `Binaries` / upstream-signature transfer
+
+Deferred to **v1.0.2**:
+
+- v1.0.1 ships on F-Droid **built from source and F-Droid-signed** (its own key).
+  No `Binaries:` field this release. `AllowedAPKSigningKeys` is recorded now so a
+  later `Binaries` release verifies against it.
+- v1.0.2 will be built from the start at a **neutral canonical path** (not
+  `/home/master/...`), its recipe will relocate the checkout to that same path,
+  and `Binaries:` will point at the v1.0.2 GitHub Release asset. From v1.0.2
+  onward F-Droid publishes the developer-signed APK via `apksigcopier`.
+- The recipe `commit:` deliberately differs from the `v1.0.1` tag and this is
+  accepted: the tag drives `UpdateCheckMode: Tags`, `commit:` pins the exact
+  build point. `fdroid lint` raises no objection.
 
 ---
 
@@ -164,7 +193,12 @@ the developer signature during F-Droid's signature-copy step.
 
 ---
 
-## 6. Not done (as instructed)
+## 6. Not done (as of the 2026-08-27 investigation)
 
-No signing key created. No signed APK. No GitHub Release. No F-Droid MR. No
-publication. `main` unchanged (`4ef91e4`).
+At the time of the original investigation: no signing key, no signed APK, no
+GitHub Release, no F-Droid MR, `main` at `4ef91e4`.
+
+**All of these except the F-Droid MR changed on 2026-08-28 / 2026-09-01 — see
+the "Status update — 2026-09-01" section at the top of this file.** The F-Droid
+MR (!46906) is still pending and is out of scope for the local preparation
+work.

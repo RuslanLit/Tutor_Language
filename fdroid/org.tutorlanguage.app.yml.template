@@ -1,5 +1,9 @@
-# DRAFT ONLY — not valid for submission until every USER INPUT REQUIRED item
-# is replaced and the WAV/reproducibility gates in fdroid/README.md pass.
+# DRAFT ONLY — not valid for submission until the open items in fdroid/README.md
+# are settled. For v1.0.1 this recipe builds from source; F-Droid signs the
+# result with its own key (no upstream-binary verification this release).
+# Byte-reproducibility of the published v1.0.1 APK was proven experimentally
+# (see docs/FDROID_REPRODUCIBILITY_REPORT.md) but only at a developer-machine
+# path, so upstream-signature transfer is deferred to v1.0.2.
 Categories:
   - Science & Education
 License: GPL-3.0-or-later
@@ -21,25 +25,28 @@ AntiFeatures:
       dependency, or runtime service; only these pre-rendered WAV assets are
       non-free. See THIRD_PARTY_NOTICES.md.
 
-# USER INPUT REQUIRED after the real GitHub release exists:
-# Binaries: https://github.com/RuslanLit/Tutor_Language/releases/download/v%v/TutorLanguage-%v.apk
+# Deferred to v1.0.2 — v1.0.1 official APK was built at a developer-machine-
+# specific path (/home/master/...), unsuitable for a public recipe. v1.0.2
+# will be built at a neutral canonical path from the start, enabling
+# upstream-signature reproducibility then.
+# Binaries: https://github.com/RuslanLit/Tutor_Language/releases/download/v%v/TutorLanguage-%v-signed.apk
 
 # Permanent developer release key (keystore: tutor-language-release.jks,
 # alias tutor-language-release, RSA 4096). apksigner-reported certificate
-# SHA-256, lowercase hex, no separators.
+# SHA-256, lowercase hex, no separators. Recorded now so a future Binaries
+# release verifies against it; not enforced while F-Droid signs v1.0.1.
 AllowedAPKSigningKeys: 4f5244d1f7a1c1801947397d8b48a736e8de0baf4132db13042e500cd14ea2c0
 
 Builds:
   - versionName: 1.0.1
     versionCode: 2
-    # NOT a constant: this must be bumped to the exact clean release commit for
-    # EVERY new release (the commit with the matching versionName/versionCode).
-    # Current value = main HEAD, the 1.0.1 code that is actually shipped
-    # (slow playback 0.6x, commit e6e0df6; 42cb6e5 only adds a doc file).
-    # WARNING: the git tag v1.0.1 still points at 4ef91e4 (pre-0.6x). Before
-    # this recipe is submitted, re-point v1.0.1 to this commit or cut v1.0.2,
-    # so UpdateCheckMode: Tags stays consistent with the pinned commit.
-    commit: 42cb6e5815013b47a86ae6e3db32f7fc16664b16
+    # Exact clean build point for this release. 02573807 = the 1.0.1 code
+    # (slow playback 0.6x) plus the Android build pins and the jni
+    # `-Wl,--build-id=none` workaround; it is the tree the published APK was
+    # built from. This deliberately differs from the v1.0.1 tag (42cb6e5):
+    # the tag identifies the version for UpdateCheckMode, `commit:` identifies
+    # the exact build point. Bump every release.
+    commit: 02573807f1e8ddedf3aedc3c39c49c7e2585062d
     subdir: app
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
