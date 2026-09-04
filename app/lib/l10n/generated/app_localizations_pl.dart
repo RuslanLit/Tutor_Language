@@ -98,7 +98,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Powtórz sprawdzenie, gdy będziesz gotowy';
 
   @override
-  String get start => 'Start';
+  String get start => 'Rozpocznij';
 
   @override
   String get continueAction => 'Kontynuuj';
@@ -889,7 +889,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get primerStressHint => 'Sylaba zapisana wielkimi literami ma akcent.';
 
   @override
-  String get primerLetterH => 'h (hache)';
+  String get primerLetterH => 'h (ache)';
 
   @override
   String get primerReadingA => 'a';
@@ -996,39 +996,39 @@ class AppLocalizationsPl extends AppLocalizations {
       'W hiszpańskim h zwykle nie ma osobnego dźwięku. Widać to w hola i hasta luego.';
 
   @override
-  String get primerLlYTitle => 'll and y in early course words';
+  String get primerLlYTitle => 'll i y w pierwszych słowach kursu';
 
   @override
   String get primerLlYBody =>
-      'll is a single written unit in llamo and llamas. y is a separate letter, as in y tú. Regional pronunciation varies, but the written patterns remain visible.';
+      'll to jedna jednostka pisowni w llamo i llamas. y to osobna litera, jak w y tú. Wymowa różni się w zależności od regionu, ale wzorce pisowni pozostają widoczne.';
 
   @override
-  String get primerEnyeTitle => 'ñ is a distinct Spanish letter';
+  String get primerEnyeTitle => 'ñ to osobna hiszpańska litera';
 
   @override
   String get primerEnyeBody =>
-      'ñ is not the same as n. Recognize it in España and keep the tilde as part of the Spanish spelling.';
+      'ñ to nie to samo co n. Rozpoznaj ją w España i zachowaj tyldę jako część hiszpańskiej pisowni.';
 
   @override
-  String get primerRRTitle => 'r and rr';
+  String get primerRRTitle => 'r i rr';
 
   @override
   String get primerRRBody =>
-      'r and rr mark different written patterns. A single r appears in Madrid; rr is the strong pattern in perro. The Primer only builds recognition, not accent training.';
+      'r i rr oznaczają różne wzorce pisowni. Pojedyncze r pojawia się w Madrid; rr to mocny wzorzec w perro. Ten Primer uczy tylko rozpoznawania, a nie poprawnej wymowy.';
 
   @override
-  String get primerContextTitle => 'Context patterns: c, g, qu, gu and gü';
+  String get primerContextTitle => 'Wzorce kontekstowe: c, g, qu, gu i gü';
 
   @override
   String get primerContextBody =>
-      'c and g change their reading with the following vowel. qu commonly keeps the k-like reading before e/i; gu and gü show different written cues. Meet these patterns as complete words, not as a long rule table.';
+      'c i g zmieniają wymowę w zależności od następnej samogłoski. qu zwykle zachowuje brzmienie zbliżone do «k» przed e/i; gu i gü mają różne wskazówki w pisowni. Poznawaj te wzorce w całych słowach, a nie jako długą tabelę reguł.';
 
   @override
-  String get primerAccentsTitle => 'Accents and Spanish punctuation';
+  String get primerAccentsTitle => 'Akcenty i hiszpańska interpunkcja';
 
   @override
   String get primerAccentsBody =>
-      'á, é, í, ó and ú are familiar vowels with a meaningful written accent. Notice the mark in Cómo and días; full Spanish stress rules are outside this Primer.';
+      'á, é, í, ó i ú to znane samogłoski z ważnym znakiem akcentu pisanego. Zwróć uwagę na ten znak w Cómo i días; pełne zasady akcentowania wykraczają poza ten Primer.';
 
   @override
   String get primerTryReview => 'Szybka powtórka';
@@ -1094,31 +1094,31 @@ class AppLocalizationsPl extends AppLocalizations {
   String get primerExampleTu => 'ty';
 
   @override
-  String get primerExampleBuenosDias => 'a daytime greeting';
+  String get primerExampleBuenosDias => 'powitanie w ciągu dnia';
 
   @override
-  String get primerExampleMeLlamo => 'saying your name';
+  String get primerExampleMeLlamo => 'podawanie swojego imienia';
 
   @override
-  String get primerExampleHastaLuego => 'a farewell';
+  String get primerExampleHastaLuego => 'pożegnanie';
 
   @override
-  String get primerExampleYTu => 'asking about the other person';
+  String get primerExampleYTu => 'pytanie o rozmówcę';
 
   @override
-  String get primerExampleEspana => 'Spain';
+  String get primerExampleEspana => 'Hiszpania';
 
   @override
   String get primerExampleMadrid => 'Madrid';
 
   @override
-  String get primerExampleComo => 'how / what way';
+  String get primerExampleComo => 'jak / w jaki sposób';
 
   @override
-  String get primerExampleComoTeLlamas => 'What is your name?';
+  String get primerExampleComoTeLlamas => 'Jak masz na imię?';
 
   @override
-  String get primerExampleGracias => 'thank you';
+  String get primerExampleGracias => 'dziękuję';
 
   @override
   String primerReviewHolaReadingPrompt(String hint) {
