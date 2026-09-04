@@ -173,7 +173,11 @@ class ModulePathSection extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ModulePathHeader(title: unit.title, moduleIndex: moduleIndex),
+          ModulePathHeader(
+            title: unit.title,
+            moduleIndex: moduleIndex,
+            moduleId: unit.unitId,
+          ),
           if (unit.lessons.isEmpty)
             Padding(
               padding: const EdgeInsets.only(top: 12),
@@ -214,16 +218,20 @@ class ModulePathHeader extends StatelessWidget {
   const ModulePathHeader({
     required this.title,
     required this.moduleIndex,
+    required this.moduleId,
     super.key,
   });
 
   final String title;
   final int moduleIndex;
+  final String moduleId;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = context.l10n;
+    final moduleLabel = _moduleLabel(moduleId, l10n);
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 4, bottom: 6),
@@ -246,11 +254,35 @@ class ModulePathHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          Expanded(child: Text(title, style: theme.textTheme.titleLarge)),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: theme.textTheme.titleLarge),
+                if (moduleLabel != null) ...[
+                  const SizedBox(height: 2),
+                  Text(
+                    moduleLabel,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: colors.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
+}
+
+String? _moduleLabel(String moduleId, AppLocalizations l10n) {
+  final match = RegExp(r'\.m0*([0-9]+)$').firstMatch(moduleId);
+  if (match == null) {
+    return null;
+  }
+  return l10n.moduleNumber(match.group(1)!);
 }
 
 class _PathNodeFrame extends StatelessWidget {
