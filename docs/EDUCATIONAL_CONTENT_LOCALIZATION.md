@@ -4,7 +4,7 @@ Status: NORMATIVE
 Scope: educational content localization architecture and resolution
 Authority: primary
 
-Version: 1.1
+Version: 1.2
 
 Related documents:
 
@@ -295,11 +295,22 @@ The pilot gate requires 100% expected learner-visible field coverage and zero
 legacy fallback for the declared lessons. It is not a coverage expansion for an
 unmigrated full course.
 
-R2E5R supersedes the Ukrainian and Russian legacy educational localization
-state. Ukrainian and Russian UI localization remains available, but educational
-content for `uk` and `ru` is explicitly `rebuilding` and temporarily uses
-English source fallback only. No Ukrainian or Russian legacy educational value,
-pronunciation hint or semantic production unit may be treated as release-ready.
+R2E5R reset the Ukrainian and Russian legacy educational localization state to
+a fail-closed baseline with English source fallback only. Ukrainian and Russian
+educational content was subsequently rebuilt on top of that baseline (six
+commits dated 2026-08-24, `c571a87` through `4d7567b`): both locales now have
+full field coverage in `support_localizations.json` (1106/1106 fields, with
+only 28-29 fields identical to the English source, consistent with legitimate
+untranslatable content such as proper nouns), reviewed for quality by the
+project owner, a native Russian and Ukrainian speaker.
+
+This rebuild is a manual content review by the product owner, not a
+`SemanticLocalizationUnit` review-gate pass. The semantic production bundles
+for `ru` and `uk` remain empty (`"units": []`), exactly as
+`SEMANTIC_LOCALIZATION_UNIT_STANDARD.md` requires post-reset. No Ukrainian or
+Russian legacy educational value, pronunciation hint or semantic production
+unit may be treated as having passed the formal semantic-unit review process
+that standard describes for future locales.
 
 The readiness source of truth is:
 
@@ -324,14 +335,17 @@ This audit compares approved Ukrainian semantic units with the legacy
 educational localization inventory. It is a production gate for Ukrainian:
 release-ready Ukrainian educational content requires zero remaining legacy
 resolutions, zero source fallback, zero missing fields, zero generated units
-and zero unapproved semantic units. As of the R2E5 audit, Ukrainian remains
-incomplete because 2574 legacy Ukrainian fields still resolve outside the
-semantic source of truth.
+and zero unapproved semantic units. As of the 2026-09-05 audit re-run,
+Ukrainian remains incomplete because all 1106 legacy Ukrainian fields still
+resolve outside the semantic source of truth (0 approved semantic units).
 
-Ukrainian, Polish and German educational-content translations remain separate
-future phases. Until those phases complete, they may fall back to English at
-runtime and must not be treated as release-complete educational-content
-locales.
+Polish and German educational-content translations remain separate future
+phases and have not started. Until those phases complete, they fall back to
+English at runtime and must not be treated as release-complete
+educational-content locales. Ukrainian and Russian educational content is
+release-eligible on the basis of the manual owner review described above, which
+is a narrower and less formal form of verification than the semantic-unit
+review process this document specifies for future locales.
 
 ---
 
