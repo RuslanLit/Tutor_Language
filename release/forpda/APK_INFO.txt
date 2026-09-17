@@ -3,8 +3,8 @@ Tutor Language 1.0.1 — APK inspection record
 Artifact: TutorLanguage-1.0.1-signed.apk
 Publication status: SIGNED — installable release artifact
 Size: 73205947 bytes (69.81 MiB; Flutter reported 73.2 MB)
-SHA-256 (signed APK):   9aefd7033c0248a17b255af4d43dfebaf15a8e4e3b4505b2c76c35c1dc396c82
-SHA-256 (unsigned APK): e5a449612d753935a1dd41a02eadcf2774bfe9c593a52764662c59afadc3699d
+SHA-256 (signed APK):   7ec6605495177f5e02a1533ee5e1f4823270ff0febfcc34ce37b75e1855826f3
+SHA-256 (unsigned APK): 36f9bb7bf2e93add38a1deaae147e06f604ed05ac119988071f0a6c2dd78ec89
 
 Package: org.tutorlanguage.app
 Application label: Tutor Language
@@ -21,12 +21,22 @@ Supported ABI:
 - armeabi-v7a
 - x86_64
 
-Change vs. earlier 1.0.1 build:
+Change vs. earlier 1.0.1 builds:
 - Slow reference-audio playback rate lowered from 0.75x to 0.6x
   (ReferenceAudioPlaybackMode.slow => 0.6; slow button label now "0.6x").
   No other code or asset change. This APK therefore differs byte-for-byte
-  from the F-Droid canonical-test build and from the earlier 0.75x signed
-  4PDA artifact.
+  from the earlier 0.75x signed 4PDA artifact.
+- Rebuilt from commit cf6df526a2fd68cfc3f038aa5cd22964c3f705d0 at
+  /home/vagrant/build/org.tutorlanguage.app, the F-Droid buildserver path.
+  App code and assets are identical to 02573807; that commit only moves the
+  Fastlane metadata and adds tool/release/TOOLCHAIN.env. The unsigned form
+  is byte-identical to the F-Droid build, and fdroid build verified it
+  against this APK (GitLab job 16565540646).
+- The previously published 1.0.1 APK (SHA-256 9aefd703...) was built from
+  commit 02573807f1e8ddedf3aedc3c39c49c7e2585062d at
+  /home/master/Tutor_Language. Same app code as this APK; it differs only in
+  lib/*/libapp.so, which embed the build path, and in the JAR signature
+  files derived from them.
 
 Permissions in final APK:
 - android.permission.RECORD_AUDIO — voluntary local spoken-practice recording.

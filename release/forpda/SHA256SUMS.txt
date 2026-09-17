@@ -1,3 +1,3 @@
 # Unsigned build input (not in this folder): TutorLanguage-1.0.1-unsigned.apk
-#   e5a449612d753935a1dd41a02eadcf2774bfe9c593a52764662c59afadc3699d
-9aefd7033c0248a17b255af4d43dfebaf15a8e4e3b4505b2c76c35c1dc396c82  TutorLanguage-1.0.1-signed.apk
+#   36f9bb7bf2e93add38a1deaae147e06f604ed05ac119988071f0a6c2dd78ec89
+7ec6605495177f5e02a1533ee5e1f4823270ff0febfcc34ce37b75e1855826f3  TutorLanguage-1.0.1-signed.apk
