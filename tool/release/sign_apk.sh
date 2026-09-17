@@ -30,11 +30,20 @@ sdk_dir="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}"
 if [[ -z "$sdk_dir" && -f "$repo_root/app/android/local.properties" ]]; then
   sdk_dir="$(sed -n 's/^sdk.dir=//p' "$repo_root/app/android/local.properties" | head -n 1)"
 fi
-build_tools_dir="$sdk_dir/build-tools/$ANDROID_SIGNING_BUILD_TOOLS"
-apksigner="$build_tools_dir/apksigner"
-zipalign="$build_tools_dir/zipalign"
-[[ -x "$apksigner" && -x "$zipalign" ]] || {
-  echo "Android Build Tools $ANDROID_SIGNING_BUILD_TOOLS are required for F-Droid-compatible signing." >&2
+# apksigner and zipalign come from different Build Tools on purpose.
+# apksigner must stay on ANDROID_SIGNING_BUILD_TOOLS (34.x): signatures made by
+# apksigner 35+ cannot be verified by apksigcopier, which F-Droid uses to copy
+# this signature onto its reproducible build (docs/RELEASE_DISTRIBUTION.md:46).
+# zipalign comes from ANDROID_BUILD_TOOLS because the 16 KB page-alignment
+# check below needs `-P`, which zipalign only supports from 35.0.0 onwards.
+apksigner="$sdk_dir/build-tools/$ANDROID_SIGNING_BUILD_TOOLS/apksigner"
+zipalign="$sdk_dir/build-tools/$ANDROID_BUILD_TOOLS/zipalign"
+[[ -x "$apksigner" ]] || {
+  echo "apksigner from Android Build Tools $ANDROID_SIGNING_BUILD_TOOLS not found at $apksigner (required for apksigcopier-compatible signatures)." >&2
+  exit 1
+}
+[[ -x "$zipalign" ]] || {
+  echo "zipalign from Android Build Tools $ANDROID_BUILD_TOOLS not found at $zipalign (required for the 16 KB page-alignment check)." >&2
   exit 1
 }
 
