@@ -35,6 +35,7 @@ release/build/
 # Diagnostic unsigned APKs must never be committed
 *-unsigned.apk
 release/**/*.apk
+release/**/*.apk.old
 
 # Legal archive: only the README and text extract are tracked; the full
 # vendored HTML page captures stay with the offline release records
