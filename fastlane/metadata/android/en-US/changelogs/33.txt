@@ -1,0 +1,5 @@
+Finished the Polish interface translation: the last English strings are now localized, including the module number on the course overview screen.
+
+Corrected mechanically damaged Russian text in Module 1 (lessons 1-7).
+
+Lessons, audio and app permissions are unchanged.
