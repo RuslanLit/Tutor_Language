@@ -51,7 +51,18 @@ actual_flutter_version="$(printf '%s' "$flutter_json" | sed -n 's/.*"frameworkVe
 actual_flutter_revision="$(printf '%s' "$flutter_json" | sed -n 's/.*"frameworkRevision"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
 actual_engine_revision="$(printf '%s' "$flutter_json" | sed -n 's/.*"engineRevision"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
 actual_dart_version="$(printf '%s' "$flutter_json" | sed -n 's/.*"dartSdkVersion"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
-actual_java_major="$(java -version 2>&1 | sed -n '1s/.*version "\([0-9]*\).*/\1/p')"
+# Check the JDK Flutter actually runs Gradle under, not the one on PATH: Flutter
+# prefers the JDK bundled with Android Studio over JAVA_HOME and PATH, so a
+# system `java -version` says nothing about the build. An Android Studio update
+# silently moved a 1.0.2 build onto JBR 25, which changed R8's pg-map-id and
+# broke the F-Droid byte-for-byte match. Pin it with `flutter config --jdk-dir`.
+flutter_java_binary="$(flutter doctor -v 2>/dev/null | sed -n 's/.*Java binary at: //p' | head -n 1)"
+[[ -n "$flutter_java_binary" ]] || {
+  echo "Could not determine the JDK Flutter uses from 'flutter doctor -v'." >&2
+  exit 1
+}
+flutter_jdk_dir="$(dirname -- "$(dirname -- "$flutter_java_binary")")"
+actual_java_major="$("$flutter_java_binary" -version 2>&1 | sed -n '1s/.*version "\([0-9]*\).*/\1/p')"
 
 [[ "$actual_flutter_version" == "$FLUTTER_VERSION" ]] || {
   echo "Flutter version mismatch: expected $FLUTTER_VERSION, got $actual_flutter_version" >&2
@@ -69,8 +80,13 @@ actual_java_major="$(java -version 2>&1 | sed -n '1s/.*version "\([0-9]*\).*/\1/
   echo "Dart version mismatch: expected $DART_VERSION, got $actual_dart_version" >&2
   exit 1
 }
+[[ "$flutter_jdk_dir" == "$JAVA_JDK_DIR" ]] || {
+  echo "Flutter builds with the wrong JDK: expected $JAVA_JDK_DIR, got $flutter_jdk_dir" >&2
+  echo "Fix with: flutter config --jdk-dir=$JAVA_JDK_DIR" >&2
+  exit 1
+}
 [[ "$actual_java_major" == "$JAVA_MAJOR" ]] || {
-  echo "Java major mismatch: expected $JAVA_MAJOR, got $actual_java_major" >&2
+  echo "Java major mismatch in $flutter_jdk_dir: expected $JAVA_MAJOR, got $actual_java_major" >&2
   exit 1
 }
 
