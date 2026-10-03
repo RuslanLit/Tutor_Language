@@ -666,6 +666,7 @@ class EducationalContentLocalizationResolver {
                 ) ??
                 dialogue.lines[index].nativeTranslation,
             audioReferenceId: dialogue.lines[index].audioReferenceId,
+            learner: dialogue.lines[index].learner,
           ),
       ]),
     );

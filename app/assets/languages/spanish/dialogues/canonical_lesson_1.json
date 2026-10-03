@@ -20,18 +20,21 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hola. Buenos días.",
         "native_translation": "ола. буенос діас — привіт. доброго ранку.",
         "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Me llamo Marta.",
         "native_translation": "ме ямо Марта — мене звати Marta.",
         "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Cómo te llamas?",
         "audioReferenceId": "es.audio.question.como_te_llamas",
         "native_translation": "комо те ямас — як тебе звати?"
@@ -44,12 +47,14 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Mucho gusto.",
         "native_translation": "мучо густо — дуже приємно.",
         "audioReferenceId": "es.audio.dialogue.mucho_gusto"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hasta luego.",
         "native_translation": "аста луего — до зустрічі.",
         "audioReferenceId": "es.audio.dialogue.hasta_luego"
@@ -73,18 +78,21 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Buenas tardes.",
         "native_translation": "буенас тардес — добрий день.",
         "audioReferenceId": "es.audio.dialogue.buenas_tardes"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Buenas noches.",
         "native_translation": "буенас ночес — добрий вечір.",
         "audioReferenceId": "es.audio.dialogue.buenas_noches"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Encantado.",
         "native_translation": "енкантадо — приємно познайомитися.",
         "audioReferenceId": "es.audio.dialogue.encantado"
@@ -97,6 +105,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Por favor.",
         "native_translation": "пор фавор — будь ласка.",
         "audioReferenceId": "es.audio.dialogue.por_favor"

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/content/topic_content.dart';
+import '../../../l10n/l10n.dart';
 
 class DialogueContentCard extends StatelessWidget {
   const DialogueContentCard({required this.content, super.key});
@@ -15,7 +16,10 @@ class DialogueContentCard extends StatelessWidget {
         for (final dialogue in content.dialogues) ...[
           Text(dialogue.title, style: Theme.of(context).textTheme.titleSmall),
           for (final line in dialogue.lines) ...[
-            Text('${line.speaker}: ${line.spanish}'),
+            Text(
+              '${line.learner ? context.l10n.learnerSpeakerLabel : line.speaker}: '
+              '${line.spanish}',
+            ),
             if (line.nativeTranslation.isNotEmpty) Text(line.nativeTranslation),
           ],
         ],

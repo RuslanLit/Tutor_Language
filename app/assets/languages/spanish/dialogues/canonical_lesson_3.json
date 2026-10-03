@@ -26,6 +26,7 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hola. Me llamo Marta.",
         "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta.",
         "audioReferenceId": "es.audio.dialogue.hola_me_llamo_marta"
@@ -38,6 +39,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Mucho gusto. ¿Cómo estás?",
         "native_translation": "мучо густо. комо естас — дуже приємно. як ти?",
         "audioReferenceId": "es.audio.question.mucho_gusto_como_estas"
@@ -50,12 +52,14 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Muy bien, gracias.",
         "native_translation": "муй б'єн грасіас — дуже добре, дякую.",
         "audioReferenceId": "es.audio.dialogue.muy_bien_gracias"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿De dónde eres?",
         "native_translation": "де донде ерес — звідки ти?",
         "audioReferenceId": "es.audio.question.de_donde_eres"
@@ -68,6 +72,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Gracias. Hasta luego.",
         "native_translation": "грасіас. аста луего — дякую. до зустрічі.",
         "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
@@ -101,6 +106,7 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Perdón. ¿Cómo te llamas?",
         "native_translation": "пердон. комо те ямас — перепрошую. як тебе звати?",
         "audioReferenceId": "es.audio.question.perdon_como_te_llamas"
@@ -113,6 +119,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Disculpa. No hablo francés.",
         "native_translation": "діскульпа. но абло франсес — вибач. я не говорю французькою.",
         "audioReferenceId": "es.audio.dialogue.disculpa_no_hablo_frances"
@@ -125,6 +132,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Lo siento. Hasta pronto.",
         "native_translation": "ло с'єнто. аста пронто — мені шкода. до скорого.",
         "audioReferenceId": "es.audio.dialogue.lo_siento_hasta_pronto"

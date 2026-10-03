@@ -289,6 +289,7 @@ class DialogueLine {
     required this.spanish,
     required this.nativeTranslation,
     this.audioReferenceId,
+    this.learner = false,
   });
 
   factory DialogueLine.fromJson(Map<String, Object?> json) {
@@ -297,6 +298,7 @@ class DialogueLine {
       spanish: requiredString(json, 'spanish'),
       nativeTranslation: requiredString(json, 'native_translation'),
       audioReferenceId: optionalString(json, 'audioReferenceId'),
+      learner: optionalBool(json, 'learner') ?? false,
     );
   }
 
@@ -304,6 +306,7 @@ class DialogueLine {
   final String spanish;
   final String nativeTranslation;
   final String? audioReferenceId;
+  final bool learner;
 
   Map<String, Object?> toJson() {
     return {
@@ -311,6 +314,7 @@ class DialogueLine {
       'spanish': spanish,
       'native_translation': nativeTranslation,
       if (audioReferenceId != null) 'audioReferenceId': audioReferenceId,
+      if (learner) 'learner': learner,
     };
   }
 
@@ -321,12 +325,18 @@ class DialogueLine {
             other.speaker == speaker &&
             other.spanish == spanish &&
             other.nativeTranslation == nativeTranslation &&
-            other.audioReferenceId == audioReferenceId;
+            other.audioReferenceId == audioReferenceId &&
+            other.learner == learner;
   }
 
   @override
-  int get hashCode =>
-      Object.hash(speaker, spanish, nativeTranslation, audioReferenceId);
+  int get hashCode => Object.hash(
+    speaker,
+    spanish,
+    nativeTranslation,
+    audioReferenceId,
+    learner,
+  );
 }
 
 class ReadingText {

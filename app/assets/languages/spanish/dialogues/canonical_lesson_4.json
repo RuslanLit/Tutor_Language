@@ -31,6 +31,7 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hola. Me llamo Marta.",
         "native_translation": "ола. ме ямо Марта — привіт. мене звати Marta.",
         "audioReferenceId": "es.audio.dialogue.hola_me_llamo_marta"
@@ -43,6 +44,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Estoy bien, gracias. ¿Y tú?",
         "native_translation": "естой б'єн грасіас. і ту — у мене все добре, дякую. а ти?",
         "audioReferenceId": "es.audio.question.estoy_bien_gracias_y_tu"
@@ -55,6 +57,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Quién es ella?",
         "native_translation": "к'єн ес ея — хто вона?",
         "audioReferenceId": "es.audio.question.quien_es_ella"
@@ -79,6 +82,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Mucho gusto. Hasta luego.",
         "native_translation": "мучо густо. аста луего — дуже приємно. до зустрічі.",
         "audioReferenceId": "es.audio.dialogue.mucho_gusto_hasta_luego"
@@ -113,18 +117,21 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Él es mi amigo. Se llama Luis.",
         "native_translation": "ель ес мі аміго. се яма Луїс — він мій друг. його звати Luis.",
         "audioReferenceId": "es.audio.dialogue.el_es_mi_amigo_se_llama_luis"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Es de Ucrania. Vive en Kyiv.",
         "native_translation": "ес де укранія. біве ен Київ — він з України. він живе в Києві.",
         "audioReferenceId": "es.audio.dialogue.es_de_ucrania_vive_en_kyiv"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Habla español un poco.",
         "native_translation": "абла еспаньйол ун поко — він трохи говорить іспанською.",
         "audioReferenceId": "es.audio.dialogue.habla_espanol_un_poco"

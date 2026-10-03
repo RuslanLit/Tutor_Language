@@ -32,6 +32,7 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hola, Ana. ¿Cómo estás?",
         "native_translation": "ола Ана. комо естас — привіт, Ana. як ти?",
         "audioReferenceId": "es.audio.question.hola_ana_como_estas"
@@ -44,6 +45,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Es tu amiga?",
         "native_translation": "ес ту аміга — це твоя подруга?",
         "audioReferenceId": "es.audio.question.es_tu_amiga"
@@ -56,6 +58,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿De dónde es?",
         "native_translation": "де донде ес — звідки вона?",
         "audioReferenceId": "es.audio.question.de_donde_es"
@@ -68,6 +71,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Dónde vive?",
         "native_translation": "донде біве — де вона живе?",
         "audioReferenceId": "es.audio.question.donde_vive"
@@ -80,6 +84,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Qué idiomas habla?",
         "native_translation": "ке ідіомас абла — якими мовами вона говорить?",
         "audioReferenceId": "es.audio.question.que_idiomas_habla"
@@ -92,6 +97,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Gracias. Hasta luego.",
         "native_translation": "грасіас. аста луего — дякую. до зустрічі.",
         "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
@@ -119,18 +125,21 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Él es Luis. Se llama Luis.",
         "native_translation": "ель ес Луїс. се яма Луїс — це Luis. його звати Luis.",
         "audioReferenceId": "es.audio.dialogue.el_es_luis_se_llama_luis"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Es de Ucrania y vive en Kyiv.",
         "native_translation": "ес де укранія і біве ен Київ — він з України і живе в Києві.",
         "audioReferenceId": "es.audio.dialogue.es_de_ucrania_y_vive_en_kyiv"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Habla español un poco, pero no habla francés.",
         "native_translation": "абла еспаньйол ун поко, перо но абла франсес — він трохи говорить іспанською, але не говорить французькою.",
         "audioReferenceId": "es.audio.dialogue.habla_espanol_un_poco_pero_no_habla_frances"

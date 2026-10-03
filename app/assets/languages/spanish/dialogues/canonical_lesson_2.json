@@ -37,12 +37,14 @@
     "lines": [
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Hola. Buenos días.",
         "native_translation": "ола. буенос діас — привіт. доброго ранку.",
         "audioReferenceId": "es.audio.dialogue.hola_buenos_dias"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Me llamo Marta.",
         "native_translation": "ме ямо Марта — мене звати Marta.",
         "audioReferenceId": "es.audio.dialogue.me_llamo_marta"
@@ -55,6 +57,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Mucho gusto.",
         "native_translation": "мучо густо — дуже приємно.",
         "audioReferenceId": "es.audio.dialogue.mucho_gusto"
@@ -67,6 +70,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Soy de Ucrania.",
         "native_translation": "сой де укранія — я з України.",
         "audioReferenceId": "es.audio.dialogue.soy_de_ucrania"
@@ -79,12 +83,14 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Vivo en Kyiv.",
         "native_translation": "біво ен Київ — я живу в Києві.",
         "audioReferenceId": "es.audio.dialogue.vivo_en_kyiv"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Qué idiomas hablas?",
         "native_translation": "ке ідіомас аблас — якими мовами ти говориш?",
         "audioReferenceId": "es.audio.question.que_idiomas_hablas"
@@ -97,6 +103,7 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "También hablo inglés. Hablo un poco de español.",
         "native_translation": "тамб'єн абло інглес. абло ун поко де еспаньйол — я також говорю англійською. я трохи говорю іспанською.",
         "audioReferenceId": "es.audio.dialogue.tambien_hablo_ingles_hablo_un_poco_de_espanol"
@@ -109,12 +116,14 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "No hablo francés.",
         "native_translation": "но абло франсес — я не говорю французькою.",
         "audioReferenceId": "es.audio.dialogue.no_hablo_frances"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "Gracias. Hasta luego.",
         "native_translation": "грасіас. аста луего — дякую. до зустрічі.",
         "audioReferenceId": "es.audio.dialogue.gracias_hasta_luego"
@@ -161,12 +170,14 @@
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Dónde vives?",
         "native_translation": "донде вівес — де ти живеш?",
         "audioReferenceId": "es.audio.question.donde_vives"
       },
       {
         "speaker": "Ти",
+        "learner": true,
         "spanish": "¿Qué idiomas hablas?",
         "native_translation": "ке ідіомас аблас — якими мовами ти говориш?",
         "audioReferenceId": "es.audio.question.que_idiomas_hablas"

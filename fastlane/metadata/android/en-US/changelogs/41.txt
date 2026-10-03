@@ -1,0 +1,3 @@
+Fixed the speaker label in lesson dialogues: your own lines were marked with the Ukrainian word "Ти" regardless of the interface language. They now read "You" in English, "Du" in German, "Ty" in Polish and "Ты" in Russian.
+
+Lesson text, audio and app permissions are unchanged.

@@ -1582,7 +1582,9 @@ class DialogueView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  line.speaker,
+                  line.learner
+                      ? context.l10n.learnerSpeakerLabel
+                      : line.speaker,
                   style: Theme.of(context).textTheme.labelLarge,
                 ),
                 Row(
